@@ -5,8 +5,6 @@ namespace App\Http\Controllers;
 // use Illuminate\Http\Request;
 
 use App\Http\Requests\UsersRequest;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\URL;
 use Inertia\Inertia;
 use App\Models\User;
 use Illuminate\Support\Facades\Request;
@@ -89,10 +87,9 @@ class UsersController extends Controller
     public function update(UsersRequest $request, User $user)
     {  
         $input= $request->validated();
-        // $user->update($input);
+        $user->update($input);
 
-        // return Redirect::back()->with('success', 'User Updated Successfully.');
-        return $input;
+        return Redirect::back()->with('success', 'User Updated Successfully.');
     }
 
     /**
