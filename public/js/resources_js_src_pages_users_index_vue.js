@@ -312,6 +312,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
@@ -321,6 +324,11 @@ __webpack_require__.r(__webpack_exports__);
     return {
       drawer: false
     };
+  },
+  methods: {
+    logout: function logout() {
+      this.$inertia["delete"]('auth');
+    }
   }
 });
 
@@ -2171,7 +2179,18 @@ var render = function () {
         1
       ),
       _vm._v(" "),
-      _c("v-app-bar", { attrs: { app: "", "clipped-left": "", flat: "" } }),
+      _c(
+        "v-app-bar",
+        { attrs: { app: "", "clipped-left": "", flat: "" } },
+        [
+          _c("v-spacer"),
+          _vm._v(" "),
+          _c("v-btn", { attrs: { color: "dark" }, on: { click: _vm.logout } }, [
+            _vm._v("logout"),
+          ]),
+        ],
+        1
+      ),
       _vm._v(" "),
       _c(
         "v-main",

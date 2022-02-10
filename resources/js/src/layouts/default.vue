@@ -32,6 +32,9 @@
                 label="Vuetify Theme Dark"
                 persistent-hint
             ></v-switch> -->
+
+            <v-spacer></v-spacer>
+            <v-btn color="dark" @click="logout">logout</v-btn>
         </v-app-bar>
 
         <!-- Sizes your content based upon application components -->
@@ -59,6 +62,11 @@ export default {
             drawer: false,
         };
     },
+    methods:{
+        logout(){
+            this.$inertia.delete('auth')
+        }
+    }
 };
 </script>
 
