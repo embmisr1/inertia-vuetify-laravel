@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
-// use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Request;
+use Illuminate\Http\Request;
 use Inertia\Inertia;
 
-class UsersController extends Controller
+class Profile extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,14 +14,11 @@ class UsersController extends Controller
      */
     public function index()
     {
-        return Inertia::render("Pages/users/", [
+        return Inertia::render("Pages/profile/", [
             // 'filters' => Request::all('search'),
-            // 'users' => User::orderBy("id","desc")
-            'users' => User::orderByUserName()
-            // 'users' => User::all()
-                ->filter(Request::only('search'))
-                ->paginate(5)
-                // ->get()
+            // 'users' => User::orderByUserName()
+            //     ->filter(Request::only('search'))
+            //     ->paginate(5)
                 
         ]);
     }

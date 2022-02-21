@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Auth;
 
-use App\Http\Requests\LoginRequest;
-use App\Providers\RouteServiceProvider;
+use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
+use App\Http\Requests\Auth\AuthRequestForm;
+use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Auth;
-use Inertia\Inertia;
 
 class AuthController extends Controller
 {
@@ -17,7 +18,7 @@ class AuthController extends Controller
      */
     public function index()
     {
-        return Inertia::render("pages/Auth");
+        return inertia("Pages/index");
     }
 
     /**
@@ -25,7 +26,7 @@ class AuthController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function login(LoginRequest $request)
+    public function login(AuthRequestForm $request)
     {
         $request->authenticate();
 
@@ -35,20 +36,20 @@ class AuthController extends Controller
     }
 
 
-
     /**
-     * Destroy an authenticated session.
+     * Remove the specified resource from storage.
      *
-     * @return \Illuminate\Http\RedirectResponse
+     * @param  \App\Models\User  $user
+     * @return \Illuminate\Http\Response
      */
     public function destroy(Request $request)
     {
-        Auth::guard('web')->logout();
+        Auth ::guard('web')->logout();
 
         $request->session()->invalidate();
 
         $request->session()->regenerateToken();
 
-        return redirect('/auth');
+        return redirect('/');
     }
 }

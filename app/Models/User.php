@@ -18,7 +18,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'username',
+        'name',
         'email',
         'password',
     ];
@@ -41,22 +41,4 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-
-    public function getNameAttribute()
-    {
-        return $this->username;
-    }
-
-    public function scopeOrderByUserName($query)
-    {
-        return $query->orderBy('username');
-    }
-    public function scopeFilter($query, array $filters)
-    {
-        $query->when($filters['search'] ?? null, function ($query, $search) {
-            $query->where(function ($query) use ($search) {
-                $query->where('username', 'like', '%'.$search.'%');
-            });
-        });
-    }
 }

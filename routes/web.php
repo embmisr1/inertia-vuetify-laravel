@@ -1,6 +1,8 @@
 <?php
 
-use App\Http\Controllers\AuthController;
+use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\Dashboard;
+use App\Http\Controllers\Profile;
 use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
 
@@ -15,21 +17,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->middleware('auth');
-
-Route::get('/auth',[AuthController::class,'index'])->name("auth")->middleware("guest");
-
-Route::post('/auth',[AuthController::class,'login'])->middleware("guest");
+// Route::get('/', function () {
+//     return inertia('Pages/index');
+// });
 
 
+Route::get('/', [AuthController::class, 'index'])->name("authForm")->middleware("guest");
+Route::post('/', [AuthController::class, 'login'])->name("auth")->middleware("guest");
 
-Route::group([ 'middleware' => ['auth']], function(){
-    Route::delete('/auth',[AuthController::class,'destroy']);
+Route::group([
+  'middleware' => ['auth'],
+  'prefix' => "/app",
+], function () {
+  Route::delete('/', [AuthController::class, 'destroy'])->name("authLogout");
 
-    Route::get('/users',[UsersController ::class,'index'])->name("users.index");
-    Route::post('/users',[UsersController ::class,'store'])->name("users.create");
-    Route::put('/users/{user}',[UsersController ::class,'update'])->name("users.update");
-    Route::delete('/users/{user}',[UsersController ::class,'destroy'])->name("users.destroy");
+  Route::get('/', [Dashboard::class, 'index'])->name("dashboard.index");
+  Route::get('/profile', [Profile ::class, 'index'])->name("profile.index");
+
+  Route::get('/users', [UsersController::class, 'index'])->name("users.index");
 });
