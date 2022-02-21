@@ -117,7 +117,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
 
 
 
@@ -150,13 +149,18 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
   methods: {
     get: function get() {
+      var _this = this;
+
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
                 try {
-                  console.log(Object.keys(users));
+                  // console.log(Object.keys(users))
+                  _this.$inertia.get("/app/users", {
+                    page: _this.currentPage
+                  });
                 } catch (error) {
                   console.log(error);
                 }
@@ -170,8 +174,25 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }))();
     },
     onPageChange: function onPageChange(page) {
-      // console.log(page);
-      this.users.current_page = page; // this.get()
+      var _this2 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                // console.log(page);
+                _this2.currentPage = page;
+                _context2.next = 3;
+                return _this2.get();
+
+              case 3:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2);
+      }))();
     },
     setModal: function setModal(data, type) {
       this.modal = {
@@ -2173,8 +2194,6 @@ var render = function () {
         ],
         1
       ),
-      _vm._v(" "),
-      _c("Pagination", { attrs: { links: _vm.users.links } }),
       _vm._v(" "),
       _c("CUDUser", { attrs: { modal: _vm.modal, close: _vm.resetModal } }),
     ],

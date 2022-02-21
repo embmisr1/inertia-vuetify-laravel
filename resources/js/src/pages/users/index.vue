@@ -72,7 +72,6 @@
                 ></v-btn>
             </b-table-column>
         </b-table>
-        <Pagination  :links="users.links" />
         <CUDUser :modal="modal" :close="resetModal" />
     </DefaultLayout>
 </template>
@@ -85,7 +84,7 @@ export default {
     components: {
         DefaultLayout,
         CUDUser,
-        Pagination
+        Pagination,
     },
     props: {
         users: Object,
@@ -109,18 +108,19 @@ export default {
         };
     },
     methods: {
-        async get (){
+        async get() {
             try {
-                console.log(Object.keys(users))
+                // console.log(Object.keys(users))
+                this.$inertia.get("/app/users", { page: this.currentPage });
             } catch (error) {
                 console.log(error);
             }
         },
-        onPageChange(page) {
+        async onPageChange(page) {
             // console.log(page);
-            this.users.current_page = page
-                // this.get()
-            },
+            this.currentPage = page;
+            await this.get();
+        },
         setModal(data, type) {
             this.modal = {
                 active: true,
