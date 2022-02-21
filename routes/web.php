@@ -35,4 +35,7 @@ Route::group([
   Route::get('/profile', [Profile ::class, 'index'])->name("profile.index");
 
   Route::get('/users', [UsersController::class, 'index'])->name("users.index");
+  Route::post('/users', [UsersController::class, 'store'])->name("users.create");
+  Route::patch('/users/{user}', [UsersController::class, 'update'])->name("users.update");
+  Route::delete('/users/{user}', [UsersController::class, 'destroy'])->name("users.destroy");
 });

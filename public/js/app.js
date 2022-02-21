@@ -88097,6 +88097,14 @@ var map = {
 		"./resources/js/src/components/SideNavItems.vue",
 		"resources_js_src_components_SideNavItems_vue"
 	],
+	"./components/Users/CUD": [
+		"./resources/js/src/components/Users/CUD.vue",
+		"resources_js_src_components_Users_CUD_vue"
+	],
+	"./components/Users/CUD.vue": [
+		"./resources/js/src/components/Users/CUD.vue",
+		"resources_js_src_components_Users_CUD_vue"
+	],
 	"./layouts/auth": [
 		"./resources/js/src/layouts/auth.vue",
 		"resources_js_src_layouts_auth_vue"
@@ -88274,7 +88282,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_src_Pages_index_vue":1,"resources_js_src_Pages_dashboard_index_vue":1,"resources_js_src_Pages_profile_index_vue":1,"resources_js_src_Pages_users_index_vue":1,"resources_js_src_Pages_users_groups_index_vue":1,"resources_js_src_components_RightMenu_vue":1,"resources_js_src_components_SideNavItems_vue":1,"resources_js_src_layouts_auth_vue":1,"resources_js_src_layouts_default_vue":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_src_Pages_index_vue":1,"resources_js_src_Pages_dashboard_index_vue":1,"resources_js_src_Pages_profile_index_vue":1,"resources_js_src_Pages_users_index_vue":1,"resources_js_src_Pages_users_groups_index_vue":1,"resources_js_src_components_RightMenu_vue":1,"resources_js_src_components_SideNavItems_vue":1,"resources_js_src_components_Users_CUD_vue":1,"resources_js_src_layouts_auth_vue":1,"resources_js_src_layouts_default_vue":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};

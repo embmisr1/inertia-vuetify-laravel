@@ -6,6 +6,11 @@ use App\Models\User;
 // use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Request;
 use Inertia\Inertia;
+use App\Http\Requests\UsersRequest;
+use App\Http\Requests\UpdateUsersRequest;
+
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Redirect;
 
 class UsersController extends Controller
 {
@@ -22,7 +27,7 @@ class UsersController extends Controller
             'users' => User::orderByUserName()
             // 'users' => User::all()
                 ->filter(Request::only('search'))
-                ->paginate(5)
+                ->paginate(20)
                 // ->get()
                 
         ]);
@@ -44,9 +49,14 @@ class UsersController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UsersRequest $request)
     {
-        //
+        $input = $request->validated();
+        $input['password'] = Hash::make($request->password);
+
+        User::create($input);
+
+        return Redirect::back()->with('success', 'User Created Successfully.');
     }
 
     /**
@@ -78,9 +88,11 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
-        //
+    public function update(UpdateUsersRequest $request, User $user)
+    {  
+        $input= $request->validated();
+        $user->update($input);
+        return Redirect::back()->with('success', 'User Updated Successfully.');
     }
 
     /**
@@ -89,8 +101,10 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(User $user)
     {
-        //
+        $user->delete();
+
+        return Redirect::back()->with('success', 'User deleted.');
     }
 }
