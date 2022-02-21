@@ -31,8 +31,10 @@
                             :error-messages="modal.form.errors.password"
                         ></v-text-field>
                         <v-card-actions class="justify-end">
-                            <v-btn text type="submit">Submt</v-btn>
-                            <v-btn text @click="close">Close</v-btn>
+                            <v-btn  v-if="modalType !== 'Delete'" type="submit">Submt</v-btn>
+                            
+                            <v-btn  @click="close" v-else color="error">Delete</v-btn>
+                            <v-btn text @click="close" >Close</v-btn>
                         </v-card-actions>
                     </form>
                 </div>
@@ -47,9 +49,14 @@ export default {
         modal: Object,
         close: Function,
     },
+    computed:{
+        modalType(){
+            return this.modal.type
+        }
+    },
     methods: {
         async submitForm() {
-            switch (this.modal.type) {
+            switch (modalType) {
                 case "Add":
                     await this.modal.form.post("/app/users");
                     break;

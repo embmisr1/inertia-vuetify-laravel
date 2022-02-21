@@ -73,10 +73,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     modal: Object,
     close: Function
+  },
+  computed: {
+    modalType: function modalType() {
+      return this.modal.type;
+    }
   },
   methods: {
     submitForm: function submitForm() {
@@ -87,7 +94,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                _context.t0 = _this.modal.type;
+                _context.t0 = modalType;
                 _context.next = _context.t0 === "Add" ? 3 : _context.t0 === "Update" ? 6 : _context.t0 === "Delete" ? 9 : 12;
                 break;
 
@@ -1061,9 +1068,18 @@ var render = function () {
                         "v-card-actions",
                         { staticClass: "justify-end" },
                         [
-                          _c("v-btn", { attrs: { text: "", type: "submit" } }, [
-                            _vm._v("Submt"),
-                          ]),
+                          _vm.modalType !== "Delete"
+                            ? _c("v-btn", { attrs: { type: "submit" } }, [
+                                _vm._v("Submt"),
+                              ])
+                            : _c(
+                                "v-btn",
+                                {
+                                  attrs: { color: "error" },
+                                  on: { click: _vm.close },
+                                },
+                                [_vm._v("Delete")]
+                              ),
                           _vm._v(" "),
                           _c(
                             "v-btn",
