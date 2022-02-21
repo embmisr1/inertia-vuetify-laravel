@@ -117,6 +117,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
 
 
 
@@ -473,7 +474,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                _context.t0 = modalType;
+                _context.t0 = _this.modalType;
                 _context.next = _context.t0 === "Add" ? 3 : _context.t0 === "Update" ? 6 : _context.t0 === "Delete" ? 9 : 12;
                 break;
 
@@ -2022,6 +2023,7 @@ var render = function () {
   return _c(
     "DefaultLayout",
     [
+      _vm._v("\n    " + _vm._s(_vm.filters) + "\n    "),
       _c(
         "div",
         { staticClass: "my-2" },
@@ -2557,10 +2559,7 @@ var render = function () {
                               ])
                             : _c(
                                 "v-btn",
-                                {
-                                  attrs: { color: "error" },
-                                  on: { click: _vm.close },
-                                },
+                                { attrs: { type: "submit", color: "error" } },
                                 [_vm._v("Delete")]
                               ),
                           _vm._v(" "),

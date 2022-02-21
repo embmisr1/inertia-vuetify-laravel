@@ -1,6 +1,7 @@
 <template>
     <DefaultLayout>
         <!-- {{Object.keys(users.links[0])}} -->
+        {{filters}}
         <div class="my-2">
             <v-btn elevation="10" @click="modal.active = true">
                 <box-icon name="plus" animation="tada-hover"></box-icon>
