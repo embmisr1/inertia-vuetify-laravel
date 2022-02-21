@@ -27,7 +27,7 @@ class UsersController extends Controller
             'users' => User::orderByUserName()
             // 'users' => User::all()
                 ->filter(Request::only('search'))
-                ->paginate(20)
+                ->paginate(2)
                 // ->get()
                 
         ]);

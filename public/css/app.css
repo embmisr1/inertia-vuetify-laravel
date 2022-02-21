@@ -487,6 +487,15 @@ Ensure the default browser behavior of the `hidden` attribute.
 .-mt-px {
   margin-top: -1px;
 }
+.-mb-1 {
+  margin-bottom: -0.25rem;
+}
+.mb-1 {
+  margin-bottom: 0.25rem;
+}
+.mr-1 {
+  margin-right: 0.25rem;
+}
 .mb-0 {
   margin-bottom: 0px;
 }
@@ -535,6 +544,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .grid-cols-1 {
   grid-template-columns: repeat(1, minmax(0, 1fr));
 }
+.flex-wrap {
+  flex-wrap: wrap;
+}
 .place-content-center {
   place-content: center;
 }
@@ -555,6 +567,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .rounded {
   border-radius: 0.25rem;
+}
+.border {
+  border-width: 1px;
 }
 .border-t {
   border-top-width: 1px;
@@ -596,6 +611,14 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-left: 1.5rem;
   padding-right: 1.5rem;
 }
+.px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.py-3 {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
 .pt-8 {
   padding-top: 2rem;
 }
@@ -618,6 +641,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .leading-7 {
   line-height: 1.75rem;
+}
+.leading-4 {
+  line-height: 1rem;
 }
 .text-gray-200 {
   --tw-text-opacity: 1;
@@ -691,6 +717,21 @@ Ensure the default browser behavior of the `hidden` attribute.
 .scrollbar-thin::-webkit-scrollbar {
   width: 8px;
   height: 8px;
+}
+
+.hover\:bg-white:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
+.focus\:border-indigo-500:focus {
+  --tw-border-opacity: 1;
+  border-color: rgb(99 102 241 / var(--tw-border-opacity));
+}
+
+.focus\:text-indigo-500:focus {
+  --tw-text-opacity: 1;
+  color: rgb(99 102 241 / var(--tw-text-opacity));
 }
 
 @media (prefers-color-scheme: dark) {

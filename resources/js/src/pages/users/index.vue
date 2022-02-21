@@ -1,7 +1,6 @@
 <template>
     <DefaultLayout>
-        <!-- {{ Object.keys(users.data[0]) }} -->
-
+        <!-- {{Object.keys(users.links[0])}} -->
         <div class="my-2">
             <v-btn elevation="10" @click="modal.active = true">
                 <box-icon name="plus" animation="tada-hover"></box-icon>
@@ -11,11 +10,21 @@
         <b-table
             :data="users.data"
             paginated
-            :per-page="perPage"
-            :current-page.sync="users.current_Page"
+            :per-page="users.per_page"
+            focusable
+            pagination-size="is-small"
+            hoverable
+            backend-pagination
+            :total="users.total"
+            :current-page.sync="users.current_page"
             :pagination-position="paginationPosition"
             pagination-rounded
-            :debounce-page-input="300"
+            aria-next-label="Next page"
+            aria-previous-label="Previous page"
+            aria-page-label="Page"
+            aria-current-label="Current page"
+            :debounce-page-input="1000"
+            @page-change="onPageChange"
         >
             <b-table-column
                 field="id"
@@ -63,6 +72,7 @@
                 ></v-btn>
             </b-table-column>
         </b-table>
+        <Pagination  :links="users.links" />
         <CUDUser :modal="modal" :close="resetModal" />
     </DefaultLayout>
 </template>
@@ -70,10 +80,12 @@
 <script>
 import DefaultLayout from "../../layouts/default.vue";
 import CUDUser from "../../components/Users/CUD.vue";
+import Pagination from "../../components/Pagination-native.vue";
 export default {
     components: {
         DefaultLayout,
         CUDUser,
+        Pagination
     },
     props: {
         users: Object,
@@ -97,6 +109,18 @@ export default {
         };
     },
     methods: {
+        async get (){
+            try {
+                console.log(Object.keys(users))
+            } catch (error) {
+                console.log(error);
+            }
+        },
+        onPageChange(page) {
+            // console.log(page);
+            this.users.current_page = page
+                // this.get()
+            },
         setModal(data, type) {
             this.modal = {
                 active: true,
