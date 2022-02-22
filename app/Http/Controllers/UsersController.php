@@ -22,9 +22,9 @@ class UsersController extends Controller
     public function index()
     {
         return Inertia::render("Pages/users/", [
-            'filters' => Request::all('search'),
+            'filters' => Request::all('username','id'),
             'users' => User::orderByUserName()
-                ->filter(Request::only('search'))
+                ->filter(Request::only('username','id'))
                 ->paginate(10)
                 // ->get()
                 

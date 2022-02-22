@@ -1,9 +1,7 @@
 <template>
     <DefaultLayout>
-        <!-- {{Object.keys(users.links[0])}} -->
-        {{filters}}
         <div class="my-2">
-            <v-btn elevation="10" @click="modal.active = true">
+            <v-btn elevation="10" @click="modal.active = true" small>
                 <box-icon name="plus" animation="tada-hover"></box-icon>
                 Add User
             </v-btn>
@@ -25,34 +23,46 @@
             aria-page-label="Page"
             aria-current-label="Current page"
             :debounce-page-input="1000"
+            :debounce-search="3000"
             @page-change="onPageChange"
+            narrowed
         >
             <b-table-column
                 field="id"
                 label="ID"
-                width="40"
+                width="70"
                 sortable
                 numeric
-                v-slot="props"
+                searchable
             >
-                {{ props.row.id }}
+                <template #searchable="props">
+                    <b-input
+                        v-model="filters.id"
+                        placeholder="Search..."
+                        icon="magnify"
+                        size="is-small"
+                    />
+                </template>
+                <template v-slot="props">
+                    {{ props.row.id }}
+                </template>
             </b-table-column>
 
-            <b-table-column
-                field="user.username"
-                label="UserName"
-                sortable
-                v-slot="props"
-            >
-                {{ props.row.username }}
+            <b-table-column field="username" label="UserName" searchable>
+                <template #searchable="props">
+                    <b-input
+                        v-model="filters.username"
+                        placeholder="Search..."
+                        icon="magnify"
+                        size="is-small"
+                    />
+                </template>
+                <template v-slot="props">
+                    {{ props.row.username }}
+                </template>
             </b-table-column>
 
-            <b-table-column
-                field="user.email"
-                label="Email"
-                sortable
-                v-slot="props"
-            >
+            <b-table-column field="user.email" label="Email" v-slot="props">
                 {{ props.row.email }}
             </b-table-column>
 
@@ -81,7 +91,10 @@
 import DefaultLayout from "../../layouts/default.vue";
 import CUDUser from "../../components/Users/CUD.vue";
 import Pagination from "../../components/Pagination-native.vue";
+import PageMixins from "../../mixins/page";
+import _ from 'lodash'
 export default {
+    mixins: [PageMixins],
     components: {
         DefaultLayout,
         CUDUser,
@@ -95,8 +108,6 @@ export default {
         return {
             data: [],
             paginationPosition: "bottom",
-            currentPage: 1,
-            perPage: 15,
             modal: {
                 active: false,
                 form: this.$inertia.form({
@@ -109,19 +120,13 @@ export default {
         };
     },
     methods: {
-        async get() {
-            try {
-                // console.log(Object.keys(users))
-                this.$inertia.get("/app/users", { page: this.currentPage });
+            get: _.debounce(function (params){
+                  try {
+                this.$inertia.get("/app/users", { ...params });
             } catch (error) {
                 console.log(error);
             }
-        },
-        async onPageChange(page) {
-            // console.log(page);
-            this.currentPage = page;
-            await this.get();
-        },
+            },1500),
         setModal(data, type) {
             this.modal = {
                 active: true,
@@ -141,6 +146,14 @@ export default {
                 }),
                 type: "Add",
             };
+        },
+    },
+    watch: {
+        filtersObject() {
+            this.get({...this.filtersObject})
+            // this.$inertia.get("/app/users", {
+            //     filters: { ...this.filtersObject },
+            // });
         },
     },
 };
