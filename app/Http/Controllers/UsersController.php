@@ -25,8 +25,7 @@ class UsersController extends Controller
             'filters' => Request::all('username','id'),
             'users' => User::orderByUserName()
                 ->filter(Request::only('username','id'))
-                ->paginate(10)
-                // ->get()
+                ->paginate(8)
                 
         ]);
     }

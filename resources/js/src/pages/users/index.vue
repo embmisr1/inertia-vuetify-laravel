@@ -10,20 +10,13 @@
             :data="users.data"
             paginated
             :per-page="users.per_page"
-            focusable
             pagination-size="is-small"
             hoverable
             backend-pagination
             :total="users.total"
             :current-page.sync="users.current_page"
-            :pagination-position="paginationPosition"
+            pagination-position="bottom"
             pagination-rounded
-            aria-next-label="Next page"
-            aria-previous-label="Previous page"
-            aria-page-label="Page"
-            aria-current-label="Current page"
-            :debounce-page-input="1000"
-            :debounce-search="3000"
             @page-change="onPageChange"
             narrowed
         >
@@ -74,6 +67,13 @@
                         animation="tada-hover"
                     ></box-icon
                 ></v-btn>
+                <v-btn icon
+                    ><box-icon
+                        name="lock-alt"
+                        animation="tada-hover"
+                        type="solid"
+                    ></box-icon
+                ></v-btn>
                 <v-btn icon @click="setModal(props.row, 'Delete')"
                     ><box-icon
                         name="trash"
@@ -84,21 +84,22 @@
             </b-table-column>
         </b-table>
         <CUDUser :modal="modal" :close="resetModal" />
+        ChangePassword
     </DefaultLayout>
 </template>
 
 <script>
 import DefaultLayout from "../../layouts/default.vue";
 import CUDUser from "../../components/Users/CUD.vue";
-import Pagination from "../../components/Pagination-native.vue";
+import ChangePassword from "../../components/Users/ChangePassword.vue";
 import PageMixins from "../../mixins/page";
-import _ from 'lodash'
+import _ from "lodash";
 export default {
     mixins: [PageMixins],
     components: {
         DefaultLayout,
         CUDUser,
-        Pagination,
+        ChangePassword
     },
     props: {
         users: Object,
@@ -107,7 +108,6 @@ export default {
     data() {
         return {
             data: [],
-            paginationPosition: "bottom",
             modal: {
                 active: false,
                 form: this.$inertia.form({
@@ -120,13 +120,13 @@ export default {
         };
     },
     methods: {
-            get: _.debounce(function (params){
-                  try {
+        get: _.debounce(function (params) {
+            try {
                 this.$inertia.get("/app/users", { ...params });
             } catch (error) {
                 console.log(error);
             }
-            },1500),
+        }, 1500),
         setModal(data, type) {
             this.modal = {
                 active: true,
@@ -150,7 +150,7 @@ export default {
     },
     watch: {
         filtersObject() {
-            this.get({...this.filtersObject})
+            this.get({ ...this.filtersObject });
             // this.$inertia.get("/app/users", {
             //     filters: { ...this.filtersObject },
             // });
