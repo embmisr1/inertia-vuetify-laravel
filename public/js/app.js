@@ -88113,6 +88113,14 @@ var map = {
 		"./resources/js/src/components/Users/CUD.vue",
 		"resources_js_src_components_Users_CUD_vue"
 	],
+	"./components/Users/ChangePassword": [
+		"./resources/js/src/components/Users/ChangePassword.vue",
+		"resources_js_src_components_Users_ChangePassword_vue"
+	],
+	"./components/Users/ChangePassword.vue": [
+		"./resources/js/src/components/Users/ChangePassword.vue",
+		"resources_js_src_components_Users_ChangePassword_vue"
+	],
 	"./layouts/auth": [
 		"./resources/js/src/layouts/auth.vue",
 		"resources_js_src_layouts_auth_vue"
@@ -88128,6 +88136,14 @@ var map = {
 	"./layouts/default.vue": [
 		"./resources/js/src/layouts/default.vue",
 		"resources_js_src_layouts_default_vue"
+	],
+	"./mixins/page": [
+		"./resources/js/src/mixins/page.js",
+		"resources_js_src_mixins_page_js"
+	],
+	"./mixins/page.js": [
+		"./resources/js/src/mixins/page.js",
+		"resources_js_src_mixins_page_js"
 	],
 	"./plugins/buefy": [
 		"./resources/js/src/plugins/buefy.js"
@@ -88290,7 +88306,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_src_Pages_index_vue":1,"resources_js_src_Pages_dashboard_index_vue":1,"resources_js_src_Pages_profile_index_vue":1,"resources_js_src_Pages_users_index_vue":1,"resources_js_src_Pages_users_groups_index_vue":1,"resources_js_src_components_Pagination-native_vue":1,"resources_js_src_components_RightMenu_vue":1,"resources_js_src_components_SideNavItems_vue":1,"resources_js_src_components_Users_CUD_vue":1,"resources_js_src_layouts_auth_vue":1,"resources_js_src_layouts_default_vue":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_src_Pages_index_vue":1,"resources_js_src_Pages_dashboard_index_vue":1,"resources_js_src_Pages_profile_index_vue":1,"resources_js_src_Pages_users_index_vue":1,"resources_js_src_Pages_users_groups_index_vue":1,"resources_js_src_components_Pagination-native_vue":1,"resources_js_src_components_RightMenu_vue":1,"resources_js_src_components_SideNavItems_vue":1,"resources_js_src_components_Users_CUD_vue":1,"resources_js_src_components_Users_ChangePassword_vue":1,"resources_js_src_layouts_auth_vue":1,"resources_js_src_layouts_default_vue":1,"resources_js_src_mixins_page_js":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};

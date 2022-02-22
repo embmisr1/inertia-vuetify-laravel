@@ -1,4 +1,4 @@
-(self["webpackChunk"] = self["webpackChunk"] || []).push([["resources_js_src_components_Users_CUD_vue"],{
+(self["webpackChunk"] = self["webpackChunk"] || []).push([["resources_js_src_components_Users_ChangePassword_vue"],{
 
 /***/ "./node_modules/@babel/runtime/regenerator/index.js":
 /*!**********************************************************!*\
@@ -11,10 +11,10 @@ module.exports = __webpack_require__(/*! regenerator-runtime */ "./node_modules/
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/components/Users/CUD.vue?vue&type=script&lang=js&":
-/*!********************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/components/Users/CUD.vue?vue&type=script&lang=js& ***!
-  \********************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/components/Users/ChangePassword.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/components/Users/ChangePassword.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -67,23 +67,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     modal: Object,
     close: Function
-  },
-  computed: {
-    modalType: function modalType() {
-      return this.modal.type;
-    }
   },
   methods: {
     submitForm: function submitForm() {
@@ -94,38 +81,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                _context.t0 = _this.modalType;
-                _context.next = _context.t0 === "Add" ? 3 : _context.t0 === "Update" ? 6 : _context.t0 === "Delete" ? 9 : 12;
-                break;
-
-              case 3:
-                _context.next = 5;
-                return _this.modal.form.post("/app/users");
-
-              case 5:
-                return _context.abrupt("break", 13);
-
-              case 6:
-                _context.next = 8;
-                return _this.modal.form.patch("/app/users/".concat(_this.modal.form.id));
-
-              case 8:
-                return _context.abrupt("break", 13);
-
-              case 9:
-                _context.next = 11;
-                return _this.modal.form["delete"]("/app/users/".concat(_this.modal.form.id));
-
-              case 11:
-                return _context.abrupt("break", 13);
-
-              case 12:
-                return _context.abrupt("break", 13);
-
-              case 13:
+                // await this.modal.form.post("/app/users");
                 _this.close();
 
-              case 14:
+              case 1:
               case "end":
                 return _context.stop();
             }
@@ -902,10 +861,10 @@ try {
 
 /***/ }),
 
-/***/ "./resources/js/src/components/Users/CUD.vue":
-/*!***************************************************!*\
-  !*** ./resources/js/src/components/Users/CUD.vue ***!
-  \***************************************************/
+/***/ "./resources/js/src/components/Users/ChangePassword.vue":
+/*!**************************************************************!*\
+  !*** ./resources/js/src/components/Users/ChangePassword.vue ***!
+  \**************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -913,8 +872,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _CUD_vue_vue_type_template_id_6856760a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CUD.vue?vue&type=template&id=6856760a& */ "./resources/js/src/components/Users/CUD.vue?vue&type=template&id=6856760a&");
-/* harmony import */ var _CUD_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CUD.vue?vue&type=script&lang=js& */ "./resources/js/src/components/Users/CUD.vue?vue&type=script&lang=js&");
+/* harmony import */ var _ChangePassword_vue_vue_type_template_id_5698dc9c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ChangePassword.vue?vue&type=template&id=5698dc9c& */ "./resources/js/src/components/Users/ChangePassword.vue?vue&type=template&id=5698dc9c&");
+/* harmony import */ var _ChangePassword_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ChangePassword.vue?vue&type=script&lang=js& */ "./resources/js/src/components/Users/ChangePassword.vue?vue&type=script&lang=js&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -924,9 +883,9 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 ;
 var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _CUD_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _CUD_vue_vue_type_template_id_6856760a___WEBPACK_IMPORTED_MODULE_0__.render,
-  _CUD_vue_vue_type_template_id_6856760a___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  _ChangePassword_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _ChangePassword_vue_vue_type_template_id_5698dc9c___WEBPACK_IMPORTED_MODULE_0__.render,
+  _ChangePassword_vue_vue_type_template_id_5698dc9c___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
   false,
   null,
   null,
@@ -936,15 +895,15 @@ var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/src/components/Users/CUD.vue"
+component.options.__file = "resources/js/src/components/Users/ChangePassword.vue"
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/src/components/Users/CUD.vue?vue&type=script&lang=js&":
-/*!****************************************************************************!*\
-  !*** ./resources/js/src/components/Users/CUD.vue?vue&type=script&lang=js& ***!
-  \****************************************************************************/
+/***/ "./resources/js/src/components/Users/ChangePassword.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************!*\
+  !*** ./resources/js/src/components/Users/ChangePassword.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -952,32 +911,32 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CUD_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./CUD.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/components/Users/CUD.vue?vue&type=script&lang=js&");
- /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CUD_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ChangePassword_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ChangePassword.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/components/Users/ChangePassword.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ChangePassword_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
-/***/ "./resources/js/src/components/Users/CUD.vue?vue&type=template&id=6856760a&":
-/*!**********************************************************************************!*\
-  !*** ./resources/js/src/components/Users/CUD.vue?vue&type=template&id=6856760a& ***!
-  \**********************************************************************************/
+/***/ "./resources/js/src/components/Users/ChangePassword.vue?vue&type=template&id=5698dc9c&":
+/*!*********************************************************************************************!*\
+  !*** ./resources/js/src/components/Users/ChangePassword.vue?vue&type=template&id=5698dc9c& ***!
+  \*********************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CUD_vue_vue_type_template_id_6856760a___WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CUD_vue_vue_type_template_id_6856760a___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ChangePassword_vue_vue_type_template_id_5698dc9c___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ChangePassword_vue_vue_type_template_id_5698dc9c___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CUD_vue_vue_type_template_id_6856760a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./CUD.vue?vue&type=template&id=6856760a& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/components/Users/CUD.vue?vue&type=template&id=6856760a&");
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ChangePassword_vue_vue_type_template_id_5698dc9c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ChangePassword.vue?vue&type=template&id=5698dc9c& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/components/Users/ChangePassword.vue?vue&type=template&id=5698dc9c&");
 
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/components/Users/CUD.vue?vue&type=template&id=6856760a&":
-/*!*************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/components/Users/CUD.vue?vue&type=template&id=6856760a& ***!
-  \*************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/components/Users/ChangePassword.vue?vue&type=template&id=5698dc9c&":
+/*!************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/components/Users/ChangePassword.vue?vue&type=template&id=5698dc9c& ***!
+  \************************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -1004,7 +963,7 @@ var render = function () {
             _c(
               "v-card",
               [
-                _c("v-toolbar", [_vm._v(_vm._s(_vm.modal.type) + " - Users")]),
+                _c("v-toolbar", [_vm._v("Change Password")]),
                 _vm._v(" "),
                 _c("div", { staticClass: "p-4" }, [
                   _c(
@@ -1020,37 +979,6 @@ var render = function () {
                     [
                       _c("v-text-field", {
                         attrs: {
-                          label: "Username",
-                          filled: "",
-                          "error-messages": _vm.modal.form.errors.username,
-                        },
-                        model: {
-                          value: _vm.modal.form.username,
-                          callback: function ($$v) {
-                            _vm.$set(_vm.modal.form, "username", $$v)
-                          },
-                          expression: "modal.form.username",
-                        },
-                      }),
-                      _vm._v(" "),
-                      _c("v-text-field", {
-                        attrs: {
-                          label: "Email",
-                          filled: "",
-                          type: "email",
-                          "error-messages": _vm.modal.form.errors.email,
-                        },
-                        model: {
-                          value: _vm.modal.form.email,
-                          callback: function ($$v) {
-                            _vm.$set(_vm.modal.form, "email", $$v)
-                          },
-                          expression: "modal.form.email",
-                        },
-                      }),
-                      _vm._v(" "),
-                      _c("v-text-field", {
-                        attrs: {
                           label: "Password",
                           type: "password",
                           "error-messages": _vm.modal.form.errors.password,
@@ -1064,19 +992,29 @@ var render = function () {
                         },
                       }),
                       _vm._v(" "),
+                      _c("v-text-field", {
+                        attrs: {
+                          label: "Password",
+                          type: "password",
+                          "error-messages":
+                            _vm.modal.form.errors.confirm_password,
+                        },
+                        model: {
+                          value: _vm.modal.form.confirm_password,
+                          callback: function ($$v) {
+                            _vm.$set(_vm.modal.form, "confirm_password", $$v)
+                          },
+                          expression: "modal.form.confirm_password",
+                        },
+                      }),
+                      _vm._v(" "),
                       _c(
                         "v-card-actions",
                         { staticClass: "justify-end" },
                         [
-                          _vm.modalType !== "Delete"
-                            ? _c("v-btn", { attrs: { type: "submit" } }, [
-                                _vm._v("Submt"),
-                              ])
-                            : _c(
-                                "v-btn",
-                                { attrs: { type: "submit", color: "error" } },
-                                [_vm._v("Delete")]
-                              ),
+                          _c("v-btn", { attrs: { type: "submit" } }, [
+                            _vm._v("Submt"),
+                          ]),
                           _vm._v(" "),
                           _c(
                             "v-btn",

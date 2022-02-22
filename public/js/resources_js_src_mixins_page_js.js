@@ -1,4 +1,4 @@
-(self["webpackChunk"] = self["webpackChunk"] || []).push([["resources_js_src_components_Users_CUD_vue"],{
+(self["webpackChunk"] = self["webpackChunk"] || []).push([["resources_js_src_mixins_page_js"],{
 
 /***/ "./node_modules/@babel/runtime/regenerator/index.js":
 /*!**********************************************************!*\
@@ -11,10 +11,10 @@ module.exports = __webpack_require__(/*! regenerator-runtime */ "./node_modules/
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/components/Users/CUD.vue?vue&type=script&lang=js&":
-/*!********************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/components/Users/CUD.vue?vue&type=script&lang=js& ***!
-  \********************************************************************************************************************************************************************************************************************/
+/***/ "./resources/js/src/mixins/page.js":
+/*!*****************************************!*\
+  !*** ./resources/js/src/mixins/page.js ***!
+  \*****************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -24,117 +24,245 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+var _data$computed$comput;
+
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: {
-    modal: Object,
-    close: Function
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_data$computed$comput = {
+  data: function data() {
+    return {
+      currentPage: 1
+    };
   },
   computed: {
-    modalType: function modalType() {
-      return this.modal.type;
-    }
-  },
-  methods: {
-    submitForm: function submitForm() {
-      var _this = this;
-
-      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                _context.t0 = _this.modalType;
-                _context.next = _context.t0 === "Add" ? 3 : _context.t0 === "Update" ? 6 : _context.t0 === "Delete" ? 9 : 12;
-                break;
-
-              case 3:
-                _context.next = 5;
-                return _this.modal.form.post("/app/users");
-
-              case 5:
-                return _context.abrupt("break", 13);
-
-              case 6:
-                _context.next = 8;
-                return _this.modal.form.patch("/app/users/".concat(_this.modal.form.id));
-
-              case 8:
-                return _context.abrupt("break", 13);
-
-              case 9:
-                _context.next = 11;
-                return _this.modal.form["delete"]("/app/users/".concat(_this.modal.form.id));
-
-              case 11:
-                return _context.abrupt("break", 13);
-
-              case 12:
-                return _context.abrupt("break", 13);
-
-              case 13:
-                _this.close();
-
-              case 14:
-              case "end":
-                return _context.stop();
-            }
-          }
-        }, _callee);
-      }))();
+    isTheme: function isTheme() {
+      return this.$vuetify.theme.dark;
     }
   }
-});
+}, _defineProperty(_data$computed$comput, "computed", {
+  filtersObject: function filtersObject() {
+    return _objectSpread({}, this.filters);
+  }
+}), _defineProperty(_data$computed$comput, "methods", {
+  onPageChange: function onPageChange(page) {
+    var _this = this;
+
+    return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.next = 2;
+              return _this.get({
+                page: page
+              });
+
+            case 2:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }))();
+  },
+  modalHandler: function modalHandler(item, action) {
+    var _this2 = this;
+
+    return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
+      var title;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _context2.next = 2;
+              return _this2.getTitle(item);
+
+            case 2:
+              title = _context2.sent;
+              item = JSON.parse(JSON.stringify(item));
+              _context2.t0 = action;
+              _context2.next = _context2.t0 === "changepass" ? 7 : _context2.t0 === "changeaccesscontroll" ? 8 : _context2.t0 === "update" ? 9 : _context2.t0 === "delete" ? 12 : 15;
+              break;
+
+            case 7:
+              return _context2.abrupt("return", _this2.changepassmodal = {
+                active: true,
+                title: "Update ".concat(title, " password"),
+                data: JSON.parse(JSON.stringify(item))
+              });
+
+            case 8:
+              return _context2.abrupt("return", _this2.changeaccesscontrollmodal = {
+                active: true,
+                title: "Change ".concat(item.name, " Access"),
+                action: "changeaccesscontroll",
+                data: JSON.parse(JSON.stringify(item))
+              });
+
+            case 9:
+              title = "Update ".concat(title);
+
+              if (_this2.alterData) {// item = this.alterData(item)
+              }
+
+              return _context2.abrupt("break", 16);
+
+            case 12:
+              title = "Delete ".concat(title);
+
+              if (_this2.alterData) {// item = this.alterData(item)
+              }
+
+              return _context2.abrupt("break", 16);
+
+            case 15:
+              return _context2.abrupt("break", 16);
+
+            case 16:
+              _this2.modal = Object.assign({}, {
+                active: true,
+                title: title,
+                action: action,
+                data: item
+              });
+
+            case 17:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2);
+    }))();
+  },
+  closeModal: function closeModal() {
+    var _this3 = this;
+
+    return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3() {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              try {
+                _this3.modal = Object.assign({}, {
+                  active: false,
+                  title: "Create ".concat(_this3.name),
+                  action: "add" // data: this.TheModel(),
+
+                });
+                console.log("closeModal");
+              } catch (error) {
+                console.log(error);
+              }
+
+            case 1:
+            case "end":
+              return _context3.stop();
+          }
+        }
+      }, _callee3);
+    }))();
+  },
+  closeChangePassModal: function closeChangePassModal() {
+    var _this4 = this;
+
+    return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee4() {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee4$(_context4) {
+        while (1) {
+          switch (_context4.prev = _context4.next) {
+            case 0:
+              try {
+                _this4.changepassmodal = Object.assign({}, {
+                  active: false,
+                  title: "Update password" // data: this.TheModel(),
+
+                });
+              } catch (error) {
+                console.log(error);
+              }
+
+            case 1:
+            case "end":
+              return _context4.stop();
+          }
+        }
+      }, _callee4);
+    }))();
+  },
+  closeAccessControllModal: function closeAccessControllModal() {
+    var _this5 = this;
+
+    return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee5() {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee5$(_context5) {
+        while (1) {
+          switch (_context5.prev = _context5.next) {
+            case 0:
+              try {
+                _this5.changeaccesscontrollmodal = Object.assign({}, {
+                  active: false,
+                  title: "" // data: this.TheModel(),
+
+                });
+              } catch (error) {
+                console.log(error);
+              }
+
+            case 1:
+            case "end":
+              return _context5.stop();
+          }
+        }
+      }, _callee5);
+    }))();
+  },
+  onSort: function onSort(sort, order) {
+    var _this6 = this;
+
+    return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee6() {
+      var newSort;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee6$(_context6) {
+        while (1) {
+          switch (_context6.prev = _context6.next) {
+            case 0:
+              _context6.prev = 0;
+
+              if (!_this6.loading) {
+                _context6.next = 3;
+                break;
+              }
+
+              return _context6.abrupt("return");
+
+            case 3:
+              console.log("sort", sort, order);
+              newSort = {};
+              newSort[sort] = order; // this.setSort(newSort)
+
+              _context6.next = 10;
+              break;
+
+            case 8:
+              _context6.prev = 8;
+              _context6.t0 = _context6["catch"](0);
+
+            case 10:
+            case "end":
+              return _context6.stop();
+          }
+        }
+      }, _callee6, null, [[0, 8]]);
+    }))();
+  }
+}), _data$computed$comput);
 
 /***/ }),
 
@@ -896,330 +1024,6 @@ try {
     globalThis.regeneratorRuntime = runtime;
   } else {
     Function("r", "regeneratorRuntime = r")(runtime);
-  }
-}
-
-
-/***/ }),
-
-/***/ "./resources/js/src/components/Users/CUD.vue":
-/*!***************************************************!*\
-  !*** ./resources/js/src/components/Users/CUD.vue ***!
-  \***************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _CUD_vue_vue_type_template_id_6856760a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CUD.vue?vue&type=template&id=6856760a& */ "./resources/js/src/components/Users/CUD.vue?vue&type=template&id=6856760a&");
-/* harmony import */ var _CUD_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CUD.vue?vue&type=script&lang=js& */ "./resources/js/src/components/Users/CUD.vue?vue&type=script&lang=js&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
-/* normalize component */
-;
-var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _CUD_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _CUD_vue_vue_type_template_id_6856760a___WEBPACK_IMPORTED_MODULE_0__.render,
-  _CUD_vue_vue_type_template_id_6856760a___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/src/components/Users/CUD.vue"
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
-
-/***/ }),
-
-/***/ "./resources/js/src/components/Users/CUD.vue?vue&type=script&lang=js&":
-/*!****************************************************************************!*\
-  !*** ./resources/js/src/components/Users/CUD.vue?vue&type=script&lang=js& ***!
-  \****************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CUD_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./CUD.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/components/Users/CUD.vue?vue&type=script&lang=js&");
- /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CUD_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/js/src/components/Users/CUD.vue?vue&type=template&id=6856760a&":
-/*!**********************************************************************************!*\
-  !*** ./resources/js/src/components/Users/CUD.vue?vue&type=template&id=6856760a& ***!
-  \**********************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CUD_vue_vue_type_template_id_6856760a___WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CUD_vue_vue_type_template_id_6856760a___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
-/* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CUD_vue_vue_type_template_id_6856760a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./CUD.vue?vue&type=template&id=6856760a& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/components/Users/CUD.vue?vue&type=template&id=6856760a&");
-
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/components/Users/CUD.vue?vue&type=template&id=6856760a&":
-/*!*************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/components/Users/CUD.vue?vue&type=template&id=6856760a& ***!
-  \*************************************************************************************************************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* binding */ render),
-/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
-/* harmony export */ });
-var render = function () {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("v-dialog", {
-    attrs: {
-      transition: "dialog-bottom-transition",
-      "max-width": "600",
-      persistent: "",
-    },
-    scopedSlots: _vm._u([
-      {
-        key: "default",
-        fn: function (dialog) {
-          return [
-            _c(
-              "v-card",
-              [
-                _c("v-toolbar", [_vm._v(_vm._s(_vm.modal.type) + " - Users")]),
-                _vm._v(" "),
-                _c("div", { staticClass: "p-4" }, [
-                  _c(
-                    "form",
-                    {
-                      on: {
-                        submit: function ($event) {
-                          $event.preventDefault()
-                          return _vm.submitForm.apply(null, arguments)
-                        },
-                      },
-                    },
-                    [
-                      _c("v-text-field", {
-                        attrs: {
-                          label: "Username",
-                          filled: "",
-                          "error-messages": _vm.modal.form.errors.username,
-                        },
-                        model: {
-                          value: _vm.modal.form.username,
-                          callback: function ($$v) {
-                            _vm.$set(_vm.modal.form, "username", $$v)
-                          },
-                          expression: "modal.form.username",
-                        },
-                      }),
-                      _vm._v(" "),
-                      _c("v-text-field", {
-                        attrs: {
-                          label: "Email",
-                          filled: "",
-                          type: "email",
-                          "error-messages": _vm.modal.form.errors.email,
-                        },
-                        model: {
-                          value: _vm.modal.form.email,
-                          callback: function ($$v) {
-                            _vm.$set(_vm.modal.form, "email", $$v)
-                          },
-                          expression: "modal.form.email",
-                        },
-                      }),
-                      _vm._v(" "),
-                      _c("v-text-field", {
-                        attrs: {
-                          label: "Password",
-                          type: "password",
-                          "error-messages": _vm.modal.form.errors.password,
-                        },
-                        model: {
-                          value: _vm.modal.form.password,
-                          callback: function ($$v) {
-                            _vm.$set(_vm.modal.form, "password", $$v)
-                          },
-                          expression: "modal.form.password",
-                        },
-                      }),
-                      _vm._v(" "),
-                      _c(
-                        "v-card-actions",
-                        { staticClass: "justify-end" },
-                        [
-                          _vm.modalType !== "Delete"
-                            ? _c("v-btn", { attrs: { type: "submit" } }, [
-                                _vm._v("Submt"),
-                              ])
-                            : _c(
-                                "v-btn",
-                                { attrs: { type: "submit", color: "error" } },
-                                [_vm._v("Delete")]
-                              ),
-                          _vm._v(" "),
-                          _c(
-                            "v-btn",
-                            { attrs: { text: "" }, on: { click: _vm.close } },
-                            [_vm._v("Close")]
-                          ),
-                        ],
-                        1
-                      ),
-                    ],
-                    1
-                  ),
-                ]),
-              ],
-              1
-            ),
-          ]
-        },
-      },
-    ]),
-    model: {
-      value: _vm.modal.active,
-      callback: function ($$v) {
-        _vm.$set(_vm.modal, "active", $$v)
-      },
-      expression: "modal.active",
-    },
-  })
-}
-var staticRenderFns = []
-render._withStripped = true
-
-
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js":
-/*!********************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/runtime/componentNormalizer.js ***!
-  \********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ normalizeComponent)
-/* harmony export */ });
-/* globals __VUE_SSR_CONTEXT__ */
-
-// IMPORTANT: Do NOT use ES2015 features in this file (except for modules).
-// This module is a runtime utility for cleaner component module output and will
-// be included in the final webpack user bundle.
-
-function normalizeComponent (
-  scriptExports,
-  render,
-  staticRenderFns,
-  functionalTemplate,
-  injectStyles,
-  scopeId,
-  moduleIdentifier, /* server only */
-  shadowMode /* vue-cli only */
-) {
-  // Vue.extend constructor export interop
-  var options = typeof scriptExports === 'function'
-    ? scriptExports.options
-    : scriptExports
-
-  // render functions
-  if (render) {
-    options.render = render
-    options.staticRenderFns = staticRenderFns
-    options._compiled = true
-  }
-
-  // functional template
-  if (functionalTemplate) {
-    options.functional = true
-  }
-
-  // scopedId
-  if (scopeId) {
-    options._scopeId = 'data-v-' + scopeId
-  }
-
-  var hook
-  if (moduleIdentifier) { // server build
-    hook = function (context) {
-      // 2.3 injection
-      context =
-        context || // cached call
-        (this.$vnode && this.$vnode.ssrContext) || // stateful
-        (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext) // functional
-      // 2.2 with runInNewContext: true
-      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
-        context = __VUE_SSR_CONTEXT__
-      }
-      // inject component styles
-      if (injectStyles) {
-        injectStyles.call(this, context)
-      }
-      // register component module identifier for async chunk inferrence
-      if (context && context._registeredComponents) {
-        context._registeredComponents.add(moduleIdentifier)
-      }
-    }
-    // used by ssr in case component is cached and beforeCreate
-    // never gets called
-    options._ssrRegister = hook
-  } else if (injectStyles) {
-    hook = shadowMode
-      ? function () {
-        injectStyles.call(
-          this,
-          (options.functional ? this.parent : this).$root.$options.shadowRoot
-        )
-      }
-      : injectStyles
-  }
-
-  if (hook) {
-    if (options.functional) {
-      // for template-only hot-reload because in that case the render fn doesn't
-      // go through the normalizer
-      options._injectStyles = hook
-      // register for functional component in vue file
-      var originalRender = options.render
-      options.render = function renderWithStyleInjection (h, context) {
-        hook.call(context)
-        return originalRender(h, context)
-      }
-    } else {
-      // inject component registration as beforeCreate hook
-      var existing = options.beforeCreate
-      options.beforeCreate = existing
-        ? [].concat(existing, hook)
-        : [hook]
-    }
-  }
-
-  return {
-    exports: scriptExports,
-    options: options
   }
 }
 
