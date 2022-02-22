@@ -22,18 +22,27 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _layouts_default_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../layouts/default.vue */ "./resources/js/src/layouts/default.vue");
-/* harmony import */ var _components_Users_CUD_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/Users/CUD.vue */ "./resources/js/src/components/Users/CUD.vue");
-/* harmony import */ var _components_Users_ChangePassword_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../components/Users/ChangePassword.vue */ "./resources/js/src/components/Users/ChangePassword.vue");
-/* harmony import */ var _mixins_page__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../mixins/page */ "./resources/js/src/mixins/page.js");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _layouts_default_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../layouts/default.vue */ "./resources/js/src/layouts/default.vue");
+/* harmony import */ var _components_Users_CUD_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../components/Users/CUD.vue */ "./resources/js/src/components/Users/CUD.vue");
+/* harmony import */ var _components_Users_ChangePassword_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/Users/ChangePassword.vue */ "./resources/js/src/components/Users/ChangePassword.vue");
+/* harmony import */ var _mixins_page__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../mixins/page */ "./resources/js/src/mixins/page.js");
+/* harmony import */ var _mixins_user_modal__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../mixins/user_modal */ "./resources/js/src/mixins/user_modal.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_6__);
+
+
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 //
 //
 //
@@ -124,17 +133,31 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 
 
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  mixins: [_mixins_page__WEBPACK_IMPORTED_MODULE_3__["default"]],
+  mixins: [_mixins_page__WEBPACK_IMPORTED_MODULE_4__["default"], _mixins_user_modal__WEBPACK_IMPORTED_MODULE_5__["default"]],
   components: {
-    DefaultLayout: _layouts_default_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
-    CUDUser: _components_Users_CUD_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
-    ChangePassword: _components_Users_ChangePassword_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
+    DefaultLayout: _layouts_default_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
+    CUDUser: _components_Users_CUD_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
+    ChangePassword: _components_Users_ChangePassword_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
   },
   props: {
     users: Object,
@@ -143,47 +166,55 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   data: function data() {
     return {
       data: [],
-      modal: {
-        active: false,
-        form: this.$inertia.form({
-          username: "",
-          email: "",
-          password: ""
-        }),
-        type: "Add"
+      user_fields: {
+        username: "",
+        email: "",
+        password: ""
+      },
+      change_pass_fields: {
+        password: "",
+        confirm_password: ""
       }
     };
   },
   methods: {
-    get: lodash__WEBPACK_IMPORTED_MODULE_4___default().debounce(function (params) {
-      try {
-        this.$inertia.get("/app/users", _objectSpread({}, params));
-      } catch (error) {
-        console.log(error);
-      }
-    }, 1500),
-    setModal: function setModal(data, type) {
-      this.modal = {
-        active: true,
-        form: this.$inertia.form(_objectSpread({}, data)),
-        type: type
+    get: lodash__WEBPACK_IMPORTED_MODULE_6___default().debounce( /*#__PURE__*/function () {
+      var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(params) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.prev = 0;
+                _context.next = 3;
+                return this.$inertia.get("/app/users", _objectSpread({}, params));
+
+              case 3:
+                _context.next = 8;
+                break;
+
+              case 5:
+                _context.prev = 5;
+                _context.t0 = _context["catch"](0);
+                console.log(_context.t0);
+
+              case 8:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this, [[0, 5]]);
+      }));
+
+      return function (_x) {
+        return _ref.apply(this, arguments);
       };
-    },
-    resetModal: function resetModal() {
-      this.modal = {
-        active: false,
-        form: this.$inertia.form({
-          username: "",
-          email: "",
-          password: ""
-        }),
-        type: "Add"
-      };
-    }
+    }(), 1500)
   },
   watch: {
     filtersObject: function filtersObject() {
-      this.get(_objectSpread({}, this.filtersObject)); // this.$inertia.get("/app/users", {
+      this.loading = true;
+      this.get(_objectSpread({}, this.filtersObject));
+      this.loading = false; // this.$inertia.get("/app/users", {
       //     filters: { ...this.filtersObject },
       // });
     }
@@ -394,6 +425,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     modal: Object,
@@ -476,6 +511,10 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+//
+//
+//
+//
 //
 //
 //
@@ -863,6 +902,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_data$computed$comput = {
   data: function data() {
     return {
+      loading: false,
       currentPage: 1
     };
   },
@@ -884,12 +924,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              _context.next = 2;
+              _this.loading = true;
+              _context.next = 3;
               return _this.get({
                 page: page
               });
 
-            case 2:
+            case 3:
+              _this.loading = false;
+
+            case 4:
             case "end":
               return _context.stop();
           }
@@ -1085,6 +1129,70 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }))();
   }
 }), _data$computed$comput);
+
+/***/ }),
+
+/***/ "./resources/js/src/mixins/user_modal.js":
+/*!***********************************************!*\
+  !*** ./resources/js/src/mixins/user_modal.js ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      change_pass_modal: {},
+      user_modal: {}
+    };
+  },
+  methods: {
+    setModal: function setModal(data, type) {
+      this.user_modal = {
+        active: true,
+        form: this.$inertia.form(_objectSpread({}, data)),
+        type: type
+      };
+    },
+    resetUserModal: function resetUserModal() {
+      this.user_modal = {
+        active: false,
+        form: this.$inertia.form({// username: "",
+          // email: "",
+          // password: "",
+        }),
+        type: "Add"
+      };
+    },
+    setChangePassModal: function setChangePassModal(data, type) {
+      this.change_pass_modal = {
+        active: true,
+        form: this.$inertia.form(_objectSpread({}, data)),
+        type: type
+      };
+    },
+    resetChangePassModal: function resetChangePassModal() {
+      this.change_pass_modal = {
+        active: false,
+        form: this.$inertia.form({// username: "",
+          // email: "",
+          // password: "",
+        }),
+        type: "Change Password"
+      };
+    }
+  }
+});
 
 /***/ }),
 
@@ -19525,7 +19633,7 @@ var render = function () {
               attrs: { elevation: "10", small: "" },
               on: {
                 click: function ($event) {
-                  _vm.modal.active = true
+                  return _vm.setModal(_vm.user_fields, "Add")
                 },
               },
             },
@@ -19556,6 +19664,7 @@ var render = function () {
             "pagination-position": "bottom",
             "pagination-rounded": "",
             narrowed: "",
+            loading: _vm.loading,
           },
           on: {
             "update:currentPage": function ($event) {
@@ -19566,6 +19675,24 @@ var render = function () {
             },
             "page-change": _vm.onPageChange,
           },
+          scopedSlots: _vm._u([
+            {
+              key: "empty",
+              fn: function () {
+                return [
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "text-center text-3xl text-gray-500 font-extrabold",
+                    },
+                    [_vm._v("\n                No Data Found\n            ")]
+                  ),
+                ]
+              },
+              proxy: true,
+            },
+          ]),
         },
         [
           _c("b-table-column", {
@@ -19700,7 +19827,17 @@ var render = function () {
                     _vm._v(" "),
                     _c(
                       "v-btn",
-                      { attrs: { icon: "" } },
+                      {
+                        attrs: { icon: "" },
+                        on: {
+                          click: function ($event) {
+                            return _vm.setChangePassModal(
+                              _vm.change_pass_fields,
+                              "Change Password"
+                            )
+                          },
+                        },
+                      },
                       [
                         _c("box-icon", {
                           attrs: {
@@ -19743,8 +19880,16 @@ var render = function () {
         1
       ),
       _vm._v(" "),
-      _c("CUDUser", { attrs: { modal: _vm.modal, close: _vm.resetModal } }),
-      _vm._v("\n    ChangePassword\n"),
+      _c("CUDUser", {
+        attrs: { modal: _vm.user_modal, close: _vm.resetUserModal },
+      }),
+      _vm._v(" "),
+      _c("ChangePassword", {
+        attrs: {
+          modal: _vm.change_pass_modal,
+          close: _vm.resetChangePassModal,
+        },
+      }),
     ],
     1
   )
@@ -20004,6 +20149,7 @@ var render = function () {
                         attrs: {
                           label: "Username",
                           filled: "",
+                          outlined: "",
                           "error-messages": _vm.modal.form.errors.username,
                         },
                         model: {
@@ -20019,6 +20165,7 @@ var render = function () {
                         attrs: {
                           label: "Email",
                           filled: "",
+                          outlined: "",
                           type: "email",
                           "error-messages": _vm.modal.form.errors.email,
                         },
@@ -20031,20 +20178,23 @@ var render = function () {
                         },
                       }),
                       _vm._v(" "),
-                      _c("v-text-field", {
-                        attrs: {
-                          label: "Password",
-                          type: "password",
-                          "error-messages": _vm.modal.form.errors.password,
-                        },
-                        model: {
-                          value: _vm.modal.form.password,
-                          callback: function ($$v) {
-                            _vm.$set(_vm.modal.form, "password", $$v)
-                          },
-                          expression: "modal.form.password",
-                        },
-                      }),
+                      _vm.modalType === "Add"
+                        ? _c("v-text-field", {
+                            attrs: {
+                              label: "Password",
+                              type: "password",
+                              outlined: "",
+                              "error-messages": _vm.modal.form.errors.password,
+                            },
+                            model: {
+                              value: _vm.modal.form.password,
+                              callback: function ($$v) {
+                                _vm.$set(_vm.modal.form, "password", $$v)
+                              },
+                              expression: "modal.form.password",
+                            },
+                          })
+                        : _vm._e(),
                       _vm._v(" "),
                       _c(
                         "v-card-actions",
@@ -20141,8 +20291,10 @@ var render = function () {
                     [
                       _c("v-text-field", {
                         attrs: {
-                          label: "Password",
+                          label: "New Password",
                           type: "password",
+                          outlined: "",
+                          filled: "",
                           "error-messages": _vm.modal.form.errors.password,
                         },
                         model: {
@@ -20156,8 +20308,10 @@ var render = function () {
                       _vm._v(" "),
                       _c("v-text-field", {
                         attrs: {
-                          label: "Password",
+                          label: "Confirm Password",
                           type: "password",
+                          outlined: "",
+                          filled: "",
                           "error-messages":
                             _vm.modal.form.errors.confirm_password,
                         },

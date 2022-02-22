@@ -1,6 +1,7 @@
 export default {
     data() {
         return {
+            loading: false,
             currentPage: 1,
         };
     },
@@ -9,15 +10,16 @@ export default {
             return this.$vuetify.theme.dark;
         },
     },
-    computed:{
-      filtersObject(){
-        return {...this.filters}
-      }
+    computed: {
+        filtersObject() {
+            return { ...this.filters };
+        },
     },
     methods: {
         async onPageChange(page) {
-            // this.currentPage = page;
-            await this.get({page});
+            this.loading = true;
+            await this.get({ page });
+            this.loading = false;
         },
         async modalHandler(item, action) {
             let title = await this.getTitle(item);

@@ -67,6 +67,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     modal: Object,
@@ -979,8 +983,10 @@ var render = function () {
                     [
                       _c("v-text-field", {
                         attrs: {
-                          label: "Password",
+                          label: "New Password",
                           type: "password",
+                          outlined: "",
+                          filled: "",
                           "error-messages": _vm.modal.form.errors.password,
                         },
                         model: {
@@ -994,8 +1000,10 @@ var render = function () {
                       _vm._v(" "),
                       _c("v-text-field", {
                         attrs: {
-                          label: "Password",
+                          label: "Confirm Password",
                           type: "password",
+                          outlined: "",
+                          filled: "",
                           "error-messages":
                             _vm.modal.form.errors.confirm_password,
                         },

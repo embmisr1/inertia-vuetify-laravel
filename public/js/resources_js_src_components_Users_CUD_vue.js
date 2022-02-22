@@ -75,6 +75,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     modal: Object,
@@ -1022,6 +1026,7 @@ var render = function () {
                         attrs: {
                           label: "Username",
                           filled: "",
+                          outlined: "",
                           "error-messages": _vm.modal.form.errors.username,
                         },
                         model: {
@@ -1037,6 +1042,7 @@ var render = function () {
                         attrs: {
                           label: "Email",
                           filled: "",
+                          outlined: "",
                           type: "email",
                           "error-messages": _vm.modal.form.errors.email,
                         },
@@ -1049,20 +1055,23 @@ var render = function () {
                         },
                       }),
                       _vm._v(" "),
-                      _c("v-text-field", {
-                        attrs: {
-                          label: "Password",
-                          type: "password",
-                          "error-messages": _vm.modal.form.errors.password,
-                        },
-                        model: {
-                          value: _vm.modal.form.password,
-                          callback: function ($$v) {
-                            _vm.$set(_vm.modal.form, "password", $$v)
-                          },
-                          expression: "modal.form.password",
-                        },
-                      }),
+                      _vm.modalType === "Add"
+                        ? _c("v-text-field", {
+                            attrs: {
+                              label: "Password",
+                              type: "password",
+                              outlined: "",
+                              "error-messages": _vm.modal.form.errors.password,
+                            },
+                            model: {
+                              value: _vm.modal.form.password,
+                              callback: function ($$v) {
+                                _vm.$set(_vm.modal.form, "password", $$v)
+                              },
+                              expression: "modal.form.password",
+                            },
+                          })
+                        : _vm._e(),
                       _vm._v(" "),
                       _c(
                         "v-card-actions",

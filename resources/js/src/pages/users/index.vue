@@ -1,7 +1,7 @@
 <template>
     <DefaultLayout>
         <div class="my-2">
-            <v-btn elevation="10" @click="modal.active = true" small>
+            <v-btn elevation="10" @click="setModal(user_fields, 'Add')" small>
                 <box-icon name="plus" animation="tada-hover"></box-icon>
                 Add User
             </v-btn>
@@ -19,6 +19,7 @@
             pagination-rounded
             @page-change="onPageChange"
             narrowed
+            :loading="loading"
         >
             <b-table-column
                 field="id"
@@ -67,7 +68,14 @@
                         animation="tada-hover"
                     ></box-icon
                 ></v-btn>
-                <v-btn icon
+                <v-btn
+                    icon
+                    @click="
+                        setChangePassModal(
+                            change_pass_fields,
+                            'Change Password'
+                        )
+                    "
                     ><box-icon
                         name="lock-alt"
                         animation="tada-hover"
@@ -82,9 +90,14 @@
                     ></box-icon
                 ></v-btn>
             </b-table-column>
+            <template #empty>
+                <div class="text-center text-3xl text-gray-500 font-extrabold">
+                    No Data Found
+                </div>
+            </template>
         </b-table>
-        <CUDUser :modal="modal" :close="resetModal" />
-        ChangePassword
+        <CUDUser :modal="user_modal" :close="resetUserModal" />
+        <ChangePassword :modal="change_pass_modal"  :close="resetChangePassModal" />
     </DefaultLayout>
 </template>
 
@@ -93,13 +106,14 @@ import DefaultLayout from "../../layouts/default.vue";
 import CUDUser from "../../components/Users/CUD.vue";
 import ChangePassword from "../../components/Users/ChangePassword.vue";
 import PageMixins from "../../mixins/page";
+import user_modal from "../../mixins/user_modal";
 import _ from "lodash";
 export default {
-    mixins: [PageMixins],
+    mixins: [PageMixins, user_modal],
     components: {
         DefaultLayout,
         CUDUser,
-        ChangePassword
+        ChangePassword,
     },
     props: {
         users: Object,
@@ -108,49 +122,31 @@ export default {
     data() {
         return {
             data: [],
-            modal: {
-                active: false,
-                form: this.$inertia.form({
-                    username: "",
-                    email: "",
-                    password: "",
-                }),
-                type: "Add",
+            user_fields: {
+                username: "",
+                email: "",
+                password: "",
+            },
+            change_pass_fields: {
+                password: "",
+                confirm_password: "",
             },
         };
     },
     methods: {
-        get: _.debounce(function (params) {
+        get: _.debounce(async function (params) {
             try {
-                this.$inertia.get("/app/users", { ...params });
+                await this.$inertia.get("/app/users", { ...params });
             } catch (error) {
                 console.log(error);
             }
         }, 1500),
-        setModal(data, type) {
-            this.modal = {
-                active: true,
-                form: this.$inertia.form({
-                    ...data,
-                }),
-                type: type,
-            };
-        },
-        resetModal() {
-            this.modal = {
-                active: false,
-                form: this.$inertia.form({
-                    username: "",
-                    email: "",
-                    password: "",
-                }),
-                type: "Add",
-            };
-        },
     },
     watch: {
         filtersObject() {
+            this.loading = true;
             this.get({ ...this.filtersObject });
+            this.loading = false;
             // this.$inertia.get("/app/users", {
             //     filters: { ...this.filtersObject },
             // });

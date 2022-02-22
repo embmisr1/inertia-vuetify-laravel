@@ -14,20 +14,24 @@
                             v-model="modal.form.username"
                             label="Username"
                             filled
+                            outlined
                             :error-messages="modal.form.errors.username"
                         ></v-text-field>
                         <v-text-field
                             v-model="modal.form.email"
                             label="Email"
                             filled
+                            outlined
                             type="email"
                             :error-messages="modal.form.errors.email"
                         ></v-text-field>
 
                         <v-text-field
+                         v-if="modalType === 'Add'"
                             v-model="modal.form.password"
                             label="Password"
                             type="password"
+                            outlined
                             :error-messages="modal.form.errors.password"
                         ></v-text-field>
                         <v-card-actions class="justify-end">

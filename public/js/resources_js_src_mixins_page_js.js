@@ -41,6 +41,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_data$computed$comput = {
   data: function data() {
     return {
+      loading: false,
       currentPage: 1
     };
   },
@@ -62,12 +63,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              _context.next = 2;
+              _this.loading = true;
+              _context.next = 3;
               return _this.get({
                 page: page
               });
 
-            case 2:
+            case 3:
+              _this.loading = false;
+
+            case 4:
             case "end":
               return _context.stop();
           }

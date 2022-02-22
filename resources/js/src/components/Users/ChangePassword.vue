@@ -12,15 +12,19 @@
                     <form @submit.prevent="submitForm">
                          <v-text-field
                             v-model="modal.form.password"
-                            label="Password"
+                            label="New Password"
                             type="password"
+                            outlined
+                            filled
                             :error-messages="modal.form.errors.password"
                         ></v-text-field>
 
                         <v-text-field
                             v-model="modal.form.confirm_password"
-                            label="Password"
+                            label="Confirm Password"
                             type="password"
+                            outlined
+                            filled
                             :error-messages="modal.form.errors.confirm_password"
                         ></v-text-field>
                         <v-card-actions class="justify-end">
