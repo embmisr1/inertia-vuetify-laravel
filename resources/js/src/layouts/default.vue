@@ -53,7 +53,8 @@
 
         <!-- Sizes your content based upon application components -->
         <v-main
-            class="bg-gray-200 bg-opacity-30 scrollbar-thin overflow-y-scroll"
+            class=""
+            style="background-color: #f4f5fa !important; overflow-y: hidden"
         >
             <!-- Provides the application the proper gutter -->
             <v-container fluid class="scrollbar-thin overflow-y-scroll">

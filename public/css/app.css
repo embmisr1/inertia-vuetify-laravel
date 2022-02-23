@@ -519,6 +519,12 @@ Ensure the default browser behavior of the `hidden` attribute.
 .h-24 {
   height: 6rem;
 }
+.h-32 {
+  height: 8rem;
+}
+.h-64 {
+  height: 16rem;
+}
 .max-h-12 {
   max-height: 3rem;
 }
@@ -582,16 +588,13 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-bg-opacity: 1;
   background-color: rgb(243 244 246 / var(--tw-bg-opacity));
 }
-.bg-gray-200 {
+.bg-gray-400 {
   --tw-bg-opacity: 1;
-  background-color: rgb(229 231 235 / var(--tw-bg-opacity));
+  background-color: rgb(156 163 175 / var(--tw-bg-opacity));
 }
 .bg-black {
   --tw-bg-opacity: 1;
   background-color: rgb(0 0 0 / var(--tw-bg-opacity));
-}
-.bg-opacity-30 {
-  --tw-bg-opacity: 0.3;
 }
 .object-cover {
   -o-object-fit: cover;
@@ -728,6 +731,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .scrollbar-thin::-webkit-scrollbar {
   width: 8px;
   height: 8px;
+}
+.scrollbar-thumb-gray-\39 00 {
+  --scrollbar-thumb: #111827 !important;
 }
 
 .hover\:bg-white:hover {

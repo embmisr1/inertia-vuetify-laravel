@@ -227,6 +227,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -739,10 +740,11 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c(
     "div",
+    { staticClass: "overflow-hidden" },
     _vm._l(_vm.items, function (item, index) {
       return _c(
         "v-list",
-        { key: index, staticClass: "overflow-hidden", attrs: { dense: "" } },
+        { key: index, staticClass: "overflow-hidden  ", attrs: { dense: "" } },
         [
           _c("v-subheader", [_vm._v(_vm._s(item.header))]),
           _vm._v(" "),
@@ -967,8 +969,10 @@ var render = function () {
       _c(
         "v-main",
         {
-          staticClass:
-            "bg-gray-200 bg-opacity-30 scrollbar-thin overflow-y-scroll",
+          staticStyle: {
+            "background-color": "#f4f5fa !important",
+            "overflow-y": "hidden",
+          },
         },
         [
           _c(

@@ -1,6 +1,6 @@
 <template>
-    <DefaultLayout> 
-        <b-table
+    <DefaultLayout>
+        <!-- <b-table
             :data="data"
             paginated
             :per-page="perPage"
@@ -36,7 +36,13 @@
                 </span>
             </b-table-column>
 
-        </b-table>
+        </b-table> -->
+        <div
+            class="scrollbar-thin scrollbar-thumb-gray-900 scrollbar-thumb-rounded-full scrollbar-track-rounded-full h-32 overflow-y-scroll"
+        >
+            <!-- This element is just here so that something overflows the parent -->
+            <div class="h-64 bg-gray-400"></div>
+        </div>
     </DefaultLayout>
 </template>
 
@@ -45,13 +51,14 @@ import DefaultLayout from "../../layouts/default.vue";
 export default {
     components: {
         DefaultLayout,
-    },data() {
-            return {
-                data:[],
-                paginationPosition: 'both',
-                currentPage: 1,
-                perPage: 15,
-            }
-        }
+    },
+    data() {
+        return {
+            data: [],
+            paginationPosition: "both",
+            currentPage: 1,
+            perPage: 15,
+        };
+    },
 };
 </script>

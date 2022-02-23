@@ -1,10 +1,10 @@
 <template>
-    <div>
+    <div class="overflow-hidden">
         <v-list
             v-for="(item, index) in items"
             :key="index"
             dense
-            class="overflow-hidden"
+            class="overflow-hidden  "
         >
             <v-subheader>{{ item.header }}</v-subheader>
             <v-list-group

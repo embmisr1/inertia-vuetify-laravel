@@ -54,6 +54,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
@@ -62,7 +68,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       data: [],
-      paginationPosition: 'both',
+      paginationPosition: "both",
       currentPage: 1,
       perPage: 15
     };
@@ -220,6 +226,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @inertiajs/inertia-vue */ "./node_modules/@inertiajs/inertia-vue/dist/index.js");
 /* harmony import */ var _components_RightMenu_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/RightMenu.vue */ "./resources/js/src/components/RightMenu.vue");
 /* harmony import */ var _components_SideNavItems_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/SideNavItems.vue */ "./resources/js/src/components/SideNavItems.vue");
+//
 //
 //
 //
@@ -809,155 +816,16 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "DefaultLayout",
-    [
-      _c(
-        "b-table",
-        {
-          attrs: {
-            data: _vm.data,
-            paginated: "",
-            "per-page": _vm.perPage,
-            "current-page": _vm.currentPage,
-            "pagination-position": _vm.paginationPosition,
-            "pagination-rounded": "",
-            "debounce-page-input": 300,
-          },
-          on: {
-            "update:currentPage": function ($event) {
-              _vm.currentPage = $event
-            },
-            "update:current-page": function ($event) {
-              _vm.currentPage = $event
-            },
-          },
-        },
-        [
-          _c("b-table-column", {
-            attrs: {
-              field: "id",
-              label: "ID",
-              width: "40",
-              sortable: "",
-              numeric: "",
-            },
-            scopedSlots: _vm._u([
-              {
-                key: "default",
-                fn: function (props) {
-                  return [
-                    _vm._v(
-                      "\n            " + _vm._s(props.row.id) + "\n        "
-                    ),
-                  ]
-                },
-              },
-            ]),
-          }),
-          _vm._v(" "),
-          _c("b-table-column", {
-            attrs: {
-              field: "user.first_name",
-              label: "First Name",
-              sortable: "",
-            },
-            scopedSlots: _vm._u([
-              {
-                key: "default",
-                fn: function (props) {
-                  return [
-                    _vm._v(
-                      "\n            " +
-                        _vm._s(props.row.user.first_name) +
-                        "\n        "
-                    ),
-                  ]
-                },
-              },
-            ]),
-          }),
-          _vm._v(" "),
-          _c("b-table-column", {
-            attrs: {
-              field: "user.last_name",
-              label: "Last Name",
-              sortable: "",
-            },
-            scopedSlots: _vm._u([
-              {
-                key: "default",
-                fn: function (props) {
-                  return [
-                    _vm._v(
-                      "\n            " +
-                        _vm._s(props.row.user.last_name) +
-                        "\n        "
-                    ),
-                  ]
-                },
-              },
-            ]),
-          }),
-          _vm._v(" "),
-          _c("b-table-column", {
-            attrs: { field: "date", label: "Date", sortable: "", centered: "" },
-            scopedSlots: _vm._u([
-              {
-                key: "default",
-                fn: function (props) {
-                  return [
-                    _c("span", { staticClass: "tag is-success" }, [
-                      _vm._v(
-                        "\n                " +
-                          _vm._s(
-                            new Date(props.row.date).toLocaleDateString()
-                          ) +
-                          "\n            "
-                      ),
-                    ]),
-                  ]
-                },
-              },
-            ]),
-          }),
-          _vm._v(" "),
-          _c("b-table-column", {
-            attrs: { label: "Gender" },
-            scopedSlots: _vm._u([
-              {
-                key: "default",
-                fn: function (props) {
-                  return [
-                    _c(
-                      "span",
-                      [
-                        _c("b-icon", {
-                          attrs: {
-                            pack: "fas",
-                            icon:
-                              props.row.gender === "Male" ? "mars" : "venus",
-                          },
-                        }),
-                        _vm._v(
-                          "\n                " +
-                            _vm._s(props.row.gender) +
-                            "\n            "
-                        ),
-                      ],
-                      1
-                    ),
-                  ]
-                },
-              },
-            ]),
-          }),
-        ],
-        1
-      ),
-    ],
-    1
-  )
+  return _c("DefaultLayout", [
+    _c(
+      "div",
+      {
+        staticClass:
+          "scrollbar-thin scrollbar-thumb-gray-900 scrollbar-thumb-rounded-full scrollbar-track-rounded-full h-32 overflow-y-scroll",
+      },
+      [_c("div", { staticClass: "h-64 bg-gray-400" })]
+    ),
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -1050,10 +918,11 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c(
     "div",
+    { staticClass: "overflow-hidden" },
     _vm._l(_vm.items, function (item, index) {
       return _c(
         "v-list",
-        { key: index, staticClass: "overflow-hidden", attrs: { dense: "" } },
+        { key: index, staticClass: "overflow-hidden  ", attrs: { dense: "" } },
         [
           _c("v-subheader", [_vm._v(_vm._s(item.header))]),
           _vm._v(" "),
@@ -1278,8 +1147,10 @@ var render = function () {
       _c(
         "v-main",
         {
-          staticClass:
-            "bg-gray-200 bg-opacity-30 scrollbar-thin overflow-y-scroll",
+          staticStyle: {
+            "background-color": "#f4f5fa !important",
+            "overflow-y": "hidden",
+          },
         },
         [
           _c(
