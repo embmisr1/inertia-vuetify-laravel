@@ -1,6 +1,6 @@
 <template>
     <DefaultLayout>
-        <!-- <b-table
+        <b-table
             :data="data"
             paginated
             :per-page="perPage"
@@ -36,13 +36,7 @@
                 </span>
             </b-table-column>
 
-        </b-table> -->
-        <div
-            class="scrollbar-thin scrollbar-thumb-gray-900 scrollbar-thumb-rounded-full scrollbar-track-rounded-full h-32 overflow-y-scroll"
-        >
-            <!-- This element is just here so that something overflows the parent -->
-            <div class="h-64 bg-gray-400"></div>
-        </div>
+        </b-table>
     </DefaultLayout>
 </template>
 

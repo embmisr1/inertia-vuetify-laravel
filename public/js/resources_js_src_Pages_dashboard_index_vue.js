@@ -54,12 +54,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
@@ -816,16 +810,155 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("DefaultLayout", [
-    _c(
-      "div",
-      {
-        staticClass:
-          "scrollbar-thin scrollbar-thumb-gray-900 scrollbar-thumb-rounded-full scrollbar-track-rounded-full h-32 overflow-y-scroll",
-      },
-      [_c("div", { staticClass: "h-64 bg-gray-400" })]
-    ),
-  ])
+  return _c(
+    "DefaultLayout",
+    [
+      _c(
+        "b-table",
+        {
+          attrs: {
+            data: _vm.data,
+            paginated: "",
+            "per-page": _vm.perPage,
+            "current-page": _vm.currentPage,
+            "pagination-position": _vm.paginationPosition,
+            "pagination-rounded": "",
+            "debounce-page-input": 300,
+          },
+          on: {
+            "update:currentPage": function ($event) {
+              _vm.currentPage = $event
+            },
+            "update:current-page": function ($event) {
+              _vm.currentPage = $event
+            },
+          },
+        },
+        [
+          _c("b-table-column", {
+            attrs: {
+              field: "id",
+              label: "ID",
+              width: "40",
+              sortable: "",
+              numeric: "",
+            },
+            scopedSlots: _vm._u([
+              {
+                key: "default",
+                fn: function (props) {
+                  return [
+                    _vm._v(
+                      "\n            " + _vm._s(props.row.id) + "\n        "
+                    ),
+                  ]
+                },
+              },
+            ]),
+          }),
+          _vm._v(" "),
+          _c("b-table-column", {
+            attrs: {
+              field: "user.first_name",
+              label: "First Name",
+              sortable: "",
+            },
+            scopedSlots: _vm._u([
+              {
+                key: "default",
+                fn: function (props) {
+                  return [
+                    _vm._v(
+                      "\n            " +
+                        _vm._s(props.row.user.first_name) +
+                        "\n        "
+                    ),
+                  ]
+                },
+              },
+            ]),
+          }),
+          _vm._v(" "),
+          _c("b-table-column", {
+            attrs: {
+              field: "user.last_name",
+              label: "Last Name",
+              sortable: "",
+            },
+            scopedSlots: _vm._u([
+              {
+                key: "default",
+                fn: function (props) {
+                  return [
+                    _vm._v(
+                      "\n            " +
+                        _vm._s(props.row.user.last_name) +
+                        "\n        "
+                    ),
+                  ]
+                },
+              },
+            ]),
+          }),
+          _vm._v(" "),
+          _c("b-table-column", {
+            attrs: { field: "date", label: "Date", sortable: "", centered: "" },
+            scopedSlots: _vm._u([
+              {
+                key: "default",
+                fn: function (props) {
+                  return [
+                    _c("span", { staticClass: "tag is-success" }, [
+                      _vm._v(
+                        "\n                " +
+                          _vm._s(
+                            new Date(props.row.date).toLocaleDateString()
+                          ) +
+                          "\n            "
+                      ),
+                    ]),
+                  ]
+                },
+              },
+            ]),
+          }),
+          _vm._v(" "),
+          _c("b-table-column", {
+            attrs: { label: "Gender" },
+            scopedSlots: _vm._u([
+              {
+                key: "default",
+                fn: function (props) {
+                  return [
+                    _c(
+                      "span",
+                      [
+                        _c("b-icon", {
+                          attrs: {
+                            pack: "fas",
+                            icon:
+                              props.row.gender === "Male" ? "mars" : "venus",
+                          },
+                        }),
+                        _vm._v(
+                          "\n                " +
+                            _vm._s(props.row.gender) +
+                            "\n            "
+                        ),
+                      ],
+                      1
+                    ),
+                  ]
+                },
+              },
+            ]),
+          }),
+        ],
+        1
+      ),
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
