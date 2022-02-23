@@ -16,6 +16,7 @@
                             filled
                             outlined
                             :error-messages="modal.form.errors.username"
+                            :disabled="modalType === 'Delete' ? true : false"
                         ></v-text-field>
                         <v-text-field
                             v-model="modal.form.email"
@@ -24,10 +25,11 @@
                             outlined
                             type="email"
                             :error-messages="modal.form.errors.email"
+                             :disabled="modalType === 'Delete' ? true : false"
                         ></v-text-field>
 
                         <v-text-field
-                         v-if="modalType === 'Add'"
+                            v-if="modalType === 'Add'"
                             v-model="modal.form.password"
                             label="Password"
                             type="password"
@@ -35,10 +37,14 @@
                             :error-messages="modal.form.errors.password"
                         ></v-text-field>
                         <v-card-actions class="justify-end">
-                            <v-btn  v-if="modalType !== 'Delete'" type="submit">Submt</v-btn>
-                            
-                            <v-btn  type="submit" v-else color="error">Delete</v-btn>
-                            <v-btn text @click="close" >Close</v-btn>
+                            <v-btn v-if="modalType !== 'Delete'" type="submit"
+                                >Submt</v-btn
+                            >
+
+                            <v-btn type="submit" v-else color="error"
+                                >Delete</v-btn
+                            >
+                            <v-btn text @click="close">Close</v-btn>
                         </v-card-actions>
                     </form>
                 </div>
@@ -53,10 +59,10 @@ export default {
         modal: Object,
         close: Function,
     },
-    computed:{
-        modalType(){
-            return this.modal.type
-        }
+    computed: {
+        modalType() {
+            return this.modal.type;
+        },
     },
     methods: {
         async submitForm() {
@@ -65,10 +71,14 @@ export default {
                     await this.modal.form.post("/app/users");
                     break;
                 case "Update":
-                    await this.modal.form.patch(`/app/users/${this.modal.form.id}`);
+                    await this.modal.form.patch(
+                        `/app/users/${this.modal.form.id}`
+                    );
                     break;
                 case "Delete":
-                    await this.modal.form.delete(`/app/users/${this.modal.form.id}`);
+                    await this.modal.form.delete(
+                        `/app/users/${this.modal.form.id}`
+                    );
                     break;
                 default:
                     break;
