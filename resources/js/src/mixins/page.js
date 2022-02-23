@@ -6,13 +6,11 @@ export default {
         };
     },
     computed: {
-        isTheme() {
-            return this.$vuetify.theme.dark;
-        },
-    },
-    computed: {
         filtersObject() {
             return { ...this.filters };
+        },
+        isTheme() {
+            return this.$vuetify.theme.dark;
         },
     },
     methods: {

@@ -1,26 +1,35 @@
 <template>
     <DefaultLayout>
-        <div class="my-2">
-            <v-btn elevation="10" @click="setModal(user_fields, 'Add')" small>
-                <box-icon name="plus" animation="tada-hover"></box-icon>
-                Add User
-            </v-btn>
-        </div>
         <b-table
             :data="users.data"
             paginated
             :per-page="users.per_page"
             pagination-size="is-small"
+            page-input
             hoverable
             backend-pagination
             :total="users.total"
             :current-page.sync="users.current_page"
-            pagination-position="bottom"
+            pagination-position="top"
             pagination-rounded
             @page-change="onPageChange"
             narrowed
             :loading="loading"
+            
+            bordered
+            sticky-header
+            
+            scrollable
+            :row-class="(row, index) => isTheme ? 'bg-black text-white':''"
+             :header-class="isTheme ? 'bg-black text-white':''"
+            height="420"
         >
+        <template #top-left>
+            <v-btn elevation="10" @click="setModal(user_fields, 'Add')" small>
+                <box-icon name="plus" animation="tada-hover" :color="isTheme ? 'white':'black'" ></box-icon>
+                Add User
+            </v-btn>
+        </template>
             <b-table-column
                 field="id"
                 label="ID"
@@ -80,6 +89,7 @@
                         name="lock-alt"
                         animation="tada-hover"
                         type="solid"
+                        :color="isTheme ? 'white':'black'"
                     ></box-icon
                 ></v-btn>
                 <v-btn icon @click="setModal(props.row, 'Delete')"
@@ -109,6 +119,9 @@ import PageMixins from "../../mixins/page";
 import user_modal from "../../mixins/user_modal";
 import _ from "lodash";
 export default {
+     metaInfo: {
+      title: 'Users',
+    },
     mixins: [PageMixins, user_modal],
     components: {
         DefaultLayout,

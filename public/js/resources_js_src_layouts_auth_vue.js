@@ -31,7 +31,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  metaInfo: {
+    // if no subcomponents specify a metaInfo.title, this title will be used
+    title: 'Unisys',
+    // all titles will be injected into this template
+    titleTemplate: '%s | EMB - Region 1 - Unisys'
+  }
+});
 
 /***/ }),
 

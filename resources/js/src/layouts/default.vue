@@ -2,11 +2,16 @@
     <!-- App.vue -->
 
     <v-app>
-        <v-navigation-drawer app v-model="drawer" clipped class="scrollbar-thin  overflow-y-scroll">
+        <v-navigation-drawer
+            app
+            v-model="drawer"
+            clipped
+            class="scrollbar-thin overflow-y-scroll"
+        >
             <SideNavItems :items="sidebarItems" />
         </v-navigation-drawer>
 
-        <v-app-bar app clipped-left short rounded >
+        <v-app-bar app clipped-left short rounded>
             <!-- -->
             <v-app-bar-nav-icon
                 v-if="!drawer"
@@ -47,9 +52,11 @@
         </v-app-bar>
 
         <!-- Sizes your content based upon application components -->
-        <v-main  class="bg-gray-200 bg-opacity-30 scrollbar-thin  overflow-y-scroll">
+        <v-main
+            class="bg-gray-200 bg-opacity-30 scrollbar-thin overflow-y-scroll"
+        >
             <!-- Provides the application the proper gutter -->
-            <v-container fluid class="scrollbar-thin  overflow-y-scroll">
+            <v-container fluid class="scrollbar-thin overflow-y-scroll">
                 <!-- If using vue-router -->
                 <slot />
             </v-container>
@@ -78,9 +85,29 @@ export default {
         RightMenu,
         SideNavItems,
     },
+    metaInfo: {
+        // if no subcomponents specify a metaInfo.title, this title will be used
+        title: "Unisys",
+        // all titles will be injected into this template
+        titleTemplate: "%s | EMB - Region 1 - Unisys",
+        link: [
+            {
+                rel: "icon",
+                href: "https://r1.emb.gov.ph/wp-content/uploads/2016/08/cropped-denr-logo2-32x32.png",
+            },
+        ],
+        author: [
+            {
+                name: "Allan Daryl Ancheta",
+                email: "allandaryl.dev@gmail.com",
+                github: "allandaryldev",
+            },
+        ],
+    },
     data() {
         return {
             drawer: true,
+
             items: [
                 {
                     title: "Profile",
@@ -92,7 +119,7 @@ export default {
             sidebarItems: [
                 {
                     header: "Firm Management",
-                     
+
                     child: [
                         {
                             name: "Firm Management",
@@ -120,12 +147,12 @@ export default {
                 },
                 {
                     header: "Monitoring",
-                     
+
                     child: [
                         {
                             name: "ECC/NCC",
                             link: null,
-                           icon: "mdi-clipboard-file",
+                            icon: "mdi-clipboard-file",
                             child: [],
                         },
                         {
@@ -162,7 +189,7 @@ export default {
                 },
                 {
                     header: "LEGAL UNIT",
-                     
+
                     child: [
                         {
                             name: "VIOLATIONS",
@@ -208,11 +235,11 @@ export default {
                 },
                 {
                     header: "USER MANAGEMENT",
-                     
+
                     child: [
                         {
                             name: "SYSTEM USERS",
-                            link: '/app/users/',
+                            link: "/app/users/",
                             icon: "mdi-account-group",
                             child: [],
                         },
@@ -226,7 +253,7 @@ export default {
                 },
                 {
                     header: "INDUSTRY CONFIGURATION",
-                     
+
                     child: [
                         {
                             name: "PROJECT TYPE",

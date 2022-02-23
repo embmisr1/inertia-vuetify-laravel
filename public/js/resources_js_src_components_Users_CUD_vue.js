@@ -79,6 +79,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     modal: Object,
@@ -1028,6 +1034,7 @@ var render = function () {
                           filled: "",
                           outlined: "",
                           "error-messages": _vm.modal.form.errors.username,
+                          disabled: _vm.modalType === "Delete" ? true : false,
                         },
                         model: {
                           value: _vm.modal.form.username,
@@ -1045,6 +1052,7 @@ var render = function () {
                           outlined: "",
                           type: "email",
                           "error-messages": _vm.modal.form.errors.email,
+                          disabled: _vm.modalType === "Delete" ? true : false,
                         },
                         model: {
                           value: _vm.modal.form.email,

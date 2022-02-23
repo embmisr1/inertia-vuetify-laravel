@@ -246,6 +246,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -254,6 +261,21 @@ __webpack_require__.r(__webpack_exports__);
     Link: _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_0__.Link,
     RightMenu: _components_RightMenu_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
     SideNavItems: _components_SideNavItems_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
+  },
+  metaInfo: {
+    // if no subcomponents specify a metaInfo.title, this title will be used
+    title: "Unisys",
+    // all titles will be injected into this template
+    titleTemplate: "%s | EMB - Region 1 - Unisys",
+    link: [{
+      rel: "icon",
+      href: "https://r1.emb.gov.ph/wp-content/uploads/2016/08/cropped-denr-logo2-32x32.png"
+    }],
+    author: [{
+      name: "Allan Daryl Ancheta",
+      email: "allandaryl.dev@gmail.com",
+      github: "allandaryldev"
+    }]
   },
   data: function data() {
     return {
@@ -358,7 +380,7 @@ __webpack_require__.r(__webpack_exports__);
         header: "USER MANAGEMENT",
         child: [{
           name: "SYSTEM USERS",
-          link: '/app/users/',
+          link: "/app/users/",
           icon: "mdi-account-group",
           child: []
         }, {
@@ -971,7 +993,7 @@ var render = function () {
       _c(
         "v-navigation-drawer",
         {
-          staticClass: "scrollbar-thin  overflow-y-scroll",
+          staticClass: "scrollbar-thin overflow-y-scroll",
           attrs: { app: "", clipped: "" },
           model: {
             value: _vm.drawer,
@@ -1065,13 +1087,13 @@ var render = function () {
         "v-main",
         {
           staticClass:
-            "bg-gray-200 bg-opacity-30 scrollbar-thin  overflow-y-scroll",
+            "bg-gray-200 bg-opacity-30 scrollbar-thin overflow-y-scroll",
         },
         [
           _c(
             "v-container",
             {
-              staticClass: "scrollbar-thin  overflow-y-scroll",
+              staticClass: "scrollbar-thin overflow-y-scroll",
               attrs: { fluid: "" },
             },
             [_vm._t("default")],

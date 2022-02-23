@@ -19,7 +19,14 @@
 </template>
 
 <script>
-export default {};
+export default {
+    metaInfo: {
+      // if no subcomponents specify a metaInfo.title, this title will be used
+      title: 'Unisys',
+      // all titles will be injected into this template
+      titleTemplate: '%s | EMB - Region 1 - Unisys'
+    },
+};
 </script>
 
 <style></style>
