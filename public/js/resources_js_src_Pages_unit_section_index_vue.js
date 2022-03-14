@@ -19666,11 +19666,7 @@ var render = function () {
                   return [
                     _vm._v(
                       "\n                " +
-                        _vm._s(
-                          props.row.unit_section
-                            ? props.row.unit_section
-                            : "N/A"
-                        ) +
+                        _vm._s(props.row.division) +
                         "\n            "
                     ),
                   ]

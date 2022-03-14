@@ -70,7 +70,7 @@ class UsersController extends Controller
 
         User::create($input);
 
-        return Redirect::back()->with('success', 'User Created Successfully.');
+        return Redirect::route('users');
     }
 
     /**

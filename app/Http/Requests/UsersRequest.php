@@ -27,6 +27,8 @@ class UsersRequest extends FormRequest
             "username"=>"required|string|unique:users,username,' . request('id')",
             "email"=>"sometimes|nullable|string|email|unique:users,email,' . request('id')",
             "password"=>"sometimes|nullable|string|min:8",
+            "position_id"=>"required|numeric|exists:App\Models\Position,id",
+            "unit_section_id"=>"required|numeric|exists:App\Models\UnitSection,id"
         ];
     }
 }

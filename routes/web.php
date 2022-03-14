@@ -50,8 +50,8 @@ Route::group([
 
   Route::get('/unit_section', [UnitSectionController ::class, 'index'])->name("unit_section.index");
   Route::post('/unit_section', [UnitSectionController::class, 'store'])->name("unit_section.store");
-  Route::patch('/unit_section/{unit_section_id}', [UnitSectionController::class, 'update'])->name("unit_section.update");
-  Route::delete('/unit_section/{unit_section_id}', [UnitSectionController::class, 'destroy'])->name("unit_section.destroy");
+  Route::patch('/unit_section/{unit_section}', [UnitSectionController::class, 'update'])->name("unit_section.update");
+  Route::delete('/unit_section/{unit_section}', [UnitSectionController::class, 'destroy'])->name("unit_section.destroy");
 
   Route::get('/division', [DivisionController::class, 'index'])->name("division.index");
   Route::post('/division', [DivisionController::class, 'store'])->name("division.store");

@@ -79,7 +79,7 @@
                 </template>
                 <template v-slot="props">
                     {{
-                        props.row.unit_section ? props.row.unit_section : "N/A"
+                        props.row.division
                     }}
                 </template>
             </b-table-column>
