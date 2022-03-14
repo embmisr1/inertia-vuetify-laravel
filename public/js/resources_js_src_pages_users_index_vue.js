@@ -29,8 +29,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Users_ChangePassword_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/Users/ChangePassword.vue */ "./resources/js/src/components/Users/ChangePassword.vue");
 /* harmony import */ var _mixins_page__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../mixins/page */ "./resources/js/src/mixins/page.js");
 /* harmony import */ var _mixins_user_modal__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../mixins/user_modal */ "./resources/js/src/mixins/user_modal.js");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @inertiajs/inertia-vue */ "./node_modules/@inertiajs/inertia-vue/dist/index.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_7__);
 
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
@@ -156,6 +157,48 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 
 
@@ -164,13 +207,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   metaInfo: {
-    title: 'Users'
+    title: "Users"
   },
   mixins: [_mixins_page__WEBPACK_IMPORTED_MODULE_4__["default"], _mixins_user_modal__WEBPACK_IMPORTED_MODULE_5__["default"]],
   components: {
     DefaultLayout: _layouts_default_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
     CUDUser: _components_Users_CUD_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
-    ChangePassword: _components_Users_ChangePassword_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
+    ChangePassword: _components_Users_ChangePassword_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
+    Link: _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_6__.Link
   },
   props: {
     users: Object,
@@ -191,7 +235,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     };
   },
   methods: {
-    get: lodash__WEBPACK_IMPORTED_MODULE_6___default().debounce( /*#__PURE__*/function () {
+    get: lodash__WEBPACK_IMPORTED_MODULE_7___default().debounce( /*#__PURE__*/function () {
       var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(params) {
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
           while (1) {
@@ -826,6 +870,21 @@ __webpack_require__.r(__webpack_exports__);
         }, {
           name: "USER GROUPS",
           link: null,
+          icon: "mdi-account-supervisor",
+          child: []
+        }, {
+          name: "POSITION",
+          link: '',
+          icon: "mdi-account-supervisor",
+          child: []
+        }, {
+          name: "DIVISION",
+          link: '/app/division',
+          icon: "mdi-account-supervisor",
+          child: []
+        }, {
+          name: "UNIT SECTION",
+          link: '/app/unit_section',
           icon: "mdi-account-supervisor",
           child: []
         }]
@@ -19669,13 +19728,13 @@ var render = function () {
           attrs: {
             data: _vm.users.data,
             paginated: "",
-            "per-page": _vm.users.per_page,
+            "per-page": _vm.users.meta.per_page,
             "pagination-size": "is-small",
             "page-input": "",
             hoverable: "",
             "backend-pagination": "",
-            total: _vm.users.total,
-            "current-page": _vm.users.current_page,
+            total: _vm.users.meta.total,
+            "current-page": _vm.users.meta.current_page,
             "pagination-position": "top",
             "pagination-rounded": "",
             narrowed: "",
@@ -19688,13 +19747,14 @@ var render = function () {
             },
             "header-class": _vm.isTheme ? "bg-black text-white" : "",
             height: "420",
+            c: "",
           },
           on: {
             "update:currentPage": function ($event) {
-              return _vm.$set(_vm.users, "current_page", $event)
+              return _vm.$set(_vm.users.meta, "current_page", $event)
             },
             "update:current-page": function ($event) {
-              return _vm.$set(_vm.users, "current_page", $event)
+              return _vm.$set(_vm.users.meta, "current_page", $event)
             },
             "page-change": _vm.onPageChange,
           },
@@ -19704,24 +19764,26 @@ var render = function () {
               fn: function () {
                 return [
                   _c(
-                    "v-btn",
-                    {
-                      attrs: { elevation: "10", small: "" },
-                      on: {
-                        click: function ($event) {
-                          return _vm.setModal(_vm.user_fields, "Add")
-                        },
-                      },
-                    },
+                    "Link",
+                    { attrs: { href: "/app/users/create", as: "button" } },
                     [
-                      _c("box-icon", {
-                        attrs: {
-                          name: "plus",
-                          animation: "tada-hover",
-                          color: _vm.isTheme ? "white" : "black",
-                        },
-                      }),
-                      _vm._v("\n            Add User\n        "),
+                      _c(
+                        "v-btn",
+                        { attrs: { elevation: "10", link: "", small: "" } },
+                        [
+                          _c("box-icon", {
+                            attrs: {
+                              name: "plus",
+                              animation: "tada-hover",
+                              color: _vm.isTheme ? "white" : "black",
+                            },
+                          }),
+                          _vm._v(
+                            "\n                    Add User\n                "
+                          ),
+                        ],
+                        1
+                      ),
                     ],
                     1
                   ),
@@ -19835,7 +19897,7 @@ var render = function () {
           }),
           _vm._v(" "),
           _c("b-table-column", {
-            attrs: { field: "user.email", label: "Email" },
+            attrs: { field: "email", label: "Email" },
             scopedSlots: _vm._u([
               {
                 key: "default",
@@ -19843,6 +19905,92 @@ var render = function () {
                   return [
                     _vm._v(
                       "\n            " + _vm._s(props.row.email) + "\n        "
+                    ),
+                  ]
+                },
+              },
+            ]),
+          }),
+          _vm._v(" "),
+          _c("b-table-column", {
+            attrs: { field: "position", label: "Position", searchable: "" },
+            scopedSlots: _vm._u([
+              {
+                key: "searchable",
+                fn: function (props) {
+                  return [
+                    _c("b-input", {
+                      attrs: {
+                        placeholder: "Search...",
+                        icon: "magnify",
+                        size: "is-small",
+                      },
+                      model: {
+                        value: _vm.filters.position,
+                        callback: function ($$v) {
+                          _vm.$set(_vm.filters, "position", $$v)
+                        },
+                        expression: "filters.position",
+                      },
+                    }),
+                  ]
+                },
+              },
+              {
+                key: "default",
+                fn: function (props) {
+                  return [
+                    _vm._v(
+                      "\n                " +
+                        _vm._s(props.row.position) +
+                        "\n            "
+                    ),
+                  ]
+                },
+              },
+            ]),
+          }),
+          _vm._v(" "),
+          _c("b-table-column", {
+            attrs: {
+              field: "unit_section",
+              label: "Unit Section",
+              searchable: "",
+            },
+            scopedSlots: _vm._u([
+              {
+                key: "searchable",
+                fn: function (props) {
+                  return [
+                    _c("b-input", {
+                      attrs: {
+                        placeholder: "Search...",
+                        icon: "magnify",
+                        size: "is-small",
+                      },
+                      model: {
+                        value: _vm.filters.unit_section,
+                        callback: function ($$v) {
+                          _vm.$set(_vm.filters, "unit_section", $$v)
+                        },
+                        expression: "filters.unit_section",
+                      },
+                    }),
+                  ]
+                },
+              },
+              {
+                key: "default",
+                fn: function (props) {
+                  return [
+                    _vm._v(
+                      "\n                " +
+                        _vm._s(
+                          props.row.unit_section
+                            ? props.row.unit_section
+                            : "N/A"
+                        ) +
+                        "\n            "
                     ),
                   ]
                 },

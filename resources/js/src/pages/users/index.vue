@@ -3,33 +3,37 @@
         <b-table
             :data="users.data"
             paginated
-            :per-page="users.per_page"
+            :per-page="users.meta.per_page"
             pagination-size="is-small"
             page-input
             hoverable
             backend-pagination
-            :total="users.total"
-            :current-page.sync="users.current_page"
+            :total="users.meta.total"
+            :current-page.sync="users.meta.current_page"
             pagination-position="top"
             pagination-rounded
             @page-change="onPageChange"
             narrowed
             :loading="loading"
-            
             bordered
             sticky-header
-            
             scrollable
-            :row-class="(row, index) => isTheme ? 'bg-black text-white':''"
-             :header-class="isTheme ? 'bg-black text-white':''"
-            height="420"
+            :row-class="(row, index) => (isTheme ? 'bg-black text-white' : '')"
+            :header-class="isTheme ? 'bg-black text-white' : ''"
+            height="420"c 
         >
-        <template #top-left>
-            <v-btn elevation="10" @click="setModal(user_fields, 'Add')" small>
-                <box-icon name="plus" animation="tada-hover" :color="isTheme ? 'white':'black'" ></box-icon>
-                Add User
-            </v-btn>
-        </template>
+            <template #top-left>
+                <Link href="/app/users/create" as="button">
+                    <v-btn elevation="10" link small>
+                        <box-icon
+                            name="plus"
+                            animation="tada-hover"
+                            :color="isTheme ? 'white' : 'black'"
+                        ></box-icon>
+                        Add User
+                    </v-btn>
+                </Link>
+            </template>
             <b-table-column
                 field="id"
                 label="ID"
@@ -65,8 +69,42 @@
                 </template>
             </b-table-column>
 
-            <b-table-column field="user.email" label="Email" v-slot="props">
+            <b-table-column field="email" label="Email" v-slot="props">
                 {{ props.row.email }}
+            </b-table-column>
+
+            <b-table-column field="position" label="Position" searchable>
+                <template #searchable="props">
+                    <b-input
+                        v-model="filters.position"
+                        placeholder="Search..."
+                        icon="magnify"
+                        size="is-small"
+                    />
+                </template>
+                <template v-slot="props">
+                    {{ props.row.position }}
+                </template>
+            </b-table-column>
+
+            <b-table-column
+                field="unit_section"
+                label="Unit Section"
+                searchable
+            >
+                <template #searchable="props">
+                    <b-input
+                        v-model="filters.unit_section"
+                        placeholder="Search..."
+                        icon="magnify"
+                        size="is-small"
+                    />
+                </template>
+                <template v-slot="props">
+                    {{
+                        props.row.unit_section ? props.row.unit_section : "N/A"
+                    }}
+                </template>
             </b-table-column>
 
             <b-table-column field="action" label="" sortable v-slot="props">
@@ -89,7 +127,7 @@
                         name="lock-alt"
                         animation="tada-hover"
                         type="solid"
-                        :color="isTheme ? 'white':'black'"
+                        :color="isTheme ? 'white' : 'black'"
                     ></box-icon
                 ></v-btn>
                 <v-btn icon @click="setModal(props.row, 'Delete')"
@@ -107,7 +145,10 @@
             </template>
         </b-table>
         <CUDUser :modal="user_modal" :close="resetUserModal" />
-        <ChangePassword :modal="change_pass_modal"  :close="resetChangePassModal" />
+        <ChangePassword
+            :modal="change_pass_modal"
+            :close="resetChangePassModal"
+        />
     </DefaultLayout>
 </template>
 
@@ -117,16 +158,18 @@ import CUDUser from "../../components/Users/CUD.vue";
 import ChangePassword from "../../components/Users/ChangePassword.vue";
 import PageMixins from "../../mixins/page";
 import user_modal from "../../mixins/user_modal";
+import { Link } from "@inertiajs/inertia-vue";
 import _ from "lodash";
 export default {
-     metaInfo: {
-      title: 'Users',
+    metaInfo: {
+        title: "Users",
     },
     mixins: [PageMixins, user_modal],
     components: {
         DefaultLayout,
         CUDUser,
         ChangePassword,
+        Link,
     },
     props: {
         users: Object,

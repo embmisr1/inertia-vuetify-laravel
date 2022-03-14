@@ -363,6 +363,21 @@ __webpack_require__.r(__webpack_exports__);
           link: null,
           icon: "mdi-account-supervisor",
           child: []
+        }, {
+          name: "POSITION",
+          link: '',
+          icon: "mdi-account-supervisor",
+          child: []
+        }, {
+          name: "DIVISION",
+          link: '/app/division',
+          icon: "mdi-account-supervisor",
+          child: []
+        }, {
+          name: "UNIT SECTION",
+          link: '/app/unit_section',
+          icon: "mdi-account-supervisor",
+          child: []
         }]
       }, {
         header: "INDUSTRY CONFIGURATION",
