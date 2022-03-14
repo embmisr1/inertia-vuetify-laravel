@@ -301,7 +301,7 @@ var render = function () {
             _c("img", {
               staticClass: "h-24 object-cover ",
               attrs: {
-                src: "http://r1.emb.gov.ph/wp-content/uploads/2016/07/logo.png",
+                src: "http://r1.emb.gov.ph/wp-content/uploads/2022/03/WEBSITE-LOGO_final.png",
                 alt: "EMB - LOGO",
               },
             }),

@@ -314,7 +314,7 @@ __webpack_require__.r(__webpack_exports__);
     titleTemplate: "%s | EMB - Region 1 - Unisys",
     link: [{
       rel: "icon",
-      href: "https://r1.emb.gov.ph/wp-content/uploads/2016/08/cropped-denr-logo2-32x32.png"
+      href: "http://r1.emb.gov.ph/wp-content/uploads/2022/03/DENR-LOGO.png"
     }],
     author: [{
       name: "Allan Daryl Ancheta",
