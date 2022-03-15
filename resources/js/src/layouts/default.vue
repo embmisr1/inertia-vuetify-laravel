@@ -40,7 +40,7 @@
             >
                 <template v-slot:activator="{ on, attrs }">
                     <img
-                        src="http://r1.emb.gov.ph/wp-content/uploads/2016/08/cropped-denr-logo2.png"
+                        src="http://r1.emb.gov.ph/wp-content/uploads/2022/03/cropped-DENR-LOGO.png"
                         alt="DENR - EMB Region 1"
                         class="max-h-12 object-cover"
                         v-bind="attrs"
