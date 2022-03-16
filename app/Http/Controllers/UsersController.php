@@ -52,7 +52,8 @@ class UsersController extends Controller
                 }),
                 "unit_section" =>  Cache::remember('unit_section_all', 60, function () {
                     return  UnitSection::select('id', 'name')->get();
-                })
+                }),
+                "user"=>array("data"=>null)
             )
         ]);
     }
@@ -90,9 +91,19 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit( User $user)
     {
-        //
+        return Inertia::render("Pages/users/create", [
+            'data' => array(
+                "position" =>  Cache::remember('position_all', 60, function () {
+                    return  Position::select('id', 'name')->get();
+                }),
+                "unit_section" =>  Cache::remember('unit_section_all', 60, function () {
+                    return  UnitSection::select('id', 'name')->get();
+                }),
+                "user"=> new UsersResource($user)
+            )
+        ]);
     }
 
     /**
