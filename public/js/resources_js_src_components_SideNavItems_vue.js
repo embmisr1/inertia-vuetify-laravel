@@ -61,6 +61,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
@@ -173,7 +174,11 @@ var render = function () {
     _vm._l(_vm.items, function (item, index) {
       return _c(
         "v-list",
-        { key: index, staticClass: "overflow-hidden  ", attrs: { dense: "" } },
+        {
+          key: index,
+          staticClass: "overflow-hidden  ",
+          attrs: { dense: "", nav: "" },
+        },
         [
           _c("v-subheader", [_vm._v(_vm._s(item.header))]),
           _vm._v(" "),

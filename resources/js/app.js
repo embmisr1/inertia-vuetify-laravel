@@ -8,7 +8,9 @@ import VueMeta from './src/plugins/vue-meta'
 import { InertiaProgress } from '@inertiajs/progress'
 import  './src/plugins/vee-validate'
 
-InertiaProgress.init()
+InertiaProgress.init({
+  showSpinner: true,
+})
 
 createInertiaApp({
   resolve: name => import(`./src/${name}`),

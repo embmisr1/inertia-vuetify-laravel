@@ -145,6 +145,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 
@@ -238,6 +240,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @inertiajs/inertia-vue */ "./node_modules/@inertiajs/inertia-vue/dist/index.js");
+//
 //
 //
 //
@@ -696,7 +699,7 @@ __webpack_require__.r(__webpack_exports__);
           child: []
         }, {
           name: "POSITION",
-          link: '',
+          link: '/app/position',
           icon: "mdi-account-supervisor",
           child: []
         }, {
@@ -19666,7 +19669,9 @@ var render = function () {
                   return [
                     _vm._v(
                       "\n                " +
-                        _vm._s(props.row.division) +
+                        _vm._s(
+                          props.row.division ? props.row.division : "N/A"
+                        ) +
                         "\n            "
                     ),
                   ]
@@ -19842,7 +19847,11 @@ var render = function () {
     _vm._l(_vm.items, function (item, index) {
       return _c(
         "v-list",
-        { key: index, staticClass: "overflow-hidden  ", attrs: { dense: "" } },
+        {
+          key: index,
+          staticClass: "overflow-hidden  ",
+          attrs: { dense: "", nav: "" },
+        },
         [
           _c("v-subheader", [_vm._v(_vm._s(item.header))]),
           _vm._v(" "),
@@ -20275,7 +20284,7 @@ var render = function () {
                             {
                               staticClass: "max-h-12 object-cover",
                               attrs: {
-                                src: "http://r1.emb.gov.ph/wp-content/uploads/2016/08/cropped-denr-logo2.png",
+                                src: "http://r1.emb.gov.ph/wp-content/uploads/2022/03/cropped-DENR-LOGO.png",
                                 alt: "DENR - EMB Region 1",
                               },
                             },

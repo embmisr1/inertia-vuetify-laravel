@@ -25,12 +25,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _layouts_default_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../layouts/default.vue */ "./resources/js/src/layouts/default.vue");
+/* harmony import */ var _mixins_toasts__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../mixins/toasts */ "./resources/js/src/mixins/toasts.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -141,11 +148,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
     DefaultLayout: _layouts_default_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   props: ["data"],
+  mixins: [_mixins_toasts__WEBPACK_IMPORTED_MODULE_2__["default"]],
   data: function data() {
     return {
       dropFiles: null,
@@ -165,7 +174,16 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     },
     unit_section_data: function unit_section_data() {
       return this.data.unit_section;
+    },
+    user_data: function user_data() {
+      return _objectSpread({}, this.data.user.data);
+    },
+    formType: function formType() {
+      return Object.keys(this.user_data).length ? "update" : "create";
     }
+  },
+  mounted: function mounted() {
+    this.form = _objectSpread(_objectSpread({}, this.form), this.user_data);
   },
   methods: {
     submitForm: function submitForm() {
@@ -177,24 +195,39 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context.prev = _context.next) {
               case 0:
                 _context.prev = 0;
-                _context.next = 3;
-                return _this.form.post("/app/users/");
-
-              case 3:
-                _context.next = 8;
+                _context.t0 = _this.formType;
+                _context.next = _context.t0 === "update" ? 4 : 7;
                 break;
 
-              case 5:
-                _context.prev = 5;
-                _context.t0 = _context["catch"](0);
-                console.log(_context.t0);
+              case 4:
+                _this.form.patch("/app/users/".concat(_this.form.id));
 
-              case 8:
+                _this.success("User Updated Successfully");
+
+                return _context.abrupt("break", 9);
+
+              case 7:
+                _this.form.post("/app/users/");
+
+                return _context.abrupt("break", 9);
+
+              case 9:
+                _context.next = 15;
+                break;
+
+              case 11:
+                _context.prev = 11;
+                _context.t1 = _context["catch"](0);
+                console.log(_context.t1);
+
+                _this.success("Failed Successfully");
+
+              case 15:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, null, [[0, 5]]);
+        }, _callee, null, [[0, 11]]);
       }))();
     }
   }
@@ -269,6 +302,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @inertiajs/inertia-vue */ "./node_modules/@inertiajs/inertia-vue/dist/index.js");
+//
 //
 //
 //
@@ -569,7 +603,7 @@ __webpack_require__.r(__webpack_exports__);
           child: []
         }, {
           name: "POSITION",
-          link: '',
+          link: '/app/position',
           icon: "mdi-account-supervisor",
           child: []
         }, {
@@ -662,6 +696,50 @@ __webpack_require__.r(__webpack_exports__);
   computed: {
     isDark: function isDark() {
       return this.$vuetify.theme.dark;
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/src/mixins/toasts.js":
+/*!*******************************************!*\
+  !*** ./resources/js/src/mixins/toasts.js ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  methods: {
+    success: function success() {
+      var message = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "No Message";
+      this.$buefy.toast.open({
+        message: message,
+        type: "is-success",
+        position: "is-top-right",
+        queue: false
+      });
+    },
+    error: function error() {
+      var message = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "No Message";
+      this.$buefy.toast.open({
+        message: message,
+        type: "is-danger",
+        position: "is-top-right",
+        queue: false
+      });
+    },
+    info: function info() {
+      var message = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "No Message";
+      this.$buefy.toast.open({
+        message: message,
+        position: "is-top-right",
+        queue: false
+      });
     }
   }
 });
@@ -2114,7 +2192,11 @@ var render = function () {
     _vm._l(_vm.items, function (item, index) {
       return _c(
         "v-list",
-        { key: index, staticClass: "overflow-hidden  ", attrs: { dense: "" } },
+        {
+          key: index,
+          staticClass: "overflow-hidden  ",
+          attrs: { dense: "", nav: "" },
+        },
         [
           _c("v-subheader", [_vm._v(_vm._s(item.header))]),
           _vm._v(" "),
@@ -2309,7 +2391,7 @@ var render = function () {
                             {
                               staticClass: "max-h-12 object-cover",
                               attrs: {
-                                src: "http://r1.emb.gov.ph/wp-content/uploads/2016/08/cropped-denr-logo2.png",
+                                src: "http://r1.emb.gov.ph/wp-content/uploads/2022/03/cropped-DENR-LOGO.png",
                                 alt: "DENR - EMB Region 1",
                               },
                             },
