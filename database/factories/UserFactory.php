@@ -16,7 +16,7 @@ class UserFactory extends Factory
     {
         return [
             'position_id' => 1,
-            'unit_section_id' => 1,
+            'unit_section_id' => null,
 
             'username' => $this->faker->username(),
             'email' => $this->faker->unique()->safeEmail(),
