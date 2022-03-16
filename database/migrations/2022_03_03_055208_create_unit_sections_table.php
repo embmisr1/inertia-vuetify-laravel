@@ -15,9 +15,11 @@ class CreateUnitSectionsTable extends Migration
     {
         Schema::create('unit_sections', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('division_id');
+            $table->unsignedBigInteger('division_id')->nullable();
             $table->string('name');
             $table->timestamps();
+
+            $table->foreign('division_id')->references('id')->on('divisions')->onUpdate('cascade')->nullOnDelete();
         });
     }
 

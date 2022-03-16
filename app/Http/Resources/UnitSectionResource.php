@@ -17,8 +17,8 @@ class UnitSectionResource extends JsonResource
         return [
             "id"=>$this->id,
             "name"=>$this->name,
-            "division"=>$this->division->name,
-            "division_id"=>$this->division_id,
+            "division"=>$this->division ? $this->division->name :NULL,
+            "division_id"=>$this->division_id ?? null,
         ];
     }
 }

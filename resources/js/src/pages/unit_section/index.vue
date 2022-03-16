@@ -24,7 +24,11 @@
             c
         >
             <template #top-left>
-                <v-btn elevation="10" small @click="setModal(unit_section_field, 'Add')">
+                <v-btn
+                    elevation="10"
+                    small
+                    @click="setModal(unit_section_field, 'Add')"
+                >
                     <box-icon
                         name="plus"
                         animation="tada-hover"
@@ -78,9 +82,7 @@
                     />
                 </template>
                 <template v-slot="props">
-                    {{
-                        props.row.division
-                    }}
+                    {{ props.row.division ? props.row.division : "N/A" }}
                 </template>
             </b-table-column>
 
@@ -129,14 +131,14 @@ export default {
         Link,
         CUDUnitSection,
     },
-    data(){
-        return{
-            unit_section_field:{
-                name:"",
-                division_id:""
-            }
-        }
-    }
+    data() {
+        return {
+            unit_section_field: {
+                name: "",
+                division_id: "",
+            },
+        };
+    },
 };
 </script>
 
