@@ -108,13 +108,23 @@
             </b-table-column>
 
             <b-table-column field="action" label="" sortable v-slot="props">
-                <v-btn icon @click="setModal(props.row, 'Update')"
+                <!-- <v-btn icon @click="setModal(props.row, 'Update')"
                     ><box-icon
                         name="edit"
                         color="orange"
                         animation="tada-hover"
                     ></box-icon
-                ></v-btn>
+                ></v-btn> -->
+                 <Link :href="`/app/users/${props.row.id}`" as="button">
+                    <v-btn link small icon>
+                        <box-icon
+                        name="edit"
+                        color="orange"
+                        animation="tada-hover"
+                    ></box-icon
+                >
+                    </v-btn>
+                </Link>
                 <v-btn
                     icon
                     @click="

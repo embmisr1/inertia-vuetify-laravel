@@ -20,6 +20,8 @@ class UsersResource extends JsonResource
             "email" => $this->email,
             "position" => $this->position->name,
             "unit_section" => $this->unit_section->name ?? null, 
+            "position_id" => $this->position_id,
+            "unit_section_id" => $this->unit_section_id ?? null, 
         ];
     }
 }
