@@ -252,7 +252,7 @@ export default {
                         },
                         {
                             name: "POSITION",
-                            link: '',
+                            link: '/app/position',
                             icon: "mdi-account-supervisor",
                             child: [],
                         },

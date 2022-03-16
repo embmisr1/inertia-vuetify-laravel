@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Dashboard;
 use App\Http\Controllers\DivisionController;
+use App\Http\Controllers\PositionController;
 use App\Http\Controllers\Profile;
 use App\Http\Controllers\UnitSectionController;
 use App\Http\Controllers\UsersController;
@@ -45,7 +46,11 @@ Route::group([
   Route::get('/users', [UsersController::class, 'index'])->name("users");
   Route::get('/users/create', [UsersController::class, 'create'])->name("users.create");
   Route::post('/users', [UsersController::class, 'store'])->name("users.store");
+
+  Route::get('/users/{user}', [UsersController::class, 'edit'])->name("users.show");
+
   Route::patch('/users/{user}', [UsersController::class, 'update'])->name("users.update");
+  
   Route::delete('/users/{user}', [UsersController::class, 'destroy'])->name("users.destroy");
 
   Route::get('/unit_section', [UnitSectionController ::class, 'index'])->name("unit_section.index");
@@ -57,4 +62,9 @@ Route::group([
   Route::post('/division', [DivisionController::class, 'store'])->name("division.store");
   Route::patch('/division/{division}', [DivisionController::class, 'update'])->name("division.update");
   Route::delete('/division/{division}', [DivisionController::class, 'destroy'])->name("division.delete");
+
+  Route::get('/position', [PositionController::class, 'index'])->name("position.index");
+  Route::post('/position', [PositionController::class, 'store'])->name("position.store");
+  Route::patch('/position/{position}', [PositionController::class, 'update'])->name("position.update");
+  Route::delete('/position/{position}', [PositionController::class, 'destroy'])->name("position.delete");
 });

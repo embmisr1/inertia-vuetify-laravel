@@ -4,6 +4,7 @@
             v-for="(item, index) in items"
             :key="index"
             dense
+            nav
             class="overflow-hidden  "
         >
             <v-subheader>{{ item.header }}</v-subheader>
