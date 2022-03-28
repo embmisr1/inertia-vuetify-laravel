@@ -18,7 +18,7 @@ class AuthController extends Controller
      */
     public function index()
     {
-        return inertia("Pages/index");
+        return inertia("pages/index");
     }
 
     /**

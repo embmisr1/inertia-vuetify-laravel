@@ -20,7 +20,7 @@ class PositionController extends Controller
      */
     public function index()
     {
-        return Inertia::render("Pages/position",[
+        return Inertia::render("pages/position",[
             'filters' => Request::all('name', 'id'),
             "position_data"=> PositionResource::collection((new  PositionFilter)->get())
         ]);

@@ -21,7 +21,7 @@ class DivisionController extends Controller
      */
     public function index()
     {
-        return Inertia::render('Pages/division',[
+        return Inertia::render('pages/division',[
             'filters' => Request ::all('name', 'id'),
             "division_data"=> DivisionResource::collection((new  DivisionFilter)->get())
         ]);

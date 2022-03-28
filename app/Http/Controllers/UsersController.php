@@ -29,7 +29,7 @@ class UsersController extends Controller
 
         // Cache::flush();
         // dd(Cache::has("Users-index-page"));
-        return Inertia::render("Pages/users/", [
+        return Inertia::render("pages/users/", [
             'filters' => Request::all('username', 'id', 'position', 'unit_section',),
             // 'users' =>  Cache::remember("Users-index-page", 60, function () {
             //     return UsersResource::collection((new UsersFilter)->get());
