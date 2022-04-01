@@ -128,6 +128,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
@@ -19891,9 +19898,29 @@ var render = function () {
                       _c(
                         "v-list-item-content",
                         [
-                          _c("v-list-item-title", {
-                            domProps: { textContent: _vm._s(childItem.name) },
-                          }),
+                          !childItem.link
+                            ? _c("v-list-item-subtitle", {
+                                domProps: {
+                                  textContent: _vm._s(childItem.name),
+                                },
+                              })
+                            : _c(
+                                "v-list-item-subtitle",
+                                [
+                                  _c(
+                                    "Link",
+                                    {
+                                      attrs: {
+                                        href: childItem.link,
+                                        as: "button",
+                                        "preserve-scroll": "",
+                                      },
+                                    },
+                                    [_vm._v(_vm._s(childItem.name))]
+                                  ),
+                                ],
+                                1
+                              ),
                         ],
                         1
                       ),

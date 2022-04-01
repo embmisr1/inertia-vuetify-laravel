@@ -38,9 +38,16 @@
                         </v-icon>
                     </v-list-item-icon>
                     <v-list-item-content>
-                        <v-list-item-title
+                         <v-list-item-subtitle
+                            v-if="!childItem.link"
                             v-text="childItem.name"
-                        ></v-list-item-title>
+                        ></v-list-item-subtitle>
+                        <v-list-item-subtitle v-else>
+                            <Link :href="childItem.link" as="button" preserve-scroll>{{ childItem.name }}</Link>
+                        </v-list-item-subtitle>
+                        <!-- <v-list-item-title
+                            v-text="childItem.name"
+                        ></v-list-item-title> -->
                     </v-list-item-content>
                 </v-list-item>
             </v-list-group>
