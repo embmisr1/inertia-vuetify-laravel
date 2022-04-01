@@ -134,7 +134,7 @@ export default {
                                 },
                                 {
                                     name: "Universe",
-                                    link: "",
+                                    link: "/app/universe/",
                                     icon: "mdi-link",
                                 },
                                 {

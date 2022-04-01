@@ -20,7 +20,7 @@
             scrollable
             :row-class="(row, index) => (isTheme ? 'bg-black text-white' : '')"
             :header-class="isTheme ? 'bg-black text-white' : ''"
-            height="420"c 
+            height="420"
         >
             <template #top-left>
                 <Link href="/app/users/create" as="button">

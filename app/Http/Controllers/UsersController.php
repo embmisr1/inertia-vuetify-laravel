@@ -45,7 +45,7 @@ class UsersController extends Controller
      */
     public function create()
     {
-        return Inertia::render("Pages/users/create", [
+        return Inertia::render("pages/users/create", [
             'data' => array(
                 "position" =>  Cache::remember('position_all', 60, function () {
                     return  Position::select('id', 'name')->get();
@@ -93,7 +93,7 @@ class UsersController extends Controller
      */
     public function edit( User $user)
     {
-        return Inertia::render("Pages/users/create", [
+        return Inertia::render("pages/users/create", [
             'data' => array(
                 "position" =>  Cache::remember('position_all', 60, function () {
                     return  Position::select('id', 'name')->get();

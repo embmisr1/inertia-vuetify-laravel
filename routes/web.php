@@ -7,6 +7,7 @@ use App\Http\Controllers\PositionController;
 use App\Http\Controllers\Profile;
 use App\Http\Controllers\UnitSectionController;
 use App\Http\Controllers\UsersController;
+use App\Http\Controllers\UniverseController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -67,4 +68,9 @@ Route::group([
   Route::post('/position', [PositionController::class, 'store'])->name("position.store");
   Route::patch('/position/{position}', [PositionController::class, 'update'])->name("position.update");
   Route::delete('/position/{position}', [PositionController::class, 'destroy'])->name("position.delete");
+
+  // OWENS
+  Route::get('/universe', [UniverseController::class, 'universe_list'])->name("universe");
+  // Route::get('/universe/create', [UniverseController::class, 'create'])->name("users.create");
+  // Route::post('/universe', [UniverseController::class, 'store'])->name("users.store");
 });

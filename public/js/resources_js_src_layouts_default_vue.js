@@ -277,7 +277,7 @@ __webpack_require__.r(__webpack_exports__);
             icon: "mdi-link"
           }, {
             name: "Universe",
-            link: "",
+            link: "/app/universe/",
             icon: "mdi-link"
           }, {
             name: "Activity Log",
