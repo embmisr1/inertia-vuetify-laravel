@@ -70,7 +70,11 @@ Route::group([
   Route::delete('/position/{position}', [PositionController::class, 'destroy'])->name("position.delete");
 
   // OWENS
-  Route::get('/universe', [UniverseController::class, 'universe_list'])->name("universe");
-  // Route::get('/universe/create', [UniverseController::class, 'create'])->name("users.create");
-  // Route::post('/universe', [UniverseController::class, 'store'])->name("users.store");
+
+  // GET REQUESTS
+  Route::get('/universe', [UniverseController::class, 'universe_list'])->name("universe_list");
+  Route::get('/universe_form', [UniverseController::class, 'universe_form'])->name("universe_form");
+  Route::get('/universe_form/{id}', [UniverseController::class, 'universe_form'])->name("universe_form_id");
+  // POST REQUESTS
+  Route::post('/universe_process', [UniverseController::class, 'universe_process'])->name("universe_process");
 });

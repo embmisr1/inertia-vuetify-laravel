@@ -7,8 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Universe extends Model
 {
+    protected $table = 'universe';
     use HasFactory;
-    protected $fillable = [
-        'firm_name',
-    ];
+    // protected $fillable = [
+    //     'firm_name',
+    // ];
 }
