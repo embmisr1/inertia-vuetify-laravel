@@ -71,32 +71,5 @@ export default {
         query: Object,
     },
     data: () => ({}),
-    computed:{
-        form_basic_info(){
-            if(this.query){
-                return {...this.query}
-            }else{
-                return {
-                    id: '',
-                    firm_name: '',
-                    proponent: '',
-                    crs_number: '',
-                    universe_type: '',
-                }
-            }
-        }
-    },
-    methods: {
-      async submit_basic_info(){
-        await this.$inertia.post("/app/universe_process", {
-            // id:this.form_basic_info.id,
-            // firm_name:this.form_basic_info.firm_name,
-            // proponent:this.form_basic_info.proponent,
-            // crs_number:this.form_basic_info.crs_number,
-            // universe_type:this.form_basic_info.universe_type,
-            ...this.form_basic_info
-        });
-      },
-    },
 };
 </script>
