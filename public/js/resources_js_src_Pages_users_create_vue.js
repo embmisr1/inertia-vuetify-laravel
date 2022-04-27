@@ -300,6 +300,10 @@ __webpack_require__.r(__webpack_exports__);
             link: "/app/universe/",
             icon: "mdi-link"
           }, {
+            name: "Universe Registration",
+            link: "/app/universe_form/",
+            icon: "mdi-link"
+          }, {
             name: "Activity Log",
             link: "",
             icon: "mdi-link"

@@ -138,6 +138,11 @@ export default {
                                     icon: "mdi-link",
                                 },
                                 {
+                                    name: "Universe Registration",
+                                    link: "/app/universe_form/",
+                                    icon: "mdi-link",
+                                },
+                                {
                                     name: "Activity Log",
                                     link: "",
                                     icon: "mdi-link",
