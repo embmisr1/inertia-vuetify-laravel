@@ -250,7 +250,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     modal: Object,
@@ -19801,16 +19800,7 @@ var render = function () {
                                                   attrs: {
                                                     items:
                                                       _vm.division_data.data,
-                                                    "item-text": function (
-                                                      item
-                                                    ) {
-                                                      return item.name
-                                                    },
-                                                    "item-value": function (
-                                                      item
-                                                    ) {
-                                                      return item.id
-                                                    },
+                                                    ack: "",
                                                     outlined: "",
                                                     filled: "",
                                                     "prepend-icon":

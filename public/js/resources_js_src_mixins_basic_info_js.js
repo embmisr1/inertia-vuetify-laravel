@@ -37,40 +37,62 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  computed: {
-    form_basic_info: function form_basic_info() {
-      if (this.query) {
-        return _objectSpread({}, this.query);
-      } else {
-        return {
-          id: '',
-          firm_name: '',
-          proponent: '',
-          crs_number: '',
-          universe_type: ''
-        };
-      }
-    }
+  data: function data() {
+    return {
+      form_basic_info: _objectSpread({
+        firm_name: "",
+        proponent: "",
+        crs_number: "",
+        universe_type: ""
+      }, this.query)
+    };
+  },
+  computed: {// form_basic_info() {
+    //     if(this.query){
+    //         return {...this.query}
+    //     }else{
+    //         return {
+    //             id: '',
+    //             firm_name: '',
+    //             proponent: '',
+    //             crs_number: '',
+    //             universe_type: '',
+    //         }
+    //     }
+    // },
   },
   methods: {
     submit_basic_info: function submit_basic_info() {
       var _this = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+        var data;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                _context.next = 2;
-                return _this.$inertia.post("/app/universe_process", _objectSpread({}, _this.form_basic_info));
+                data = _objectSpread({}, _this.form_basic_info);
+                _context.next = 3;
+                return _this.$inertia.post("/app/universe_process", _objectSpread({}, data));
 
-              case 2:
+              case 3:
+                _this.reset_basic_info();
+
+              case 4:
               case "end":
                 return _context.stop();
             }
           }
         }, _callee);
       }))();
+    },
+    reset_basic_info: function reset_basic_info() {
+      this.form_basic_info = {
+        firm_name: "",
+        proponent: "",
+        crs_number: "",
+        universe_type: ""
+      };
     }
   }
 });
