@@ -1,5 +1,16 @@
 <template>
     <DefaultLayout>
+        <Link href="/app/users/create" as="button">
+            <v-btn elevation="10" link small>
+                <box-icon
+                    name="plus"
+                    animation="tada-hover"
+                    :color="isTheme ? 'white' : 'black'"
+                ></box-icon>
+                Add User
+            </v-btn>
+        </Link>
+        
         <b-table
             :data="users.data"
             paginated
@@ -22,18 +33,6 @@
             :header-class="isTheme ? 'bg-black text-white' : ''"
             height="420"
         >
-            <template #top-left>
-                <Link href="/app/users/create" as="button">
-                    <v-btn elevation="10" link small>
-                        <box-icon
-                            name="plus"
-                            animation="tada-hover"
-                            :color="isTheme ? 'white' : 'black'"
-                        ></box-icon>
-                        Add User
-                    </v-btn>
-                </Link>
-            </template>
             <b-table-column
                 field="id"
                 label="ID"
@@ -115,14 +114,13 @@
                         animation="tada-hover"
                     ></box-icon
                 ></v-btn> -->
-                 <Link :href="`/app/users/${props.row.id}`" as="button">
+                <Link :href="`/app/users/${props.row.id}`" as="button">
                     <v-btn link small icon>
                         <box-icon
-                        name="edit"
-                        color="orange"
-                        animation="tada-hover"
-                    ></box-icon
-                >
+                            name="edit"
+                            color="orange"
+                            animation="tada-hover"
+                        ></box-icon>
                     </v-btn>
                 </Link>
                 <v-btn

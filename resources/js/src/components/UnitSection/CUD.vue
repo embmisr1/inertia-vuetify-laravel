@@ -42,8 +42,7 @@
                                 <v-select
                                     v-model="modal.form.division_id"
                                     :items="division_data.data"
-                                    :item-text="(item) => item.name"
-                                    :item-value="(item) => item.id"
+                                  ack
                                     outlined
                                     filled
                                     prepend-icon="mdi-account-details"
