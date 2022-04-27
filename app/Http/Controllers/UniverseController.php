@@ -38,7 +38,9 @@ class UniverseController extends Controller
             ]);
         }else{
             $id = $this->universe_process_create($request);
-            return Redirect::route('universe_form');
+            return Redirect::route('universe_form_id',[
+                'id'=>$id,
+            ]);
         }
     }
     

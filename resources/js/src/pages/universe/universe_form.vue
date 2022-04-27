@@ -2,6 +2,9 @@
     <DefaultLayout>
             <v-form @submit.prevent="submit_basic_info">
                 <v-card class="white mt-10 p-5" elevation="2">
+                    <Link class="btn btn-blue" href="/app/universe_form/">
+                        New Registration
+                    </Link>
                     <v-card
                         class="mx-auto"
                         color="#1976D2"
@@ -42,10 +45,17 @@
                                 clearable
                             ></v-text-field>
                         </div>
+                        <div hidden>
+                            <v-text-field
+                                v-model="form_basic_info.id"
+                                label="Outlined"
+                                clearable
+                            ></v-text-field>
+                        </div>
                         <div>
-                            <v-btn depressed color="primary" type="submit" v-model="form_basic_info.id">
-                                Submit
-                            </v-btn>
+                                <v-btn depressed color="primary" type="submit">
+                                    Submit
+                                </v-btn>
                         </div>
                     </div>
                 </v-card>
