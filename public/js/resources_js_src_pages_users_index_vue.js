@@ -907,8 +907,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
 
 
 
@@ -20403,6 +20401,29 @@ var render = function () {
     "DefaultLayout",
     [
       _c(
+        "Link",
+        { attrs: { href: "/app/users/create", as: "button" } },
+        [
+          _c(
+            "v-btn",
+            { attrs: { elevation: "10", link: "", small: "" } },
+            [
+              _c("box-icon", {
+                attrs: {
+                  name: "plus",
+                  animation: "tada-hover",
+                  color: _vm.isTheme ? "white" : "black",
+                },
+              }),
+              _vm._v("\n            Add User\n        "),
+            ],
+            1
+          ),
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
         "b-table",
         {
           attrs: {
@@ -20439,38 +20460,6 @@ var render = function () {
           },
           scopedSlots: _vm._u([
             {
-              key: "top-left",
-              fn: function () {
-                return [
-                  _c(
-                    "Link",
-                    { attrs: { href: "/app/users/create", as: "button" } },
-                    [
-                      _c(
-                        "v-btn",
-                        { attrs: { elevation: "10", link: "", small: "" } },
-                        [
-                          _c("box-icon", {
-                            attrs: {
-                              name: "plus",
-                              animation: "tada-hover",
-                              color: _vm.isTheme ? "white" : "black",
-                            },
-                          }),
-                          _vm._v(
-                            "\n                    Add User\n                "
-                          ),
-                        ],
-                        1
-                      ),
-                    ],
-                    1
-                  ),
-                ]
-              },
-              proxy: true,
-            },
-            {
               key: "empty",
               fn: function () {
                 return [
@@ -20489,7 +20478,6 @@ var render = function () {
           ]),
         },
         [
-          _vm._v(" "),
           _c("b-table-column", {
             attrs: {
               field: "id",
