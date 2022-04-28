@@ -567,8 +567,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
+ // import ModalConfirm from "./modals/confirm_modal";
 
 
  // import _ from "lodash";
@@ -577,7 +576,8 @@ __webpack_require__.r(__webpack_exports__);
   mixins: [_mixins_basic_info__WEBPACK_IMPORTED_MODULE_1__["default"]],
   components: {
     DefaultLayout: _layouts_default_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
-    Link: _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_2__.Link
+    Link: _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_2__.Link // ModalConfirm,
+
   },
   props: {
     query: Object
@@ -625,20 +625,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }, this.query)
     };
   },
-  computed: {// form_basic_info() {
-    //     if(this.query){
-    //         return {...this.query}
-    //     }else{
-    //         return {
-    //             id: '',
-    //             firm_name: '',
-    //             proponent: '',
-    //             crs_number: '',
-    //             universe_type: '',
-    //         }
-    //     }
-    // },
-  },
   methods: {
     submit_basic_info: function submit_basic_info() {
       var _this = this;
@@ -649,14 +635,19 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
+                if (!confirm('Do you want to proceed?')) {
+                  _context.next = 5;
+                  break;
+                }
+
                 data = _objectSpread({}, _this.form_basic_info);
-                _context.next = 3;
+                _context.next = 4;
                 return _this.$inertia.post("/app/universe_process", _objectSpread({}, data));
 
-              case 3:
+              case 4:
                 _this.reset_basic_info();
 
-              case 4:
+              case 5:
               case "end":
                 return _context.stop();
             }
@@ -2158,19 +2149,6 @@ var render = function () {
             { staticClass: "white mt-10 p-5", attrs: { elevation: "2" } },
             [
               _c(
-                "Link",
-                {
-                  staticClass: "btn btn-blue",
-                  attrs: { href: "/app/universe_form/" },
-                },
-                [
-                  _vm._v(
-                    "\n                    New Registration\n                "
-                  ),
-                ]
-              ),
-              _vm._v(" "),
-              _c(
                 "v-card",
                 {
                   staticClass: "mx-auto",
@@ -2300,6 +2278,8 @@ var render = function () {
         ],
         1
       ),
+      _vm._v(" "),
+      _c("ModalConfirm"),
     ],
     1
   )

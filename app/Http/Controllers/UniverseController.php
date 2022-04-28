@@ -38,11 +38,7 @@ class UniverseController extends Controller
             ]);
         }else{
             $id = $this->universe_process_create($request);
-            // return Redirect::route('universe_form_id',[
-            //     'id'=>$id,
-            // ]);
-            // return Inertia::render("pages/universe/universe_form");
-            return back();
+            return Redirect::route('universe_form');
         }
     }
     

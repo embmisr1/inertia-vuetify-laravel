@@ -2,9 +2,6 @@
     <DefaultLayout>
             <v-form @submit.prevent="submit_basic_info">
                 <v-card class="white mt-10 p-5" elevation="2">
-                    <Link class="btn btn-blue" href="/app/universe_form/">
-                        New Registration
-                    </Link>
                     <v-card
                         class="mx-auto"
                         color="#1976D2"
@@ -60,12 +57,14 @@
                     </div>
                 </v-card>
             </v-form>
+            <ModalConfirm></ModalConfirm>
         <!-- {{query}} -->
     </DefaultLayout>
 </template>
 
 <script>
 import DefaultLayout from "../../layouts/default.vue";
+// import ModalConfirm from "./modals/confirm_modal";
 import BasicInfo from "../../mixins/basic_info";
 import { Link } from "@inertiajs/inertia-vue";
 // import _ from "lodash";
@@ -76,6 +75,7 @@ export default {
     components: {
         DefaultLayout,
         Link,
+        // ModalConfirm,
     },
     props: {
         query: Object,
