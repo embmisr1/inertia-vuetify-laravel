@@ -47,20 +47,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }, this.query)
     };
   },
-  computed: {// form_basic_info() {
-    //     if(this.query){
-    //         return {...this.query}
-    //     }else{
-    //         return {
-    //             id: '',
-    //             firm_name: '',
-    //             proponent: '',
-    //             crs_number: '',
-    //             universe_type: '',
-    //         }
-    //     }
-    // },
-  },
   methods: {
     submit_basic_info: function submit_basic_info() {
       var _this = this;
@@ -71,14 +57,19 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
+                if (!confirm('Do you want to proceed?')) {
+                  _context.next = 5;
+                  break;
+                }
+
                 data = _objectSpread({}, _this.form_basic_info);
-                _context.next = 3;
+                _context.next = 4;
                 return _this.$inertia.post("/app/universe_process", _objectSpread({}, data));
 
-              case 3:
+              case 4:
                 _this.reset_basic_info();
 
-              case 4:
+              case 5:
               case "end":
                 return _context.stop();
             }
