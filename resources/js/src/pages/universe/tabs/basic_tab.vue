@@ -12,16 +12,128 @@
                     v-model="basic_tab"
                     align-with-title
                 >
-                <v-tab>Representative</v-tab>
-                <v-tab>PCO</v-tab>
-                <v-tab>PSIC CODE</v-tab>
-                <v-tab>Project Type</v-tab>
-                <v-tab>Status</v-tab>
+                <v-tab>
+                    <v-icon>mdi-information-outline</v-icon>&nbsp;Basic Information
+                </v-tab>
+                <v-tab>
+                    <v-icon>mdi-information-outline</v-icon>&nbsp;Project Location
+                </v-tab>
+                <v-tab>
+                    <v-icon>mdi-information-outline</v-icon>&nbsp;Representative
+                </v-tab>
+                <v-tab>
+                    <v-icon>mdi-information-outline</v-icon>&nbsp;PCO
+                </v-tab>
+                <v-tab>
+                    <v-icon>mdi-information-outline</v-icon>&nbsp;PSIC CODE
+                </v-tab>
+                <v-tab>
+                    <v-icon>mdi-information-outline</v-icon>&nbsp;Project Type
+                </v-tab>
+                <v-tab>
+                    <v-icon>mdi-information-outline</v-icon>&nbsp;Status
+                </v-tab>
                 </v-tabs>
           </template>
         </v-toolbar>
 
         <v-tabs-items v-model="basic_tab">
+          <v-tab-item>
+            <div class="grid grid-cols-4 gap-y-0 gap-x-4 mt-0 ml-8">
+                    <div>
+                        <v-text-field
+                            v-model="form_basic_info.firm_name"
+                            label="Firm Name"
+                            clearable
+                        ></v-text-field>
+                    </div>
+                    <div>
+                        <v-text-field
+                            v-model="form_basic_info.proponent"
+                            label="Proponent"
+                            clearable
+                        ></v-text-field>
+                    </div>
+                    <div>
+                        <v-text-field
+                            v-model="form_basic_info.crs_number"
+                            label="CRS No."
+                            clearable
+                        ></v-text-field>
+                    </div>
+                    <div>
+                        <v-text-field
+                            v-model="form_basic_info.universe_type"
+                            label="Universe Type"
+                            clearable
+                        ></v-text-field>
+                    </div>
+                    <div hidden>
+                        <v-text-field
+                            v-model="form_basic_info.id"
+                            label="Outlined"
+                            clearable
+                        ></v-text-field>
+                    </div>
+            </div>
+          </v-tab-item>
+          <v-tab-item>
+            <div class="grid grid-cols-3 gap-y-0 gap-x-4 ml-8">
+                    <div>
+                        <v-text-field
+                            v-model="form_basic_info.province"
+                            label="Province"
+                            clearable
+                        ></v-text-field>
+                    </div>
+                    <div>
+                        <v-text-field
+                            v-model="form_basic_info.municipality"
+                            label="Municipality"
+                            clearable
+                        ></v-text-field>
+                    </div>
+                    <div>
+                        <v-text-field
+                            v-model="form_basic_info.barangay"
+                            label="Barangay"
+                            clearable
+                        ></v-text-field>
+                    </div>
+                    <div>
+                        <v-text-field
+                            v-model="form_basic_info.specific_address"
+                            label="Specific Address"
+                            clearable
+                        ></v-text-field>
+                    </div>
+                    <div>
+                        <v-text-field
+                            v-model="form_basic_info.latitude"
+                            label="Latitude"
+                            clearable
+                        ></v-text-field>
+                    </div>
+                    <div>
+                        <v-text-field
+                            v-model="form_basic_info.longitude"
+                            label="Longitude"
+                            clearable
+                        ></v-text-field>
+                    </div>
+                    <div>
+                        <v-btn
+                        tile
+                        type="button"
+                        >
+                            <v-icon left>
+                                mdi-map-marker-radius-outline
+                            </v-icon>
+                            View Location
+                        </v-btn>
+                    </div>
+            </div>
+          </v-tab-item>
           <v-tab-item>
             <v-card flat>
                 <div class="grid grid-cols-3 gap-y-0 gap-x-4 ml-8">

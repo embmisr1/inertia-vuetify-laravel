@@ -7,90 +7,26 @@
             ></v-img>
         </v-card>
         <div class="col-span-5">
-            <v-card class="p-4">
-              <v-card class="p-2" elevation="0" color="#E0E0E0">Basic Information</v-card>
-                <div class="grid grid-cols-4 gap-y-0 gap-x-4 mt-0 ml-8">
-                        <div>
-                            <v-text-field
-                                v-model="form_basic_info.firm_name"
-                                label="Firm Name"
-                                clearable
-                            ></v-text-field>
-                        </div>
-                        <div>
-                            <v-text-field
-                                v-model="form_basic_info.proponent"
-                                label="Proponent"
-                                clearable
-                            ></v-text-field>
-                        </div>
-                        <div>
-                            <v-text-field
-                                v-model="form_basic_info.crs_number"
-                                label="CRS No."
-                                clearable
-                            ></v-text-field>
-                        </div>
-                        <div>
-                            <v-text-field
-                                v-model="form_basic_info.universe_type"
-                                label="Universe Type"
-                                clearable
-                            ></v-text-field>
-                        </div>
-                        <div hidden>
-                            <v-text-field
-                                v-model="form_basic_info.id"
-                                label="Outlined"
-                                clearable
-                            ></v-text-field>
-                        </div>
-                </div>
-              <v-card class="p-2" elevation="1" color="#E0E0E0">Project Location</v-card>
-                <div class="grid grid-cols-3 gap-y-0 gap-x-4 ml-8">
-                        <div>
-                            <v-text-field
-                                v-model="form_basic_info.province"
-                                label="Province"
-                                clearable
-                            ></v-text-field>
-                        </div>
-                        <div>
-                            <v-text-field
-                                v-model="form_basic_info.municipality"
-                                label="Municipality"
-                                clearable
-                            ></v-text-field>
-                        </div>
-                        <div>
-                            <v-text-field
-                                v-model="form_basic_info.barangay"
-                                label="Barangay"
-                                clearable
-                            ></v-text-field>
-                        </div>
-                        <div>
-                            <v-text-field
-                                v-model="form_basic_info.specific_address"
-                                label="Specific Address"
-                                clearable
-                            ></v-text-field>
-                        </div>
-                        <div>
-                            <v-text-field
-                                v-model="form_basic_info.latitude"
-                                label="Latitude"
-                                clearable
-                            ></v-text-field>
-                        </div>
-                        <div>
-                            <v-text-field
-                                v-model="form_basic_info.longitude"
-                                label="Longitude"
-                                clearable
-                            ></v-text-field>
-                        </div>
-                </div>
+            <v-card class="p-5">
+              <div class="grid grid-cols-3 gap-y-0 gap-x-4 mb-5">
+                      <div class="text-lg">
+                          Permits: 2
+                      </div>
+                      <div class="text-lg">
+                          Monitoring Reports: 1
+                      </div>
+                      <div class="text-lg">
+                          NOVs: 10
+                      </div>
+              </div>
+              <div class="grid grid-cols-3 gap-y-0 gap-x-4">
+                      <div class="text-lg">
+                          Hazwaste: 2
+                      </div>
+                      <div class="text-lg">
+                          Complaint: 1
+                      </div>
+              </div>
             </v-card>
         </div>
     </div>
@@ -111,57 +47,43 @@
             <v-tabs vertical>
               <v-tab>
                 <div class="flex flex-start">
-                  <v-icon>
-                    mdi-arrow-right-thick
-                  </v-icon>
+                  <v-icon>mdi-information</v-icon>&nbsp;
                   Basic Information
                 </div>
               </v-tab>
               <v-tab>
                 <div class="flex flex-start">
-                  <v-icon>
-                    mdi-arrow-right-thick
-                  </v-icon>
+                  <v-icon>mdi-file-document-multiple-outline</v-icon>&nbsp;
                   Permit
                 </div>
               </v-tab>
               <v-tab>
                 <div class="flex flex-start">
-                  <v-icon>
-                    mdi-arrow-right-thick
-                  </v-icon>
+                  <v-icon>mdi-file-document-multiple-outline</v-icon>&nbsp;
                   Monitoring
                 </div>
               </v-tab>
               <v-tab>
                 <div class="flex flex-start">
-                  <v-icon>
-                    mdi-arrow-right-thick
-                  </v-icon>
+                  <v-icon>mdi-file-document-multiple-outline</v-icon>&nbsp;
                   Legal
                 </div>
               </v-tab>
               <v-tab>
                 <div class="flex flex-start">
-                  <v-icon>
-                    mdi-arrow-right-thick
-                  </v-icon>
+                  <v-icon>mdi-file-document-multiple-outline</v-icon>&nbsp;
                   Hazwaste
                 </div>
               </v-tab>
               <v-tab>
                 <div class="flex flex-start">
-                  <v-icon>
-                    mdi-arrow-right-thick
-                  </v-icon>
+                  <v-icon>mdi-file-document-multiple-outline</v-icon>&nbsp;
                   Complaint
                 </div>
               </v-tab>
               <v-tab>
                 <div class="flex flex-start">
-                  <v-icon>
-                    mdi-arrow-right-thick
-                  </v-icon>
+                  <v-icon>mdi-map-marker-radius</v-icon>&nbsp;
                   Location
                 </div>
               </v-tab>

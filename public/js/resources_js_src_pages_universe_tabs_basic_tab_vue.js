@@ -206,6 +206,118 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     form_basic_info: Object
@@ -325,15 +437,68 @@ var render = function () {
                 },
               },
               [
-                _c("v-tab", [_vm._v("Representative")]),
+                _c(
+                  "v-tab",
+                  [
+                    _c("v-icon", [_vm._v("mdi-information-outline")]),
+                    _vm._v(" Basic Information\n        "),
+                  ],
+                  1
+                ),
                 _vm._v(" "),
-                _c("v-tab", [_vm._v("PCO")]),
+                _c(
+                  "v-tab",
+                  [
+                    _c("v-icon", [_vm._v("mdi-information-outline")]),
+                    _vm._v(" Project Location\n        "),
+                  ],
+                  1
+                ),
                 _vm._v(" "),
-                _c("v-tab", [_vm._v("PSIC CODE")]),
+                _c(
+                  "v-tab",
+                  [
+                    _c("v-icon", [_vm._v("mdi-information-outline")]),
+                    _vm._v(" Representative\n        "),
+                  ],
+                  1
+                ),
                 _vm._v(" "),
-                _c("v-tab", [_vm._v("Project Type")]),
+                _c(
+                  "v-tab",
+                  [
+                    _c("v-icon", [_vm._v("mdi-information-outline")]),
+                    _vm._v(" PCO\n        "),
+                  ],
+                  1
+                ),
                 _vm._v(" "),
-                _c("v-tab", [_vm._v("Status")]),
+                _c(
+                  "v-tab",
+                  [
+                    _c("v-icon", [_vm._v("mdi-information-outline")]),
+                    _vm._v(" PSIC CODE\n        "),
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "v-tab",
+                  [
+                    _c("v-icon", [_vm._v("mdi-information-outline")]),
+                    _vm._v(" Project Type\n        "),
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "v-tab",
+                  [
+                    _c("v-icon", [_vm._v("mdi-information-outline")]),
+                    _vm._v(" Status\n        "),
+                  ],
+                  1
+                ),
               ],
               1
             ),
@@ -354,6 +519,232 @@ var render = function () {
           },
         },
         [
+          _c("v-tab-item", [
+            _c(
+              "div",
+              { staticClass: "grid grid-cols-4 gap-y-0 gap-x-4 mt-0 ml-8" },
+              [
+                _c(
+                  "div",
+                  [
+                    _c("v-text-field", {
+                      attrs: { label: "Firm Name", clearable: "" },
+                      model: {
+                        value: _vm.form_basic_info.firm_name,
+                        callback: function ($$v) {
+                          _vm.$set(_vm.form_basic_info, "firm_name", $$v)
+                        },
+                        expression: "form_basic_info.firm_name",
+                      },
+                    }),
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  [
+                    _c("v-text-field", {
+                      attrs: { label: "Proponent", clearable: "" },
+                      model: {
+                        value: _vm.form_basic_info.proponent,
+                        callback: function ($$v) {
+                          _vm.$set(_vm.form_basic_info, "proponent", $$v)
+                        },
+                        expression: "form_basic_info.proponent",
+                      },
+                    }),
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  [
+                    _c("v-text-field", {
+                      attrs: { label: "CRS No.", clearable: "" },
+                      model: {
+                        value: _vm.form_basic_info.crs_number,
+                        callback: function ($$v) {
+                          _vm.$set(_vm.form_basic_info, "crs_number", $$v)
+                        },
+                        expression: "form_basic_info.crs_number",
+                      },
+                    }),
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  [
+                    _c("v-text-field", {
+                      attrs: { label: "Universe Type", clearable: "" },
+                      model: {
+                        value: _vm.form_basic_info.universe_type,
+                        callback: function ($$v) {
+                          _vm.$set(_vm.form_basic_info, "universe_type", $$v)
+                        },
+                        expression: "form_basic_info.universe_type",
+                      },
+                    }),
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { attrs: { hidden: "" } },
+                  [
+                    _c("v-text-field", {
+                      attrs: { label: "Outlined", clearable: "" },
+                      model: {
+                        value: _vm.form_basic_info.id,
+                        callback: function ($$v) {
+                          _vm.$set(_vm.form_basic_info, "id", $$v)
+                        },
+                        expression: "form_basic_info.id",
+                      },
+                    }),
+                  ],
+                  1
+                ),
+              ]
+            ),
+          ]),
+          _vm._v(" "),
+          _c("v-tab-item", [
+            _c(
+              "div",
+              { staticClass: "grid grid-cols-3 gap-y-0 gap-x-4 ml-8" },
+              [
+                _c(
+                  "div",
+                  [
+                    _c("v-text-field", {
+                      attrs: { label: "Province", clearable: "" },
+                      model: {
+                        value: _vm.form_basic_info.province,
+                        callback: function ($$v) {
+                          _vm.$set(_vm.form_basic_info, "province", $$v)
+                        },
+                        expression: "form_basic_info.province",
+                      },
+                    }),
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  [
+                    _c("v-text-field", {
+                      attrs: { label: "Municipality", clearable: "" },
+                      model: {
+                        value: _vm.form_basic_info.municipality,
+                        callback: function ($$v) {
+                          _vm.$set(_vm.form_basic_info, "municipality", $$v)
+                        },
+                        expression: "form_basic_info.municipality",
+                      },
+                    }),
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  [
+                    _c("v-text-field", {
+                      attrs: { label: "Barangay", clearable: "" },
+                      model: {
+                        value: _vm.form_basic_info.barangay,
+                        callback: function ($$v) {
+                          _vm.$set(_vm.form_basic_info, "barangay", $$v)
+                        },
+                        expression: "form_basic_info.barangay",
+                      },
+                    }),
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  [
+                    _c("v-text-field", {
+                      attrs: { label: "Specific Address", clearable: "" },
+                      model: {
+                        value: _vm.form_basic_info.specific_address,
+                        callback: function ($$v) {
+                          _vm.$set(_vm.form_basic_info, "specific_address", $$v)
+                        },
+                        expression: "form_basic_info.specific_address",
+                      },
+                    }),
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  [
+                    _c("v-text-field", {
+                      attrs: { label: "Latitude", clearable: "" },
+                      model: {
+                        value: _vm.form_basic_info.latitude,
+                        callback: function ($$v) {
+                          _vm.$set(_vm.form_basic_info, "latitude", $$v)
+                        },
+                        expression: "form_basic_info.latitude",
+                      },
+                    }),
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  [
+                    _c("v-text-field", {
+                      attrs: { label: "Longitude", clearable: "" },
+                      model: {
+                        value: _vm.form_basic_info.longitude,
+                        callback: function ($$v) {
+                          _vm.$set(_vm.form_basic_info, "longitude", $$v)
+                        },
+                        expression: "form_basic_info.longitude",
+                      },
+                    }),
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  [
+                    _c(
+                      "v-btn",
+                      { attrs: { tile: "", type: "button" } },
+                      [
+                        _c("v-icon", { attrs: { left: "" } }, [
+                          _vm._v(
+                            "\n                        mdi-map-marker-radius-outline\n                    "
+                          ),
+                        ]),
+                        _vm._v(
+                          "\n                    View Location\n                "
+                        ),
+                      ],
+                      1
+                    ),
+                  ],
+                  1
+                ),
+              ]
+            ),
+          ]),
+          _vm._v(" "),
           _c(
             "v-tab-item",
             [
