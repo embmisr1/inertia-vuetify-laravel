@@ -8,6 +8,10 @@ export default {
                 universe_type: "",
                 ...this.query
             },
+            form_permit_info: {
+                permit_law: "",
+                ...this.query
+            },
         };
     },
     methods: {
@@ -15,6 +19,7 @@ export default {
             if(confirm('Do you want to proceed?')){
                 const data = {
                     ...this.form_basic_info,
+                    ...this.form_permit_info,
                 };
                 await this.$inertia.post("/app/universe_process", {
                     ...data,
@@ -28,6 +33,9 @@ export default {
                 proponent: "",
                 crs_number: "",
                 universe_type: "",
+            };
+            this.form_permit_info = {
+                permit_law: "",
             };
         },
     },

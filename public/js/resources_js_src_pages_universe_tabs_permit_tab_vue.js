@@ -248,11 +248,11 @@ var render = function () {
             _c("v-text-field", {
               attrs: { label: "Law", clearable: "" },
               model: {
-                value: _vm.form_permit_info.law,
+                value: _vm.form_permit_info.permit_law,
                 callback: function ($$v) {
-                  _vm.$set(_vm.form_permit_info, "law", $$v)
+                  _vm.$set(_vm.form_permit_info, "permit_law", $$v)
                 },
-                expression: "form_permit_info.law",
+                expression: "form_permit_info.permit_law",
               },
             }),
           ],

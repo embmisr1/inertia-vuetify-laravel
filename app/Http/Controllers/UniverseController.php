@@ -45,7 +45,7 @@ class UniverseController extends Controller
     public function universe_process_create($request){
         $query = new Universe();
         $query->firm_name = $request->firm_name ? $request->firm_name : '';
-        $query->proponent = $request->proponent;
+        $query->proponent = $request->permit_law;
         $query->crs_number = $request->crs_number;
         $query->universe_type = $request->universe_type;
         $query->save();
@@ -56,7 +56,7 @@ class UniverseController extends Controller
         $id = $request->id;
         $query = Universe::find($id);
         $query->firm_name = $request->firm_name ? $request->firm_name : '';
-        $query->proponent = $request->proponent;
+        $query->proponent = $request->permit_law;
         $query->crs_number = $request->crs_number;
         $query->universe_type = $request->universe_type;
         $query->save();

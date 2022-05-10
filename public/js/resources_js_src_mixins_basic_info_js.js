@@ -44,6 +44,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         proponent: "",
         crs_number: "",
         universe_type: ""
+      }, this.query),
+      form_permit_info: _objectSpread({
+        permit_law: ""
       }, this.query)
     };
   },
@@ -62,7 +65,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                   break;
                 }
 
-                data = _objectSpread({}, _this.form_basic_info);
+                data = _objectSpread(_objectSpread({}, _this.form_basic_info), _this.form_permit_info);
                 _context.next = 4;
                 return _this.$inertia.post("/app/universe_process", _objectSpread({}, data));
 
@@ -83,6 +86,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         proponent: "",
         crs_number: "",
         universe_type: ""
+      };
+      this.form_permit_info = {
+        permit_law: ""
       };
     }
   }

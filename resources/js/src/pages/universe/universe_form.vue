@@ -1,6 +1,10 @@
 <template>
     <DefaultLayout>
-        <MainTab :form_basic_info="form_basic_info" :submit_basic_info="submit_basic_info"></MainTab>
+        <MainTab
+            :form_permit_info="form_permit_info" 
+            :form_basic_info="form_basic_info" 
+            :submit_basic_info="submit_basic_info"
+        ></MainTab>
     </DefaultLayout>
 </template>
 

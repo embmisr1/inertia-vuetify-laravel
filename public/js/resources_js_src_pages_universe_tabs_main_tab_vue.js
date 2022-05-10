@@ -302,6 +302,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _basic_tab__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./basic_tab */ "./resources/js/src/pages/universe/tabs/basic_tab.vue");
 /* harmony import */ var _permit_tab__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./permit_tab */ "./resources/js/src/pages/universe/tabs/permit_tab.vue");
+/* harmony import */ var _monitoring_tab__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./monitoring_tab */ "./resources/js/src/pages/universe/tabs/monitoring_tab.vue");
+/* harmony import */ var _legal_tab__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./legal_tab */ "./resources/js/src/pages/universe/tabs/legal_tab.vue");
+/* harmony import */ var _hazwaste_tab__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./hazwaste_tab */ "./resources/js/src/pages/universe/tabs/hazwaste_tab.vue");
+/* harmony import */ var _complaint_tab__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./complaint_tab */ "./resources/js/src/pages/universe/tabs/complaint_tab.vue");
 //
 //
 //
@@ -424,38 +428,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
+
+
+
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     form_basic_info: Object,
-    submit_basic_info: Function
+    submit_basic_info: Function,
+    form_monitoring_info: Object
   },
   components: {
     BasicTab: _basic_tab__WEBPACK_IMPORTED_MODULE_0__["default"],
@@ -660,6 +643,105 @@ component.options.__file = "resources/js/src/pages/universe/tabs/basic_tab.vue"
 
 /***/ }),
 
+/***/ "./resources/js/src/pages/universe/tabs/complaint_tab.vue":
+/*!****************************************************************!*\
+  !*** ./resources/js/src/pages/universe/tabs/complaint_tab.vue ***!
+  \****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+var render, staticRenderFns
+var script = {}
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__["default"])(
+  script,
+  render,
+  staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+component.options.__file = "resources/js/src/pages/universe/tabs/complaint_tab.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/src/pages/universe/tabs/hazwaste_tab.vue":
+/*!***************************************************************!*\
+  !*** ./resources/js/src/pages/universe/tabs/hazwaste_tab.vue ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+var render, staticRenderFns
+var script = {}
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__["default"])(
+  script,
+  render,
+  staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+component.options.__file = "resources/js/src/pages/universe/tabs/hazwaste_tab.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/src/pages/universe/tabs/legal_tab.vue":
+/*!************************************************************!*\
+  !*** ./resources/js/src/pages/universe/tabs/legal_tab.vue ***!
+  \************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+var render, staticRenderFns
+var script = {}
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__["default"])(
+  script,
+  render,
+  staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+component.options.__file = "resources/js/src/pages/universe/tabs/legal_tab.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/src/pages/universe/tabs/main_tab.vue":
 /*!***********************************************************!*\
   !*** ./resources/js/src/pages/universe/tabs/main_tab.vue ***!
@@ -694,6 +776,39 @@ var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__
 /* hot reload */
 if (false) { var api; }
 component.options.__file = "resources/js/src/pages/universe/tabs/main_tab.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/src/pages/universe/tabs/monitoring_tab.vue":
+/*!*****************************************************************!*\
+  !*** ./resources/js/src/pages/universe/tabs/monitoring_tab.vue ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+var render, staticRenderFns
+var script = {}
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__["default"])(
+  script,
+  render,
+  staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+component.options.__file = "resources/js/src/pages/universe/tabs/monitoring_tab.vue"
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
 
 /***/ }),
@@ -1070,7 +1185,7 @@ var render = function () {
       _vm._v(" "),
       _c(
         "div",
-        { staticClass: "mb-4 col-span-3 text-right" },
+        { staticClass: "mb-5 col-span-3 text-right" },
         [
           _c(
             "v-btn",
@@ -1738,20 +1853,6 @@ var render = function () {
                           ),
                         ]),
                         _vm._v(" "),
-                        _c("v-tab", [
-                          _c(
-                            "div",
-                            { staticClass: "flex flex-start" },
-                            [
-                              _c("v-icon", [_vm._v("mdi-map-marker-radius")]),
-                              _vm._v(
-                                " \n                Location\n              "
-                              ),
-                            ],
-                            1
-                          ),
-                        ]),
-                        _vm._v(" "),
                         _c(
                           "v-tab-item",
                           [
@@ -1765,24 +1866,9 @@ var render = function () {
                         _c(
                           "v-tab-item",
                           [
-                            _c(
-                              "v-card",
-                              { attrs: { flat: "" } },
-                              [
-                                _c(
-                                  "v-card-text",
-                                  [
-                                    _c("PermitTab", {
-                                      attrs: {
-                                        form_permit_info: _vm.form_basic_info,
-                                      },
-                                    }),
-                                  ],
-                                  1
-                                ),
-                              ],
-                              1
-                            ),
+                            _c("PermitTab", {
+                              attrs: { form_permit_info: _vm.form_basic_info },
+                            }),
                           ],
                           1
                         ),
@@ -1790,18 +1876,11 @@ var render = function () {
                         _c(
                           "v-tab-item",
                           [
-                            _c(
-                              "v-card",
-                              { attrs: { flat: "" } },
-                              [
-                                _c("v-card-text", [
-                                  _vm._v(
-                                    "\n                3\n                "
-                                  ),
-                                ]),
-                              ],
-                              1
-                            ),
+                            _c("MonitoringTab", {
+                              attrs: {
+                                form_monitoring_info: _vm.form_basic_info,
+                              },
+                            }),
                           ],
                           1
                         ),
@@ -1862,25 +1941,6 @@ var render = function () {
                           ],
                           1
                         ),
-                        _vm._v(" "),
-                        _c(
-                          "v-tab-item",
-                          [
-                            _c(
-                              "v-card",
-                              { attrs: { flat: "" } },
-                              [
-                                _c("v-card-text", [
-                                  _vm._v(
-                                    "\n                7\n                "
-                                  ),
-                                ]),
-                              ],
-                              1
-                            ),
-                          ],
-                          1
-                        ),
                       ],
                       1
                     ),
@@ -1930,11 +1990,11 @@ var render = function () {
             _c("v-text-field", {
               attrs: { label: "Law", clearable: "" },
               model: {
-                value: _vm.form_permit_info.law,
+                value: _vm.form_permit_info.permit_law,
                 callback: function ($$v) {
-                  _vm.$set(_vm.form_permit_info, "law", $$v)
+                  _vm.$set(_vm.form_permit_info, "permit_law", $$v)
                 },
-                expression: "form_permit_info.law",
+                expression: "form_permit_info.permit_law",
               },
             }),
           ],

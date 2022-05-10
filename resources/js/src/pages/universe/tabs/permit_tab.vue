@@ -3,7 +3,7 @@
             <div class="grid grid-cols-5 gap-y-0 gap-x-4 ml-8">
                     <div>
                         <v-text-field
-                            v-model="form_permit_info.law"
+                            v-model="form_permit_info.permit_law"
                             label="Law"
                             clearable
                         ></v-text-field>

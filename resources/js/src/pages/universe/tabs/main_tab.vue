@@ -81,34 +81,15 @@
                   Complaint
                 </div>
               </v-tab>
-              <v-tab>
-                <div class="flex flex-start">
-                  <v-icon>mdi-map-marker-radius</v-icon>&nbsp;
-                  Location
-                </div>
-              </v-tab>
 
               <v-tab-item>
-              <BasicTab :form_basic_info="form_basic_info"></BasicTab>
-                <!-- <v-card flat>
-                  <v-card-text>
-                      <BasicTab :form_basic_info="form_basic_info"></BasicTab>
-                  </v-card-text>
-                </v-card>-->
+                  <BasicTab :form_basic_info="form_basic_info"></BasicTab>
               </v-tab-item>
               <v-tab-item>
-                <v-card flat>
-                  <v-card-text>
-                      <PermitTab :form_permit_info="form_basic_info"></PermitTab>
-                  </v-card-text>
-                </v-card>
+                  <PermitTab :form_permit_info="form_basic_info"></PermitTab>
               </v-tab-item>
               <v-tab-item>
-                <v-card flat>
-                  <v-card-text>
-                  3
-                  </v-card-text>
-                </v-card>
+                  <MonitoringTab :form_monitoring_info="form_basic_info"></MonitoringTab>
               </v-tab-item>
               <v-tab-item>
                 <v-card flat>
@@ -131,13 +112,6 @@
                   </v-card-text>
                 </v-card>
               </v-tab-item>
-              <v-tab-item>
-                <v-card flat>
-                  <v-card-text>
-                  7
-                  </v-card-text>
-                </v-card>
-              </v-tab-item>
 
             </v-tabs>
           </v-card>
@@ -149,10 +123,15 @@
 <script>
   import BasicTab from "./basic_tab";
   import PermitTab from "./permit_tab";
+  import MonitoringTab from "./monitoring_tab";
+  import LegalTab from "./legal_tab";
+  import HazwasteTab from "./hazwaste_tab";
+  import ComplaintTab from "./complaint_tab";
   export default {
     props:{
       form_basic_info: Object,
       submit_basic_info: Function,
+      form_monitoring_info: Object,
     },
     components:{
         BasicTab,
