@@ -277,47 +277,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     form_basic_info: Object
@@ -415,767 +374,19 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "v-card",
-    { staticClass: "p-4", attrs: { elevation: "0" } },
-    [
+  return _c("v-card", { staticClass: "p-4", attrs: { elevation: "0" } }, [
+    _c("div", { staticClass: "grid grid-cols-4 gap-y-0 gap-x-4 mt-0 ml-8" }, [
       _c(
-        "v-toolbar",
-        { staticClass: "mb-5", attrs: { color: "#FFFFFF", flat: "" } },
+        "div",
+        { staticClass: "col-span-4" },
         [
-          [
-            _c(
-              "v-tabs",
-              {
-                attrs: { "align-with-title": "" },
-                model: {
-                  value: _vm.basic_tab,
-                  callback: function ($$v) {
-                    _vm.basic_tab = $$v
-                  },
-                  expression: "basic_tab",
-                },
-              },
-              [
-                _c(
-                  "v-tab",
-                  [
-                    _c("v-icon", [_vm._v("mdi-information-outline")]),
-                    _vm._v(" Basic Information\n        "),
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "v-tab",
-                  [
-                    _c("v-icon", [_vm._v("mdi-information-outline")]),
-                    _vm._v(" Project Location\n        "),
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "v-tab",
-                  [
-                    _c("v-icon", [_vm._v("mdi-information-outline")]),
-                    _vm._v(" Representative\n        "),
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "v-tab",
-                  [
-                    _c("v-icon", [_vm._v("mdi-information-outline")]),
-                    _vm._v(" PCO\n        "),
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "v-tab",
-                  [
-                    _c("v-icon", [_vm._v("mdi-information-outline")]),
-                    _vm._v(" PSIC CODE\n        "),
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "v-tab",
-                  [
-                    _c("v-icon", [_vm._v("mdi-information-outline")]),
-                    _vm._v(" Project Type\n        "),
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "v-tab",
-                  [
-                    _c("v-icon", [_vm._v("mdi-information-outline")]),
-                    _vm._v(" Status\n        "),
-                  ],
-                  1
-                ),
-              ],
-              1
-            ),
-          ],
-        ],
-        2
-      ),
-      _vm._v(" "),
-      _c(
-        "v-tabs-items",
-        {
-          model: {
-            value: _vm.basic_tab,
-            callback: function ($$v) {
-              _vm.basic_tab = $$v
+          _c(
+            "v-card",
+            {
+              staticClass: "primary white--text p-2",
+              attrs: { elevation: "2" },
             },
-            expression: "basic_tab",
-          },
-        },
-        [
-          _c("v-tab-item", [
-            _c(
-              "div",
-              { staticClass: "grid grid-cols-4 gap-y-0 gap-x-4 mt-0 ml-8" },
-              [
-                _c(
-                  "div",
-                  [
-                    _c("v-text-field", {
-                      attrs: { label: "Firm Name", clearable: "" },
-                      model: {
-                        value: _vm.form_basic_info.firm_name,
-                        callback: function ($$v) {
-                          _vm.$set(_vm.form_basic_info, "firm_name", $$v)
-                        },
-                        expression: "form_basic_info.firm_name",
-                      },
-                    }),
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  [
-                    _c("v-text-field", {
-                      attrs: { label: "Proponent", clearable: "" },
-                      model: {
-                        value: _vm.form_basic_info.proponent,
-                        callback: function ($$v) {
-                          _vm.$set(_vm.form_basic_info, "proponent", $$v)
-                        },
-                        expression: "form_basic_info.proponent",
-                      },
-                    }),
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  [
-                    _c("v-text-field", {
-                      attrs: { label: "CRS No.", clearable: "" },
-                      model: {
-                        value: _vm.form_basic_info.crs_number,
-                        callback: function ($$v) {
-                          _vm.$set(_vm.form_basic_info, "crs_number", $$v)
-                        },
-                        expression: "form_basic_info.crs_number",
-                      },
-                    }),
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  [
-                    _c("v-text-field", {
-                      attrs: { label: "Universe Type", clearable: "" },
-                      model: {
-                        value: _vm.form_basic_info.universe_type,
-                        callback: function ($$v) {
-                          _vm.$set(_vm.form_basic_info, "universe_type", $$v)
-                        },
-                        expression: "form_basic_info.universe_type",
-                      },
-                    }),
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { attrs: { hidden: "" } },
-                  [
-                    _c("v-text-field", {
-                      attrs: { label: "Outlined", clearable: "" },
-                      model: {
-                        value: _vm.form_basic_info.id,
-                        callback: function ($$v) {
-                          _vm.$set(_vm.form_basic_info, "id", $$v)
-                        },
-                        expression: "form_basic_info.id",
-                      },
-                    }),
-                  ],
-                  1
-                ),
-              ]
-            ),
-          ]),
-          _vm._v(" "),
-          _c("v-tab-item", [
-            _c(
-              "div",
-              { staticClass: "grid grid-cols-3 gap-y-0 gap-x-4 ml-8" },
-              [
-                _c(
-                  "div",
-                  [
-                    _c("v-text-field", {
-                      attrs: { label: "Province", clearable: "" },
-                      model: {
-                        value: _vm.form_basic_info.province,
-                        callback: function ($$v) {
-                          _vm.$set(_vm.form_basic_info, "province", $$v)
-                        },
-                        expression: "form_basic_info.province",
-                      },
-                    }),
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  [
-                    _c("v-text-field", {
-                      attrs: { label: "Municipality", clearable: "" },
-                      model: {
-                        value: _vm.form_basic_info.municipality,
-                        callback: function ($$v) {
-                          _vm.$set(_vm.form_basic_info, "municipality", $$v)
-                        },
-                        expression: "form_basic_info.municipality",
-                      },
-                    }),
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  [
-                    _c("v-text-field", {
-                      attrs: { label: "Barangay", clearable: "" },
-                      model: {
-                        value: _vm.form_basic_info.barangay,
-                        callback: function ($$v) {
-                          _vm.$set(_vm.form_basic_info, "barangay", $$v)
-                        },
-                        expression: "form_basic_info.barangay",
-                      },
-                    }),
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  [
-                    _c("v-text-field", {
-                      attrs: { label: "Specific Address", clearable: "" },
-                      model: {
-                        value: _vm.form_basic_info.specific_address,
-                        callback: function ($$v) {
-                          _vm.$set(_vm.form_basic_info, "specific_address", $$v)
-                        },
-                        expression: "form_basic_info.specific_address",
-                      },
-                    }),
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  [
-                    _c("v-text-field", {
-                      attrs: { label: "Latitude", clearable: "" },
-                      model: {
-                        value: _vm.form_basic_info.latitude,
-                        callback: function ($$v) {
-                          _vm.$set(_vm.form_basic_info, "latitude", $$v)
-                        },
-                        expression: "form_basic_info.latitude",
-                      },
-                    }),
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  [
-                    _c("v-text-field", {
-                      attrs: { label: "Longitude", clearable: "" },
-                      model: {
-                        value: _vm.form_basic_info.longitude,
-                        callback: function ($$v) {
-                          _vm.$set(_vm.form_basic_info, "longitude", $$v)
-                        },
-                        expression: "form_basic_info.longitude",
-                      },
-                    }),
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  [
-                    _c(
-                      "v-btn",
-                      { attrs: { tile: "", type: "button" } },
-                      [
-                        _c("v-icon", { attrs: { left: "" } }, [
-                          _vm._v(
-                            "\n                        mdi-map-marker-radius-outline\n                    "
-                          ),
-                        ]),
-                        _vm._v(
-                          "\n                    View Location\n                "
-                        ),
-                      ],
-                      1
-                    ),
-                  ],
-                  1
-                ),
-              ]
-            ),
-          ]),
-          _vm._v(" "),
-          _c(
-            "v-tab-item",
-            [
-              _c("v-card", { attrs: { flat: "" } }, [
-                _c(
-                  "div",
-                  { staticClass: "grid grid-cols-3 gap-y-0 gap-x-4 ml-8" },
-                  [
-                    _c(
-                      "div",
-                      [
-                        _c("v-text-field", {
-                          attrs: { label: "Name", clearable: "" },
-                          model: {
-                            value: _vm.form_basic_info.representative_name,
-                            callback: function ($$v) {
-                              _vm.$set(
-                                _vm.form_basic_info,
-                                "representative_name",
-                                $$v
-                              )
-                            },
-                            expression: "form_basic_info.representative_name",
-                          },
-                        }),
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      [
-                        _c("v-text-field", {
-                          attrs: { label: "Designation", clearable: "" },
-                          model: {
-                            value:
-                              _vm.form_basic_info.representative_designation,
-                            callback: function ($$v) {
-                              _vm.$set(
-                                _vm.form_basic_info,
-                                "representative_designation",
-                                $$v
-                              )
-                            },
-                            expression:
-                              "form_basic_info.representative_designation",
-                          },
-                        }),
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      [
-                        _c("v-text-field", {
-                          attrs: { label: "Gender", clearable: "" },
-                          model: {
-                            value: _vm.form_basic_info.representative_gender,
-                            callback: function ($$v) {
-                              _vm.$set(
-                                _vm.form_basic_info,
-                                "representative_gender",
-                                $$v
-                              )
-                            },
-                            expression: "form_basic_info.representative_gender",
-                          },
-                        }),
-                      ],
-                      1
-                    ),
-                  ]
-                ),
-              ]),
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "v-tab-item",
-            [
-              _c("v-card", { attrs: { flat: "" } }, [
-                _c(
-                  "div",
-                  { staticClass: "grid grid-cols-3 gap-y-0 gap-x-4 ml-8" },
-                  [
-                    _c(
-                      "div",
-                      [
-                        _c("v-text-field", {
-                          attrs: { label: "Name", clearable: "" },
-                          model: {
-                            value: _vm.form_basic_info.pco_name,
-                            callback: function ($$v) {
-                              _vm.$set(_vm.form_basic_info, "pco_name", $$v)
-                            },
-                            expression: "form_basic_info.pco_name",
-                          },
-                        }),
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      [
-                        _c("v-text-field", {
-                          attrs: { label: "Number", clearable: "" },
-                          model: {
-                            value: _vm.form_basic_info.pco_number,
-                            callback: function ($$v) {
-                              _vm.$set(_vm.form_basic_info, "pco_number", $$v)
-                            },
-                            expression: "form_basic_info.pco_number",
-                          },
-                        }),
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      [
-                        _c("v-text-field", {
-                          attrs: { label: "Email", clearable: "" },
-                          model: {
-                            value: _vm.form_basic_info.pco_email,
-                            callback: function ($$v) {
-                              _vm.$set(_vm.form_basic_info, "pco_email", $$v)
-                            },
-                            expression: "form_basic_info.pco_email",
-                          },
-                        }),
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      [
-                        _c("v-text-field", {
-                          attrs: { label: "Contact No.", clearable: "" },
-                          model: {
-                            value: _vm.form_basic_info.pco_contact,
-                            callback: function ($$v) {
-                              _vm.$set(_vm.form_basic_info, "pco_contact", $$v)
-                            },
-                            expression: "form_basic_info.pco_contact",
-                          },
-                        }),
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      [
-                        _c("v-text-field", {
-                          attrs: { label: "Start Date", clearable: "" },
-                          model: {
-                            value: _vm.form_basic_info.pco_date_start,
-                            callback: function ($$v) {
-                              _vm.$set(
-                                _vm.form_basic_info,
-                                "pco_date_start",
-                                $$v
-                              )
-                            },
-                            expression: "form_basic_info.pco_date_start",
-                          },
-                        }),
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      [
-                        _c("v-text-field", {
-                          attrs: { label: "End Date", clearable: "" },
-                          model: {
-                            value: _vm.form_basic_info.pco_date_end,
-                            callback: function ($$v) {
-                              _vm.$set(_vm.form_basic_info, "pco_date_end", $$v)
-                            },
-                            expression: "form_basic_info.pco_date_end",
-                          },
-                        }),
-                      ],
-                      1
-                    ),
-                  ]
-                ),
-              ]),
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "v-tab-item",
-            [
-              _c("v-card", { attrs: { flat: "" } }, [
-                _c(
-                  "div",
-                  { staticClass: "grid grid-cols-3 gap-y-0 gap-x-4 ml-8" },
-                  [
-                    _c(
-                      "div",
-                      [
-                        _c("v-text-field", {
-                          attrs: { label: "Group", clearable: "" },
-                          model: {
-                            value: _vm.form_basic_info.psic_group,
-                            callback: function ($$v) {
-                              _vm.$set(_vm.form_basic_info, "psic_group", $$v)
-                            },
-                            expression: "form_basic_info.psic_group",
-                          },
-                        }),
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      [
-                        _c("v-text-field", {
-                          attrs: { label: "Class", clearable: "" },
-                          model: {
-                            value: _vm.form_basic_info.psic_class,
-                            callback: function ($$v) {
-                              _vm.$set(_vm.form_basic_info, "psic_class", $$v)
-                            },
-                            expression: "form_basic_info.psic_class",
-                          },
-                        }),
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      [
-                        _c("v-text-field", {
-                          attrs: { label: "Subclass", clearable: "" },
-                          model: {
-                            value: _vm.form_basic_info.psic_subclass,
-                            callback: function ($$v) {
-                              _vm.$set(
-                                _vm.form_basic_info,
-                                "psic_subclass",
-                                $$v
-                              )
-                            },
-                            expression: "form_basic_info.psic_subclass",
-                          },
-                        }),
-                      ],
-                      1
-                    ),
-                  ]
-                ),
-              ]),
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "v-tab-item",
-            [
-              _c("v-card", { attrs: { flat: "" } }, [
-                _c(
-                  "div",
-                  { staticClass: "grid grid-cols-3 gap-y-0 gap-x-4 ml-8" },
-                  [
-                    _c(
-                      "div",
-                      [
-                        _c("v-text-field", {
-                          attrs: { label: "Group", clearable: "" },
-                          model: {
-                            value: _vm.form_basic_info.project_type,
-                            callback: function ($$v) {
-                              _vm.$set(_vm.form_basic_info, "project_type", $$v)
-                            },
-                            expression: "form_basic_info.project_type",
-                          },
-                        }),
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      [
-                        _c("v-text-field", {
-                          attrs: { label: "Class", clearable: "" },
-                          model: {
-                            value: _vm.form_basic_info.project_sub_type,
-                            callback: function ($$v) {
-                              _vm.$set(
-                                _vm.form_basic_info,
-                                "project_sub_type",
-                                $$v
-                              )
-                            },
-                            expression: "form_basic_info.project_sub_type",
-                          },
-                        }),
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      [
-                        _c("v-text-field", {
-                          attrs: { label: "Subclass", clearable: "" },
-                          model: {
-                            value: _vm.form_basic_info.project_specific_type,
-                            callback: function ($$v) {
-                              _vm.$set(
-                                _vm.form_basic_info,
-                                "project_specific_type",
-                                $$v
-                              )
-                            },
-                            expression: "form_basic_info.project_specific_type",
-                          },
-                        }),
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      [
-                        _c("v-text-field", {
-                          attrs: { label: "Subclass", clearable: "" },
-                          model: {
-                            value:
-                              _vm.form_basic_info.project_specific_sub_type,
-                            callback: function ($$v) {
-                              _vm.$set(
-                                _vm.form_basic_info,
-                                "project_specific_sub_type",
-                                $$v
-                              )
-                            },
-                            expression:
-                              "form_basic_info.project_specific_sub_type",
-                          },
-                        }),
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      [
-                        _c("v-text-field", {
-                          attrs: { label: "Description", clearable: "" },
-                          model: {
-                            value: _vm.form_basic_info.project_description,
-                            callback: function ($$v) {
-                              _vm.$set(
-                                _vm.form_basic_info,
-                                "project_description",
-                                $$v
-                              )
-                            },
-                            expression: "form_basic_info.project_description",
-                          },
-                        }),
-                      ],
-                      1
-                    ),
-                  ]
-                ),
-              ]),
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "v-tab-item",
-            [
-              _c("v-card", { attrs: { flat: "" } }, [
-                _c(
-                  "div",
-                  { staticClass: "grid grid-cols-2 gap-y-0 gap-x-4 ml-8" },
-                  [
-                    _c(
-                      "div",
-                      [
-                        _c("v-text-field", {
-                          attrs: { label: "Group", clearable: "" },
-                          model: {
-                            value: _vm.form_basic_info.firm_remarks,
-                            callback: function ($$v) {
-                              _vm.$set(_vm.form_basic_info, "firm_remarks", $$v)
-                            },
-                            expression: "form_basic_info.firm_remarks",
-                          },
-                        }),
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      [
-                        _c("v-text-field", {
-                          attrs: { label: "Class", clearable: "" },
-                          model: {
-                            value: _vm.form_basic_info.firm_status,
-                            callback: function ($$v) {
-                              _vm.$set(_vm.form_basic_info, "firm_status", $$v)
-                            },
-                            expression: "form_basic_info.firm_status",
-                          },
-                        }),
-                      ],
-                      1
-                    ),
-                  ]
-                ),
-              ]),
-            ],
-            1
+            [_vm._v("Basic Information")]
           ),
         ],
         1
@@ -1183,19 +394,658 @@ var render = function () {
       _vm._v(" "),
       _c(
         "div",
-        { staticClass: "text-center" },
+        [
+          _c("v-text-field", {
+            attrs: { label: "Firm Name", clearable: "" },
+            model: {
+              value: _vm.form_basic_info.firm_name,
+              callback: function ($$v) {
+                _vm.$set(_vm.form_basic_info, "firm_name", $$v)
+              },
+              expression: "form_basic_info.firm_name",
+            },
+          }),
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        [
+          _c("v-text-field", {
+            attrs: { label: "Proponent", clearable: "" },
+            model: {
+              value: _vm.form_basic_info.proponent,
+              callback: function ($$v) {
+                _vm.$set(_vm.form_basic_info, "proponent", $$v)
+              },
+              expression: "form_basic_info.proponent",
+            },
+          }),
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        [
+          _c("v-text-field", {
+            attrs: { label: "CRS No.", clearable: "" },
+            model: {
+              value: _vm.form_basic_info.crs_number,
+              callback: function ($$v) {
+                _vm.$set(_vm.form_basic_info, "crs_number", $$v)
+              },
+              expression: "form_basic_info.crs_number",
+            },
+          }),
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        [
+          _c("v-text-field", {
+            attrs: { label: "Universe Type", clearable: "" },
+            model: {
+              value: _vm.form_basic_info.universe_type,
+              callback: function ($$v) {
+                _vm.$set(_vm.form_basic_info, "universe_type", $$v)
+              },
+              expression: "form_basic_info.universe_type",
+            },
+          }),
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        { attrs: { hidden: "" } },
+        [
+          _c("v-text-field", {
+            attrs: { label: "Outlined", clearable: "" },
+            model: {
+              value: _vm.form_basic_info.id,
+              callback: function ($$v) {
+                _vm.$set(_vm.form_basic_info, "id", $$v)
+              },
+              expression: "form_basic_info.id",
+            },
+          }),
+        ],
+        1
+      ),
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "grid grid-cols-3 gap-y-0 gap-x-4 ml-8" }, [
+      _c(
+        "div",
+        { staticClass: "col-span-3" },
         [
           _c(
-            "v-btn",
-            { attrs: { depressed: "", color: "primary", type: "submit" } },
-            [_vm._v("\n            Submit\n        ")]
+            "v-card",
+            {
+              staticClass: "primary white--text p-2",
+              attrs: { elevation: "2" },
+            },
+            [_vm._v("Project Location")]
           ),
         ],
         1
       ),
-    ],
-    1
-  )
+      _vm._v(" "),
+      _c(
+        "div",
+        [
+          _c("v-text-field", {
+            attrs: { label: "Province", clearable: "" },
+            model: {
+              value: _vm.form_basic_info.province,
+              callback: function ($$v) {
+                _vm.$set(_vm.form_basic_info, "province", $$v)
+              },
+              expression: "form_basic_info.province",
+            },
+          }),
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        [
+          _c("v-text-field", {
+            attrs: { label: "Municipality", clearable: "" },
+            model: {
+              value: _vm.form_basic_info.municipality,
+              callback: function ($$v) {
+                _vm.$set(_vm.form_basic_info, "municipality", $$v)
+              },
+              expression: "form_basic_info.municipality",
+            },
+          }),
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        [
+          _c("v-text-field", {
+            attrs: { label: "Barangay", clearable: "" },
+            model: {
+              value: _vm.form_basic_info.barangay,
+              callback: function ($$v) {
+                _vm.$set(_vm.form_basic_info, "barangay", $$v)
+              },
+              expression: "form_basic_info.barangay",
+            },
+          }),
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        [
+          _c("v-text-field", {
+            attrs: { label: "Specific Address", clearable: "" },
+            model: {
+              value: _vm.form_basic_info.specific_address,
+              callback: function ($$v) {
+                _vm.$set(_vm.form_basic_info, "specific_address", $$v)
+              },
+              expression: "form_basic_info.specific_address",
+            },
+          }),
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        [
+          _c("v-text-field", {
+            attrs: { label: "Latitude", clearable: "" },
+            model: {
+              value: _vm.form_basic_info.latitude,
+              callback: function ($$v) {
+                _vm.$set(_vm.form_basic_info, "latitude", $$v)
+              },
+              expression: "form_basic_info.latitude",
+            },
+          }),
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        [
+          _c("v-text-field", {
+            attrs: { label: "Longitude", clearable: "" },
+            model: {
+              value: _vm.form_basic_info.longitude,
+              callback: function ($$v) {
+                _vm.$set(_vm.form_basic_info, "longitude", $$v)
+              },
+              expression: "form_basic_info.longitude",
+            },
+          }),
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "mb-4 col-span-3 text-right" },
+        [
+          _c(
+            "v-btn",
+            { attrs: { tile: "", type: "button", color: "success" } },
+            [
+              _c("v-icon", { attrs: { left: "" } }, [
+                _vm._v(
+                  "\n                        mdi-map-marker-radius-outline\n                    "
+                ),
+              ]),
+              _vm._v("\n                    View Location\n                "),
+            ],
+            1
+          ),
+        ],
+        1
+      ),
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "grid grid-cols-3 gap-y-0 gap-x-4 ml-8" }, [
+      _c(
+        "div",
+        { staticClass: "col-span-3" },
+        [
+          _c(
+            "v-card",
+            {
+              staticClass: "primary white--text p-2",
+              attrs: { elevation: "2" },
+            },
+            [_vm._v("Representative")]
+          ),
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        [
+          _c("v-text-field", {
+            attrs: { label: "Name", clearable: "" },
+            model: {
+              value: _vm.form_basic_info.representative_name,
+              callback: function ($$v) {
+                _vm.$set(_vm.form_basic_info, "representative_name", $$v)
+              },
+              expression: "form_basic_info.representative_name",
+            },
+          }),
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        [
+          _c("v-text-field", {
+            attrs: { label: "Designation", clearable: "" },
+            model: {
+              value: _vm.form_basic_info.representative_designation,
+              callback: function ($$v) {
+                _vm.$set(_vm.form_basic_info, "representative_designation", $$v)
+              },
+              expression: "form_basic_info.representative_designation",
+            },
+          }),
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        [
+          _c("v-text-field", {
+            attrs: { label: "Gender", clearable: "" },
+            model: {
+              value: _vm.form_basic_info.representative_gender,
+              callback: function ($$v) {
+                _vm.$set(_vm.form_basic_info, "representative_gender", $$v)
+              },
+              expression: "form_basic_info.representative_gender",
+            },
+          }),
+        ],
+        1
+      ),
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "grid grid-cols-3 gap-y-0 gap-x-4 ml-8" }, [
+      _c(
+        "div",
+        { staticClass: "col-span-3" },
+        [
+          _c(
+            "v-card",
+            {
+              staticClass: "primary white--text p-2",
+              attrs: { elevation: "2" },
+            },
+            [_vm._v("PCO")]
+          ),
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        [
+          _c("v-text-field", {
+            attrs: { label: "Name", clearable: "" },
+            model: {
+              value: _vm.form_basic_info.pco_name,
+              callback: function ($$v) {
+                _vm.$set(_vm.form_basic_info, "pco_name", $$v)
+              },
+              expression: "form_basic_info.pco_name",
+            },
+          }),
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        [
+          _c("v-text-field", {
+            attrs: { label: "Number", clearable: "" },
+            model: {
+              value: _vm.form_basic_info.pco_number,
+              callback: function ($$v) {
+                _vm.$set(_vm.form_basic_info, "pco_number", $$v)
+              },
+              expression: "form_basic_info.pco_number",
+            },
+          }),
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        [
+          _c("v-text-field", {
+            attrs: { label: "Email", clearable: "" },
+            model: {
+              value: _vm.form_basic_info.pco_email,
+              callback: function ($$v) {
+                _vm.$set(_vm.form_basic_info, "pco_email", $$v)
+              },
+              expression: "form_basic_info.pco_email",
+            },
+          }),
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        [
+          _c("v-text-field", {
+            attrs: { label: "Contact No.", clearable: "" },
+            model: {
+              value: _vm.form_basic_info.pco_contact,
+              callback: function ($$v) {
+                _vm.$set(_vm.form_basic_info, "pco_contact", $$v)
+              },
+              expression: "form_basic_info.pco_contact",
+            },
+          }),
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        [
+          _c("v-text-field", {
+            attrs: { label: "Start Date", clearable: "" },
+            model: {
+              value: _vm.form_basic_info.pco_date_start,
+              callback: function ($$v) {
+                _vm.$set(_vm.form_basic_info, "pco_date_start", $$v)
+              },
+              expression: "form_basic_info.pco_date_start",
+            },
+          }),
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        [
+          _c("v-text-field", {
+            attrs: { label: "End Date", clearable: "" },
+            model: {
+              value: _vm.form_basic_info.pco_date_end,
+              callback: function ($$v) {
+                _vm.$set(_vm.form_basic_info, "pco_date_end", $$v)
+              },
+              expression: "form_basic_info.pco_date_end",
+            },
+          }),
+        ],
+        1
+      ),
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "grid grid-cols-3 gap-y-0 gap-x-4 ml-8" }, [
+      _c(
+        "div",
+        { staticClass: "col-span-3" },
+        [
+          _c(
+            "v-card",
+            {
+              staticClass: "primary white--text p-2",
+              attrs: { elevation: "2" },
+            },
+            [_vm._v("PSIC Code")]
+          ),
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        [
+          _c("v-text-field", {
+            attrs: { label: "Group", clearable: "" },
+            model: {
+              value: _vm.form_basic_info.psic_group,
+              callback: function ($$v) {
+                _vm.$set(_vm.form_basic_info, "psic_group", $$v)
+              },
+              expression: "form_basic_info.psic_group",
+            },
+          }),
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        [
+          _c("v-text-field", {
+            attrs: { label: "Class", clearable: "" },
+            model: {
+              value: _vm.form_basic_info.psic_class,
+              callback: function ($$v) {
+                _vm.$set(_vm.form_basic_info, "psic_class", $$v)
+              },
+              expression: "form_basic_info.psic_class",
+            },
+          }),
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        [
+          _c("v-text-field", {
+            attrs: { label: "Subclass", clearable: "" },
+            model: {
+              value: _vm.form_basic_info.psic_subclass,
+              callback: function ($$v) {
+                _vm.$set(_vm.form_basic_info, "psic_subclass", $$v)
+              },
+              expression: "form_basic_info.psic_subclass",
+            },
+          }),
+        ],
+        1
+      ),
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "grid grid-cols-3 gap-y-0 gap-x-4 ml-8" }, [
+      _c(
+        "div",
+        { staticClass: "col-span-3" },
+        [
+          _c(
+            "v-card",
+            {
+              staticClass: "primary white--text p-2",
+              attrs: { elevation: "2" },
+            },
+            [_vm._v("Project Type")]
+          ),
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        [
+          _c("v-text-field", {
+            attrs: { label: "Group", clearable: "" },
+            model: {
+              value: _vm.form_basic_info.project_type,
+              callback: function ($$v) {
+                _vm.$set(_vm.form_basic_info, "project_type", $$v)
+              },
+              expression: "form_basic_info.project_type",
+            },
+          }),
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        [
+          _c("v-text-field", {
+            attrs: { label: "Class", clearable: "" },
+            model: {
+              value: _vm.form_basic_info.project_sub_type,
+              callback: function ($$v) {
+                _vm.$set(_vm.form_basic_info, "project_sub_type", $$v)
+              },
+              expression: "form_basic_info.project_sub_type",
+            },
+          }),
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        [
+          _c("v-text-field", {
+            attrs: { label: "Subclass", clearable: "" },
+            model: {
+              value: _vm.form_basic_info.project_specific_type,
+              callback: function ($$v) {
+                _vm.$set(_vm.form_basic_info, "project_specific_type", $$v)
+              },
+              expression: "form_basic_info.project_specific_type",
+            },
+          }),
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        [
+          _c("v-text-field", {
+            attrs: { label: "Subclass", clearable: "" },
+            model: {
+              value: _vm.form_basic_info.project_specific_sub_type,
+              callback: function ($$v) {
+                _vm.$set(_vm.form_basic_info, "project_specific_sub_type", $$v)
+              },
+              expression: "form_basic_info.project_specific_sub_type",
+            },
+          }),
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        [
+          _c("v-text-field", {
+            attrs: { label: "Description", clearable: "" },
+            model: {
+              value: _vm.form_basic_info.project_description,
+              callback: function ($$v) {
+                _vm.$set(_vm.form_basic_info, "project_description", $$v)
+              },
+              expression: "form_basic_info.project_description",
+            },
+          }),
+        ],
+        1
+      ),
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "grid grid-cols-2 gap-y-0 gap-x-4 ml-8" }, [
+      _c(
+        "div",
+        { staticClass: "col-span-2" },
+        [
+          _c(
+            "v-card",
+            {
+              staticClass: "primary white--text p-2",
+              attrs: { elevation: "2" },
+            },
+            [_vm._v("Status")]
+          ),
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        [
+          _c("v-text-field", {
+            attrs: { label: "Group", clearable: "" },
+            model: {
+              value: _vm.form_basic_info.firm_remarks,
+              callback: function ($$v) {
+                _vm.$set(_vm.form_basic_info, "firm_remarks", $$v)
+              },
+              expression: "form_basic_info.firm_remarks",
+            },
+          }),
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        [
+          _c("v-text-field", {
+            attrs: { label: "Class", clearable: "" },
+            model: {
+              value: _vm.form_basic_info.firm_status,
+              callback: function ($$v) {
+                _vm.$set(_vm.form_basic_info, "firm_status", $$v)
+              },
+              expression: "form_basic_info.firm_status",
+            },
+          }),
+        ],
+        1
+      ),
+    ]),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "text-center" },
+      [
+        _c(
+          "v-btn",
+          { attrs: { depressed: "", color: "primary", type: "submit" } },
+          [_vm._v("\n            Submit\n        ")]
+        ),
+      ],
+      1
+    ),
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
