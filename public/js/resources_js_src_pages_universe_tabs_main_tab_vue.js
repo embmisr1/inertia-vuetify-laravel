@@ -437,6 +437,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     form_basic_info: Object,
+    form_permit_info: Object,
     submit_basic_info: Function,
     form_monitoring_info: Object
   },
@@ -1867,7 +1868,7 @@ var render = function () {
                           "v-tab-item",
                           [
                             _c("PermitTab", {
-                              attrs: { form_permit_info: _vm.form_basic_info },
+                              attrs: { form_permit_info: _vm.form_permit_info },
                             }),
                           ],
                           1

@@ -61,7 +61,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             switch (_context.prev = _context.next) {
               case 0:
                 if (!confirm('Do you want to proceed?')) {
-                  _context.next = 5;
+                  _context.next = 6;
                   break;
                 }
 
@@ -70,9 +70,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                 return _this.$inertia.post("/app/universe_process", _objectSpread({}, data));
 
               case 4:
+                console.log(data);
+
                 _this.reset_basic_info();
 
-              case 5:
+              case 6:
               case "end":
                 return _context.stop();
             }

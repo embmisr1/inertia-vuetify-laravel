@@ -86,7 +86,7 @@
                   <BasicTab :form_basic_info="form_basic_info"></BasicTab>
               </v-tab-item>
               <v-tab-item>
-                  <PermitTab :form_permit_info="form_basic_info"></PermitTab>
+                  <PermitTab :form_permit_info="form_permit_info"></PermitTab>
               </v-tab-item>
               <v-tab-item>
                   <MonitoringTab :form_monitoring_info="form_basic_info"></MonitoringTab>
@@ -130,6 +130,7 @@
   export default {
     props:{
       form_basic_info: Object,
+      form_permit_info: Object,
       submit_basic_info: Function,
       form_monitoring_info: Object,
     },

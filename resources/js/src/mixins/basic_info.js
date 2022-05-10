@@ -24,6 +24,7 @@ export default {
                 await this.$inertia.post("/app/universe_process", {
                     ...data,
                 });
+                console.log(data);
                 this.reset_basic_info();
             }
         },
