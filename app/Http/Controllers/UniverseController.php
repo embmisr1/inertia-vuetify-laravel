@@ -37,7 +37,7 @@ class UniverseController extends Controller
     }
     
     public function universe_process(request $request){
-        if($request->id){
+        if($request->basic['id']){
             $id = $this->universe_process_update($request);
             return Redirect::route('universe_form_id',[
                 'id'=>$id,
@@ -50,21 +50,22 @@ class UniverseController extends Controller
     
     public function universe_process_create($request){
         $query = new Universe();
-        $query->un_firmname = $request->un_firmname;
-        $query->un_proponent = $request->un_proponent;
-        $query->un_crs_number = $request->un_crs_number;
-        $query->un_type = $request->un_type;
+        $query->un_firmname = $request->basic['un_firmname'];
+        $query->un_proponent = $request->basic['un_proponent'];
+        $query->un_crs_number = $request->basic['un_crs_number'];
+        $query->un_type = $request->basic['un_type'];
         $query->save();
         return $query->un_id;
+        // dd($request->basic['un_firmname']);
     }
 
     public function universe_process_update($request){
-        $id = $request->un_id;
+        $id = $request->basic['id'];
         $query = Universe::find($id);
-        $query->un_firmname = $request->un_firmname;
-        $query->un_proponent = $request->un_proponent;
-        $query->un_crs_number = $request->un_crs_number;
-        $query->un_type = $request->un_type;
+        $query->un_firmname = $request->basic['un_firmname'];
+        $query->un_proponent = $request->basic['un_proponent'];
+        $query->un_crs_number = $request->basic['un_crs_number'];
+        $query->un_type = $request->basic['un_type'];
         $query->save();
         return $query->id;
     }

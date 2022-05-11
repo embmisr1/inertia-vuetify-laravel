@@ -1048,16 +1048,15 @@ var render = function () {
       _vm._v(" "),
       _c(
         "div",
-        { attrs: { hidden: "" } },
         [
           _c("v-text-field", {
             attrs: { label: "Outlined", clearable: "" },
             model: {
-              value: _vm.form_basic_info.un_id,
+              value: _vm.form_basic_info.id,
               callback: function ($$v) {
-                _vm.$set(_vm.form_basic_info, "un_id", $$v)
+                _vm.$set(_vm.form_basic_info, "id", $$v)
               },
-              expression: "form_basic_info.un_id",
+              expression: "form_basic_info.id",
             },
           }),
         ],

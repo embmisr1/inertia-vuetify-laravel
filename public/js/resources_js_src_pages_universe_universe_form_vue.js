@@ -1110,7 +1110,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _layouts_default_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../layouts/default.vue */ "./resources/js/src/layouts/default.vue");
 /* harmony import */ var _tabs_main_tab__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./tabs/main_tab */ "./resources/js/src/pages/universe/tabs/main_tab.vue");
-/* harmony import */ var _mixins_basic_info__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../mixins/basic_info */ "./resources/js/src/mixins/basic_info.js");
+/* harmony import */ var _mixins_universe_info__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../mixins/universe_info */ "./resources/js/src/mixins/universe_info.js");
 /* harmony import */ var _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @inertiajs/inertia-vue */ "./node_modules/@inertiajs/inertia-vue/dist/index.js");
 //
 //
@@ -1127,7 +1127,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  mixins: [_mixins_basic_info__WEBPACK_IMPORTED_MODULE_2__["default"]],
+  mixins: [_mixins_universe_info__WEBPACK_IMPORTED_MODULE_2__["default"]],
   components: {
     DefaultLayout: _layouts_default_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
     Link: _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_3__.Link,
@@ -1143,10 +1143,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/src/mixins/basic_info.js":
-/*!***********************************************!*\
-  !*** ./resources/js/src/mixins/basic_info.js ***!
-  \***********************************************/
+/***/ "./resources/js/src/mixins/universe_info.js":
+/*!**************************************************!*\
+  !*** ./resources/js/src/mixins/universe_info.js ***!
+  \**************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -1172,10 +1172,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   data: function data() {
     return {
       form_basic_info: _objectSpread({
-        firm_name: "",
-        proponent: "",
-        crs_number: "",
-        universe_type: ""
+        un_firmname: "",
+        un_proponent: "",
+        un_crs_number: "",
+        un_type: ""
       }, this.query),
       form_permit_info: _objectSpread({
         permit_law: ""
@@ -1197,7 +1197,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                   break;
                 }
 
-                data = _objectSpread(_objectSpread({}, _this.form_basic_info), _this.form_permit_info);
+                data = {
+                  'basic': _this.form_basic_info,
+                  'permit': _this.form_permit_info
+                };
                 _context.next = 4;
                 return _this.$inertia.post("/app/universe_process", _objectSpread({}, data));
 
@@ -1216,10 +1219,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     reset_basic_info: function reset_basic_info() {
       this.form_basic_info = {
-        firm_name: "",
-        proponent: "",
-        crs_number: "",
-        universe_type: ""
+        un_firmname: "",
+        un_proponent: "",
+        un_crs_number: "",
+        un_type: ""
       };
       this.form_permit_info = {
         permit_law: ""
@@ -3132,16 +3135,15 @@ var render = function () {
       _vm._v(" "),
       _c(
         "div",
-        { attrs: { hidden: "" } },
         [
           _c("v-text-field", {
             attrs: { label: "Outlined", clearable: "" },
             model: {
-              value: _vm.form_basic_info.un_id,
+              value: _vm.form_basic_info.id,
               callback: function ($$v) {
-                _vm.$set(_vm.form_basic_info, "un_id", $$v)
+                _vm.$set(_vm.form_basic_info, "id", $$v)
               },
-              expression: "form_basic_info.un_id",
+              expression: "form_basic_info.id",
             },
           }),
         ],

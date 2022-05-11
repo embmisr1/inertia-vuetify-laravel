@@ -32,9 +32,9 @@
                             clearable
                         ></v-text-field>
                     </div>
-                    <div hidden>
+                    <div >
                         <v-text-field
-                            v-model="form_basic_info.un_id"
+                            v-model="form_basic_info.id"
                             label="Outlined"
                             clearable
                         ></v-text-field>

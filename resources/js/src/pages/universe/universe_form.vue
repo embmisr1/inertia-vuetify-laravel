@@ -11,11 +11,11 @@
 <script>
 import DefaultLayout from "../../layouts/default.vue";
 import MainTab from "./tabs/main_tab";
-import BasicInfo from "../../mixins/basic_info";
+import UniverseInfo from "../../mixins/universe_info";
 import { Link } from "@inertiajs/inertia-vue";
 export default {
     mixins: [
-        BasicInfo,
+        UniverseInfo,
     ],
     components: {
         DefaultLayout,
