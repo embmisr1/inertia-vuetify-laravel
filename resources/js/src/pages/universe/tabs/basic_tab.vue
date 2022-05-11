@@ -35,7 +35,7 @@
                     <div >
                         <v-text-field
                             v-model="form_basic_info.id"
-                            label="Outlined"
+                            label="Universe ID"
                             clearable
                         ></v-text-field>
                     </div>

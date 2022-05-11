@@ -464,7 +464,7 @@ var render = function () {
         "div",
         [
           _c("v-text-field", {
-            attrs: { label: "Outlined", clearable: "" },
+            attrs: { label: "Universe ID", clearable: "" },
             model: {
               value: _vm.form_basic_info.id,
               callback: function ($$v) {

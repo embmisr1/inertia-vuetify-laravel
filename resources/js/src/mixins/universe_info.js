@@ -2,14 +2,24 @@ export default {
     data() {
         return {
             form_basic_info: {
-                un_firmname: "",
-                un_proponent: "",
+                id: "",
+                un_brgy: "",
                 un_crs_number: "",
+                un_firmname: "",
+                un_municipality: "",
+                un_proponent: "",
+                un_province: "",
                 un_type: "",
                 ...this.query,
             },
             form_permit_info: {
-                permit_law: "",
+                perm_law: "",
+                perm_number: "",
+                perm_date_issuance: "",
+                perm_date_expiry: "",
+                perm_file: "",
+                perm_description: "",
+                perm_status: "",
                 ...this.query
             },
         };

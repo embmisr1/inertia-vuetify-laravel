@@ -530,6 +530,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     form_permit_info: Object
@@ -1050,7 +1057,7 @@ var render = function () {
         "div",
         [
           _c("v-text-field", {
-            attrs: { label: "Outlined", clearable: "" },
+            attrs: { label: "Universe ID", clearable: "" },
             model: {
               value: _vm.form_basic_info.id,
               callback: function ($$v) {
@@ -1998,11 +2005,11 @@ var render = function () {
             _c("v-text-field", {
               attrs: { label: "Law", clearable: "" },
               model: {
-                value: _vm.form_permit_info.permit_law,
+                value: _vm.form_permit_info.perm_law,
                 callback: function ($$v) {
-                  _vm.$set(_vm.form_permit_info, "permit_law", $$v)
+                  _vm.$set(_vm.form_permit_info, "perm_law", $$v)
                 },
-                expression: "form_permit_info.permit_law",
+                expression: "form_permit_info.perm_law",
               },
             }),
           ],
@@ -2015,11 +2022,11 @@ var render = function () {
             _c("v-text-field", {
               attrs: { label: "Permit No.", clearable: "" },
               model: {
-                value: _vm.form_permit_info.permit_number,
+                value: _vm.form_permit_info.perm_number,
                 callback: function ($$v) {
-                  _vm.$set(_vm.form_permit_info, "permit_number", $$v)
+                  _vm.$set(_vm.form_permit_info, "perm_number", $$v)
                 },
-                expression: "form_permit_info.permit_number",
+                expression: "form_permit_info.perm_number",
               },
             }),
           ],
@@ -2032,11 +2039,11 @@ var render = function () {
             _c("v-text-field", {
               attrs: { label: "Permit Status", clearable: "" },
               model: {
-                value: _vm.form_permit_info.permit_status,
+                value: _vm.form_permit_info.perm_status,
                 callback: function ($$v) {
-                  _vm.$set(_vm.form_permit_info, "permit_status", $$v)
+                  _vm.$set(_vm.form_permit_info, "perm_status", $$v)
                 },
-                expression: "form_permit_info.permit_status",
+                expression: "form_permit_info.perm_status",
               },
             }),
           ],
@@ -2049,11 +2056,11 @@ var render = function () {
             _c("v-text-field", {
               attrs: { label: "Date Issued", clearable: "" },
               model: {
-                value: _vm.form_permit_info.permit_date_issued,
+                value: _vm.form_permit_info.perm_date_issuance,
                 callback: function ($$v) {
-                  _vm.$set(_vm.form_permit_info, "permit_date_issued", $$v)
+                  _vm.$set(_vm.form_permit_info, "perm_date_issuance", $$v)
                 },
-                expression: "form_permit_info.permit_date_issued",
+                expression: "form_permit_info.perm_date_issuance",
               },
             }),
           ],
@@ -2066,11 +2073,11 @@ var render = function () {
             _c("v-text-field", {
               attrs: { label: "Date Expiry", clearable: "" },
               model: {
-                value: _vm.form_permit_info.permit_date_expiry,
+                value: _vm.form_permit_info.perm_date_expiry,
                 callback: function ($$v) {
-                  _vm.$set(_vm.form_permit_info, "permit_date_expiry", $$v)
+                  _vm.$set(_vm.form_permit_info, "perm_date_expiry", $$v)
                 },
-                expression: "form_permit_info.permit_date_expiry",
+                expression: "form_permit_info.perm_date_expiry",
               },
             }),
           ],
@@ -2078,18 +2085,35 @@ var render = function () {
         ),
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "grid grid-cols-1 gap-y-0 gap-x-4 ml-8" }, [
+      _c("div", { staticClass: "grid grid-cols-2 gap-y-0 gap-x-4 ml-8" }, [
+        _c(
+          "div",
+          [
+            _c("v-text-field", {
+              attrs: { label: "Permit Description", clearable: "" },
+              model: {
+                value: _vm.form_permit_info.perm_description,
+                callback: function ($$v) {
+                  _vm.$set(_vm.form_permit_info, "perm_description", $$v)
+                },
+                expression: "form_permit_info.perm_description",
+              },
+            }),
+          ],
+          1
+        ),
+        _vm._v(" "),
         _c(
           "div",
           [
             _c("v-text-field", {
               attrs: { label: "Permit File Upload", clearable: "" },
               model: {
-                value: _vm.form_permit_info.permit_files,
+                value: _vm.form_permit_info.perm_file,
                 callback: function ($$v) {
-                  _vm.$set(_vm.form_permit_info, "permit_files", $$v)
+                  _vm.$set(_vm.form_permit_info, "perm_file", $$v)
                 },
-                expression: "form_permit_info.permit_files",
+                expression: "form_permit_info.perm_file",
               },
             }),
           ],

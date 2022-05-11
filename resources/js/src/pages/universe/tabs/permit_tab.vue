@@ -3,44 +3,51 @@
             <div class="grid grid-cols-5 gap-y-0 gap-x-4 ml-8">
                     <div>
                         <v-text-field
-                            v-model="form_permit_info.permit_law"
+                            v-model="form_permit_info.perm_law"
                             label="Law"
                             clearable
                         ></v-text-field>
                     </div>
                     <div>
                         <v-text-field
-                            v-model="form_permit_info.permit_number"
+                            v-model="form_permit_info.perm_number"
                             label="Permit No."
                             clearable
                         ></v-text-field>
                     </div>
                     <div>
                         <v-text-field
-                            v-model="form_permit_info.permit_status"
+                            v-model="form_permit_info.perm_status"
                             label="Permit Status"
                             clearable
                         ></v-text-field>
                     </div>
                     <div>
                         <v-text-field
-                            v-model="form_permit_info.permit_date_issued"
+                            v-model="form_permit_info.perm_date_issuance"
                             label="Date Issued"
                             clearable
                         ></v-text-field>
                     </div>
                     <div>
                         <v-text-field
-                            v-model="form_permit_info.permit_date_expiry"
+                            v-model="form_permit_info.perm_date_expiry"
                             label="Date Expiry"
                             clearable
                         ></v-text-field>
                     </div>
             </div>
-            <div class="grid grid-cols-1 gap-y-0 gap-x-4 ml-8">
+            <div class="grid grid-cols-2 gap-y-0 gap-x-4 ml-8">
                     <div>
                         <v-text-field
-                            v-model="form_permit_info.permit_files"
+                            v-model="form_permit_info.perm_description"
+                            label="Permit Description"
+                            clearable
+                        ></v-text-field>
+                    </div>
+                    <div>
+                        <v-text-field
+                            v-model="form_permit_info.perm_file"
                             label="Permit File Upload"
                             clearable
                         ></v-text-field>

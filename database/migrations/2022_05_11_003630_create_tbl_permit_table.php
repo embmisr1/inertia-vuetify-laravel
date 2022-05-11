@@ -16,12 +16,13 @@ class CreateTblPermitTable extends Migration
         Schema::create('tbl_permit', function (Blueprint $table) {
             $table->id();
             $table->string('perm_law')->nullable();
-            $table->string('perm_num')->nullable();
+            $table->string('perm_number')->nullable();
             $table->string('perm_date_acceptance')->nullable();
             $table->string('perm_date_issuance')->nullable();
             $table->string('perm_date_expiry')->nullable();
             $table->longText('perm_file')->nullable();
             $table->longText('perm_description')->nullable();
+            $table->string('perm_status')->nullable();
             $table->integer('universe_FK')->nullable();
             $table->integer('is_priority')->nullable();
             $table->timestamps();
