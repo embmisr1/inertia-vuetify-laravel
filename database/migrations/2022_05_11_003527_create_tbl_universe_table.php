@@ -36,7 +36,7 @@ class CreateTblUniverseTable extends Migration
             $table->string('un_representative_name')->nullable();
             $table->string('un_representative_designation')->nullable();
             $table->string('un_representative_gender')->nullable();
-            $table->longText('ub_remarks')->nullable();
+            $table->longText('un_remarks')->nullable();
             $table->string('un_status')->nullable();
             $table->string('un_type')->nullable();
             $table->timestamps();

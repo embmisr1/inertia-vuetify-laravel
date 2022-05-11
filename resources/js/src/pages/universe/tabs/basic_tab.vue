@@ -6,35 +6,35 @@
                     </div>
                     <div>
                         <v-text-field
-                            v-model="form_basic_info.firm_name"
+                            v-model="form_basic_info.un_firmname"
                             label="Firm Name"
                             clearable
                         ></v-text-field>
                     </div>
                     <div>
                         <v-text-field
-                            v-model="form_basic_info.proponent"
+                            v-model="form_basic_info.un_proponent"
                             label="Proponent"
                             clearable
                         ></v-text-field>
                     </div>
                     <div>
                         <v-text-field
-                            v-model="form_basic_info.crs_number"
+                            v-model="form_basic_info.un_crs_number"
                             label="CRS No."
                             clearable
                         ></v-text-field>
                     </div>
                     <div>
                         <v-text-field
-                            v-model="form_basic_info.universe_type"
+                            v-model="form_basic_info.un_type"
                             label="Universe Type"
                             clearable
                         ></v-text-field>
                     </div>
                     <div hidden>
                         <v-text-field
-                            v-model="form_basic_info.id"
+                            v-model="form_basic_info.un_id"
                             label="Outlined"
                             clearable
                         ></v-text-field>
@@ -46,42 +46,42 @@
                     </div>
                     <div>
                         <v-text-field
-                            v-model="form_basic_info.province"
+                            v-model="form_basic_info.un_province"
                             label="Province"
                             clearable
                         ></v-text-field>
                     </div>
                     <div>
                         <v-text-field
-                            v-model="form_basic_info.municipality"
+                            v-model="form_basic_info.un_municipality"
                             label="Municipality"
                             clearable
                         ></v-text-field>
                     </div>
                     <div>
                         <v-text-field
-                            v-model="form_basic_info.barangay"
+                            v-model="form_basic_info.un_brgy"
                             label="Barangay"
                             clearable
                         ></v-text-field>
                     </div>
                     <div>
                         <v-text-field
-                            v-model="form_basic_info.specific_address"
+                            v-model="form_basic_info.un_specific_address"
                             label="Specific Address"
                             clearable
                         ></v-text-field>
                     </div>
                     <div>
                         <v-text-field
-                            v-model="form_basic_info.latitude"
+                            v-model="form_basic_info.un_lat"
                             label="Latitude"
                             clearable
                         ></v-text-field>
                     </div>
                     <div>
                         <v-text-field
-                            v-model="form_basic_info.longitude"
+                            v-model="form_basic_info.un_long"
                             label="Longitude"
                             clearable
                         ></v-text-field>
@@ -105,21 +105,21 @@
                     </div>
                     <div>
                         <v-text-field
-                            v-model="form_basic_info.representative_name"
+                            v-model="form_basic_info.un_representative_name"
                             label="Name"
                             clearable
                         ></v-text-field>
                     </div>
                     <div>
                         <v-text-field
-                            v-model="form_basic_info.representative_designation"
+                            v-model="form_basic_info.un_representative_designation"
                             label="Designation"
                             clearable
                         ></v-text-field>
                     </div>
                     <div>
                         <v-text-field
-                            v-model="form_basic_info.representative_gender"
+                            v-model="form_basic_info.un_representative_gender"
                             label="Gender"
                             clearable
                         ></v-text-field>
@@ -178,21 +178,21 @@
                     </div>
                     <div>
                         <v-text-field
-                            v-model="form_basic_info.psic_group"
+                            v-model="form_basic_info.un_psic_group"
                             label="Group"
                             clearable
                         ></v-text-field>
                     </div>
                     <div>
                         <v-text-field
-                            v-model="form_basic_info.psic_class"
+                            v-model="form_basic_info.un_psic_class"
                             label="Class"
                             clearable
                         ></v-text-field>
                     </div>
                     <div>
                         <v-text-field
-                            v-model="form_basic_info.psic_subclass"
+                            v-model="form_basic_info.un_psic_subclass"
                             label="Subclass"
                             clearable
                         ></v-text-field>
@@ -204,35 +204,35 @@
                     </div>
                     <div>
                         <v-text-field
-                            v-model="form_basic_info.project_type"
+                            v-model="form_basic_info.un_project_type"
                             label="Group"
                             clearable
                         ></v-text-field>
                     </div>
                     <div>
                         <v-text-field
-                            v-model="form_basic_info.project_sub_type"
+                            v-model="form_basic_info.un_project_sub_type"
                             label="Class"
                             clearable
                         ></v-text-field>
                     </div>
                     <div>
                         <v-text-field
-                            v-model="form_basic_info.project_specific_type"
+                            v-model="form_basic_info.un_project_specific_type"
                             label="Subclass"
                             clearable
                         ></v-text-field>
                     </div>
                     <div>
                         <v-text-field
-                            v-model="form_basic_info.project_specific_sub_type"
+                            v-model="form_basic_info.un_project_specific_subtype"
                             label="Subclass"
                             clearable
                         ></v-text-field>
                     </div>
                     <div>
                         <v-text-field
-                            v-model="form_basic_info.project_description"
+                            v-model="form_basic_info.un_detailed_description"
                             label="Description"
                             clearable
                         ></v-text-field>
@@ -244,14 +244,14 @@
                     </div>
                     <div>
                         <v-text-field
-                            v-model="form_basic_info.firm_remarks"
+                            v-model="form_basic_info.un_remarks"
                             label="Group"
                             clearable
                         ></v-text-field>
                     </div>
                     <div>
                         <v-text-field
-                            v-model="form_basic_info.firm_status"
+                            v-model="form_basic_info.un_status"
                             label="Class"
                             clearable
                         ></v-text-field>

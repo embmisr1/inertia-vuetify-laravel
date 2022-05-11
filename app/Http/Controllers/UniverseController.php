@@ -50,21 +50,21 @@ class UniverseController extends Controller
     
     public function universe_process_create($request){
         $query = new Universe();
-        $query->un_firmname = $request->firm_name;
-        $query->un_proponent = $request->proponent;
-        $query->un_crs_number = $request->crs_number;
-        $query->un_type = $request->universe_type;
+        $query->un_firmname = $request->un_firmname;
+        $query->un_proponent = $request->un_proponent;
+        $query->un_crs_number = $request->un_crs_number;
+        $query->un_type = $request->un_type;
         $query->save();
-        return $query->id;
+        return $query->un_id;
     }
 
     public function universe_process_update($request){
-        $id = $request->id;
+        $id = $request->un_id;
         $query = Universe::find($id);
-        $query->un_firmname = $request->firm_name;
-        $query->un_proponent = $request->proponent;
-        $query->un_crs_number = $request->crs_number;
-        $query->un_type = $request->universe_type;
+        $query->un_firmname = $request->un_firmname;
+        $query->un_proponent = $request->un_proponent;
+        $query->un_crs_number = $request->un_crs_number;
+        $query->un_type = $request->un_type;
         $query->save();
         return $query->id;
     }
