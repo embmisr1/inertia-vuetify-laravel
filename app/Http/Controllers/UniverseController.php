@@ -39,9 +39,10 @@ class UniverseController extends Controller
     public function universe_process(request $request){
         if($request->basic['id']){
             $id = $this->universe_process_update($request);
-            return Redirect::route('universe_form_id',[
-                'id'=>$id,
-            ]);
+            // return Redirect::route('universe_form_id',[
+            //     'id'=>$id,
+            // ]);
+            return Redirect::route('universe_form');
         }else{
             $id = $this->universe_process_create($request);
             return Redirect::route('universe_form');
