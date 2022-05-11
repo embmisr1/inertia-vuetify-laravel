@@ -5,8 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Universe extends Model
+class Pco extends Model
 {
-    protected $table = 'tbl_universe';
+    protected $table = 'tbl_pco';
     use HasFactory;
 }

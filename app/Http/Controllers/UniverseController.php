@@ -5,6 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use App\Models\Universe;
+use App\Models\Permit;
+use App\Models\Monitoring;
+use App\Models\Hazwaste;
+use App\Models\Legal;
+use App\Models\Complaint;
+use App\Models\Pco;
 use Illuminate\Support\Facades\Redirect;
 use DB;
 
@@ -44,10 +50,10 @@ class UniverseController extends Controller
     
     public function universe_process_create($request){
         $query = new Universe();
-        $query->firm_name = $request->firm_name ? $request->firm_name : '';
-        $query->proponent = $request->permit_law;
-        $query->crs_number = $request->crs_number;
-        $query->universe_type = $request->universe_type;
+        $query->un_firmname = $request->firm_name;
+        $query->un_proponent = $request->proponent;
+        $query->un_crs_number = $request->crs_number;
+        $query->un_type = $request->universe_type;
         $query->save();
         return $query->id;
     }
@@ -55,10 +61,10 @@ class UniverseController extends Controller
     public function universe_process_update($request){
         $id = $request->id;
         $query = Universe::find($id);
-        $query->firm_name = $request->firm_name ? $request->firm_name : '';
-        $query->proponent = $request->permit_law;
-        $query->crs_number = $request->crs_number;
-        $query->universe_type = $request->universe_type;
+        $query->un_firmname = $request->firm_name;
+        $query->un_proponent = $request->proponent;
+        $query->un_crs_number = $request->crs_number;
+        $query->un_type = $request->universe_type;
         $query->save();
         return $query->id;
     }
