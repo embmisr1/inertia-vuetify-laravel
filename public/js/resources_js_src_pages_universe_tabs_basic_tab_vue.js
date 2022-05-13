@@ -902,7 +902,7 @@ var render = function () {
         "div",
         [
           _c("v-text-field", {
-            attrs: { label: "Group", clearable: "" },
+            attrs: { label: "Type", clearable: "" },
             model: {
               value: _vm.form_basic_info.un_project_type,
               callback: function ($$v) {
@@ -919,13 +919,13 @@ var render = function () {
         "div",
         [
           _c("v-text-field", {
-            attrs: { label: "Class", clearable: "" },
+            attrs: { label: "Subtype", clearable: "" },
             model: {
-              value: _vm.form_basic_info.un_project_sub_type,
+              value: _vm.form_basic_info.un_project_subtype,
               callback: function ($$v) {
-                _vm.$set(_vm.form_basic_info, "un_project_sub_type", $$v)
+                _vm.$set(_vm.form_basic_info, "un_project_subtype", $$v)
               },
-              expression: "form_basic_info.un_project_sub_type",
+              expression: "form_basic_info.un_project_subtype",
             },
           }),
         ],

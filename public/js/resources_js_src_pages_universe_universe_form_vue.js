@@ -1180,12 +1180,29 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     return {
       form_basic_info: _objectSpread({
         id: "",
-        un_brgy: "",
         un_crs_number: "",
+        un_psic_group: "",
+        un_psic_class: "",
+        un_psic_subclass: "",
         un_firmname: "",
-        un_municipality: "",
         un_proponent: "",
+        un_project_type: "",
+        un_project_subtype: "",
+        un_project_specific_type: "",
+        un_project_specific_subtype: "",
+        un_detailed_description: "",
+        un_specific_address: "",
+        un_region: "",
+        un_brgy: "",
+        un_municipality: "",
         un_province: "",
+        un_lat: "",
+        un_long: "",
+        un_representative_name: "",
+        un_representative_designation: "",
+        un_representative_gender: "",
+        un_remarks: "",
+        un_status: "",
         un_type: ""
       }, this.query),
       form_permit_info: _objectSpread({
@@ -1236,9 +1253,30 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     reset_basic_info: function reset_basic_info() {
       this.form_basic_info = {
+        id: "",
+        un_crs_number: "",
+        un_psic_group: "",
+        un_psic_class: "",
+        un_psic_subclass: "",
         un_firmname: "",
         un_proponent: "",
-        un_crs_number: "",
+        un_project_type: "",
+        un_project_subtype: "",
+        un_project_specific_type: "",
+        un_project_specific_subtype: "",
+        un_detailed_description: "",
+        un_specific_address: "",
+        un_region: "",
+        un_brgy: "",
+        un_municipality: "",
+        un_province: "",
+        un_lat: "",
+        un_long: "",
+        un_representative_name: "",
+        un_representative_designation: "",
+        un_representative_gender: "",
+        un_remarks: "",
+        un_status: "",
         un_type: ""
       };
       this.form_permit_info = {
@@ -3592,7 +3630,7 @@ var render = function () {
         "div",
         [
           _c("v-text-field", {
-            attrs: { label: "Group", clearable: "" },
+            attrs: { label: "Type", clearable: "" },
             model: {
               value: _vm.form_basic_info.un_project_type,
               callback: function ($$v) {
@@ -3609,13 +3647,13 @@ var render = function () {
         "div",
         [
           _c("v-text-field", {
-            attrs: { label: "Class", clearable: "" },
+            attrs: { label: "Subtype", clearable: "" },
             model: {
-              value: _vm.form_basic_info.un_project_sub_type,
+              value: _vm.form_basic_info.un_project_subtype,
               callback: function ($$v) {
-                _vm.$set(_vm.form_basic_info, "un_project_sub_type", $$v)
+                _vm.$set(_vm.form_basic_info, "un_project_subtype", $$v)
               },
-              expression: "form_basic_info.un_project_sub_type",
+              expression: "form_basic_info.un_project_subtype",
             },
           }),
         ],

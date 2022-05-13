@@ -205,14 +205,14 @@
                     <div>
                         <v-text-field
                             v-model="form_basic_info.un_project_type"
-                            label="Group"
+                            label="Type"
                             clearable
                         ></v-text-field>
                     </div>
                     <div>
                         <v-text-field
-                            v-model="form_basic_info.un_project_sub_type"
-                            label="Class"
+                            v-model="form_basic_info.un_project_subtype"
+                            label="Subtype"
                             clearable
                         ></v-text-field>
                     </div>
