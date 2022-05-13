@@ -546,40 +546,15 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       desserts: [{
-        name: 'Ice cream sandwich',
-        calories: 159,
-        fat: 6.0,
-        carbs: 24,
-        protein: 4.0,
-        iron: '1%'
+        name: 'Ice cream sandwich'
       }, {
-        name: 'Ice cream sandwich',
-        calories: 237,
-        fat: 9.0,
-        carbs: 37,
-        protein: 4.3,
-        iron: '1%'
+        name: 'Ice cream sandwich'
       }],
       headers: [{
         text: 'Dessert (100g serving)',
         align: 'start',
         sortable: false,
         value: 'name'
-      }, {
-        text: 'Calories',
-        value: 'calories'
-      }, {
-        text: 'Fat (g)',
-        value: 'fat'
-      }, {
-        text: 'Carbs (g)',
-        value: 'carbs'
-      }, {
-        text: 'Protein (g)',
-        value: 'protein'
-      }, {
-        text: 'Iron (%)',
-        value: 'iron'
       }]
     };
   }
