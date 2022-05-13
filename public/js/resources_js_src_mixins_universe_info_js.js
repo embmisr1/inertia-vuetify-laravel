@@ -88,7 +88,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             switch (_context.prev = _context.next) {
               case 0:
                 if (!confirm('Do you want to proceed?')) {
-                  _context.next = 6;
+                  _context.next = 7;
                   break;
                 }
 
@@ -101,10 +101,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
               case 4:
                 console.log(data);
+                console.log(_this.permit_table);
 
                 _this.reset_basic_info();
 
-              case 6:
+              case 7:
               case "end":
                 return _context.stop();
             }

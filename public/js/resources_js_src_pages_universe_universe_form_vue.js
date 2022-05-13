@@ -929,7 +929,8 @@ __webpack_require__.r(__webpack_exports__);
     form_basic_info: Object,
     form_permit_info: Object,
     submit_basic_info: Function,
-    form_monitoring_info: Object
+    form_monitoring_info: Object,
+    permit_table: Array
   },
   components: {
     BasicTab: _basic_tab__WEBPACK_IMPORTED_MODULE_0__["default"],
@@ -1030,12 +1031,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
-    form_permit_info: Object
+    form_permit_info: Object,
+    permit_table: Array
   },
   data: function data() {
     return {
       desserts: [{
-        name: 'Frozen Yogurt',
+        name: 'Ice cream sandwich',
         calories: 159,
         fat: 6.0,
         carbs: 24,
@@ -1048,34 +1050,6 @@ __webpack_require__.r(__webpack_exports__);
         carbs: 37,
         protein: 4.3,
         iron: '1%'
-      }, {
-        name: 'Eclair',
-        calories: 262,
-        fat: 16.0,
-        carbs: 23,
-        protein: 6.0,
-        iron: '7%'
-      }, {
-        name: 'Eclair',
-        calories: 262,
-        fat: 16.0,
-        carbs: 23,
-        protein: 6.0,
-        iron: '7%'
-      }, {
-        name: 'Eclair',
-        calories: 262,
-        fat: 16.0,
-        carbs: 23,
-        protein: 6.0,
-        iron: '7%'
-      }, {
-        name: 'Eclair',
-        calories: 262,
-        fat: 16.0,
-        carbs: 23,
-        protein: 6.0,
-        iron: '7%'
       }],
       headers: [{
         text: 'Dessert (100g serving)',
@@ -1129,6 +1103,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -1141,7 +1116,8 @@ __webpack_require__.r(__webpack_exports__);
     MainTab: _tabs_main_tab__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   props: {
-    query: Object
+    query: Object,
+    permit_table: Array
   },
   data: function data() {
     return {};
@@ -1227,7 +1203,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             switch (_context.prev = _context.next) {
               case 0:
                 if (!confirm('Do you want to proceed?')) {
-                  _context.next = 6;
+                  _context.next = 7;
                   break;
                 }
 
@@ -1240,10 +1216,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
               case 4:
                 console.log(data);
+                console.log(_this.permit_table);
 
                 _this.reset_basic_info();
 
-              case 6:
+              case 7:
               case "end":
                 return _context.stop();
             }
@@ -4018,7 +3995,10 @@ var render = function () {
                           "v-tab-item",
                           [
                             _c("PermitTab", {
-                              attrs: { form_permit_info: _vm.form_permit_info },
+                              attrs: {
+                                form_permit_info: _vm.form_permit_info,
+                                permit_table: _vm.permit_table,
+                              },
                             }),
                           ],
                           1
@@ -4282,7 +4262,7 @@ var render = function () {
                 dense: "",
                 headers: _vm.headers,
                 items: _vm.desserts,
-                "item-key": "permit_table",
+                "item-key": "permit_tables",
               },
             }),
           ],
@@ -4322,6 +4302,7 @@ var render = function () {
       _c("MainTab", {
         attrs: {
           form_permit_info: _vm.form_permit_info,
+          permit_table: _vm.permit_table,
           form_basic_info: _vm.form_basic_info,
           submit_basic_info: _vm.submit_basic_info,
         },

@@ -52,6 +52,7 @@ export default {
                     ...data,
                 });
                 console.log(data);
+                console.log(this.permit_table);
                 this.reset_basic_info();
             }
         },

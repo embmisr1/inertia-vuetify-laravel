@@ -2,6 +2,7 @@
     <DefaultLayout>
         <MainTab
             :form_permit_info="form_permit_info" 
+            :permit_table="permit_table"
             :form_basic_info="form_basic_info" 
             :submit_basic_info="submit_basic_info"
         ></MainTab>
@@ -24,6 +25,7 @@ export default {
     },
     props: {
         query: Object,
+        permit_table: Array,
     },
     data: () => ({}),
 };

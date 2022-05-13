@@ -24,15 +24,22 @@ class UniverseController extends Controller
         if($request->id){
             $id = $request->id;
             $query = Universe::where('id',$id)->get();
+            $query_permit = Permit::all();
             if($query->count() > 0){
                 return Inertia::render("pages/universe/universe_form",[
                     'query'=>$query[0],
+                    'permit_table'=>$query_permit,
                 ]);
             }else{
-                return Inertia::render("pages/universe/universe_form");
+                return Inertia::render("pages/universe/universe_form",[
+                    'permit_table'=>$query_permit,
+                ]);
             }
         }else{
-            return Inertia::render("pages/universe/universe_form");
+            $query_permit = Permit::all();
+                return Inertia::render("pages/universe/universe_form",[
+                    'permit_table'=>$query_permit,
+                ]);
         }
     }
     

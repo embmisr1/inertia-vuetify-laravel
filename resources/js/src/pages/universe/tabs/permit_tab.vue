@@ -64,7 +64,7 @@
                         dense
                         :headers="headers"
                         :items="desserts"
-                        item-key="permit_table"
+                        item-key="permit_tables"
                         class="elevation-1"
                     ></v-data-table>
                 </v-card>
@@ -75,11 +75,12 @@
   export default {
     props:{
         form_permit_info: Object,
+        permit_table: Array,
     },
     data: () => ({
       desserts: [
         {
-          name: 'Frozen Yogurt',
+          name: 'Ice cream sandwich',
           calories: 159,
           fat: 6.0,
           carbs: 24,
@@ -93,38 +94,6 @@
           carbs: 37,
           protein: 4.3,
           iron: '1%',
-        },
-        {
-          name: 'Eclair',
-          calories: 262,
-          fat: 16.0,
-          carbs: 23,
-          protein: 6.0,
-          iron: '7%',
-        },
-        {
-          name: 'Eclair',
-          calories: 262,
-          fat: 16.0,
-          carbs: 23,
-          protein: 6.0,
-          iron: '7%',
-        },
-        {
-          name: 'Eclair',
-          calories: 262,
-          fat: 16.0,
-          carbs: 23,
-          protein: 6.0,
-          iron: '7%',
-        },
-        {
-          name: 'Eclair',
-          calories: 262,
-          fat: 16.0,
-          carbs: 23,
-          protein: 6.0,
-          iron: '7%',
         },
       ],
       headers: [
