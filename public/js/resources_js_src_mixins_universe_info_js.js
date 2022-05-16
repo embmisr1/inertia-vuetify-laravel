@@ -67,6 +67,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         un_type: ""
       }, this.query),
       form_permit_info: _objectSpread({
+        perm_id: "",
         perm_law: "",
         perm_number: "",
         perm_date_issuance: "",

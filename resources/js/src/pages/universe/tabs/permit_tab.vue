@@ -3,6 +3,13 @@
             <div class="grid grid-cols-5 gap-y-0 gap-x-4 ml-8">
                     <div>
                         <v-text-field
+                            v-model="form_permit_info.perm_id"
+                            label="Permit Id"
+                            clearable
+                        ></v-text-field>
+                    </div>
+                    <div>
+                        <v-text-field
                             v-model="form_permit_info.perm_law"
                             label="Law"
                             clearable
@@ -63,10 +70,32 @@
                     <v-data-table
                         dense
                         :headers="headers"
-                        :items="desserts"
+                        :items="permit_table"
                         item-key="permit_tables"
                         class="elevation-1"
-                    ></v-data-table>
+                    >
+                        <template v-slot:item.actions="{ item }">
+                            <v-icon
+                                small
+                                class="mr-2"
+                                @click="editItem(item)"
+                            >
+                                mdi-pencil
+                            </v-icon>
+                            <v-icon
+                                small
+                            >
+                                mdi-delete
+                            </v-icon>
+                            </template>
+                            <template v-slot:no-data>
+                            <v-btn
+                                color="primary"
+                            >
+                                Reset
+                            </v-btn>
+                        </template>
+                    </v-data-table>
                 </v-card>
             </template>
         </v-card>
@@ -78,22 +107,40 @@
         permit_table: Array,
     },
     data: () => ({
-      desserts: [
-        {
-          name: 'Ice cream sandwich',
-        },
-        {
-          name: 'Ice cream sandwich',
-        },
-      ],
       headers: [
         {
-          text: 'Dessert (100g serving)',
+          text: 'Permit Law',
           align: 'start',
           sortable: false,
-          value: 'name',
+          value: 'perm_law',
         },
+        {
+          text: 'Permit No.',
+          align: 'start',
+          sortable: false,
+          value: 'perm_number',
+        },
+        { 
+          text: 'Actions', 
+          value: 'actions', 
+          sortable: false,
+        },
+        
       ],
     }),
+    methods:{
+        editItem(item) {
+            console.log(this.form_permit_info);
+            this.form_permit_info.perm_law = item.perm_law;
+            this.form_permit_info.perm_date_expiry = item.perm_date_expiry;
+            this.form_permit_info.perm_date_issuance = item.perm_date_issuance;
+            this.form_permit_info.perm_description = item.perm_description;
+            this.form_permit_info.perm_file = item.perm_file;
+            this.form_permit_info.perm_id = item.id;
+            this.form_permit_info.perm_law = item.perm_law;
+            this.form_permit_info.perm_number = item.perm_number;
+            this.form_permit_info.perm_status = item.perm_status;
+        },
+    }
   }
 </script>

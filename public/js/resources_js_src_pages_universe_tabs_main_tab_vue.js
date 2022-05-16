@@ -538,6 +538,35 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     form_permit_info: Object,
@@ -545,18 +574,36 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      desserts: [{
-        name: 'Ice cream sandwich'
-      }, {
-        name: 'Ice cream sandwich'
-      }],
       headers: [{
-        text: 'Dessert (100g serving)',
+        text: 'Permit Law',
         align: 'start',
         sortable: false,
-        value: 'name'
+        value: 'perm_law'
+      }, {
+        text: 'Permit No.',
+        align: 'start',
+        sortable: false,
+        value: 'perm_number'
+      }, {
+        text: 'Actions',
+        value: 'actions',
+        sortable: false
       }]
     };
+  },
+  methods: {
+    editItem: function editItem(item) {
+      console.log(this.form_permit_info);
+      this.form_permit_info.perm_law = item.perm_law;
+      this.form_permit_info.perm_date_expiry = item.perm_date_expiry;
+      this.form_permit_info.perm_date_issuance = item.perm_date_issuance;
+      this.form_permit_info.perm_description = item.perm_description;
+      this.form_permit_info.perm_file = item.perm_file;
+      this.form_permit_info.perm_id = item.id;
+      this.form_permit_info.perm_law = item.perm_law;
+      this.form_permit_info.perm_number = item.perm_number;
+      this.form_permit_info.perm_status = item.perm_status;
+    }
   }
 });
 
@@ -1955,6 +2002,23 @@ var render = function () {
           "div",
           [
             _c("v-text-field", {
+              attrs: { label: "Permit Id", clearable: "" },
+              model: {
+                value: _vm.form_permit_info.perm_id,
+                callback: function ($$v) {
+                  _vm.$set(_vm.form_permit_info, "perm_id", $$v)
+                },
+                expression: "form_permit_info.perm_id",
+              },
+            }),
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          [
+            _c("v-text-field", {
               attrs: { label: "Law", clearable: "" },
               model: {
                 value: _vm.form_permit_info.perm_law,
@@ -2096,9 +2160,55 @@ var render = function () {
               attrs: {
                 dense: "",
                 headers: _vm.headers,
-                items: _vm.desserts,
+                items: _vm.permit_table,
                 "item-key": "permit_tables",
               },
+              scopedSlots: _vm._u([
+                {
+                  key: "item.actions",
+                  fn: function (ref) {
+                    var item = ref.item
+                    return [
+                      _c(
+                        "v-icon",
+                        {
+                          staticClass: "mr-2",
+                          attrs: { small: "" },
+                          on: {
+                            click: function ($event) {
+                              return _vm.editItem(item)
+                            },
+                          },
+                        },
+                        [
+                          _vm._v(
+                            "\n                        mdi-pencil\n                    "
+                          ),
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("v-icon", { attrs: { small: "" } }, [
+                        _vm._v(
+                          "\n                        mdi-delete\n                    "
+                        ),
+                      ]),
+                    ]
+                  },
+                },
+                {
+                  key: "no-data",
+                  fn: function () {
+                    return [
+                      _c("v-btn", { attrs: { color: "primary" } }, [
+                        _vm._v(
+                          "\n                        Reset\n                    "
+                        ),
+                      ]),
+                    ]
+                  },
+                  proxy: true,
+                },
+              ]),
             }),
           ],
           1

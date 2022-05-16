@@ -30,6 +30,7 @@ export default {
                 ...this.query,
             },
             form_permit_info: {
+                perm_id: "",
                 perm_law: "",
                 perm_number: "",
                 perm_date_issuance: "",
