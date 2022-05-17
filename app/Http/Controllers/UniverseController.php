@@ -62,11 +62,13 @@ class UniverseController extends Controller
         $this->permit_process_create($request, $universe_id);
         return $universe_id;
     }
+
     public function universe_process_update($request){
         $universe_id = $this->basic_process_update($request);
         $this->permit_process_update($request, $universe_id);
         return $universe_id;
     }
+
 // INDIVUDUAL PROCESS =======================================================================================================
 
     public function basic_process_create($request){
@@ -146,6 +148,7 @@ class UniverseController extends Controller
         ];
         return $array;
     }
+    
     public function permit_columns(){
         $array = [
             'perm_law',
