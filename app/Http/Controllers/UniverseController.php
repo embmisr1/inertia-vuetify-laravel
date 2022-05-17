@@ -41,6 +41,7 @@ class UniverseController extends Controller
         }
     }
     
+// MAIN PROCESS =======================================================================================================
     public function universe_process(request $request){
         if(isset($request->basic['id'])){
             $id = $this->universe_process_update($request);
@@ -52,89 +53,42 @@ class UniverseController extends Controller
             return Redirect::route('universe_form');
         }
     }
-    
+// GENERAL PROCESS =======================================================================================================
     public function universe_process_create($request){
         $universe_id = $this->basic_process_create($request);
         $this->permit_process_create($request, $universe_id);
         return $universe_id;
     }
-
     public function universe_process_update($request){
         $universe_id = $this->basic_process_update($request);
         $this->permit_process_update($request, $universe_id);
         return $universe_id;
     }
-
+// INDIVUDUAL PROCESS =======================================================================================================
     public function basic_process_create($request){
         $query = new Universe();
-        $query->un_crs_number = $request->basic['un_crs_number'];
-        $query->un_psic_group = $request->basic['un_psic_group'];
-        $query->un_psic_class = $request->basic['un_psic_class'];
-        $query->un_psic_subclass = $request->basic['un_psic_subclass'];
-        $query->un_firmname = $request->basic['un_firmname'];
-        $query->un_proponent = $request->basic['un_proponent'];
-        $query->un_project_type = $request->basic['un_project_type'];
-        $query->un_project_subtype = $request->basic['un_project_subtype'];
-        $query->un_project_specific_type = $request->basic['un_project_specific_type'];
-        $query->un_project_specific_subtype = $request->basic['un_project_specific_subtype'];
-        $query->un_detailed_description = $request->basic['un_detailed_description'];
-        $query->un_specific_address = $request->basic['un_specific_address'];
-        $query->un_region = $request->basic['un_region'];
-        $query->un_brgy = $request->basic['un_brgy'];
-        $query->un_municipality = $request->basic['un_municipality'];
-        $query->un_province = $request->basic['un_province'];
-        $query->un_lat = $request->basic['un_lat'];
-        $query->un_long = $request->basic['un_long'];
-        $query->un_representative_name = $request->basic['un_representative_name'];
-        $query->un_representative_designation = $request->basic['un_representative_designation'];
-        $query->un_representative_gender = $request->basic['un_representative_gender'];
-        $query->un_remarks = $request->basic['un_remarks'];
-        $query->un_status = $request->basic['un_status'];
-        $query->un_type = $request->basic['un_type'];
+        foreach($this->basic_columns() as $cols){
+            $query->$cols = $request->basic[$cols];
+        }
         $query->save();
         return $query->id;
     }
-
+    
     public function basic_process_update($request){
         $query = Universe::find($request->basic['id']);
-        $query->un_crs_number = $request->basic['un_crs_number'];
-        $query->un_psic_group = $request->basic['un_psic_group'];
-        $query->un_psic_class = $request->basic['un_psic_class'];
-        $query->un_psic_subclass = $request->basic['un_psic_subclass'];
-        $query->un_firmname = $request->basic['un_firmname'];
-        $query->un_proponent = $request->basic['un_proponent'];
-        $query->un_project_type = $request->basic['un_project_type'];
-        $query->un_project_subtype = $request->basic['un_project_subtype'];
-        $query->un_project_specific_type = $request->basic['un_project_specific_type'];
-        $query->un_project_specific_subtype = $request->basic['un_project_specific_subtype'];
-        $query->un_detailed_description = $request->basic['un_detailed_description'];
-        $query->un_specific_address = $request->basic['un_specific_address'];
-        $query->un_region = $request->basic['un_region'];
-        $query->un_brgy = $request->basic['un_brgy'];
-        $query->un_municipality = $request->basic['un_municipality'];
-        $query->un_province = $request->basic['un_province'];
-        $query->un_lat = $request->basic['un_lat'];
-        $query->un_long = $request->basic['un_long'];
-        $query->un_representative_name = $request->basic['un_representative_name'];
-        $query->un_representative_designation = $request->basic['un_representative_designation'];
-        $query->un_representative_gender = $request->basic['un_representative_gender'];
-        $query->un_remarks = $request->basic['un_remarks'];
-        $query->un_status = $request->basic['un_status'];
-        $query->un_type = $request->basic['un_type'];
+        foreach($this->basic_columns() as $cols){
+            $query->$cols = $request->basic[$cols];
+        }
         $query->save();
         return $request->basic['id'];
     }
-
+    
     public function permit_process_create($request, $universe_id){
         if($request->permit['perm_law'] && $request->permit['perm_number']){
             $query = new Permit();
-            $query->perm_law = $request->permit['perm_law'];
-            $query->perm_number = $request->permit['perm_number'];
-            $query->perm_date_issuance = $request->permit['perm_date_issuance'];
-            $query->perm_date_expiry = $request->permit['perm_date_expiry'];
-            $query->perm_file = $request->permit['perm_file'];
-            $query->perm_description = $request->permit['perm_description'];
-            $query->perm_status = $request->permit['perm_status'];
+            foreach($this->permit_columns() as $cols){
+                $query->$cols = $request->permit[$cols];
+            }
             $query->universe_FK = $universe_id;
             $query->save();
             return $query->id;
@@ -148,16 +102,54 @@ class UniverseController extends Controller
             }else{
                 $query = new Permit();
             }
-            $query->perm_law = $request->permit['perm_law'];
-            $query->perm_number = $request->permit['perm_number'];
-            $query->perm_date_issuance = $request->permit['perm_date_issuance'];
-            $query->perm_date_expiry = $request->permit['perm_date_expiry'];
-            $query->perm_file = $request->permit['perm_file'];
-            $query->perm_description = $request->permit['perm_description'];
-            $query->perm_status = $request->permit['perm_status'];
+            foreach($this->permit_columns() as $cols){
+                $query->$cols = $request->permit[$cols];
+            }
             $query->universe_FK = $universe_id;
             $query->save();
             return $request->permit['perm_id'];
         }
+    }
+// COLUMNS =======================================================================================================
+    public function basic_columns(){
+        $array = [
+            'un_crs_number',
+            'un_psic_group',
+            'un_psic_class',
+            'un_psic_subclass',
+            'un_firmname',
+            'un_proponent',
+            'un_project_type',
+            'un_project_subtype',
+            'un_project_specific_type',
+            'un_project_specific_subtype',
+            'un_detailed_description',
+            'un_specific_address',
+            'un_region',
+            'un_brgy',
+            'un_municipality',
+            'un_province',
+            'un_lat',
+            'un_long',
+            'un_representative_name',
+            'un_representative_designation',
+            'un_representative_gender',
+            'un_remarks',
+            'un_status',
+            'un_type',
+        ];
+        return $array;
+    }
+    public function permit_columns(){
+        $array = [
+            'perm_law',
+            'perm_number',
+            'perm_date_issuance',
+            'perm_date_expiry',
+            'perm_file',
+            'perm_description',
+            'perm_status',
+        ];
+        return $array;
     }
 }

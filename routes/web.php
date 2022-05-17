@@ -77,4 +77,6 @@ Route::group([
   Route::get('/universe_form/{id}', [UniverseController::class, 'universe_form'])->name("universe_form_id");
   // POST REQUESTS
   Route::post('/universe_process', [UniverseController::class, 'universe_process'])->name("universe_process");
+  //Testing Route
+  Route::get('/testing_route', [UniverseController::class, 'testing_route'])->name("testing_route");
 });
