@@ -38,7 +38,6 @@ export default {
                 perm_file: "",
                 perm_description: "",
                 perm_status: "",
-                ...this.query
             },
             form_monitoring_info: {
                 mon_id: "",
@@ -46,7 +45,6 @@ export default {
                 mon_date_monitored: "",
                 mon_type: "",
                 mon_file: "",
-                ...this.query
             },
         };
     },
@@ -56,6 +54,7 @@ export default {
                 const data = {
                     'basic': this.form_basic_info,
                     'permit': this.form_permit_info,
+                    'monitoring': this.form_monitoring_info,
                 };
                 await this.$inertia.post("/app/universe_process", {
                     ...data,
@@ -64,6 +63,7 @@ export default {
                     this.reset_basic_info();
                 }
                 this.reset_permit_info();
+                this.reset_monitoring_info();
             }
         },
         reset_basic_info() {
@@ -97,7 +97,6 @@ export default {
         },
         reset_permit_info() {
             this.form_permit_info = {
-                permit_law: "",
                 perm_id: "",
                 perm_law: "",
                 perm_number: "",
@@ -106,6 +105,15 @@ export default {
                 perm_file: "",
                 perm_description: "",
                 perm_status: "",
+            };
+        },
+        reset_monitoring_info() {
+            this.form_monitoring_info = {
+                mon_id: "",
+                mon_law: "",
+                mon_date_monitored: "",
+                mon_type: "",
+                mon_file: "",
             };
         },
     },

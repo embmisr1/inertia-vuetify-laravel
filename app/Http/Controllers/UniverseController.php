@@ -63,12 +63,14 @@ class UniverseController extends Controller
     public function universe_process_create($request){
         $universe_id = $this->basic_process_create($request);
         $this->permit_process_create($request, $universe_id);
+        $this->monitoring_process_create($request, $universe_id);
         return $universe_id;
     }
 
     public function universe_process_update($request){
         $universe_id = $this->basic_process_update($request);
         $this->permit_process_update($request, $universe_id);
+        $this->monitoring_process_create($request, $universe_id);
         return $universe_id;
     }
 
@@ -125,6 +127,18 @@ class UniverseController extends Controller
         $query->delete();
         return back();
     }
+    
+    public function monitoring_process_create($request, $universe_id){
+        if($request->monitoring['mon_law'] && $request->monitoring['mon_date_monitored']){
+            $query = new Monitoring();
+            foreach($this->monitoring_columns() as $cols){
+                $query->$cols = $request->monitoring[$cols];
+            }
+            $query->universe_FK = $universe_id;
+            $query->save();
+            return $query->id;
+        }
+    }
 
 // COLUMNS =======================================================================================================
 
@@ -167,6 +181,16 @@ class UniverseController extends Controller
             'perm_file',
             'perm_description',
             'perm_status',
+        ];
+        return $array;
+    }
+
+    public function monitoring_columns(){
+        $array = [
+            'mon_law',
+            'mon_date_monitored',
+            'mon_type',
+            'mon_file',
         ];
         return $array;
     }

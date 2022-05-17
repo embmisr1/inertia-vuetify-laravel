@@ -66,7 +66,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         un_status: "",
         un_type: ""
       }, this.query),
-      form_permit_info: _objectSpread({
+      form_permit_info: {
         perm_id: "",
         perm_law: "",
         perm_number: "",
@@ -75,14 +75,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         perm_file: "",
         perm_description: "",
         perm_status: ""
-      }, this.query),
-      form_monitoring_info: _objectSpread({
+      },
+      form_monitoring_info: {
         mon_id: "",
         mon_law: "",
         mon_date_monitored: "",
         mon_type: "",
         mon_file: ""
-      }, this.query)
+      }
     };
   },
   methods: {
@@ -96,13 +96,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             switch (_context.prev = _context.next) {
               case 0:
                 if (!confirm('Do you want to proceed?')) {
-                  _context.next = 6;
+                  _context.next = 7;
                   break;
                 }
 
                 data = {
                   'basic': _this.form_basic_info,
-                  'permit': _this.form_permit_info
+                  'permit': _this.form_permit_info,
+                  'monitoring': _this.form_monitoring_info
                 };
                 _context.next = 4;
                 return _this.$inertia.post("/app/universe_process", _objectSpread({}, data));
@@ -114,7 +115,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
                 _this.reset_permit_info();
 
-              case 6:
+                _this.reset_monitoring_info();
+
+              case 7:
               case "end":
                 return _context.stop();
             }
@@ -153,7 +156,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     reset_permit_info: function reset_permit_info() {
       this.form_permit_info = {
-        permit_law: "",
         perm_id: "",
         perm_law: "",
         perm_number: "",
@@ -162,6 +164,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         perm_file: "",
         perm_description: "",
         perm_status: ""
+      };
+    },
+    reset_monitoring_info: function reset_monitoring_info() {
+      this.form_monitoring_info = {
+        mon_id: "",
+        mon_law: "",
+        mon_date_monitored: "",
+        mon_type: "",
+        mon_file: ""
       };
     }
   }
