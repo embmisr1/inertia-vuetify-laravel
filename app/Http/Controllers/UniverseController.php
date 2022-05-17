@@ -13,6 +13,7 @@ use App\Models\Complaint;
 use App\Models\Pco;
 use Illuminate\Support\Facades\Redirect;
 use DB;
+use Illuminate\Support\Facades\Schema;
 
 class UniverseController extends Controller
 {
@@ -43,10 +44,9 @@ class UniverseController extends Controller
     public function universe_process(request $request){
         if(isset($request->basic['id'])){
             $id = $this->universe_process_update($request);
-            return Redirect::route('universe_form');
-            // return Redirect::route('universe_form_id',[
-            //     'id'=>$id,
-            // ]);
+            return Redirect::route('universe_form_id',[
+                'id'=>$id,
+            ]);
         }else{
             $id = $this->universe_process_create($request);
             return Redirect::route('universe_form');
@@ -126,17 +126,19 @@ class UniverseController extends Controller
     }
 
     public function permit_process_create($request, $universe_id){
-        $query = new Permit();
-        $query->perm_law = $request->permit['perm_law'];
-        $query->perm_number = $request->permit['perm_number'];
-        $query->perm_date_issuance = $request->permit['perm_date_issuance'];
-        $query->perm_date_expiry = $request->permit['perm_date_expiry'];
-        $query->perm_file = $request->permit['perm_file'];
-        $query->perm_description = $request->permit['perm_description'];
-        $query->perm_status = $request->permit['perm_status'];
-        $query->universe_FK = $universe_id;
-        $query->save();
-        return $query->id;
+        if($request->permit['perm_law'] && $request->permit['perm_number']){
+            $query = new Permit();
+            $query->perm_law = $request->permit['perm_law'];
+            $query->perm_number = $request->permit['perm_number'];
+            $query->perm_date_issuance = $request->permit['perm_date_issuance'];
+            $query->perm_date_expiry = $request->permit['perm_date_expiry'];
+            $query->perm_file = $request->permit['perm_file'];
+            $query->perm_description = $request->permit['perm_description'];
+            $query->perm_status = $request->permit['perm_status'];
+            $query->universe_FK = $universe_id;
+            $query->save();
+            return $query->id;
+        }
     }
 
     public function permit_process_update($request, $universe_id){

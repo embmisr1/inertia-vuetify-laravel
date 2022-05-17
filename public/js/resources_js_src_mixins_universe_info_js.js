@@ -89,7 +89,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             switch (_context.prev = _context.next) {
               case 0:
                 if (!confirm('Do you want to proceed?')) {
-                  _context.next = 7;
+                  _context.next = 6;
                   break;
                 }
 
@@ -101,12 +101,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                 return _this.$inertia.post("/app/universe_process", _objectSpread({}, data));
 
               case 4:
-                console.log(data);
-                console.log(_this.permit_table);
+                if (!data.basic.id) {
+                  _this.reset_basic_info();
+                }
 
-                _this.reset_basic_info();
+                _this.reset_permit_info();
 
-              case 7:
+              case 6:
               case "end":
                 return _context.stop();
             }
@@ -142,6 +143,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         un_status: "",
         un_type: ""
       };
+    },
+    reset_permit_info: function reset_permit_info() {
       this.form_permit_info = {
         permit_law: "",
         perm_id: "",

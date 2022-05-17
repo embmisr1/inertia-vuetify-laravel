@@ -52,9 +52,10 @@ export default {
                 await this.$inertia.post("/app/universe_process", {
                     ...data,
                 });
-                console.log(data);
-                console.log(this.permit_table);
-                this.reset_basic_info();
+                if(!data.basic.id){
+                    this.reset_basic_info();
+                }
+                this.reset_permit_info();
             }
         },
         reset_basic_info() {
@@ -85,6 +86,8 @@ export default {
                 un_status : "",
                 un_type : "",
             };
+        },
+        reset_permit_info() {
             this.form_permit_info = {
                 permit_law: "",
                 perm_id: "",
