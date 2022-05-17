@@ -78,12 +78,13 @@
                             <v-icon
                                 small
                                 class="mr-2"
-                                @click="editItem(item)"
+                                @click="editPermit(item)"
                             >
                                 mdi-pencil
                             </v-icon>
                             <v-icon
                                 small
+                                @click="deletePermit(item)"
                             >
                                 mdi-delete
                             </v-icon>
@@ -129,7 +130,7 @@
       ],
     }),
     methods:{
-        editItem(item) {
+        editPermit(item) {
             console.log(this.form_permit_info);
             this.form_permit_info.perm_law = item.perm_law;
             this.form_permit_info.perm_date_expiry = item.perm_date_expiry;
@@ -141,6 +142,10 @@
             this.form_permit_info.perm_number = item.perm_number;
             this.form_permit_info.perm_status = item.perm_status;
         },
+        async deletePermit(item) {
+            console.log(item.id);
+            await this.$inertia.delete(`/app/delete_permit/${item.id}`);
+        }
     }
   }
 </script>

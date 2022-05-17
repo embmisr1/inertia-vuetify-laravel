@@ -956,6 +956,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+//
 //
 //
 //
@@ -1083,7 +1092,7 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
-    editItem: function editItem(item) {
+    editPermit: function editPermit(item) {
       console.log(this.form_permit_info);
       this.form_permit_info.perm_law = item.perm_law;
       this.form_permit_info.perm_date_expiry = item.perm_date_expiry;
@@ -1094,6 +1103,26 @@ __webpack_require__.r(__webpack_exports__);
       this.form_permit_info.perm_law = item.perm_law;
       this.form_permit_info.perm_number = item.perm_number;
       this.form_permit_info.perm_status = item.perm_status;
+    },
+    deletePermit: function deletePermit(item) {
+      var _this = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                console.log(item.id);
+                _context.next = 3;
+                return _this.$inertia["delete"]("/app/delete_permit/".concat(item.id));
+
+              case 3:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }))();
     }
   }
 });
@@ -4328,7 +4357,7 @@ var render = function () {
                           attrs: { small: "" },
                           on: {
                             click: function ($event) {
-                              return _vm.editItem(item)
+                              return _vm.editPermit(item)
                             },
                           },
                         },
@@ -4339,11 +4368,22 @@ var render = function () {
                         ]
                       ),
                       _vm._v(" "),
-                      _c("v-icon", { attrs: { small: "" } }, [
-                        _vm._v(
-                          "\n                        mdi-delete\n                    "
-                        ),
-                      ]),
+                      _c(
+                        "v-icon",
+                        {
+                          attrs: { small: "" },
+                          on: {
+                            click: function ($event) {
+                              return _vm.deletePermit(item)
+                            },
+                          },
+                        },
+                        [
+                          _vm._v(
+                            "\n                        mdi-delete\n                    "
+                          ),
+                        ]
+                      ),
                     ]
                   },
                 },

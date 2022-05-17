@@ -116,6 +116,12 @@ class UniverseController extends Controller
             return $request->permit['perm_id'];
         }
     }
+    
+    public function delete_permit($request){
+        $query = Permit::find($request);
+        $query->delete();
+        return back();
+    }
 
 // COLUMNS =======================================================================================================
 
@@ -148,7 +154,7 @@ class UniverseController extends Controller
         ];
         return $array;
     }
-    
+
     public function permit_columns(){
         $array = [
             'perm_law',
