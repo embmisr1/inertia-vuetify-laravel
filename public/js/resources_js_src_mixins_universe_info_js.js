@@ -75,6 +75,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         perm_file: "",
         perm_description: "",
         perm_status: ""
+      }, this.query),
+      form_monitoring_info: _objectSpread({
+        mon_id: "",
+        mon_law: "",
+        mon_date_monitored: "",
+        mon_type: "",
+        mon_file: ""
       }, this.query)
     };
   },

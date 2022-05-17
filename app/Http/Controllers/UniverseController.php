@@ -26,14 +26,17 @@ class UniverseController extends Controller
             $id = $request->id;
             $query = Universe::where('id',$id)->get();
             $query_permit = Permit::where('universe_FK',$id)->get();
+            $query_monitoring = Monitoring::where('universe_FK',$id)->get();
             if($query->count() > 0){
                 return Inertia::render("pages/universe/universe_form",[
                     'query'=>$query[0],
                     'permit_table'=>$query_permit,
+                    'monitoring_table'=>$query_monitoring,
                 ]);
             }else{
                 return Inertia::render("pages/universe/universe_form",[
                     'permit_table'=>$query_permit,
+                    'monitoring_table'=>$query_monitoring,
                 ]);
             }
         }else{

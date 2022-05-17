@@ -89,7 +89,7 @@
                   <PermitTab :form_permit_info="form_permit_info" :permit_table="permit_table"></PermitTab>
               </v-tab-item>
               <v-tab-item>
-                  <MonitoringTab :form_monitoring_info="form_basic_info"></MonitoringTab>
+                  <MonitoringTab :form_monitoring_info="form_monitoring_info" :monitoring_table="monitoring_table"></MonitoringTab>
               </v-tab-item>
               <v-tab-item>
                 <v-card flat>
@@ -131,13 +131,16 @@
     props:{
       form_basic_info: Object,
       form_permit_info: Object,
-      submit_basic_info: Function,
       form_monitoring_info: Object,
+
       permit_table: Array,
+      monitoring_table: Array,
+      submit_basic_info: Function,
     },
     components:{
         BasicTab,
         PermitTab,
+        MonitoringTab,
     },
     data () {
       return {

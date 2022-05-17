@@ -89,13 +89,6 @@
                                 mdi-delete
                             </v-icon>
                             </template>
-                            <!--<template v-slot:no-data>
-                                <v-btn
-                                    color="primary"
-                                >
-                                    Reset
-                                </v-btn>
-                            </template>-->
                     </v-data-table>
                 </v-card>
             </template>

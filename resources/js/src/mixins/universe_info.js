@@ -40,6 +40,14 @@ export default {
                 perm_status: "",
                 ...this.query
             },
+            form_monitoring_info: {
+                mon_id: "",
+                mon_law: "",
+                mon_date_monitored: "",
+                mon_type: "",
+                mon_file: "",
+                ...this.query
+            },
         };
     },
     methods: {
