@@ -42,6 +42,7 @@ class UniverseController extends Controller
     }
     
 // MAIN PROCESS =======================================================================================================
+
     public function universe_process(request $request){
         if(isset($request->basic['id'])){
             $id = $this->universe_process_update($request);
@@ -53,7 +54,9 @@ class UniverseController extends Controller
             return Redirect::route('universe_form');
         }
     }
+
 // GENERAL PROCESS =======================================================================================================
+
     public function universe_process_create($request){
         $universe_id = $this->basic_process_create($request);
         $this->permit_process_create($request, $universe_id);
@@ -65,6 +68,7 @@ class UniverseController extends Controller
         return $universe_id;
     }
 // INDIVUDUAL PROCESS =======================================================================================================
+
     public function basic_process_create($request){
         $query = new Universe();
         foreach($this->basic_columns() as $cols){
@@ -110,7 +114,9 @@ class UniverseController extends Controller
             return $request->permit['perm_id'];
         }
     }
+
 // COLUMNS =======================================================================================================
+
     public function basic_columns(){
         $array = [
             'un_crs_number',
