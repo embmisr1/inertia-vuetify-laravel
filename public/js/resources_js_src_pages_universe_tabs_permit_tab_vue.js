@@ -441,19 +441,6 @@ var render = function () {
                     ]
                   },
                 },
-                {
-                  key: "no-data",
-                  fn: function () {
-                    return [
-                      _c("v-btn", { attrs: { color: "primary" } }, [
-                        _vm._v(
-                          "\n                        Reset\n                    "
-                        ),
-                      ]),
-                    ]
-                  },
-                  proxy: true,
-                },
               ]),
             }),
           ],

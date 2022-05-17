@@ -143,7 +143,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         un_type: ""
       };
       this.form_permit_info = {
-        permit_law: ""
+        permit_law: "",
+        perm_id: "",
+        perm_law: "",
+        perm_number: "",
+        perm_date_issuance: "",
+        perm_date_expiry: "",
+        perm_file: "",
+        perm_description: "",
+        perm_status: ""
       };
     }
   }

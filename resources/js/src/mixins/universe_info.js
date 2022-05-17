@@ -87,6 +87,14 @@ export default {
             };
             this.form_permit_info = {
                 permit_law: "",
+                perm_id: "",
+                perm_law: "",
+                perm_number: "",
+                perm_date_issuance: "",
+                perm_date_expiry: "",
+                perm_file: "",
+                perm_description: "",
+                perm_status: "",
             };
         },
     },

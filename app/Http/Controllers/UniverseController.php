@@ -24,7 +24,7 @@ class UniverseController extends Controller
         if($request->id){
             $id = $request->id;
             $query = Universe::where('id',$id)->get();
-            $query_permit = Permit::all();
+            $query_permit = Permit::where('universe_FK',$id)->get();
             if($query->count() > 0){
                 return Inertia::render("pages/universe/universe_form",[
                     'query'=>$query[0],
@@ -36,10 +36,7 @@ class UniverseController extends Controller
                 ]);
             }
         }else{
-            $query_permit = Permit::all();
-                return Inertia::render("pages/universe/universe_form",[
-                    'permit_table'=>$query_permit,
-                ]);
+                return Inertia::render("pages/universe/universe_form");
         }
     }
     
@@ -57,8 +54,24 @@ class UniverseController extends Controller
     }
     
     public function universe_process_create($request){
-        $universe_id = 0;
+        //Basic Information
+        $universe_id = $this->basic_process_create($request);
+        // Permit Information
+        $this->permit_process_create($request, $universe_id);
+        
+        return $universe_id;
+    }
+
+    public function universe_process_update($request){
         // Basic Information 
+        $universe_id = $this->basic_process_update($request);
+        // Permit Information
+        $this->permit_process_update($request);
+
+        return $universe_id;
+    }
+
+    public function basic_process_create($request){
         $query = new Universe();
         $query->un_crs_number = $request->basic['un_crs_number'];
         $query->un_psic_group = $request->basic['un_psic_group'];
@@ -85,27 +98,11 @@ class UniverseController extends Controller
         $query->un_status = $request->basic['un_status'];
         $query->un_type = $request->basic['un_type'];
         $query->save();
-        $universe_id = $query->id;
-        // Permit Information
-        $query = new Permit();
-        $query->perm_law = $request->permit['perm_law'];
-        $query->perm_number = $request->permit['perm_number'];
-        $query->perm_date_issuance = $request->permit['perm_date_issuance'];
-        $query->perm_date_expiry = $request->permit['perm_date_expiry'];
-        $query->perm_file = $request->permit['perm_file'];
-        $query->perm_description = $request->permit['perm_description'];
-        $query->perm_status = $request->permit['perm_status'];
-        $query->universe_FK = $universe_id;
-        $query->save();
-        //Return Universe ID
-        return $universe_id;
+        return $query->id;
     }
 
-    public function universe_process_update($request){
-        $universe_id = 0;
-        // Basic Information 
-        $id = $request->basic['id'];
-        $query = Universe::find($id);
+    public function basic_process_update($request){
+        $query = Universe::find($request->basic['id']);
         $query->un_crs_number = $request->basic['un_crs_number'];
         $query->un_psic_group = $request->basic['un_psic_group'];
         $query->un_psic_class = $request->basic['un_psic_class'];
@@ -131,9 +128,11 @@ class UniverseController extends Controller
         $query->un_status = $request->basic['un_status'];
         $query->un_type = $request->basic['un_type'];
         $query->save();
-        $universe_id = $query->id;
-        // Permit Information
-        $query = Permit::find($request->permit['perm_id']);
+        return $request->basic['id'];
+    }
+
+    public function permit_process_create($request, $universe_id){
+        $query = new Permit();
         $query->perm_law = $request->permit['perm_law'];
         $query->perm_number = $request->permit['perm_number'];
         $query->perm_date_issuance = $request->permit['perm_date_issuance'];
@@ -143,7 +142,19 @@ class UniverseController extends Controller
         $query->perm_status = $request->permit['perm_status'];
         $query->universe_FK = $universe_id;
         $query->save();
-        //Return Universe ID
-        return $universe_id;
+        return $query->id;
+    }
+
+    public function permit_process_update($request){
+        $query = Permit::find($request->permit['perm_id']);
+        $query->perm_law = $request->permit['perm_law'];
+        $query->perm_number = $request->permit['perm_number'];
+        $query->perm_date_issuance = $request->permit['perm_date_issuance'];
+        $query->perm_date_expiry = $request->permit['perm_date_expiry'];
+        $query->perm_file = $request->permit['perm_file'];
+        $query->perm_description = $request->permit['perm_description'];
+        $query->perm_status = $request->permit['perm_status'];
+        $query->save();
+        return $request->permit['perm_id'];
     }
 }
