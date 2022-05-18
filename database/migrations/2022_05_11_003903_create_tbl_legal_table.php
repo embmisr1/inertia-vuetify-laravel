@@ -18,15 +18,15 @@ class CreateTblLegalTable extends Migration
             $table->string('nov_law')->nullable();
             $table->string('nov_desc')->nullable();
             $table->string('nov_date')->nullable();
-            $table->string('nov_tc')->nullable();
-            $table->string('nov_compliance_status')->nullable();
+            $table->string('nov_tc_date')->nullable();
+            $table->string('nov_tc_status')->nullable();
             $table->longText('nov_file')->nullable();
             $table->string('nov_order_number')->nullable();
             $table->string('nov_order_amt')->nullable();
             $table->string('nov_order_date_issuance')->nullable();
             $table->string('nov_order_date_settlement')->nullable();
             $table->string('nov_official_receipt_number')->nullable();
-            $table->string('nov_order_status')->nullable();
+            $table->string('nov_compliance_status')->nullable();
             $table->longText('nov_order_remarks')->nullable();
             $table->integer('universe_FK')->nullable();
             $table->integer('is_priority')->nullable();

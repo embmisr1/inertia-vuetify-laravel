@@ -134,15 +134,35 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   data: function data() {
     return {
       headers: [{
-        text: 'Permit Law',
+        text: 'Law',
         align: 'start',
         sortable: false,
         value: 'perm_law'
       }, {
-        text: 'Permit No.',
+        text: 'No.',
         align: 'start',
         sortable: false,
         value: 'perm_number'
+      }, {
+        text: 'Status.',
+        align: 'start',
+        sortable: false,
+        value: 'perm_status'
+      }, {
+        text: 'Date Issuance',
+        align: 'start',
+        sortable: false,
+        value: 'perm_date_issuance'
+      }, {
+        text: 'Date Expiry',
+        align: 'start',
+        sortable: false,
+        value: 'perm_date_expiry'
+      }, {
+        text: 'Attachment',
+        align: 'start',
+        sortable: false,
+        value: 'perm_file'
       }, {
         text: 'Actions',
         value: 'actions',
@@ -1047,6 +1067,7 @@ var render = function () {
       _c("div", { staticClass: "grid grid-cols-5 gap-y-0 gap-x-4 ml-8" }, [
         _c(
           "div",
+          { attrs: { hidden: "" } },
           [
             _c("v-text-field", {
               attrs: { label: "Permit Id", clearable: "" },

@@ -1,7 +1,7 @@
 <template>
         <v-card class="p-4" elevation="0">
-            <div class="grid grid-cols-4 gap-y-0 gap-x-4 ml-8">
-                    <div>
+            <div class="grid grid-cols-2 gap-y-0 gap-x-4 ml-8">
+                    <div hidden>
                         <v-text-field
                             v-model="form_complaint_info.comp_id"
                             label="Complaint Id"
@@ -22,6 +22,8 @@
                             clearable
                         ></v-text-field>
                     </div>
+            </div>
+            <div class="grid grid-cols-2 gap-y-0 gap-x-4 ml-8">
                     <div>
                         <v-text-field
                             v-model="form_complaint_info.comp_attached_file"
@@ -36,6 +38,8 @@
                             clearable
                         ></v-text-field>
                     </div>
+            </div>
+            <div class="grid grid-cols-1 gap-y-0 gap-x-4 ml-8">
                     <div>
                         <v-text-field
                             v-model="form_complaint_info.comp_remarks"
@@ -97,6 +101,24 @@
           align: 'start',
           sortable: false,
           value: 'comp_nature',
+        },
+        {
+          text: 'Attachment',
+          align: 'start',
+          sortable: false,
+          value: 'comp_attached_file',
+        },
+        {
+          text: 'Action Taken',
+          align: 'start',
+          sortable: false,
+          value: 'comp_action_file',
+        },
+        {
+          text: 'Remarks',
+          align: 'start',
+          sortable: false,
+          value: 'comp_remarks',
         },
         { 
           text: 'Actions', 

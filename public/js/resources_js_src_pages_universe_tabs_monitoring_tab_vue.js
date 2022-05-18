@@ -111,15 +111,25 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   data: function data() {
     return {
       headers: [{
-        text: 'Monitoring Law',
+        text: 'Law',
         align: 'start',
         sortable: false,
         value: 'mon_law'
       }, {
-        text: 'Monitoring Date',
+        text: 'Date Monitored',
         align: 'start',
         sortable: false,
-        value: 'date_number'
+        value: 'mon_date_monitored'
+      }, {
+        text: 'Type',
+        align: 'start',
+        sortable: false,
+        value: 'mon_type'
+      }, {
+        text: 'Attachment',
+        align: 'start',
+        sortable: false,
+        value: 'mon_file'
       }, {
         text: 'Actions',
         value: 'actions',
@@ -1018,6 +1028,7 @@ var render = function () {
       _c("div", { staticClass: "grid grid-cols-4 gap-y-0 gap-x-4 ml-8" }, [
         _c(
           "div",
+          { attrs: { hidden: "" } },
           [
             _c("v-text-field", {
               attrs: { label: "Monitoring Id", clearable: "" },

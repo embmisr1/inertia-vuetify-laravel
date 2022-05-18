@@ -1,7 +1,7 @@
 <template>
         <v-card class="p-4" elevation="0">
             <div class="grid grid-cols-4 gap-y-0 gap-x-4 ml-8">
-                    <div>
+                    <div hidden>
                         <v-text-field
                             v-model="form_monitoring_info.mon_id"
                             label="Monitoring Id"
@@ -80,16 +80,28 @@
     data: () => ({
       headers: [
         {
-          text: 'Monitoring Law',
+          text: 'Law',
           align: 'start',
           sortable: false,
           value: 'mon_law',
         },
         {
-          text: 'Monitoring Date',
+          text: 'Date Monitored',
           align: 'start',
           sortable: false,
-          value: 'date_number',
+          value: 'mon_date_monitored',
+        },
+        {
+          text: 'Type',
+          align: 'start',
+          sortable: false,
+          value: 'mon_type',
+        },
+        {
+          text: 'Attachment',
+          align: 'start',
+          sortable: false,
+          value: 'mon_file',
         },
         { 
           text: 'Actions', 

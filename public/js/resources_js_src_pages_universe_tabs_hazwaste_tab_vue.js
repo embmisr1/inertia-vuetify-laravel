@@ -117,6 +117,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     form_hazwaste_info: Object,
@@ -134,6 +136,26 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         align: 'start',
         sortable: false,
         value: 'haz_number'
+      }, {
+        text: 'Date Acceptance',
+        align: 'start',
+        sortable: false,
+        value: 'haz_date_acceptance'
+      }, {
+        text: 'Date Issued',
+        align: 'start',
+        sortable: false,
+        value: 'haz_date_issuance'
+      }, {
+        text: 'Date Expiry',
+        align: 'start',
+        sortable: false,
+        value: 'haz_date_expiry'
+      }, {
+        text: 'Attachment',
+        align: 'start',
+        sortable: false,
+        value: 'haz_file'
       }, {
         text: 'Actions',
         value: 'actions',
@@ -1031,9 +1053,10 @@ var render = function () {
     "v-card",
     { staticClass: "p-4", attrs: { elevation: "0" } },
     [
-      _c("div", { staticClass: "grid grid-cols-4 gap-y-0 gap-x-4 ml-8" }, [
+      _c("div", { staticClass: "grid grid-cols-5 gap-y-0 gap-x-4 ml-8" }, [
         _c(
           "div",
+          { attrs: { hidden: "" } },
           [
             _c("v-text-field", {
               attrs: { label: "Hazwaste Id", clearable: "" },
@@ -1133,7 +1156,9 @@ var render = function () {
           ],
           1
         ),
-        _vm._v(" "),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "grid grid-cols-1 gap-y-0 gap-x-4 ml-8" }, [
         _c(
           "div",
           [

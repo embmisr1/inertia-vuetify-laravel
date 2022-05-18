@@ -1,7 +1,7 @@
 <template>
         <v-card class="p-4" elevation="0">
-            <div class="grid grid-cols-4 gap-y-0 gap-x-4 ml-8">
-                    <div>
+            <div class="grid grid-cols-5 gap-y-0 gap-x-4 ml-8">
+                    <div hidden>
                         <v-text-field
                             v-model="form_hazwaste_info.haz_id"
                             label="Hazwaste Id"
@@ -43,6 +43,8 @@
                             clearable
                         ></v-text-field>
                     </div>
+            </div>
+            <div class="grid grid-cols-1 gap-y-0 gap-x-4 ml-8">
                     <div>
                         <v-text-field
                             v-model="form_hazwaste_info.haz_file"
@@ -104,6 +106,30 @@
           align: 'start',
           sortable: false,
           value: 'haz_number',
+        },
+        {
+          text: 'Date Acceptance',
+          align: 'start',
+          sortable: false,
+          value: 'haz_date_acceptance',
+        },
+        {
+          text: 'Date Issued',
+          align: 'start',
+          sortable: false,
+          value: 'haz_date_issuance',
+        },
+        {
+          text: 'Date Expiry',
+          align: 'start',
+          sortable: false,
+          value: 'haz_date_expiry',
+        },
+        {
+          text: 'Attachment',
+          align: 'start',
+          sortable: false,
+          value: 'haz_file',
         },
         { 
           text: 'Actions', 

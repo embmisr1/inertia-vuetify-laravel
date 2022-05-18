@@ -1,7 +1,7 @@
 <template>
         <v-card class="p-4" elevation="0">
             <div class="grid grid-cols-5 gap-y-0 gap-x-4 ml-8">
-                    <div>
+                    <div hidden>
                         <v-text-field
                             v-model="form_permit_info.perm_id"
                             label="Permit Id"
@@ -103,16 +103,40 @@
     data: () => ({
       headers: [
         {
-          text: 'Permit Law',
+          text: 'Law',
           align: 'start',
           sortable: false,
           value: 'perm_law',
         },
         {
-          text: 'Permit No.',
+          text: 'No.',
           align: 'start',
           sortable: false,
           value: 'perm_number',
+        },
+        {
+          text: 'Status.',
+          align: 'start',
+          sortable: false,
+          value: 'perm_status',
+        },
+        {
+          text: 'Date Issuance',
+          align: 'start',
+          sortable: false,
+          value: 'perm_date_issuance',
+        },
+        {
+          text: 'Date Expiry',
+          align: 'start',
+          sortable: false,
+          value: 'perm_date_expiry',
+        },
+        {
+          text: 'Attachment',
+          align: 'start',
+          sortable: false,
+          value: 'perm_file',
         },
         { 
           text: 'Actions', 

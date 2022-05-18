@@ -1,7 +1,7 @@
 <template>
         <v-card class="p-4" elevation="0">
             <div class="grid grid-cols-4 gap-y-0 gap-x-4 ml-8">
-                    <div>
+                    <div hidden>
                         <v-text-field
                             v-model="form_legal_info.nov_id"
                             label="NOV Id"
@@ -17,13 +17,6 @@
                     </div>
                     <div>
                         <v-text-field
-                            v-model="form_legal_info.nov_desc"
-                            label="Description"
-                            clearable
-                        ></v-text-field>
-                    </div>
-                    <div>
-                        <v-text-field
                             v-model="form_legal_info.nov_date"
                             label="NOV Date"
                             clearable
@@ -31,25 +24,29 @@
                     </div>
                     <div>
                         <v-text-field
-                            v-model="form_legal_info.nov_tc"
-                            label="TC"
+                            v-model="form_legal_info.nov_tc_date"
+                            label="TC Date"
                             clearable
                         ></v-text-field>
                     </div>
                     <div>
                         <v-text-field
-                            v-model="form_legal_info.nov_compliance_status"
-                            label="Compliance Status"
+                            v-model="form_legal_info.nov_tc_status"
+                            label="TC Status"
                             clearable
                         ></v-text-field>
                     </div>
+            </div>
+            <div class="grid grid-cols-1 gap-y-0 gap-x-4 ml-8">
                     <div>
                         <v-text-field
-                            v-model="form_legal_info.nov_file"
-                            label="File"
+                            v-model="form_legal_info.nov_desc"
+                            label="Description"
                             clearable
                         ></v-text-field>
                     </div>
+            </div>
+            <div class="grid grid-cols-4 gap-y-0 gap-x-4 ml-8">
                     <div>
                         <v-text-field
                             v-model="form_legal_info.nov_order_number"
@@ -87,15 +84,24 @@
                     </div>
                     <div>
                         <v-text-field
-                            v-model="form_legal_info.nov_order_status"
+                            v-model="form_legal_info.nov_compliance_status"
                             label="Order Status"
                             clearable
                         ></v-text-field>
                     </div>
-                    <div>
+                    <div class="col-span-2">
                         <v-text-field
                             v-model="form_legal_info.nov_order_remarks"
                             label="Order Remarks"
+                            clearable
+                        ></v-text-field>
+                    </div>
+            </div>
+            <div class="grid grid-cols-1 gap-y-0 gap-x-4 ml-8">
+                    <div>
+                        <v-text-field
+                            v-model="form_legal_info.nov_file"
+                            label="Attachments"
                             clearable
                         ></v-text-field>
                     </div>
@@ -143,13 +149,43 @@
     data: () => ({
       headers: [
         {
-          text: 'Legal Law',
+          text: 'Law',
           align: 'start',
           sortable: false,
           value: 'nov_law',
         },
         {
-          text: 'Legal Date',
+          text: 'Description',
+          align: 'start',
+          sortable: false,
+          value: 'nov_desc',
+        },
+        {
+          text: 'NOV Date',
+          align: 'start',
+          sortable: false,
+          value: 'nov_date',
+        },
+        {
+          text: 'TC Date',
+          align: 'start',
+          sortable: false,
+          value: 'nov_tc_date',
+        },
+        {
+          text: 'TC Status',
+          align: 'start',
+          sortable: false,
+          value: 'nov_tc_status',
+        },
+        {
+          text: 'Compliance Status',
+          align: 'start',
+          sortable: false,
+          value: 'nov_compliance_status',
+        },
+        {
+          text: 'Attachments',
           align: 'start',
           sortable: false,
           value: 'nov_desc',
@@ -168,15 +204,15 @@
             this.form_legal_info.nov_law = item.nov_law;
             this.form_legal_info.nov_desc = item.nov_desc;
             this.form_legal_info.nov_date = item.nov_date;
-            this.form_legal_info.nov_tc = item.nov_tc;
-            this.form_legal_info.nov_compliance_status = item.nov_compliance_status;
+            this.form_legal_info.nov_tc_date = item.nov_tc_date;
+            this.form_legal_info.nov_tc_status = item.nov_tc_status;
             this.form_legal_info.nov_file = item.nov_file;
             this.form_legal_info.nov_order_number = item.nov_order_number;
             this.form_legal_info.nov_order_amt = item.nov_order_amt;
             this.form_legal_info.nov_order_date_issuance = item.nov_order_date_issuance;
             this.form_legal_info.nov_order_date_settlement = item.nov_order_date_settlement;
             this.form_legal_info.nov_official_receipt_number = item.nov_official_receipt_number;
-            this.form_legal_info.nov_order_status = item.nov_order_status;
+            this.form_legal_info.nov_compliance_status = item.nov_compliance_status;
             this.form_legal_info.nov_order_remarks = item.nov_order_remarks;
         },
         async deleteLegal(item) {

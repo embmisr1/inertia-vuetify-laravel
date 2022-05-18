@@ -878,6 +878,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     form_complaint_info: Object,
@@ -895,6 +899,21 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         align: 'start',
         sortable: false,
         value: 'comp_nature'
+      }, {
+        text: 'Attachment',
+        align: 'start',
+        sortable: false,
+        value: 'comp_attached_file'
+      }, {
+        text: 'Action Taken',
+        align: 'start',
+        sortable: false,
+        value: 'comp_action_file'
+      }, {
+        text: 'Remarks',
+        align: 'start',
+        sortable: false,
+        value: 'comp_remarks'
       }, {
         text: 'Actions',
         value: 'actions',
@@ -1041,6 +1060,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     form_hazwaste_info: Object,
@@ -1058,6 +1079,26 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         align: 'start',
         sortable: false,
         value: 'haz_number'
+      }, {
+        text: 'Date Acceptance',
+        align: 'start',
+        sortable: false,
+        value: 'haz_date_acceptance'
+      }, {
+        text: 'Date Issued',
+        align: 'start',
+        sortable: false,
+        value: 'haz_date_issuance'
+      }, {
+        text: 'Date Expiry',
+        align: 'start',
+        sortable: false,
+        value: 'haz_date_expiry'
+      }, {
+        text: 'Attachment',
+        align: 'start',
+        sortable: false,
+        value: 'haz_file'
       }, {
         text: 'Actions',
         value: 'actions',
@@ -1254,6 +1295,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     form_legal_info: Object,
@@ -1262,12 +1309,37 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   data: function data() {
     return {
       headers: [{
-        text: 'Legal Law',
+        text: 'Law',
         align: 'start',
         sortable: false,
         value: 'nov_law'
       }, {
-        text: 'Legal Date',
+        text: 'Description',
+        align: 'start',
+        sortable: false,
+        value: 'nov_desc'
+      }, {
+        text: 'NOV Date',
+        align: 'start',
+        sortable: false,
+        value: 'nov_date'
+      }, {
+        text: 'TC Date',
+        align: 'start',
+        sortable: false,
+        value: 'nov_tc_date'
+      }, {
+        text: 'TC Status',
+        align: 'start',
+        sortable: false,
+        value: 'nov_tc_status'
+      }, {
+        text: 'Compliance Status',
+        align: 'start',
+        sortable: false,
+        value: 'nov_compliance_status'
+      }, {
+        text: 'Attachments',
         align: 'start',
         sortable: false,
         value: 'nov_desc'
@@ -1284,15 +1356,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.form_legal_info.nov_law = item.nov_law;
       this.form_legal_info.nov_desc = item.nov_desc;
       this.form_legal_info.nov_date = item.nov_date;
-      this.form_legal_info.nov_tc = item.nov_tc;
-      this.form_legal_info.nov_compliance_status = item.nov_compliance_status;
+      this.form_legal_info.nov_tc_date = item.nov_tc_date;
+      this.form_legal_info.nov_tc_status = item.nov_tc_status;
       this.form_legal_info.nov_file = item.nov_file;
       this.form_legal_info.nov_order_number = item.nov_order_number;
       this.form_legal_info.nov_order_amt = item.nov_order_amt;
       this.form_legal_info.nov_order_date_issuance = item.nov_order_date_issuance;
       this.form_legal_info.nov_order_date_settlement = item.nov_order_date_settlement;
       this.form_legal_info.nov_official_receipt_number = item.nov_official_receipt_number;
-      this.form_legal_info.nov_order_status = item.nov_order_status;
+      this.form_legal_info.nov_compliance_status = item.nov_compliance_status;
       this.form_legal_info.nov_order_remarks = item.nov_order_remarks;
     },
     deleteLegal: function deleteLegal(item) {
@@ -1584,15 +1656,25 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   data: function data() {
     return {
       headers: [{
-        text: 'Monitoring Law',
+        text: 'Law',
         align: 'start',
         sortable: false,
         value: 'mon_law'
       }, {
-        text: 'Monitoring Date',
+        text: 'Date Monitored',
         align: 'start',
         sortable: false,
-        value: 'date_number'
+        value: 'mon_date_monitored'
+      }, {
+        text: 'Type',
+        align: 'start',
+        sortable: false,
+        value: 'mon_type'
+      }, {
+        text: 'Attachment',
+        align: 'start',
+        sortable: false,
+        value: 'mon_file'
       }, {
         text: 'Actions',
         value: 'actions',
@@ -1755,15 +1837,35 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   data: function data() {
     return {
       headers: [{
-        text: 'Permit Law',
+        text: 'Law',
         align: 'start',
         sortable: false,
         value: 'perm_law'
       }, {
-        text: 'Permit No.',
+        text: 'No.',
         align: 'start',
         sortable: false,
         value: 'perm_number'
+      }, {
+        text: 'Status.',
+        align: 'start',
+        sortable: false,
+        value: 'perm_status'
+      }, {
+        text: 'Date Issuance',
+        align: 'start',
+        sortable: false,
+        value: 'perm_date_issuance'
+      }, {
+        text: 'Date Expiry',
+        align: 'start',
+        sortable: false,
+        value: 'perm_date_expiry'
+      }, {
+        text: 'Attachment',
+        align: 'start',
+        sortable: false,
+        value: 'perm_file'
       }, {
         text: 'Actions',
         value: 'actions',
@@ -1948,15 +2050,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         nov_law: "",
         nov_desc: "",
         nov_date: "",
-        nov_tc: "",
-        nov_compliance_status: "",
+        nov_tc_date: "",
+        nov_tc_status: "",
         nov_file: "",
         nov_order_number: "",
         nov_order_amt: "",
         nov_order_date_issuance: "",
         nov_order_date_settlement: "",
         nov_official_receipt_number: "",
-        nov_order_status: "",
+        nov_compliance_status: "",
         nov_order_remarks: ""
       },
       form_hazwaste_info: {
@@ -2083,15 +2185,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         nov_law: "",
         nov_desc: "",
         nov_date: "",
-        nov_tc: "",
-        nov_compliance_status: "",
+        nov_tc_date: "",
+        nov_tc_status: "",
         nov_file: "",
         nov_order_number: "",
         nov_order_amt: "",
         nov_order_date_issuance: "",
         nov_order_date_settlement: "",
         nov_official_receipt_number: "",
-        nov_order_status: "",
+        nov_compliance_status: "",
         nov_order_remarks: ""
       };
     },
@@ -4794,9 +4896,10 @@ var render = function () {
     "v-card",
     { staticClass: "p-4", attrs: { elevation: "0" } },
     [
-      _c("div", { staticClass: "grid grid-cols-4 gap-y-0 gap-x-4 ml-8" }, [
+      _c("div", { staticClass: "grid grid-cols-2 gap-y-0 gap-x-4 ml-8" }, [
         _c(
           "div",
+          { attrs: { hidden: "" } },
           [
             _c("v-text-field", {
               attrs: { label: "Complaint Id", clearable: "" },
@@ -4845,7 +4948,9 @@ var render = function () {
           ],
           1
         ),
-        _vm._v(" "),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "grid grid-cols-2 gap-y-0 gap-x-4 ml-8" }, [
         _c(
           "div",
           [
@@ -4879,7 +4984,9 @@ var render = function () {
           ],
           1
         ),
-        _vm._v(" "),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "grid grid-cols-1 gap-y-0 gap-x-4 ml-8" }, [
         _c(
           "div",
           [
@@ -5004,9 +5111,10 @@ var render = function () {
     "v-card",
     { staticClass: "p-4", attrs: { elevation: "0" } },
     [
-      _c("div", { staticClass: "grid grid-cols-4 gap-y-0 gap-x-4 ml-8" }, [
+      _c("div", { staticClass: "grid grid-cols-5 gap-y-0 gap-x-4 ml-8" }, [
         _c(
           "div",
+          { attrs: { hidden: "" } },
           [
             _c("v-text-field", {
               attrs: { label: "Hazwaste Id", clearable: "" },
@@ -5106,7 +5214,9 @@ var render = function () {
           ],
           1
         ),
-        _vm._v(" "),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "grid grid-cols-1 gap-y-0 gap-x-4 ml-8" }, [
         _c(
           "div",
           [
@@ -5234,6 +5344,7 @@ var render = function () {
       _c("div", { staticClass: "grid grid-cols-4 gap-y-0 gap-x-4 ml-8" }, [
         _c(
           "div",
+          { attrs: { hidden: "" } },
           [
             _c("v-text-field", {
               attrs: { label: "NOV Id", clearable: "" },
@@ -5270,23 +5381,6 @@ var render = function () {
           "div",
           [
             _c("v-text-field", {
-              attrs: { label: "Description", clearable: "" },
-              model: {
-                value: _vm.form_legal_info.nov_desc,
-                callback: function ($$v) {
-                  _vm.$set(_vm.form_legal_info, "nov_desc", $$v)
-                },
-                expression: "form_legal_info.nov_desc",
-              },
-            }),
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          [
-            _c("v-text-field", {
               attrs: { label: "NOV Date", clearable: "" },
               model: {
                 value: _vm.form_legal_info.nov_date,
@@ -5304,13 +5398,13 @@ var render = function () {
           "div",
           [
             _c("v-text-field", {
-              attrs: { label: "TC", clearable: "" },
+              attrs: { label: "TC Date", clearable: "" },
               model: {
-                value: _vm.form_legal_info.nov_tc,
+                value: _vm.form_legal_info.nov_tc_date,
                 callback: function ($$v) {
-                  _vm.$set(_vm.form_legal_info, "nov_tc", $$v)
+                  _vm.$set(_vm.form_legal_info, "nov_tc_date", $$v)
                 },
-                expression: "form_legal_info.nov_tc",
+                expression: "form_legal_info.nov_tc_date",
               },
             }),
           ],
@@ -5321,36 +5415,40 @@ var render = function () {
           "div",
           [
             _c("v-text-field", {
-              attrs: { label: "Compliance Status", clearable: "" },
+              attrs: { label: "TC Status", clearable: "" },
               model: {
-                value: _vm.form_legal_info.nov_compliance_status,
+                value: _vm.form_legal_info.nov_tc_status,
                 callback: function ($$v) {
-                  _vm.$set(_vm.form_legal_info, "nov_compliance_status", $$v)
+                  _vm.$set(_vm.form_legal_info, "nov_tc_status", $$v)
                 },
-                expression: "form_legal_info.nov_compliance_status",
+                expression: "form_legal_info.nov_tc_status",
               },
             }),
           ],
           1
         ),
-        _vm._v(" "),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "grid grid-cols-1 gap-y-0 gap-x-4 ml-8" }, [
         _c(
           "div",
           [
             _c("v-text-field", {
-              attrs: { label: "File", clearable: "" },
+              attrs: { label: "Description", clearable: "" },
               model: {
-                value: _vm.form_legal_info.nov_file,
+                value: _vm.form_legal_info.nov_desc,
                 callback: function ($$v) {
-                  _vm.$set(_vm.form_legal_info, "nov_file", $$v)
+                  _vm.$set(_vm.form_legal_info, "nov_desc", $$v)
                 },
-                expression: "form_legal_info.nov_file",
+                expression: "form_legal_info.nov_desc",
               },
             }),
           ],
           1
         ),
-        _vm._v(" "),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "grid grid-cols-4 gap-y-0 gap-x-4 ml-8" }, [
         _c(
           "div",
           [
@@ -5450,11 +5548,11 @@ var render = function () {
             _c("v-text-field", {
               attrs: { label: "Order Status", clearable: "" },
               model: {
-                value: _vm.form_legal_info.nov_order_status,
+                value: _vm.form_legal_info.nov_compliance_status,
                 callback: function ($$v) {
-                  _vm.$set(_vm.form_legal_info, "nov_order_status", $$v)
+                  _vm.$set(_vm.form_legal_info, "nov_compliance_status", $$v)
                 },
-                expression: "form_legal_info.nov_order_status",
+                expression: "form_legal_info.nov_compliance_status",
               },
             }),
           ],
@@ -5463,6 +5561,7 @@ var render = function () {
         _vm._v(" "),
         _c(
           "div",
+          { staticClass: "col-span-2" },
           [
             _c("v-text-field", {
               attrs: { label: "Order Remarks", clearable: "" },
@@ -5472,6 +5571,25 @@ var render = function () {
                   _vm.$set(_vm.form_legal_info, "nov_order_remarks", $$v)
                 },
                 expression: "form_legal_info.nov_order_remarks",
+              },
+            }),
+          ],
+          1
+        ),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "grid grid-cols-1 gap-y-0 gap-x-4 ml-8" }, [
+        _c(
+          "div",
+          [
+            _c("v-text-field", {
+              attrs: { label: "Attachments", clearable: "" },
+              model: {
+                value: _vm.form_legal_info.nov_file,
+                callback: function ($$v) {
+                  _vm.$set(_vm.form_legal_info, "nov_file", $$v)
+                },
+                expression: "form_legal_info.nov_file",
               },
             }),
           ],
@@ -5900,6 +6018,7 @@ var render = function () {
       _c("div", { staticClass: "grid grid-cols-4 gap-y-0 gap-x-4 ml-8" }, [
         _c(
           "div",
+          { attrs: { hidden: "" } },
           [
             _c("v-text-field", {
               attrs: { label: "Monitoring Id", clearable: "" },
@@ -6093,6 +6212,7 @@ var render = function () {
       _c("div", { staticClass: "grid grid-cols-5 gap-y-0 gap-x-4 ml-8" }, [
         _c(
           "div",
+          { attrs: { hidden: "" } },
           [
             _c("v-text-field", {
               attrs: { label: "Permit Id", clearable: "" },
