@@ -28,18 +28,21 @@ class UniverseController extends Controller
             $query_permit = Permit::where('universe_FK',$id)->get();
             $query_monitoring = Monitoring::where('universe_FK',$id)->get();
             $query_legal = Legal::where('universe_FK',$id)->get();
+            $query_hazwaste = Hazwaste::where('universe_FK',$id)->get();
             if($query->count() > 0){
                 return Inertia::render("pages/universe/universe_form",[
                     'query'=>$query[0],
                     'permit_table'=>$query_permit,
                     'monitoring_table'=>$query_monitoring,
                     'legal_table'=>$query_legal,
+                    'hazwaste_table'=>$query_hazwaste,
                 ]);
             }else{
                 return Inertia::render("pages/universe/universe_form",[
                     'permit_table'=>$query_permit,
                     'monitoring_table'=>$query_monitoring,
                     'legal_table'=>$query_legal,
+                    'hazwaste_table'=>$query_hazwaste,
                 ]);
             }
         }else{
@@ -68,6 +71,7 @@ class UniverseController extends Controller
         $this->permit_process_create($request, $universe_id);
         $this->monitoring_process_create($request, $universe_id);
         $this->legal_process_create($request, $universe_id);
+        $this->hazwaste_process_create($request, $universe_id);
         return $universe_id;
     }
 
@@ -76,6 +80,7 @@ class UniverseController extends Controller
         $this->permit_process_update($request, $universe_id);
         $this->monitoring_process_update($request, $universe_id);
         $this->legal_process_update($request, $universe_id);
+        $this->hazwaste_process_update($request, $universe_id);
         return $universe_id;
     }
 
@@ -200,6 +205,40 @@ class UniverseController extends Controller
         $query->delete();
         return back();
     }
+    
+    public function hazwaste_process_create($request, $universe_id){
+        if($request->hazwaste['haz_type'] && $request->hazwaste['haz_number']){
+            $query = new Hazwaste();
+            foreach($this->hazwaste_columns() as $cols){
+                $query->$cols = $request->hazwaste[$cols];
+            }
+            $query->universe_FK = $universe_id;
+            $query->save();
+            return $query->id;
+        }
+    }
+
+    public function hazwaste_process_update($request, $universe_id){
+        if($request->hazwaste['haz_type'] && $request->hazwaste['haz_number']){
+            if($request->hazwaste['haz_id']){
+                $query = Hazwaste::find($request->hazwaste['haz_id']);
+            }else{
+                $query = new Hazwaste();
+            }
+            foreach($this->hazwaste_columns() as $cols){
+                $query->$cols = $request->hazwaste[$cols];
+            }
+            $query->universe_FK = $universe_id;
+            $query->save();
+            return $request->hazwaste['haz_id'];
+        }
+    }
+    
+    public function delete_hazwaste($request){
+        $query = Hazwaste::find($request);
+        $query->delete();
+        return back();
+    }
 
 // COLUMNS =======================================================================================================
 
@@ -271,6 +310,18 @@ class UniverseController extends Controller
             'nov_official_receipt_number',
             'nov_order_status',
             'nov_order_remarks',
+        ];
+        return $array;
+    }
+
+    public function hazwaste_columns(){
+        $array = [
+            'haz_type',
+            'haz_number',
+            'haz_date_acceptance',
+            'haz_date_issuance',
+            'haz_date_expiry',
+            'haz_file',
         ];
         return $array;
     }

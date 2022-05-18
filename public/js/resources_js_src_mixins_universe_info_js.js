@@ -98,6 +98,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         nov_official_receipt_number: "",
         nov_order_status: "",
         nov_order_remarks: ""
+      },
+      form_hazwaste_info: {
+        haz_id: "",
+        haz_type: "",
+        haz_number: "",
+        haz_date_acceptance: "",
+        haz_date_issuance: "",
+        haz_date_expiry: "",
+        haz_file: ""
       }
     };
   },
@@ -112,7 +121,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             switch (_context.prev = _context.next) {
               case 0:
                 if (!confirm('Do you want to proceed?')) {
-                  _context.next = 8;
+                  _context.next = 9;
                   break;
                 }
 
@@ -120,7 +129,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                   'basic': _this.form_basic_info,
                   'permit': _this.form_permit_info,
                   'monitoring': _this.form_monitoring_info,
-                  'legal': _this.form_legal_info
+                  'legal': _this.form_legal_info,
+                  'hazwaste': _this.form_hazwaste_info
                 };
                 _context.next = 4;
                 return _this.$inertia.post("/app/universe_process", _objectSpread({}, data));
@@ -136,7 +146,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
                 _this.reset_legal_info();
 
-              case 8:
+                _this.reset_hazwaste_info();
+
+              case 9:
               case "end":
                 return _context.stop();
             }
@@ -210,6 +222,17 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         nov_official_receipt_number: "",
         nov_order_status: "",
         nov_order_remarks: ""
+      };
+    },
+    reset_hazwaste_info: function reset_hazwaste_info() {
+      this.form_hazwaste_info = {
+        haz_id: "",
+        haz_type: "",
+        haz_number: "",
+        haz_date_acceptance: "",
+        haz_date_issuance: "",
+        haz_date_expiry: "",
+        haz_file: ""
       };
     }
   }

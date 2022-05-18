@@ -95,11 +95,7 @@
                   <LegalTab :form_legal_info="form_legal_info" :legal_table="legal_table"></LegalTab>
               </v-tab-item>
               <v-tab-item>
-                <v-card flat>
-                  <v-card-text>
-                  5
-                  </v-card-text>
-                </v-card>
+                  <HazwasteTab :form_hazwaste_info="form_hazwaste_info" :hazwaste_table="hazwaste_table"></HazwasteTab>
               </v-tab-item>
               <v-tab-item>
                 <v-card flat>
@@ -129,10 +125,12 @@
       form_permit_info: Object,
       form_monitoring_info: Object,
       form_legal_info: Object,
+      form_hazwaste_info: Object,
 
       permit_table: Array,
       monitoring_table: Array,
       legal_table: Array,
+      hazwaste_table: Array,
       submit_basic_info: Function,
     },
     components:{
@@ -140,6 +138,7 @@
         PermitTab,
         MonitoringTab,
         LegalTab,
+        HazwasteTab,
     },
     data () {
       return {

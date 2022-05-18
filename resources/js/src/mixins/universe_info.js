@@ -62,6 +62,15 @@ export default {
                 nov_order_status: "",
                 nov_order_remarks: "",
             },
+            form_hazwaste_info: {
+                haz_id: "",
+                haz_type: "",
+                haz_number: "",
+                haz_date_acceptance: "",
+                haz_date_issuance: "",
+                haz_date_expiry: "",
+                haz_file: "",
+            },
         };
     },
     methods: {
@@ -72,6 +81,7 @@ export default {
                     'permit': this.form_permit_info,
                     'monitoring': this.form_monitoring_info,
                     'legal': this.form_legal_info,
+                    'hazwaste': this.form_hazwaste_info,
                 };
                 await this.$inertia.post("/app/universe_process", {
                     ...data,
@@ -82,6 +92,7 @@ export default {
                 this.reset_permit_info();
                 this.reset_monitoring_info();
                 this.reset_legal_info();
+                this.reset_hazwaste_info();
             }
         },
         reset_basic_info() {
@@ -150,6 +161,17 @@ export default {
                 nov_official_receipt_number: "",
                 nov_order_status: "",
                 nov_order_remarks: "",
+            };
+        },
+        reset_hazwaste_info() {
+            this.form_hazwaste_info = {
+                haz_id: "",
+                haz_type: "",
+                haz_number: "",
+                haz_date_acceptance: "",
+                haz_date_issuance: "",
+                haz_date_expiry: "",
+                haz_file: "",
             };
         },
     },

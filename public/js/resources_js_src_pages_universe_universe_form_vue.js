@@ -779,6 +779,170 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/pages/universe/tabs/hazwaste_tab.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/pages/universe/tabs/hazwaste_tab.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: {
+    form_hazwaste_info: Object,
+    hazwaste_table: Array
+  },
+  data: function data() {
+    return {
+      headers: [{
+        text: 'Hazwaste Type',
+        align: 'start',
+        sortable: false,
+        value: 'haz_type'
+      }, {
+        text: 'Hazwaste Number',
+        align: 'start',
+        sortable: false,
+        value: 'haz_number'
+      }, {
+        text: 'Actions',
+        value: 'actions',
+        sortable: false
+      }]
+    };
+  },
+  methods: {
+    editHazwaste: function editHazwaste(item) {
+      this.form_hazwaste_info.haz_id = item.id;
+      this.form_hazwaste_info.haz_type = item.haz_type;
+      this.form_hazwaste_info.haz_number = item.haz_number;
+      this.form_hazwaste_info.haz_date_acceptance = item.haz_date_acceptance;
+      this.form_hazwaste_info.haz_date_issuance = item.haz_date_issuance;
+      this.form_hazwaste_info.haz_date_expiry = item.haz_date_expiry;
+      this.form_hazwaste_info.haz_file = item.haz_file;
+    },
+    deleteHazwaste: function deleteHazwaste(item) {
+      var _this = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return _this.$inertia["delete"]("/app/delete_hazwaste/".concat(item.id));
+
+              case 2:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }))();
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/pages/universe/tabs/legal_tab.vue?vue&type=script&lang=js&":
 /*!*****************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/pages/universe/tabs/legal_tab.vue?vue&type=script&lang=js& ***!
@@ -1130,10 +1294,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 
 
 
@@ -1146,16 +1306,19 @@ __webpack_require__.r(__webpack_exports__);
     form_permit_info: Object,
     form_monitoring_info: Object,
     form_legal_info: Object,
+    form_hazwaste_info: Object,
     permit_table: Array,
     monitoring_table: Array,
     legal_table: Array,
+    hazwaste_table: Array,
     submit_basic_info: Function
   },
   components: {
     BasicTab: _basic_tab__WEBPACK_IMPORTED_MODULE_0__["default"],
     PermitTab: _permit_tab__WEBPACK_IMPORTED_MODULE_1__["default"],
     MonitoringTab: _monitoring_tab__WEBPACK_IMPORTED_MODULE_2__["default"],
-    LegalTab: _legal_tab__WEBPACK_IMPORTED_MODULE_3__["default"]
+    LegalTab: _legal_tab__WEBPACK_IMPORTED_MODULE_3__["default"],
+    HazwasteTab: _hazwaste_tab__WEBPACK_IMPORTED_MODULE_4__["default"]
   },
   data: function data() {
     return {
@@ -1523,6 +1686,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 
@@ -1538,7 +1703,8 @@ __webpack_require__.r(__webpack_exports__);
     query: Object,
     permit_table: Array,
     monitoring_table: Array,
-    legal_table: Array
+    legal_table: Array,
+    hazwaste_table: Array
   },
   data: function data() {
     return {};
@@ -1634,6 +1800,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         nov_official_receipt_number: "",
         nov_order_status: "",
         nov_order_remarks: ""
+      },
+      form_hazwaste_info: {
+        haz_id: "",
+        haz_type: "",
+        haz_number: "",
+        haz_date_acceptance: "",
+        haz_date_issuance: "",
+        haz_date_expiry: "",
+        haz_file: ""
       }
     };
   },
@@ -1648,7 +1823,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             switch (_context.prev = _context.next) {
               case 0:
                 if (!confirm('Do you want to proceed?')) {
-                  _context.next = 8;
+                  _context.next = 9;
                   break;
                 }
 
@@ -1656,7 +1831,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                   'basic': _this.form_basic_info,
                   'permit': _this.form_permit_info,
                   'monitoring': _this.form_monitoring_info,
-                  'legal': _this.form_legal_info
+                  'legal': _this.form_legal_info,
+                  'hazwaste': _this.form_hazwaste_info
                 };
                 _context.next = 4;
                 return _this.$inertia.post("/app/universe_process", _objectSpread({}, data));
@@ -1672,7 +1848,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
                 _this.reset_legal_info();
 
-              case 8:
+                _this.reset_hazwaste_info();
+
+              case 9:
               case "end":
                 return _context.stop();
             }
@@ -1746,6 +1924,17 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         nov_official_receipt_number: "",
         nov_order_status: "",
         nov_order_remarks: ""
+      };
+    },
+    reset_hazwaste_info: function reset_hazwaste_info() {
+      this.form_hazwaste_info = {
+        haz_id: "",
+        haz_type: "",
+        haz_number: "",
+        haz_date_acceptance: "",
+        haz_date_issuance: "",
+        haz_date_expiry: "",
+        haz_file: ""
       };
     }
   }
@@ -2718,17 +2907,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-var render, staticRenderFns
-var script = {}
+/* harmony import */ var _hazwaste_tab_vue_vue_type_template_id_7ff7c48a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./hazwaste_tab.vue?vue&type=template&id=7ff7c48a& */ "./resources/js/src/pages/universe/tabs/hazwaste_tab.vue?vue&type=template&id=7ff7c48a&");
+/* harmony import */ var _hazwaste_tab_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./hazwaste_tab.vue?vue&type=script&lang=js& */ "./resources/js/src/pages/universe/tabs/hazwaste_tab.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
 
 
 /* normalize component */
 ;
-var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__["default"])(
-  script,
-  render,
-  staticRenderFns,
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _hazwaste_tab_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _hazwaste_tab_vue_vue_type_template_id_7ff7c48a___WEBPACK_IMPORTED_MODULE_0__.render,
+  _hazwaste_tab_vue_vue_type_template_id_7ff7c48a___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
   false,
   null,
   null,
@@ -2736,6 +2928,8 @@ var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__
   
 )
 
+/* hot reload */
+if (false) { var api; }
 component.options.__file = "resources/js/src/pages/universe/tabs/hazwaste_tab.vue"
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
 
@@ -3000,6 +3194,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/src/pages/universe/tabs/hazwaste_tab.vue?vue&type=script&lang=js&":
+/*!****************************************************************************************!*\
+  !*** ./resources/js/src/pages/universe/tabs/hazwaste_tab.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_hazwaste_tab_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./hazwaste_tab.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/pages/universe/tabs/hazwaste_tab.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_hazwaste_tab_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/src/pages/universe/tabs/legal_tab.vue?vue&type=script&lang=js&":
 /*!*************************************************************************************!*\
   !*** ./resources/js/src/pages/universe/tabs/legal_tab.vue?vue&type=script&lang=js& ***!
@@ -3144,6 +3354,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_basic_tab_vue_vue_type_template_id_df7ded0e___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_basic_tab_vue_vue_type_template_id_df7ded0e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./basic_tab.vue?vue&type=template&id=df7ded0e& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/pages/universe/tabs/basic_tab.vue?vue&type=template&id=df7ded0e&");
+
+
+/***/ }),
+
+/***/ "./resources/js/src/pages/universe/tabs/hazwaste_tab.vue?vue&type=template&id=7ff7c48a&":
+/*!**********************************************************************************************!*\
+  !*** ./resources/js/src/pages/universe/tabs/hazwaste_tab.vue?vue&type=template&id=7ff7c48a& ***!
+  \**********************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_hazwaste_tab_vue_vue_type_template_id_7ff7c48a___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_hazwaste_tab_vue_vue_type_template_id_7ff7c48a___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_hazwaste_tab_vue_vue_type_template_id_7ff7c48a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./hazwaste_tab.vue?vue&type=template&id=7ff7c48a& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/pages/universe/tabs/hazwaste_tab.vue?vue&type=template&id=7ff7c48a&");
 
 
 /***/ }),
@@ -4330,6 +4557,233 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/pages/universe/tabs/hazwaste_tab.vue?vue&type=template&id=7ff7c48a&":
+/*!*************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/pages/universe/tabs/hazwaste_tab.vue?vue&type=template&id=7ff7c48a& ***!
+  \*************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "v-card",
+    { staticClass: "p-4", attrs: { elevation: "0" } },
+    [
+      _c("div", { staticClass: "grid grid-cols-4 gap-y-0 gap-x-4 ml-8" }, [
+        _c(
+          "div",
+          [
+            _c("v-text-field", {
+              attrs: { label: "Hazwaste Id", clearable: "" },
+              model: {
+                value: _vm.form_hazwaste_info.haz_id,
+                callback: function ($$v) {
+                  _vm.$set(_vm.form_hazwaste_info, "haz_id", $$v)
+                },
+                expression: "form_hazwaste_info.haz_id",
+              },
+            }),
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          [
+            _c("v-text-field", {
+              attrs: { label: "Hazwaste Type", clearable: "" },
+              model: {
+                value: _vm.form_hazwaste_info.haz_type,
+                callback: function ($$v) {
+                  _vm.$set(_vm.form_hazwaste_info, "haz_type", $$v)
+                },
+                expression: "form_hazwaste_info.haz_type",
+              },
+            }),
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          [
+            _c("v-text-field", {
+              attrs: { label: "Hazwaste Number", clearable: "" },
+              model: {
+                value: _vm.form_hazwaste_info.haz_number,
+                callback: function ($$v) {
+                  _vm.$set(_vm.form_hazwaste_info, "haz_number", $$v)
+                },
+                expression: "form_hazwaste_info.haz_number",
+              },
+            }),
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          [
+            _c("v-text-field", {
+              attrs: { label: "Date Acceptance", clearable: "" },
+              model: {
+                value: _vm.form_hazwaste_info.haz_date_acceptance,
+                callback: function ($$v) {
+                  _vm.$set(_vm.form_hazwaste_info, "haz_date_acceptance", $$v)
+                },
+                expression: "form_hazwaste_info.haz_date_acceptance",
+              },
+            }),
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          [
+            _c("v-text-field", {
+              attrs: { label: "Date Issuance", clearable: "" },
+              model: {
+                value: _vm.form_hazwaste_info.haz_date_issuance,
+                callback: function ($$v) {
+                  _vm.$set(_vm.form_hazwaste_info, "haz_date_issuance", $$v)
+                },
+                expression: "form_hazwaste_info.haz_date_issuance",
+              },
+            }),
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          [
+            _c("v-text-field", {
+              attrs: { label: "Date Expiry", clearable: "" },
+              model: {
+                value: _vm.form_hazwaste_info.haz_date_expiry,
+                callback: function ($$v) {
+                  _vm.$set(_vm.form_hazwaste_info, "haz_date_expiry", $$v)
+                },
+                expression: "form_hazwaste_info.haz_date_expiry",
+              },
+            }),
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          [
+            _c("v-text-field", {
+              attrs: { label: "Hazwaste File", clearable: "" },
+              model: {
+                value: _vm.form_hazwaste_info.haz_file,
+                callback: function ($$v) {
+                  _vm.$set(_vm.form_hazwaste_info, "haz_file", $$v)
+                },
+                expression: "form_hazwaste_info.haz_file",
+              },
+            }),
+          ],
+          1
+        ),
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "text-center" },
+        [
+          _c(
+            "v-btn",
+            { attrs: { depressed: "", color: "primary", type: "submit" } },
+            [_vm._v("\n            Submit\n        ")]
+          ),
+        ],
+        1
+      ),
+      _vm._v(" "),
+      [
+        _c(
+          "v-card",
+          { staticClass: "mt-5", attrs: { elevation: "2" } },
+          [
+            _c("v-data-table", {
+              staticClass: "elevation-1",
+              attrs: {
+                dense: "",
+                headers: _vm.headers,
+                items: _vm.hazwaste_table,
+                "item-key": "hazwaste_tables",
+              },
+              scopedSlots: _vm._u([
+                {
+                  key: "item.actions",
+                  fn: function (ref) {
+                    var item = ref.item
+                    return [
+                      _c(
+                        "v-icon",
+                        {
+                          staticClass: "mr-2",
+                          attrs: { small: "" },
+                          on: {
+                            click: function ($event) {
+                              return _vm.editHazwaste(item)
+                            },
+                          },
+                        },
+                        [
+                          _vm._v(
+                            "\n                        mdi-pencil\n                    "
+                          ),
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-icon",
+                        {
+                          attrs: { small: "" },
+                          on: {
+                            click: function ($event) {
+                              return _vm.deleteHazwaste(item)
+                            },
+                          },
+                        },
+                        [
+                          _vm._v(
+                            "\n                        mdi-delete\n                    "
+                          ),
+                        ]
+                      ),
+                    ]
+                  },
+                },
+              ]),
+            }),
+          ],
+          1
+        ),
+      ],
+    ],
+    2
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/pages/universe/tabs/legal_tab.vue?vue&type=template&id=ccec45f8&":
 /*!**********************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/pages/universe/tabs/legal_tab.vue?vue&type=template&id=ccec45f8& ***!
@@ -4951,18 +5405,12 @@ var render = function () {
                         _c(
                           "v-tab-item",
                           [
-                            _c(
-                              "v-card",
-                              { attrs: { flat: "" } },
-                              [
-                                _c("v-card-text", [
-                                  _vm._v(
-                                    "\n                5\n                "
-                                  ),
-                                ]),
-                              ],
-                              1
-                            ),
+                            _c("HazwasteTab", {
+                              attrs: {
+                                form_hazwaste_info: _vm.form_hazwaste_info,
+                                hazwaste_table: _vm.hazwaste_table,
+                              },
+                            }),
                           ],
                           1
                         ),
@@ -5472,9 +5920,11 @@ var render = function () {
           form_permit_info: _vm.form_permit_info,
           form_monitoring_info: _vm.form_monitoring_info,
           form_legal_info: _vm.form_legal_info,
+          form_hazwaste_info: _vm.form_hazwaste_info,
           permit_table: _vm.permit_table,
           monitoring_table: _vm.monitoring_table,
           legal_table: _vm.legal_table,
+          hazwaste_table: _vm.hazwaste_table,
           submit_basic_info: _vm.submit_basic_info,
         },
       }),
