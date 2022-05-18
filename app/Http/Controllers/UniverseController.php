@@ -70,7 +70,7 @@ class UniverseController extends Controller
     public function universe_process_update($request){
         $universe_id = $this->basic_process_update($request);
         $this->permit_process_update($request, $universe_id);
-        $this->monitoring_process_create($request, $universe_id);
+        $this->monitoring_process_update($request, $universe_id);
         return $universe_id;
     }
 
@@ -138,6 +138,28 @@ class UniverseController extends Controller
             $query->save();
             return $query->id;
         }
+    }
+
+    public function monitoring_process_update($request, $universe_id){
+        if($request->monitoring['mon_law'] && $request->monitoring['mon_date_monitored']){
+            if($request->monitoring['mon_id']){
+                $query = Monitoring::find($request->monitoring['mon_id']);
+            }else{
+                $query = new Monitoring();
+            }
+            foreach($this->monitoring_columns() as $cols){
+                $query->$cols = $request->monitoring[$cols];
+            }
+            $query->universe_FK = $universe_id;
+            $query->save();
+            return $request->monitoring['mon_id'];
+        }
+    }
+    
+    public function delete_monitoring($request){
+        $query = Monitoring::find($request);
+        $query->delete();
+        return back();
     }
 
 // COLUMNS =======================================================================================================

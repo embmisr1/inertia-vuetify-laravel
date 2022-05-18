@@ -3,7 +3,7 @@
             <div class="grid grid-cols-4 gap-y-0 gap-x-4 ml-8">
                     <div>
                         <v-text-field
-                            v-model="form_monitoring_info.id"
+                            v-model="form_monitoring_info.mon_id"
                             label="Monitoring Id"
                             clearable
                         ></v-text-field>
@@ -55,11 +55,13 @@
                             <v-icon
                                 small
                                 class="mr-2"
+                                @click="editMonitoring(item)"
                             >
                                 mdi-pencil
                             </v-icon>
                             <v-icon
                                 small
+                                @click="deletePermit(item)"
                             >
                                 mdi-delete
                             </v-icon>
@@ -98,22 +100,16 @@
       ],
     }),
     methods:{
-        // editPermit(item) {
-        //     console.log(this.form_permit_info);
-        //     this.form_permit_info.perm_law = item.perm_law;
-        //     this.form_permit_info.perm_date_expiry = item.perm_date_expiry;
-        //     this.form_permit_info.perm_date_issuance = item.perm_date_issuance;
-        //     this.form_permit_info.perm_description = item.perm_description;
-        //     this.form_permit_info.perm_file = item.perm_file;
-        //     this.form_permit_info.perm_id = item.id;
-        //     this.form_permit_info.perm_law = item.perm_law;
-        //     this.form_permit_info.perm_number = item.perm_number;
-        //     this.form_permit_info.perm_status = item.perm_status;
-        // },
-        // async deletePermit(item) {
-        //     console.log(item.id);
-        //     await this.$inertia.delete(`/app/delete_permit/${item.id}`);
-        // }
+        editMonitoring(item) {
+            this.form_monitoring_info.mon_id = item.id;
+            this.form_monitoring_info.mon_law = item.mon_law;
+            this.form_monitoring_info.mon_date_monitored = item.mon_date_monitored;
+            this.form_monitoring_info.mon_type = item.mon_type;
+            this.form_monitoring_info.mon_file = item.mon_file;
+        },
+        async deletePermit(item) {
+            await this.$inertia.delete(`/app/delete_monitoring/${item.id}`);
+        }
     }
   }
 </script>
