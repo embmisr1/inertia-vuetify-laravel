@@ -98,11 +98,7 @@
                   <HazwasteTab :form_hazwaste_info="form_hazwaste_info" :hazwaste_table="hazwaste_table"></HazwasteTab>
               </v-tab-item>
               <v-tab-item>
-                <v-card flat>
-                  <v-card-text>
-                  6
-                  </v-card-text>
-                </v-card>
+                  <ComplaintTab :form_complaint_info="form_complaint_info" :complaint_table="complaint_table"></ComplaintTab>
               </v-tab-item>
 
             </v-tabs>
@@ -126,11 +122,13 @@
       form_monitoring_info: Object,
       form_legal_info: Object,
       form_hazwaste_info: Object,
+      form_complaint_info: Object,
 
       permit_table: Array,
       monitoring_table: Array,
       legal_table: Array,
       hazwaste_table: Array,
+      complaint_table: Array,
       submit_basic_info: Function,
     },
     components:{
@@ -139,6 +137,7 @@
         MonitoringTab,
         LegalTab,
         HazwasteTab,
+        ComplaintTab,
     },
     data () {
       return {

@@ -6,11 +6,13 @@
             :form_monitoring_info="form_monitoring_info" 
             :form_legal_info="form_legal_info" 
             :form_hazwaste_info="form_hazwaste_info" 
+            :form_complaint_info="form_complaint_info" 
 
             :permit_table="permit_table"
             :monitoring_table="monitoring_table"
             :legal_table="legal_table"
             :hazwaste_table="hazwaste_table"
+            :complaint_table="complaint_table"
             
             :submit_basic_info="submit_basic_info"
         ></MainTab>
@@ -37,6 +39,7 @@ export default {
         monitoring_table: Array,
         legal_table: Array,
         hazwaste_table: Array,
+        complaint_table: Array,
     },
     data: () => ({}),
 };

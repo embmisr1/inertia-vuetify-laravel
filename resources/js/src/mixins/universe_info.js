@@ -71,6 +71,14 @@ export default {
                 haz_date_expiry: "",
                 haz_file: "",
             },
+            form_complaint_info: {
+                comp_id: "",
+                comp_name: "",
+                comp_nature: "",
+                comp_attached_file: "",
+                comp_action_file: "",
+                comp_remarks: "",
+            },
         };
     },
     methods: {
@@ -82,6 +90,7 @@ export default {
                     'monitoring': this.form_monitoring_info,
                     'legal': this.form_legal_info,
                     'hazwaste': this.form_hazwaste_info,
+                    'complaint': this.form_complaint_info,
                 };
                 await this.$inertia.post("/app/universe_process", {
                     ...data,
@@ -93,6 +102,7 @@ export default {
                 this.reset_monitoring_info();
                 this.reset_legal_info();
                 this.reset_hazwaste_info();
+                this.reset_complaint_info();
             }
         },
         reset_basic_info() {
@@ -172,6 +182,16 @@ export default {
                 haz_date_issuance: "",
                 haz_date_expiry: "",
                 haz_file: "",
+            };
+        },
+        reset_complaint_info() {
+            this.form_complaint_info = {
+                comp_id: "",
+                comp_name: "",
+                comp_nature: "",
+                comp_attached_file: "",
+                comp_action_file: "",
+                comp_remarks: "",
             };
         },
     },

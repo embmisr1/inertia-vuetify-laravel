@@ -107,6 +107,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         haz_date_issuance: "",
         haz_date_expiry: "",
         haz_file: ""
+      },
+      form_complaint_info: {
+        comp_id: "",
+        comp_name: "",
+        comp_nature: "",
+        comp_attached_file: "",
+        comp_action_file: "",
+        comp_remarks: ""
       }
     };
   },
@@ -121,7 +129,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             switch (_context.prev = _context.next) {
               case 0:
                 if (!confirm('Do you want to proceed?')) {
-                  _context.next = 9;
+                  _context.next = 10;
                   break;
                 }
 
@@ -130,7 +138,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                   'permit': _this.form_permit_info,
                   'monitoring': _this.form_monitoring_info,
                   'legal': _this.form_legal_info,
-                  'hazwaste': _this.form_hazwaste_info
+                  'hazwaste': _this.form_hazwaste_info,
+                  'complaint': _this.form_complaint_info
                 };
                 _context.next = 4;
                 return _this.$inertia.post("/app/universe_process", _objectSpread({}, data));
@@ -148,7 +157,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
                 _this.reset_hazwaste_info();
 
-              case 9:
+                _this.reset_complaint_info();
+
+              case 10:
               case "end":
                 return _context.stop();
             }
@@ -233,6 +244,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         haz_date_issuance: "",
         haz_date_expiry: "",
         haz_file: ""
+      };
+    },
+    reset_complaint_info: function reset_complaint_info() {
+      this.form_complaint_info = {
+        comp_id: "",
+        comp_name: "",
+        comp_nature: "",
+        comp_attached_file: "",
+        comp_action_file: "",
+        comp_remarks: ""
       };
     }
   }
