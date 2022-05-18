@@ -4,8 +4,12 @@
             :form_basic_info="form_basic_info" 
             :form_permit_info="form_permit_info" 
             :form_monitoring_info="form_monitoring_info" 
+            :form_legal_info="form_legal_info" 
+
             :permit_table="permit_table"
             :monitoring_table="monitoring_table"
+            :legal_table="legal_table"
+            
             :submit_basic_info="submit_basic_info"
         ></MainTab>
     </DefaultLayout>
@@ -29,6 +33,7 @@ export default {
         query: Object,
         permit_table: Array,
         monitoring_table: Array,
+        legal_table: Array,
     },
     data: () => ({}),
 };

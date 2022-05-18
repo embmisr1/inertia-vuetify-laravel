@@ -46,6 +46,22 @@ export default {
                 mon_type: "",
                 mon_file: "",
             },
+            form_legal_info: {
+                nov_id: "",
+                nov_law: "",
+                nov_desc: "",
+                nov_date: "",
+                nov_tc: "",
+                nov_compliance_status: "",
+                nov_file: "",
+                nov_order_number: "",
+                nov_order_amt: "",
+                nov_order_date_issuance: "",
+                nov_order_date_settlement: "",
+                nov_official_receipt_number: "",
+                nov_order_status: "",
+                nov_order_remarks: "",
+            },
         };
     },
     methods: {
@@ -55,6 +71,7 @@ export default {
                     'basic': this.form_basic_info,
                     'permit': this.form_permit_info,
                     'monitoring': this.form_monitoring_info,
+                    'legal': this.form_legal_info,
                 };
                 await this.$inertia.post("/app/universe_process", {
                     ...data,
@@ -64,6 +81,7 @@ export default {
                 }
                 this.reset_permit_info();
                 this.reset_monitoring_info();
+                this.reset_legal_info();
             }
         },
         reset_basic_info() {
@@ -114,6 +132,24 @@ export default {
                 mon_date_monitored: "",
                 mon_type: "",
                 mon_file: "",
+            };
+        },
+        reset_legal_info() {
+            this.form_legal_info = {
+                nov_id: "",
+                nov_law: "",
+                nov_desc: "",
+                nov_date: "",
+                nov_tc: "",
+                nov_compliance_status: "",
+                nov_file: "",
+                nov_order_number: "",
+                nov_order_amt: "",
+                nov_order_date_issuance: "",
+                nov_order_date_settlement: "",
+                nov_official_receipt_number: "",
+                nov_order_status: "",
+                nov_order_remarks: "",
             };
         },
     },

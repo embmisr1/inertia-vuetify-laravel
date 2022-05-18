@@ -27,16 +27,19 @@ class UniverseController extends Controller
             $query = Universe::where('id',$id)->get();
             $query_permit = Permit::where('universe_FK',$id)->get();
             $query_monitoring = Monitoring::where('universe_FK',$id)->get();
+            $query_legal = Legal::where('universe_FK',$id)->get();
             if($query->count() > 0){
                 return Inertia::render("pages/universe/universe_form",[
                     'query'=>$query[0],
                     'permit_table'=>$query_permit,
                     'monitoring_table'=>$query_monitoring,
+                    'legal_table'=>$query_legal,
                 ]);
             }else{
                 return Inertia::render("pages/universe/universe_form",[
                     'permit_table'=>$query_permit,
                     'monitoring_table'=>$query_monitoring,
+                    'legal_table'=>$query_legal,
                 ]);
             }
         }else{
@@ -64,6 +67,7 @@ class UniverseController extends Controller
         $universe_id = $this->basic_process_create($request);
         $this->permit_process_create($request, $universe_id);
         $this->monitoring_process_create($request, $universe_id);
+        $this->legal_process_create($request, $universe_id);
         return $universe_id;
     }
 
@@ -71,6 +75,7 @@ class UniverseController extends Controller
         $universe_id = $this->basic_process_update($request);
         $this->permit_process_update($request, $universe_id);
         $this->monitoring_process_update($request, $universe_id);
+        $this->legal_process_update($request, $universe_id);
         return $universe_id;
     }
 
@@ -161,6 +166,40 @@ class UniverseController extends Controller
         $query->delete();
         return back();
     }
+    
+    public function legal_process_create($request, $universe_id){
+        if($request->legal['nov_law'] && $request->legal['nov_date']){
+            $query = new Legal();
+            foreach($this->legal_columns() as $cols){
+                $query->$cols = $request->legal[$cols];
+            }
+            $query->universe_FK = $universe_id;
+            $query->save();
+            return $query->id;
+        }
+    }
+
+    public function legal_process_update($request, $universe_id){
+        if($request->legal['nov_law'] && $request->legal['nov_date']){
+            if($request->legal['nov_id']){
+                $query = Legal::find($request->legal['nov_id']);
+            }else{
+                $query = new Legal();
+            }
+            foreach($this->legal_columns() as $cols){
+                $query->$cols = $request->legal[$cols];
+            }
+            $query->universe_FK = $universe_id;
+            $query->save();
+            return $request->legal['nov_id'];
+        }
+    }
+    
+    public function delete_legal($request){
+        $query = Legal::find($request);
+        $query->delete();
+        return back();
+    }
 
 // COLUMNS =======================================================================================================
 
@@ -213,6 +252,25 @@ class UniverseController extends Controller
             'mon_date_monitored',
             'mon_type',
             'mon_file',
+        ];
+        return $array;
+    }
+
+    public function legal_columns(){
+        $array = [
+            'nov_law',
+            'nov_desc',
+            'nov_date',
+            'nov_tc',
+            'nov_compliance_status',
+            'nov_file',
+            'nov_order_number',
+            'nov_order_amt',
+            'nov_order_date_issuance',
+            'nov_order_date_settlement',
+            'nov_official_receipt_number',
+            'nov_order_status',
+            'nov_order_remarks',
         ];
         return $array;
     }

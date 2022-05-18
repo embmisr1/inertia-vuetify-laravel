@@ -92,11 +92,7 @@
                   <MonitoringTab :form_monitoring_info="form_monitoring_info" :monitoring_table="monitoring_table"></MonitoringTab>
               </v-tab-item>
               <v-tab-item>
-                <v-card flat>
-                  <v-card-text>
-                  4
-                  </v-card-text>
-                </v-card>
+                  <LegalTab :form_legal_info="form_legal_info" :legal_table="legal_table"></LegalTab>
               </v-tab-item>
               <v-tab-item>
                 <v-card flat>
@@ -132,15 +128,18 @@
       form_basic_info: Object,
       form_permit_info: Object,
       form_monitoring_info: Object,
+      form_legal_info: Object,
 
       permit_table: Array,
       monitoring_table: Array,
+      legal_table: Array,
       submit_basic_info: Function,
     },
     components:{
         BasicTab,
         PermitTab,
         MonitoringTab,
+        LegalTab,
     },
     data () {
       return {

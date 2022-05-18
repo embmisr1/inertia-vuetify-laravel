@@ -82,6 +82,22 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         mon_date_monitored: "",
         mon_type: "",
         mon_file: ""
+      },
+      form_legal_info: {
+        nov_id: "",
+        nov_law: "",
+        nov_desc: "",
+        nov_date: "",
+        nov_tc: "",
+        nov_compliance_status: "",
+        nov_file: "",
+        nov_order_number: "",
+        nov_order_amt: "",
+        nov_order_date_issuance: "",
+        nov_order_date_settlement: "",
+        nov_official_receipt_number: "",
+        nov_order_status: "",
+        nov_order_remarks: ""
       }
     };
   },
@@ -96,14 +112,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             switch (_context.prev = _context.next) {
               case 0:
                 if (!confirm('Do you want to proceed?')) {
-                  _context.next = 7;
+                  _context.next = 8;
                   break;
                 }
 
                 data = {
                   'basic': _this.form_basic_info,
                   'permit': _this.form_permit_info,
-                  'monitoring': _this.form_monitoring_info
+                  'monitoring': _this.form_monitoring_info,
+                  'legal': _this.form_legal_info
                 };
                 _context.next = 4;
                 return _this.$inertia.post("/app/universe_process", _objectSpread({}, data));
@@ -117,7 +134,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
                 _this.reset_monitoring_info();
 
-              case 7:
+                _this.reset_legal_info();
+
+              case 8:
               case "end":
                 return _context.stop();
             }
@@ -173,6 +192,24 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         mon_date_monitored: "",
         mon_type: "",
         mon_file: ""
+      };
+    },
+    reset_legal_info: function reset_legal_info() {
+      this.form_legal_info = {
+        nov_id: "",
+        nov_law: "",
+        nov_desc: "",
+        nov_date: "",
+        nov_tc: "",
+        nov_compliance_status: "",
+        nov_file: "",
+        nov_order_number: "",
+        nov_order_amt: "",
+        nov_order_date_issuance: "",
+        nov_order_date_settlement: "",
+        nov_official_receipt_number: "",
+        nov_order_status: "",
+        nov_order_remarks: ""
       };
     }
   }

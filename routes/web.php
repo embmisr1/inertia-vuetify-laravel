@@ -79,6 +79,7 @@ Route::group([
   Route::post('/universe_process', [UniverseController::class, 'universe_process'])->name("universe_process");
   Route::delete('/delete_permit/{id}', [UniverseController::class, 'delete_permit'])->name("delete_permit");
   Route::delete('/delete_monitoring/{id}', [UniverseController::class, 'delete_monitoring'])->name("delete_monitoring");
+  Route::delete('/delete_legal/{id}', [UniverseController::class, 'delete_legal'])->name("delete_legal");
   //Testing Route
   Route::get('/testing_route', [UniverseController::class, 'testing_route'])->name("testing_route");
 });
