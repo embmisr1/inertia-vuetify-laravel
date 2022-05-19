@@ -45,7 +45,7 @@ export default {
         hazwaste_table: Array,
         pco_table: Array,
         complaint_table: Array,
-        ctr_file: Number,
+        ctr_file: Object,
     },
     data: () => ({}),
 };

@@ -31,7 +31,7 @@ class UniverseController extends Controller
             $query_hazwaste = Hazwaste::where('universe_FK',$id)->get();
             $query_pco = Pco::where('universe_FK',$id)->get();
             $query_complaint = Complaint::where('universe_FK',$id)->get();
-            $ctr_file = Complaint::where('universe_FK',$id)->count();
+            $ctr_file = $this->mini_dashboard($id);
             if($query->count() > 0){
                 return Inertia::render("pages/universe/universe_form",[
                     'query'=>$query[0],
@@ -58,7 +58,7 @@ class UniverseController extends Controller
                 return Inertia::render("pages/universe/universe_form");
         }
     }
-    
+
 // MAIN PROCESS =======================================================================================================
 
     public function universe_process(request $request){
@@ -334,12 +334,30 @@ class UniverseController extends Controller
     }
 
 // MINI DASHBOARD COUNTER =======================================================================================================
+        
+    public function mini_dashboard($fk){
+        $ctr_permit = Permit::where('universe_FK',$fk)->count();
+        $ctr_permit_pd1586 = Permit::where('universe_FK',$fk)->where('perm_law','like','%PD 1586%')->count();
+        $ctr_permit_ra8749 = Permit::where('universe_FK',$fk)->where('perm_law','like','%RA 8749%')->count();
+        $ctr_permit_ra9275 = Permit::where('universe_FK',$fk)->where('perm_law','like','%RA 9275%')->count();
+        $ctr_monitoring = Monitoring::where('universe_FK',$fk)->count();
+        $ctr_legal = Legal::where('universe_FK',$fk)->count();
+        $ctr_hazwaste = Hazwaste::where('universe_FK',$fk)->count();
+        $ctr_pco = Pco::where('universe_FK',$fk)->count();
+        $ctr_complaint = Complaint::where('universe_FK',$fk)->count();
+        return [
+            'ctr_permit' => $ctr_permit,
+            'ctr_permit_pd1586' => $ctr_permit_pd1586,
+            'ctr_permit_ra8749' => $ctr_permit_ra8749,
+            'ctr_permit_ra9275' => $ctr_permit_ra9275,
+            'ctr_monitoring' => $ctr_monitoring,
+            'ctr_legal' => $ctr_legal,
+            'ctr_hazwaste' => $ctr_hazwaste,
+            'ctr_pco' => $ctr_pco,
+            'ctr_complaint' => $ctr_complaint,
+        ];
+    }
     
-public function mini_dashboard($fk){
-    $ctr_complaint = Complaint::where('universe_FK',$fk)->count();
-    return ['ctr_complaint'=>$ctr_complaint];
-}
-
 // COLUMNS =======================================================================================================
 
     public function basic_columns(){

@@ -10,7 +10,10 @@
         -->
         <div class="col-span-6">
               <div class="grid grid-cols-6 gap-y-2 gap-x-2 mb-2">
-                  <MiniDashboard :ctr_file="ctr_file"></MiniDashboard>
+                 <div v-for="(item, name, index) in ctr_file">
+                  {{name}}
+                    <MiniDashboard dashboard_header="permit" :ctr_file="ctr_file"></MiniDashboard>
+                </div>
               </div>
         </div>
     </div>
@@ -128,7 +131,7 @@
       pco_table: Array,
       submit_basic_info: Function,
 
-      ctr_file: Number,
+      ctr_file: Object,
     },
     components:{
         BasicTab,
@@ -145,6 +148,6 @@
       return {
         tab: null,
       }
-    },
+    }
   }
 </script>
