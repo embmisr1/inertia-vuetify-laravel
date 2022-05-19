@@ -61,7 +61,7 @@
                             </v-icon>
                             <v-icon
                                 small
-                                @click="deletePermit(item)"
+                                @click="deleteMonitoring(item)"
                             >
                                 mdi-delete
                             </v-icon>
@@ -119,7 +119,7 @@
             this.form_monitoring_info.mon_type = item.mon_type;
             this.form_monitoring_info.mon_file = item.mon_file;
         },
-        async deletePermit(item) {
+        async deleteMonitoring(item) {
             await this.$inertia.delete(`/app/delete_monitoring/${item.id}`);
         }
     }

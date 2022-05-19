@@ -145,7 +145,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.form_monitoring_info.mon_type = item.mon_type;
       this.form_monitoring_info.mon_file = item.mon_file;
     },
-    deletePermit: function deletePermit(item) {
+    deleteMonitoring: function deleteMonitoring(item) {
       var _this = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
@@ -1169,7 +1169,7 @@ var render = function () {
                           attrs: { small: "" },
                           on: {
                             click: function ($event) {
-                              return _vm.deletePermit(item)
+                              return _vm.deleteMonitoring(item)
                             },
                           },
                         },

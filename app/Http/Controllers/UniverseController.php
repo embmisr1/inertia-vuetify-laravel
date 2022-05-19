@@ -29,6 +29,7 @@ class UniverseController extends Controller
             $query_monitoring = Monitoring::where('universe_FK',$id)->get();
             $query_legal = Legal::where('universe_FK',$id)->get();
             $query_hazwaste = Hazwaste::where('universe_FK',$id)->get();
+            $query_pco = Pco::where('universe_FK',$id)->get();
             $query_complaint = Complaint::where('universe_FK',$id)->get();
             if($query->count() > 0){
                 return Inertia::render("pages/universe/universe_form",[
@@ -37,6 +38,7 @@ class UniverseController extends Controller
                     'monitoring_table'=>$query_monitoring,
                     'legal_table'=>$query_legal,
                     'hazwaste_table'=>$query_hazwaste,
+                    'pco_table'=>$query_pco,
                     'complaint_table'=>$query_complaint,
                 ]);
             }else{
@@ -45,6 +47,7 @@ class UniverseController extends Controller
                     'monitoring_table'=>$query_monitoring,
                     'legal_table'=>$query_legal,
                     'hazwaste_table'=>$query_hazwaste,
+                    'pco_table'=>$query_pco,
                     'complaint_table'=>$query_complaint,
                 ]);
             }
@@ -75,6 +78,7 @@ class UniverseController extends Controller
         $this->monitoring_process_create($request, $universe_id);
         $this->legal_process_create($request, $universe_id);
         $this->hazwaste_process_create($request, $universe_id);
+        $this->pco_process_create($request, $universe_id);
         $this->complaint_process_create($request, $universe_id);
         return $universe_id;
     }
@@ -85,6 +89,7 @@ class UniverseController extends Controller
         $this->monitoring_process_update($request, $universe_id);
         $this->legal_process_update($request, $universe_id);
         $this->hazwaste_process_update($request, $universe_id);
+        $this->pco_process_update($request, $universe_id);
         $this->complaint_process_update($request, $universe_id);
         return $universe_id;
     }
@@ -109,6 +114,8 @@ class UniverseController extends Controller
         return $request->basic['id'];
     }
     
+    // =============================================== PERMITS ===============================================
+
     public function permit_process_create($request, $universe_id){
         if($request->permit['perm_law'] && $request->permit['perm_number']){
             $query = new Permit();
@@ -142,6 +149,8 @@ class UniverseController extends Controller
         $query->delete();
         return back();
     }
+
+    // =============================================== MONITORING ===============================================
     
     public function monitoring_process_create($request, $universe_id){
         if($request->monitoring['mon_law'] && $request->monitoring['mon_date_monitored']){
@@ -177,6 +186,8 @@ class UniverseController extends Controller
         return back();
     }
     
+    // =============================================== LEGAL/NOV ===============================================
+    
     public function legal_process_create($request, $universe_id){
         if($request->legal['nov_law'] && $request->legal['nov_date']){
             $query = new Legal();
@@ -211,6 +222,8 @@ class UniverseController extends Controller
         return back();
     }
     
+    // =============================================== HAZWASTE ===============================================
+    
     public function hazwaste_process_create($request, $universe_id){
         if($request->hazwaste['haz_type'] && $request->hazwaste['haz_number']){
             $query = new Hazwaste();
@@ -244,6 +257,44 @@ class UniverseController extends Controller
         $query->delete();
         return back();
     }
+    
+    // =============================================== PCO ===============================================
+    
+    public function pco_process_create($request, $universe_id){
+        if($request->pco['pco_name'] && $request->pco['pco_number']){
+            $query = new Pco();
+            foreach($this->pco_columns() as $cols){
+                $query->$cols = $request->pco[$cols];
+            }
+            $query->universe_FK = $universe_id;
+            $query->save();
+            return $query->id;
+        }
+    }
+
+    public function pco_process_update($request, $universe_id){
+        if($request->pco['pco_name'] && $request->pco['pco_number']){
+            if($request->pco['pco_id']){
+                $query = Pco::find($request->pco['pco_id']);
+            }else{
+                $query = new Pco();
+            }
+            foreach($this->pco_columns() as $cols){
+                $query->$cols = $request->pco[$cols];
+            }
+            $query->universe_FK = $universe_id;
+            $query->save();
+            return $request->pco['pco_id'];
+        }
+    }
+    
+    public function delete_pco($request){
+        $query = Pco::find($request);
+        $query->delete();
+        return back();
+    }
+    
+    // =============================================== COMPLAINT ===============================================
     
     public function complaint_process_create($request, $universe_id){
         if($request->complaint['comp_name'] && $request->complaint['comp_nature']){
@@ -361,6 +412,18 @@ class UniverseController extends Controller
             'haz_date_issuance',
             'haz_date_expiry',
             'haz_file',
+        ];
+        return $array;
+    }
+
+    public function pco_columns(){
+        $array = [
+            'pco_name',
+            'pco_number',
+            'pco_email',
+            'pco_contact',
+            'pco_start_date',
+            'pco_end_date',
         ];
         return $array;
     }

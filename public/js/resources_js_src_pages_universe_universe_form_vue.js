@@ -1407,7 +1407,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _monitoring_tab__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./monitoring_tab */ "./resources/js/src/pages/universe/tabs/monitoring_tab.vue");
 /* harmony import */ var _legal_tab__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./legal_tab */ "./resources/js/src/pages/universe/tabs/legal_tab.vue");
 /* harmony import */ var _hazwaste_tab__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./hazwaste_tab */ "./resources/js/src/pages/universe/tabs/hazwaste_tab.vue");
-/* harmony import */ var _complaint_tab__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./complaint_tab */ "./resources/js/src/pages/universe/tabs/complaint_tab.vue");
+/* harmony import */ var _pco_tab__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./pco_tab */ "./resources/js/src/pages/universe/tabs/pco_tab.vue");
+/* harmony import */ var _complaint_tab__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./complaint_tab */ "./resources/js/src/pages/universe/tabs/complaint_tab.vue");
 //
 //
 //
@@ -1518,6 +1519,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 
 
@@ -1532,11 +1543,13 @@ __webpack_require__.r(__webpack_exports__);
     form_legal_info: Object,
     form_hazwaste_info: Object,
     form_complaint_info: Object,
+    form_pco_info: Object,
     permit_table: Array,
     monitoring_table: Array,
     legal_table: Array,
     hazwaste_table: Array,
     complaint_table: Array,
+    pco_table: Array,
     submit_basic_info: Function
   },
   components: {
@@ -1545,7 +1558,8 @@ __webpack_require__.r(__webpack_exports__);
     MonitoringTab: _monitoring_tab__WEBPACK_IMPORTED_MODULE_2__["default"],
     LegalTab: _legal_tab__WEBPACK_IMPORTED_MODULE_3__["default"],
     HazwasteTab: _hazwaste_tab__WEBPACK_IMPORTED_MODULE_4__["default"],
-    ComplaintTab: _complaint_tab__WEBPACK_IMPORTED_MODULE_5__["default"]
+    PcoTab: _pco_tab__WEBPACK_IMPORTED_MODULE_5__["default"],
+    ComplaintTab: _complaint_tab__WEBPACK_IMPORTED_MODULE_6__["default"]
   },
   data: function data() {
     return {
@@ -1690,7 +1704,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.form_monitoring_info.mon_type = item.mon_type;
       this.form_monitoring_info.mon_file = item.mon_file;
     },
-    deletePermit: function deletePermit(item) {
+    deleteMonitoring: function deleteMonitoring(item) {
       var _this = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
@@ -1700,6 +1714,190 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 0:
                 _context.next = 2;
                 return _this.$inertia["delete"]("/app/delete_monitoring/".concat(item.id));
+
+              case 2:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }))();
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/pages/universe/tabs/pco_tab.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/pages/universe/tabs/pco_tab.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: {
+    form_pco_info: Object,
+    pco_table: Array
+  },
+  data: function data() {
+    return {
+      headers: [{
+        text: 'Name',
+        align: 'start',
+        sortable: false,
+        value: 'pco_name'
+      }, {
+        text: 'Pco no.',
+        align: 'start',
+        sortable: false,
+        value: 'pco_number'
+      }, {
+        text: 'Email',
+        align: 'start',
+        sortable: false,
+        value: 'pco_email'
+      }, {
+        text: 'Contact no.',
+        align: 'start',
+        sortable: false,
+        value: 'pco_contact'
+      }, {
+        text: 'Start Date',
+        align: 'start',
+        sortable: false,
+        value: 'pco_start_date'
+      }, {
+        text: 'End Date',
+        align: 'start',
+        sortable: false,
+        value: 'pco_end_date'
+      }, {
+        text: 'Actions',
+        value: 'actions',
+        sortable: false
+      }]
+    };
+  },
+  methods: {
+    editPco: function editPco(item) {
+      this.form_pco_info.pco_id = item.id;
+      this.form_pco_info.pco_name = item.pco_name;
+      this.form_pco_info.pco_number = item.pco_number;
+      this.form_pco_info.pco_email = item.pco_email;
+      this.form_pco_info.pco_contact = item.pco_contact;
+      this.form_pco_info.pco_start_date = item.pco_start_date;
+      this.form_pco_info.pco_end_date = item.pco_end_date;
+    },
+    deletePco: function deletePco(item) {
+      var _this = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return _this.$inertia["delete"]("/app/delete_pco/".concat(item.id));
 
               case 2:
               case "end":
@@ -1947,6 +2145,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 
@@ -1964,6 +2164,7 @@ __webpack_require__.r(__webpack_exports__);
     monitoring_table: Array,
     legal_table: Array,
     hazwaste_table: Array,
+    pco_table: Array,
     complaint_table: Array
   },
   data: function data() {
@@ -2070,6 +2271,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         haz_date_expiry: "",
         haz_file: ""
       },
+      form_pco_info: {
+        pco_id: "",
+        pco_name: "",
+        pco_number: "",
+        pco_email: "",
+        pco_contact: "",
+        pco_start_date: "",
+        pco_end_date: ""
+      },
       form_complaint_info: {
         comp_id: "",
         comp_name: "",
@@ -2091,7 +2301,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             switch (_context.prev = _context.next) {
               case 0:
                 if (!confirm('Do you want to proceed?')) {
-                  _context.next = 10;
+                  _context.next = 11;
                   break;
                 }
 
@@ -2101,6 +2311,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                   'monitoring': _this.form_monitoring_info,
                   'legal': _this.form_legal_info,
                   'hazwaste': _this.form_hazwaste_info,
+                  'pco': _this.form_pco_info,
                   'complaint': _this.form_complaint_info
                 };
                 _context.next = 4;
@@ -2119,9 +2330,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
                 _this.reset_hazwaste_info();
 
+                _this.reset_pco_info();
+
                 _this.reset_complaint_info();
 
-              case 10:
+              case 11:
               case "end":
                 return _context.stop();
             }
@@ -2206,6 +2419,17 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         haz_date_issuance: "",
         haz_date_expiry: "",
         haz_file: ""
+      };
+    },
+    reset_pco_info: function reset_pco_info() {
+      this.form_pco_info = {
+        pco_id: "",
+        pco_name: "",
+        pco_number: "",
+        pco_email: "",
+        pco_contact: "",
+        pco_start_date: "",
+        pco_end_date: ""
       };
     },
     reset_complaint_info: function reset_complaint_info() {
@@ -3338,6 +3562,45 @@ component.options.__file = "resources/js/src/pages/universe/tabs/monitoring_tab.
 
 /***/ }),
 
+/***/ "./resources/js/src/pages/universe/tabs/pco_tab.vue":
+/*!**********************************************************!*\
+  !*** ./resources/js/src/pages/universe/tabs/pco_tab.vue ***!
+  \**********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _pco_tab_vue_vue_type_template_id_2c8a2932___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./pco_tab.vue?vue&type=template&id=2c8a2932& */ "./resources/js/src/pages/universe/tabs/pco_tab.vue?vue&type=template&id=2c8a2932&");
+/* harmony import */ var _pco_tab_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./pco_tab.vue?vue&type=script&lang=js& */ "./resources/js/src/pages/universe/tabs/pco_tab.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _pco_tab_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _pco_tab_vue_vue_type_template_id_2c8a2932___WEBPACK_IMPORTED_MODULE_0__.render,
+  _pco_tab_vue_vue_type_template_id_2c8a2932___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/src/pages/universe/tabs/pco_tab.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/src/pages/universe/tabs/permit_tab.vue":
 /*!*************************************************************!*\
   !*** ./resources/js/src/pages/universe/tabs/permit_tab.vue ***!
@@ -3560,6 +3823,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/src/pages/universe/tabs/pco_tab.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************!*\
+  !*** ./resources/js/src/pages/universe/tabs/pco_tab.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_pco_tab_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./pco_tab.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/pages/universe/tabs/pco_tab.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_pco_tab_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/src/pages/universe/tabs/permit_tab.vue?vue&type=script&lang=js&":
 /*!**************************************************************************************!*\
   !*** ./resources/js/src/pages/universe/tabs/permit_tab.vue?vue&type=script&lang=js& ***!
@@ -3741,6 +4020,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_monitoring_tab_vue_vue_type_template_id_790ea7f9___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_monitoring_tab_vue_vue_type_template_id_790ea7f9___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./monitoring_tab.vue?vue&type=template&id=790ea7f9& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/pages/universe/tabs/monitoring_tab.vue?vue&type=template&id=790ea7f9&");
+
+
+/***/ }),
+
+/***/ "./resources/js/src/pages/universe/tabs/pco_tab.vue?vue&type=template&id=2c8a2932&":
+/*!*****************************************************************************************!*\
+  !*** ./resources/js/src/pages/universe/tabs/pco_tab.vue?vue&type=template&id=2c8a2932& ***!
+  \*****************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_pco_tab_vue_vue_type_template_id_2c8a2932___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_pco_tab_vue_vue_type_template_id_2c8a2932___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_pco_tab_vue_vue_type_template_id_2c8a2932___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./pco_tab.vue?vue&type=template&id=2c8a2932& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/pages/universe/tabs/pco_tab.vue?vue&type=template&id=2c8a2932&");
 
 
 /***/ }),
@@ -5890,6 +6186,20 @@ var render = function () {
                               _c("v-icon", [
                                 _vm._v("mdi-file-document-multiple-outline"),
                               ]),
+                              _vm._v(" \n                PCO\n              "),
+                            ],
+                            1
+                          ),
+                        ]),
+                        _vm._v(" "),
+                        _c("v-tab", [
+                          _c(
+                            "div",
+                            { staticClass: "flex flex-start" },
+                            [
+                              _c("v-icon", [
+                                _vm._v("mdi-file-document-multiple-outline"),
+                              ]),
                               _vm._v(
                                 " \n                Complaint\n              "
                               ),
@@ -5954,6 +6264,19 @@ var render = function () {
                               attrs: {
                                 form_hazwaste_info: _vm.form_hazwaste_info,
                                 hazwaste_table: _vm.hazwaste_table,
+                              },
+                            }),
+                          ],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "v-tab-item",
+                          [
+                            _c("PcoTab", {
+                              attrs: {
+                                form_pco_info: _vm.form_pco_info,
+                                pco_table: _vm.pco_table,
                               },
                             }),
                           ],
@@ -6159,7 +6482,234 @@ var render = function () {
                           attrs: { small: "" },
                           on: {
                             click: function ($event) {
-                              return _vm.deletePermit(item)
+                              return _vm.deleteMonitoring(item)
+                            },
+                          },
+                        },
+                        [
+                          _vm._v(
+                            "\n                        mdi-delete\n                    "
+                          ),
+                        ]
+                      ),
+                    ]
+                  },
+                },
+              ]),
+            }),
+          ],
+          1
+        ),
+      ],
+    ],
+    2
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/pages/universe/tabs/pco_tab.vue?vue&type=template&id=2c8a2932&":
+/*!********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/pages/universe/tabs/pco_tab.vue?vue&type=template&id=2c8a2932& ***!
+  \********************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "v-card",
+    { staticClass: "p-4", attrs: { elevation: "0" } },
+    [
+      _c("div", { staticClass: "grid grid-cols-4 gap-y-0 gap-x-4 ml-8" }, [
+        _c(
+          "div",
+          [
+            _c("v-text-field", {
+              attrs: { label: "Pco Id", clearable: "" },
+              model: {
+                value: _vm.form_pco_info.pco_id,
+                callback: function ($$v) {
+                  _vm.$set(_vm.form_pco_info, "pco_id", $$v)
+                },
+                expression: "form_pco_info.pco_id",
+              },
+            }),
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          [
+            _c("v-text-field", {
+              attrs: { label: "Name", clearable: "" },
+              model: {
+                value: _vm.form_pco_info.pco_name,
+                callback: function ($$v) {
+                  _vm.$set(_vm.form_pco_info, "pco_name", $$v)
+                },
+                expression: "form_pco_info.pco_name",
+              },
+            }),
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          [
+            _c("v-text-field", {
+              attrs: { label: "Pco no.", clearable: "" },
+              model: {
+                value: _vm.form_pco_info.pco_number,
+                callback: function ($$v) {
+                  _vm.$set(_vm.form_pco_info, "pco_number", $$v)
+                },
+                expression: "form_pco_info.pco_number",
+              },
+            }),
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          [
+            _c("v-text-field", {
+              attrs: { label: "Email", clearable: "" },
+              model: {
+                value: _vm.form_pco_info.pco_email,
+                callback: function ($$v) {
+                  _vm.$set(_vm.form_pco_info, "pco_email", $$v)
+                },
+                expression: "form_pco_info.pco_email",
+              },
+            }),
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          [
+            _c("v-text-field", {
+              attrs: { label: "Contact no.", clearable: "" },
+              model: {
+                value: _vm.form_pco_info.pco_contact,
+                callback: function ($$v) {
+                  _vm.$set(_vm.form_pco_info, "pco_contact", $$v)
+                },
+                expression: "form_pco_info.pco_contact",
+              },
+            }),
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          [
+            _c("v-text-field", {
+              attrs: { label: "Start Date", clearable: "" },
+              model: {
+                value: _vm.form_pco_info.pco_start_date,
+                callback: function ($$v) {
+                  _vm.$set(_vm.form_pco_info, "pco_start_date", $$v)
+                },
+                expression: "form_pco_info.pco_start_date",
+              },
+            }),
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          [
+            _c("v-text-field", {
+              attrs: { label: "End Date", clearable: "" },
+              model: {
+                value: _vm.form_pco_info.pco_end_date,
+                callback: function ($$v) {
+                  _vm.$set(_vm.form_pco_info, "pco_end_date", $$v)
+                },
+                expression: "form_pco_info.pco_end_date",
+              },
+            }),
+          ],
+          1
+        ),
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "text-center" },
+        [
+          _c(
+            "v-btn",
+            { attrs: { depressed: "", color: "primary", type: "submit" } },
+            [_vm._v("\n            Submit\n        ")]
+          ),
+        ],
+        1
+      ),
+      _vm._v(" "),
+      [
+        _c(
+          "v-card",
+          { staticClass: "mt-5", attrs: { elevation: "2" } },
+          [
+            _c("v-data-table", {
+              staticClass: "elevation-1",
+              attrs: {
+                dense: "",
+                headers: _vm.headers,
+                items: _vm.pco_table,
+                "item-key": "pco_tables",
+              },
+              scopedSlots: _vm._u([
+                {
+                  key: "item.actions",
+                  fn: function (ref) {
+                    var item = ref.item
+                    return [
+                      _c(
+                        "v-icon",
+                        {
+                          staticClass: "mr-2",
+                          attrs: { small: "" },
+                          on: {
+                            click: function ($event) {
+                              return _vm.editPco(item)
+                            },
+                          },
+                        },
+                        [
+                          _vm._v(
+                            "\n                        mdi-pencil\n                    "
+                          ),
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-icon",
+                        {
+                          attrs: { small: "" },
+                          on: {
+                            click: function ($event) {
+                              return _vm.deletePco(item)
                             },
                           },
                         },
@@ -6462,11 +7012,13 @@ var render = function () {
           form_monitoring_info: _vm.form_monitoring_info,
           form_legal_info: _vm.form_legal_info,
           form_hazwaste_info: _vm.form_hazwaste_info,
+          form_pco_info: _vm.form_pco_info,
           form_complaint_info: _vm.form_complaint_info,
           permit_table: _vm.permit_table,
           monitoring_table: _vm.monitoring_table,
           legal_table: _vm.legal_table,
           hazwaste_table: _vm.hazwaste_table,
+          pco_table: _vm.pco_table,
           complaint_table: _vm.complaint_table,
           submit_basic_info: _vm.submit_basic_info,
         },

@@ -71,6 +71,15 @@ export default {
                 haz_date_expiry: "",
                 haz_file: "",
             },
+            form_pco_info: {
+                pco_id: "",
+                pco_name: "",
+                pco_number: "",
+                pco_email: "",
+                pco_contact: "",
+                pco_start_date: "",
+                pco_end_date: "",
+            },
             form_complaint_info: {
                 comp_id: "",
                 comp_name: "",
@@ -90,6 +99,7 @@ export default {
                     'monitoring': this.form_monitoring_info,
                     'legal': this.form_legal_info,
                     'hazwaste': this.form_hazwaste_info,
+                    'pco': this.form_pco_info,
                     'complaint': this.form_complaint_info,
                 };
                 await this.$inertia.post("/app/universe_process", {
@@ -102,6 +112,7 @@ export default {
                 this.reset_monitoring_info();
                 this.reset_legal_info();
                 this.reset_hazwaste_info();
+                this.reset_pco_info();
                 this.reset_complaint_info();
             }
         },
@@ -182,6 +193,17 @@ export default {
                 haz_date_issuance: "",
                 haz_date_expiry: "",
                 haz_file: "",
+            };
+        },
+        reset_pco_info() {
+            this.form_pco_info = {
+                pco_id: "",
+                pco_name: "",
+                pco_number: "",
+                pco_email: "",
+                pco_contact: "",
+                pco_start_date: "",
+                pco_end_date: "",
             };
         },
         reset_complaint_info() {

@@ -78,6 +78,12 @@
               <v-tab>
                 <div class="flex flex-start">
                   <v-icon>mdi-file-document-multiple-outline</v-icon>&nbsp;
+                  PCO
+                </div>
+              </v-tab>
+              <v-tab>
+                <div class="flex flex-start">
+                  <v-icon>mdi-file-document-multiple-outline</v-icon>&nbsp;
                   Complaint
                 </div>
               </v-tab>
@@ -98,6 +104,9 @@
                   <HazwasteTab :form_hazwaste_info="form_hazwaste_info" :hazwaste_table="hazwaste_table"></HazwasteTab>
               </v-tab-item>
               <v-tab-item>
+                  <PcoTab :form_pco_info="form_pco_info" :pco_table="pco_table"></PcoTab>
+              </v-tab-item>
+              <v-tab-item>
                   <ComplaintTab :form_complaint_info="form_complaint_info" :complaint_table="complaint_table"></ComplaintTab>
               </v-tab-item>
 
@@ -114,6 +123,7 @@
   import MonitoringTab from "./monitoring_tab";
   import LegalTab from "./legal_tab";
   import HazwasteTab from "./hazwaste_tab";
+  import PcoTab from "./pco_tab";
   import ComplaintTab from "./complaint_tab";
   export default {
     props:{
@@ -123,12 +133,14 @@
       form_legal_info: Object,
       form_hazwaste_info: Object,
       form_complaint_info: Object,
+      form_pco_info: Object,
 
       permit_table: Array,
       monitoring_table: Array,
       legal_table: Array,
       hazwaste_table: Array,
       complaint_table: Array,
+      pco_table: Array,
       submit_basic_info: Function,
     },
     components:{
@@ -137,6 +149,7 @@
         MonitoringTab,
         LegalTab,
         HazwasteTab,
+        PcoTab,
         ComplaintTab,
     },
     data () {

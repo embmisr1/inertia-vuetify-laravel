@@ -108,6 +108,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         haz_date_expiry: "",
         haz_file: ""
       },
+      form_pco_info: {
+        pco_id: "",
+        pco_name: "",
+        pco_number: "",
+        pco_email: "",
+        pco_contact: "",
+        pco_start_date: "",
+        pco_end_date: ""
+      },
       form_complaint_info: {
         comp_id: "",
         comp_name: "",
@@ -129,7 +138,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             switch (_context.prev = _context.next) {
               case 0:
                 if (!confirm('Do you want to proceed?')) {
-                  _context.next = 10;
+                  _context.next = 11;
                   break;
                 }
 
@@ -139,6 +148,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                   'monitoring': _this.form_monitoring_info,
                   'legal': _this.form_legal_info,
                   'hazwaste': _this.form_hazwaste_info,
+                  'pco': _this.form_pco_info,
                   'complaint': _this.form_complaint_info
                 };
                 _context.next = 4;
@@ -157,9 +167,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
                 _this.reset_hazwaste_info();
 
+                _this.reset_pco_info();
+
                 _this.reset_complaint_info();
 
-              case 10:
+              case 11:
               case "end":
                 return _context.stop();
             }
@@ -244,6 +256,17 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         haz_date_issuance: "",
         haz_date_expiry: "",
         haz_file: ""
+      };
+    },
+    reset_pco_info: function reset_pco_info() {
+      this.form_pco_info = {
+        pco_id: "",
+        pco_name: "",
+        pco_number: "",
+        pco_email: "",
+        pco_contact: "",
+        pco_start_date: "",
+        pco_end_date: ""
       };
     },
     reset_complaint_info: function reset_complaint_info() {
