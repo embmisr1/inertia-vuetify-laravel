@@ -31,6 +31,7 @@ class UniverseController extends Controller
             $query_hazwaste = Hazwaste::where('universe_FK',$id)->get();
             $query_pco = Pco::where('universe_FK',$id)->get();
             $query_complaint = Complaint::where('universe_FK',$id)->get();
+            $ctr_file = Complaint::where('universe_FK',$id)->count();
             if($query->count() > 0){
                 return Inertia::render("pages/universe/universe_form",[
                     'query'=>$query[0],
@@ -40,6 +41,7 @@ class UniverseController extends Controller
                     'hazwaste_table'=>$query_hazwaste,
                     'pco_table'=>$query_pco,
                     'complaint_table'=>$query_complaint,
+                    'ctr_file'=>$ctr_file,
                 ]);
             }else{
                 return Inertia::render("pages/universe/universe_form",[
@@ -49,6 +51,7 @@ class UniverseController extends Controller
                     'hazwaste_table'=>$query_hazwaste,
                     'pco_table'=>$query_pco,
                     'complaint_table'=>$query_complaint,
+                    'ctr_file'=>$ctr_file,
                 ]);
             }
         }else{
@@ -329,6 +332,13 @@ class UniverseController extends Controller
         $query->delete();
         return back();
     }
+
+// MINI DASHBOARD COUNTER =======================================================================================================
+    
+public function mini_dashboard($fk){
+    $ctr_complaint = Complaint::where('universe_FK',$fk)->count();
+    return ['ctr_complaint'=>$ctr_complaint];
+}
 
 // COLUMNS =======================================================================================================
 

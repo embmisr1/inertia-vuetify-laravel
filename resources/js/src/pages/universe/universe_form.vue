@@ -17,6 +17,8 @@
             :complaint_table="complaint_table"
             
             :submit_basic_info="submit_basic_info"
+
+            :ctr_file="ctr_file"
         ></MainTab>
     </DefaultLayout>
 </template>
@@ -43,6 +45,7 @@ export default {
         hazwaste_table: Array,
         pco_table: Array,
         complaint_table: Array,
+        ctr_file: Number,
     },
     data: () => ({}),
 };

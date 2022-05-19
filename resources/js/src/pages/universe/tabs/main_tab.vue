@@ -1,48 +1,16 @@
 <template>
   <v-form @submit.prevent="submit_basic_info">
     <div class="grid grid-cols-6 gap-4 mt-5 mb-5">
+        <!--
         <v-card class="p-3" elevation="3" max-width="100%">
             <v-img
               src="../../images/emb_logo.png"
             ></v-img>
         </v-card>
-        <div class="col-span-5">
-              <div class="grid grid-cols-3 gap-y-2 gap-x-2 mb-2">
-                  <v-card class="p-5">
-                      <div class="text-lg">
-                          ECC/CNC: 2 <br/>
-                          POA: 2 <br/>
-                          WWDP: 2 <br/>
-                      </div>
-                  </v-card>
-                  <v-card class="p-5">
-                      <div class="text-lg">
-                          PCO: 2
-                      </div>
-                  </v-card>
-                  <v-card class="p-5">
-                      <div class="text-lg">
-                          NOV 1586: 2 <br/>
-                          NOV 8749: 2 <br/>
-                          NOV 9275: 2 <br/>
-                          NOV 6969: 2
-                      </div>
-                  </v-card>
-                  <v-card class="p-5">
-                      <div class="text-lg">
-                          Monitoring: 2
-                      </div>
-                  </v-card>
-                  <v-card class="p-5">
-                      <div class="text-lg">
-                          Hazwaste: 2
-                      </div>
-                  </v-card>
-                  <v-card class="p-5">
-                      <div class="text-lg">
-                          Complaint: 2
-                      </div>
-                  </v-card>
+        -->
+        <div class="col-span-6">
+              <div class="grid grid-cols-6 gap-y-2 gap-x-2 mb-2">
+                  <MiniDashboard :ctr_file="ctr_file"></MiniDashboard>
               </div>
         </div>
     </div>
@@ -141,6 +109,7 @@
   import HazwasteTab from "./hazwaste_tab";
   import PcoTab from "./pco_tab";
   import ComplaintTab from "./complaint_tab";
+  import MiniDashboard from "./mini_dashboard/mini_dashboard_card";
   export default {
     props:{
       form_basic_info: Object,
@@ -158,6 +127,8 @@
       complaint_table: Array,
       pco_table: Array,
       submit_basic_info: Function,
+
+      ctr_file: Number,
     },
     components:{
         BasicTab,
@@ -167,6 +138,8 @@
         HazwasteTab,
         PcoTab,
         ComplaintTab,
+
+        MiniDashboard,
     },
     data () {
       return {
