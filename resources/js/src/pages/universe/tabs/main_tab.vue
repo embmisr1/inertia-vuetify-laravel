@@ -7,27 +7,43 @@
             ></v-img>
         </v-card>
         <div class="col-span-5">
-            <v-card class="p-5">
-              <div class="grid grid-cols-3 gap-y-0 gap-x-4 mb-5">
+              <div class="grid grid-cols-3 gap-y-2 gap-x-2 mb-2">
+                  <v-card class="p-5">
                       <div class="text-lg">
-                          Permits: 2
+                          ECC/CNC: 2 <br/>
+                          POA: 2 <br/>
+                          WWDP: 2 <br/>
                       </div>
+                  </v-card>
+                  <v-card class="p-5">
                       <div class="text-lg">
-                          Monitoring Reports: 1
+                          PCO: 2
                       </div>
+                  </v-card>
+                  <v-card class="p-5">
                       <div class="text-lg">
-                          NOVs: 10
+                          NOV 1586: 2 <br/>
+                          NOV 8749: 2 <br/>
+                          NOV 9275: 2 <br/>
+                          NOV 6969: 2
                       </div>
-              </div>
-              <div class="grid grid-cols-3 gap-y-0 gap-x-4">
+                  </v-card>
+                  <v-card class="p-5">
+                      <div class="text-lg">
+                          Monitoring: 2
+                      </div>
+                  </v-card>
+                  <v-card class="p-5">
                       <div class="text-lg">
                           Hazwaste: 2
                       </div>
+                  </v-card>
+                  <v-card class="p-5">
                       <div class="text-lg">
-                          Complaint: 1
+                          Complaint: 2
                       </div>
+                  </v-card>
               </div>
-            </v-card>
         </div>
     </div>
     <div>

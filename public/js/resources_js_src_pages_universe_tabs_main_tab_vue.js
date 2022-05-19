@@ -1050,6 +1050,22 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -4522,52 +4538,71 @@ var render = function () {
             1
           ),
           _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "col-span-5" },
-            [
-              _c("v-card", { staticClass: "p-5" }, [
-                _c(
-                  "div",
-                  { staticClass: "grid grid-cols-3 gap-y-0 gap-x-4 mb-5" },
-                  [
-                    _c("div", { staticClass: "text-lg" }, [
-                      _vm._v(
-                        "\n                        Permits: 2\n                    "
-                      ),
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "text-lg" }, [
-                      _vm._v(
-                        "\n                        Monitoring Reports: 1\n                    "
-                      ),
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "text-lg" }, [
-                      _vm._v(
-                        "\n                        NOVs: 10\n                    "
-                      ),
-                    ]),
-                  ]
-                ),
+          _c("div", { staticClass: "col-span-5" }, [
+            _c(
+              "div",
+              { staticClass: "grid grid-cols-3 gap-y-2 gap-x-2 mb-2" },
+              [
+                _c("v-card", { staticClass: "p-5" }, [
+                  _c("div", { staticClass: "text-lg" }, [
+                    _vm._v("\n                        ECC/CNC: 2 "),
+                    _c("br"),
+                    _vm._v("\n                        POA: 2 "),
+                    _c("br"),
+                    _vm._v("\n                        WWDP: 2 "),
+                    _c("br"),
+                  ]),
+                ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "grid grid-cols-3 gap-y-0 gap-x-4" }, [
+                _c("v-card", { staticClass: "p-5" }, [
+                  _c("div", { staticClass: "text-lg" }, [
+                    _vm._v(
+                      "\n                        PCO: 2\n                    "
+                    ),
+                  ]),
+                ]),
+                _vm._v(" "),
+                _c("v-card", { staticClass: "p-5" }, [
+                  _c("div", { staticClass: "text-lg" }, [
+                    _vm._v("\n                        NOV 1586: 2 "),
+                    _c("br"),
+                    _vm._v("\n                        NOV 8749: 2 "),
+                    _c("br"),
+                    _vm._v("\n                        NOV 9275: 2 "),
+                    _c("br"),
+                    _vm._v(
+                      "\n                        NOV 6969: 2\n                    "
+                    ),
+                  ]),
+                ]),
+                _vm._v(" "),
+                _c("v-card", { staticClass: "p-5" }, [
+                  _c("div", { staticClass: "text-lg" }, [
+                    _vm._v(
+                      "\n                        Monitoring: 2\n                    "
+                    ),
+                  ]),
+                ]),
+                _vm._v(" "),
+                _c("v-card", { staticClass: "p-5" }, [
                   _c("div", { staticClass: "text-lg" }, [
                     _vm._v(
                       "\n                        Hazwaste: 2\n                    "
                     ),
                   ]),
-                  _vm._v(" "),
+                ]),
+                _vm._v(" "),
+                _c("v-card", { staticClass: "p-5" }, [
                   _c("div", { staticClass: "text-lg" }, [
                     _vm._v(
-                      "\n                        Complaint: 1\n                    "
+                      "\n                        Complaint: 2\n                    "
                     ),
                   ]),
                 ]),
-              ]),
-            ],
-            1
-          ),
+              ],
+              1
+            ),
+          ]),
         ],
         1
       ),
