@@ -23,22 +23,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
-    ctr_file: Object,
-    dashboard_header: String
+    dashboard_header_label: String,
+    dashboard_header: Number,
+    dashboard_content_label: Array,
+    dashboard_content: Array
   },
   components: {},
   data: function data() {
@@ -132,56 +122,44 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm.dashboard_header === "permit"
-    ? _c(
+  return _c(
+    "div",
+    {
+      staticClass: "text-black bg-white rounded-lg",
+      staticStyle: { "box-shadow": "0px 0px 5px #9C9C9C" },
+    },
+    [
+      _c(
         "div",
         {
-          staticClass: "primary text-white rounded-lg",
-          staticStyle: { "box-shadow": "-3px 3px 3px #9C9C9C" },
+          staticClass:
+            "primary text-xl rounded-t-lg text-white border-b p-2 text-center",
         },
         [
-          _c("div", { staticClass: "text-lg border-b p-2 text-center" }, [
-            _vm._v(
-              "\n        Permits: " + _vm._s(_vm.ctr_file.ctr_permit) + "\n    "
-            ),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "text-lg p-4" }, [
-            _c("div", { staticClass: "text-lg" }, [
-              _vm._v(
-                "\n            PD 1586: " +
-                  _vm._s(_vm.ctr_file.ctr_permit_pd1586) +
-                  "\n        "
-              ),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "text-lg" }, [
-              _vm._v(
-                "\n            RA 8749: " +
-                  _vm._s(_vm.ctr_file.ctr_permit_ra8749) +
-                  "\n        "
-              ),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "text-lg" }, [
-              _vm._v(
-                "\n            RA 9275: " +
-                  _vm._s(_vm.ctr_file.ctr_permit_ra9275) +
-                  "\n        "
-              ),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "text-lg" }, [
-              _vm._v("\n            Active: 3\n        "),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "text-lg" }, [
-              _vm._v("\n            Inactive: 0\n        "),
-            ]),
+          _vm._v("\n        " + _vm._s(_vm.dashboard_header_label)),
+          _c("b", { staticClass: "text-2xl" }, [
+            _vm._v(_vm._s(_vm.dashboard_header)),
           ]),
         ]
-      )
-    : _vm._e()
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "text-lg p-4" },
+        _vm._l(_vm.dashboard_content, function (item, index) {
+          return _c("div", { key: index, staticClass: "text-xl text-center" }, [
+            _vm._v(
+              "\n            " + _vm._s(_vm.dashboard_content_label[index])
+            ),
+            _c("b", { staticClass: "text-2xl" }, [
+              _vm._v(_vm._s(_vm.dashboard_content[index])),
+            ]),
+          ])
+        }),
+        0
+      ),
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true

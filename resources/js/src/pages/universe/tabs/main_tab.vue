@@ -1,6 +1,6 @@
 <template>
   <v-form @submit.prevent="submit_basic_info">
-    <div class="grid grid-cols-6 gap-4 mt-5 mb-5">
+    <div class="grid grid-cols-1 gap-4 mt-5 mb-5">
         <!--
         <v-card class="p-3" elevation="3" max-width="100%">
             <v-img
@@ -8,14 +8,47 @@
             ></v-img>
         </v-card>
         -->
-        <div class="col-span-6">
-              <div class="grid grid-cols-6 gap-y-2 gap-x-2 mb-2">
-                 <div v-for="(item, name, index) in ctr_file">
-                  {{name}}
-                    <MiniDashboard dashboard_header="permit" :ctr_file="ctr_file"></MiniDashboard>
-                </div>
+              <div class="grid grid-cols-6 gap-y-3 gap-x-3 mb-2">
+                  <div class="grid grid-cols-1 col-span-1 gap-y-2 gap-x-2">
+                      <MiniDashboard 
+                          dashboard_header_label="Permits: " 
+                          :dashboard_header="ctr_file['permit'].header" 
+                          :dashboard_content_label="ctr_file['permit'].content_label"
+                          :dashboard_content="ctr_file['permit'].content"
+                      ></MiniDashboard>
+                  </div>
+                  <MiniDashboard 
+                      dashboard_header_label="NOV's: " 
+                      :dashboard_header="ctr_file['nov'].header" 
+                      :dashboard_content_label="ctr_file['nov'].content_label"
+                      :dashboard_content="ctr_file['nov'].content"
+                  ></MiniDashboard>
+                  <MiniDashboard 
+                      dashboard_header_label="Monitoring" 
+                      :dashboard_header="ctr_file['monitoring'].header" 
+                      :dashboard_content_label="ctr_file['monitoring'].content_label"
+                      :dashboard_content="ctr_file['monitoring'].content"
+                  ></MiniDashboard>
+                  <MiniDashboard 
+                      dashboard_header_label="Pco" 
+                      :dashboard_header="ctr_file['pco'].header" 
+                      :dashboard_content_label="ctr_file['pco'].content_label"
+                      :dashboard_content="ctr_file['pco'].content"
+                  ></MiniDashboard>
+                  <MiniDashboard 
+                      dashboard_header_label="Complaint: " 
+                      :dashboard_header="ctr_file['complaint'].header" 
+                      :dashboard_content_label="ctr_file['complaint'].content_label"
+                      :dashboard_content="ctr_file['complaint'].content"
+                  ></MiniDashboard>
+                  <MiniDashboard 
+                      dashboard_color="bg-zinc-600"
+                      dashboard_header_label="Hazwaste" 
+                      :dashboard_header="ctr_file['hazwaste'].header" 
+                      :dashboard_content_label="ctr_file['hazwaste'].content_label"
+                      :dashboard_content="ctr_file['hazwaste'].content"
+                  ></MiniDashboard>
               </div>
-        </div>
     </div>
     <div>
       <v-card>

@@ -2,7 +2,7 @@
         <v-card class="p-4" elevation="0">
             <div class="grid grid-cols-4 gap-y-0 gap-x-4 mt-0 ml-8">
                     <div class="col-span-4">
-                        <v-card class="primary white--text p-2" elevation="2">Basic Information</v-card>
+                        <div class="text-white bg-blue-500 rounded-md p-2" style="box-shadow: 0px 0px 5px #9C9C9C;">Basic Information</div>
                     </div>
                     <div>
                         <v-text-field
@@ -42,7 +42,7 @@
             </div>
             <div class="grid grid-cols-3 gap-y-0 gap-x-4 ml-8">
                     <div class="col-span-3">
-                        <v-card class="primary white--text p-2" elevation="2">Project Location</v-card>
+                        <div class="text-white bg-blue-500 rounded-md p-2" style="box-shadow: 0px 0px 5px #9C9C9C;">Project Location</div>
                     </div>
                     <div>
                         <v-text-field
@@ -101,7 +101,7 @@
             </div>
             <div class="grid grid-cols-3 gap-y-0 gap-x-4 ml-8">
                     <div class="col-span-3">
-                        <v-card class="primary white--text p-2" elevation="2">Representative</v-card>
+                        <div class="text-white bg-blue-500 rounded-md p-2" style="box-shadow: 0px 0px 5px #9C9C9C;">Representative</div>
                     </div>
                     <div>
                         <v-text-field
@@ -127,7 +127,7 @@
             </div>
             <div class="grid grid-cols-3 gap-y-0 gap-x-4 ml-8">
                     <div class="col-span-3">
-                        <v-card class="primary white--text p-2" elevation="2">PCO</v-card>
+                        <div class="text-white bg-blue-500 rounded-md p-2" style="box-shadow: 0px 0px 5px #9C9C9C;">ReprePCOsentative</div>
                     </div>
                     <div>
                         <v-text-field
@@ -174,7 +174,7 @@
             </div>
             <div class="grid grid-cols-3 gap-y-0 gap-x-4 ml-8">
                     <div class="col-span-3">
-                        <v-card class="primary white--text p-2" elevation="2">PSIC Code</v-card>
+                        <div class="text-white bg-blue-500 rounded-md p-2" style="box-shadow: 0px 0px 5px #9C9C9C;">PSIC Code</div>
                     </div>
                     <div>
                         <v-text-field
@@ -200,7 +200,7 @@
             </div>
             <div class="grid grid-cols-3 gap-y-0 gap-x-4 ml-8">
                     <div class="col-span-3">
-                        <v-card class="primary white--text p-2" elevation="2">Project Type</v-card>
+                        <div class="text-white bg-blue-500 rounded-md p-2" style="box-shadow: 0px 0px 5px #9C9C9C;">Project Type</div>
                     </div>
                     <div>
                         <v-text-field
@@ -240,7 +240,7 @@
             </div>
             <div class="grid grid-cols-2 gap-y-0 gap-x-4 ml-8">
                     <div class="col-span-2">
-                        <v-card class="primary white--text p-2" elevation="2">Status</v-card>
+                        <div class="text-white bg-blue-500 rounded-md p-2" style="box-shadow: 0px 0px 5px #9C9C9C;">Status</div>
                     </div>
                     <div>
                         <v-text-field

@@ -376,21 +376,16 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c("v-card", { staticClass: "p-4", attrs: { elevation: "0" } }, [
     _c("div", { staticClass: "grid grid-cols-4 gap-y-0 gap-x-4 mt-0 ml-8" }, [
-      _c(
-        "div",
-        { staticClass: "col-span-4" },
-        [
-          _c(
-            "v-card",
-            {
-              staticClass: "primary white--text p-2",
-              attrs: { elevation: "2" },
-            },
-            [_vm._v("Basic Information")]
-          ),
-        ],
-        1
-      ),
+      _c("div", { staticClass: "col-span-4" }, [
+        _c(
+          "div",
+          {
+            staticClass: "text-white bg-blue-500 rounded-md p-2",
+            staticStyle: { "box-shadow": "0px 0px 5px #9C9C9C" },
+          },
+          [_vm._v("Basic Information")]
+        ),
+      ]),
       _vm._v(" "),
       _c(
         "div",
@@ -479,21 +474,16 @@ var render = function () {
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "grid grid-cols-3 gap-y-0 gap-x-4 ml-8" }, [
-      _c(
-        "div",
-        { staticClass: "col-span-3" },
-        [
-          _c(
-            "v-card",
-            {
-              staticClass: "primary white--text p-2",
-              attrs: { elevation: "2" },
-            },
-            [_vm._v("Project Location")]
-          ),
-        ],
-        1
-      ),
+      _c("div", { staticClass: "col-span-3" }, [
+        _c(
+          "div",
+          {
+            staticClass: "text-white bg-blue-500 rounded-md p-2",
+            staticStyle: { "box-shadow": "0px 0px 5px #9C9C9C" },
+          },
+          [_vm._v("Project Location")]
+        ),
+      ]),
       _vm._v(" "),
       _c(
         "div",
@@ -620,21 +610,16 @@ var render = function () {
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "grid grid-cols-3 gap-y-0 gap-x-4 ml-8" }, [
-      _c(
-        "div",
-        { staticClass: "col-span-3" },
-        [
-          _c(
-            "v-card",
-            {
-              staticClass: "primary white--text p-2",
-              attrs: { elevation: "2" },
-            },
-            [_vm._v("Representative")]
-          ),
-        ],
-        1
-      ),
+      _c("div", { staticClass: "col-span-3" }, [
+        _c(
+          "div",
+          {
+            staticClass: "text-white bg-blue-500 rounded-md p-2",
+            staticStyle: { "box-shadow": "0px 0px 5px #9C9C9C" },
+          },
+          [_vm._v("Representative")]
+        ),
+      ]),
       _vm._v(" "),
       _c(
         "div",
@@ -693,21 +678,16 @@ var render = function () {
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "grid grid-cols-3 gap-y-0 gap-x-4 ml-8" }, [
-      _c(
-        "div",
-        { staticClass: "col-span-3" },
-        [
-          _c(
-            "v-card",
-            {
-              staticClass: "primary white--text p-2",
-              attrs: { elevation: "2" },
-            },
-            [_vm._v("PCO")]
-          ),
-        ],
-        1
-      ),
+      _c("div", { staticClass: "col-span-3" }, [
+        _c(
+          "div",
+          {
+            staticClass: "text-white bg-blue-500 rounded-md p-2",
+            staticStyle: { "box-shadow": "0px 0px 5px #9C9C9C" },
+          },
+          [_vm._v("ReprePCOsentative")]
+        ),
+      ]),
       _vm._v(" "),
       _c(
         "div",
@@ -813,21 +793,16 @@ var render = function () {
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "grid grid-cols-3 gap-y-0 gap-x-4 ml-8" }, [
-      _c(
-        "div",
-        { staticClass: "col-span-3" },
-        [
-          _c(
-            "v-card",
-            {
-              staticClass: "primary white--text p-2",
-              attrs: { elevation: "2" },
-            },
-            [_vm._v("PSIC Code")]
-          ),
-        ],
-        1
-      ),
+      _c("div", { staticClass: "col-span-3" }, [
+        _c(
+          "div",
+          {
+            staticClass: "text-white bg-blue-500 rounded-md p-2",
+            staticStyle: { "box-shadow": "0px 0px 5px #9C9C9C" },
+          },
+          [_vm._v("PSIC Code")]
+        ),
+      ]),
       _vm._v(" "),
       _c(
         "div",
@@ -882,21 +857,16 @@ var render = function () {
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "grid grid-cols-3 gap-y-0 gap-x-4 ml-8" }, [
-      _c(
-        "div",
-        { staticClass: "col-span-3" },
-        [
-          _c(
-            "v-card",
-            {
-              staticClass: "primary white--text p-2",
-              attrs: { elevation: "2" },
-            },
-            [_vm._v("Project Type")]
-          ),
-        ],
-        1
-      ),
+      _c("div", { staticClass: "col-span-3" }, [
+        _c(
+          "div",
+          {
+            staticClass: "text-white bg-blue-500 rounded-md p-2",
+            staticStyle: { "box-shadow": "0px 0px 5px #9C9C9C" },
+          },
+          [_vm._v("Project Type")]
+        ),
+      ]),
       _vm._v(" "),
       _c(
         "div",
@@ -989,21 +959,16 @@ var render = function () {
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "grid grid-cols-2 gap-y-0 gap-x-4 ml-8" }, [
-      _c(
-        "div",
-        { staticClass: "col-span-2" },
-        [
-          _c(
-            "v-card",
-            {
-              staticClass: "primary white--text p-2",
-              attrs: { elevation: "2" },
-            },
-            [_vm._v("Status")]
-          ),
-        ],
-        1
-      ),
+      _c("div", { staticClass: "col-span-2" }, [
+        _c(
+          "div",
+          {
+            staticClass: "text-white bg-blue-500 rounded-md p-2",
+            staticStyle: { "box-shadow": "0px 0px 5px #9C9C9C" },
+          },
+          [_vm._v("Status")]
+        ),
+      ]),
       _vm._v(" "),
       _c(
         "div",

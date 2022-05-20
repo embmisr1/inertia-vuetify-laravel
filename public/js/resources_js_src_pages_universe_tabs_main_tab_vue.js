@@ -1038,6 +1038,39 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -1106,22 +1139,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
-    ctr_file: Object,
-    dashboard_header: String
+    dashboard_header_label: String,
+    dashboard_header: Number,
+    dashboard_content_label: Array,
+    dashboard_content: Array
   },
   components: {},
   data: function data() {
@@ -3100,21 +3123,16 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c("v-card", { staticClass: "p-4", attrs: { elevation: "0" } }, [
     _c("div", { staticClass: "grid grid-cols-4 gap-y-0 gap-x-4 mt-0 ml-8" }, [
-      _c(
-        "div",
-        { staticClass: "col-span-4" },
-        [
-          _c(
-            "v-card",
-            {
-              staticClass: "primary white--text p-2",
-              attrs: { elevation: "2" },
-            },
-            [_vm._v("Basic Information")]
-          ),
-        ],
-        1
-      ),
+      _c("div", { staticClass: "col-span-4" }, [
+        _c(
+          "div",
+          {
+            staticClass: "text-white bg-blue-500 rounded-md p-2",
+            staticStyle: { "box-shadow": "0px 0px 5px #9C9C9C" },
+          },
+          [_vm._v("Basic Information")]
+        ),
+      ]),
       _vm._v(" "),
       _c(
         "div",
@@ -3203,21 +3221,16 @@ var render = function () {
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "grid grid-cols-3 gap-y-0 gap-x-4 ml-8" }, [
-      _c(
-        "div",
-        { staticClass: "col-span-3" },
-        [
-          _c(
-            "v-card",
-            {
-              staticClass: "primary white--text p-2",
-              attrs: { elevation: "2" },
-            },
-            [_vm._v("Project Location")]
-          ),
-        ],
-        1
-      ),
+      _c("div", { staticClass: "col-span-3" }, [
+        _c(
+          "div",
+          {
+            staticClass: "text-white bg-blue-500 rounded-md p-2",
+            staticStyle: { "box-shadow": "0px 0px 5px #9C9C9C" },
+          },
+          [_vm._v("Project Location")]
+        ),
+      ]),
       _vm._v(" "),
       _c(
         "div",
@@ -3344,21 +3357,16 @@ var render = function () {
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "grid grid-cols-3 gap-y-0 gap-x-4 ml-8" }, [
-      _c(
-        "div",
-        { staticClass: "col-span-3" },
-        [
-          _c(
-            "v-card",
-            {
-              staticClass: "primary white--text p-2",
-              attrs: { elevation: "2" },
-            },
-            [_vm._v("Representative")]
-          ),
-        ],
-        1
-      ),
+      _c("div", { staticClass: "col-span-3" }, [
+        _c(
+          "div",
+          {
+            staticClass: "text-white bg-blue-500 rounded-md p-2",
+            staticStyle: { "box-shadow": "0px 0px 5px #9C9C9C" },
+          },
+          [_vm._v("Representative")]
+        ),
+      ]),
       _vm._v(" "),
       _c(
         "div",
@@ -3417,21 +3425,16 @@ var render = function () {
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "grid grid-cols-3 gap-y-0 gap-x-4 ml-8" }, [
-      _c(
-        "div",
-        { staticClass: "col-span-3" },
-        [
-          _c(
-            "v-card",
-            {
-              staticClass: "primary white--text p-2",
-              attrs: { elevation: "2" },
-            },
-            [_vm._v("PCO")]
-          ),
-        ],
-        1
-      ),
+      _c("div", { staticClass: "col-span-3" }, [
+        _c(
+          "div",
+          {
+            staticClass: "text-white bg-blue-500 rounded-md p-2",
+            staticStyle: { "box-shadow": "0px 0px 5px #9C9C9C" },
+          },
+          [_vm._v("ReprePCOsentative")]
+        ),
+      ]),
       _vm._v(" "),
       _c(
         "div",
@@ -3537,21 +3540,16 @@ var render = function () {
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "grid grid-cols-3 gap-y-0 gap-x-4 ml-8" }, [
-      _c(
-        "div",
-        { staticClass: "col-span-3" },
-        [
-          _c(
-            "v-card",
-            {
-              staticClass: "primary white--text p-2",
-              attrs: { elevation: "2" },
-            },
-            [_vm._v("PSIC Code")]
-          ),
-        ],
-        1
-      ),
+      _c("div", { staticClass: "col-span-3" }, [
+        _c(
+          "div",
+          {
+            staticClass: "text-white bg-blue-500 rounded-md p-2",
+            staticStyle: { "box-shadow": "0px 0px 5px #9C9C9C" },
+          },
+          [_vm._v("PSIC Code")]
+        ),
+      ]),
       _vm._v(" "),
       _c(
         "div",
@@ -3606,21 +3604,16 @@ var render = function () {
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "grid grid-cols-3 gap-y-0 gap-x-4 ml-8" }, [
-      _c(
-        "div",
-        { staticClass: "col-span-3" },
-        [
-          _c(
-            "v-card",
-            {
-              staticClass: "primary white--text p-2",
-              attrs: { elevation: "2" },
-            },
-            [_vm._v("Project Type")]
-          ),
-        ],
-        1
-      ),
+      _c("div", { staticClass: "col-span-3" }, [
+        _c(
+          "div",
+          {
+            staticClass: "text-white bg-blue-500 rounded-md p-2",
+            staticStyle: { "box-shadow": "0px 0px 5px #9C9C9C" },
+          },
+          [_vm._v("Project Type")]
+        ),
+      ]),
       _vm._v(" "),
       _c(
         "div",
@@ -3713,21 +3706,16 @@ var render = function () {
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "grid grid-cols-2 gap-y-0 gap-x-4 ml-8" }, [
-      _c(
-        "div",
-        { staticClass: "col-span-2" },
-        [
-          _c(
-            "v-card",
-            {
-              staticClass: "primary white--text p-2",
-              attrs: { elevation: "2" },
-            },
-            [_vm._v("Status")]
-          ),
-        ],
-        1
-      ),
+      _c("div", { staticClass: "col-span-2" }, [
+        _c(
+          "div",
+          {
+            staticClass: "text-white bg-blue-500 rounded-md p-2",
+            staticStyle: { "box-shadow": "0px 0px 5px #9C9C9C" },
+          },
+          [_vm._v("Status")]
+        ),
+      ]),
       _vm._v(" "),
       _c(
         "div",
@@ -4619,31 +4607,78 @@ var render = function () {
       },
     },
     [
-      _c("div", { staticClass: "grid grid-cols-6 gap-4 mt-5 mb-5" }, [
-        _c("div", { staticClass: "col-span-6" }, [
-          _c(
-            "div",
-            { staticClass: "grid grid-cols-6 gap-y-2 gap-x-2 mb-2" },
-            _vm._l(_vm.ctr_file, function (item, name, index) {
-              return _c(
-                "div",
-                [
-                  _vm._v(
-                    "\n                " + _vm._s(name) + "\n                  "
-                  ),
-                  _c("MiniDashboard", {
-                    attrs: {
-                      dashboard_header: "permit",
-                      ctr_file: _vm.ctr_file,
-                    },
-                  }),
-                ],
-                1
-              )
+      _c("div", { staticClass: "grid grid-cols-1 gap-4 mt-5 mb-5" }, [
+        _c(
+          "div",
+          { staticClass: "grid grid-cols-6 gap-y-3 gap-x-3 mb-2" },
+          [
+            _c(
+              "div",
+              { staticClass: "grid grid-cols-1 col-span-1 gap-y-2 gap-x-2" },
+              [
+                _c("MiniDashboard", {
+                  attrs: {
+                    dashboard_header_label: "Permits: ",
+                    dashboard_header: _vm.ctr_file["permit"].header,
+                    dashboard_content_label:
+                      _vm.ctr_file["permit"].content_label,
+                    dashboard_content: _vm.ctr_file["permit"].content,
+                  },
+                }),
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c("MiniDashboard", {
+              attrs: {
+                dashboard_header_label: "NOV's: ",
+                dashboard_header: _vm.ctr_file["nov"].header,
+                dashboard_content_label: _vm.ctr_file["nov"].content_label,
+                dashboard_content: _vm.ctr_file["nov"].content,
+              },
             }),
-            0
-          ),
-        ]),
+            _vm._v(" "),
+            _c("MiniDashboard", {
+              attrs: {
+                dashboard_header_label: "Monitoring",
+                dashboard_header: _vm.ctr_file["monitoring"].header,
+                dashboard_content_label:
+                  _vm.ctr_file["monitoring"].content_label,
+                dashboard_content: _vm.ctr_file["monitoring"].content,
+              },
+            }),
+            _vm._v(" "),
+            _c("MiniDashboard", {
+              attrs: {
+                dashboard_header_label: "Pco",
+                dashboard_header: _vm.ctr_file["pco"].header,
+                dashboard_content_label: _vm.ctr_file["pco"].content_label,
+                dashboard_content: _vm.ctr_file["pco"].content,
+              },
+            }),
+            _vm._v(" "),
+            _c("MiniDashboard", {
+              attrs: {
+                dashboard_header_label: "Complaint: ",
+                dashboard_header: _vm.ctr_file["complaint"].header,
+                dashboard_content_label:
+                  _vm.ctr_file["complaint"].content_label,
+                dashboard_content: _vm.ctr_file["complaint"].content,
+              },
+            }),
+            _vm._v(" "),
+            _c("MiniDashboard", {
+              attrs: {
+                dashboard_color: "bg-zinc-600",
+                dashboard_header_label: "Hazwaste",
+                dashboard_header: _vm.ctr_file["hazwaste"].header,
+                dashboard_content_label: _vm.ctr_file["hazwaste"].content_label,
+                dashboard_content: _vm.ctr_file["hazwaste"].content,
+              },
+            }),
+          ],
+          1
+        ),
       ]),
       _vm._v(" "),
       _c(
@@ -4910,56 +4945,44 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm.dashboard_header === "permit"
-    ? _c(
+  return _c(
+    "div",
+    {
+      staticClass: "text-black bg-white rounded-lg",
+      staticStyle: { "box-shadow": "0px 0px 5px #9C9C9C" },
+    },
+    [
+      _c(
         "div",
         {
-          staticClass: "primary text-white rounded-lg",
-          staticStyle: { "box-shadow": "-3px 3px 3px #9C9C9C" },
+          staticClass:
+            "primary text-xl rounded-t-lg text-white border-b p-2 text-center",
         },
         [
-          _c("div", { staticClass: "text-lg border-b p-2 text-center" }, [
-            _vm._v(
-              "\n        Permits: " + _vm._s(_vm.ctr_file.ctr_permit) + "\n    "
-            ),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "text-lg p-4" }, [
-            _c("div", { staticClass: "text-lg" }, [
-              _vm._v(
-                "\n            PD 1586: " +
-                  _vm._s(_vm.ctr_file.ctr_permit_pd1586) +
-                  "\n        "
-              ),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "text-lg" }, [
-              _vm._v(
-                "\n            RA 8749: " +
-                  _vm._s(_vm.ctr_file.ctr_permit_ra8749) +
-                  "\n        "
-              ),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "text-lg" }, [
-              _vm._v(
-                "\n            RA 9275: " +
-                  _vm._s(_vm.ctr_file.ctr_permit_ra9275) +
-                  "\n        "
-              ),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "text-lg" }, [
-              _vm._v("\n            Active: 3\n        "),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "text-lg" }, [
-              _vm._v("\n            Inactive: 0\n        "),
-            ]),
+          _vm._v("\n        " + _vm._s(_vm.dashboard_header_label)),
+          _c("b", { staticClass: "text-2xl" }, [
+            _vm._v(_vm._s(_vm.dashboard_header)),
           ]),
         ]
-      )
-    : _vm._e()
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "text-lg p-4" },
+        _vm._l(_vm.dashboard_content, function (item, index) {
+          return _c("div", { key: index, staticClass: "text-xl text-center" }, [
+            _vm._v(
+              "\n            " + _vm._s(_vm.dashboard_content_label[index])
+            ),
+            _c("b", { staticClass: "text-2xl" }, [
+              _vm._v(_vm._s(_vm.dashboard_content[index])),
+            ]),
+          ])
+        }),
+        0
+      ),
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
