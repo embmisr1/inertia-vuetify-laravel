@@ -16,6 +16,7 @@ class CreateTblPermitTable extends Migration
         Schema::create('tbl_permit', function (Blueprint $table) {
             $table->id();
             $table->string('perm_law')->nullable();
+            $table->string('perm_hazwaste_type')->nullable();
             $table->string('perm_number')->nullable();
             $table->string('perm_date_acceptance')->nullable();
             $table->string('perm_date_issuance')->nullable();

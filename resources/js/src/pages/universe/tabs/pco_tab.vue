@@ -1,7 +1,7 @@
 <template>
         <v-card class="p-4" elevation="0">
             <div class="grid grid-cols-4 gap-y-0 gap-x-4 ml-8">
-                    <div>
+                    <div hidden>
                         <v-text-field
                             v-model="form_pco_info.pco_id"
                             label="Pco Id"

@@ -2141,6 +2141,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     form_permit_info: Object,
@@ -2153,6 +2162,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         align: 'start',
         sortable: false,
         value: 'perm_law'
+      }, {
+        text: 'Hazwaste Type',
+        align: 'start',
+        sortable: false,
+        value: 'perm_hazwaste_type'
       }, {
         text: 'No.',
         align: 'start',
@@ -2189,6 +2203,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     editPermit: function editPermit(item) {
       console.log(this.form_permit_info);
       this.form_permit_info.perm_law = item.perm_law;
+      this.form_permit_info.perm_hazwaste_type = item.perm_hazwaste_type;
       this.form_permit_info.perm_date_expiry = item.perm_date_expiry;
       this.form_permit_info.perm_date_issuance = item.perm_date_issuance;
       this.form_permit_info.perm_description = item.perm_description;
@@ -2356,6 +2371,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       form_permit_info: {
         perm_id: "",
         perm_law: "",
+        perm_hazwaste_type: "",
         perm_number: "",
         perm_date_issuance: "",
         perm_date_expiry: "",
@@ -2499,6 +2515,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.form_permit_info = {
         perm_id: "",
         perm_law: "",
+        perm_hazwaste_type: "",
         perm_number: "",
         perm_date_issuance: "",
         perm_date_expiry: "",
@@ -6667,6 +6684,7 @@ var render = function () {
       _c("div", { staticClass: "grid grid-cols-4 gap-y-0 gap-x-4 ml-8" }, [
         _c(
           "div",
+          { attrs: { hidden: "" } },
           [
             _c("v-text-field", {
               attrs: { label: "Pco Id", clearable: "" },
@@ -6989,6 +7007,25 @@ var render = function () {
                   _vm.$set(_vm.form_permit_info, "perm_date_expiry", $$v)
                 },
                 expression: "form_permit_info.perm_date_expiry",
+              },
+            }),
+          ],
+          1
+        ),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "grid grid-cols-4 gap-y-0 gap-x-4 ml-8" }, [
+        _c(
+          "div",
+          [
+            _c("v-text-field", {
+              attrs: { label: "Hazwaste Type", clearable: "" },
+              model: {
+                value: _vm.form_permit_info.perm_hazwaste_type,
+                callback: function ($$v) {
+                  _vm.$set(_vm.form_permit_info, "perm_hazwaste_type", $$v)
+                },
+                expression: "form_permit_info.perm_hazwaste_type",
               },
             }),
           ],

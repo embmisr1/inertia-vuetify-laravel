@@ -44,6 +44,15 @@
                         ></v-text-field>
                     </div>
             </div>
+            <div class="grid grid-cols-4 gap-y-0 gap-x-4 ml-8">
+                    <div>
+                        <v-text-field
+                            v-model="form_permit_info.perm_hazwaste_type"
+                            label="Hazwaste Type"
+                            clearable
+                        ></v-text-field>
+                    </div>
+            </div>
             <div class="grid grid-cols-2 gap-y-0 gap-x-4 ml-8">
                     <div>
                         <v-text-field
@@ -109,6 +118,12 @@
           value: 'perm_law',
         },
         {
+          text: 'Hazwaste Type',
+          align: 'start',
+          sortable: false,
+          value: 'perm_hazwaste_type',
+        },
+        {
           text: 'No.',
           align: 'start',
           sortable: false,
@@ -150,6 +165,7 @@
         editPermit(item) {
             console.log(this.form_permit_info);
             this.form_permit_info.perm_law = item.perm_law;
+            this.form_permit_info.perm_hazwaste_type = item.perm_hazwaste_type;
             this.form_permit_info.perm_date_expiry = item.perm_date_expiry;
             this.form_permit_info.perm_date_issuance = item.perm_date_issuance;
             this.form_permit_info.perm_description = item.perm_description;

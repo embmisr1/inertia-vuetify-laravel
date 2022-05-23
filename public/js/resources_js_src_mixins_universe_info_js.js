@@ -69,6 +69,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       form_permit_info: {
         perm_id: "",
         perm_law: "",
+        perm_hazwaste_type: "",
         perm_number: "",
         perm_date_issuance: "",
         perm_date_expiry: "",
@@ -212,6 +213,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.form_permit_info = {
         perm_id: "",
         perm_law: "",
+        perm_hazwaste_type: "",
         perm_number: "",
         perm_date_issuance: "",
         perm_date_expiry: "",

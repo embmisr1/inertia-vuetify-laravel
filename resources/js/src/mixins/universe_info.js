@@ -32,6 +32,7 @@ export default {
             form_permit_info: {
                 perm_id: "",
                 perm_law: "",
+                perm_hazwaste_type: "",
                 perm_number: "",
                 perm_date_issuance: "",
                 perm_date_expiry: "",
@@ -149,6 +150,7 @@ export default {
             this.form_permit_info = {
                 perm_id: "",
                 perm_law: "",
+                perm_hazwaste_type: "",
                 perm_number: "",
                 perm_date_issuance: "",
                 perm_date_expiry: "",
