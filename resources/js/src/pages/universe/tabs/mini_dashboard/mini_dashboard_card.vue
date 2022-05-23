@@ -4,8 +4,15 @@
             {{dashboard_header_label}}<b class="text-2xl">{{dashboard_header}}</b>
         </div>
         <div class="text-lg p-4">
-            <div v-for="(item, index) in dashboard_content" :key="index" class="text-xl text-center">
-                {{dashboard_content_label[index]}}<b class="text-2xl">{{dashboard_content[index]}}</b>
+            <div v-if="dashboard_header_label === 'Permits: '">
+                <div class="text-xl text-center grid grid-cols-2">
+                    <div v-for="(item, index) in dashboard_content" :key="index">{{dashboard_content_label[index]}}<b class="text-2xl">{{dashboard_content[index]}}</b></div>
+                </div>
+            </div>
+            <div v-else>
+                <div v-for="(item, index) in dashboard_content" :key="index" class="text-xl text-center grid grid-cols-1">
+                    <div>{{dashboard_content_label[index]}}<b class="text-2xl">{{dashboard_content[index]}}</b></div>
+                </div>
             </div>
         </div>
     </div>

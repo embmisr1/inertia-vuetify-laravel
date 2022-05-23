@@ -209,14 +209,14 @@
                     <div>
                         <v-text-field
                             v-model="form_basic_info.un_remarks"
-                            label="Group"
+                            label="Remarks"
                             clearable
                         ></v-text-field>
                     </div>
                     <div>
                         <v-text-field
                             v-model="form_basic_info.un_status"
-                            label="Class"
+                            label="Status"
                             clearable
                         ></v-text-field>
                     </div>

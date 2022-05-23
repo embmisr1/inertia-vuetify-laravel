@@ -1107,6 +1107,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 
@@ -1166,6 +1172,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -3665,7 +3678,7 @@ var render = function () {
         "div",
         [
           _c("v-text-field", {
-            attrs: { label: "Group", clearable: "" },
+            attrs: { label: "Remarks", clearable: "" },
             model: {
               value: _vm.form_basic_info.un_remarks,
               callback: function ($$v) {
@@ -3682,7 +3695,7 @@ var render = function () {
         "div",
         [
           _c("v-text-field", {
-            attrs: { label: "Class", clearable: "" },
+            attrs: { label: "Status", clearable: "" },
             model: {
               value: _vm.form_basic_info.un_status,
               callback: function ($$v) {
@@ -4560,7 +4573,7 @@ var render = function () {
                 _c(
                   "div",
                   {
-                    staticClass: "grid grid-cols-1 col-span-1 gap-y-2 gap-x-2",
+                    staticClass: "grid grid-cols-1 col-span-2 gap-y-2 gap-x-2",
                   },
                   [
                     _c("MiniDashboard", {
@@ -4611,17 +4624,6 @@ var render = function () {
                     dashboard_content_label:
                       _vm.ctr_file["complaint"].content_label,
                     dashboard_content: _vm.ctr_file["complaint"].content,
-                  },
-                }),
-                _vm._v(" "),
-                _c("MiniDashboard", {
-                  attrs: {
-                    dashboard_color: "bg-zinc-600",
-                    dashboard_header_label: "Hazwaste",
-                    dashboard_header: _vm.ctr_file["hazwaste"].header,
-                    dashboard_content_label:
-                      _vm.ctr_file["hazwaste"].content_label,
-                    dashboard_content: _vm.ctr_file["hazwaste"].content,
                   },
                 }),
               ],
@@ -4730,22 +4732,6 @@ var render = function () {
                               _c("v-icon", [
                                 _vm._v("mdi-file-document-multiple-outline"),
                               ]),
-                              _vm._v(
-                                " \n                Hazwaste\n              "
-                              ),
-                            ],
-                            1
-                          ),
-                        ]),
-                        _vm._v(" "),
-                        _c("v-tab", [
-                          _c(
-                            "div",
-                            { staticClass: "flex flex-start" },
-                            [
-                              _c("v-icon", [
-                                _vm._v("mdi-file-document-multiple-outline"),
-                              ]),
                               _vm._v(" \n                PCO\n              "),
                             ],
                             1
@@ -4816,19 +4802,6 @@ var render = function () {
                               attrs: {
                                 form_legal_info: _vm.form_legal_info,
                                 legal_table: _vm.legal_table,
-                              },
-                            }),
-                          ],
-                          1
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "v-tab-item",
-                          [
-                            _c("HazwasteTab", {
-                              attrs: {
-                                form_hazwaste_info: _vm.form_hazwaste_info,
-                                hazwaste_table: _vm.hazwaste_table,
                               },
                             }),
                           ],
@@ -4920,21 +4893,45 @@ var render = function () {
         ]
       ),
       _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "text-lg p-4" },
-        _vm._l(_vm.dashboard_content, function (item, index) {
-          return _c("div", { key: index, staticClass: "text-xl text-center" }, [
-            _vm._v(
-              "\n            " + _vm._s(_vm.dashboard_content_label[index])
+      _c("div", { staticClass: "text-lg p-4" }, [
+        _vm.dashboard_header_label === "Permits: "
+          ? _c("div", [
+              _c(
+                "div",
+                { staticClass: "text-xl text-center grid grid-cols-2" },
+                _vm._l(_vm.dashboard_content, function (item, index) {
+                  return _c("div", { key: index }, [
+                    _vm._v(_vm._s(_vm.dashboard_content_label[index])),
+                    _c("b", { staticClass: "text-2xl" }, [
+                      _vm._v(_vm._s(_vm.dashboard_content[index])),
+                    ]),
+                  ])
+                }),
+                0
+              ),
+            ])
+          : _c(
+              "div",
+              _vm._l(_vm.dashboard_content, function (item, index) {
+                return _c(
+                  "div",
+                  {
+                    key: index,
+                    staticClass: "text-xl text-center grid grid-cols-1",
+                  },
+                  [
+                    _c("div", [
+                      _vm._v(_vm._s(_vm.dashboard_content_label[index])),
+                      _c("b", { staticClass: "text-2xl" }, [
+                        _vm._v(_vm._s(_vm.dashboard_content[index])),
+                      ]),
+                    ]),
+                  ]
+                )
+              }),
+              0
             ),
-            _c("b", { staticClass: "text-2xl" }, [
-              _vm._v(_vm._s(_vm.dashboard_content[index])),
-            ]),
-          ])
-        }),
-        0
-      ),
+      ]),
     ]
   )
 }

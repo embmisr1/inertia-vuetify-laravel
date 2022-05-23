@@ -23,6 +23,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     dashboard_header_label: String,
@@ -143,21 +150,45 @@ var render = function () {
         ]
       ),
       _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "text-lg p-4" },
-        _vm._l(_vm.dashboard_content, function (item, index) {
-          return _c("div", { key: index, staticClass: "text-xl text-center" }, [
-            _vm._v(
-              "\n            " + _vm._s(_vm.dashboard_content_label[index])
+      _c("div", { staticClass: "text-lg p-4" }, [
+        _vm.dashboard_header_label === "Permits: "
+          ? _c("div", [
+              _c(
+                "div",
+                { staticClass: "text-xl text-center grid grid-cols-2" },
+                _vm._l(_vm.dashboard_content, function (item, index) {
+                  return _c("div", { key: index }, [
+                    _vm._v(_vm._s(_vm.dashboard_content_label[index])),
+                    _c("b", { staticClass: "text-2xl" }, [
+                      _vm._v(_vm._s(_vm.dashboard_content[index])),
+                    ]),
+                  ])
+                }),
+                0
+              ),
+            ])
+          : _c(
+              "div",
+              _vm._l(_vm.dashboard_content, function (item, index) {
+                return _c(
+                  "div",
+                  {
+                    key: index,
+                    staticClass: "text-xl text-center grid grid-cols-1",
+                  },
+                  [
+                    _c("div", [
+                      _vm._v(_vm._s(_vm.dashboard_content_label[index])),
+                      _c("b", { staticClass: "text-2xl" }, [
+                        _vm._v(_vm._s(_vm.dashboard_content[index])),
+                      ]),
+                    ]),
+                  ]
+                )
+              }),
+              0
             ),
-            _c("b", { staticClass: "text-2xl" }, [
-              _vm._v(_vm._s(_vm.dashboard_content[index])),
-            ]),
-          ])
-        }),
-        0
-      ),
+      ]),
     ]
   )
 }

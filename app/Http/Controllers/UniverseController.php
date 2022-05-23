@@ -358,6 +358,7 @@ class UniverseController extends Controller
         $ctr_permit_pd1586 = Permit::where('universe_FK',$fk)->where('perm_law','like','%PD 1586%')->count();
         $ctr_permit_ra8749 = Permit::where('universe_FK',$fk)->where('perm_law','like','%RA 8749%')->count();
         $ctr_permit_ra9275 = Permit::where('universe_FK',$fk)->where('perm_law','like','%RA 9275%')->count();
+        $ctr_permit_ra6969 = Permit::where('universe_FK',$fk)->where('perm_law','like','%RA 6969%')->count();
         $ctr_permit_active = Permit::where('universe_FK',$fk)->where('perm_law','like','%RA 9275%')->count();
         $ctr_permit_expired = Permit::where('universe_FK',$fk)->where('perm_law','like','%RA 9275%')->count();
         $ctr_monitoring = Monitoring::where('universe_FK',$fk)->count();
@@ -376,6 +377,7 @@ class UniverseController extends Controller
                     'PD 1586: ',
                     'RA 8749: ',
                     'RA 9275: ',
+                    'RA 6969: ',
                     'Active: ',
                     'Expired: ',
                 ],
@@ -383,6 +385,7 @@ class UniverseController extends Controller
                     $ctr_permit_pd1586,
                     $ctr_permit_ra8749,
                     $ctr_permit_ra9275,
+                    $ctr_permit_ra6969,
                     $ctr_permit_active,
                     $ctr_permit_expired,
                 ],

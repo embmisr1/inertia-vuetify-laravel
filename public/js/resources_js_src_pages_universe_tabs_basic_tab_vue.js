@@ -1690,7 +1690,7 @@ var render = function () {
         "div",
         [
           _c("v-text-field", {
-            attrs: { label: "Group", clearable: "" },
+            attrs: { label: "Remarks", clearable: "" },
             model: {
               value: _vm.form_basic_info.un_remarks,
               callback: function ($$v) {
@@ -1707,7 +1707,7 @@ var render = function () {
         "div",
         [
           _c("v-text-field", {
-            attrs: { label: "Class", clearable: "" },
+            attrs: { label: "Status", clearable: "" },
             model: {
               value: _vm.form_basic_info.un_status,
               callback: function ($$v) {

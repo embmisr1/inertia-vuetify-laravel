@@ -9,7 +9,7 @@
         </v-card>
         -->
               <div v-if="ctr_file" class="grid grid-cols-6 gap-y-3 gap-x-3 mb-2">
-                  <div class="grid grid-cols-1 col-span-1 gap-y-2 gap-x-2">
+                  <div class="grid grid-cols-1 col-span-2 gap-y-2 gap-x-2">
                       <MiniDashboard 
                           dashboard_header_label="Permits: " 
                           :dashboard_header="ctr_file['permit'].header" 
@@ -41,6 +41,7 @@
                       :dashboard_content_label="ctr_file['complaint'].content_label"
                       :dashboard_content="ctr_file['complaint'].content"
                   ></MiniDashboard>
+                  <!--
                   <MiniDashboard 
                       dashboard_color="bg-zinc-600"
                       dashboard_header_label="Hazwaste" 
@@ -48,6 +49,7 @@
                       :dashboard_content_label="ctr_file['hazwaste'].content_label"
                       :dashboard_content="ctr_file['hazwaste'].content"
                   ></MiniDashboard>
+                  -->
               </div>
     </div>
     <div>
@@ -89,12 +91,14 @@
                   Legal
                 </div>
               </v-tab>
+              <!--
               <v-tab>
                 <div class="flex flex-start">
                   <v-icon>mdi-file-document-multiple-outline</v-icon>&nbsp;
                   Hazwaste
                 </div>
               </v-tab>
+              -->
               <v-tab>
                 <div class="flex flex-start">
                   <v-icon>mdi-file-document-multiple-outline</v-icon>&nbsp;
@@ -124,9 +128,11 @@
               <v-tab-item>
                   <LegalTab :form_legal_info="form_legal_info" :legal_table="legal_table"></LegalTab>
               </v-tab-item>
+              <!--
               <v-tab-item>
                   <HazwasteTab :form_hazwaste_info="form_hazwaste_info" :hazwaste_table="hazwaste_table"></HazwasteTab>
               </v-tab-item>
+              -->
               <v-tab-item>
                   <PcoTab :form_pco_info="form_pco_info" :pco_table="pco_table"></PcoTab>
               </v-tab-item>
