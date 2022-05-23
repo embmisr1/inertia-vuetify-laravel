@@ -1,6 +1,8 @@
 <template>
     <DefaultLayout>
         <MainTab
+            :province_list="province_list" 
+
             :form_basic_info="form_basic_info" 
             :form_permit_info="form_permit_info" 
             :form_monitoring_info="form_monitoring_info" 
@@ -46,6 +48,8 @@ export default {
         pco_table: Array,
         complaint_table: Array,
         ctr_file: Object,
+        
+        province_list: Array,
     },
     data: () => ({}),
 };

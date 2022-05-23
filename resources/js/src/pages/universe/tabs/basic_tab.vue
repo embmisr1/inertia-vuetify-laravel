@@ -45,11 +45,14 @@
                         <div class="text-white bg-blue-500 rounded-md p-2" style="box-shadow: 0px 0px 5px #9C9C9C;">Project Location</div>
                     </div>
                     <div>
-                        <v-text-field
+                        <v-autocomplete
+                            :items="province_list"
                             v-model="form_basic_info.un_province"
                             label="Province"
+                            item-text="provDesc"
+                            item-value="PK_province_ID"
                             clearable
-                        ></v-text-field>
+                        ></v-autocomplete>
                     </div>
                     <div>
                         <v-text-field
@@ -121,53 +124,6 @@
                         <v-text-field
                             v-model="form_basic_info.un_representative_gender"
                             label="Gender"
-                            clearable
-                        ></v-text-field>
-                    </div>
-            </div>
-            <div class="grid grid-cols-3 gap-y-0 gap-x-4 ml-8">
-                    <div class="col-span-3">
-                        <div class="text-white bg-blue-500 rounded-md p-2" style="box-shadow: 0px 0px 5px #9C9C9C;">ReprePCOsentative</div>
-                    </div>
-                    <div>
-                        <v-text-field
-                            v-model="form_basic_info.pco_name"
-                            label="Name"
-                            clearable
-                        ></v-text-field>
-                    </div>
-                    <div>
-                        <v-text-field
-                            v-model="form_basic_info.pco_number"
-                            label="Number"
-                            clearable
-                        ></v-text-field>
-                    </div>
-                    <div>
-                        <v-text-field
-                            v-model="form_basic_info.pco_email"
-                            label="Email"
-                            clearable
-                        ></v-text-field>
-                    </div>
-                    <div>
-                        <v-text-field
-                            v-model="form_basic_info.pco_contact"
-                            label="Contact No."
-                            clearable
-                        ></v-text-field>
-                    </div>
-                    <div>
-                        <v-text-field
-                            v-model="form_basic_info.pco_date_start"
-                            label="Start Date"
-                            clearable
-                        ></v-text-field>
-                    </div>
-                    <div>
-                        <v-text-field
-                            v-model="form_basic_info.pco_date_end"
-                            label="End Date"
                             clearable
                         ></v-text-field>
                     </div>
@@ -265,9 +221,22 @@
         </v-card>
 </template>
 <script>
+import axios from 'axios';
   export default {
     props:{
         form_basic_info: Object,
+        province_list: Array,
+    },
+    computed:{
+        searchProv(){
+            return this.form_basic_info.un_province;
+        }
+    },
+    watch:{
+        async searchProv(data){
+            const abc = await axios.get(`http://127.0.0.1:8000/api/app/search_province/${data}`);
+            console.log(abc.data);
+        }
     },
     data () {
       return {

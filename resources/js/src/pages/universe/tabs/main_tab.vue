@@ -8,7 +8,7 @@
             ></v-img>
         </v-card>
         -->
-              <div class="grid grid-cols-6 gap-y-3 gap-x-3 mb-2">
+              <div v-if="ctr_file" class="grid grid-cols-6 gap-y-3 gap-x-3 mb-2">
                   <div class="grid grid-cols-1 col-span-1 gap-y-2 gap-x-2">
                       <MiniDashboard 
                           dashboard_header_label="Permits: " 
@@ -109,7 +109,7 @@
               </v-tab>
 
               <v-tab-item>
-                  <BasicTab :form_basic_info="form_basic_info"></BasicTab>
+                  <BasicTab :form_basic_info="form_basic_info" :province_list="province_list"></BasicTab>
               </v-tab-item>
               <v-tab-item>
                   <PermitTab :form_permit_info="form_permit_info" :permit_table="permit_table"></PermitTab>
@@ -165,6 +165,8 @@
       submit_basic_info: Function,
 
       ctr_file: Object,
+      
+      province_list: Array,
     },
     components:{
         BasicTab,

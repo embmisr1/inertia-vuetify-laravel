@@ -11,6 +11,9 @@ use App\Models\Hazwaste;
 use App\Models\Legal;
 use App\Models\Complaint;
 use App\Models\Pco;
+use App\Models\Barangay;
+use App\Models\Municipality;
+use App\Models\Province;
 use Illuminate\Support\Facades\Redirect;
 use DB;
 use Illuminate\Support\Facades\Schema;
@@ -33,6 +36,7 @@ class UniverseController extends Controller
             $query_pco = Pco::where('universe_FK',$id)->get();
             $query_complaint = Complaint::where('universe_FK',$id)->get();
             $ctr_file = $this->mini_dashboard($id);
+            $province_list = Province::where('regCode','01')->get();
             if($query->count() > 0){
                 return Inertia::render("pages/universe/universe_form",[
                     'query'=>$query[0],
@@ -43,6 +47,7 @@ class UniverseController extends Controller
                     'pco_table'=>$query_pco,
                     'complaint_table'=>$query_complaint,
                     'ctr_file'=>$ctr_file,
+                    'province_list'=>$province_list,
                 ]);
             }else{
                 return Inertia::render("pages/universe/universe_form",[
@@ -53,6 +58,7 @@ class UniverseController extends Controller
                     'pco_table'=>$query_pco,
                     'complaint_table'=>$query_complaint,
                     'ctr_file'=>$ctr_file,
+                    'province_list'=>$province_list,
                 ]);
             }
         }else{
@@ -524,5 +530,10 @@ class UniverseController extends Controller
             'comp_remarks',
         ];
         return $array;
+    }
+
+    public function search_province($id){
+        $query = Municipality::where('provCode', $id)->get();
+        return response()->json($query);
     }
 }

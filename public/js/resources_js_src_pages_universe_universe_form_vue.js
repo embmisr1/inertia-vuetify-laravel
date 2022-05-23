@@ -500,6 +500,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 //
 //
 //
@@ -722,53 +732,40 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
-    form_basic_info: Object
+    form_basic_info: Object,
+    province_list: Array
+  },
+  computed: {
+    searchProv: function searchProv() {
+      return this.form_basic_info.un_province;
+    }
+  },
+  watch: {
+    searchProv: function searchProv(data) {
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+        var abc;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return axios__WEBPACK_IMPORTED_MODULE_1___default().get("http://127.0.0.1:8000/api/app/search_province/".concat(data));
+
+              case 2:
+                abc = _context.sent;
+                console.log(abc.data);
+
+              case 4:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }))();
+    }
   },
   data: function data() {
     return {
@@ -1573,7 +1570,8 @@ __webpack_require__.r(__webpack_exports__);
     complaint_table: Array,
     pco_table: Array,
     submit_basic_info: Function,
-    ctr_file: Object
+    ctr_file: Object,
+    province_list: Array
   },
   components: {
     BasicTab: _basic_tab__WEBPACK_IMPORTED_MODULE_0__["default"],
@@ -2211,6 +2209,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 
@@ -2230,7 +2230,8 @@ __webpack_require__.r(__webpack_exports__);
     hazwaste_table: Array,
     pco_table: Array,
     complaint_table: Array,
-    ctr_file: Object
+    ctr_file: Object,
+    province_list: Array
   },
   data: function data() {
     return {};
@@ -4736,8 +4737,14 @@ var render = function () {
       _c(
         "div",
         [
-          _c("v-text-field", {
-            attrs: { label: "Province", clearable: "" },
+          _c("v-autocomplete", {
+            attrs: {
+              items: _vm.province_list,
+              label: "Province",
+              "item-text": "provDesc",
+              "item-value": "PK_province_ID",
+              clearable: "",
+            },
             model: {
               value: _vm.form_basic_info.un_province,
               callback: function ($$v) {
@@ -4918,121 +4925,6 @@ var render = function () {
                 _vm.$set(_vm.form_basic_info, "un_representative_gender", $$v)
               },
               expression: "form_basic_info.un_representative_gender",
-            },
-          }),
-        ],
-        1
-      ),
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "grid grid-cols-3 gap-y-0 gap-x-4 ml-8" }, [
-      _c("div", { staticClass: "col-span-3" }, [
-        _c(
-          "div",
-          {
-            staticClass: "text-white bg-blue-500 rounded-md p-2",
-            staticStyle: { "box-shadow": "0px 0px 5px #9C9C9C" },
-          },
-          [_vm._v("ReprePCOsentative")]
-        ),
-      ]),
-      _vm._v(" "),
-      _c(
-        "div",
-        [
-          _c("v-text-field", {
-            attrs: { label: "Name", clearable: "" },
-            model: {
-              value: _vm.form_basic_info.pco_name,
-              callback: function ($$v) {
-                _vm.$set(_vm.form_basic_info, "pco_name", $$v)
-              },
-              expression: "form_basic_info.pco_name",
-            },
-          }),
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        [
-          _c("v-text-field", {
-            attrs: { label: "Number", clearable: "" },
-            model: {
-              value: _vm.form_basic_info.pco_number,
-              callback: function ($$v) {
-                _vm.$set(_vm.form_basic_info, "pco_number", $$v)
-              },
-              expression: "form_basic_info.pco_number",
-            },
-          }),
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        [
-          _c("v-text-field", {
-            attrs: { label: "Email", clearable: "" },
-            model: {
-              value: _vm.form_basic_info.pco_email,
-              callback: function ($$v) {
-                _vm.$set(_vm.form_basic_info, "pco_email", $$v)
-              },
-              expression: "form_basic_info.pco_email",
-            },
-          }),
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        [
-          _c("v-text-field", {
-            attrs: { label: "Contact No.", clearable: "" },
-            model: {
-              value: _vm.form_basic_info.pco_contact,
-              callback: function ($$v) {
-                _vm.$set(_vm.form_basic_info, "pco_contact", $$v)
-              },
-              expression: "form_basic_info.pco_contact",
-            },
-          }),
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        [
-          _c("v-text-field", {
-            attrs: { label: "Start Date", clearable: "" },
-            model: {
-              value: _vm.form_basic_info.pco_date_start,
-              callback: function ($$v) {
-                _vm.$set(_vm.form_basic_info, "pco_date_start", $$v)
-              },
-              expression: "form_basic_info.pco_date_start",
-            },
-          }),
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        [
-          _c("v-text-field", {
-            attrs: { label: "End Date", clearable: "" },
-            model: {
-              value: _vm.form_basic_info.pco_date_end,
-              callback: function ($$v) {
-                _vm.$set(_vm.form_basic_info, "pco_date_end", $$v)
-              },
-              expression: "form_basic_info.pco_date_end",
             },
           }),
         ],
@@ -6109,77 +6001,82 @@ var render = function () {
     },
     [
       _c("div", { staticClass: "grid grid-cols-1 gap-4 mt-5 mb-5" }, [
-        _c(
-          "div",
-          { staticClass: "grid grid-cols-6 gap-y-3 gap-x-3 mb-2" },
-          [
-            _c(
+        _vm.ctr_file
+          ? _c(
               "div",
-              { staticClass: "grid grid-cols-1 col-span-1 gap-y-2 gap-x-2" },
+              { staticClass: "grid grid-cols-6 gap-y-3 gap-x-3 mb-2" },
               [
+                _c(
+                  "div",
+                  {
+                    staticClass: "grid grid-cols-1 col-span-1 gap-y-2 gap-x-2",
+                  },
+                  [
+                    _c("MiniDashboard", {
+                      attrs: {
+                        dashboard_header_label: "Permits: ",
+                        dashboard_header: _vm.ctr_file["permit"].header,
+                        dashboard_content_label:
+                          _vm.ctr_file["permit"].content_label,
+                        dashboard_content: _vm.ctr_file["permit"].content,
+                      },
+                    }),
+                  ],
+                  1
+                ),
+                _vm._v(" "),
                 _c("MiniDashboard", {
                   attrs: {
-                    dashboard_header_label: "Permits: ",
-                    dashboard_header: _vm.ctr_file["permit"].header,
+                    dashboard_header_label: "NOV's: ",
+                    dashboard_header: _vm.ctr_file["nov"].header,
+                    dashboard_content_label: _vm.ctr_file["nov"].content_label,
+                    dashboard_content: _vm.ctr_file["nov"].content,
+                  },
+                }),
+                _vm._v(" "),
+                _c("MiniDashboard", {
+                  attrs: {
+                    dashboard_header_label: "Monitoring",
+                    dashboard_header: _vm.ctr_file["monitoring"].header,
                     dashboard_content_label:
-                      _vm.ctr_file["permit"].content_label,
-                    dashboard_content: _vm.ctr_file["permit"].content,
+                      _vm.ctr_file["monitoring"].content_label,
+                    dashboard_content: _vm.ctr_file["monitoring"].content,
+                  },
+                }),
+                _vm._v(" "),
+                _c("MiniDashboard", {
+                  attrs: {
+                    dashboard_header_label: "Pco",
+                    dashboard_header: _vm.ctr_file["pco"].header,
+                    dashboard_content_label: _vm.ctr_file["pco"].content_label,
+                    dashboard_content: _vm.ctr_file["pco"].content,
+                  },
+                }),
+                _vm._v(" "),
+                _c("MiniDashboard", {
+                  attrs: {
+                    dashboard_header_label: "Complaint: ",
+                    dashboard_header: _vm.ctr_file["complaint"].header,
+                    dashboard_content_label:
+                      _vm.ctr_file["complaint"].content_label,
+                    dashboard_content: _vm.ctr_file["complaint"].content,
+                  },
+                }),
+                _vm._v(" "),
+                _c("MiniDashboard", {
+                  attrs: {
+                    dashboard_color: "bg-zinc-600",
+                    dashboard_header_label: "Hazwaste",
+                    dashboard_header: _vm.ctr_file["hazwaste"].header,
+                    dashboard_content_label:
+                      _vm.ctr_file["hazwaste"].content_label,
+                    dashboard_content: _vm.ctr_file["hazwaste"].content,
                   },
                 }),
               ],
               1
-            ),
-            _vm._v(" "),
-            _c("MiniDashboard", {
-              attrs: {
-                dashboard_header_label: "NOV's: ",
-                dashboard_header: _vm.ctr_file["nov"].header,
-                dashboard_content_label: _vm.ctr_file["nov"].content_label,
-                dashboard_content: _vm.ctr_file["nov"].content,
-              },
-            }),
-            _vm._v(" "),
-            _c("MiniDashboard", {
-              attrs: {
-                dashboard_header_label: "Monitoring",
-                dashboard_header: _vm.ctr_file["monitoring"].header,
-                dashboard_content_label:
-                  _vm.ctr_file["monitoring"].content_label,
-                dashboard_content: _vm.ctr_file["monitoring"].content,
-              },
-            }),
-            _vm._v(" "),
-            _c("MiniDashboard", {
-              attrs: {
-                dashboard_header_label: "Pco",
-                dashboard_header: _vm.ctr_file["pco"].header,
-                dashboard_content_label: _vm.ctr_file["pco"].content_label,
-                dashboard_content: _vm.ctr_file["pco"].content,
-              },
-            }),
-            _vm._v(" "),
-            _c("MiniDashboard", {
-              attrs: {
-                dashboard_header_label: "Complaint: ",
-                dashboard_header: _vm.ctr_file["complaint"].header,
-                dashboard_content_label:
-                  _vm.ctr_file["complaint"].content_label,
-                dashboard_content: _vm.ctr_file["complaint"].content,
-              },
-            }),
-            _vm._v(" "),
-            _c("MiniDashboard", {
-              attrs: {
-                dashboard_color: "bg-zinc-600",
-                dashboard_header_label: "Hazwaste",
-                dashboard_header: _vm.ctr_file["hazwaste"].header,
-                dashboard_content_label: _vm.ctr_file["hazwaste"].content_label,
-                dashboard_content: _vm.ctr_file["hazwaste"].content,
-              },
-            }),
-          ],
-          1
-        ),
+            )
+          : _vm._e(),
       ]),
       _vm._v(" "),
       _c(
@@ -6324,7 +6221,10 @@ var render = function () {
                           "v-tab-item",
                           [
                             _c("BasicTab", {
-                              attrs: { form_basic_info: _vm.form_basic_info },
+                              attrs: {
+                                form_basic_info: _vm.form_basic_info,
+                                province_list: _vm.province_list,
+                              },
                             }),
                           ],
                           1
@@ -7181,6 +7081,7 @@ var render = function () {
     [
       _c("MainTab", {
         attrs: {
+          province_list: _vm.province_list,
           form_basic_info: _vm.form_basic_info,
           form_permit_info: _vm.form_permit_info,
           form_monitoring_info: _vm.form_monitoring_info,
