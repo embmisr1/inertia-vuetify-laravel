@@ -262,6 +262,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
@@ -323,6 +326,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
   data: function data() {
     return {
+      universe_type_selection: [{
+        'universe_type_selection_obj': 'Firm'
+      }, {
+        'universe_type_selection_obj': 'Lgu'
+      }],
       basic_tab: null,
       province_list_alter: this.province_list,
       municipality_list_alter: this.municipality_list,
@@ -1200,6 +1208,24 @@ var render = function () {
       _vm._v(" "),
       _c(
         "div",
+        { attrs: { hidden: "" } },
+        [
+          _c("v-text-field", {
+            attrs: { label: "Universe ID", clearable: "" },
+            model: {
+              value: _vm.form_basic_info.id,
+              callback: function ($$v) {
+                _vm.$set(_vm.form_basic_info, "id", $$v)
+              },
+              expression: "form_basic_info.id",
+            },
+          }),
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
         [
           _c("v-text-field", {
             attrs: { label: "Firm Name", clearable: "" },
@@ -1252,31 +1278,20 @@ var render = function () {
       _c(
         "div",
         [
-          _c("v-text-field", {
-            attrs: { label: "Universe Type", clearable: "" },
+          _c("v-autocomplete", {
+            attrs: {
+              items: _vm.universe_type_selection,
+              label: "Universe Type",
+              "item-text": "universe_type_selection_obj",
+              "item-value": "universe_type_selection_obj",
+              clearable: "",
+            },
             model: {
               value: _vm.form_basic_info.un_type,
               callback: function ($$v) {
                 _vm.$set(_vm.form_basic_info, "un_type", $$v)
               },
               expression: "form_basic_info.un_type",
-            },
-          }),
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        [
-          _c("v-text-field", {
-            attrs: { label: "Universe ID", clearable: "" },
-            model: {
-              value: _vm.form_basic_info.id,
-              callback: function ($$v) {
-                _vm.$set(_vm.form_basic_info, "id", $$v)
-              },
-              expression: "form_basic_info.id",
             },
           }),
         ],

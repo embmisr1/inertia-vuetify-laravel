@@ -136,8 +136,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     form_permit_info: Object,
@@ -1200,25 +1198,25 @@ var render = function () {
           ],
           1
         ),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "grid grid-cols-4 gap-y-0 gap-x-4 ml-8" }, [
-        _c(
-          "div",
-          [
-            _c("v-text-field", {
-              attrs: { label: "Hazwaste Type", clearable: "" },
-              model: {
-                value: _vm.form_permit_info.perm_hazwaste_type,
-                callback: function ($$v) {
-                  _vm.$set(_vm.form_permit_info, "perm_hazwaste_type", $$v)
-                },
-                expression: "form_permit_info.perm_hazwaste_type",
-              },
-            }),
-          ],
-          1
-        ),
+        _vm._v(" "),
+        _vm.form_permit_info.perm_law === "RA 6969"
+          ? _c(
+              "div",
+              [
+                _c("v-text-field", {
+                  attrs: { label: "Hazwaste Type", clearable: "" },
+                  model: {
+                    value: _vm.form_permit_info.perm_hazwaste_type,
+                    callback: function ($$v) {
+                      _vm.$set(_vm.form_permit_info, "perm_hazwaste_type", $$v)
+                    },
+                    expression: "form_permit_info.perm_hazwaste_type",
+                  },
+                }),
+              ],
+              1
+            )
+          : _vm._e(),
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "grid grid-cols-2 gap-y-0 gap-x-4 ml-8" }, [

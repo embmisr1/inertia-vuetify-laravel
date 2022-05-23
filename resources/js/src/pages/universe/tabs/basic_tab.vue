@@ -4,6 +4,13 @@
                     <div class="col-span-4">
                         <div class="text-white bg-blue-500 rounded-md p-2" style="box-shadow: 0px 0px 5px #9C9C9C;">Basic Information</div>
                     </div>
+                    <div hidden>
+                        <v-text-field
+                            v-model="form_basic_info.id"
+                            label="Universe ID"
+                            clearable
+                        ></v-text-field>
+                    </div>
                     <div>
                         <v-text-field
                             v-model="form_basic_info.un_firmname"
@@ -26,18 +33,14 @@
                         ></v-text-field>
                     </div>
                     <div>
-                        <v-text-field
+                        <v-autocomplete
+                            :items="universe_type_selection"
                             v-model="form_basic_info.un_type"
                             label="Universe Type"
+                            item-text="universe_type_selection_obj"
+                            item-value="universe_type_selection_obj"
                             clearable
-                        ></v-text-field>
-                    </div>
-                    <div >
-                        <v-text-field
-                            v-model="form_basic_info.id"
-                            label="Universe ID"
-                            clearable
-                        ></v-text-field>
+                        ></v-autocomplete>
                     </div>
             </div>
             <div class="grid grid-cols-3 gap-y-0 gap-x-4 ml-8">
@@ -250,6 +253,10 @@ import axios from 'axios';
     },
     data () {
       return {
+        universe_type_selection:[
+            { 'universe_type_selection_obj': 'Firm'  },
+            { 'universe_type_selection_obj': 'Lgu'  },
+        ],
         basic_tab: null,
         province_list_alter: this.province_list,
         municipality_list_alter: this.municipality_list,

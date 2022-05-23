@@ -46,9 +46,7 @@
                             clearable
                         ></v-text-field>
                     </div>
-            </div>
-            <div class="grid grid-cols-4 gap-y-0 gap-x-4 ml-8">
-                    <div>
+                    <div v-if="form_permit_info.perm_law === 'RA 6969'">
                         <v-text-field
                             v-model="form_permit_info.perm_hazwaste_type"
                             label="Hazwaste Type"

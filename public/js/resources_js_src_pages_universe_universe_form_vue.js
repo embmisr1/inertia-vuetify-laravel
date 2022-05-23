@@ -740,6 +740,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
@@ -801,6 +804,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
   data: function data() {
     return {
+      universe_type_selection: [{
+        'universe_type_selection_obj': 'Firm'
+      }, {
+        'universe_type_selection_obj': 'Lgu'
+      }],
       basic_tab: null,
       province_list_alter: this.province_list,
       municipality_list_alter: this.municipality_list,
@@ -2045,8 +2053,6 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-//
-//
 //
 //
 //
@@ -4725,6 +4731,24 @@ var render = function () {
       _vm._v(" "),
       _c(
         "div",
+        { attrs: { hidden: "" } },
+        [
+          _c("v-text-field", {
+            attrs: { label: "Universe ID", clearable: "" },
+            model: {
+              value: _vm.form_basic_info.id,
+              callback: function ($$v) {
+                _vm.$set(_vm.form_basic_info, "id", $$v)
+              },
+              expression: "form_basic_info.id",
+            },
+          }),
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
         [
           _c("v-text-field", {
             attrs: { label: "Firm Name", clearable: "" },
@@ -4777,31 +4801,20 @@ var render = function () {
       _c(
         "div",
         [
-          _c("v-text-field", {
-            attrs: { label: "Universe Type", clearable: "" },
+          _c("v-autocomplete", {
+            attrs: {
+              items: _vm.universe_type_selection,
+              label: "Universe Type",
+              "item-text": "universe_type_selection_obj",
+              "item-value": "universe_type_selection_obj",
+              clearable: "",
+            },
             model: {
               value: _vm.form_basic_info.un_type,
               callback: function ($$v) {
                 _vm.$set(_vm.form_basic_info, "un_type", $$v)
               },
               expression: "form_basic_info.un_type",
-            },
-          }),
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        [
-          _c("v-text-field", {
-            attrs: { label: "Universe ID", clearable: "" },
-            model: {
-              value: _vm.form_basic_info.id,
-              callback: function ($$v) {
-                _vm.$set(_vm.form_basic_info, "id", $$v)
-              },
-              expression: "form_basic_info.id",
             },
           }),
         ],
@@ -7030,25 +7043,25 @@ var render = function () {
           ],
           1
         ),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "grid grid-cols-4 gap-y-0 gap-x-4 ml-8" }, [
-        _c(
-          "div",
-          [
-            _c("v-text-field", {
-              attrs: { label: "Hazwaste Type", clearable: "" },
-              model: {
-                value: _vm.form_permit_info.perm_hazwaste_type,
-                callback: function ($$v) {
-                  _vm.$set(_vm.form_permit_info, "perm_hazwaste_type", $$v)
-                },
-                expression: "form_permit_info.perm_hazwaste_type",
-              },
-            }),
-          ],
-          1
-        ),
+        _vm._v(" "),
+        _vm.form_permit_info.perm_law === "RA 6969"
+          ? _c(
+              "div",
+              [
+                _c("v-text-field", {
+                  attrs: { label: "Hazwaste Type", clearable: "" },
+                  model: {
+                    value: _vm.form_permit_info.perm_hazwaste_type,
+                    callback: function ($$v) {
+                      _vm.$set(_vm.form_permit_info, "perm_hazwaste_type", $$v)
+                    },
+                    expression: "form_permit_info.perm_hazwaste_type",
+                  },
+                }),
+              ],
+              1
+            )
+          : _vm._e(),
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "grid grid-cols-2 gap-y-0 gap-x-4 ml-8" }, [
