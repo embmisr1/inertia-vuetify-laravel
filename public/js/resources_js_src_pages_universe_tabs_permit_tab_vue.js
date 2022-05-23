@@ -135,6 +135,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     form_permit_info: Object,
@@ -181,6 +184,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         text: 'Actions',
         value: 'actions',
         sortable: false
+      }],
+      permit_law_selection: [{
+        'law_selection': 'PD 1586'
+      }, {
+        'law_selection': 'RA 8749'
+      }, {
+        'law_selection': 'RA 9275'
+      }, {
+        'law_selection': 'RA 6969'
       }]
     };
   },
@@ -1101,8 +1113,14 @@ var render = function () {
         _c(
           "div",
           [
-            _c("v-text-field", {
-              attrs: { label: "Law", clearable: "" },
+            _c("v-autocomplete", {
+              attrs: {
+                items: _vm.permit_law_selection,
+                label: "Law",
+                "item-text": "law_selection",
+                "item-value": "law_selection",
+                clearable: "",
+              },
               model: {
                 value: _vm.form_permit_info.perm_law,
                 callback: function ($$v) {

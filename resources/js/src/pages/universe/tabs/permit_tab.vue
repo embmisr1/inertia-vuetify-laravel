@@ -9,11 +9,14 @@
                         ></v-text-field>
                     </div>
                     <div>
-                        <v-text-field
+                        <v-autocomplete
+                            :items="permit_law_selection"
                             v-model="form_permit_info.perm_law"
                             label="Law"
+                            item-text="law_selection"
+                            item-value="law_selection"
                             clearable
-                        ></v-text-field>
+                        ></v-autocomplete>
                     </div>
                     <div>
                         <v-text-field
@@ -160,6 +163,12 @@
         },
         
       ],
+      permit_law_selection:[
+        { 'law_selection': 'PD 1586'  },
+        { 'law_selection': 'RA 8749'  },
+        { 'law_selection': 'RA 9275'  },
+        { 'law_selection': 'RA 6969'  },
+      ]
     }),
     methods:{
         editPermit(item) {
