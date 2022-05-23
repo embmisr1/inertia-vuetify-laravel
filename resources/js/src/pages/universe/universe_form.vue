@@ -2,6 +2,8 @@
     <DefaultLayout>
         <MainTab
             :province_list="province_list" 
+            :municipality_list="municipality_list" 
+            :barangay_list="barangay_list" 
 
             :form_basic_info="form_basic_info" 
             :form_permit_info="form_permit_info" 
@@ -50,6 +52,8 @@ export default {
         ctr_file: Object,
         
         province_list: Array,
+        municipality_list: Array,
+        barangay_list: Array,
     },
     data: () => ({}),
 };

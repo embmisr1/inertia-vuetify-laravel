@@ -26,9 +26,10 @@ class UniverseController extends Controller
     }
 
     public function universe_form(request $request){
+        $province_list = Province::where('regCode','01')->get();
         if($request->id){
             $id = $request->id;
-            $query = Universe::where('id',$id)->get();
+            $query = Universe::find($id);
             $query_permit = Permit::where('universe_FK',$id)->get();
             $query_monitoring = Monitoring::where('universe_FK',$id)->get();
             $query_legal = Legal::where('universe_FK',$id)->get();
@@ -37,9 +38,11 @@ class UniverseController extends Controller
             $query_complaint = Complaint::where('universe_FK',$id)->get();
             $ctr_file = $this->mini_dashboard($id);
             $province_list = Province::where('regCode','01')->get();
+            $municipality_list = Municipality::where('provCode',$query->un_province)->get();
+            $barangay_list = Barangay::whereRaw('CAST(citymunCode AS SIGNED) = '.$query->un_municipality)->get();
             if($query->count() > 0){
                 return Inertia::render("pages/universe/universe_form",[
-                    'query'=>$query[0],
+                    'query'=>$query,
                     'permit_table'=>$query_permit,
                     'monitoring_table'=>$query_monitoring,
                     'legal_table'=>$query_legal,
@@ -48,6 +51,8 @@ class UniverseController extends Controller
                     'complaint_table'=>$query_complaint,
                     'ctr_file'=>$ctr_file,
                     'province_list'=>$province_list,
+                    'municipality_list'=>$municipality_list,
+                    'barangay_list'=>$barangay_list,
                 ]);
             }else{
                 return Inertia::render("pages/universe/universe_form",[
@@ -59,10 +64,16 @@ class UniverseController extends Controller
                     'complaint_table'=>$query_complaint,
                     'ctr_file'=>$ctr_file,
                     'province_list'=>$province_list,
+                    'municipality_list'=>$municipality_list,
+                    'barangay_list'=>$barangay_list,
                 ]);
             }
         }else{
-                return Inertia::render("pages/universe/universe_form");
+                return Inertia::render("pages/universe/universe_form",[
+                    'province_list'=>$province_list,
+                    'municipality_list'=>[],
+                    'barangay_list'=>[],
+                ]);
         }
     }
 
@@ -532,8 +543,12 @@ class UniverseController extends Controller
         return $array;
     }
 
-    public function search_province($id){
+    public function province_dropdown($id){
         $query = Municipality::where('provCode', $id)->get();
+        return response()->json($query);
+    }
+    public function municipality_dropdown($id){
+        $query = Barangay::whereRaw('CAST(citymunCode AS SIGNED) = '.$id)->get();
         return response()->json($query);
     }
 }

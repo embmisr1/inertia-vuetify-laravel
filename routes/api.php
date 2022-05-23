@@ -18,4 +18,5 @@ use App\Http\Controllers\UniverseController;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::get('app/search_province/{id}', [UniverseController::class, 'search_province'])->name("search_province");
+Route::get('app/province_dropdown/{id}', [UniverseController::class, 'province_dropdown'])->name("province_dropdown");
+Route::get('app/municipality_dropdown/{id}', [UniverseController::class, 'municipality_dropdown'])->name("municipality_dropdown");

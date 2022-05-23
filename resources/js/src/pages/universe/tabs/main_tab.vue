@@ -109,7 +109,11 @@
               </v-tab>
 
               <v-tab-item>
-                  <BasicTab :form_basic_info="form_basic_info" :province_list="province_list"></BasicTab>
+                  <BasicTab :form_basic_info="form_basic_info" 
+                    :province_list="province_list" 
+                    :municipality_list="municipality_list" 
+                    :barangay_list="barangay_list">
+                  </BasicTab>
               </v-tab-item>
               <v-tab-item>
                   <PermitTab :form_permit_info="form_permit_info" :permit_table="permit_table"></PermitTab>
@@ -167,6 +171,8 @@
       ctr_file: Object,
       
       province_list: Array,
+      municipality_list: Array,
+      barangay_list: Array,
     },
     components:{
         BasicTab,

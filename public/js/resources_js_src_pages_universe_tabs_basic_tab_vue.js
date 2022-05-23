@@ -254,44 +254,79 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     form_basic_info: Object,
-    province_list: Array
+    province_list: Array,
+    municipality_list: Array,
+    barangay_list: Array
   },
-  computed: {
-    searchProv: function searchProv() {
-      return this.form_basic_info.un_province;
-    }
-  },
-  watch: {
-    searchProv: function searchProv(data) {
+  methods: {
+    provinceDropdown: function provinceDropdown(val) {
+      var _this = this;
+
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
-        var abc;
+        var municipality;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return axios__WEBPACK_IMPORTED_MODULE_1___default().get("http://127.0.0.1:8000/api/app/search_province/".concat(data));
+                return axios__WEBPACK_IMPORTED_MODULE_1___default().get("http://127.0.0.1:8000/api/app/province_dropdown/".concat(val));
 
               case 2:
-                abc = _context.sent;
-                console.log(abc.data);
+                municipality = _context.sent;
+                _this.municipality_list_alter = municipality.data;
+                _this.barangay_list_alter = [];
 
-              case 4:
+              case 5:
               case "end":
                 return _context.stop();
             }
           }
         }, _callee);
       }))();
+    },
+    municipalityDropdown: function municipalityDropdown(val) {
+      var _this2 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
+        var barangay;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.next = 2;
+                return axios__WEBPACK_IMPORTED_MODULE_1___default().get("http://127.0.0.1:8000/api/app/municipality_dropdown/".concat(val));
+
+              case 2:
+                barangay = _context2.sent;
+                _this2.barangay_list_alter = barangay.data;
+
+              case 4:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2);
+      }))();
     }
   },
   data: function data() {
     return {
-      basic_tab: null
+      basic_tab: null,
+      province_list_alter: this.province_list,
+      municipality_list_alter: this.municipality_list,
+      barangay_list_alter: this.barangay_list
     };
   }
 });
@@ -1266,12 +1301,13 @@ var render = function () {
         [
           _c("v-autocomplete", {
             attrs: {
-              items: _vm.province_list,
+              items: _vm.province_list_alter,
               label: "Province",
               "item-text": "provDesc",
               "item-value": "PK_province_ID",
               clearable: "",
             },
+            on: { change: _vm.provinceDropdown },
             model: {
               value: _vm.form_basic_info.un_province,
               callback: function ($$v) {
@@ -1287,8 +1323,15 @@ var render = function () {
       _c(
         "div",
         [
-          _c("v-text-field", {
-            attrs: { label: "Municipality", clearable: "" },
+          _c("v-autocomplete", {
+            attrs: {
+              items: _vm.municipality_list_alter,
+              label: "Municipality",
+              "item-text": "citymunDesc",
+              "item-value": "PK_citymun_ID",
+              clearable: "",
+            },
+            on: { change: _vm.municipalityDropdown },
             model: {
               value: _vm.form_basic_info.un_municipality,
               callback: function ($$v) {
@@ -1304,8 +1347,14 @@ var render = function () {
       _c(
         "div",
         [
-          _c("v-text-field", {
-            attrs: { label: "Barangay", clearable: "" },
+          _c("v-autocomplete", {
+            attrs: {
+              items: _vm.barangay_list_alter,
+              label: "Barangay",
+              "item-text": "brgyDesc",
+              "item-value": "PK_brgy_ID",
+              clearable: "",
+            },
             model: {
               value: _vm.form_basic_info.un_brgy,
               callback: function ($$v) {

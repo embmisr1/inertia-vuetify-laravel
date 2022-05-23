@@ -46,8 +46,9 @@
                     </div>
                     <div>
                         <v-autocomplete
-                            :items="province_list"
+                            :items="province_list_alter"
                             v-model="form_basic_info.un_province"
+                            @change="provinceDropdown"
                             label="Province"
                             item-text="provDesc"
                             item-value="PK_province_ID"
@@ -55,18 +56,25 @@
                         ></v-autocomplete>
                     </div>
                     <div>
-                        <v-text-field
+                        <v-autocomplete
+                            :items="municipality_list_alter"
                             v-model="form_basic_info.un_municipality"
+                            @change="municipalityDropdown"
                             label="Municipality"
+                            item-text="citymunDesc"
+                            item-value="PK_citymun_ID"
                             clearable
-                        ></v-text-field>
+                        ></v-autocomplete>
                     </div>
                     <div>
-                        <v-text-field
+                        <v-autocomplete
+                            :items="barangay_list_alter"
                             v-model="form_basic_info.un_brgy"
                             label="Barangay"
+                            item-text="brgyDesc"
+                            item-value="PK_brgy_ID"
                             clearable
-                        ></v-text-field>
+                        ></v-autocomplete>
                     </div>
                     <div>
                         <v-text-field
@@ -226,21 +234,26 @@ import axios from 'axios';
     props:{
         form_basic_info: Object,
         province_list: Array,
+        municipality_list: Array,
+        barangay_list: Array,
     },
-    computed:{
-        searchProv(){
-            return this.form_basic_info.un_province;
-        }
-    },
-    watch:{
-        async searchProv(data){
-            const abc = await axios.get(`http://127.0.0.1:8000/api/app/search_province/${data}`);
-            console.log(abc.data);
+    methods:{
+        async provinceDropdown(val){
+            const municipality = await axios.get(`http://127.0.0.1:8000/api/app/province_dropdown/${val}`);
+            this.municipality_list_alter = municipality.data;
+            this.barangay_list_alter = [];
+        },
+        async municipalityDropdown(val){
+            const barangay = await axios.get(`http://127.0.0.1:8000/api/app/municipality_dropdown/${val}`);
+            this.barangay_list_alter = barangay.data;
         }
     },
     data () {
       return {
         basic_tab: null,
+        province_list_alter: this.province_list,
+        municipality_list_alter: this.municipality_list,
+        barangay_list_alter: this.barangay_list,
       }
     },
   }
