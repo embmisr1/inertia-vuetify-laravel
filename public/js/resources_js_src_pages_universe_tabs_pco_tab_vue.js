@@ -155,6 +155,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         sortable: false,
         value: 'pco_end_date'
       }, {
+        width: '100px',
         text: 'Actions',
         value: 'actions',
         sortable: false

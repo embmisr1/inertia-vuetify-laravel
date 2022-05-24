@@ -130,6 +130,7 @@
           value: 'pco_end_date',
         },
         { 
+          width: '100px',
           text: 'Actions', 
           value: 'actions', 
           sortable: false,

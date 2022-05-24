@@ -219,6 +219,7 @@
           value: 'nov_desc',
         },
         { 
+          width: '100px',
           text: 'Actions', 
           value: 'actions', 
           sortable: false,

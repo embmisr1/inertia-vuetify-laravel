@@ -123,6 +123,7 @@
           value: 'mon_file',
         },
         { 
+          width: '100px',
           text: 'Actions', 
           value: 'actions', 
           sortable: false,

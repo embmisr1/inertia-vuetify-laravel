@@ -157,6 +157,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         sortable: false,
         value: 'haz_file'
       }, {
+        width: '100px',
         text: 'Actions',
         value: 'actions',
         sortable: false

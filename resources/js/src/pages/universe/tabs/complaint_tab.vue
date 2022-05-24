@@ -121,6 +121,7 @@
           value: 'comp_remarks',
         },
         { 
+          width: '100px',
           text: 'Actions', 
           value: 'actions', 
           sortable: false,

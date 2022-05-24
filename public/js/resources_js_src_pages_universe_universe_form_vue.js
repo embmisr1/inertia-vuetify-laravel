@@ -955,6 +955,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         sortable: false,
         value: 'comp_remarks'
       }, {
+        width: '100px',
         text: 'Actions',
         value: 'actions',
         sortable: false
@@ -1140,6 +1141,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         sortable: false,
         value: 'haz_file'
       }, {
+        width: '100px',
         text: 'Actions',
         value: 'actions',
         sortable: false
@@ -1412,6 +1414,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         sortable: false,
         value: 'nov_desc'
       }, {
+        width: '100px',
         text: 'Actions',
         value: 'actions',
         sortable: false
@@ -1860,6 +1863,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         sortable: false,
         value: 'mon_file'
       }, {
+        width: '100px',
         text: 'Actions',
         value: 'actions',
         sortable: false
@@ -2043,6 +2047,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         sortable: false,
         value: 'pco_end_date'
       }, {
+        width: '100px',
         text: 'Actions',
         value: 'actions',
         sortable: false
@@ -2251,6 +2256,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         sortable: false,
         value: 'perm_file'
       }, {
+        width: '100px',
         text: 'Actions',
         value: 'actions',
         sortable: false
@@ -6236,7 +6242,7 @@ var render = function () {
                 _vm._v(" "),
                 _c("MiniDashboard", {
                   attrs: {
-                    dashboard_header_label: "Monitoring",
+                    dashboard_header_label: "Monitoring: ",
                     dashboard_header: _vm.ctr_file["monitoring"].header,
                     dashboard_content_label:
                       _vm.ctr_file["monitoring"].content_label,
@@ -6255,7 +6261,7 @@ var render = function () {
                 _vm._v(" "),
                 _c("MiniDashboard", {
                   attrs: {
-                    dashboard_header_label: "Complaint: ",
+                    dashboard_header_label: "Complaint",
                     dashboard_header: _vm.ctr_file["complaint"].header,
                     dashboard_content_label:
                       _vm.ctr_file["complaint"].content_label,

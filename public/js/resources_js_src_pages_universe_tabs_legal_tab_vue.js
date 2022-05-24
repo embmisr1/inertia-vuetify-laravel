@@ -243,6 +243,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         sortable: false,
         value: 'nov_desc'
       }, {
+        width: '100px',
         text: 'Actions',
         value: 'actions',
         sortable: false

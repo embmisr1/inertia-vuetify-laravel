@@ -24,7 +24,7 @@
                       :dashboard_content="ctr_file['nov'].content"
                   ></MiniDashboard>
                   <MiniDashboard 
-                      dashboard_header_label="Monitoring" 
+                      dashboard_header_label="Monitoring: " 
                       :dashboard_header="ctr_file['monitoring'].header" 
                       :dashboard_content_label="ctr_file['monitoring'].content_label"
                       :dashboard_content="ctr_file['monitoring'].content"
@@ -36,7 +36,7 @@
                       :dashboard_content="ctr_file['pco'].content"
                   ></MiniDashboard>
                   <MiniDashboard 
-                      dashboard_header_label="Complaint: " 
+                      dashboard_header_label="Complaint" 
                       :dashboard_header="ctr_file['complaint'].header" 
                       :dashboard_content_label="ctr_file['complaint'].content_label"
                       :dashboard_content="ctr_file['complaint'].content"
