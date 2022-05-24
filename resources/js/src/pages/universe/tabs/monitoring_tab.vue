@@ -34,12 +34,57 @@
                             class="p-0 m-0"
                         ></v-checkbox>
                     </div>
+                    <!--
                     <div>
                         <v-text-field
                             v-model="form_monitoring_info.mon_date_monitored"
                             label="Monitoring Date"
                             clearable
                         ></v-text-field>
+                    </div>
+                    -->
+                    <div>
+                        <v-menu
+                            ref="date_monitoring_menu"
+                            v-model="date_monitoring_menu"
+                            :close-on-content-click="false"
+                            :return-value.sync="form_monitoring_info.mon_date_monitored"
+                            transition="scale-transition"
+                            offset-y
+                            min-width="auto"
+                        >
+                            <template v-slot:activator="{ on, attrs }">
+                                <v-text-field
+                                    v-model="form_monitoring_info.mon_date_monitored"
+                                    label="Date Monitored"
+                                    readonly
+                                    v-bind="attrs"
+                                    v-on="on"
+                                    clearable
+                                ></v-text-field>
+                            </template>
+                            <v-date-picker
+                                v-model="form_monitoring_info.mon_date_monitored"
+                                no-title
+                                scrollable
+                            >
+                            <v-spacer></v-spacer>
+                            <v-btn
+                                text
+                                color="primary"
+                                @click="date_monitoring_menu = false"
+                            >
+                                Cancel
+                            </v-btn>
+                            <v-btn
+                                text
+                                color="primary"
+                                @click="$refs.date_monitoring_menu.save(form_monitoring_info.mon_date_monitored)"
+                            >
+                                OK
+                            </v-btn>
+                            </v-date-picker>
+                        </v-menu>
                     </div>
                     <div>
                         <v-text-field
@@ -130,6 +175,7 @@
         },
         
       ],
+      date_monitoring_menu: '',
     }),
     methods:{
         editMonitoring(item) {

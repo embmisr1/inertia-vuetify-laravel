@@ -6,7 +6,13 @@
         <div class="text-lg p-4">
             <div v-if="dashboard_header_label === 'Permits: '">
                 <div class="text-xl text-center grid grid-cols-2">
-                    <div v-for="(item, index) in dashboard_content" :key="index">{{dashboard_content_label[index]}}<b class="text-2xl">{{dashboard_content[index]}}</b></div>
+                    <div v-if="(index <= 3)" v-for="(item, index) in dashboard_content" :key="index">
+                        {{dashboard_content_label[index]}}<b class="text-2xl">{{dashboard_content[index]}}</b>
+                    </div>
+                    <div v-if="(index >= 4)" v-for="(item, index) in dashboard_content" :key="index">
+                        <hr/>
+                        {{dashboard_content_label[index]}}<b class="text-2xl">{{dashboard_content[index]}}</b>
+                    </div>
                 </div>
             </div>
             <div v-else>

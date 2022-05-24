@@ -1709,6 +1709,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     dashboard_header_label: String,
@@ -1835,6 +1841,51 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     form_monitoring_info: Object,
@@ -1867,7 +1918,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         text: 'Actions',
         value: 'actions',
         sortable: false
-      }]
+      }],
+      date_monitoring_menu: ''
     };
   },
   methods: {
@@ -2213,6 +2265,80 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     form_permit_info: Object,
@@ -2269,7 +2395,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         'law_selection': 'RA 9275'
       }, {
         'law_selection': 'RA 6969'
-      }]
+      }],
+      date_permit_issuance_menu: '',
+      date_permit_expiry_menu: ''
     };
   },
   methods: {
@@ -6541,15 +6669,37 @@ var render = function () {
               _c(
                 "div",
                 { staticClass: "text-xl text-center grid grid-cols-2" },
-                _vm._l(_vm.dashboard_content, function (item, index) {
-                  return _c("div", { key: index }, [
-                    _vm._v(_vm._s(_vm.dashboard_content_label[index])),
-                    _c("b", { staticClass: "text-2xl" }, [
-                      _vm._v(_vm._s(_vm.dashboard_content[index])),
-                    ]),
-                  ])
-                }),
-                0
+                [
+                  _vm._l(_vm.dashboard_content, function (item, index) {
+                    return index <= 3
+                      ? _c("div", { key: index }, [
+                          _vm._v(
+                            "\n                    " +
+                              _vm._s(_vm.dashboard_content_label[index])
+                          ),
+                          _c("b", { staticClass: "text-2xl" }, [
+                            _vm._v(_vm._s(_vm.dashboard_content[index])),
+                          ]),
+                        ])
+                      : _vm._e()
+                  }),
+                  _vm._v(" "),
+                  _vm._l(_vm.dashboard_content, function (item, index) {
+                    return index >= 4
+                      ? _c("div", { key: index }, [
+                          _c("hr"),
+                          _vm._v(
+                            "\n                    " +
+                              _vm._s(_vm.dashboard_content_label[index])
+                          ),
+                          _c("b", { staticClass: "text-2xl" }, [
+                            _vm._v(_vm._s(_vm.dashboard_content[index])),
+                          ]),
+                        ])
+                      : _vm._e()
+                  }),
+                ],
+                2
               ),
             ])
           : _c(
@@ -6680,16 +6830,145 @@ var render = function () {
         _c(
           "div",
           [
-            _c("v-text-field", {
-              attrs: { label: "Monitoring Date", clearable: "" },
-              model: {
-                value: _vm.form_monitoring_info.mon_date_monitored,
-                callback: function ($$v) {
-                  _vm.$set(_vm.form_monitoring_info, "mon_date_monitored", $$v)
+            _c(
+              "v-menu",
+              {
+                ref: "date_monitoring_menu",
+                attrs: {
+                  "close-on-content-click": false,
+                  "return-value": _vm.form_monitoring_info.mon_date_monitored,
+                  transition: "scale-transition",
+                  "offset-y": "",
+                  "min-width": "auto",
                 },
-                expression: "form_monitoring_info.mon_date_monitored",
+                on: {
+                  "update:returnValue": function ($event) {
+                    return _vm.$set(
+                      _vm.form_monitoring_info,
+                      "mon_date_monitored",
+                      $event
+                    )
+                  },
+                  "update:return-value": function ($event) {
+                    return _vm.$set(
+                      _vm.form_monitoring_info,
+                      "mon_date_monitored",
+                      $event
+                    )
+                  },
+                },
+                scopedSlots: _vm._u([
+                  {
+                    key: "activator",
+                    fn: function (ref) {
+                      var on = ref.on
+                      var attrs = ref.attrs
+                      return [
+                        _c(
+                          "v-text-field",
+                          _vm._g(
+                            _vm._b(
+                              {
+                                attrs: {
+                                  label: "Date Monitored",
+                                  readonly: "",
+                                  clearable: "",
+                                },
+                                model: {
+                                  value:
+                                    _vm.form_monitoring_info.mon_date_monitored,
+                                  callback: function ($$v) {
+                                    _vm.$set(
+                                      _vm.form_monitoring_info,
+                                      "mon_date_monitored",
+                                      $$v
+                                    )
+                                  },
+                                  expression:
+                                    "form_monitoring_info.mon_date_monitored",
+                                },
+                              },
+                              "v-text-field",
+                              attrs,
+                              false
+                            ),
+                            on
+                          )
+                        ),
+                      ]
+                    },
+                  },
+                ]),
+                model: {
+                  value: _vm.date_monitoring_menu,
+                  callback: function ($$v) {
+                    _vm.date_monitoring_menu = $$v
+                  },
+                  expression: "date_monitoring_menu",
+                },
               },
-            }),
+              [
+                _vm._v(" "),
+                _c(
+                  "v-date-picker",
+                  {
+                    attrs: { "no-title": "", scrollable: "" },
+                    model: {
+                      value: _vm.form_monitoring_info.mon_date_monitored,
+                      callback: function ($$v) {
+                        _vm.$set(
+                          _vm.form_monitoring_info,
+                          "mon_date_monitored",
+                          $$v
+                        )
+                      },
+                      expression: "form_monitoring_info.mon_date_monitored",
+                    },
+                  },
+                  [
+                    _c("v-spacer"),
+                    _vm._v(" "),
+                    _c(
+                      "v-btn",
+                      {
+                        attrs: { text: "", color: "primary" },
+                        on: {
+                          click: function ($event) {
+                            _vm.date_monitoring_menu = false
+                          },
+                        },
+                      },
+                      [
+                        _vm._v(
+                          "\n                        Cancel\n                    "
+                        ),
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "v-btn",
+                      {
+                        attrs: { text: "", color: "primary" },
+                        on: {
+                          click: function ($event) {
+                            return _vm.$refs.date_monitoring_menu.save(
+                              _vm.form_monitoring_info.mon_date_monitored
+                            )
+                          },
+                        },
+                      },
+                      [
+                        _vm._v(
+                          "\n                        OK\n                    "
+                        ),
+                      ]
+                    ),
+                  ],
+                  1
+                ),
+              ],
+              1
+            ),
           ],
           1
         ),
@@ -7142,16 +7421,145 @@ var render = function () {
         _c(
           "div",
           [
-            _c("v-text-field", {
-              attrs: { label: "Date Issued", clearable: "" },
-              model: {
-                value: _vm.form_permit_info.perm_date_issuance,
-                callback: function ($$v) {
-                  _vm.$set(_vm.form_permit_info, "perm_date_issuance", $$v)
+            _c(
+              "v-menu",
+              {
+                ref: "date_permit_issuance_menu",
+                attrs: {
+                  "close-on-content-click": false,
+                  "return-value": _vm.form_permit_info.perm_date_issuance,
+                  transition: "scale-transition",
+                  "offset-y": "",
+                  "min-width": "auto",
                 },
-                expression: "form_permit_info.perm_date_issuance",
+                on: {
+                  "update:returnValue": function ($event) {
+                    return _vm.$set(
+                      _vm.form_permit_info,
+                      "perm_date_issuance",
+                      $event
+                    )
+                  },
+                  "update:return-value": function ($event) {
+                    return _vm.$set(
+                      _vm.form_permit_info,
+                      "perm_date_issuance",
+                      $event
+                    )
+                  },
+                },
+                scopedSlots: _vm._u([
+                  {
+                    key: "activator",
+                    fn: function (ref) {
+                      var on = ref.on
+                      var attrs = ref.attrs
+                      return [
+                        _c(
+                          "v-text-field",
+                          _vm._g(
+                            _vm._b(
+                              {
+                                attrs: {
+                                  label: "Date Issuance",
+                                  readonly: "",
+                                  clearable: "",
+                                },
+                                model: {
+                                  value:
+                                    _vm.form_permit_info.perm_date_issuance,
+                                  callback: function ($$v) {
+                                    _vm.$set(
+                                      _vm.form_permit_info,
+                                      "perm_date_issuance",
+                                      $$v
+                                    )
+                                  },
+                                  expression:
+                                    "form_permit_info.perm_date_issuance",
+                                },
+                              },
+                              "v-text-field",
+                              attrs,
+                              false
+                            ),
+                            on
+                          )
+                        ),
+                      ]
+                    },
+                  },
+                ]),
+                model: {
+                  value: _vm.date_permit_issuance_menu,
+                  callback: function ($$v) {
+                    _vm.date_permit_issuance_menu = $$v
+                  },
+                  expression: "date_permit_issuance_menu",
+                },
               },
-            }),
+              [
+                _vm._v(" "),
+                _c(
+                  "v-date-picker",
+                  {
+                    attrs: { "no-title": "", scrollable: "" },
+                    model: {
+                      value: _vm.form_permit_info.perm_date_issuance,
+                      callback: function ($$v) {
+                        _vm.$set(
+                          _vm.form_permit_info,
+                          "perm_date_issuance",
+                          $$v
+                        )
+                      },
+                      expression: "form_permit_info.perm_date_issuance",
+                    },
+                  },
+                  [
+                    _c("v-spacer"),
+                    _vm._v(" "),
+                    _c(
+                      "v-btn",
+                      {
+                        attrs: { text: "", color: "primary" },
+                        on: {
+                          click: function ($event) {
+                            _vm.date_permit_issuance_menu = false
+                          },
+                        },
+                      },
+                      [
+                        _vm._v(
+                          "\n                        Cancel\n                    "
+                        ),
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "v-btn",
+                      {
+                        attrs: { text: "", color: "primary" },
+                        on: {
+                          click: function ($event) {
+                            return _vm.$refs.date_permit_issuance_menu.save(
+                              _vm.form_permit_info.perm_date_issuance
+                            )
+                          },
+                        },
+                      },
+                      [
+                        _vm._v(
+                          "\n                        OK\n                    "
+                        ),
+                      ]
+                    ),
+                  ],
+                  1
+                ),
+              ],
+              1
+            ),
           ],
           1
         ),
@@ -7159,16 +7567,140 @@ var render = function () {
         _c(
           "div",
           [
-            _c("v-text-field", {
-              attrs: { label: "Date Expiry", clearable: "" },
-              model: {
-                value: _vm.form_permit_info.perm_date_expiry,
-                callback: function ($$v) {
-                  _vm.$set(_vm.form_permit_info, "perm_date_expiry", $$v)
+            _c(
+              "v-menu",
+              {
+                ref: "date_permit_expiry_menu",
+                attrs: {
+                  "close-on-content-click": false,
+                  "return-value": _vm.form_permit_info.perm_date_expiry,
+                  transition: "scale-transition",
+                  "offset-y": "",
+                  "min-width": "auto",
                 },
-                expression: "form_permit_info.perm_date_expiry",
+                on: {
+                  "update:returnValue": function ($event) {
+                    return _vm.$set(
+                      _vm.form_permit_info,
+                      "perm_date_expiry",
+                      $event
+                    )
+                  },
+                  "update:return-value": function ($event) {
+                    return _vm.$set(
+                      _vm.form_permit_info,
+                      "perm_date_expiry",
+                      $event
+                    )
+                  },
+                },
+                scopedSlots: _vm._u([
+                  {
+                    key: "activator",
+                    fn: function (ref) {
+                      var on = ref.on
+                      var attrs = ref.attrs
+                      return [
+                        _c(
+                          "v-text-field",
+                          _vm._g(
+                            _vm._b(
+                              {
+                                attrs: {
+                                  label: "Date Expiry",
+                                  readonly: "",
+                                  clearable: "",
+                                },
+                                model: {
+                                  value: _vm.form_permit_info.perm_date_expiry,
+                                  callback: function ($$v) {
+                                    _vm.$set(
+                                      _vm.form_permit_info,
+                                      "perm_date_expiry",
+                                      $$v
+                                    )
+                                  },
+                                  expression:
+                                    "form_permit_info.perm_date_expiry",
+                                },
+                              },
+                              "v-text-field",
+                              attrs,
+                              false
+                            ),
+                            on
+                          )
+                        ),
+                      ]
+                    },
+                  },
+                ]),
+                model: {
+                  value: _vm.date_permit_expiry_menu,
+                  callback: function ($$v) {
+                    _vm.date_permit_expiry_menu = $$v
+                  },
+                  expression: "date_permit_expiry_menu",
+                },
               },
-            }),
+              [
+                _vm._v(" "),
+                _c(
+                  "v-date-picker",
+                  {
+                    attrs: { "no-title": "", scrollable: "" },
+                    model: {
+                      value: _vm.form_permit_info.perm_date_expiry,
+                      callback: function ($$v) {
+                        _vm.$set(_vm.form_permit_info, "perm_date_expiry", $$v)
+                      },
+                      expression: "form_permit_info.perm_date_expiry",
+                    },
+                  },
+                  [
+                    _c("v-spacer"),
+                    _vm._v(" "),
+                    _c(
+                      "v-btn",
+                      {
+                        attrs: { text: "", color: "primary" },
+                        on: {
+                          click: function ($event) {
+                            _vm.date_permit_expiry_menu = false
+                          },
+                        },
+                      },
+                      [
+                        _vm._v(
+                          "\n                        Cancel\n                    "
+                        ),
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "v-btn",
+                      {
+                        attrs: { text: "", color: "primary" },
+                        on: {
+                          click: function ($event) {
+                            return _vm.$refs.date_permit_expiry_menu.save(
+                              _vm.form_permit_info.perm_date_expiry
+                            )
+                          },
+                        },
+                      },
+                      [
+                        _vm._v(
+                          "\n                        OK\n                    "
+                        ),
+                      ]
+                    ),
+                  ],
+                  1
+                ),
+              ],
+              1
+            ),
           ],
           1
         ),

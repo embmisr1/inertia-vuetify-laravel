@@ -8,6 +8,7 @@ use App\Http\Controllers\Profile;
 use App\Http\Controllers\UnitSectionController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\UniverseController;
+use App\Http\Controllers\TestingController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -84,5 +85,5 @@ Route::group([
   Route::delete('/delete_pco/{id}', [UniverseController::class, 'delete_pco'])->name("delete_pco");
   Route::delete('/delete_complaint/{id}', [UniverseController::class, 'delete_complaint'])->name("delete_complaint");
   //Testing Route
-  Route::get('/testing_route', [UniverseController::class, 'testing_route'])->name("testing_route");
+  Route::get('/testing_route', [TestingController::class, 'testing_route'])->name("testing_route");
 });

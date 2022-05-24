@@ -30,6 +30,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     dashboard_header_label: String,
@@ -156,15 +162,37 @@ var render = function () {
               _c(
                 "div",
                 { staticClass: "text-xl text-center grid grid-cols-2" },
-                _vm._l(_vm.dashboard_content, function (item, index) {
-                  return _c("div", { key: index }, [
-                    _vm._v(_vm._s(_vm.dashboard_content_label[index])),
-                    _c("b", { staticClass: "text-2xl" }, [
-                      _vm._v(_vm._s(_vm.dashboard_content[index])),
-                    ]),
-                  ])
-                }),
-                0
+                [
+                  _vm._l(_vm.dashboard_content, function (item, index) {
+                    return index <= 3
+                      ? _c("div", { key: index }, [
+                          _vm._v(
+                            "\n                    " +
+                              _vm._s(_vm.dashboard_content_label[index])
+                          ),
+                          _c("b", { staticClass: "text-2xl" }, [
+                            _vm._v(_vm._s(_vm.dashboard_content[index])),
+                          ]),
+                        ])
+                      : _vm._e()
+                  }),
+                  _vm._v(" "),
+                  _vm._l(_vm.dashboard_content, function (item, index) {
+                    return index >= 4
+                      ? _c("div", { key: index }, [
+                          _c("hr"),
+                          _vm._v(
+                            "\n                    " +
+                              _vm._s(_vm.dashboard_content_label[index])
+                          ),
+                          _c("b", { staticClass: "text-2xl" }, [
+                            _vm._v(_vm._s(_vm.dashboard_content[index])),
+                          ]),
+                        ])
+                      : _vm._e()
+                  }),
+                ],
+                2
               ),
             ])
           : _c(

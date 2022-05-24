@@ -32,20 +32,94 @@
                             clearable
                         ></v-text-field>
                     </div>
+                    <!--date start-->
                     <div>
-                        <v-text-field
-                            v-model="form_permit_info.perm_date_issuance"
-                            label="Date Issued"
-                            clearable
-                        ></v-text-field>
+                        <v-menu
+                            ref="date_permit_issuance_menu"
+                            v-model="date_permit_issuance_menu"
+                            :close-on-content-click="false"
+                            :return-value.sync="form_permit_info.perm_date_issuance"
+                            transition="scale-transition"
+                            offset-y
+                            min-width="auto"
+                        >
+                            <template v-slot:activator="{ on, attrs }">
+                                <v-text-field
+                                    v-model="form_permit_info.perm_date_issuance"
+                                    label="Date Issuance"
+                                    readonly
+                                    v-bind="attrs"
+                                    v-on="on"
+                                    clearable
+                                ></v-text-field>
+                            </template>
+                            <v-date-picker
+                                v-model="form_permit_info.perm_date_issuance"
+                                no-title
+                                scrollable
+                            >
+                            <v-spacer></v-spacer>
+                            <v-btn
+                                text
+                                color="primary"
+                                @click="date_permit_issuance_menu = false"
+                            >
+                                Cancel
+                            </v-btn>
+                            <v-btn
+                                text
+                                color="primary"
+                                @click="$refs.date_permit_issuance_menu.save(form_permit_info.perm_date_issuance)"
+                            >
+                                OK
+                            </v-btn>
+                            </v-date-picker>
+                        </v-menu>
                     </div>
                     <div>
-                        <v-text-field
-                            v-model="form_permit_info.perm_date_expiry"
-                            label="Date Expiry"
-                            clearable
-                        ></v-text-field>
+                        <v-menu
+                            ref="date_permit_expiry_menu"
+                            v-model="date_permit_expiry_menu"
+                            :close-on-content-click="false"
+                            :return-value.sync="form_permit_info.perm_date_expiry"
+                            transition="scale-transition"
+                            offset-y
+                            min-width="auto"
+                        >
+                            <template v-slot:activator="{ on, attrs }">
+                                <v-text-field
+                                    v-model="form_permit_info.perm_date_expiry"
+                                    label="Date Expiry"
+                                    readonly
+                                    v-bind="attrs"
+                                    v-on="on"
+                                    clearable
+                                ></v-text-field>
+                            </template>
+                            <v-date-picker
+                                v-model="form_permit_info.perm_date_expiry"
+                                no-title
+                                scrollable
+                            >
+                            <v-spacer></v-spacer>
+                            <v-btn
+                                text
+                                color="primary"
+                                @click="date_permit_expiry_menu = false"
+                            >
+                                Cancel
+                            </v-btn>
+                            <v-btn
+                                text
+                                color="primary"
+                                @click="$refs.date_permit_expiry_menu.save(form_permit_info.perm_date_expiry)"
+                            >
+                                OK
+                            </v-btn>
+                            </v-date-picker>
+                        </v-menu>
                     </div>
+                    <!--date end-->
                     <div v-if="form_permit_info.perm_law === 'RA 6969'">
                         <v-text-field
                             v-model="form_permit_info.perm_hazwaste_type"
@@ -167,7 +241,9 @@
         { 'law_selection': 'RA 8749'  },
         { 'law_selection': 'RA 9275'  },
         { 'law_selection': 'RA 6969'  },
-      ]
+      ],
+      date_permit_issuance_menu: '',
+      date_permit_expiry_menu: '',
     }),
     methods:{
         editPermit(item) {
