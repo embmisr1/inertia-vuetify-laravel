@@ -2,7 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UniverseController;
+use App\Http\Controllers\API\ApiController;
+// use App\Http\Controllers\UniverseController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,5 +19,7 @@ use App\Http\Controllers\UniverseController;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::get('app/province_dropdown/{id}', [UniverseController::class, 'province_dropdown'])->name("province_dropdown");
-Route::get('app/municipality_dropdown/{id}', [UniverseController::class, 'municipality_dropdown'])->name("municipality_dropdown");
+Route::get('app/province_dropdown/{id}', [ApiController::class, 'province_dropdown'])->name("province_dropdown");
+Route::get('app/municipality_dropdown/{id}', [ApiController::class, 'municipality_dropdown'])->name("municipality_dropdown");
+// Route::get('app/province_dropdown/{id}', [UniverseController::class, 'province_dropdown'])->name("province_dropdown");
+// Route::get('app/municipality_dropdown/{id}', [UniverseController::class, 'municipality_dropdown'])->name("municipality_dropdown");
