@@ -86,7 +86,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       },
       form_legal_info: {
         nov_id: "",
-        nov_law: "",
+        nov_law: [],
         nov_desc: "",
         nov_date: "",
         nov_tc_date: "",
@@ -234,7 +234,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     reset_legal_info: function reset_legal_info() {
       this.form_legal_info = {
         nov_id: "",
-        nov_law: "",
+        nov_law: [],
         nov_desc: "",
         nov_date: "",
         nov_tc_date: "",

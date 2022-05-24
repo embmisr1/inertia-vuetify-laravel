@@ -36,7 +36,7 @@ class UniverseController extends Controller
             $query_hazwaste = Hazwaste::where('universe_FK',$id)->get();
             $query_pco = Pco::where('universe_FK',$id)->get();
             $query_complaint = Complaint::where('universe_FK',$id)->get();
-            $ctr_file = $this->mini_dashboard($id);
+            $ctr_file = $this->mini_dashboard_controller($id);
             $province_list = Province::where('regCode','01')->get();
             $municipality_list = Municipality::where('provCode',$query->un_province)->get();
             // $barangay_list = Barangay::whereRaw('CAST(citymunCode AS SIGNED) = '.$query->un_municipality)->get();
@@ -218,6 +218,7 @@ class UniverseController extends Controller
             foreach($this->legal_columns() as $cols){
                 $query->$cols = $request->legal[$cols];
             }
+            $query->nov_law = $this->industry_laws($request, 'legal', 'nov_law');
             $query->universe_FK = $universe_id;
             $query->save();
             return $query->id;
@@ -234,6 +235,7 @@ class UniverseController extends Controller
             foreach($this->legal_columns() as $cols){
                 $query->$cols = $request->legal[$cols];
             }
+            $query->nov_law = $this->industry_laws($request, 'legal', 'nov_law');
             $query->universe_FK = $universe_id;
             $query->save();
             return $request->legal['nov_id'];
@@ -365,198 +367,47 @@ class UniverseController extends Controller
     }
 
 // MINI DASHBOARD COUNTER =======================================================================================================
-        
-    public function mini_dashboard($fk){
-        $ctr_permit = Permit::where('universe_FK',$fk)->count();
-        $ctr_permit_pd1586 = Permit::where('universe_FK',$fk)->where('perm_law','like','%PD 1586%')->count();
-        $ctr_permit_ra8749 = Permit::where('universe_FK',$fk)->where('perm_law','like','%RA 8749%')->count();
-        $ctr_permit_ra9275 = Permit::where('universe_FK',$fk)->where('perm_law','like','%RA 9275%')->count();
-        $ctr_permit_ra6969 = Permit::where('universe_FK',$fk)->where('perm_law','like','%RA 6969%')->count();
-        $ctr_permit_active = Permit::where('universe_FK',$fk)->where('perm_law','like','%RA 9275%')->count();
-        $ctr_permit_expired = Permit::where('universe_FK',$fk)->where('perm_law','like','%RA 9275%')->count();
-        $ctr_monitoring = Monitoring::where('universe_FK',$fk)->count();
-        $ctr_legal = Legal::where('universe_FK',$fk)->count();
-        $ctr_legal_pd1586 = Legal::where('universe_FK',$fk)->where('nov_law','like','%PD 1586%')->count();
-        $ctr_legal_ra8749 = Legal::where('universe_FK',$fk)->where('nov_law','like','%RA 8749%')->count();
-        $ctr_legal_ra9275 = Legal::where('universe_FK',$fk)->where('nov_law','like','%RA 9275%')->count();
-        $ctr_legal_ra6969 = Legal::where('universe_FK',$fk)->where('nov_law','like','%RA 6969%')->count();
-        $ctr_hazwaste = Hazwaste::where('universe_FK',$fk)->count();
-        $ctr_pco = Pco::where('universe_FK',$fk)->count();
-        $ctr_complaint = Complaint::where('universe_FK',$fk)->count();
-        $array = [
-            'permit' => [
-                'header' => $ctr_permit,
-                'content_label' => [
-                    'PD 1586: ',
-                    'RA 8749: ',
-                    'RA 9275: ',
-                    'RA 6969: ',
-                    'Active: ',
-                    'Expired: ',
-                ],
-                'content' => [
-                    $ctr_permit_pd1586,
-                    $ctr_permit_ra8749,
-                    $ctr_permit_ra9275,
-                    $ctr_permit_ra6969,
-                    $ctr_permit_active,
-                    $ctr_permit_expired,
-                ],
-            ],
-            'nov' => [
-                'header' => $ctr_legal,
-                'content_label' => [
-                    'PD 1586: ',
-                    'RA 8749: ',
-                    'RA 9275: ',
-                    'RA 6969: ',
-                ],
-                'content' => [
-                    $ctr_legal_pd1586,
-                    $ctr_legal_ra8749,
-                    $ctr_legal_ra9275,
-                    $ctr_legal_ra6969,
-                ],
-            ],
-            'monitoring' => [
-                'header' => null,
-                'content_label' => [''],
-                'content' => [
-                    $ctr_monitoring,
-                ],
-            ],
-            'hazwaste' => [
-                'header' => null,
-                'content_label' => [''],
-                'content' => [
-                    $ctr_hazwaste,
-                ],
-            ],
-            'pco' => [
-                'header' => null,
-                'content_label' => [''],
-                'content' => [
-                    $ctr_pco,
-                ],
-            ],
-            'complaint' => [
-                'header' => null,
-                'content_label' => [''],
-                'content' => [
-                    $ctr_complaint,
-                ],
-            ],
-        ];
-        return $array;
-    }
     
+    public function mini_dashboard_controller($id){
+        $mini_dashboard_controller = new MiniDashboardController;
+        return $mini_dashboard_controller->mini_dashboard($id);
+    }
+
 // COLUMNS =======================================================================================================
 
+
     public function basic_columns(){
-        $array = [
-            'un_crs_number',
-            'un_psic_group',
-            'un_psic_class',
-            'un_psic_subclass',
-            'un_firmname',
-            'un_proponent',
-            'un_project_type',
-            'un_project_subtype',
-            'un_project_specific_type',
-            'un_project_specific_subtype',
-            'un_detailed_description',
-            'un_specific_address',
-            'un_region',
-            'un_brgy',
-            'un_municipality',
-            'un_province',
-            'un_lat',
-            'un_long',
-            'un_representative_name',
-            'un_representative_designation',
-            'un_representative_gender',
-            'un_remarks',
-            'un_status',
-            'un_type',
-        ];
-        return $array;
+        $columns_controller = new ColumnsController;
+        return $columns_controller->basic_columns();
     }
 
     public function permit_columns(){
-        $array = [
-            'perm_law',
-            'perm_hazwaste_type',
-            'perm_number',
-            'perm_date_issuance',
-            'perm_date_expiry',
-            'perm_file',
-            'perm_description',
-            'perm_status',
-        ];
-        return $array;
+        $columns_controller = new ColumnsController;
+        return $columns_controller->permit_columns();
     }
 
     public function monitoring_columns(){
-        $array = [
-            // 'mon_law',
-            'mon_date_monitored',
-            'mon_type',
-            'mon_file',
-        ];
-        return $array;
+        $columns_controller = new ColumnsController;
+        return $columns_controller->monitoring_columns();
     }
 
     public function legal_columns(){
-        $array = [
-            'nov_law',
-            'nov_desc',
-            'nov_date',
-            'nov_tc_date',
-            'nov_tc_status',
-            'nov_file',
-            'nov_order_number',
-            'nov_order_amt',
-            'nov_order_date_issuance',
-            'nov_order_date_settlement',
-            'nov_official_receipt_number',
-            'nov_compliance_status',
-            'nov_order_remarks',
-        ];
-        return $array;
+        $columns_controller = new ColumnsController;
+        return $columns_controller->legal_columns();
     }
 
     public function hazwaste_columns(){
-        $array = [
-            'haz_type',
-            'haz_number',
-            'haz_date_acceptance',
-            'haz_date_issuance',
-            'haz_date_expiry',
-            'haz_file',
-        ];
-        return $array;
+        $columns_controller = new ColumnsController;
+        return $columns_controller->hazwaste_columns();
     }
 
     public function pco_columns(){
-        $array = [
-            'pco_name',
-            'pco_number',
-            'pco_email',
-            'pco_contact',
-            'pco_start_date',
-            'pco_end_date',
-        ];
-        return $array;
+        $columns_controller = new ColumnsController;
+        return $columns_controller->pco_columns();
     }
 
     public function complaint_columns(){
-        $array = [
-            'comp_name',
-            'comp_nature',
-            'comp_attached_file',
-            'comp_action_file',
-            'comp_remarks',
-        ];
-        return $array;
+        $columns_controller = new ColumnsController;
+        return $columns_controller->complaint_columns();
     }
 }

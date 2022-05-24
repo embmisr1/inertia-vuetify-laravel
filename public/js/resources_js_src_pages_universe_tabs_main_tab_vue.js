@@ -863,6 +863,34 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     form_legal_info: Object,
@@ -914,8 +942,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
   methods: {
     editLegal: function editLegal(item) {
+      var lawArray = item.nov_law.split(", ");
       this.form_legal_info.nov_id = item.id;
-      this.form_legal_info.nov_law = item.nov_law;
+      this.form_legal_info.nov_law = lawArray;
       this.form_legal_info.nov_desc = item.nov_desc;
       this.form_legal_info.nov_date = item.nov_date;
       this.form_legal_info.nov_tc_date = item.nov_tc_date;
@@ -1361,13 +1390,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
   methods: {
     editMonitoring: function editMonitoring(item) {
-      var myArray = item.mon_law.split(", ");
+      var lawArray = item.mon_law.split(", ");
       this.form_monitoring_info.mon_id = item.id;
-      this.form_monitoring_info.mon_law = myArray;
+      this.form_monitoring_info.mon_law = lawArray;
       this.form_monitoring_info.mon_date_monitored = item.mon_date_monitored;
       this.form_monitoring_info.mon_type = item.mon_type;
       this.form_monitoring_info.mon_file = item.mon_file;
-      console.log(myArray);
     },
     deleteMonitoring: function deleteMonitoring(item) {
       var _this = this;
@@ -4278,8 +4306,45 @@ var render = function () {
         _c(
           "div",
           [
-            _c("v-text-field", {
-              attrs: { label: "NOV Law", clearable: "" },
+            _c("v-checkbox", {
+              staticClass: "p-0 m-0 mt-5",
+              attrs: { label: "PD 1586", value: "PD 1586" },
+              model: {
+                value: _vm.form_legal_info.nov_law,
+                callback: function ($$v) {
+                  _vm.$set(_vm.form_legal_info, "nov_law", $$v)
+                },
+                expression: "form_legal_info.nov_law",
+              },
+            }),
+            _vm._v(" "),
+            _c("v-checkbox", {
+              staticClass: "p-0 m-0",
+              attrs: { label: "RA 8749", value: "RA 8749" },
+              model: {
+                value: _vm.form_legal_info.nov_law,
+                callback: function ($$v) {
+                  _vm.$set(_vm.form_legal_info, "nov_law", $$v)
+                },
+                expression: "form_legal_info.nov_law",
+              },
+            }),
+            _vm._v(" "),
+            _c("v-checkbox", {
+              staticClass: "p-0 m-0",
+              attrs: { label: "RA 9275", value: "RA 9275" },
+              model: {
+                value: _vm.form_legal_info.nov_law,
+                callback: function ($$v) {
+                  _vm.$set(_vm.form_legal_info, "nov_law", $$v)
+                },
+                expression: "form_legal_info.nov_law",
+              },
+            }),
+            _vm._v(" "),
+            _c("v-checkbox", {
+              staticClass: "p-0 m-0",
+              attrs: { label: "RA 6969", value: "RA 6969" },
               model: {
                 value: _vm.form_legal_info.nov_law,
                 callback: function ($$v) {

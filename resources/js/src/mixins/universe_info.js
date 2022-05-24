@@ -49,7 +49,7 @@ export default {
             },
             form_legal_info: {
                 nov_id: "",
-                nov_law: "",
+                nov_law: [],
                 nov_desc: "",
                 nov_date: "",
                 nov_tc_date: "",
@@ -171,7 +171,7 @@ export default {
         reset_legal_info() {
             this.form_legal_info = {
                 nov_id: "",
-                nov_law: "",
+                nov_law: [],
                 nov_desc: "",
                 nov_date: "",
                 nov_tc_date: "",

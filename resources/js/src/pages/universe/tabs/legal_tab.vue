@@ -8,12 +8,40 @@
                             clearable
                         ></v-text-field>
                     </div>
+                    <!--
                     <div>
                         <v-text-field
                             v-model="form_legal_info.nov_law"
                             label="NOV Law"
                             clearable
                         ></v-text-field>
+                    </div>
+                    -->
+                    <div>
+                        <v-checkbox
+                            v-model="form_legal_info.nov_law"
+                            label="PD 1586"
+                            value="PD 1586"
+                            class="p-0 m-0 mt-5"
+                        ></v-checkbox>
+                        <v-checkbox
+                            v-model="form_legal_info.nov_law"
+                            label="RA 8749"
+                            value="RA 8749"
+                            class="p-0 m-0"
+                        ></v-checkbox>
+                        <v-checkbox
+                            v-model="form_legal_info.nov_law"
+                            label="RA 9275"
+                            value="RA 9275"
+                            class="p-0 m-0"
+                        ></v-checkbox>
+                        <v-checkbox
+                            v-model="form_legal_info.nov_law"
+                            label="RA 6969"
+                            value="RA 6969"
+                            class="p-0 m-0"
+                        ></v-checkbox>
                     </div>
                     <div>
                         <v-text-field
@@ -200,8 +228,9 @@
     }),
     methods:{
         editLegal(item) {
+            const lawArray = item.nov_law.split(", ");
             this.form_legal_info.nov_id = item.id;
-            this.form_legal_info.nov_law = item.nov_law;
+            this.form_legal_info.nov_law = lawArray;
             this.form_legal_info.nov_desc = item.nov_desc;
             this.form_legal_info.nov_date = item.nov_date;
             this.form_legal_info.nov_tc_date = item.nov_tc_date;

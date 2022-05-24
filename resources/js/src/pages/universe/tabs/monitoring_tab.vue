@@ -132,13 +132,12 @@
     }),
     methods:{
         editMonitoring(item) {
-            const myArray = item.mon_law.split(", ");
+            const lawArray = item.mon_law.split(", ");
             this.form_monitoring_info.mon_id = item.id;
-            this.form_monitoring_info.mon_law = myArray;
+            this.form_monitoring_info.mon_law = lawArray;
             this.form_monitoring_info.mon_date_monitored = item.mon_date_monitored;
             this.form_monitoring_info.mon_type = item.mon_type;
             this.form_monitoring_info.mon_file = item.mon_file;
-            console.log(myArray);
         },
         async deleteMonitoring(item) {
             await this.$inertia.delete(`/app/delete_monitoring/${item.id}`);

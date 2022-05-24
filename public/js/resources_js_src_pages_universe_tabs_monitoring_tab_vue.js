@@ -158,13 +158,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
   methods: {
     editMonitoring: function editMonitoring(item) {
-      var myArray = item.mon_law.split(", ");
+      var lawArray = item.mon_law.split(", ");
       this.form_monitoring_info.mon_id = item.id;
-      this.form_monitoring_info.mon_law = myArray;
+      this.form_monitoring_info.mon_law = lawArray;
       this.form_monitoring_info.mon_date_monitored = item.mon_date_monitored;
       this.form_monitoring_info.mon_type = item.mon_type;
       this.form_monitoring_info.mon_file = item.mon_file;
-      console.log(myArray);
     },
     deleteMonitoring: function deleteMonitoring(item) {
       var _this = this;
