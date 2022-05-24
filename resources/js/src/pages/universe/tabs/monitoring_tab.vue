@@ -9,11 +9,30 @@
                         ></v-text-field>
                     </div>
                     <div>
-                        <v-text-field
+                        <v-checkbox
                             v-model="form_monitoring_info.mon_law"
-                            label="Monitoring Law"
-                            clearable
-                        ></v-text-field>
+                            label="PD 1586"
+                            value="PD 1586"
+                            class="p-0 m-0 mt-5"
+                        ></v-checkbox>
+                        <v-checkbox
+                            v-model="form_monitoring_info.mon_law"
+                            label="RA 8749"
+                            value="RA 8749"
+                            class="p-0 m-0"
+                        ></v-checkbox>
+                        <v-checkbox
+                            v-model="form_monitoring_info.mon_law"
+                            label="RA 9275"
+                            value="RA 9275"
+                            class="p-0 m-0"
+                        ></v-checkbox>
+                        <v-checkbox
+                            v-model="form_monitoring_info.mon_law"
+                            label="RA 6969"
+                            value="RA 6969"
+                            class="p-0 m-0"
+                        ></v-checkbox>
                     </div>
                     <div>
                         <v-text-field
@@ -113,11 +132,13 @@
     }),
     methods:{
         editMonitoring(item) {
+            const myArray = item.mon_law.split(", ");
             this.form_monitoring_info.mon_id = item.id;
-            this.form_monitoring_info.mon_law = item.mon_law;
+            this.form_monitoring_info.mon_law = myArray;
             this.form_monitoring_info.mon_date_monitored = item.mon_date_monitored;
             this.form_monitoring_info.mon_type = item.mon_type;
             this.form_monitoring_info.mon_file = item.mon_file;
+            console.log(myArray);
         },
         async deleteMonitoring(item) {
             await this.$inertia.delete(`/app/delete_monitoring/${item.id}`);

@@ -42,7 +42,7 @@ export default {
             },
             form_monitoring_info: {
                 mon_id: "",
-                mon_law: "",
+                mon_law: [],
                 mon_date_monitored: "",
                 mon_type: "",
                 mon_file: "",
@@ -162,7 +162,7 @@ export default {
         reset_monitoring_info() {
             this.form_monitoring_info = {
                 mon_id: "",
-                mon_law: "",
+                mon_law: [],
                 mon_date_monitored: "",
                 mon_type: "",
                 mon_file: "",

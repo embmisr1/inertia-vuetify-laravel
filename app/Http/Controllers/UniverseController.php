@@ -39,7 +39,8 @@ class UniverseController extends Controller
             $ctr_file = $this->mini_dashboard($id);
             $province_list = Province::where('regCode','01')->get();
             $municipality_list = Municipality::where('provCode',$query->un_province)->get();
-            $barangay_list = Barangay::whereRaw('CAST(citymunCode AS SIGNED) = '.$query->un_municipality)->get();
+            // $barangay_list = Barangay::whereRaw('CAST(citymunCode AS SIGNED) = '.$query->un_municipality)->get();
+            $barangay_list = Barangay::where('citymunCode',$query->un_municipality)->get();
             if($query->count() > 0){
                 return Inertia::render("pages/universe/universe_form",[
                     'query'=>$query,
@@ -179,6 +180,7 @@ class UniverseController extends Controller
             foreach($this->monitoring_columns() as $cols){
                 $query->$cols = $request->monitoring[$cols];
             }
+            $query->mon_law = $this->industry_laws($request, 'monitoring', 'mon_law');
             $query->universe_FK = $universe_id;
             $query->save();
             return $query->id;
@@ -195,6 +197,7 @@ class UniverseController extends Controller
             foreach($this->monitoring_columns() as $cols){
                 $query->$cols = $request->monitoring[$cols];
             }
+            $query->mon_law = $this->industry_laws($request, 'monitoring', 'mon_law');
             $query->universe_FK = $universe_id;
             $query->save();
             return $request->monitoring['mon_id'];
@@ -351,6 +354,16 @@ class UniverseController extends Controller
         return back();
     }
 
+// LAWS ARRAY CALLABLE =======================================================================================================
+
+    public function industry_laws($request, $law, $column){
+        $industry_laws = '';
+        foreach($request->$law[$column] as $industry_law){
+            $industry_laws = $industry_laws.$industry_law.', ';
+        }
+        return rtrim($industry_laws,', ');
+    }
+
 // MINI DASHBOARD COUNTER =======================================================================================================
         
     public function mini_dashboard($fk){
@@ -485,7 +498,7 @@ class UniverseController extends Controller
 
     public function monitoring_columns(){
         $array = [
-            'mon_law',
+            // 'mon_law',
             'mon_date_monitored',
             'mon_type',
             'mon_file',
@@ -551,8 +564,10 @@ class UniverseController extends Controller
         $query = Municipality::where('provCode', $id)->get();
         return response()->json($query);
     }
+    
     public function municipality_dropdown($id){
-        $query = Barangay::whereRaw('CAST(citymunCode AS SIGNED) = '.$id)->get();
+        // $query = Barangay::whereRaw('CAST(citymunCode AS SIGNED) = '.$id)->get();
+        $query = Barangay::where('citymunCode',$id)->get();
         return response()->json($query);
     }
 }

@@ -79,7 +79,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       },
       form_monitoring_info: {
         mon_id: "",
-        mon_law: "",
+        mon_law: [],
         mon_date_monitored: "",
         mon_type: "",
         mon_file: ""
@@ -225,7 +225,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     reset_monitoring_info: function reset_monitoring_info() {
       this.form_monitoring_info = {
         mon_id: "",
-        mon_law: "",
+        mon_law: [],
         mon_date_monitored: "",
         mon_type: "",
         mon_file: ""
