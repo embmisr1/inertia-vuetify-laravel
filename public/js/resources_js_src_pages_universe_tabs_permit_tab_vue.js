@@ -293,11 +293,22 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                console.log(item.id);
-                _context.next = 3;
+                _context.next = 2;
                 return _this.$inertia["delete"]("/app/delete_permit/".concat(item.id));
 
-              case 3:
+              case 2:
+                _this.form_permit_info.perm_law = null;
+                _this.form_permit_info.perm_hazwaste_type = null;
+                _this.form_permit_info.perm_date_expiry = null;
+                _this.form_permit_info.perm_date_issuance = null;
+                _this.form_permit_info.perm_description = null;
+                _this.form_permit_info.perm_file = null;
+                _this.form_permit_info.perm_id = null;
+                _this.form_permit_info.perm_law = null;
+                _this.form_permit_info.perm_number = null;
+                _this.form_permit_info.perm_status = null;
+
+              case 12:
               case "end":
                 return _context.stop();
             }

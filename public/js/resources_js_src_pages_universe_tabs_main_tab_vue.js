@@ -505,6 +505,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 return _this.$inertia["delete"]("/app/delete_complaint/".concat(item.id));
 
               case 2:
+                _this.form_complaint_info.comp_id = null;
+                _this.form_complaint_info.comp_name = null;
+                _this.form_complaint_info.comp_nature = null;
+                _this.form_complaint_info.comp_attached_file = null;
+                _this.form_complaint_info.comp_action_file = null;
+                _this.form_complaint_info.comp_remarks = null;
+
+              case 8:
               case "end":
                 return _context.stop();
             }
@@ -938,6 +946,114 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     form_legal_info: Object,
@@ -986,7 +1102,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         value: 'actions',
         sortable: false
       }],
-      date_legal_menu: ''
+      date_legal_nov_menu: '',
+      date_legal_tc_menu: '',
+      date_legal_order_issuance_menu: '',
+      date_legal_order_settlement_menu: ''
     };
   },
   methods: {
@@ -1019,6 +1138,22 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 return _this.$inertia["delete"]("/app/delete_legal/".concat(item.id));
 
               case 2:
+                _this.form_legal_info.nov_id = null;
+                _this.form_legal_info.nov_law = null;
+                _this.form_legal_info.nov_desc = null;
+                _this.form_legal_info.nov_date = null;
+                _this.form_legal_info.nov_tc_date = null;
+                _this.form_legal_info.nov_tc_status = null;
+                _this.form_legal_info.nov_file = null;
+                _this.form_legal_info.nov_order_number = null;
+                _this.form_legal_info.nov_order_amt = null;
+                _this.form_legal_info.nov_order_date_issuance = null;
+                _this.form_legal_info.nov_order_date_settlement = null;
+                _this.form_legal_info.nov_official_receipt_number = null;
+                _this.form_legal_info.nov_compliance_status = null;
+                _this.form_legal_info.nov_order_remarks = null;
+
+              case 16:
               case "end":
                 return _context.stop();
             }
@@ -1511,6 +1646,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 return _this.$inertia["delete"]("/app/delete_monitoring/".concat(item.id));
 
               case 2:
+                _this.form_monitoring_info.mon_id = null;
+                _this.form_monitoring_info.mon_law = null;
+                _this.form_monitoring_info.mon_date_monitored = null;
+                _this.form_monitoring_info.mon_type = null;
+                _this.form_monitoring_info.mon_file = null;
+
+              case 7:
               case "end":
                 return _context.stop();
             }
@@ -1786,6 +1928,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 return _this.$inertia["delete"]("/app/delete_pco/".concat(item.id));
 
               case 2:
+                _this.form_pco_info.pco_id = null;
+                _this.form_pco_info.pco_name = null;
+                _this.form_pco_info.pco_number = null;
+                _this.form_pco_info.pco_email = null;
+                _this.form_pco_info.pco_contact = null;
+                _this.form_pco_info.pco_start_date = null;
+                _this.form_pco_info.pco_end_date = null;
+
+              case 9:
               case "end":
                 return _context.stop();
             }
@@ -2080,11 +2231,22 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                console.log(item.id);
-                _context.next = 3;
+                _context.next = 2;
                 return _this.$inertia["delete"]("/app/delete_permit/".concat(item.id));
 
-              case 3:
+              case 2:
+                _this.form_permit_info.perm_law = null;
+                _this.form_permit_info.perm_hazwaste_type = null;
+                _this.form_permit_info.perm_date_expiry = null;
+                _this.form_permit_info.perm_date_issuance = null;
+                _this.form_permit_info.perm_description = null;
+                _this.form_permit_info.perm_file = null;
+                _this.form_permit_info.perm_id = null;
+                _this.form_permit_info.perm_law = null;
+                _this.form_permit_info.perm_number = null;
+                _this.form_permit_info.perm_status = null;
+
+              case 12:
               case "end":
                 return _context.stop();
             }
@@ -4633,7 +4795,7 @@ var render = function () {
             _c(
               "v-menu",
               {
-                ref: "date_legal_menu",
+                ref: "date_legal_nov_menu",
                 attrs: {
                   "close-on-content-click": false,
                   "return-value": _vm.form_legal_info.nov_date,
@@ -4662,7 +4824,7 @@ var render = function () {
                             _vm._b(
                               {
                                 attrs: {
-                                  label: "Date Monitored",
+                                  label: "NOV Date",
                                   readonly: "",
                                   clearable: "",
                                 },
@@ -4690,11 +4852,11 @@ var render = function () {
                   },
                 ]),
                 model: {
-                  value: _vm.date_legal_menu,
+                  value: _vm.date_legal_nov_menu,
                   callback: function ($$v) {
-                    _vm.date_legal_menu = $$v
+                    _vm.date_legal_nov_menu = $$v
                   },
-                  expression: "date_legal_menu",
+                  expression: "date_legal_nov_menu",
                 },
               },
               [
@@ -4720,7 +4882,7 @@ var render = function () {
                         attrs: { text: "", color: "primary" },
                         on: {
                           click: function ($event) {
-                            _vm.date_legal_menu = false
+                            _vm.date_legal_nov_menu = false
                           },
                         },
                       },
@@ -4737,7 +4899,7 @@ var render = function () {
                         attrs: { text: "", color: "primary" },
                         on: {
                           click: function ($event) {
-                            return _vm.$refs.date_legal_menu.save(
+                            return _vm.$refs.date_legal_nov_menu.save(
                               _vm.form_legal_info.nov_date
                             )
                           },
@@ -4762,16 +4924,131 @@ var render = function () {
         _c(
           "div",
           [
-            _c("v-text-field", {
-              attrs: { label: "TC Date", clearable: "" },
-              model: {
-                value: _vm.form_legal_info.nov_tc_date,
-                callback: function ($$v) {
-                  _vm.$set(_vm.form_legal_info, "nov_tc_date", $$v)
+            _c(
+              "v-menu",
+              {
+                ref: "date_legal_tc_menu",
+                attrs: {
+                  "close-on-content-click": false,
+                  "return-value": _vm.form_legal_info.nov_tc_date,
+                  transition: "scale-transition",
+                  "offset-y": "",
+                  "min-width": "auto",
                 },
-                expression: "form_legal_info.nov_tc_date",
+                on: {
+                  "update:returnValue": function ($event) {
+                    return _vm.$set(_vm.form_legal_info, "nov_tc_date", $event)
+                  },
+                  "update:return-value": function ($event) {
+                    return _vm.$set(_vm.form_legal_info, "nov_tc_date", $event)
+                  },
+                },
+                scopedSlots: _vm._u([
+                  {
+                    key: "activator",
+                    fn: function (ref) {
+                      var on = ref.on
+                      var attrs = ref.attrs
+                      return [
+                        _c(
+                          "v-text-field",
+                          _vm._g(
+                            _vm._b(
+                              {
+                                attrs: {
+                                  label: "TC Date",
+                                  readonly: "",
+                                  clearable: "",
+                                },
+                                model: {
+                                  value: _vm.form_legal_info.nov_tc_date,
+                                  callback: function ($$v) {
+                                    _vm.$set(
+                                      _vm.form_legal_info,
+                                      "nov_tc_date",
+                                      $$v
+                                    )
+                                  },
+                                  expression: "form_legal_info.nov_tc_date",
+                                },
+                              },
+                              "v-text-field",
+                              attrs,
+                              false
+                            ),
+                            on
+                          )
+                        ),
+                      ]
+                    },
+                  },
+                ]),
+                model: {
+                  value: _vm.date_legal_tc_menu,
+                  callback: function ($$v) {
+                    _vm.date_legal_tc_menu = $$v
+                  },
+                  expression: "date_legal_tc_menu",
+                },
               },
-            }),
+              [
+                _vm._v(" "),
+                _c(
+                  "v-date-picker",
+                  {
+                    attrs: { "no-title": "", scrollable: "" },
+                    model: {
+                      value: _vm.form_legal_info.nov_tc_date,
+                      callback: function ($$v) {
+                        _vm.$set(_vm.form_legal_info, "nov_tc_date", $$v)
+                      },
+                      expression: "form_legal_info.nov_tc_date",
+                    },
+                  },
+                  [
+                    _c("v-spacer"),
+                    _vm._v(" "),
+                    _c(
+                      "v-btn",
+                      {
+                        attrs: { text: "", color: "primary" },
+                        on: {
+                          click: function ($event) {
+                            _vm.date_legal_tc_menu = false
+                          },
+                        },
+                      },
+                      [
+                        _vm._v(
+                          "\n                        Cancel\n                    "
+                        ),
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "v-btn",
+                      {
+                        attrs: { text: "", color: "primary" },
+                        on: {
+                          click: function ($event) {
+                            return _vm.$refs.date_legal_tc_menu.save(
+                              _vm.form_legal_info.nov_tc_date
+                            )
+                          },
+                        },
+                      },
+                      [
+                        _vm._v(
+                          "\n                        OK\n                    "
+                        ),
+                      ]
+                    ),
+                  ],
+                  1
+                ),
+              ],
+              1
+            ),
           ],
           1
         ),
@@ -4851,16 +5128,145 @@ var render = function () {
         _c(
           "div",
           [
-            _c("v-text-field", {
-              attrs: { label: "Order Date Issuance", clearable: "" },
-              model: {
-                value: _vm.form_legal_info.nov_order_date_issuance,
-                callback: function ($$v) {
-                  _vm.$set(_vm.form_legal_info, "nov_order_date_issuance", $$v)
+            _c(
+              "v-menu",
+              {
+                ref: "date_legal_order_issuance_menu",
+                attrs: {
+                  "close-on-content-click": false,
+                  "return-value": _vm.form_legal_info.nov_order_date_issuance,
+                  transition: "scale-transition",
+                  "offset-y": "",
+                  "min-width": "auto",
                 },
-                expression: "form_legal_info.nov_order_date_issuance",
+                on: {
+                  "update:returnValue": function ($event) {
+                    return _vm.$set(
+                      _vm.form_legal_info,
+                      "nov_order_date_issuance",
+                      $event
+                    )
+                  },
+                  "update:return-value": function ($event) {
+                    return _vm.$set(
+                      _vm.form_legal_info,
+                      "nov_order_date_issuance",
+                      $event
+                    )
+                  },
+                },
+                scopedSlots: _vm._u([
+                  {
+                    key: "activator",
+                    fn: function (ref) {
+                      var on = ref.on
+                      var attrs = ref.attrs
+                      return [
+                        _c(
+                          "v-text-field",
+                          _vm._g(
+                            _vm._b(
+                              {
+                                attrs: {
+                                  label: "Order Date Issuance",
+                                  readonly: "",
+                                  clearable: "",
+                                },
+                                model: {
+                                  value:
+                                    _vm.form_legal_info.nov_order_date_issuance,
+                                  callback: function ($$v) {
+                                    _vm.$set(
+                                      _vm.form_legal_info,
+                                      "nov_order_date_issuance",
+                                      $$v
+                                    )
+                                  },
+                                  expression:
+                                    "form_legal_info.nov_order_date_issuance",
+                                },
+                              },
+                              "v-text-field",
+                              attrs,
+                              false
+                            ),
+                            on
+                          )
+                        ),
+                      ]
+                    },
+                  },
+                ]),
+                model: {
+                  value: _vm.date_legal_order_issuance_menu,
+                  callback: function ($$v) {
+                    _vm.date_legal_order_issuance_menu = $$v
+                  },
+                  expression: "date_legal_order_issuance_menu",
+                },
               },
-            }),
+              [
+                _vm._v(" "),
+                _c(
+                  "v-date-picker",
+                  {
+                    attrs: { "no-title": "", scrollable: "" },
+                    model: {
+                      value: _vm.form_legal_info.nov_order_date_issuance,
+                      callback: function ($$v) {
+                        _vm.$set(
+                          _vm.form_legal_info,
+                          "nov_order_date_issuance",
+                          $$v
+                        )
+                      },
+                      expression: "form_legal_info.nov_order_date_issuance",
+                    },
+                  },
+                  [
+                    _c("v-spacer"),
+                    _vm._v(" "),
+                    _c(
+                      "v-btn",
+                      {
+                        attrs: { text: "", color: "primary" },
+                        on: {
+                          click: function ($event) {
+                            _vm.date_legal_order_issuance_menu = false
+                          },
+                        },
+                      },
+                      [
+                        _vm._v(
+                          "\n                        Cancel\n                    "
+                        ),
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "v-btn",
+                      {
+                        attrs: { text: "", color: "primary" },
+                        on: {
+                          click: function ($event) {
+                            return _vm.$refs.date_legal_order_issuance_menu.save(
+                              _vm.form_legal_info.nov_order_date_issuance
+                            )
+                          },
+                        },
+                      },
+                      [
+                        _vm._v(
+                          "\n                        OK\n                    "
+                        ),
+                      ]
+                    ),
+                  ],
+                  1
+                ),
+              ],
+              1
+            ),
           ],
           1
         ),
@@ -4868,20 +5274,146 @@ var render = function () {
         _c(
           "div",
           [
-            _c("v-text-field", {
-              attrs: { label: "Order Date Settlement", clearable: "" },
-              model: {
-                value: _vm.form_legal_info.nov_order_date_settlement,
-                callback: function ($$v) {
-                  _vm.$set(
-                    _vm.form_legal_info,
-                    "nov_order_date_settlement",
-                    $$v
-                  )
+            _c(
+              "v-menu",
+              {
+                ref: "date_legal_order_settlement_menu",
+                attrs: {
+                  "close-on-content-click": false,
+                  "return-value": _vm.form_legal_info.nov_order_date_settlement,
+                  transition: "scale-transition",
+                  "offset-y": "",
+                  "min-width": "auto",
                 },
-                expression: "form_legal_info.nov_order_date_settlement",
+                on: {
+                  "update:returnValue": function ($event) {
+                    return _vm.$set(
+                      _vm.form_legal_info,
+                      "nov_order_date_settlement",
+                      $event
+                    )
+                  },
+                  "update:return-value": function ($event) {
+                    return _vm.$set(
+                      _vm.form_legal_info,
+                      "nov_order_date_settlement",
+                      $event
+                    )
+                  },
+                },
+                scopedSlots: _vm._u([
+                  {
+                    key: "activator",
+                    fn: function (ref) {
+                      var on = ref.on
+                      var attrs = ref.attrs
+                      return [
+                        _c(
+                          "v-text-field",
+                          _vm._g(
+                            _vm._b(
+                              {
+                                attrs: {
+                                  label: "Order Date Settlement",
+                                  readonly: "",
+                                  clearable: "",
+                                },
+                                model: {
+                                  value:
+                                    _vm.form_legal_info
+                                      .nov_order_date_settlement,
+                                  callback: function ($$v) {
+                                    _vm.$set(
+                                      _vm.form_legal_info,
+                                      "nov_order_date_settlement",
+                                      $$v
+                                    )
+                                  },
+                                  expression:
+                                    "form_legal_info.nov_order_date_settlement",
+                                },
+                              },
+                              "v-text-field",
+                              attrs,
+                              false
+                            ),
+                            on
+                          )
+                        ),
+                      ]
+                    },
+                  },
+                ]),
+                model: {
+                  value: _vm.date_legal_order_settlement_menu,
+                  callback: function ($$v) {
+                    _vm.date_legal_order_settlement_menu = $$v
+                  },
+                  expression: "date_legal_order_settlement_menu",
+                },
               },
-            }),
+              [
+                _vm._v(" "),
+                _c(
+                  "v-date-picker",
+                  {
+                    attrs: { "no-title": "", scrollable: "" },
+                    model: {
+                      value: _vm.form_legal_info.nov_order_date_settlement,
+                      callback: function ($$v) {
+                        _vm.$set(
+                          _vm.form_legal_info,
+                          "nov_order_date_settlement",
+                          $$v
+                        )
+                      },
+                      expression: "form_legal_info.nov_order_date_settlement",
+                    },
+                  },
+                  [
+                    _c("v-spacer"),
+                    _vm._v(" "),
+                    _c(
+                      "v-btn",
+                      {
+                        attrs: { text: "", color: "primary" },
+                        on: {
+                          click: function ($event) {
+                            _vm.date_legal_order_settlement_menu = false
+                          },
+                        },
+                      },
+                      [
+                        _vm._v(
+                          "\n                        Cancel\n                    "
+                        ),
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "v-btn",
+                      {
+                        attrs: { text: "", color: "primary" },
+                        on: {
+                          click: function ($event) {
+                            return _vm.$refs.date_legal_order_settlement_menu.save(
+                              _vm.form_legal_info.nov_order_date_settlement
+                            )
+                          },
+                        },
+                      },
+                      [
+                        _vm._v(
+                          "\n                        OK\n                    "
+                        ),
+                      ]
+                    ),
+                  ],
+                  1
+                ),
+              ],
+              1
+            ),
           ],
           1
         ),
@@ -5977,7 +6509,7 @@ var render = function () {
                             _vm._b(
                               {
                                 attrs: {
-                                  label: "Date Monitored",
+                                  label: "Date Start",
                                   readonly: "",
                                   clearable: "",
                                 },
@@ -6109,7 +6641,7 @@ var render = function () {
                             _vm._b(
                               {
                                 attrs: {
-                                  label: "Date Monitored",
+                                  label: "Date End",
                                   readonly: "",
                                   clearable: "",
                                 },

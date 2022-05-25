@@ -140,6 +140,12 @@
         },
         async deleteComplaint(item) {
             await this.$inertia.delete(`/app/delete_complaint/${item.id}`);
+            this.form_complaint_info.comp_id = null;
+            this.form_complaint_info.comp_name = null;
+            this.form_complaint_info.comp_nature = null;
+            this.form_complaint_info.comp_attached_file = null;
+            this.form_complaint_info.comp_action_file = null;
+            this.form_complaint_info.comp_remarks = null;
         }
     }
   }

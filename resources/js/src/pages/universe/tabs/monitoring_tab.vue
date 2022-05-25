@@ -188,6 +188,11 @@
         },
         async deleteMonitoring(item) {
             await this.$inertia.delete(`/app/delete_monitoring/${item.id}`);
+            this.form_monitoring_info.mon_id = null;
+            this.form_monitoring_info.mon_law = null;
+            this.form_monitoring_info.mon_date_monitored = null;
+            this.form_monitoring_info.mon_type = null;
+            this.form_monitoring_info.mon_file = null;
         }
     }
   }

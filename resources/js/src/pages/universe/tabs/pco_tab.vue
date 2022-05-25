@@ -65,7 +65,7 @@
                             <template v-slot:activator="{ on, attrs }">
                                 <v-text-field
                                     v-model="form_pco_info.pco_start_date"
-                                    label="Date Monitored"
+                                    label="Date Start"
                                     readonly
                                     v-bind="attrs"
                                     v-on="on"
@@ -108,7 +108,7 @@
                             <template v-slot:activator="{ on, attrs }">
                                 <v-text-field
                                     v-model="form_pco_info.pco_end_date"
-                                    label="Date Monitored"
+                                    label="Date End"
                                     readonly
                                     v-bind="attrs"
                                     v-on="on"
@@ -240,6 +240,13 @@
         },
         async deletePco(item) {
             await this.$inertia.delete(`/app/delete_pco/${item.id}`);
+            this.form_pco_info.pco_id = null;
+            this.form_pco_info.pco_name = null;
+            this.form_pco_info.pco_number = null;
+            this.form_pco_info.pco_email = null;
+            this.form_pco_info.pco_contact = null;
+            this.form_pco_info.pco_start_date = null;
+            this.form_pco_info.pco_end_date = null;
         }
     }
   }

@@ -274,6 +274,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 return _this.$inertia["delete"]("/app/delete_pco/".concat(item.id));
 
               case 2:
+                _this.form_pco_info.pco_id = null;
+                _this.form_pco_info.pco_name = null;
+                _this.form_pco_info.pco_number = null;
+                _this.form_pco_info.pco_email = null;
+                _this.form_pco_info.pco_contact = null;
+                _this.form_pco_info.pco_start_date = null;
+                _this.form_pco_info.pco_end_date = null;
+
+              case 9:
               case "end":
                 return _context.stop();
             }
@@ -1264,7 +1273,7 @@ var render = function () {
                             _vm._b(
                               {
                                 attrs: {
-                                  label: "Date Monitored",
+                                  label: "Date Start",
                                   readonly: "",
                                   clearable: "",
                                 },
@@ -1396,7 +1405,7 @@ var render = function () {
                             _vm._b(
                               {
                                 attrs: {
-                                  label: "Date Monitored",
+                                  label: "Date End",
                                   readonly: "",
                                   clearable: "",
                                 },

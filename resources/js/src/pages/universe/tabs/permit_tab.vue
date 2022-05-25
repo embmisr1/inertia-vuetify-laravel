@@ -260,8 +260,17 @@
             this.form_permit_info.perm_status = item.perm_status;
         },
         async deletePermit(item) {
-            console.log(item.id);
             await this.$inertia.delete(`/app/delete_permit/${item.id}`);
+            this.form_permit_info.perm_law = null;
+            this.form_permit_info.perm_hazwaste_type = null;
+            this.form_permit_info.perm_date_expiry = null;
+            this.form_permit_info.perm_date_issuance = null;
+            this.form_permit_info.perm_description = null;
+            this.form_permit_info.perm_file = null;
+            this.form_permit_info.perm_id = null;
+            this.form_permit_info.perm_law = null;
+            this.form_permit_info.perm_number = null;
+            this.form_permit_info.perm_status = null;
         }
     }
   }

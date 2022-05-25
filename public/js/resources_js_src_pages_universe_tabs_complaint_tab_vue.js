@@ -175,6 +175,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 return _this.$inertia["delete"]("/app/delete_complaint/".concat(item.id));
 
               case 2:
+                _this.form_complaint_info.comp_id = null;
+                _this.form_complaint_info.comp_name = null;
+                _this.form_complaint_info.comp_nature = null;
+                _this.form_complaint_info.comp_attached_file = null;
+                _this.form_complaint_info.comp_action_file = null;
+                _this.form_complaint_info.comp_remarks = null;
+
+              case 8:
               case "end":
                 return _context.stop();
             }

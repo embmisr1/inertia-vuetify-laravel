@@ -54,8 +54,8 @@
                     -->
                     <div>
                         <v-menu
-                            ref="date_legal_menu"
-                            v-model="date_legal_menu"
+                            ref="date_legal_nov_menu"
+                            v-model="date_legal_nov_menu"
                             :close-on-content-click="false"
                             :return-value.sync="form_legal_info.nov_date"
                             transition="scale-transition"
@@ -65,7 +65,7 @@
                             <template v-slot:activator="{ on, attrs }">
                                 <v-text-field
                                     v-model="form_legal_info.nov_date"
-                                    label="Date Monitored"
+                                    label="NOV Date"
                                     readonly
                                     v-bind="attrs"
                                     v-on="on"
@@ -81,14 +81,14 @@
                             <v-btn
                                 text
                                 color="primary"
-                                @click="date_legal_menu = false"
+                                @click="date_legal_nov_menu = false"
                             >
                                 Cancel
                             </v-btn>
                             <v-btn
                                 text
                                 color="primary"
-                                @click="$refs.date_legal_menu.save(form_legal_info.nov_date)"
+                                @click="$refs.date_legal_nov_menu.save(form_legal_info.nov_date)"
                             >
                                 OK
                             </v-btn>
@@ -96,11 +96,47 @@
                         </v-menu>
                     </div>
                     <div>
-                        <v-text-field
-                            v-model="form_legal_info.nov_tc_date"
-                            label="TC Date"
-                            clearable
-                        ></v-text-field>
+                        <v-menu
+                            ref="date_legal_tc_menu"
+                            v-model="date_legal_tc_menu"
+                            :close-on-content-click="false"
+                            :return-value.sync="form_legal_info.nov_tc_date"
+                            transition="scale-transition"
+                            offset-y
+                            min-width="auto"
+                        >
+                            <template v-slot:activator="{ on, attrs }">
+                                <v-text-field
+                                    v-model="form_legal_info.nov_tc_date"
+                                    label="TC Date"
+                                    readonly
+                                    v-bind="attrs"
+                                    v-on="on"
+                                    clearable
+                                ></v-text-field>
+                            </template>
+                            <v-date-picker
+                                v-model="form_legal_info.nov_tc_date"
+                                no-title
+                                scrollable
+                            >
+                            <v-spacer></v-spacer>
+                            <v-btn
+                                text
+                                color="primary"
+                                @click="date_legal_tc_menu = false"
+                            >
+                                Cancel
+                            </v-btn>
+                            <v-btn
+                                text
+                                color="primary"
+                                @click="$refs.date_legal_tc_menu.save(form_legal_info.nov_tc_date)"
+                            >
+                                OK
+                            </v-btn>
+                            </v-date-picker>
+                        </v-menu>
                     </div>
                     <div>
                         <v-text-field
@@ -135,18 +171,90 @@
                         ></v-text-field>
                     </div>
                     <div>
-                        <v-text-field
-                            v-model="form_legal_info.nov_order_date_issuance"
-                            label="Order Date Issuance"
-                            clearable
-                        ></v-text-field>
+                        <v-menu
+                            ref="date_legal_order_issuance_menu"
+                            v-model="date_legal_order_issuance_menu"
+                            :close-on-content-click="false"
+                            :return-value.sync="form_legal_info.nov_order_date_issuance"
+                            transition="scale-transition"
+                            offset-y
+                            min-width="auto"
+                        >
+                            <template v-slot:activator="{ on, attrs }">
+                                <v-text-field
+                                    v-model="form_legal_info.nov_order_date_issuance"
+                                    label="Order Date Issuance"
+                                    readonly
+                                    v-bind="attrs"
+                                    v-on="on"
+                                    clearable
+                                ></v-text-field>
+                            </template>
+                            <v-date-picker
+                                v-model="form_legal_info.nov_order_date_issuance"
+                                no-title
+                                scrollable
+                            >
+                            <v-spacer></v-spacer>
+                            <v-btn
+                                text
+                                color="primary"
+                                @click="date_legal_order_issuance_menu = false"
+                            >
+                                Cancel
+                            </v-btn>
+                            <v-btn
+                                text
+                                color="primary"
+                                @click="$refs.date_legal_order_issuance_menu.save(form_legal_info.nov_order_date_issuance)"
+                            >
+                                OK
+                            </v-btn>
+                            </v-date-picker>
+                        </v-menu>
                     </div>
                     <div>
-                        <v-text-field
-                            v-model="form_legal_info.nov_order_date_settlement"
-                            label="Order Date Settlement"
-                            clearable
-                        ></v-text-field>
+                        <v-menu
+                            ref="date_legal_order_settlement_menu"
+                            v-model="date_legal_order_settlement_menu"
+                            :close-on-content-click="false"
+                            :return-value.sync="form_legal_info.nov_order_date_settlement"
+                            transition="scale-transition"
+                            offset-y
+                            min-width="auto"
+                        >
+                            <template v-slot:activator="{ on, attrs }">
+                                <v-text-field
+                                    v-model="form_legal_info.nov_order_date_settlement"
+                                    label="Order Date Settlement"
+                                    readonly
+                                    v-bind="attrs"
+                                    v-on="on"
+                                    clearable
+                                ></v-text-field>
+                            </template>
+                            <v-date-picker
+                                v-model="form_legal_info.nov_order_date_settlement"
+                                no-title
+                                scrollable
+                            >
+                            <v-spacer></v-spacer>
+                            <v-btn
+                                text
+                                color="primary"
+                                @click="date_legal_order_settlement_menu = false"
+                            >
+                                Cancel
+                            </v-btn>
+                            <v-btn
+                                text
+                                color="primary"
+                                @click="$refs.date_legal_order_settlement_menu.save(form_legal_info.nov_order_date_settlement)"
+                            >
+                                OK
+                            </v-btn>
+                            </v-date-picker>
+                        </v-menu>
                     </div>
                     <div>
                         <v-text-field
@@ -271,7 +379,10 @@
         },
         
       ],
-      date_legal_menu: '',
+      date_legal_nov_menu: '',
+      date_legal_tc_menu: '',
+      date_legal_order_issuance_menu: '',
+      date_legal_order_settlement_menu: '',
     }),
     methods:{
         editLegal(item) {
@@ -293,6 +404,20 @@
         },
         async deleteLegal(item) {
             await this.$inertia.delete(`/app/delete_legal/${item.id}`);
+            this.form_legal_info.nov_id = null;
+            this.form_legal_info.nov_law = null;
+            this.form_legal_info.nov_desc = null;
+            this.form_legal_info.nov_date = null;
+            this.form_legal_info.nov_tc_date = null;
+            this.form_legal_info.nov_tc_status = null;
+            this.form_legal_info.nov_file = null;
+            this.form_legal_info.nov_order_number = null;
+            this.form_legal_info.nov_order_amt = null;
+            this.form_legal_info.nov_order_date_issuance = null;
+            this.form_legal_info.nov_order_date_settlement = null;
+            this.form_legal_info.nov_official_receipt_number = null;
+            this.form_legal_info.nov_compliance_status = null;
+            this.form_legal_info.nov_order_remarks = null;
         }
     }
   }
