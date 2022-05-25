@@ -200,6 +200,51 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     form_legal_info: Object,
@@ -247,7 +292,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         text: 'Actions',
         value: 'actions',
         sortable: false
-      }]
+      }],
+      date_legal_menu: ''
     };
   },
   methods: {
@@ -1224,16 +1270,131 @@ var render = function () {
         _c(
           "div",
           [
-            _c("v-text-field", {
-              attrs: { label: "NOV Date", clearable: "" },
-              model: {
-                value: _vm.form_legal_info.nov_date,
-                callback: function ($$v) {
-                  _vm.$set(_vm.form_legal_info, "nov_date", $$v)
+            _c(
+              "v-menu",
+              {
+                ref: "date_legal_menu",
+                attrs: {
+                  "close-on-content-click": false,
+                  "return-value": _vm.form_legal_info.nov_date,
+                  transition: "scale-transition",
+                  "offset-y": "",
+                  "min-width": "auto",
                 },
-                expression: "form_legal_info.nov_date",
+                on: {
+                  "update:returnValue": function ($event) {
+                    return _vm.$set(_vm.form_legal_info, "nov_date", $event)
+                  },
+                  "update:return-value": function ($event) {
+                    return _vm.$set(_vm.form_legal_info, "nov_date", $event)
+                  },
+                },
+                scopedSlots: _vm._u([
+                  {
+                    key: "activator",
+                    fn: function (ref) {
+                      var on = ref.on
+                      var attrs = ref.attrs
+                      return [
+                        _c(
+                          "v-text-field",
+                          _vm._g(
+                            _vm._b(
+                              {
+                                attrs: {
+                                  label: "Date Monitored",
+                                  readonly: "",
+                                  clearable: "",
+                                },
+                                model: {
+                                  value: _vm.form_legal_info.nov_date,
+                                  callback: function ($$v) {
+                                    _vm.$set(
+                                      _vm.form_legal_info,
+                                      "nov_date",
+                                      $$v
+                                    )
+                                  },
+                                  expression: "form_legal_info.nov_date",
+                                },
+                              },
+                              "v-text-field",
+                              attrs,
+                              false
+                            ),
+                            on
+                          )
+                        ),
+                      ]
+                    },
+                  },
+                ]),
+                model: {
+                  value: _vm.date_legal_menu,
+                  callback: function ($$v) {
+                    _vm.date_legal_menu = $$v
+                  },
+                  expression: "date_legal_menu",
+                },
               },
-            }),
+              [
+                _vm._v(" "),
+                _c(
+                  "v-date-picker",
+                  {
+                    attrs: { "no-title": "", scrollable: "" },
+                    model: {
+                      value: _vm.form_legal_info.nov_date,
+                      callback: function ($$v) {
+                        _vm.$set(_vm.form_legal_info, "nov_date", $$v)
+                      },
+                      expression: "form_legal_info.nov_date",
+                    },
+                  },
+                  [
+                    _c("v-spacer"),
+                    _vm._v(" "),
+                    _c(
+                      "v-btn",
+                      {
+                        attrs: { text: "", color: "primary" },
+                        on: {
+                          click: function ($event) {
+                            _vm.date_legal_menu = false
+                          },
+                        },
+                      },
+                      [
+                        _vm._v(
+                          "\n                        Cancel\n                    "
+                        ),
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "v-btn",
+                      {
+                        attrs: { text: "", color: "primary" },
+                        on: {
+                          click: function ($event) {
+                            return _vm.$refs.date_legal_menu.save(
+                              _vm.form_legal_info.nov_date
+                            )
+                          },
+                        },
+                      },
+                      [
+                        _vm._v(
+                          "\n                        OK\n                    "
+                        ),
+                      ]
+                    ),
+                  ],
+                  1
+                ),
+              ],
+              1
+            ),
           ],
           1
         ),

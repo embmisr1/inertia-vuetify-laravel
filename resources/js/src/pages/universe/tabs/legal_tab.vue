@@ -43,12 +43,57 @@
                             class="p-0 m-0"
                         ></v-checkbox>
                     </div>
+                    <!--
                     <div>
                         <v-text-field
                             v-model="form_legal_info.nov_date"
                             label="NOV Date"
                             clearable
                         ></v-text-field>
+                    </div>
+                    -->
+                    <div>
+                        <v-menu
+                            ref="date_legal_menu"
+                            v-model="date_legal_menu"
+                            :close-on-content-click="false"
+                            :return-value.sync="form_legal_info.nov_date"
+                            transition="scale-transition"
+                            offset-y
+                            min-width="auto"
+                        >
+                            <template v-slot:activator="{ on, attrs }">
+                                <v-text-field
+                                    v-model="form_legal_info.nov_date"
+                                    label="Date Monitored"
+                                    readonly
+                                    v-bind="attrs"
+                                    v-on="on"
+                                    clearable
+                                ></v-text-field>
+                            </template>
+                            <v-date-picker
+                                v-model="form_legal_info.nov_date"
+                                no-title
+                                scrollable
+                            >
+                            <v-spacer></v-spacer>
+                            <v-btn
+                                text
+                                color="primary"
+                                @click="date_legal_menu = false"
+                            >
+                                Cancel
+                            </v-btn>
+                            <v-btn
+                                text
+                                color="primary"
+                                @click="$refs.date_legal_menu.save(form_legal_info.nov_date)"
+                            >
+                                OK
+                            </v-btn>
+                            </v-date-picker>
+                        </v-menu>
                     </div>
                     <div>
                         <v-text-field
@@ -226,6 +271,7 @@
         },
         
       ],
+      date_legal_menu: '',
     }),
     methods:{
         editLegal(item) {
