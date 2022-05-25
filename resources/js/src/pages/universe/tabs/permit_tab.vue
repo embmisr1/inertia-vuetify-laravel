@@ -26,11 +26,14 @@
                         ></v-text-field>
                     </div>
                     <div>
-                        <v-text-field
+                        <v-autocomplete
+                            :items="permit_status_selection"
                             v-model="form_permit_info.perm_status"
                             label="Permit Status"
+                            item-text="status_selection"
+                            item-value="status_selection"
                             clearable
-                        ></v-text-field>
+                        ></v-autocomplete>
                     </div>
                     <!--date start-->
                     <div>
@@ -121,11 +124,14 @@
                     </div>
                     <!--date end-->
                     <div v-if="form_permit_info.perm_law === 'RA 6969'">
-                        <v-text-field
+                        <v-autocomplete
+                            :items="permit_hazwaste_selection"
                             v-model="form_permit_info.perm_hazwaste_type"
                             label="Hazwaste Type"
+                            item-text="hazwaste_selection"
+                            item-value="hazwaste_selection"
                             clearable
-                        ></v-text-field>
+                        ></v-autocomplete>
                     </div>
             </div>
             <div class="grid grid-cols-2 gap-y-0 gap-x-4 ml-8">
@@ -241,6 +247,22 @@
         { 'law_selection': 'RA 8749'  },
         { 'law_selection': 'RA 9275'  },
         { 'law_selection': 'RA 6969'  },
+      ],
+      permit_status_selection:[
+        { 'status_selection': 'Operational'  },
+        { 'status_selection': 'Relief'  },
+        { 'status_selection': 'Delisted'  },
+        { 'status_selection': 'Non Operational'  },
+        { 'status_selection': 'Exempted'  },
+        { 'status_selection': 'Cancelled'  },
+      ],
+      permit_hazwaste_selection:[
+        { 'hazwaste_selection': 'TSD'  },
+        { 'hazwaste_selection': 'Transporter'  },
+        { 'hazwaste_selection': 'Hazwaste ID'  },
+        { 'hazwaste_selection': 'CCO Cyanide'  },
+        { 'hazwaste_selection': 'CCO Mercury'  },
+        { 'hazwaste_selection': 'CCO Asbestos'  },
       ],
       date_permit_issuance_menu: '',
       date_permit_expiry_menu: '',

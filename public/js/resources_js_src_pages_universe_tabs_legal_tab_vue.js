@@ -353,6 +353,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     form_legal_info: Object,
@@ -400,6 +406,18 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         text: 'Actions',
         value: 'actions',
         sortable: false
+      }],
+      legal_tc_status_selection: [{
+        'tc_status_selection': 'Attended'
+      }, {
+        'tc_status_selection': 'Not Attended'
+      }],
+      legal_compliance_status_selection: [{
+        'compliance_status_selection': 'Complied'
+      }, {
+        'compliance_status_selection': 'Not Complied'
+      }, {
+        'compliance_status_selection': 'Partially Complied'
       }],
       date_legal_nov_menu: '',
       date_legal_tc_menu: '',
@@ -1661,8 +1679,14 @@ var render = function () {
         _c(
           "div",
           [
-            _c("v-text-field", {
-              attrs: { label: "TC Status", clearable: "" },
+            _c("v-autocomplete", {
+              attrs: {
+                items: _vm.legal_tc_status_selection,
+                label: "TC Status",
+                "item-text": "tc_status_selection",
+                "item-value": "tc_status_selection",
+                clearable: "",
+              },
               model: {
                 value: _vm.form_legal_info.nov_tc_status,
                 callback: function ($$v) {
@@ -2047,8 +2071,14 @@ var render = function () {
         _c(
           "div",
           [
-            _c("v-text-field", {
-              attrs: { label: "Order Status", clearable: "" },
+            _c("v-autocomplete", {
+              attrs: {
+                items: _vm.legal_compliance_status_selection,
+                label: "Compliance Status",
+                "item-text": "compliance_status_selection",
+                "item-value": "compliance_status_selection",
+                clearable: "",
+              },
               model: {
                 value: _vm.form_legal_info.nov_compliance_status,
                 callback: function ($$v) {

@@ -1532,6 +1532,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     form_legal_info: Object,
@@ -1579,6 +1585,18 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         text: 'Actions',
         value: 'actions',
         sortable: false
+      }],
+      legal_tc_status_selection: [{
+        'tc_status_selection': 'Attended'
+      }, {
+        'tc_status_selection': 'Not Attended'
+      }],
+      legal_compliance_status_selection: [{
+        'compliance_status_selection': 'Complied'
+      }, {
+        'compliance_status_selection': 'Not Complied'
+      }, {
+        'compliance_status_selection': 'Partially Complied'
       }],
       date_legal_nov_menu: '',
       date_legal_tc_menu: '',
@@ -2626,6 +2644,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     form_permit_info: Object,
@@ -2682,6 +2706,32 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         'law_selection': 'RA 9275'
       }, {
         'law_selection': 'RA 6969'
+      }],
+      permit_status_selection: [{
+        'status_selection': 'Operational'
+      }, {
+        'status_selection': 'Relief'
+      }, {
+        'status_selection': 'Delisted'
+      }, {
+        'status_selection': 'Non Operational'
+      }, {
+        'status_selection': 'Exempted'
+      }, {
+        'status_selection': 'Cancelled'
+      }],
+      permit_hazwaste_selection: [{
+        'hazwaste_selection': 'TSD'
+      }, {
+        'hazwaste_selection': 'Transporter'
+      }, {
+        'hazwaste_selection': 'Hazwaste ID'
+      }, {
+        'hazwaste_selection': 'CCO Cyanide'
+      }, {
+        'hazwaste_selection': 'CCO Mercury'
+      }, {
+        'hazwaste_selection': 'CCO Asbestos'
       }],
       date_permit_issuance_menu: '',
       date_permit_expiry_menu: ''
@@ -6566,8 +6616,14 @@ var render = function () {
         _c(
           "div",
           [
-            _c("v-text-field", {
-              attrs: { label: "TC Status", clearable: "" },
+            _c("v-autocomplete", {
+              attrs: {
+                items: _vm.legal_tc_status_selection,
+                label: "TC Status",
+                "item-text": "tc_status_selection",
+                "item-value": "tc_status_selection",
+                clearable: "",
+              },
               model: {
                 value: _vm.form_legal_info.nov_tc_status,
                 callback: function ($$v) {
@@ -6952,8 +7008,14 @@ var render = function () {
         _c(
           "div",
           [
-            _c("v-text-field", {
-              attrs: { label: "Order Status", clearable: "" },
+            _c("v-autocomplete", {
+              attrs: {
+                items: _vm.legal_compliance_status_selection,
+                label: "Compliance Status",
+                "item-text": "compliance_status_selection",
+                "item-value": "compliance_status_selection",
+                clearable: "",
+              },
               model: {
                 value: _vm.form_legal_info.nov_compliance_status,
                 callback: function ($$v) {
@@ -8417,8 +8479,14 @@ var render = function () {
         _c(
           "div",
           [
-            _c("v-text-field", {
-              attrs: { label: "Permit Status", clearable: "" },
+            _c("v-autocomplete", {
+              attrs: {
+                items: _vm.permit_status_selection,
+                label: "Permit Status",
+                "item-text": "status_selection",
+                "item-value": "status_selection",
+                clearable: "",
+              },
               model: {
                 value: _vm.form_permit_info.perm_status,
                 callback: function ($$v) {
@@ -8722,8 +8790,14 @@ var render = function () {
           ? _c(
               "div",
               [
-                _c("v-text-field", {
-                  attrs: { label: "Hazwaste Type", clearable: "" },
+                _c("v-autocomplete", {
+                  attrs: {
+                    items: _vm.permit_hazwaste_selection,
+                    label: "Hazwaste Type",
+                    "item-text": "hazwaste_selection",
+                    "item-value": "hazwaste_selection",
+                    clearable: "",
+                  },
                   model: {
                     value: _vm.form_permit_info.perm_hazwaste_type,
                     callback: function ($$v) {

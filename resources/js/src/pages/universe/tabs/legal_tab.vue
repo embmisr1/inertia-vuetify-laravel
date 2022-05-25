@@ -139,11 +139,14 @@
                         </v-menu>
                     </div>
                     <div>
-                        <v-text-field
+                        <v-autocomplete
+                            :items="legal_tc_status_selection"
                             v-model="form_legal_info.nov_tc_status"
                             label="TC Status"
+                            item-text="tc_status_selection"
+                            item-value="tc_status_selection"
                             clearable
-                        ></v-text-field>
+                        ></v-autocomplete>
                     </div>
             </div>
             <div class="grid grid-cols-1 gap-y-0 gap-x-4 ml-8">
@@ -264,11 +267,14 @@
                         ></v-text-field>
                     </div>
                     <div>
-                        <v-text-field
+                        <v-autocomplete
+                            :items="legal_compliance_status_selection"
                             v-model="form_legal_info.nov_compliance_status"
-                            label="Order Status"
+                            label="Compliance Status"
+                            item-text="compliance_status_selection"
+                            item-value="compliance_status_selection"
                             clearable
-                        ></v-text-field>
+                        ></v-autocomplete>
                     </div>
                     <div class="col-span-2">
                         <v-text-field
@@ -378,6 +384,15 @@
           sortable: false,
         },
         
+      ],
+      legal_tc_status_selection:[
+        { 'tc_status_selection': 'Attended'  },
+        { 'tc_status_selection': 'Not Attended'  },
+      ],
+      legal_compliance_status_selection:[
+        { 'compliance_status_selection': 'Complied'  },
+        { 'compliance_status_selection': 'Not Complied'  },
+        { 'compliance_status_selection': 'Partially Complied'  },
       ],
       date_legal_nov_menu: '',
       date_legal_tc_menu: '',

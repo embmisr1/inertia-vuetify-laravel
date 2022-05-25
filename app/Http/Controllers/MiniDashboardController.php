@@ -20,13 +20,14 @@ class MiniDashboardController extends Controller
 {
         
     public function mini_dashboard($fk){
+        $today = Carbon::now('Asia/Manila');
         $ctr_permit = Permit::where('universe_FK',$fk)->count();
         $ctr_permit_pd1586 = Permit::where('universe_FK',$fk)->where('perm_law','like','%PD 1586%')->count();
         $ctr_permit_ra8749 = Permit::where('universe_FK',$fk)->where('perm_law','like','%RA 8749%')->count();
         $ctr_permit_ra9275 = Permit::where('universe_FK',$fk)->where('perm_law','like','%RA 9275%')->count();
         $ctr_permit_ra6969 = Permit::where('universe_FK',$fk)->where('perm_law','like','%RA 6969%')->count();
-        $ctr_permit_active = Permit::where('universe_FK',$fk)->where('perm_law','like','%RA 9275%')->count();
-        $ctr_permit_expired = Permit::where('universe_FK',$fk)->where('perm_law','like','%RA 9275%')->count();
+        $ctr_permit_active = Permit::where('universe_FK',$fk)->where('perm_date_expiry','>',$today)->count();
+        $ctr_permit_expired = Permit::where('universe_FK',$fk)->where('perm_date_expiry','<=',$today)->count();
         // $ctr_monitoring = Monitoring::where('universe_FK',$fk)->count();
         $ctr_monitoring_pd1586 = Monitoring::where('universe_FK',$fk)->where('mon_law','like','%PD 1586%')->count();
         $ctr_monitoring_ra8749 = Monitoring::where('universe_FK',$fk)->where('mon_law','like','%RA 8749%')->count();
