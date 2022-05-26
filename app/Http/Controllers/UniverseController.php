@@ -22,7 +22,20 @@ use Carbon\Carbon;
 class UniverseController extends Controller
 {
     public function universe_list(){
-        return Inertia::render("pages/universe/universe_list", []);
+        // $query = Universe::where('id','!=',0)->paginate(3);
+        $query = DB::table('tbl_universe as a')->select(
+            'a.*', 
+            'b.provDesc',
+            'c.citymunDesc',
+            'd.brgyDesc',
+        )
+        ->leftjoin('ref_province as b','a.un_province','=','b.PK_province_ID')
+        ->leftjoin('ref_citymun as c','a.un_municipality','=','c.PK_citymun_ID')
+        ->leftjoin('ref_brgy as d','a.un_brgy','=','d.PK_brgy_ID')
+        ->paginate(3);
+        return Inertia::render("pages/universe/universe_list", [
+            'query'=>$query,
+        ]);
     }
 
     public function universe_form(request $request){

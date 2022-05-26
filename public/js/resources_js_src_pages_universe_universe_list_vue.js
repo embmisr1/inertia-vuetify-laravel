@@ -502,8 +502,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _layouts_default_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../layouts/default.vue */ "./resources/js/src/layouts/default.vue");
-/* harmony import */ var _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @inertiajs/inertia-vue */ "./node_modules/@inertiajs/inertia-vue/dist/index.js");
+/* harmony import */ var _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @inertiajs/inertia-vue */ "./node_modules/@inertiajs/inertia-vue/dist/index.js");
+/* harmony import */ var _layouts_default_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../layouts/default.vue */ "./resources/js/src/layouts/default.vue");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -580,31 +580,26 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
- // import CUDUser from "../../components/Users/CUD.vue";
-// import ChangePassword from "../../components/Users/ChangePassword.vue";
-// import PageMixins from "../../mixins/page";
-// import user_modal from "../../mixins/user_modal";
 
- // import _ from "lodash";
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  // mixins: [PageMixins, user_modal],
   components: {
-    DefaultLayout: _layouts_default_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
-    // CUDUser,
-    // ChangePassword,
-    Link: _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_2__.Link
+    DefaultLayout: _layouts_default_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
+    Link: _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_1__.Link
   },
-  props: {},
+  props: {
+    query: Object
+  },
+  computed: {
+    current_page_holder: function current_page_holder() {
+      return this.query.current_page;
+    }
+  },
   data: function data() {
-    return {
-      form_basic_info: {
-        firmname: 'Sample Data'
-      }
-    };
+    return {};
   },
   methods: {
-    submit_basic_info: function submit_basic_info() {
+    onPageChange: function onPageChange(page_content) {
       var _this = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
@@ -613,8 +608,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return _this.$inertia.post("/crud", {
-                  fimname: _this.form_basic_info.firmname
+                return _this.$inertia.get("/app/universe", {
+                  page: page_content
                 });
 
               case 2:
@@ -2092,138 +2087,266 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "DefaultLayout",
-    [
-      [
-        _c(
-          "v-form",
-          {
-            on: {
-              submit: function ($event) {
-                $event.preventDefault()
-                return _vm.submit_basic_info.apply(null, arguments)
+  return _c("DefaultLayout", [
+    _c("div", { staticClass: "container", attrs: { id: "app" } }, [
+      _c(
+        "section",
+        [
+          _c(
+            "b-table",
+            {
+              attrs: {
+                data: _vm.query.data,
+                total: _vm.query.total,
+                "per-page": _vm.query.per_page,
+                "current-page": _vm.query.current_page,
+                "pagination-position": "bottom",
+                "default-sort-direction": "asd",
+                "sort-icon": "arrow-up",
+                "sort-icon-size": "is-small",
+                paginated: "",
+                "backend-pagination": "",
+              },
+              on: {
+                "update:currentPage": function ($event) {
+                  return _vm.$set(_vm.query, "current_page", $event)
+                },
+                "update:current-page": function ($event) {
+                  return _vm.$set(_vm.query, "current_page", $event)
+                },
+                "page-change": _vm.onPageChange,
               },
             },
-          },
-          [
-            _c(
-              "v-container",
-              [
-                _c(
-                  "v-row",
-                  [
-                    _c(
-                      "v-col",
-                      { attrs: { cols: "12", sm: "6" } },
-                      [
-                        _c("v-text-field", {
-                          attrs: { label: "Firmname", clearable: "" },
-                          model: {
-                            value: _vm.form_basic_info.firmname,
-                            callback: function ($$v) {
-                              _vm.$set(_vm.form_basic_info, "firmname", $$v)
-                            },
-                            expression: "form_basic_info.firmname",
-                          },
-                        }),
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "v-col",
-                      { attrs: { cols: "12", sm: "6" } },
-                      [
-                        _c("v-text-field", {
-                          attrs: { solo: "", label: "Solo", clearable: "" },
-                          model: {
-                            value: _vm.message2,
-                            callback: function ($$v) {
-                              _vm.message2 = $$v
-                            },
-                            expression: "message2",
-                          },
-                        }),
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "v-col",
-                      { attrs: { cols: "12", sm: "6" } },
-                      [
-                        _c("v-text-field", {
-                          attrs: { filled: "", label: "Filled", clearable: "" },
-                          model: {
-                            value: _vm.message3,
-                            callback: function ($$v) {
-                              _vm.message3 = $$v
-                            },
-                            expression: "message3",
-                          },
-                        }),
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "v-col",
-                      { attrs: { cols: "12", sm: "6" } },
-                      [
-                        _c("v-text-field", {
-                          attrs: {
-                            label: "Outlined",
-                            outlined: "",
-                            clearable: "",
-                          },
-                          model: {
-                            value: _vm.message4,
-                            callback: function ($$v) {
-                              _vm.message4 = $$v
-                            },
-                            expression: "message4",
-                          },
-                        }),
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "v-col",
-                      { attrs: { cols: "12", sm: "6" } },
-                      [
-                        _c(
-                          "v-btn",
-                          {
-                            attrs: {
-                              depressed: "",
-                              color: "primary",
-                              type: "submit",
-                            },
-                          },
-                          [
-                            _vm._v(
-                              "\n                        Submit\n                    "
-                            ),
-                          ]
+            [
+              _c("b-table-column", {
+                attrs: {
+                  field: "un_firmname",
+                  label: "Firmname",
+                  sortable: "",
+                  searchable: "",
+                },
+                scopedSlots: _vm._u([
+                  {
+                    key: "default",
+                    fn: function (props) {
+                      return [
+                        _vm._v(
+                          "\n                " +
+                            _vm._s(props.row.un_firmname) +
+                            "\n            "
                         ),
-                      ],
-                      1
-                    ),
-                  ],
-                  1
-                ),
-              ],
-              1
-            ),
-          ],
-          1
-        ),
-      ],
-    ],
-    2
-  )
+                      ]
+                    },
+                  },
+                ]),
+              }),
+              _vm._v(" "),
+              _c("b-table-column", {
+                attrs: {
+                  field: "un_crs_number",
+                  label: "CRS No.",
+                  sortable: "",
+                  searchable: "",
+                },
+                scopedSlots: _vm._u([
+                  {
+                    key: "default",
+                    fn: function (props) {
+                      return [
+                        _vm._v(
+                          "\n                " +
+                            _vm._s(props.row.un_crs_number) +
+                            "\n            "
+                        ),
+                      ]
+                    },
+                  },
+                ]),
+              }),
+              _vm._v(" "),
+              _c("b-table-column", {
+                attrs: {
+                  field: "un_proponent",
+                  label: "Proponent",
+                  sortable: "",
+                  searchable: "",
+                },
+                scopedSlots: _vm._u([
+                  {
+                    key: "default",
+                    fn: function (props) {
+                      return [
+                        _vm._v(
+                          "\n                " +
+                            _vm._s(props.row.un_proponent) +
+                            "\n            "
+                        ),
+                      ]
+                    },
+                  },
+                ]),
+              }),
+              _vm._v(" "),
+              _c("b-table-column", {
+                attrs: {
+                  field: "un_status",
+                  label: "Firm Status",
+                  sortable: "",
+                  centered: "",
+                  searchable: "",
+                },
+                scopedSlots: _vm._u([
+                  {
+                    key: "default",
+                    fn: function (props) {
+                      return [
+                        _c("span", { staticClass: "tag is-success" }, [
+                          _vm._v(
+                            "\n                    " +
+                              _vm._s(props.row.un_status) +
+                              "\n                "
+                          ),
+                        ]),
+                      ]
+                    },
+                  },
+                ]),
+              }),
+              _vm._v(" "),
+              _c("b-table-column", {
+                attrs: {
+                  field: "provDesc",
+                  label: "Province",
+                  sortable: "",
+                  searchable: "",
+                },
+                scopedSlots: _vm._u([
+                  {
+                    key: "default",
+                    fn: function (props) {
+                      return [
+                        _vm._v(
+                          "\n                " +
+                            _vm._s(props.row.provDesc) +
+                            "\n            "
+                        ),
+                      ]
+                    },
+                  },
+                ]),
+              }),
+              _vm._v(" "),
+              _c("b-table-column", {
+                attrs: {
+                  field: "provDesc",
+                  label: "City/Municipality",
+                  sortable: "",
+                  searchable: "",
+                },
+                scopedSlots: _vm._u([
+                  {
+                    key: "default",
+                    fn: function (props) {
+                      return [
+                        _vm._v(
+                          "\n                " +
+                            _vm._s(props.row.citymunDesc) +
+                            "\n            "
+                        ),
+                      ]
+                    },
+                  },
+                ]),
+              }),
+              _vm._v(" "),
+              _c("b-table-column", {
+                attrs: {
+                  field: "provDesc",
+                  label: "Barangay",
+                  sortable: "",
+                  searchable: "",
+                },
+                scopedSlots: _vm._u([
+                  {
+                    key: "default",
+                    fn: function (props) {
+                      return [
+                        _vm._v(
+                          "\n                " +
+                            _vm._s(props.row.brgyDesc) +
+                            "\n            "
+                        ),
+                      ]
+                    },
+                  },
+                ]),
+              }),
+              _vm._v(" "),
+              _c("b-table-column", {
+                attrs: { label: "Action" },
+                scopedSlots: _vm._u([
+                  {
+                    key: "default",
+                    fn: function (props) {
+                      return [
+                        _c(
+                          "span",
+                          [
+                            _c(
+                              "Link",
+                              {
+                                attrs: {
+                                  href: "/app/universe_form/" + props.row.id,
+                                  as: "button",
+                                },
+                              },
+                              [
+                                _c(
+                                  "v-btn",
+                                  { attrs: { link: "", small: "", icon: "" } },
+                                  [
+                                    _c(
+                                      "b-tooltip",
+                                      {
+                                        attrs: {
+                                          type: "is-dark",
+                                          label:
+                                            "Edit - " + props.row.un_firmname,
+                                        },
+                                      },
+                                      [
+                                        _c("box-icon", {
+                                          attrs: {
+                                            name: "edit",
+                                            color: "orange",
+                                            animation: "tada-hover",
+                                          },
+                                        }),
+                                      ],
+                                      1
+                                    ),
+                                  ],
+                                  1
+                                ),
+                              ],
+                              1
+                            ),
+                          ],
+                          1
+                        ),
+                      ]
+                    },
+                  },
+                ]),
+              }),
+            ],
+            1
+          ),
+        ],
+        1
+      ),
+    ]),
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true

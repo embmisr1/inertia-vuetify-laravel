@@ -152,7 +152,22 @@
             </div>
             <div class="text-center">
                 <v-btn depressed color="primary" type="submit">
+                    <v-icon
+                        small
+                        class="mr-2"
+                    >
+                        mdi-content-save
+                    </v-icon>
                     Submit
+                </v-btn>
+                <v-btn depressed color="warning" type="button" @click="resetPermit">
+                    <v-icon
+                        small
+                        class="mr-2"
+                    >
+                        mdi-autorenew
+                    </v-icon>
+                    Reset
                 </v-btn>
             </div>
             <template>
@@ -283,6 +298,9 @@
         },
         async deletePermit(item) {
             await this.$inertia.delete(`/app/delete_permit/${item.id}`);
+            this.resetPermit();
+        },
+        resetPermit(){
             this.form_permit_info.perm_law = null;
             this.form_permit_info.perm_hazwaste_type = null;
             this.form_permit_info.perm_date_expiry = null;
@@ -293,7 +311,7 @@
             this.form_permit_info.perm_law = null;
             this.form_permit_info.perm_number = null;
             this.form_permit_info.perm_status = null;
-        }
+        },
     }
   }
 </script>

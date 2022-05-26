@@ -1,100 +1,97 @@
 <template>
     <DefaultLayout>
-        <template>
-            <v-form @submit.prevent="submit_basic_info">
-                <v-container>
-                <v-row>
-                    <!--- Divider -->
-                    <v-col
-                    cols="12"
-                    sm="6"
-                    >
-                        <v-text-field
-                            v-model="form_basic_info.firmname"
-                            label="Firmname"
-                            clearable
-                        ></v-text-field>
-                    </v-col>
-                    <!--- Divider -->
-                    <v-col
-                    cols="12"
-                    sm="6"
-                    >
-                        <v-text-field
-                            v-model="message2"
-                            solo
-                            label="Solo"
-                            clearable
-                        ></v-text-field>
-                    </v-col>
-                    <!--- Divider -->
-                    <v-col
-                    cols="12"
-                    sm="6"
-                    >
-                        <v-text-field
-                            v-model="message3"
-                            filled
-                            label="Filled"
-                            clearable
-                        ></v-text-field>
-                    </v-col>
-                    <!--- Divider -->
-                    <v-col
-                    cols="12"
-                    sm="6"
-                    >
-                        <v-text-field
-                            v-model="message4"
-                            label="Outlined"
-                            outlined
-                            clearable
-                        ></v-text-field>
-                    </v-col>
-                    <!--- Divider -->
-                    <v-col
-                    cols="12"
-                    sm="6"
-                    >
-                        <v-btn depressed color="primary" type="submit">
-                            Submit
-                        </v-btn>
-                    </v-col>
-                    <!--- Divider -->
-                </v-row>
-                </v-container>
-            </v-form>
-        </template>
+    <div id="app" class="container">
+        <section>
+            <b-table
+                :data="query.data"
+                :total="query.total"
+                :per-page="query.per_page"
+                :current-page.sync="query.current_page"
+                pagination-position="bottom"
+                default-sort-direction="asd"
+                sort-icon="arrow-up"
+                sort-icon-size="is-small"
+                @page-change="onPageChange"
+                paginated
+                backend-pagination>
+
+                <b-table-column field="un_firmname" label="Firmname" sortable v-slot="props" searchable>
+                    {{ props.row.un_firmname }}
+                </b-table-column>
+
+                <b-table-column field="un_crs_number" label="CRS No." sortable v-slot="props" searchable>
+                    {{ props.row.un_crs_number }}
+                </b-table-column>
+
+                <b-table-column field="un_proponent" label="Proponent" sortable v-slot="props" searchable>
+                    {{ props.row.un_proponent }}
+                </b-table-column>
+
+                <b-table-column field="un_status" label="Firm Status" sortable centered v-slot="props" searchable>
+                    <span class="tag is-success">
+                        {{ props.row.un_status }}
+                    </span>
+                </b-table-column>
+
+                <b-table-column field="provDesc" label="Province" sortable v-slot="props" searchable>
+                    {{ props.row.provDesc }}
+                </b-table-column>
+
+                <b-table-column field="provDesc" label="City/Municipality" sortable v-slot="props" searchable>
+                    {{ props.row.citymunDesc }}
+                </b-table-column>
+
+                <b-table-column field="provDesc" label="Barangay" sortable v-slot="props" searchable>
+                    {{ props.row.brgyDesc }}
+                </b-table-column>
+
+                <b-table-column label="Action" v-slot="props">
+                    <span>
+                        <Link :href="`/app/universe_form/${props.row.id}`" as="button">
+                            <v-btn link small icon>
+                                <b-tooltip type="is-dark" :label="`Edit - ${props.row.un_firmname}`">
+                                    <box-icon
+                                        name="edit"
+                                        color="orange"
+                                        animation="tada-hover"
+                                    >
+                                    </box-icon>
+                                </b-tooltip>
+                            </v-btn>
+                        </Link>
+                    </span>
+                </b-table-column>
+
+            </b-table>
+        </section>
+    </div>
     </DefaultLayout>
 </template>
 
 <script>
-import DefaultLayout from "../../layouts/default.vue";
-// import CUDUser from "../../components/Users/CUD.vue";
-// import ChangePassword from "../../components/Users/ChangePassword.vue";
-// import PageMixins from "../../mixins/page";
-// import user_modal from "../../mixins/user_modal";
 import { Link } from "@inertiajs/inertia-vue";
-// import _ from "lodash";
+import DefaultLayout from "../../layouts/default.vue";
 export default {
-    // mixins: [PageMixins, user_modal],
     components: {
         DefaultLayout,
-        // CUDUser,
-        // ChangePassword,
         Link,
     },
     props: {
+        query: Object,
+    },
+    computed: {
+        current_page_holder(){
+            return this.query.current_page;
+        },
     },
     data: () => ({
-      form_basic_info: {
-        firmname: 'Sample Data',
-      },
     }),
     methods: {
-      async submit_basic_info(){
-        await this.$inertia.post("/crud", {fimname:this.form_basic_info.firmname});
-      },
+        async onPageChange(page_content){
+            await this.$inertia.get(`/app/universe`,{
+                page: page_content,
+            });
+        }
     },
 };
 </script>

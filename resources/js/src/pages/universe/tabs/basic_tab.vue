@@ -217,11 +217,14 @@
                         ></v-text-field>
                     </div>
                     <div>
-                        <v-text-field
+                        <v-autocomplete
+                            :items="basic_status"
                             v-model="form_basic_info.un_status"
                             label="Status"
+                            item-text="basic_status_selection"
+                            item-value="basic_status_selection"
                             clearable
-                        ></v-text-field>
+                        ></v-autocomplete>
                     </div>
             </div>
             <div class="text-center">
@@ -261,6 +264,18 @@ import axios from 'axios';
         province_list_alter: this.province_list,
         municipality_list_alter: this.municipality_list,
         barangay_list_alter: this.barangay_list,
+        basic_status:[
+            { 'basic_status_selection': 'Active-Operational'  },
+            { 'basic_status_selection': 'Operational'  },
+            { 'basic_status_selection': 'Non-Operational'  },
+            { 'basic_status_selection': 'Temporary Closure'  },
+            { 'basic_status_selection': 'Closed'  },
+            { 'basic_status_selection': 'Temporary Ceased Operation'  },
+            { 'basic_status_selection': 'Ceased'  },
+            { 'basic_status_selection': 'Completed'  },
+            { 'basic_status_selection': 'Cancelled'  },
+            { 'basic_status_selection': 'Delisted'  },
+        ],
       }
     },
   }

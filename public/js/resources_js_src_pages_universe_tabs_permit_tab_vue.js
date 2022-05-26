@@ -216,6 +216,21 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     form_permit_info: Object,
@@ -329,24 +344,27 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 return _this.$inertia["delete"]("/app/delete_permit/".concat(item.id));
 
               case 2:
-                _this.form_permit_info.perm_law = null;
-                _this.form_permit_info.perm_hazwaste_type = null;
-                _this.form_permit_info.perm_date_expiry = null;
-                _this.form_permit_info.perm_date_issuance = null;
-                _this.form_permit_info.perm_description = null;
-                _this.form_permit_info.perm_file = null;
-                _this.form_permit_info.perm_id = null;
-                _this.form_permit_info.perm_law = null;
-                _this.form_permit_info.perm_number = null;
-                _this.form_permit_info.perm_status = null;
+                _this.resetPermit();
 
-              case 12:
+              case 3:
               case "end":
                 return _context.stop();
             }
           }
         }, _callee);
       }))();
+    },
+    resetPermit: function resetPermit() {
+      this.form_permit_info.perm_law = null;
+      this.form_permit_info.perm_hazwaste_type = null;
+      this.form_permit_info.perm_date_expiry = null;
+      this.form_permit_info.perm_date_issuance = null;
+      this.form_permit_info.perm_description = null;
+      this.form_permit_info.perm_file = null;
+      this.form_permit_info.perm_id = null;
+      this.form_permit_info.perm_law = null;
+      this.form_permit_info.perm_number = null;
+      this.form_permit_info.perm_status = null;
     }
   }
 });
@@ -1647,7 +1665,28 @@ var render = function () {
           _c(
             "v-btn",
             { attrs: { depressed: "", color: "primary", type: "submit" } },
-            [_vm._v("\n            Submit\n        ")]
+            [
+              _c("v-icon", { staticClass: "mr-2", attrs: { small: "" } }, [
+                _vm._v("\n                mdi-content-save\n            "),
+              ]),
+              _vm._v("\n            Submit\n        "),
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "v-btn",
+            {
+              attrs: { depressed: "", color: "warning", type: "button" },
+              on: { click: _vm.resetPermit },
+            },
+            [
+              _c("v-icon", { staticClass: "mr-2", attrs: { small: "" } }, [
+                _vm._v("\n                mdi-autorenew\n            "),
+              ]),
+              _vm._v("\n            Reset\n        "),
+            ],
+            1
           ),
         ],
         1
