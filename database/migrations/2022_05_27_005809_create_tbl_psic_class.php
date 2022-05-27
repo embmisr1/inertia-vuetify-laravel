@@ -16,8 +16,9 @@ class CreateTblPsicClass extends Migration
         Schema::create('tbl_psic_class', function (Blueprint $table) {
             $table->id();
             $table->string('psic_class_desc')->nullable();
-            $table->foreign('psic_group_FK')->references('id')->on('tbl_psic_group')->onUpdate('cascade')->nullOnDelete()->nullable();
+            $table->unsignedBigInteger('psic_group_FK')->nullable();
             $table->timestamps();
+            $table->foreign('psic_group_FK')->references('id')->on('tbl_psic_group')->onUpdate('cascade')->nullOnDelete();
         });
     }
 

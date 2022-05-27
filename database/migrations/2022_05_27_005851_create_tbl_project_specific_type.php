@@ -16,8 +16,9 @@ class CreateTblProjectSpecificType extends Migration
         Schema::create('tbl_project_specific_type', function (Blueprint $table) {
             $table->id();
             $table->string('project_specific_type_desc')->nullable();
-            $table->foreign('project_subtype_FK')->references('id')->on('tbl_project_subtype')->onUpdate('cascade')->nullOnDelete()->nullable();
+            $table->unsignedBigInteger('project_subtype_FK')->nullable();
             $table->timestamps();
+            $table->foreign('project_subtype_FK')->references('id')->on('tbl_project_subtype')->onUpdate('cascade')->nullOnDelete();
         });
     }
 
