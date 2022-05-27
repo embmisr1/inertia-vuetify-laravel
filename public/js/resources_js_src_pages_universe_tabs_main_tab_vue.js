@@ -4223,7 +4223,7 @@ var render = function () {
         "div",
         [
           _c("v-text-field", {
-            attrs: { label: "Subclass", clearable: "" },
+            attrs: { label: "Specific Type", clearable: "" },
             model: {
               value: _vm.form_basic_info.un_project_specific_type,
               callback: function ($$v) {
@@ -4240,7 +4240,7 @@ var render = function () {
         "div",
         [
           _c("v-text-field", {
-            attrs: { label: "Subclass", clearable: "" },
+            attrs: { label: "Specific Subtype", clearable: "" },
             model: {
               value: _vm.form_basic_info.un_project_specific_subtype,
               callback: function ($$v) {

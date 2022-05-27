@@ -186,14 +186,14 @@
                     <div>
                         <v-text-field
                             v-model="form_basic_info.un_project_specific_type"
-                            label="Subclass"
+                            label="Specific Type"
                             clearable
                         ></v-text-field>
                     </div>
                     <div>
                         <v-text-field
                             v-model="form_basic_info.un_project_specific_subtype"
-                            label="Subclass"
+                            label="Specific Subtype"
                             clearable
                         ></v-text-field>
                     </div>
