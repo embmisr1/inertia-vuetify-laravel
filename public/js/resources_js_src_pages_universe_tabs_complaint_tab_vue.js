@@ -114,6 +114,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     form_complaint_info: Object,
@@ -175,20 +184,23 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 return _this.$inertia["delete"]("/app/delete_complaint/".concat(item.id));
 
               case 2:
-                _this.form_complaint_info.comp_id = null;
-                _this.form_complaint_info.comp_name = null;
-                _this.form_complaint_info.comp_nature = null;
-                _this.form_complaint_info.comp_attached_file = null;
-                _this.form_complaint_info.comp_action_file = null;
-                _this.form_complaint_info.comp_remarks = null;
+                _this.resetComplaint();
 
-              case 8:
+              case 3:
               case "end":
                 return _context.stop();
             }
           }
         }, _callee);
       }))();
+    },
+    resetComplaint: function resetComplaint() {
+      this.form_complaint_info.comp_id = null;
+      this.form_complaint_info.comp_name = null;
+      this.form_complaint_info.comp_nature = null;
+      this.form_complaint_info.comp_attached_file = null;
+      this.form_complaint_info.comp_action_file = null;
+      this.form_complaint_info.comp_remarks = null;
     }
   }
 });
@@ -1168,6 +1180,21 @@ var render = function () {
             "v-btn",
             { attrs: { depressed: "", color: "primary", type: "submit" } },
             [_vm._v("\n            Submit\n        ")]
+          ),
+          _vm._v(" "),
+          _c(
+            "v-btn",
+            {
+              attrs: { depressed: "", color: "warning", type: "button" },
+              on: { click: _vm.resetComplaint },
+            },
+            [
+              _c("v-icon", { staticClass: "mr-2", attrs: { small: "" } }, [
+                _vm._v("\n                mdi-autorenew\n            "),
+              ]),
+              _vm._v("\n            Reset\n        "),
+            ],
+            1
           ),
         ],
         1

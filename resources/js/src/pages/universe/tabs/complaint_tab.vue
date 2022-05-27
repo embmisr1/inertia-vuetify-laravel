@@ -52,6 +52,15 @@
                 <v-btn depressed color="primary" type="submit">
                     Submit
                 </v-btn>
+                <v-btn depressed color="warning" type="button" @click="resetComplaint">
+                    <v-icon
+                        small
+                        class="mr-2"
+                    >
+                        mdi-autorenew
+                    </v-icon>
+                    Reset
+                </v-btn>
             </div>
             <template>
                 <v-card elevation="2" class="mt-5">
@@ -140,13 +149,16 @@
         },
         async deleteComplaint(item) {
             await this.$inertia.delete(`/app/delete_complaint/${item.id}`);
+            this.resetComplaint();
+        },
+        resetComplaint(){
             this.form_complaint_info.comp_id = null;
             this.form_complaint_info.comp_name = null;
             this.form_complaint_info.comp_nature = null;
             this.form_complaint_info.comp_attached_file = null;
             this.form_complaint_info.comp_action_file = null;
             this.form_complaint_info.comp_remarks = null;
-        }
+        },
     }
   }
 </script>

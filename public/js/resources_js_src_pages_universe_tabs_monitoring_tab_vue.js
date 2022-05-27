@@ -167,6 +167,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     form_monitoring_info: Object,
@@ -224,19 +233,22 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 return _this.$inertia["delete"]("/app/delete_monitoring/".concat(item.id));
 
               case 2:
-                _this.form_monitoring_info.mon_id = null;
-                _this.form_monitoring_info.mon_law = null;
-                _this.form_monitoring_info.mon_date_monitored = null;
-                _this.form_monitoring_info.mon_type = null;
-                _this.form_monitoring_info.mon_file = null;
+                _this.resetMonitoring();
 
-              case 7:
+              case 3:
               case "end":
                 return _context.stop();
             }
           }
         }, _callee);
       }))();
+    },
+    resetMonitoring: function resetMonitoring() {
+      this.form_monitoring_info.mon_id = null;
+      this.form_monitoring_info.mon_law = [];
+      this.form_monitoring_info.mon_date_monitored = null;
+      this.form_monitoring_info.mon_type = null;
+      this.form_monitoring_info.mon_file = null;
     }
   }
 });
@@ -1361,6 +1373,21 @@ var render = function () {
             "v-btn",
             { attrs: { depressed: "", color: "primary", type: "submit" } },
             [_vm._v("\n            Submit\n        ")]
+          ),
+          _vm._v(" "),
+          _c(
+            "v-btn",
+            {
+              attrs: { depressed: "", color: "warning", type: "button" },
+              on: { click: _vm.resetMonitoring },
+            },
+            [
+              _c("v-icon", { staticClass: "mr-2", attrs: { small: "" } }, [
+                _vm._v("\n                mdi-autorenew\n            "),
+              ]),
+              _vm._v("\n            Reset\n        "),
+            ],
+            1
           ),
         ],
         1
