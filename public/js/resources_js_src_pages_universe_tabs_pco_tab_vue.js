@@ -205,6 +205,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     form_pco_info: Object,
@@ -282,13 +291,24 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 _this.form_pco_info.pco_start_date = null;
                 _this.form_pco_info.pco_end_date = null;
 
-              case 9:
+                _this.resetPco();
+
+              case 10:
               case "end":
                 return _context.stop();
             }
           }
         }, _callee);
       }))();
+    },
+    resetPco: function resetPco() {
+      this.form_pco_info.pco_id = null;
+      this.form_pco_info.pco_name = null;
+      this.form_pco_info.pco_number = null;
+      this.form_pco_info.pco_email = null;
+      this.form_pco_info.pco_contact = null;
+      this.form_pco_info.pco_start_date = null;
+      this.form_pco_info.pco_end_date = null;
     }
   }
 });
@@ -1511,6 +1531,21 @@ var render = function () {
             "v-btn",
             { attrs: { depressed: "", color: "primary", type: "submit" } },
             [_vm._v("\n            Submit\n        ")]
+          ),
+          _vm._v(" "),
+          _c(
+            "v-btn",
+            {
+              attrs: { depressed: "", color: "warning", type: "button" },
+              on: { click: _vm.resetPco },
+            },
+            [
+              _c("v-icon", { staticClass: "mr-2", attrs: { small: "" } }, [
+                _vm._v("\n                mdi-autorenew\n            "),
+              ]),
+              _vm._v("\n            Reset\n        "),
+            ],
+            1
           ),
         ],
         1

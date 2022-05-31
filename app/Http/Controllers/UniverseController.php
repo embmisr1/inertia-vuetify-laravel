@@ -22,7 +22,6 @@ use Carbon\Carbon;
 class UniverseController extends Controller
 {
     public function universe_list(){
-        // $query = Universe::where('id','!=',0)->paginate(3);
         $query = DB::table('tbl_universe as a')->select(
             'a.*', 
             'b.provDesc',
@@ -52,7 +51,6 @@ class UniverseController extends Controller
             $ctr_file = $this->mini_dashboard_controller($id);
             $province_list = Province::where('regCode','01')->get();
             $municipality_list = Municipality::where('provCode',$query->un_province)->get();
-            // $barangay_list = Barangay::whereRaw('CAST(citymunCode AS SIGNED) = '.$query->un_municipality)->get();
             $barangay_list = Barangay::where('citymunCode',$query->un_municipality)->get();
             if($query->count() > 0){
                 return Inertia::render("pages/universe/universe_form",[
@@ -91,7 +89,7 @@ class UniverseController extends Controller
         }
     }
 
-// MAIN PROCESS =======================================================================================================
+    // =============================================== MAIN PROCESS ===============================================
 
     public function universe_process(request $request){
         if(isset($request->basic['id'])){
@@ -105,7 +103,7 @@ class UniverseController extends Controller
         }
     }
 
-// GENERAL PROCESS =======================================================================================================
+    // =============================================== GENERAL PROCESS ===============================================
 
     public function universe_process_create($request){
         $universe_id = $this->basic_process_create($request);
@@ -129,298 +127,125 @@ class UniverseController extends Controller
         return $universe_id;
     }
 
-// INDIVUDUAL PROCESS =======================================================================================================
+    // =============================================== INDIVUDUAL PROCESS ===============================================
 
     public function basic_process_create($request){
-        $query = new Universe();
-        foreach($this->basic_columns() as $cols){
-            $query->$cols = $request->basic[$cols];
-        }
-        $query->save();
-        return $query->id;
+        $basic_controller = new UniverseBasicController;
+        return $basic_controller->basic_process_create($request);
     }
-    
+
     public function basic_process_update($request){
-        $query = Universe::find($request->basic['id']);
-        foreach($this->basic_columns() as $cols){
-            $query->$cols = $request->basic[$cols];
-        }
-        $query->save();
-        return $request->basic['id'];
+        $basic_controller = new UniverseBasicController;
+        return $basic_controller->basic_process_update($request);
     }
     
     // =============================================== PERMITS ===============================================
 
     public function permit_process_create($request, $universe_id){
-        if($request->permit['perm_law'] && $request->permit['perm_number']){
-            $query = new Permit();
-            foreach($this->permit_columns() as $cols){
-                $query->$cols = $request->permit[$cols];
-            }
-            $query->universe_FK = $universe_id;
-            $query->save();
-            return $query->id;
-        }
+        $permit_controller = new UniversePermitController;
+        return $permit_controller->permit_process_create($request, $universe_id);
     }
 
     public function permit_process_update($request, $universe_id){
-        if($request->permit['perm_law'] && $request->permit['perm_number']){
-            if($request->permit['perm_id']){
-                $query = Permit::find($request->permit['perm_id']);
-            }else{
-                $query = new Permit();
-            }
-            foreach($this->permit_columns() as $cols){
-                $query->$cols = $request->permit[$cols];
-            }
-            $query->universe_FK = $universe_id;
-            $query->save();
-            return $request->permit['perm_id'];
-        }
+        $permit_controller = new UniversePermitController;
+        return $permit_controller->permit_process_update($request, $universe_id);
     }
     
     public function delete_permit($request){
-        $query = Permit::find($request);
-        $query->delete();
-        return back();
+        $permit_controller = new UniversePermitController;
+        return $permit_controller->delete_permit($request);
     }
 
     // =============================================== MONITORING ===============================================
     
     public function monitoring_process_create($request, $universe_id){
-        if($request->monitoring['mon_law'] && $request->monitoring['mon_date_monitored']){
-            $query = new Monitoring();
-            foreach($this->monitoring_columns() as $cols){
-                $query->$cols = $request->monitoring[$cols];
-            }
-            $query->mon_law = $this->industry_laws($request, 'monitoring', 'mon_law');
-            $query->universe_FK = $universe_id;
-            $query->save();
-            return $query->id;
-        }
+        $monitoring_controller = new UniverseMonitoringController;
+        return $monitoring_controller->monitoring_process_create($request, $universe_id);
     }
 
     public function monitoring_process_update($request, $universe_id){
-        if($request->monitoring['mon_law'] && $request->monitoring['mon_date_monitored']){
-            if($request->monitoring['mon_id']){
-                $query = Monitoring::find($request->monitoring['mon_id']);
-            }else{
-                $query = new Monitoring();
-            }
-            foreach($this->monitoring_columns() as $cols){
-                $query->$cols = $request->monitoring[$cols];
-            }
-            $query->mon_law = $this->industry_laws($request, 'monitoring', 'mon_law');
-            $query->universe_FK = $universe_id;
-            $query->save();
-            return $request->monitoring['mon_id'];
-        }
+        $monitoring_controller = new UniverseMonitoringController;
+        return $monitoring_controller->monitoring_process_update($request, $universe_id);
     }
     
     public function delete_monitoring($request){
-        $query = Monitoring::find($request);
-        $query->delete();
-        return back();
+        $monitoring_controller = new UniverseMonitoringController;
+        return $monitoring_controller->delete_monitoring($request);
     }
     
     // =============================================== LEGAL/NOV ===============================================
     
     public function legal_process_create($request, $universe_id){
-        if($request->legal['nov_law'] && $request->legal['nov_date']){
-            $query = new Legal();
-            foreach($this->legal_columns() as $cols){
-                $query->$cols = $request->legal[$cols];
-            }
-            $query->nov_law = $this->industry_laws($request, 'legal', 'nov_law');
-            $query->universe_FK = $universe_id;
-            $query->save();
-            return $query->id;
-        }
+        $legal_controller = new UniverseLegalController;
+        return $legal_controller->legal_process_create($request, $universe_id);
     }
 
     public function legal_process_update($request, $universe_id){
-        if($request->legal['nov_law'] && $request->legal['nov_date']){
-            if($request->legal['nov_id']){
-                $query = Legal::find($request->legal['nov_id']);
-            }else{
-                $query = new Legal();
-            }
-            foreach($this->legal_columns() as $cols){
-                $query->$cols = $request->legal[$cols];
-            }
-            $query->nov_law = $this->industry_laws($request, 'legal', 'nov_law');
-            $query->universe_FK = $universe_id;
-            $query->save();
-            return $request->legal['nov_id'];
-        }
+        $legal_controller = new UniverseLegalController;
+        return $legal_controller->legal_process_update($request, $universe_id);
     }
     
     public function delete_legal($request){
-        $query = Legal::find($request);
-        $query->delete();
-        return back();
+        $legal_controller = new UniverseLegalController;
+        return $legal_controller->delete_legal($request);
     }
     
     // =============================================== HAZWASTE ===============================================
     
     public function hazwaste_process_create($request, $universe_id){
-        if($request->hazwaste['haz_type'] && $request->hazwaste['haz_number']){
-            $query = new Hazwaste();
-            foreach($this->hazwaste_columns() as $cols){
-                $query->$cols = $request->hazwaste[$cols];
-            }
-            $query->universe_FK = $universe_id;
-            $query->save();
-            return $query->id;
-        }
+        $hazwaste_controller = new UniverseHazwasteController;
+        return $hazwaste_controller->hazwaste_process_create($request, $universe_id);
     }
 
     public function hazwaste_process_update($request, $universe_id){
-        if($request->hazwaste['haz_type'] && $request->hazwaste['haz_number']){
-            if($request->hazwaste['haz_id']){
-                $query = Hazwaste::find($request->hazwaste['haz_id']);
-            }else{
-                $query = new Hazwaste();
-            }
-            foreach($this->hazwaste_columns() as $cols){
-                $query->$cols = $request->hazwaste[$cols];
-            }
-            $query->universe_FK = $universe_id;
-            $query->save();
-            return $request->hazwaste['haz_id'];
-        }
+        $hazwaste_controller = new UniverseHazwasteController;
+        return $hazwaste_controller->hazwaste_process_update($request, $universe_id);
     }
     
     public function delete_hazwaste($request){
-        $query = Hazwaste::find($request);
-        $query->delete();
-        return back();
+        $hazwaste_controller = new UniverseHazwasteController;
+        return $hazwaste_controller->delete_hazwaste($request);
     }
     
     // =============================================== PCO ===============================================
     
     public function pco_process_create($request, $universe_id){
-        if($request->pco['pco_name'] && $request->pco['pco_number']){
-            $query = new Pco();
-            foreach($this->pco_columns() as $cols){
-                $query->$cols = $request->pco[$cols];
-            }
-            $query->universe_FK = $universe_id;
-            $query->save();
-            return $query->id;
-        }
+        $pco_controller = new UniversePcoController;
+        return $pco_controller->pco_process_create($request, $universe_id);
     }
 
     public function pco_process_update($request, $universe_id){
-        if($request->pco['pco_name'] && $request->pco['pco_number']){
-            if($request->pco['pco_id']){
-                $query = Pco::find($request->pco['pco_id']);
-            }else{
-                $query = new Pco();
-            }
-            foreach($this->pco_columns() as $cols){
-                $query->$cols = $request->pco[$cols];
-            }
-            $query->universe_FK = $universe_id;
-            $query->save();
-            return $request->pco['pco_id'];
-        }
+        $pco_controller = new UniversePcoController;
+        return $pco_controller->pco_process_update($request, $universe_id);
     }
     
     public function delete_pco($request){
-        $query = Pco::find($request);
-        $query->delete();
-        return back();
+        $pco_controller = new UniversePcoController;
+        return $pco_controller->delete_pco($request);
     }
     
     // =============================================== COMPLAINT ===============================================
     
     public function complaint_process_create($request, $universe_id){
-        if($request->complaint['comp_name'] && $request->complaint['comp_nature']){
-            $query = new Complaint();
-            foreach($this->complaint_columns() as $cols){
-                $query->$cols = $request->complaint[$cols];
-            }
-            $query->universe_FK = $universe_id;
-            $query->save();
-            return $query->id;
-        }
+        $complaint_controller = new UniverseComplaintController;
+        return $complaint_controller->complaint_process_create($request, $universe_id);
     }
 
     public function complaint_process_update($request, $universe_id){
-        if($request->complaint['comp_name'] && $request->complaint['comp_nature']){
-            if($request->complaint['comp_id']){
-                $query = Complaint::find($request->complaint['comp_id']);
-            }else{
-                $query = new Complaint();
-            }
-            foreach($this->complaint_columns() as $cols){
-                $query->$cols = $request->complaint[$cols];
-            }
-            $query->universe_FK = $universe_id;
-            $query->save();
-            return $request->complaint['comp_id'];
-        }
+        $complaint_controller = new UniverseComplaintController;
+        return $complaint_controller->complaint_process_update($request, $universe_id);
     }
     
     public function delete_complaint($request){
-        $query = Complaint::find($request);
-        $query->delete();
-        return back();
+        $complaint_controller = new UniverseComplaintController;
+        return $complaint_controller->delete_complaint($request);
     }
 
-// LAWS ARRAY CALLABLE =======================================================================================================
-
-    public function industry_laws($request, $law, $column){
-        $industry_laws = '';
-        foreach($request->$law[$column] as $industry_law){
-            $industry_laws = $industry_laws.$industry_law.', ';
-        }
-        return rtrim($industry_laws,', ');
-    }
-
-// MINI DASHBOARD COUNTER =======================================================================================================
+    // =============================================== MINI DASHBOARD COUNTER ===============================================
     
     public function mini_dashboard_controller($id){
         $mini_dashboard_controller = new MiniDashboardController;
         return $mini_dashboard_controller->mini_dashboard($id);
     }
 
-// COLUMNS =======================================================================================================
-
-
-    public function basic_columns(){
-        $columns_controller = new ColumnsController;
-        return $columns_controller->basic_columns();
-    }
-
-    public function permit_columns(){
-        $columns_controller = new ColumnsController;
-        return $columns_controller->permit_columns();
-    }
-
-    public function monitoring_columns(){
-        $columns_controller = new ColumnsController;
-        return $columns_controller->monitoring_columns();
-    }
-
-    public function legal_columns(){
-        $columns_controller = new ColumnsController;
-        return $columns_controller->legal_columns();
-    }
-
-    public function hazwaste_columns(){
-        $columns_controller = new ColumnsController;
-        return $columns_controller->hazwaste_columns();
-    }
-
-    public function pco_columns(){
-        $columns_controller = new ColumnsController;
-        return $columns_controller->pco_columns();
-    }
-
-    public function complaint_columns(){
-        $columns_controller = new ColumnsController;
-        return $columns_controller->complaint_columns();
-    }
 }

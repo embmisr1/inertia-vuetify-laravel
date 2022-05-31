@@ -946,6 +946,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     form_complaint_info: Object,
@@ -1007,20 +1016,23 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 return _this.$inertia["delete"]("/app/delete_complaint/".concat(item.id));
 
               case 2:
-                _this.form_complaint_info.comp_id = null;
-                _this.form_complaint_info.comp_name = null;
-                _this.form_complaint_info.comp_nature = null;
-                _this.form_complaint_info.comp_attached_file = null;
-                _this.form_complaint_info.comp_action_file = null;
-                _this.form_complaint_info.comp_remarks = null;
+                _this.resetComplaint();
 
-              case 8:
+              case 3:
               case "end":
                 return _context.stop();
             }
           }
         }, _callee);
       }))();
+    },
+    resetComplaint: function resetComplaint() {
+      this.form_complaint_info.comp_id = null;
+      this.form_complaint_info.comp_name = null;
+      this.form_complaint_info.comp_nature = null;
+      this.form_complaint_info.comp_attached_file = null;
+      this.form_complaint_info.comp_action_file = null;
+      this.form_complaint_info.comp_remarks = null;
     }
   }
 });
@@ -1562,6 +1574,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     form_legal_info: Object,
@@ -1658,28 +1679,31 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 return _this.$inertia["delete"]("/app/delete_legal/".concat(item.id));
 
               case 2:
-                _this.form_legal_info.nov_id = null;
-                _this.form_legal_info.nov_law = null;
-                _this.form_legal_info.nov_desc = null;
-                _this.form_legal_info.nov_date = null;
-                _this.form_legal_info.nov_tc_date = null;
-                _this.form_legal_info.nov_tc_status = null;
-                _this.form_legal_info.nov_file = null;
-                _this.form_legal_info.nov_order_number = null;
-                _this.form_legal_info.nov_order_amt = null;
-                _this.form_legal_info.nov_order_date_issuance = null;
-                _this.form_legal_info.nov_order_date_settlement = null;
-                _this.form_legal_info.nov_official_receipt_number = null;
-                _this.form_legal_info.nov_compliance_status = null;
-                _this.form_legal_info.nov_order_remarks = null;
+                _this.resetLegal();
 
-              case 16:
+              case 3:
               case "end":
                 return _context.stop();
             }
           }
         }, _callee);
       }))();
+    },
+    resetLegal: function resetLegal() {
+      this.form_legal_info.nov_id = null;
+      this.form_legal_info.nov_law = [];
+      this.form_legal_info.nov_desc = null;
+      this.form_legal_info.nov_date = null;
+      this.form_legal_info.nov_tc_date = null;
+      this.form_legal_info.nov_tc_status = null;
+      this.form_legal_info.nov_file = null;
+      this.form_legal_info.nov_order_number = null;
+      this.form_legal_info.nov_order_amt = null;
+      this.form_legal_info.nov_order_date_issuance = null;
+      this.form_legal_info.nov_order_date_settlement = null;
+      this.form_legal_info.nov_official_receipt_number = null;
+      this.form_legal_info.nov_compliance_status = null;
+      this.form_legal_info.nov_order_remarks = null;
     }
   }
 });
@@ -2109,6 +2133,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     form_monitoring_info: Object,
@@ -2166,19 +2199,22 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 return _this.$inertia["delete"]("/app/delete_monitoring/".concat(item.id));
 
               case 2:
-                _this.form_monitoring_info.mon_id = null;
-                _this.form_monitoring_info.mon_law = null;
-                _this.form_monitoring_info.mon_date_monitored = null;
-                _this.form_monitoring_info.mon_type = null;
-                _this.form_monitoring_info.mon_file = null;
+                _this.resetMonitoring();
 
-              case 7:
+              case 3:
               case "end":
                 return _context.stop();
             }
           }
         }, _callee);
       }))();
+    },
+    resetMonitoring: function resetMonitoring() {
+      this.form_monitoring_info.mon_id = null;
+      this.form_monitoring_info.mon_law = [];
+      this.form_monitoring_info.mon_date_monitored = null;
+      this.form_monitoring_info.mon_type = null;
+      this.form_monitoring_info.mon_file = null;
     }
   }
 });
@@ -2204,6 +2240,15 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2456,13 +2501,24 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 _this.form_pco_info.pco_start_date = null;
                 _this.form_pco_info.pco_end_date = null;
 
-              case 9:
+                _this.resetPco();
+
+              case 10:
               case "end":
                 return _context.stop();
             }
           }
         }, _callee);
       }))();
+    },
+    resetPco: function resetPco() {
+      this.form_pco_info.pco_id = null;
+      this.form_pco_info.pco_name = null;
+      this.form_pco_info.pco_number = null;
+      this.form_pco_info.pco_email = null;
+      this.form_pco_info.pco_contact = null;
+      this.form_pco_info.pco_start_date = null;
+      this.form_pco_info.pco_end_date = null;
     }
   }
 });
@@ -5997,6 +6053,21 @@ var render = function () {
             { attrs: { depressed: "", color: "primary", type: "submit" } },
             [_vm._v("\n            Submit\n        ")]
           ),
+          _vm._v(" "),
+          _c(
+            "v-btn",
+            {
+              attrs: { depressed: "", color: "warning", type: "button" },
+              on: { click: _vm.resetComplaint },
+            },
+            [
+              _c("v-icon", { staticClass: "mr-2", attrs: { small: "" } }, [
+                _vm._v("\n                mdi-autorenew\n            "),
+              ]),
+              _vm._v("\n            Reset\n        "),
+            ],
+            1
+          ),
         ],
         1
       ),
@@ -7123,6 +7194,21 @@ var render = function () {
             { attrs: { depressed: "", color: "primary", type: "submit" } },
             [_vm._v("\n            Submit\n        ")]
           ),
+          _vm._v(" "),
+          _c(
+            "v-btn",
+            {
+              attrs: { depressed: "", color: "warning", type: "button" },
+              on: { click: _vm.resetLegal },
+            },
+            [
+              _c("v-icon", { staticClass: "mr-2", attrs: { small: "" } }, [
+                _vm._v("\n                mdi-autorenew\n            "),
+              ]),
+              _vm._v("\n            Reset\n        "),
+            ],
+            1
+          ),
         ],
         1
       ),
@@ -7910,6 +7996,21 @@ var render = function () {
             { attrs: { depressed: "", color: "primary", type: "submit" } },
             [_vm._v("\n            Submit\n        ")]
           ),
+          _vm._v(" "),
+          _c(
+            "v-btn",
+            {
+              attrs: { depressed: "", color: "warning", type: "button" },
+              on: { click: _vm.resetMonitoring },
+            },
+            [
+              _c("v-icon", { staticClass: "mr-2", attrs: { small: "" } }, [
+                _vm._v("\n                mdi-autorenew\n            "),
+              ]),
+              _vm._v("\n            Reset\n        "),
+            ],
+            1
+          ),
         ],
         1
       ),
@@ -8367,6 +8468,21 @@ var render = function () {
             "v-btn",
             { attrs: { depressed: "", color: "primary", type: "submit" } },
             [_vm._v("\n            Submit\n        ")]
+          ),
+          _vm._v(" "),
+          _c(
+            "v-btn",
+            {
+              attrs: { depressed: "", color: "warning", type: "button" },
+              on: { click: _vm.resetPco },
+            },
+            [
+              _c("v-icon", { staticClass: "mr-2", attrs: { small: "" } }, [
+                _vm._v("\n                mdi-autorenew\n            "),
+              ]),
+              _vm._v("\n            Reset\n        "),
+            ],
+            1
           ),
         ],
         1

@@ -297,6 +297,15 @@
                 <v-btn depressed color="primary" type="submit">
                     Submit
                 </v-btn>
+                <v-btn depressed color="warning" type="button" @click="resetLegal">
+                    <v-icon
+                        small
+                        class="mr-2"
+                    >
+                        mdi-autorenew
+                    </v-icon>
+                    Reset
+                </v-btn>
             </div>
             <template>
                 <v-card elevation="2" class="mt-5">
@@ -419,8 +428,11 @@
         },
         async deleteLegal(item) {
             await this.$inertia.delete(`/app/delete_legal/${item.id}`);
+            this.resetLegal();
+        },
+        resetLegal(){
             this.form_legal_info.nov_id = null;
-            this.form_legal_info.nov_law = null;
+            this.form_legal_info.nov_law = [];
             this.form_legal_info.nov_desc = null;
             this.form_legal_info.nov_date = null;
             this.form_legal_info.nov_tc_date = null;
@@ -433,7 +445,7 @@
             this.form_legal_info.nov_official_receipt_number = null;
             this.form_legal_info.nov_compliance_status = null;
             this.form_legal_info.nov_order_remarks = null;
-        }
+        },
     }
   }
 </script>

@@ -143,6 +143,15 @@
                 <v-btn depressed color="primary" type="submit">
                     Submit
                 </v-btn>
+                <v-btn depressed color="warning" type="button" @click="resetPco">
+                    <v-icon
+                        small
+                        class="mr-2"
+                    >
+                        mdi-autorenew
+                    </v-icon>
+                    Reset
+                </v-btn>
             </div>
             <template>
                 <v-card elevation="2" class="mt-5">
@@ -247,7 +256,17 @@
             this.form_pco_info.pco_contact = null;
             this.form_pco_info.pco_start_date = null;
             this.form_pco_info.pco_end_date = null;
-        }
+            this.resetPco();
+        },
+        resetPco(){
+            this.form_pco_info.pco_id = null;
+            this.form_pco_info.pco_name = null;
+            this.form_pco_info.pco_number = null;
+            this.form_pco_info.pco_email = null;
+            this.form_pco_info.pco_contact = null;
+            this.form_pco_info.pco_start_date = null;
+            this.form_pco_info.pco_end_date = null;
+        },
     }
   }
 </script>

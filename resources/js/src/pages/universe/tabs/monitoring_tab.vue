@@ -105,6 +105,15 @@
                 <v-btn depressed color="primary" type="submit">
                     Submit
                 </v-btn>
+                <v-btn depressed color="warning" type="button" @click="resetMonitoring">
+                    <v-icon
+                        small
+                        class="mr-2"
+                    >
+                        mdi-autorenew
+                    </v-icon>
+                    Reset
+                </v-btn>
             </div>
             <template>
                 <v-card elevation="2" class="mt-5">
@@ -188,12 +197,15 @@
         },
         async deleteMonitoring(item) {
             await this.$inertia.delete(`/app/delete_monitoring/${item.id}`);
+            this.resetMonitoring();
+        },
+        resetMonitoring(){
             this.form_monitoring_info.mon_id = null;
-            this.form_monitoring_info.mon_law = null;
+            this.form_monitoring_info.mon_law = [];
             this.form_monitoring_info.mon_date_monitored = null;
             this.form_monitoring_info.mon_type = null;
             this.form_monitoring_info.mon_file = null;
-        }
+        },
     }
   }
 </script>
