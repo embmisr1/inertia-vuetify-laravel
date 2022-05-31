@@ -5,6 +5,8 @@ use App\Http\Controllers\Dashboard;
 use App\Http\Controllers\DivisionController;
 use App\Http\Controllers\PositionController;
 use App\Http\Controllers\Profile;
+use App\Http\Controllers\PsicClassController;
+use App\Http\Controllers\PsicGroupController;
 use App\Http\Controllers\UnitSectionController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\UniverseController;
@@ -52,7 +54,7 @@ Route::group([
   Route::get('/users/{user}', [UsersController::class, 'edit'])->name("users.show");
 
   Route::patch('/users/{user}', [UsersController::class, 'update'])->name("users.update");
-  
+
   Route::delete('/users/{user}', [UsersController::class, 'destroy'])->name("users.destroy");
 
   Route::get('/unit_section', [UnitSectionController ::class, 'index'])->name("unit_section.index");
@@ -86,4 +88,18 @@ Route::group([
   Route::delete('/delete_complaint/{id}', [UniverseController::class, 'delete_complaint'])->name("delete_complaint");
   //Testing Route
   Route::get('/testing_route', [TestingController::class, 'testing_route'])->name("testing_route");
+
+  Route::group([
+    'prefix' => "/psic",
+  ], function () {
+    Route::get('/group', [PsicGroupController::class, 'index'])->name("psic.group");
+    Route::post('/group', [PsicGroupController::class, 'store'])->name("psic.group.store");
+    Route::patch('/group/{psicGroup}', [PsicGroupController::class, 'update'])->name("psic.group.update");
+    Route::delete('/group/{psicGroup}', [PsicGroupController::class, 'destroy'])->name("psic.group.delete");
+
+    Route::get('/class', [PsicClassController::class, 'index'])->name("psic.class");
+    Route::post('/class', [PsicClassController::class, 'store'])->name("psic.class.store");
+    Route::patch('/class/{psicClass}', [PsicClassController::class, 'update'])->name("psic.class.update");
+    Route::delete('/class/{psicClass}', [PsicGroupController::class, 'destroy'])->name("psic.class.delete");
+  });
 });

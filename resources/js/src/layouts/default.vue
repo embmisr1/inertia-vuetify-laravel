@@ -318,12 +318,12 @@ export default {
                             child: [
                                 {
                                     name: "PSIC GROUP",
-                                    link: "",
+                                    link: "/app/psic/group",
                                     icon: "mdi-link",
                                 },
                                 {
                                     name: "PSIC CLASS",
-                                    link: "",
+                                    link: "/app/psic/class",
                                     icon: "mdi-link",
                                 },
                                 {

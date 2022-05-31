@@ -437,11 +437,11 @@ __webpack_require__.r(__webpack_exports__);
           icon: "mdi-file-document-multiple",
           child: [{
             name: "PSIC GROUP",
-            link: "",
+            link: "/app/psic/group",
             icon: "mdi-link"
           }, {
             name: "PSIC CLASS",
-            link: "",
+            link: "/app/psic/class",
             icon: "mdi-link"
           }, {
             name: "PSIC SUB CLASS",
