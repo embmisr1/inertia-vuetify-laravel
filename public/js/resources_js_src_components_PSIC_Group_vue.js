@@ -75,7 +75,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     modal: Object,
@@ -298,12 +297,11 @@ var render = function () {
                             _c(
                               "v-btn",
                               {
-                                staticClass: "cursor-pointer",
+                                staticClass: "cursor-pointer white--text",
                                 attrs: {
                                   disabled: invalid,
                                   loading: _vm.loading,
                                   color: "green darken-1",
-                                  text: "",
                                 },
                                 on: { click: _vm.submit },
                               },

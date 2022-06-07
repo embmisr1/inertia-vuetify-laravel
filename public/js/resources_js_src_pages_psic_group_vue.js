@@ -11,6 +11,159 @@ module.exports = __webpack_require__(/*! regenerator-runtime */ "./node_modules/
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/components/PSIC/Class.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/components/PSIC/Class.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: {
+    modal: Object,
+    close: Function,
+    submit: Function,
+    loading: {
+      type: Boolean,
+      "default": true
+    },
+    items: Array
+  },
+  data: function data() {
+    return {
+      searchClass: null
+    };
+  },
+  watch: {
+    isModalActive: function isModalActive(value) {
+      if (!value) return;
+      this.searchClass = this.modal.form.searchClass ? this.modal.form.searchClass : null;
+    }
+  },
+  computed: {
+    isModalActive: function isModalActive() {
+      return this.modal.active;
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/components/PSIC/Group.vue?vue&type=script&lang=js&":
 /*!*********************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/components/PSIC/Group.vue?vue&type=script&lang=js& ***!
@@ -22,7 +175,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-//
 //
 //
 //
@@ -535,7 +687,7 @@ __webpack_require__.r(__webpack_exports__);
             icon: "mdi-link"
           }, {
             name: "PSIC SUB CLASS",
-            link: "",
+            link: "/app/psic/sub-class",
             icon: "mdi-link"
           }]
         }]
@@ -590,12 +742,27 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _layouts_default_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../layouts/default.vue */ "./resources/js/src/layouts/default.vue");
-/* harmony import */ var _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @inertiajs/inertia-vue */ "./node_modules/@inertiajs/inertia-vue/dist/index.js");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _mixins___WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../mixins/ */ "./resources/js/src/mixins/index.js");
-/* harmony import */ var _components_PSIC_Group_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../components/PSIC/Group.vue */ "./resources/js/src/components/PSIC/Group.vue");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _layouts_default_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../layouts/default.vue */ "./resources/js/src/layouts/default.vue");
+/* harmony import */ var _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @inertiajs/inertia-vue */ "./node_modules/@inertiajs/inertia-vue/dist/index.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _mixins___WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../mixins/ */ "./resources/js/src/mixins/index.js");
+/* harmony import */ var _components_PSIC_Group_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../components/PSIC/Group.vue */ "./resources/js/src/components/PSIC/Group.vue");
+/* harmony import */ var _components_PSIC_Class_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../components/PSIC/Class.vue */ "./resources/js/src/components/PSIC/Class.vue");
+
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 //
 //
 //
@@ -674,6 +841,33 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 
 
@@ -681,16 +875,53 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
-    DefaultLayout: _layouts_default_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
-    Group: _components_PSIC_Group_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
+    DefaultLayout: _layouts_default_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
+    Group: _components_PSIC_Group_vue__WEBPACK_IMPORTED_MODULE_5__["default"],
+    Class: _components_PSIC_Class_vue__WEBPACK_IMPORTED_MODULE_6__["default"]
   },
-  mixins: [_mixins___WEBPACK_IMPORTED_MODULE_3__.page, _mixins___WEBPACK_IMPORTED_MODULE_3__.toasts, _mixins___WEBPACK_IMPORTED_MODULE_3__.psic, _mixins___WEBPACK_IMPORTED_MODULE_3__.dialogs],
+  mixins: [_mixins___WEBPACK_IMPORTED_MODULE_4__.page, _mixins___WEBPACK_IMPORTED_MODULE_4__.toasts, _mixins___WEBPACK_IMPORTED_MODULE_4__.psic, _mixins___WEBPACK_IMPORTED_MODULE_4__.dialogs],
   props: {
-    data: Object,
-    filters: Object
+    data: Object
   },
   data: function data() {
     return {};
+  },
+  methods: {
+    get: lodash__WEBPACK_IMPORTED_MODULE_3___default().debounce( /*#__PURE__*/function () {
+      var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(params) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.prev = 0;
+                this.loading = true;
+                _context.next = 4;
+                return this.$inertia.get("#", _objectSpread({}, params));
+
+              case 4:
+                this.loading = false;
+                _context.next = 12;
+                break;
+
+              case 7:
+                _context.prev = 7;
+                _context.t0 = _context["catch"](0);
+                this.loading = false;
+                console.log(_context.t0);
+                this.error("PSIC Group Get - error");
+
+              case 12:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this, [[0, 7]]);
+      }));
+
+      return function (_x) {
+        return _ref.apply(this, arguments);
+      };
+    }(), 1500)
   }
 });
 
@@ -709,7 +940,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 var root = "http://unisys.test/api/v1/";
 var urls = {
-  psic_group_class: root + "psic_group_class"
+  psic_group_class: root + "psic_group_class",
+  psic_sub_class: root + "psic_sub_class"
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (urls);
 
@@ -797,6 +1029,12 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: {
+    errors: Object,
+    filters: Object,
+    flash: Object,
+    route: Object
+  },
   data: function data() {
     return {
       loading: false,
@@ -804,11 +1042,20 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     };
   },
   computed: {
+    route_back: function route_back() {
+      return this.route.back_at_one;
+    },
     filtersObject: function filtersObject() {
       return _objectSpread({}, this.filters);
     },
     isTheme: function isTheme() {
       return this.$vuetify.theme.dark;
+    },
+    errorMessage: function errorMessage() {
+      return _objectSpread({}, this.errors);
+    },
+    successMessage: function successMessage() {
+      return _objectSpread({}, this.flash);
     }
   },
   methods: {
@@ -1024,6 +1271,21 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         }, _callee6, null, [[0, 8]]);
       }))();
     }
+  },
+  watch: {
+    filtersObject: function filtersObject() {
+      this.loading = true;
+      this.get(_objectSpread({}, this.filtersObject));
+      this.loading = false;
+    },
+    errorMessage: function errorMessage(data) {
+      if (data.error_message) this.error(data.error_message);
+      if (data.items) this.error(data.items);
+      if (Object.keys(data).length > 1) this.error("Form Error");
+    },
+    successMessage: function successMessage(data) {
+      if (data.message) this.success(data.message);
+    }
   }
 });
 
@@ -1080,8 +1342,17 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           request_type: "post"
         })
       },
+      subClassModal: {
+        active: false,
+        form: this.$inertia.form({
+          psic_subclass_desc: "",
+          psic_class_FK: "",
+          request_type: "post"
+        })
+      },
       psic_group_desc: "",
-      psicGroup: []
+      psicGroup: [],
+      psicClass: []
     };
   },
   methods: {
@@ -1196,32 +1467,45 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             switch (_context3.prev = _context3.next) {
               case 0:
                 _context3.prev = 0;
-                _context3.next = 3;
+                this.loading = true;
+
+                if (psic_group_desc) {
+                  _context3.next = 5;
+                  break;
+                }
+
+                this.loading = false;
+                return _context3.abrupt("return", this.psicGroup = []);
+
+              case 5:
+                _context3.next = 7;
                 return axios__WEBPACK_IMPORTED_MODULE_2___default().get(_helpers_urls__WEBPACK_IMPORTED_MODULE_1__["default"].psic_group_class, {
                   params: {
                     psic_group_desc: psic_group_desc
                   }
                 });
 
-              case 3:
+              case 7:
                 _yield$axios$get = _context3.sent;
                 data = _yield$axios$get.data;
-                console.log(data);
-                _context3.next = 12;
+                this.psicGroup = data.data;
+                this.loading = false;
+                _context3.next = 18;
                 break;
 
-              case 8:
-                _context3.prev = 8;
+              case 13:
+                _context3.prev = 13;
                 _context3.t0 = _context3["catch"](0);
                 console.log(_context3.t0);
+                this.loading = false;
                 this.error("searchGroup - error");
 
-              case 12:
+              case 18:
               case "end":
                 return _context3.stop();
             }
           }
-        }, _callee3, this, [[0, 8]]);
+        }, _callee3, this, [[0, 13]]);
       }));
 
       return function (_x) {
@@ -1229,34 +1513,30 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       };
     }(), 1500),
     // class
-    set_psic_group_class: function set_psic_group_class(data, type) {
-      this.groupClassModal = {
-        active: true,
-        form: this.$inertia.form(_objectSpread(_objectSpread({}, data), {}, {
-          request_type: type
-        }))
-      };
-    },
-    groupClassClose: function groupClassClose() {
+    add_group_class_via_group_page: function add_group_class_via_group_page(data) {
       var _this3 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee4() {
+        var id, psic_group_desc;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee4$(_context4) {
           while (1) {
             switch (_context4.prev = _context4.next) {
               case 0:
                 try {
+                  id = data.id, psic_group_desc = data.psic_group_desc;
                   _this3.groupClassModal = {
-                    active: false,
+                    active: true,
                     form: _this3.$inertia.form({
-                      psic_group_desc: "",
+                      psic_class_desc: "",
+                      psic_group_FK: id,
+                      searchClass: psic_group_desc,
                       request_type: "post"
                     })
                   };
                 } catch (error) {
-                  console.log(erro);
+                  console.log(error);
 
-                  _this3.error("groupClose-error");
+                  _this3.error("add_group_class_via_group_page - error");
                 }
 
               case 1:
@@ -1267,67 +1547,312 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         }, _callee4);
       }))();
     },
-    submitGroupClass: function submitGroupClass() {
+    set_psic_group_class: function set_psic_group_class(data, type) {
+      var id = data.id,
+          psic_class_desc = data.psic_class_desc,
+          psic_group = data.psic_group;
+      this.groupClassModal = {
+        active: true,
+        form: this.$inertia.form({
+          // ...data,
+          id: id,
+          psic_class_desc: psic_class_desc,
+          psic_group_FK: psic_group.id,
+          searchClass: psic_group.desc,
+          request_type: type
+        })
+      };
+    },
+    groupClassClose: function groupClassClose() {
       var _this4 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee5() {
-        var group_class_form;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee5$(_context5) {
           while (1) {
             switch (_context5.prev = _context5.next) {
               case 0:
-                _context5.prev = 0;
-                _this4.loading = true;
-                group_class_form = _this4.groupClassModal.form;
-                _context5.t0 = group_class_form.request_type;
-                _context5.next = _context5.t0 === "post" ? 6 : _context5.t0 === "patch" ? 9 : _context5.t0 === "delete" ? 12 : 15;
-                break;
+                try {
+                  _this4.groupClassModal = {
+                    active: false,
+                    form: _this4.$inertia.form({
+                      psic_group_desc: "",
+                      request_type: "post"
+                    })
+                  };
+                } catch (error) {
+                  console.log(erro);
 
-              case 6:
-                _context5.next = 8;
-                return group_class_form.post("#");
+                  _this4.error("groupClose-error");
+                }
 
-              case 8:
-                return _context5.abrupt("break", 17);
-
-              case 9:
-                _context5.next = 11;
-                return group_class_form.patch("group/".concat(group_class_form.id));
-
-              case 11:
-                return _context5.abrupt("break", 17);
-
-              case 12:
-                _context5.next = 14;
-                return group_class_form["delete"]("group/".concat(group_class_form.id));
-
-              case 14:
-                return _context5.abrupt("break", 17);
-
-              case 15:
-                _context5.next = 17;
-                return group_class_form.post("#");
-
-              case 17:
-                _this4.groupClassClose();
-
-                _this4.loading = false;
-                _context5.next = 25;
-                break;
-
-              case 21:
-                _context5.prev = 21;
-                _context5.t1 = _context5["catch"](0);
-                console.log(_context5.t1);
-
-                _this4.error("submitGroupClass-error");
-
-              case 25:
+              case 1:
               case "end":
                 return _context5.stop();
             }
           }
-        }, _callee5, null, [[0, 21]]);
+        }, _callee5);
+      }))();
+    },
+    submitGroupClass: function submitGroupClass() {
+      var _this5 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee6() {
+        var group_class_form;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee6$(_context6) {
+          while (1) {
+            switch (_context6.prev = _context6.next) {
+              case 0:
+                _context6.prev = 0;
+                _this5.loading = true;
+                group_class_form = _this5.groupClassModal.form;
+                _context6.t0 = group_class_form.request_type;
+                _context6.next = _context6.t0 === "post" ? 6 : _context6.t0 === "patch" ? 9 : _context6.t0 === "delete" ? 12 : 15;
+                break;
+
+              case 6:
+                _context6.next = 8;
+                return group_class_form.post("/app/psic/class");
+
+              case 8:
+                return _context6.abrupt("break", 17);
+
+              case 9:
+                _context6.next = 11;
+                return group_class_form.patch("class/".concat(group_class_form.id));
+
+              case 11:
+                return _context6.abrupt("break", 17);
+
+              case 12:
+                _context6.next = 14;
+                return group_class_form["delete"]("class/".concat(group_class_form.id));
+
+              case 14:
+                return _context6.abrupt("break", 17);
+
+              case 15:
+                _context6.next = 17;
+                return group_class_form.post("#");
+
+              case 17:
+                _this5.groupClassClose();
+
+                _this5.loading = false;
+                _context6.next = 25;
+                break;
+
+              case 21:
+                _context6.prev = 21;
+                _context6.t1 = _context6["catch"](0);
+                console.log(_context6.t1);
+
+                _this5.error("submitGroupClass-error");
+
+              case 25:
+              case "end":
+                return _context6.stop();
+            }
+          }
+        }, _callee6, null, [[0, 21]]);
+      }))();
+    },
+    searchClass: lodash__WEBPACK_IMPORTED_MODULE_3___default().debounce( /*#__PURE__*/function () {
+      var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee7(psic_class_desc) {
+        var _yield$axios$get2, data;
+
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee7$(_context7) {
+          while (1) {
+            switch (_context7.prev = _context7.next) {
+              case 0:
+                _context7.prev = 0;
+                this.loading = true;
+
+                if (psic_class_desc) {
+                  _context7.next = 5;
+                  break;
+                }
+
+                this.loading = false;
+                return _context7.abrupt("return", this.psicClass = []);
+
+              case 5:
+                _context7.next = 7;
+                return axios__WEBPACK_IMPORTED_MODULE_2___default().get(_helpers_urls__WEBPACK_IMPORTED_MODULE_1__["default"].psic_sub_class, {
+                  params: {
+                    psic_class_desc: psic_class_desc
+                  }
+                });
+
+              case 7:
+                _yield$axios$get2 = _context7.sent;
+                data = _yield$axios$get2.data;
+                this.psicClass = data.data;
+                this.loading = false;
+                _context7.next = 18;
+                break;
+
+              case 13:
+                _context7.prev = 13;
+                _context7.t0 = _context7["catch"](0);
+                console.log(_context7.t0);
+                this.loading = false;
+                this.error("searchClass - error");
+
+              case 18:
+              case "end":
+                return _context7.stop();
+            }
+          }
+        }, _callee7, this, [[0, 13]]);
+      }));
+
+      return function (_x2) {
+        return _ref2.apply(this, arguments);
+      };
+    }(), 1500),
+    //sub class
+    add_sub_class_via_class_page: function add_sub_class_via_class_page(data) {
+      var _this6 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee8() {
+        var id, psic_class_desc;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee8$(_context8) {
+          while (1) {
+            switch (_context8.prev = _context8.next) {
+              case 0:
+                try {
+                  id = data.id, psic_class_desc = data.psic_class_desc;
+                  _this6.subClassModal = {
+                    active: true,
+                    form: _this6.$inertia.form({
+                      psic_subclass_desc: "",
+                      psic_class_FK: id,
+                      searchClass: psic_class_desc,
+                      request_type: "post"
+                    })
+                  };
+                } catch (error) {
+                  console.log(error);
+
+                  _this6.error("add_sub_class_via_class_page - error");
+                }
+
+              case 1:
+              case "end":
+                return _context8.stop();
+            }
+          }
+        }, _callee8);
+      }))();
+    },
+    set_psic_sub_class: function set_psic_sub_class(data, type) {
+      var id = data.id,
+          psic_subclass_desc = data.psic_subclass_desc,
+          psic_class = data.psic_class;
+      this.subClassModal = {
+        active: true,
+        form: this.$inertia.form({
+          // ...data,
+          id: id,
+          psic_subclass_desc: psic_subclass_desc,
+          psic_class_FK: psic_class.id,
+          searchClass: psic_class.desc,
+          request_type: type
+        })
+      };
+    },
+    subClassClose: function subClassClose() {
+      var _this7 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee9() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee9$(_context9) {
+          while (1) {
+            switch (_context9.prev = _context9.next) {
+              case 0:
+                try {
+                  _this7.subClassModal = {
+                    active: false,
+                    form: _this7.$inertia.form({
+                      psic_subclass_desc: "",
+                      psic_class_FK: "",
+                      request_type: "post"
+                    })
+                  };
+                } catch (error) {
+                  console.log(erro);
+
+                  _this7.error("subClassClose-error");
+                }
+
+              case 1:
+              case "end":
+                return _context9.stop();
+            }
+          }
+        }, _callee9);
+      }))();
+    },
+    submitSubClass: function submitSubClass() {
+      var _this8 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee10() {
+        var sub_class_form;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee10$(_context10) {
+          while (1) {
+            switch (_context10.prev = _context10.next) {
+              case 0:
+                _context10.prev = 0;
+                _this8.loading = true;
+                sub_class_form = _this8.subClassModal.form;
+                _context10.t0 = sub_class_form.request_type;
+                _context10.next = _context10.t0 === "post" ? 6 : _context10.t0 === "patch" ? 9 : _context10.t0 === "delete" ? 12 : 15;
+                break;
+
+              case 6:
+                _context10.next = 8;
+                return sub_class_form.post("/app/psic/sub-class");
+
+              case 8:
+                return _context10.abrupt("break", 17);
+
+              case 9:
+                _context10.next = 11;
+                return sub_class_form.patch("sub-class/".concat(sub_class_form.id));
+
+              case 11:
+                return _context10.abrupt("break", 17);
+
+              case 12:
+                _context10.next = 14;
+                return sub_class_form["delete"]("sub-class/".concat(sub_class_form.id));
+
+              case 14:
+                return _context10.abrupt("break", 17);
+
+              case 15:
+                _context10.next = 17;
+                return sub_class_form.post("#");
+
+              case 17:
+                _this8.subClassClose();
+
+                _this8.loading = false;
+                _context10.next = 25;
+                break;
+
+              case 21:
+                _context10.prev = 21;
+                _context10.t1 = _context10["catch"](0);
+                console.log(_context10.t1);
+
+                _this8.error("submitSubClass-error");
+
+              case 25:
+              case "end":
+                return _context10.stop();
+            }
+          }
+        }, _callee10, null, [[0, 21]]);
       }))();
     }
   }
@@ -19355,6 +19880,45 @@ try {
 
 /***/ }),
 
+/***/ "./resources/js/src/components/PSIC/Class.vue":
+/*!****************************************************!*\
+  !*** ./resources/js/src/components/PSIC/Class.vue ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Class_vue_vue_type_template_id_6b342f46___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Class.vue?vue&type=template&id=6b342f46& */ "./resources/js/src/components/PSIC/Class.vue?vue&type=template&id=6b342f46&");
+/* harmony import */ var _Class_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Class.vue?vue&type=script&lang=js& */ "./resources/js/src/components/PSIC/Class.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Class_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Class_vue_vue_type_template_id_6b342f46___WEBPACK_IMPORTED_MODULE_0__.render,
+  _Class_vue_vue_type_template_id_6b342f46___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/src/components/PSIC/Class.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/src/components/PSIC/Group.vue":
 /*!****************************************************!*\
   !*** ./resources/js/src/components/PSIC/Group.vue ***!
@@ -19550,6 +20114,22 @@ component.options.__file = "resources/js/src/pages/psic/group.vue"
 
 /***/ }),
 
+/***/ "./resources/js/src/components/PSIC/Class.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************!*\
+  !*** ./resources/js/src/components/PSIC/Class.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Class_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Class.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/components/PSIC/Class.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Class_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/src/components/PSIC/Group.vue?vue&type=script&lang=js&":
 /*!*****************************************************************************!*\
   !*** ./resources/js/src/components/PSIC/Group.vue?vue&type=script&lang=js& ***!
@@ -19627,6 +20207,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_group_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./group.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/pages/psic/group.vue?vue&type=script&lang=js&");
  /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_group_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/src/components/PSIC/Class.vue?vue&type=template&id=6b342f46&":
+/*!***********************************************************************************!*\
+  !*** ./resources/js/src/components/PSIC/Class.vue?vue&type=template&id=6b342f46& ***!
+  \***********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Class_vue_vue_type_template_id_6b342f46___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Class_vue_vue_type_template_id_6b342f46___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Class_vue_vue_type_template_id_6b342f46___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Class.vue?vue&type=template&id=6b342f46& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/components/PSIC/Class.vue?vue&type=template&id=6b342f46&");
+
 
 /***/ }),
 
@@ -19711,6 +20308,287 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_group_vue_vue_type_template_id_4d96c841___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_group_vue_vue_type_template_id_4d96c841___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./group.vue?vue&type=template&id=4d96c841& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/pages/psic/group.vue?vue&type=template&id=4d96c841&");
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/components/PSIC/Class.vue?vue&type=template&id=6b342f46&":
+/*!**************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/components/PSIC/Class.vue?vue&type=template&id=6b342f46& ***!
+  \**************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "v-dialog",
+    {
+      attrs: { "max-width": "500", persistent: "" },
+      model: {
+        value: _vm.modal.active,
+        callback: function ($$v) {
+          _vm.$set(_vm.modal, "active", $$v)
+        },
+        expression: "modal.active",
+      },
+    },
+    [
+      _c("ValidationObserver", {
+        ref: "psic_group_class_observer",
+        scopedSlots: _vm._u([
+          {
+            key: "default",
+            fn: function (ref) {
+              var handleSubmit = ref.handleSubmit
+              var invalid = ref.invalid
+              return [
+                _c(
+                  "form",
+                  {
+                    on: {
+                      submit: function ($event) {
+                        $event.preventDefault()
+                        return _vm.submit.apply(null, arguments)
+                      },
+                    },
+                  },
+                  [
+                    _c(
+                      "v-card",
+                      { attrs: { loading: _vm.loading } },
+                      [
+                        _c("v-card-title", { staticClass: "text-h5" }, [
+                          _vm._v(
+                            "\n                    PSIC Group Class Description\n                "
+                          ),
+                        ]),
+                        _vm._v(" "),
+                        _c("v-card-text", { staticClass: "space-y-4" }, [
+                          _c(
+                            "div",
+                            [
+                              _c("ValidationProvider", {
+                                attrs: {
+                                  vid: "psic_class_desc",
+                                  name: "Group Class Description",
+                                  rules: "required",
+                                },
+                                scopedSlots: _vm._u(
+                                  [
+                                    {
+                                      key: "default",
+                                      fn: function (ref) {
+                                        var errors = ref.errors
+                                        return [
+                                          _c(
+                                            "b-field",
+                                            {
+                                              attrs: {
+                                                label: "PSIC Group Desc",
+                                                type: {
+                                                  "is-danger": errors[0],
+                                                },
+                                                message: errors[0],
+                                              },
+                                            },
+                                            [
+                                              _c("b-autocomplete", {
+                                                attrs: {
+                                                  loading: _vm.loading,
+                                                  disabled: _vm.loading,
+                                                  placeholder: "Search...",
+                                                  "keep-first": "",
+                                                  "open-onfocus": "",
+                                                  data: _vm.items,
+                                                  field: "psic_group_desc",
+                                                  clearable: "",
+                                                },
+                                                on: {
+                                                  select: function (option) {
+                                                    return (_vm.modal.form.psic_group_FK =
+                                                      option.id)
+                                                  },
+                                                  typing: function (value) {
+                                                    return _vm.$emit(
+                                                      "search",
+                                                      value
+                                                    )
+                                                  },
+                                                },
+                                                scopedSlots: _vm._u(
+                                                  [
+                                                    {
+                                                      key: "empty",
+                                                      fn: function () {
+                                                        return [
+                                                          _vm._v(
+                                                            "\n                                        No Data Found\n                                    "
+                                                          ),
+                                                        ]
+                                                      },
+                                                      proxy: true,
+                                                    },
+                                                  ],
+                                                  null,
+                                                  true
+                                                ),
+                                                model: {
+                                                  value: _vm.searchClass,
+                                                  callback: function ($$v) {
+                                                    _vm.searchClass = $$v
+                                                  },
+                                                  expression: "searchClass",
+                                                },
+                                              }),
+                                            ],
+                                            1
+                                          ),
+                                        ]
+                                      },
+                                    },
+                                  ],
+                                  null,
+                                  true
+                                ),
+                              }),
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            [
+                              _c("ValidationProvider", {
+                                attrs: {
+                                  vid: "psic_class_desc",
+                                  name: "Group Class Description",
+                                  rules: "required|min:6",
+                                },
+                                scopedSlots: _vm._u(
+                                  [
+                                    {
+                                      key: "default",
+                                      fn: function (ref) {
+                                        var errors = ref.errors
+                                        return [
+                                          _c("v-textarea", {
+                                            attrs: {
+                                              disabled:
+                                                !_vm.modal.form.psic_group_FK,
+                                              label: "Group Class Description",
+                                              filled: "",
+                                              clearable: "",
+                                              row: "3",
+                                              outlined: "",
+                                              loading: _vm.loading,
+                                              "error-messages": errors[0],
+                                              readonly:
+                                                _vm.modal.form.request_type ===
+                                                "delete",
+                                            },
+                                            model: {
+                                              value:
+                                                _vm.modal.form.psic_class_desc,
+                                              callback: function ($$v) {
+                                                _vm.$set(
+                                                  _vm.modal.form,
+                                                  "psic_class_desc",
+                                                  $$v
+                                                )
+                                              },
+                                              expression:
+                                                "modal.form.psic_class_desc",
+                                            },
+                                          }),
+                                        ]
+                                      },
+                                    },
+                                  ],
+                                  null,
+                                  true
+                                ),
+                              }),
+                            ],
+                            1
+                          ),
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "v-card-actions",
+                          [
+                            _c("v-spacer"),
+                            _vm._v(" "),
+                            _c(
+                              "v-btn",
+                              {
+                                staticClass: "cursor-pointer",
+                                attrs: {
+                                  color: "red darken-1",
+                                  text: "",
+                                  loading: _vm.loading,
+                                },
+                                on: { click: _vm.close },
+                              },
+                              [
+                                _vm._v(
+                                  "\n                        Close\n                    "
+                                ),
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "v-btn",
+                              {
+                                staticClass: "cursor-pointer",
+                                attrs: {
+                                  disabled: invalid,
+                                  loading: _vm.loading,
+                                  color: "green darken-1",
+                                  text: "",
+                                },
+                                on: { click: _vm.submit },
+                              },
+                              [
+                                _vm._v(
+                                  "\n                        " +
+                                    _vm._s(
+                                      _vm.modal.form.request_type === "delete"
+                                        ? "Delete"
+                                        : "Submit"
+                                    ) +
+                                    "\n                    "
+                                ),
+                              ]
+                            ),
+                          ],
+                          1
+                        ),
+                      ],
+                      1
+                    ),
+                  ],
+                  1
+                ),
+              ]
+            },
+          },
+        ]),
+      }),
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
 
 
 /***/ }),
@@ -19855,12 +20733,11 @@ var render = function () {
                             _c(
                               "v-btn",
                               {
-                                staticClass: "cursor-pointer",
+                                staticClass: "cursor-pointer white--text",
                                 attrs: {
                                   disabled: invalid,
                                   loading: _vm.loading,
                                   color: "green darken-1",
-                                  text: "",
                                 },
                                 on: { click: _vm.submit },
                               },
@@ -20393,7 +21270,11 @@ var render = function () {
         },
         [
           _c("b-table-column", {
-            attrs: { field: "psic_group_desc", label: "Description" },
+            attrs: {
+              field: "psic_group_desc",
+              label: "Description",
+              searchable: "",
+            },
             scopedSlots: _vm._u([
               {
                 key: "searchable",
@@ -20438,6 +21319,40 @@ var render = function () {
                 key: "default",
                 fn: function (props) {
                   return [
+                    _c(
+                      "b-tooltip",
+                      {
+                        attrs: {
+                          label: "Add Group Class",
+                          position: "is-top",
+                          type: "is-dark",
+                        },
+                      },
+                      [
+                        _c(
+                          "v-btn",
+                          {
+                            attrs: { small: "", icon: "" },
+                            on: {
+                              click: function ($event) {
+                                return _vm.add_group_class_via_group_page(
+                                  props.row,
+                                  "post"
+                                )
+                              },
+                            },
+                          },
+                          [
+                            _c("box-icon", {
+                              attrs: { name: "link", animation: "tada-hover" },
+                            }),
+                          ],
+                          1
+                        ),
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
                     _c(
                       "v-btn",
                       {
@@ -20497,6 +21412,17 @@ var render = function () {
           submit: _vm.submitGroup,
           loading: _vm.loading,
         },
+      }),
+      _vm._v(" "),
+      _c("Class", {
+        attrs: {
+          modal: _vm.groupClassModal,
+          close: _vm.groupClassClose,
+          submit: _vm.submitGroupClass,
+          loading: _vm.loading,
+          items: _vm.psicGroup,
+        },
+        on: { search: _vm.searchGroup },
       }),
     ],
     1

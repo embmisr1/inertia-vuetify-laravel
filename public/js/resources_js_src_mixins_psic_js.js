@@ -24,7 +24,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 var root = "http://unisys.test/api/v1/";
 var urls = {
-  psic_group_class: root + "psic_group_class"
+  psic_group_class: root + "psic_group_class",
+  psic_sub_class: root + "psic_sub_class"
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (urls);
 
@@ -81,8 +82,17 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           request_type: "post"
         })
       },
+      subClassModal: {
+        active: false,
+        form: this.$inertia.form({
+          psic_subclass_desc: "",
+          psic_class_FK: "",
+          request_type: "post"
+        })
+      },
       psic_group_desc: "",
-      psicGroup: []
+      psicGroup: [],
+      psicClass: []
     };
   },
   methods: {
@@ -197,32 +207,45 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             switch (_context3.prev = _context3.next) {
               case 0:
                 _context3.prev = 0;
-                _context3.next = 3;
+                this.loading = true;
+
+                if (psic_group_desc) {
+                  _context3.next = 5;
+                  break;
+                }
+
+                this.loading = false;
+                return _context3.abrupt("return", this.psicGroup = []);
+
+              case 5:
+                _context3.next = 7;
                 return axios__WEBPACK_IMPORTED_MODULE_2___default().get(_helpers_urls__WEBPACK_IMPORTED_MODULE_1__["default"].psic_group_class, {
                   params: {
                     psic_group_desc: psic_group_desc
                   }
                 });
 
-              case 3:
+              case 7:
                 _yield$axios$get = _context3.sent;
                 data = _yield$axios$get.data;
-                console.log(data);
-                _context3.next = 12;
+                this.psicGroup = data.data;
+                this.loading = false;
+                _context3.next = 18;
                 break;
 
-              case 8:
-                _context3.prev = 8;
+              case 13:
+                _context3.prev = 13;
                 _context3.t0 = _context3["catch"](0);
                 console.log(_context3.t0);
+                this.loading = false;
                 this.error("searchGroup - error");
 
-              case 12:
+              case 18:
               case "end":
                 return _context3.stop();
             }
           }
-        }, _callee3, this, [[0, 8]]);
+        }, _callee3, this, [[0, 13]]);
       }));
 
       return function (_x) {
@@ -230,34 +253,30 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       };
     }(), 1500),
     // class
-    set_psic_group_class: function set_psic_group_class(data, type) {
-      this.groupClassModal = {
-        active: true,
-        form: this.$inertia.form(_objectSpread(_objectSpread({}, data), {}, {
-          request_type: type
-        }))
-      };
-    },
-    groupClassClose: function groupClassClose() {
+    add_group_class_via_group_page: function add_group_class_via_group_page(data) {
       var _this3 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee4() {
+        var id, psic_group_desc;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee4$(_context4) {
           while (1) {
             switch (_context4.prev = _context4.next) {
               case 0:
                 try {
+                  id = data.id, psic_group_desc = data.psic_group_desc;
                   _this3.groupClassModal = {
-                    active: false,
+                    active: true,
                     form: _this3.$inertia.form({
-                      psic_group_desc: "",
+                      psic_class_desc: "",
+                      psic_group_FK: id,
+                      searchClass: psic_group_desc,
                       request_type: "post"
                     })
                   };
                 } catch (error) {
-                  console.log(erro);
+                  console.log(error);
 
-                  _this3.error("groupClose-error");
+                  _this3.error("add_group_class_via_group_page - error");
                 }
 
               case 1:
@@ -268,67 +287,312 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         }, _callee4);
       }))();
     },
-    submitGroupClass: function submitGroupClass() {
+    set_psic_group_class: function set_psic_group_class(data, type) {
+      var id = data.id,
+          psic_class_desc = data.psic_class_desc,
+          psic_group = data.psic_group;
+      this.groupClassModal = {
+        active: true,
+        form: this.$inertia.form({
+          // ...data,
+          id: id,
+          psic_class_desc: psic_class_desc,
+          psic_group_FK: psic_group.id,
+          searchClass: psic_group.desc,
+          request_type: type
+        })
+      };
+    },
+    groupClassClose: function groupClassClose() {
       var _this4 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee5() {
-        var group_class_form;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee5$(_context5) {
           while (1) {
             switch (_context5.prev = _context5.next) {
               case 0:
-                _context5.prev = 0;
-                _this4.loading = true;
-                group_class_form = _this4.groupClassModal.form;
-                _context5.t0 = group_class_form.request_type;
-                _context5.next = _context5.t0 === "post" ? 6 : _context5.t0 === "patch" ? 9 : _context5.t0 === "delete" ? 12 : 15;
-                break;
+                try {
+                  _this4.groupClassModal = {
+                    active: false,
+                    form: _this4.$inertia.form({
+                      psic_group_desc: "",
+                      request_type: "post"
+                    })
+                  };
+                } catch (error) {
+                  console.log(erro);
 
-              case 6:
-                _context5.next = 8;
-                return group_class_form.post("#");
+                  _this4.error("groupClose-error");
+                }
 
-              case 8:
-                return _context5.abrupt("break", 17);
-
-              case 9:
-                _context5.next = 11;
-                return group_class_form.patch("group/".concat(group_class_form.id));
-
-              case 11:
-                return _context5.abrupt("break", 17);
-
-              case 12:
-                _context5.next = 14;
-                return group_class_form["delete"]("group/".concat(group_class_form.id));
-
-              case 14:
-                return _context5.abrupt("break", 17);
-
-              case 15:
-                _context5.next = 17;
-                return group_class_form.post("#");
-
-              case 17:
-                _this4.groupClassClose();
-
-                _this4.loading = false;
-                _context5.next = 25;
-                break;
-
-              case 21:
-                _context5.prev = 21;
-                _context5.t1 = _context5["catch"](0);
-                console.log(_context5.t1);
-
-                _this4.error("submitGroupClass-error");
-
-              case 25:
+              case 1:
               case "end":
                 return _context5.stop();
             }
           }
-        }, _callee5, null, [[0, 21]]);
+        }, _callee5);
+      }))();
+    },
+    submitGroupClass: function submitGroupClass() {
+      var _this5 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee6() {
+        var group_class_form;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee6$(_context6) {
+          while (1) {
+            switch (_context6.prev = _context6.next) {
+              case 0:
+                _context6.prev = 0;
+                _this5.loading = true;
+                group_class_form = _this5.groupClassModal.form;
+                _context6.t0 = group_class_form.request_type;
+                _context6.next = _context6.t0 === "post" ? 6 : _context6.t0 === "patch" ? 9 : _context6.t0 === "delete" ? 12 : 15;
+                break;
+
+              case 6:
+                _context6.next = 8;
+                return group_class_form.post("/app/psic/class");
+
+              case 8:
+                return _context6.abrupt("break", 17);
+
+              case 9:
+                _context6.next = 11;
+                return group_class_form.patch("class/".concat(group_class_form.id));
+
+              case 11:
+                return _context6.abrupt("break", 17);
+
+              case 12:
+                _context6.next = 14;
+                return group_class_form["delete"]("class/".concat(group_class_form.id));
+
+              case 14:
+                return _context6.abrupt("break", 17);
+
+              case 15:
+                _context6.next = 17;
+                return group_class_form.post("#");
+
+              case 17:
+                _this5.groupClassClose();
+
+                _this5.loading = false;
+                _context6.next = 25;
+                break;
+
+              case 21:
+                _context6.prev = 21;
+                _context6.t1 = _context6["catch"](0);
+                console.log(_context6.t1);
+
+                _this5.error("submitGroupClass-error");
+
+              case 25:
+              case "end":
+                return _context6.stop();
+            }
+          }
+        }, _callee6, null, [[0, 21]]);
+      }))();
+    },
+    searchClass: lodash__WEBPACK_IMPORTED_MODULE_3___default().debounce( /*#__PURE__*/function () {
+      var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee7(psic_class_desc) {
+        var _yield$axios$get2, data;
+
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee7$(_context7) {
+          while (1) {
+            switch (_context7.prev = _context7.next) {
+              case 0:
+                _context7.prev = 0;
+                this.loading = true;
+
+                if (psic_class_desc) {
+                  _context7.next = 5;
+                  break;
+                }
+
+                this.loading = false;
+                return _context7.abrupt("return", this.psicClass = []);
+
+              case 5:
+                _context7.next = 7;
+                return axios__WEBPACK_IMPORTED_MODULE_2___default().get(_helpers_urls__WEBPACK_IMPORTED_MODULE_1__["default"].psic_sub_class, {
+                  params: {
+                    psic_class_desc: psic_class_desc
+                  }
+                });
+
+              case 7:
+                _yield$axios$get2 = _context7.sent;
+                data = _yield$axios$get2.data;
+                this.psicClass = data.data;
+                this.loading = false;
+                _context7.next = 18;
+                break;
+
+              case 13:
+                _context7.prev = 13;
+                _context7.t0 = _context7["catch"](0);
+                console.log(_context7.t0);
+                this.loading = false;
+                this.error("searchClass - error");
+
+              case 18:
+              case "end":
+                return _context7.stop();
+            }
+          }
+        }, _callee7, this, [[0, 13]]);
+      }));
+
+      return function (_x2) {
+        return _ref2.apply(this, arguments);
+      };
+    }(), 1500),
+    //sub class
+    add_sub_class_via_class_page: function add_sub_class_via_class_page(data) {
+      var _this6 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee8() {
+        var id, psic_class_desc;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee8$(_context8) {
+          while (1) {
+            switch (_context8.prev = _context8.next) {
+              case 0:
+                try {
+                  id = data.id, psic_class_desc = data.psic_class_desc;
+                  _this6.subClassModal = {
+                    active: true,
+                    form: _this6.$inertia.form({
+                      psic_subclass_desc: "",
+                      psic_class_FK: id,
+                      searchClass: psic_class_desc,
+                      request_type: "post"
+                    })
+                  };
+                } catch (error) {
+                  console.log(error);
+
+                  _this6.error("add_sub_class_via_class_page - error");
+                }
+
+              case 1:
+              case "end":
+                return _context8.stop();
+            }
+          }
+        }, _callee8);
+      }))();
+    },
+    set_psic_sub_class: function set_psic_sub_class(data, type) {
+      var id = data.id,
+          psic_subclass_desc = data.psic_subclass_desc,
+          psic_class = data.psic_class;
+      this.subClassModal = {
+        active: true,
+        form: this.$inertia.form({
+          // ...data,
+          id: id,
+          psic_subclass_desc: psic_subclass_desc,
+          psic_class_FK: psic_class.id,
+          searchClass: psic_class.desc,
+          request_type: type
+        })
+      };
+    },
+    subClassClose: function subClassClose() {
+      var _this7 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee9() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee9$(_context9) {
+          while (1) {
+            switch (_context9.prev = _context9.next) {
+              case 0:
+                try {
+                  _this7.subClassModal = {
+                    active: false,
+                    form: _this7.$inertia.form({
+                      psic_subclass_desc: "",
+                      psic_class_FK: "",
+                      request_type: "post"
+                    })
+                  };
+                } catch (error) {
+                  console.log(erro);
+
+                  _this7.error("subClassClose-error");
+                }
+
+              case 1:
+              case "end":
+                return _context9.stop();
+            }
+          }
+        }, _callee9);
+      }))();
+    },
+    submitSubClass: function submitSubClass() {
+      var _this8 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee10() {
+        var sub_class_form;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee10$(_context10) {
+          while (1) {
+            switch (_context10.prev = _context10.next) {
+              case 0:
+                _context10.prev = 0;
+                _this8.loading = true;
+                sub_class_form = _this8.subClassModal.form;
+                _context10.t0 = sub_class_form.request_type;
+                _context10.next = _context10.t0 === "post" ? 6 : _context10.t0 === "patch" ? 9 : _context10.t0 === "delete" ? 12 : 15;
+                break;
+
+              case 6:
+                _context10.next = 8;
+                return sub_class_form.post("/app/psic/sub-class");
+
+              case 8:
+                return _context10.abrupt("break", 17);
+
+              case 9:
+                _context10.next = 11;
+                return sub_class_form.patch("sub-class/".concat(sub_class_form.id));
+
+              case 11:
+                return _context10.abrupt("break", 17);
+
+              case 12:
+                _context10.next = 14;
+                return sub_class_form["delete"]("sub-class/".concat(sub_class_form.id));
+
+              case 14:
+                return _context10.abrupt("break", 17);
+
+              case 15:
+                _context10.next = 17;
+                return sub_class_form.post("#");
+
+              case 17:
+                _this8.subClassClose();
+
+                _this8.loading = false;
+                _context10.next = 25;
+                break;
+
+              case 21:
+                _context10.prev = 21;
+                _context10.t1 = _context10["catch"](0);
+                console.log(_context10.t1);
+
+                _this8.error("submitSubClass-error");
+
+              case 25:
+              case "end":
+                return _context10.stop();
+            }
+          }
+        }, _callee10, null, [[0, 21]]);
       }))();
     }
   }

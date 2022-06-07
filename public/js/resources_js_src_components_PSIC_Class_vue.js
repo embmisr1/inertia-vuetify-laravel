@@ -94,6 +94,34 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     modal: Object,
@@ -111,8 +139,14 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   watch: {
-    searchClass: function searchClass(value) {
-      this.$emit("search", value);
+    isModalActive: function isModalActive(value) {
+      if (!value) return;
+      this.searchClass = this.modal.form.searchClass ? this.modal.form.searchClass : null;
+    }
+  },
+  computed: {
+    isModalActive: function isModalActive() {
+      return this.modal.active;
     }
   }
 });
@@ -246,92 +280,155 @@ var render = function () {
                           ),
                         ]),
                         _vm._v(" "),
-                        _c(
-                          "v-card-text",
-                          [
-                            _c("ValidationProvider", {
-                              attrs: {
-                                vid: "psic_class_desc",
-                                name: "Group Class Description",
-                                rules: "required|min:6",
-                              },
-                              scopedSlots: _vm._u(
-                                [
-                                  {
-                                    key: "default",
-                                    fn: function (ref) {
-                                      var errors = ref.errors
-                                      return [
-                                        _c("v-textarea", {
-                                          attrs: {
-                                            label: "Group Class Description",
-                                            filled: "",
-                                            clearable: "",
-                                            row: "3",
-                                            outlined: "",
-                                            loading: _vm.loading,
-                                            "error-messages": errors[0],
-                                            readonly:
-                                              _vm.modal.form.request_type ===
-                                              "delete",
-                                          },
-                                          model: {
-                                            value:
-                                              _vm.modal.form.psic_class_desc,
-                                            callback: function ($$v) {
-                                              _vm.$set(
-                                                _vm.modal.form,
-                                                "psic_class_desc",
-                                                $$v
-                                              )
+                        _c("v-card-text", { staticClass: "space-y-4" }, [
+                          _c(
+                            "div",
+                            [
+                              _c("ValidationProvider", {
+                                attrs: {
+                                  vid: "psic_class_desc",
+                                  name: "Group Class Description",
+                                  rules: "required",
+                                },
+                                scopedSlots: _vm._u(
+                                  [
+                                    {
+                                      key: "default",
+                                      fn: function (ref) {
+                                        var errors = ref.errors
+                                        return [
+                                          _c(
+                                            "b-field",
+                                            {
+                                              attrs: {
+                                                label: "PSIC Group Desc",
+                                                type: {
+                                                  "is-danger": errors[0],
+                                                },
+                                                message: errors[0],
+                                              },
                                             },
-                                            expression:
-                                              "modal.form.psic_class_desc",
-                                          },
-                                        }),
-                                      ]
+                                            [
+                                              _c("b-autocomplete", {
+                                                attrs: {
+                                                  loading: _vm.loading,
+                                                  disabled: _vm.loading,
+                                                  placeholder: "Search...",
+                                                  "keep-first": "",
+                                                  "open-onfocus": "",
+                                                  data: _vm.items,
+                                                  field: "psic_group_desc",
+                                                  clearable: "",
+                                                },
+                                                on: {
+                                                  select: function (option) {
+                                                    return (_vm.modal.form.psic_group_FK =
+                                                      option.id)
+                                                  },
+                                                  typing: function (value) {
+                                                    return _vm.$emit(
+                                                      "search",
+                                                      value
+                                                    )
+                                                  },
+                                                },
+                                                scopedSlots: _vm._u(
+                                                  [
+                                                    {
+                                                      key: "empty",
+                                                      fn: function () {
+                                                        return [
+                                                          _vm._v(
+                                                            "\n                                        No Data Found\n                                    "
+                                                          ),
+                                                        ]
+                                                      },
+                                                      proxy: true,
+                                                    },
+                                                  ],
+                                                  null,
+                                                  true
+                                                ),
+                                                model: {
+                                                  value: _vm.searchClass,
+                                                  callback: function ($$v) {
+                                                    _vm.searchClass = $$v
+                                                  },
+                                                  expression: "searchClass",
+                                                },
+                                              }),
+                                            ],
+                                            1
+                                          ),
+                                        ]
+                                      },
                                     },
-                                  },
-                                ],
-                                null,
-                                true
-                              ),
-                            }),
-                            _vm._v(" "),
-                            _c("v-autocomplete", {
-                              attrs: {
-                                items: _vm.items,
-                                loading: _vm.loading,
-                                "search-input": _vm.searchClass,
-                                color: "primary",
-                                "hide-no-data": "",
-                                "hide-selected": "",
-                                filled: "",
-                                outlined: "",
-                                dense: "",
-                                "item-text": "psic_group_desc",
-                                "item-value": "id",
-                                label: "Search PSIC Group",
-                              },
-                              on: {
-                                "update:searchInput": function ($event) {
-                                  _vm.searchClass = $event
+                                  ],
+                                  null,
+                                  true
+                                ),
+                              }),
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            [
+                              _c("ValidationProvider", {
+                                attrs: {
+                                  vid: "psic_class_desc",
+                                  name: "Group Class Description",
+                                  rules: "required|min:6",
                                 },
-                                "update:search-input": function ($event) {
-                                  _vm.searchClass = $event
-                                },
-                              },
-                              model: {
-                                value: _vm.modal.form.psic_group_FK,
-                                callback: function ($$v) {
-                                  _vm.$set(_vm.modal.form, "psic_group_FK", $$v)
-                                },
-                                expression: "modal.form.psic_group_FK",
-                              },
-                            }),
-                          ],
-                          1
-                        ),
+                                scopedSlots: _vm._u(
+                                  [
+                                    {
+                                      key: "default",
+                                      fn: function (ref) {
+                                        var errors = ref.errors
+                                        return [
+                                          _c("v-textarea", {
+                                            attrs: {
+                                              disabled:
+                                                !_vm.modal.form.psic_group_FK,
+                                              label: "Group Class Description",
+                                              filled: "",
+                                              clearable: "",
+                                              row: "3",
+                                              outlined: "",
+                                              loading: _vm.loading,
+                                              "error-messages": errors[0],
+                                              readonly:
+                                                _vm.modal.form.request_type ===
+                                                "delete",
+                                            },
+                                            model: {
+                                              value:
+                                                _vm.modal.form.psic_class_desc,
+                                              callback: function ($$v) {
+                                                _vm.$set(
+                                                  _vm.modal.form,
+                                                  "psic_class_desc",
+                                                  $$v
+                                                )
+                                              },
+                                              expression:
+                                                "modal.form.psic_class_desc",
+                                            },
+                                          }),
+                                        ]
+                                      },
+                                    },
+                                  ],
+                                  null,
+                                  true
+                                ),
+                              }),
+                            ],
+                            1
+                          ),
+                        ]),
                         _vm._v(" "),
                         _c(
                           "v-card-actions",

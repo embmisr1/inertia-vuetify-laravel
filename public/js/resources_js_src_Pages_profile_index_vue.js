@@ -432,7 +432,7 @@ __webpack_require__.r(__webpack_exports__);
             icon: "mdi-link"
           }, {
             name: "PSIC SUB CLASS",
-            link: "",
+            link: "/app/psic/sub-class",
             icon: "mdi-link"
           }]
         }]
