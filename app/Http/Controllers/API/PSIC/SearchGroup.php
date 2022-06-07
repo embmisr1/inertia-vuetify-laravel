@@ -18,6 +18,10 @@ class SearchGroup extends Controller
     {
 
         // return request("psic_group_desc");
-        return PsicGroup::where("psic_group_desc", 'LIKE', '%' . request('psic_group_desc') . '%')->get();
+        return response()->json(
+            [
+                "data" => PsicGroup::where("psic_group_desc", 'LIKE', '%' . request('psic_group_desc') . '%')->get(),
+            ]
+        );
     }
 }

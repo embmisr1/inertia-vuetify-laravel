@@ -47,9 +47,8 @@
                         <v-btn
                             :disabled="invalid"
                             :loading="loading"
-                            class="cursor-pointer"
+                            class="cursor-pointer white--text"
                             color="green darken-1"
-                            text
                             @click="submit"
                         >
                             {{

@@ -31,7 +31,11 @@
             :header-class="isTheme ? 'bg-black text-white' : ''"
             height="420"
         >
-            <b-table-column field="psic_group_desc" label="Description">
+            <b-table-column
+                field="psic_group_desc"
+                label="Description"
+                searchable
+            >
                 <template #searchable="props">
                     <b-input
                         v-model="filters.psic_group_desc"
@@ -46,6 +50,20 @@
             </b-table-column>
 
             <b-table-column field="action" label="" sortable v-slot="props">
+                <b-tooltip
+                    label="Add Group Class"
+                    position="is-top"
+                    type="is-dark"
+                >
+                    <v-btn
+                        small
+                        icon
+                        @click="add_group_class_via_group_page(props.row, 'post')"
+                    >
+                        <box-icon name="link" animation="tada-hover"></box-icon>
+                    </v-btn>
+                </b-tooltip>
+
                 <v-btn small icon @click="set_psic_group(props.row, 'patch')">
                     <box-icon
                         name="edit"
@@ -73,6 +91,14 @@
             :submit="submitGroup"
             :loading="loading"
         />
+        <Class
+            :modal="groupClassModal"
+            :close="groupClassClose"
+            :submit="submitGroupClass"
+            :loading="loading"
+            :items="psicGroup"
+            @search="searchGroup"
+        />
     </DefaultLayout>
 </template>
 
@@ -82,15 +108,28 @@ import { Link } from "@inertiajs/inertia-vue";
 import _ from "lodash";
 import { page, toasts, psic, dialogs } from "../../mixins/";
 import Group from "../../components/PSIC/Group.vue";
+import Class from "../../components/PSIC/Class.vue";
 export default {
-    components: { DefaultLayout, Group },
+    components: { DefaultLayout, Group, Class },
     mixins: [page, toasts, psic, dialogs],
     props: {
         data: Object,
-        filters: Object,
     },
     data() {
         return {};
+    },
+    methods: {
+        get: _.debounce(async function (params) {
+            try {
+                this.loading = true;
+                await this.$inertia.get("#", { ...params });
+                this.loading = false;
+            } catch (error) {
+                this.loading = false;
+                console.log(error);
+                this.error("PSIC Group Get - error");
+            }
+        }, 1500),
     },
 };
 </script>

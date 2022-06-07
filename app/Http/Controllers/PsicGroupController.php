@@ -6,6 +6,8 @@ use App\Models\PsicGroup;
 use App\Http\Requests\StorePsicGroupRequest;
 use App\Http\Resources\PsicGroupResource;
 use Inertia\Inertia;
+use App\Filters\PSIC\GroupFilter;
+use Illuminate\Support\Facades\Request;
 
 class PsicGroupController extends Controller
 {
@@ -17,8 +19,10 @@ class PsicGroupController extends Controller
     public function index()
     {
         return Inertia::render("pages/psic/group", [
-            "data" => PsicGroupResource::collection(PsicGroup::paginate(request("size", 10))),
-
+            "filters"=>Request::all(
+                "id","psic_group_desc"
+            ),
+            "data" => PsicGroupResource::collection((new GroupFilter)->get()),
         ]);
     }
 
