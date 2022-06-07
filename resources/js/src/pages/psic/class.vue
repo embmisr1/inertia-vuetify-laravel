@@ -31,10 +31,14 @@
             :header-class="isTheme ? 'bg-black text-white' : ''"
             height="420"
         >
-            <b-table-column field="psic_group_desc" label="Description">
+            <b-table-column
+                field="psic_group_desc"
+                label="Description"
+                searchable
+            >
                 <template #searchable="props">
                     <b-input
-                        v-model="filters.psic_group_desc"
+                        v-model="filters.psic_class_desc"
                         placeholder="Search..."
                         icon="magnify"
                         size="is-small"
@@ -45,15 +49,53 @@
                 </template>
             </b-table-column>
 
+            <b-table-column
+                field="psic_group_desc"
+                label="Group Class"
+                searchable
+            >
+                <template #searchable="props">
+                    <b-input
+                        v-model="filters.psic_group_desc"
+                        placeholder="Search..."
+                        icon="magnify"
+                        size="is-small"
+                    />
+                </template>
+                <template v-slot="props">
+                    {{ props.row.psic_group.desc }}
+                </template>
+            </b-table-column>
+
             <b-table-column field="action" label="" sortable v-slot="props">
-                <v-btn small icon>
+                <b-tooltip
+                    label="Add Sub Class"
+                    position="is-top"
+                    type="is-dark"
+                >
+                    <v-btn
+                        small
+                        icon
+                        @click="add_sub_class_via_class_page(props.row, 'post')"
+                    >
+                        <box-icon name="link" animation="tada-hover"></box-icon>
+                    </v-btn>
+                </b-tooltip>
+                <v-btn
+                    small
+                    icon
+                    @click="set_psic_group_class(props.row, 'patch')"
+                >
                     <box-icon
                         name="edit"
                         color="orange"
                         animation="tada-hover"
                     ></box-icon>
                 </v-btn>
-                <v-btn icon small
+                <v-btn
+                    icon
+                    small
+                    @click="set_psic_group_class(props.row, 'delete')"
                     ><box-icon
                         name="trash"
                         color="red"
@@ -75,7 +117,15 @@
             :items="psicGroup"
             @search="searchGroup"
         />
-            <!-- :search="searchClass" -->
+        <SubClass
+            :modal="subClassModal"
+            :close="subClassClose"
+            :submit="submitSubClass"
+            :loading="loading"
+            :items="psicClass"
+            @search="searchClass"
+        />
+        <!-- :search="searchClass" -->
     </DefaultLayout>
 </template>
 
@@ -86,15 +136,28 @@ import _ from "lodash";
 import { page, toasts, psic, dialogs } from "../../mixins/";
 import Group from "../../components/PSIC/Group.vue";
 import Class from "../../components/PSIC/Class.vue";
+import SubClass from "../../components/PSIC/SubClass.vue";
 export default {
-    components: { DefaultLayout, Group, Class },
+    components: { DefaultLayout, Group, SubClass, Class },
     mixins: [page, toasts, psic, dialogs],
     props: {
         data: Object,
-        filters: Object,
     },
     data() {
         return {};
+    },
+    methods: {
+        get: _.debounce(async function (params) {
+            try {
+                this.loading = true;
+                await this.$inertia.get("#", { ...params });
+                this.loading = false;
+            } catch (error) {
+                this.loading = false;
+                console.log(error);
+                this.error("PSIC Group Class Get - error");
+            }
+        }, 1500),
     },
 };
 </script>

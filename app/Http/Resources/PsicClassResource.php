@@ -18,8 +18,8 @@ class PsicClassResource extends JsonResource
             "id" => $this->id,
             "psic_class_desc" => $this->psic_class_desc,
             "psic_group" => [
-                "psic_group_id"=>$this->psic_group_FK->id,
-                "psic_group_desc"=>$this->psic_group_FK->psic_group_desc,
+                "id"=>$this->psic_group->id,
+                "desc"=>$this->psic_group->psic_group_desc,
             ],
         ];
     }

@@ -10,41 +10,69 @@
                         PSIC Group Class Description
                     </v-card-title>
 
-                    <v-card-text>
-                        <ValidationProvider
-                            vid="psic_class_desc"
-                            name="Group Class Description"
-                            rules="required|min:6"
-                            v-slot="{ errors }"
-                        >
-                            <v-textarea
-                                v-model="modal.form.psic_class_desc"
-                                label="Group Class Description"
-                                filled
-                                clearable
-                                row="3"
-                                outlined
-                                :loading="loading"
-                                :error-messages="errors[0]"
-                                :readonly="modal.form.request_type === 'delete'"
-                            ></v-textarea>
-                        </ValidationProvider>
-                        <v-autocomplete
-                            v-model="modal.form.psic_group_FK"
-                            :items="items"
-                            :loading="loading"
-                            :search-input.sync="searchClass"
-                            color="primary"
-                            hide-no-data
-                            hide-selected
-                            filled
-                            outlined
-                            dense
-                            item-text="psic_group_desc"
-                            item-value="id"
-                            label="Search PSIC Group"
-                        ></v-autocomplete>
-                        <!-- return-object -->
+                    <v-card-text class="space-y-4">
+                        <div>
+                            <ValidationProvider
+                                vid="psic_class_desc"
+                                name="Group Class Description"
+                                rules="required"
+                                v-slot="{ errors }"
+                            >
+                                <b-field
+                                    label="PSIC Group Desc"
+                                    :type="{ 'is-danger': errors[0] }"
+                                    :message="errors[0]"
+                                >
+                                    <b-autocomplete
+                                        :loading="loading"
+                                        :disabled="loading"
+                                        v-model="searchClass"
+                                        placeholder="Search..."
+                                        keep-first
+                                        open-onfocus
+                                        :data="items"
+                                        field="psic_group_desc"
+                                        @select="
+                                            (option) =>
+                                                (modal.form.psic_group_FK =
+                                                    option.id)
+                                        "
+                                        clearable
+                                        @typing="
+                                            (value) => $emit('search', value)
+                                        "
+                                    >
+                                        <template #empty>
+                                            No Data Found
+                                        </template>
+                                    </b-autocomplete>
+                                </b-field>
+                            </ValidationProvider>
+                        </div>
+
+                        <div>
+                            <ValidationProvider
+                                vid="psic_class_desc"
+                                name="Group Class Description"
+                                rules="required|min:6"
+                                v-slot="{ errors }"
+                            >
+                                <v-textarea
+                                    :disabled="!modal.form.psic_group_FK"
+                                    v-model="modal.form.psic_class_desc"
+                                    label="Group Class Description"
+                                    filled
+                                    clearable
+                                    row="3"
+                                    outlined
+                                    :loading="loading"
+                                    :error-messages="errors[0]"
+                                    :readonly="
+                                        modal.form.request_type === 'delete'
+                                    "
+                                ></v-textarea>
+                            </ValidationProvider>
+                        </div>
                     </v-card-text>
 
                     <v-card-actions>
@@ -99,8 +127,17 @@ export default {
         };
     },
     watch: {
-        searchClass(value) {
-            this.$emit("search", value);
+        isModalActive(value) {
+            if (!value) return;
+
+            this.searchClass = this.modal.form.searchClass
+                ? this.modal.form.searchClass
+                : null;
+        },
+    },
+    computed: {
+        isModalActive() {
+            return this.modal.active;
         },
     },
 };

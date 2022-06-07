@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Filters\PSIC\ClassFilter;
 use App\Models\PsicClass;
 use App\Http\Requests\StorePsicClassRequest;
 use App\Http\Resources\PsicClassResource;
+use Illuminate\Support\Facades\Request;
 use Inertia\Inertia;
 
 class PsicClassController extends Controller
@@ -17,7 +19,12 @@ class PsicClassController extends Controller
     public function index()
     {
         return Inertia::render("pages/psic/class", [
-            "data" => PsicClassResource::collection(PsicClass::paginate(request("size", 10))),
+            "filters" => Request::all(
+                "id",
+                "psic_class_desc",
+                "psic_group_desc"
+            ),
+            "data" => PsicClassResource::collection((new ClassFilter)->get()),
 
         ]);
     }
@@ -40,7 +47,16 @@ class PsicClassController extends Controller
      */
     public function store(StorePsicClassRequest $request)
     {
-        //
+
+        try {
+            $input = $request->validated();
+
+            PsicClass::firstOrCreate($input);
+
+            return back()->with("message", "Group Class Created");
+        } catch (\Throwable $th) {
+            return back()->withErrors(["error_message" => "Form Error"]);
+        }
     }
 
     /**
@@ -74,7 +90,15 @@ class PsicClassController extends Controller
      */
     public function update(StorePsicClassRequest $request, PsicClass $psicClass)
     {
-        //
+        try {
+            $input = $request->validated();
+
+            $psicClass->update($input);
+
+            return back()->with("message", "Group Class Updated");
+        } catch (\Throwable $th) {
+            return back()->withErrors(["error_message" => "Form Error"]);
+        }
     }
 
     /**
@@ -85,6 +109,8 @@ class PsicClassController extends Controller
      */
     public function destroy(PsicClass $psicClass)
     {
-        //
+        $psicClass->delete();
+
+        return back()->with("message", "Group Class Deleted");
     }
 }
