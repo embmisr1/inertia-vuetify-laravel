@@ -1,6 +1,83 @@
 <template>
     <DefaultLayout>
     <div id="app" class="container">
+        <v-dialog
+        v-model="dialog"
+        persistent
+        max-width="290"
+        >
+            <template v-slot:activator="{ on, attrs }">
+                <v-btn
+                color="primary"
+                dark
+                v-bind="attrs"
+                v-on="on"
+                class="mb-2"
+                >
+                    <v-icon dark>
+                        mdi-filter
+                    </v-icon> Filter
+                </v-btn>
+            </template>
+            <v-card>
+                <v-card-title class="text-h5">
+                    <v-icon>
+                        mdi-filter
+                    </v-icon> Filter Options
+                </v-card-title>
+                <v-card-text>
+                    <div>
+                        <v-autocomplete
+                            :items="province_list_alter"
+                            v-model="province_list_alter.PK_province_ID"
+                            @change="provinceDropdown"
+                            label="Province"
+                            item-text="provDesc"
+                            item-value="PK_province_ID"
+                            clearable
+                        ></v-autocomplete>
+                    </div>
+                    <div>
+                        <v-autocomplete
+                            :items="municipality_list_alter"
+                            v-model="municipality_list_alter.PK_citymun_ID"
+                            @change="municipalityDropdown"
+                            label="Municipality"
+                            item-text="citymunDesc"
+                            item-value="PK_citymun_ID"
+                            clearable
+                        ></v-autocomplete>
+                    </div>
+                    <div>
+                        <v-autocomplete
+                            :items="barangay_list_alter"
+                            v-model="barangay_list_alter.PK_brgy_ID"
+                            label="Barangay"
+                            item-text="brgyDesc"
+                            item-value="PK_brgy_ID"
+                            clearable
+                        ></v-autocomplete>
+                    </div>
+                </v-card-text>
+                <v-card-actions>
+                    <v-spacer></v-spacer>
+                    <v-btn
+                        color="green darken-1"
+                        text
+                        @click="dialog = false"
+                    >
+                        Close
+                    </v-btn>
+                    <v-btn
+                        color="green darken-1"
+                        text
+                        @click="dialog = false"
+                    >
+                        Filter
+                    </v-btn>
+                </v-card-actions>
+            </v-card>
+        </v-dialog>
         <section>
             <b-table
                 :data="query.data"
@@ -71,6 +148,8 @@
 <script>
 import { Link } from "@inertiajs/inertia-vue";
 import DefaultLayout from "../../layouts/default.vue";
+import axios from 'axios';
+
 export default {
     components: {
         DefaultLayout,
@@ -78,20 +157,39 @@ export default {
     },
     props: {
         query: Object,
+        province_list: Array,
+        municipality_list: Array,
+        barangay_list: Array,
     },
-    computed: {
-        current_page_holder(){
-            return this.query.current_page;
-        },
-    },
-    data: () => ({
-    }),
     methods: {
         async onPageChange(page_content){
             await this.$inertia.get(`/app/universe`,{
                 page: page_content,
             });
-        }
+        },
+        async provinceDropdown(val){
+            const municipality = await axios.get(`http://127.0.0.1:8000/api/app/province_dropdown/${val}`);
+            this.municipality_list_alter = municipality.data;
+            this.barangay_list_alter = [];
+        },
+        async municipalityDropdown(val){
+            const barangay = await axios.get(`http://127.0.0.1:8000/api/app/municipality_dropdown/${val}`);
+            this.barangay_list_alter = barangay.data;
+        },
     },
+    // data: () => ({
+    //     dialog: false,
+    //     province_list_alter: this.province_list,
+    //     municipality_list_alter: this.municipality_list,
+    //     barangay_list_alter: this.barangay_list,
+    // }),
+    data () {
+      return {
+        dialog: false,
+        province_list_alter: this.province_list,
+        municipality_list_alter: [],
+        barangay_list_alter: [],
+      }
+    }
 };
 </script>

@@ -22,6 +22,7 @@ use Carbon\Carbon;
 class UniverseController extends Controller
 {
     public function universe_list(){
+        $province_list = Province::where('regCode','01')->get();
         $query = DB::table('tbl_universe as a')->select(
             'a.*', 
             'b.provDesc',
@@ -34,6 +35,7 @@ class UniverseController extends Controller
         ->paginate(3);
         return Inertia::render("pages/universe/universe_list", [
             'query'=>$query,
+            'province_list'=>$province_list,
         ]);
     }
 
