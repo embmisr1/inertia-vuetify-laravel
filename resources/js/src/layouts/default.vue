@@ -328,7 +328,7 @@ export default {
                                 },
                                 {
                                     name: "PSIC SUB CLASS",
-                                    link: "",
+                                     link: "/app/psic/sub-class",
                                     icon: "mdi-link",
                                 },
                             ],
