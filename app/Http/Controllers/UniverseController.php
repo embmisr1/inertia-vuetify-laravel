@@ -21,7 +21,7 @@ use Carbon\Carbon;
 
 class UniverseController extends Controller
 {
-    public function universe_list(){
+    public function universe_list(request $request){
         $province_list = Province::where('regCode','01')->get();
         $query = DB::table('tbl_universe as a')->select(
             'a.*', 
@@ -31,8 +31,14 @@ class UniverseController extends Controller
         )
         ->leftjoin('ref_province as b','a.un_province','=','b.PK_province_ID')
         ->leftjoin('ref_citymun as c','a.un_municipality','=','c.PK_citymun_ID')
-        ->leftjoin('ref_brgy as d','a.un_brgy','=','d.PK_brgy_ID')
-        ->paginate(3);
+        ->leftjoin('ref_brgy as d','a.un_brgy','=','d.PK_brgy_ID');
+        
+        if($request->province){
+            $query = $query->where('a.un_province',$request->province);
+        }
+
+        $query = $query->paginate(3);
+
         return Inertia::render("pages/universe/universe_list", [
             'query'=>$query,
             'province_list'=>$province_list,

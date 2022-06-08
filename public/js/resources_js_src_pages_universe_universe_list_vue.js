@@ -684,7 +684,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 0:
                 _context.next = 2;
                 return _this.$inertia.get("/app/universe", {
-                  page: page_content
+                  page: page_content,
+                  province: _this.province_list_alter.PK_province_ID
                 });
 
               case 2:
@@ -695,24 +696,19 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }, _callee);
       }))();
     },
-    provinceDropdown: function provinceDropdown(val) {
+    filterUniverse: function filterUniverse() {
       var _this2 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
-        var municipality;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
-                _context2.next = 2;
-                return axios__WEBPACK_IMPORTED_MODULE_3___default().get("http://127.0.0.1:8000/api/app/province_dropdown/".concat(val));
+                _this2.dialog = false;
+
+                _this2.onPageChange();
 
               case 2:
-                municipality = _context2.sent;
-                _this2.municipality_list_alter = municipality.data;
-                _this2.barangay_list_alter = [];
-
-              case 5:
               case "end":
                 return _context2.stop();
             }
@@ -720,28 +716,53 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }, _callee2);
       }))();
     },
-    municipalityDropdown: function municipalityDropdown(val) {
+    provinceDropdown: function provinceDropdown(val) {
       var _this3 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3() {
-        var barangay;
+        var municipality;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
           while (1) {
             switch (_context3.prev = _context3.next) {
               case 0:
                 _context3.next = 2;
-                return axios__WEBPACK_IMPORTED_MODULE_3___default().get("http://127.0.0.1:8000/api/app/municipality_dropdown/".concat(val));
+                return axios__WEBPACK_IMPORTED_MODULE_3___default().get("http://127.0.0.1:8000/api/app/province_dropdown/".concat(val));
 
               case 2:
-                barangay = _context3.sent;
-                _this3.barangay_list_alter = barangay.data;
+                municipality = _context3.sent;
+                _this3.municipality_list_alter = municipality.data;
+                _this3.barangay_list_alter = [];
 
-              case 4:
+              case 5:
               case "end":
                 return _context3.stop();
             }
           }
         }, _callee3);
+      }))();
+    },
+    municipalityDropdown: function municipalityDropdown(val) {
+      var _this4 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee4() {
+        var barangay;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee4$(_context4) {
+          while (1) {
+            switch (_context4.prev = _context4.next) {
+              case 0:
+                _context4.next = 2;
+                return axios__WEBPACK_IMPORTED_MODULE_3___default().get("http://127.0.0.1:8000/api/app/municipality_dropdown/".concat(val));
+
+              case 2:
+                barangay = _context4.sent;
+                _this4.barangay_list_alter = barangay.data;
+
+              case 4:
+              case "end":
+                return _context4.stop();
+            }
+          }
+        }, _callee4);
       }))();
     }
   },
@@ -2399,11 +2420,7 @@ var render = function () {
                       "v-btn",
                       {
                         attrs: { color: "green darken-1", text: "" },
-                        on: {
-                          click: function ($event) {
-                            _vm.dialog = false
-                          },
-                        },
+                        on: { click: _vm.filterUniverse },
                       },
                       [_vm._v("\n                    Filter\n                ")]
                     ),

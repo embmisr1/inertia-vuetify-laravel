@@ -71,7 +71,7 @@
                     <v-btn
                         color="green darken-1"
                         text
-                        @click="dialog = false"
+                        @click="filterUniverse"
                     >
                         Filter
                     </v-btn>
@@ -165,7 +165,13 @@ export default {
         async onPageChange(page_content){
             await this.$inertia.get(`/app/universe`,{
                 page: page_content,
+                province: this.province_list_alter.PK_province_ID,
             });
+        },
+        async filterUniverse(){
+            this.dialog = false;
+            this.onPageChange();
+
         },
         async provinceDropdown(val){
             const municipality = await axios.get(`http://127.0.0.1:8000/api/app/province_dropdown/${val}`);
