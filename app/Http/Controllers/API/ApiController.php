@@ -16,7 +16,6 @@ class ApiController extends Controller
     }
     
     public function municipality_dropdown($id){
-        // $query = Barangay::whereRaw('CAST(citymunCode AS SIGNED) = '.$id)->get();
         $query = Barangay::where('citymunCode',$id)->get();
         return response()->json($query);
     }
