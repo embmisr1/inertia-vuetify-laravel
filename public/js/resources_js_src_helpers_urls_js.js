@@ -14,7 +14,10 @@ __webpack_require__.r(__webpack_exports__);
 var root = "http://unisys.test/api/v1/";
 var urls = {
   psic_group_class: root + "psic_group_class",
-  psic_sub_class: root + "psic_sub_class"
+  psic_sub_class: root + "psic_sub_class",
+  project_type: root + "project/type",
+  project_subtype: root + "project/subtype",
+  project_specifictype: root + "project/specifictype"
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (urls);
 

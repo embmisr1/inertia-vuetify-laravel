@@ -399,19 +399,19 @@ __webpack_require__.r(__webpack_exports__);
           icon: "mdi-file-document-multiple",
           child: [{
             name: "PROJECT TYPE",
-            link: "",
+            link: "/app/project/type",
             icon: "mdi-link"
           }, {
             name: "PROJECT SUB-TYPE",
-            link: "",
+            link: "/app/project/subtype",
             icon: "mdi-link"
           }, {
             name: "PROJECT SPECIFIC TYPE",
-            link: "",
+            link: "/app/project/specifictype",
             icon: "mdi-link"
           }, {
             name: "PROJECT SPECIFIC SUB-TYPE",
-            link: "",
+            link: "/app/project/specificsubtype",
             icon: "mdi-link"
           }, {
             name: "DETAILED DESCRIPTION",
