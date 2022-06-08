@@ -36,7 +36,7 @@ class ProjectSpecificSubTypeController extends Controller
                 ->orderBy(
                     request('order_by', 'created_at'), // column
                     request('direction', 'desc') // direction
-                )->paginate(10),)
+                )->paginate(1),)
         ]);
     }
 
