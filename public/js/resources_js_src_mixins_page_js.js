@@ -37,6 +37,12 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: {
+    errors: Object,
+    filters: Object,
+    flash: Object,
+    route: Object
+  },
   data: function data() {
     return {
       loading: false,
@@ -44,11 +50,20 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     };
   },
   computed: {
+    route_back: function route_back() {
+      return this.route.back_at_one;
+    },
     filtersObject: function filtersObject() {
       return _objectSpread({}, this.filters);
     },
     isTheme: function isTheme() {
       return this.$vuetify.theme.dark;
+    },
+    errorMessage: function errorMessage() {
+      return _objectSpread({}, this.errors);
+    },
+    successMessage: function successMessage() {
+      return _objectSpread({}, this.flash);
     }
   },
   methods: {
@@ -263,6 +278,21 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           }
         }, _callee6, null, [[0, 8]]);
       }))();
+    }
+  },
+  watch: {
+    filtersObject: function filtersObject() {
+      this.loading = true;
+      this.get(_objectSpread({}, this.filtersObject));
+      this.loading = false;
+    },
+    errorMessage: function errorMessage(data) {
+      if (data.error_message) this.error(data.error_message);
+      if (data.items) this.error(data.items);
+      if (Object.keys(data).length > 1) this.error("Form Error");
+    },
+    successMessage: function successMessage(data) {
+      if (data.message) this.success(data.message);
     }
   }
 });

@@ -286,22 +286,22 @@ export default {
                             child: [
                                 {
                                     name: "PROJECT TYPE",
-                                    link: "",
+                                    link: "/app/project/type",
                                     icon: "mdi-link",
                                 },
                                 {
                                     name: "PROJECT SUB-TYPE",
-                                    link: "",
+                                    link: "/app/project/subtype",
                                     icon: "mdi-link",
                                 },
                                 {
                                     name: "PROJECT SPECIFIC TYPE",
-                                    link: "",
+                                    link: "/app/project/specifictype",
                                     icon: "mdi-link",
                                 },
                                 {
                                     name: "PROJECT SPECIFIC SUB-TYPE",
-                                    link: "",
+                                    link: "/app/project/specificsubtype",
                                     icon: "mdi-link",
                                 },
                                 {
@@ -318,17 +318,17 @@ export default {
                             child: [
                                 {
                                     name: "PSIC GROUP",
-                                    link: "",
+                                    link: "/app/psic/group",
                                     icon: "mdi-link",
                                 },
                                 {
                                     name: "PSIC CLASS",
-                                    link: "",
+                                    link: "/app/psic/class",
                                     icon: "mdi-link",
                                 },
                                 {
                                     name: "PSIC SUB CLASS",
-                                    link: "",
+                                     link: "/app/psic/sub-class",
                                     icon: "mdi-link",
                                 },
                             ],
