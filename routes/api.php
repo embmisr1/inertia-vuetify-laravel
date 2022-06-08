@@ -3,6 +3,10 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\ApiController;
+use App\Http\Controllers\API\Project\SearchSpecificType;
+use App\Http\Controllers\API\Project\SearchSubType;
+use App\Http\Controllers\API\Project\SearchType;
+use App\Http\Controllers\API\PSIC\SearchClass;
 use App\Http\Controllers\API\PSIC\SearchGroup;
 
 // use App\Http\Controllers\UniverseController;
@@ -30,4 +34,11 @@ Route::group([
     "prefix" => "v1"
 ], function () {
     Route::get('/psic_group_class', SearchGroup::class)->name("search_psic_group");
+    Route::get('/psic_sub_class', SearchClass::class)->name("search_psic_class");
+
+    Route::get('/project/type', SearchType::class)->name("search_project_type_ctype");
+    Route::get('/project/subtype', SearchSubType::class)->name("search_project_sub_type");
+    Route::get('/project/specifictype', SearchSpecificType::class)->name("search_project_specific_type");
+
+
 });
