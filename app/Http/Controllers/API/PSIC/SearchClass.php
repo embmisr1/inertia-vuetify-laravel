@@ -18,7 +18,7 @@ class SearchClass extends Controller
     {
         return response()->json(
             [
-                "data" => PsicClass::where("psic_class_desc", 'LIKE', '%' . request('psic_class_desc') . '%')->get(),
+                "data" => PsicClass::select(["id"."psic_class_desc"])->where("psic_class_desc", 'LIKE', '%' . request('psic_class_desc') . '%')->get(),
             ]
         );
     }
