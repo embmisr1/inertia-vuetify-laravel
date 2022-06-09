@@ -33,8 +33,14 @@ class UniverseController extends Controller
         ->leftjoin('ref_citymun as c','a.un_municipality','=','c.PK_citymun_ID')
         ->leftjoin('ref_brgy as d','a.un_brgy','=','d.PK_brgy_ID');
         
-        if($request->province){
-            $query = $query->where('a.un_province',$request->province);
+        if($request->PK_province_ID){
+            $query = $query->where('a.un_province',$request->PK_province_ID);
+        }
+        if($request->PK_citymun_ID){
+            $query = $query->where('a.un_municipality',$request->PK_citymun_ID);
+        }
+        if($request->PK_brgy_ID){
+            $query = $query->where('a.un_brgy',$request->PK_brgy_ID);
         }
 
         $query = $query->paginate(3);

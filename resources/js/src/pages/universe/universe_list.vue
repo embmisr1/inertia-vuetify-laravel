@@ -29,7 +29,7 @@
                     <div>
                         <v-autocomplete
                             :items="province_list_alter"
-                            v-model="province_list_alter.PK_province_ID"
+                            v-model="filter.PK_province_ID"
                             @change="provinceDropdown"
                             label="Province"
                             item-text="provDesc"
@@ -37,10 +37,11 @@
                             clearable
                         ></v-autocomplete>
                     </div>
+                    {{filter.PK_province_ID}}
                     <div>
                         <v-autocomplete
                             :items="municipality_list_alter"
-                            v-model="municipality_list_alter.PK_citymun_ID"
+                            v-model="filter.PK_citymun_ID"
                             @change="municipalityDropdown"
                             label="Municipality"
                             item-text="citymunDesc"
@@ -51,7 +52,7 @@
                     <div>
                         <v-autocomplete
                             :items="barangay_list_alter"
-                            v-model="barangay_list_alter.PK_brgy_ID"
+                            v-model="filter.PK_brgy_ID"
                             label="Barangay"
                             item-text="brgyDesc"
                             item-value="PK_brgy_ID"
@@ -149,6 +150,7 @@
 import { Link } from "@inertiajs/inertia-vue";
 import DefaultLayout from "../../layouts/default.vue";
 import axios from 'axios';
+import _ from "lodash";
 
 export default {
     components: {
@@ -162,15 +164,17 @@ export default {
         barangay_list: Array,
     },
     methods: {
-        async onPageChange(page_content){
-            await this.$inertia.get(`/app/universe`,{
-                page: page_content,
-                province: this.province_list_alter.PK_province_ID,
-            });
+        async onPageChange(page){
+            // await this.$inertia.get(`/app/universe`,{
+            //     page: page_content,
+            //     province: this.province_list_alter.PK_province_ID,
+            // });
+            await this.get({ page });
         },
         async filterUniverse(){
-            this.dialog = false;
-            this.onPageChange();
+            // this.dialog = false;
+            // this.onPageChange();
+            this.get(this.filtersObject);
 
         },
         async provinceDropdown(val){
@@ -182,19 +186,28 @@ export default {
             const barangay = await axios.get(`http://127.0.0.1:8000/api/app/municipality_dropdown/${val}`);
             this.barangay_list_alter = barangay.data;
         },
+        get: _.debounce(async function (params) {
+            try {
+                await this.$inertia.get("#", { ...params });
+                console.log(params)
+            } catch (error) {
+                console.log(error);
+                this.error("Project Type Get - error");
+            }
+        }, 1000),
     },
-    // data: () => ({
-    //     dialog: false,
-    //     province_list_alter: this.province_list,
-    //     municipality_list_alter: this.municipality_list,
-    //     barangay_list_alter: this.barangay_list,
-    // }),
+    computed: {
+        filtersObject() {
+            return this.filter;
+        },
+    },
     data () {
       return {
         dialog: false,
         province_list_alter: this.province_list,
         municipality_list_alter: [],
         barangay_list_alter: [],
+        filter: {},
       }
     }
 };
