@@ -681,7 +681,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     query: Object,
     province_list: Array,
     municipality_list: Array,
-    barangay_list: Array
+    barangay_list: Array,
+    filter: Object
   },
   methods: {
     onPageChange: function onPageChange(page) {
@@ -818,8 +819,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       dialog: false,
       province_list_alter: this.province_list,
       municipality_list_alter: [],
-      barangay_list_alter: [],
-      filter: {}
+      barangay_list_alter: [] // filter: {},
+
     };
   }
 });
@@ -19533,7 +19534,7 @@ var render = function () {
                       [
                         _c("v-icon", { attrs: { dark: "" } }, [
                           _vm._v(
-                            "\n                    mdi-filter\n                "
+                            "\n                    mdi-filter\n            \n                "
                           ),
                         ]),
                         _vm._v(" Filter\n            "),
@@ -19595,11 +19596,7 @@ var render = function () {
                     ],
                     1
                   ),
-                  _vm._v(
-                    "\n                " +
-                      _vm._s(_vm.filter.PK_province_ID) +
-                      "\n                "
-                  ),
+                  _vm._v(" "),
                   _c(
                     "div",
                     [

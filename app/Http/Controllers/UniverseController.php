@@ -15,13 +15,14 @@ use App\Models\Barangay;
 use App\Models\Municipality;
 use App\Models\Province;
 use Illuminate\Support\Facades\Redirect;
-use DB;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\Request as FacadeRequest;
 use Carbon\Carbon;
 
 class UniverseController extends Controller
 {
-    public function universe_list(request $request){
+    public function universe_list(Request $request){
         $province_list = Province::where('regCode','01')->get();
         $query = DB::table('tbl_universe as a')->select(
             'a.*', 
@@ -46,6 +47,12 @@ class UniverseController extends Controller
         $query = $query->paginate(3);
 
         return Inertia::render("pages/universe/universe_list", [
+            "filter"=>FacadeRequest::all(
+                'PK_province_ID',
+                'PK_citymun_ID',
+                'PK_brgy_ID',
+            ),
+
             'query'=>$query,
             'province_list'=>$province_list,
         ]);

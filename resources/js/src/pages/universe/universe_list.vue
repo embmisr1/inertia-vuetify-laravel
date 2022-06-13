@@ -16,6 +16,7 @@
                 >
                     <v-icon dark>
                         mdi-filter
+                
                     </v-icon> Filter
                 </v-btn>
             </template>
@@ -27,7 +28,7 @@
                 </v-card-title>
                 <v-card-text>
                     <div>
-                        <v-autocomplete
+                       <v-autocomplete
                             :items="province_list_alter"
                             v-model="filter.PK_province_ID"
                             @change="provinceDropdown"
@@ -37,7 +38,6 @@
                             clearable
                         ></v-autocomplete>
                     </div>
-                    {{filter.PK_province_ID}}
                     <div>
                         <v-autocomplete
                             :items="municipality_list_alter"
@@ -162,6 +162,7 @@ export default {
         province_list: Array,
         municipality_list: Array,
         barangay_list: Array,
+        filter: Object,
     },
     methods: {
         async onPageChange(page){
@@ -207,7 +208,7 @@ export default {
         province_list_alter: this.province_list,
         municipality_list_alter: [],
         barangay_list_alter: [],
-        filter: {},
+        // filter: {},
       }
     }
 };
