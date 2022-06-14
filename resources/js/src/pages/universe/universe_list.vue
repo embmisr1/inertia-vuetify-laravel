@@ -16,7 +16,7 @@
                 >
                     <v-icon dark>
                         mdi-filter
-                
+
                     </v-icon> Filter
                 </v-btn>
             </template>
@@ -28,15 +28,17 @@
                 </v-card-title>
                 <v-card-text>
                     <div>
-                       <v-autocomplete
+                        {{filter.PK_province_ID}}
+                        <v-autocomplete
+                        @change="provinceDropdown"
                             :items="province_list_alter"
                             v-model="filter.PK_province_ID"
-                            @change="provinceDropdown"
                             label="Province"
                             item-text="provDesc"
                             item-value="PK_province_ID"
                             clearable
                         ></v-autocomplete>
+                            <!-- :search-input.sync="searchProvince" -->
                     </div>
                     <div>
                         <v-autocomplete
@@ -65,7 +67,7 @@
                     <v-btn
                         color="green darken-1"
                         text
-                        @click="dialog = false"
+                        @click="closeFilterModal"
                     >
                         Close
                     </v-btn>
@@ -93,33 +95,33 @@
                 paginated
                 backend-pagination>
 
-                <b-table-column field="un_firmname" label="Firmname" sortable v-slot="props" searchable>
+                <b-table-column field="un_firmname" label="Firmname" sortable v-slot="props">
                     {{ props.row.un_firmname }}
                 </b-table-column>
 
-                <b-table-column field="un_crs_number" label="CRS No." sortable v-slot="props" searchable>
+                <b-table-column field="un_crs_number" label="CRS No." sortable v-slot="props">
                     {{ props.row.un_crs_number }}
                 </b-table-column>
 
-                <b-table-column field="un_proponent" label="Proponent" sortable v-slot="props" searchable>
+                <b-table-column field="un_proponent" label="Proponent" sortable v-slot="props">
                     {{ props.row.un_proponent }}
                 </b-table-column>
 
-                <b-table-column field="un_status" label="Firm Status" sortable centered v-slot="props" searchable>
+                <b-table-column field="un_status" label="Firm Status" sortable centered v-slot="props">
                     <span class="tag is-success">
                         {{ props.row.un_status }}
                     </span>
                 </b-table-column>
 
-                <b-table-column field="provDesc" label="Province" sortable v-slot="props" searchable>
+                <b-table-column field="provDesc" label="Province" sortable v-slot="props">
                     {{ props.row.provDesc }}
                 </b-table-column>
 
-                <b-table-column field="provDesc" label="City/Municipality" sortable v-slot="props" searchable>
+                <b-table-column field="provDesc" label="City/Municipality" sortable v-slot="props">
                     {{ props.row.citymunDesc }}
                 </b-table-column>
 
-                <b-table-column field="provDesc" label="Barangay" sortable v-slot="props" searchable>
+                <b-table-column field="provDesc" label="Barangay" sortable v-slot="props">
                     {{ props.row.brgyDesc }}
                 </b-table-column>
 
@@ -196,6 +198,16 @@ export default {
                 this.error("Project Type Get - error");
             }
         }, 1000),
+        closeFilterModal(){
+            let filters =this.filter;
+            filters = {
+                PK_province_ID:'',
+                PK_citymun_ID:"",
+                PK_brgy_ID:""
+            }
+            console.log(this.filter)
+            this.dialog = false;
+        }
     },
     computed: {
         filtersObject() {
@@ -209,7 +221,14 @@ export default {
         municipality_list_alter: [],
         barangay_list_alter: [],
         // filter: {},
+        searchProvince:null
       }
+    },
+    watch:{
+        searchProvince(data) {
+            this.provinceDropdown(data)
+
+        },
     }
 };
 </script>
