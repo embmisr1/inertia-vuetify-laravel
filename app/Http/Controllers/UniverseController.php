@@ -73,6 +73,34 @@ class UniverseController extends Controller
             'province_list' => $province_list,
         ]);
     }
+    
+    public function universe_dashboard(request $request){
+        $query_permit_1586 = DB::table('tbl_permit')->select('*')->where('perm_law','PD 1586')->count();
+        $query_permit_8749 = DB::table('tbl_permit')->select('*')->where('perm_law','RA 8749')->count();
+        $query_permit_9275 = DB::table('tbl_permit')->select('*')->where('perm_law','RA 9275')->count();
+        $query_permit_6969 = DB::table('tbl_permit')->select('*')->where('perm_law','RA 6969')->count();
+        $query_permit_8749_valid = DB::table('tbl_permit')->select('*')->where('perm_law','RA 8749')->where('perm_date_expiry','>',Carbon::today()->toDateString())->count();
+        $query_permit_9275_valid = DB::table('tbl_permit')->select('*')->where('perm_law','RA 9275')->where('perm_date_expiry','>',Carbon::today()->toDateString())->count();
+        $query_permit_8749_expired = DB::table('tbl_permit')->select('*')->where('perm_law','RA 8749')->where('perm_date_expiry','<=',Carbon::today()->toDateString())->count();
+        $query_permit_9275_expired = DB::table('tbl_permit')->select('*')->where('perm_law','RA 9275')->where('perm_date_expiry','<=',Carbon::today()->toDateString())->count();
+        $query_nov_1586 = '';
+        $query_nov_8749 = '';
+        $query_nov_9275 = '';
+        $query_nov_6969 = '';
+        $query_order_issued = '';
+        $query_monitoring_report = '';
+        return Inertia::render("pages/universe/universe_dashboard",[
+            'null_value'=>null,
+            'query_permit_1586'=>$query_permit_1586,
+            'query_permit_8749'=>$query_permit_8749,
+            'query_permit_9275'=>$query_permit_9275,
+            'query_permit_6969'=>$query_permit_6969,
+            'query_permit_8749_valid'=>$query_permit_8749_valid,
+            'query_permit_9275_valid'=>$query_permit_9275_valid,
+            'query_permit_8749_expired'=>$query_permit_8749_expired,
+            'query_permit_9275_expired'=>$query_permit_9275_expired,
+        ]);
+    }
 
     public function universe_form(request $request)
     {

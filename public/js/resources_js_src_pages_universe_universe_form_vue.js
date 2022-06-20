@@ -293,7 +293,7 @@ __webpack_require__.r(__webpack_exports__);
           icon: "mdi-view-dashboard",
           child: [{
             name: "Universe Dashboard",
-            link: "",
+            link: "/app/universe_dashboard/",
             icon: "mdi-link"
           }, {
             name: "Universe",
@@ -7644,11 +7644,17 @@ var render = function () {
             "primary text-xl rounded-t-lg text-white border-b p-2 text-center",
         },
         [
-          _vm._v("\n        " + _vm._s(_vm.dashboard_header_label)),
+          _c(
+            "v-icon",
+            { staticClass: "float-left mt-1", attrs: { dark: "" } },
+            [_vm._v(" mdi-folder")]
+          ),
+          _vm._v(" " + _vm._s(_vm.dashboard_header_label)),
           _c("b", { staticClass: "text-2xl" }, [
             _vm._v(_vm._s(_vm.dashboard_header)),
           ]),
-        ]
+        ],
+        1
       ),
       _vm._v(" "),
       _c("div", { staticClass: "text-lg p-4" }, [
