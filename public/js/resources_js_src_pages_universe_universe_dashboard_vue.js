@@ -511,10 +511,26 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     label: String,
-    query_counter_active: Number,
+    query_counter_total: Number,
+    query_counter_valid: Number,
     query_counter_expired: Number
   },
   components: {},
@@ -553,6 +569,34 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -570,6 +614,8 @@ __webpack_require__.r(__webpack_exports__);
     query_permit_8749: Number,
     query_permit_9275: Number,
     query_permit_6969: Number,
+    query_permit_8749_valid: Number,
+    query_permit_9275_valid: Number,
     query_permit_8749_expired: Number,
     query_permit_9275_expired: Number
   },
@@ -1393,30 +1439,74 @@ var render = function () {
       _c("div", { staticClass: "text-lg p-4" }, [
         _vm.query_counter_expired == null
           ? _c("div", { staticClass: "text-xl text-center grid grid-cols-1" }, [
-              _c("b", { staticClass: "text-2xl" }, [
-                _vm._v(_vm._s(_vm.query_counter_active)),
-              ]),
-            ])
-          : _c("div", { staticClass: "text-xl text-left grid grid-cols-2" }, [
-              _c("div", [
-                _vm._v("\n                Active: "),
-                _c("b", { staticClass: "text-2xl" }, [
-                  _vm._v(_vm._s(_vm.query_counter_active)),
-                ]),
-              ]),
+              _c(
+                "div",
+                { staticClass: "text-xl text-center grid grid-cols-1" },
+                [
+                  _c("div", [
+                    _vm._v("\n                    Total: "),
+                    _c("b", { staticClass: "text-2xl" }, [
+                      _vm._v(_vm._s(_vm.query_counter_total)),
+                    ]),
+                  ]),
+                ]
+              ),
               _vm._v(" "),
-              _c("div", [
-                _vm._v("\n                Expired: "),
-                _c("b", { staticClass: "text-2xl" }, [
-                  _vm._v(_vm._s(_vm.query_counter_expired)),
-                ]),
-              ]),
+              _vm._m(0),
+            ])
+          : _c("div", [
+              _c(
+                "div",
+                { staticClass: "text-xl text-center grid grid-cols-1" },
+                [
+                  _c("div", [
+                    _vm._v("\n                    Total: "),
+                    _c("b", { staticClass: "text-2xl" }, [
+                      _vm._v(_vm._s(_vm.query_counter_total)),
+                    ]),
+                  ]),
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "text-xl text-left grid grid-cols-2 mt-5 border-t-2 border-blue-500",
+                },
+                [
+                  _c("div", [
+                    _vm._v("\n                    Active: "),
+                    _c("b", { staticClass: "text-2xl" }, [
+                      _vm._v(_vm._s(_vm.query_counter_valid)),
+                    ]),
+                  ]),
+                  _vm._v(" "),
+                  _c("div", [
+                    _vm._v("\n                    Expired: "),
+                    _c("b", { staticClass: "text-2xl" }, [
+                      _vm._v(_vm._s(_vm.query_counter_expired)),
+                    ]),
+                  ]),
+                ]
+              ),
             ]),
       ]),
     ]
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "text-xl text-left grid grid-cols-1 mt-7" },
+      [_c("div", [_vm._v(" ")])]
+    )
+  },
+]
 render._withStripped = true
 
 
@@ -1446,9 +1536,10 @@ var render = function () {
         [
           _c("MainDashboard", {
             attrs: {
-              query_counter_active: _vm.query_permit_1586,
+              query_counter_total: _vm.query_permit_1586,
+              query_counter_valid: _vm.query_permit_1586,
               query_counter_expired: _vm.null_value,
-              label: "With 1586",
+              label: "WITH 1586",
             },
           }),
         ],
@@ -1460,9 +1551,10 @@ var render = function () {
         [
           _c("MainDashboard", {
             attrs: {
-              query_counter_active: _vm.query_permit_8749,
+              query_counter_total: _vm.query_permit_8749,
+              query_counter_valid: _vm.query_permit_8749_valid,
               query_counter_expired: _vm.query_permit_8749_expired,
-              label: "With 8749 ",
+              label: "WITH 8749 ",
             },
           }),
         ],
@@ -1474,9 +1566,10 @@ var render = function () {
         [
           _c("MainDashboard", {
             attrs: {
-              query_counter_active: _vm.query_permit_9275,
+              query_counter_total: _vm.query_permit_9275,
+              query_counter_valid: _vm.query_permit_9275_valid,
               query_counter_expired: _vm.query_permit_9275_expired,
-              label: "With 9275",
+              label: "WITH 9275",
             },
           }),
         ],
@@ -1488,9 +1581,10 @@ var render = function () {
         [
           _c("MainDashboard", {
             attrs: {
-              query_counter_active: _vm.query_permit_6969,
+              query_counter_total: _vm.query_permit_6969,
+              query_counter_valid: _vm.query_permit_6969,
               query_counter_expired: _vm.null_value,
-              label: "With 6969",
+              label: "WITH 6969",
             },
           }),
         ],

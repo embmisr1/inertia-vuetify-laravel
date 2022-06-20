@@ -33,10 +33,26 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     label: String,
-    query_counter_active: Number,
+    query_counter_total: Number,
+    query_counter_valid: Number,
     query_counter_expired: Number
   },
   components: {},
@@ -164,30 +180,74 @@ var render = function () {
       _c("div", { staticClass: "text-lg p-4" }, [
         _vm.query_counter_expired == null
           ? _c("div", { staticClass: "text-xl text-center grid grid-cols-1" }, [
-              _c("b", { staticClass: "text-2xl" }, [
-                _vm._v(_vm._s(_vm.query_counter_active)),
-              ]),
-            ])
-          : _c("div", { staticClass: "text-xl text-left grid grid-cols-2" }, [
-              _c("div", [
-                _vm._v("\n                Active: "),
-                _c("b", { staticClass: "text-2xl" }, [
-                  _vm._v(_vm._s(_vm.query_counter_active)),
-                ]),
-              ]),
+              _c(
+                "div",
+                { staticClass: "text-xl text-center grid grid-cols-1" },
+                [
+                  _c("div", [
+                    _vm._v("\n                    Total: "),
+                    _c("b", { staticClass: "text-2xl" }, [
+                      _vm._v(_vm._s(_vm.query_counter_total)),
+                    ]),
+                  ]),
+                ]
+              ),
               _vm._v(" "),
-              _c("div", [
-                _vm._v("\n                Expired: "),
-                _c("b", { staticClass: "text-2xl" }, [
-                  _vm._v(_vm._s(_vm.query_counter_expired)),
-                ]),
-              ]),
+              _vm._m(0),
+            ])
+          : _c("div", [
+              _c(
+                "div",
+                { staticClass: "text-xl text-center grid grid-cols-1" },
+                [
+                  _c("div", [
+                    _vm._v("\n                    Total: "),
+                    _c("b", { staticClass: "text-2xl" }, [
+                      _vm._v(_vm._s(_vm.query_counter_total)),
+                    ]),
+                  ]),
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "text-xl text-left grid grid-cols-2 mt-5 border-t-2 border-blue-500",
+                },
+                [
+                  _c("div", [
+                    _vm._v("\n                    Active: "),
+                    _c("b", { staticClass: "text-2xl" }, [
+                      _vm._v(_vm._s(_vm.query_counter_valid)),
+                    ]),
+                  ]),
+                  _vm._v(" "),
+                  _c("div", [
+                    _vm._v("\n                    Expired: "),
+                    _c("b", { staticClass: "text-2xl" }, [
+                      _vm._v(_vm._s(_vm.query_counter_expired)),
+                    ]),
+                  ]),
+                ]
+              ),
             ]),
       ]),
     ]
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "text-xl text-left grid grid-cols-1 mt-7" },
+      [_c("div", [_vm._v(" ")])]
+    )
+  },
+]
 render._withStripped = true
 
 
