@@ -668,6 +668,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
 
 
 
@@ -807,7 +809,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       return function (_x) {
         return _ref.apply(this, arguments);
       };
-    }(), 1000)
+    }(), 1000),
+    closeFilterModal: function closeFilterModal() {
+      var filters = this.filter;
+      filters = {
+        PK_province_ID: '',
+        PK_citymun_ID: "",
+        PK_brgy_ID: ""
+      };
+      console.log(this.filter);
+      this.dialog = false;
+    }
   },
   computed: {
     filtersObject: function filtersObject() {
@@ -819,9 +831,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       dialog: false,
       province_list_alter: this.province_list,
       municipality_list_alter: [],
-      barangay_list_alter: [] // filter: {},
-
+      barangay_list_alter: [],
+      // filter: {},
+      searchProvince: null
     };
+  },
+  watch: {
+    searchProvince: function searchProvince(data) {
+      this.provinceDropdown(data);
+    }
   }
 });
 
@@ -19534,7 +19552,7 @@ var render = function () {
                       [
                         _c("v-icon", { attrs: { dark: "" } }, [
                           _vm._v(
-                            "\n                    mdi-filter\n            \n                "
+                            "\n                    mdi-filter\n\n                "
                           ),
                         ]),
                         _vm._v(" Filter\n            "),
@@ -19576,6 +19594,11 @@ var render = function () {
                   _c(
                     "div",
                     [
+                      _vm._v(
+                        "\n                    " +
+                          _vm._s(_vm.filter.PK_province_ID) +
+                          "\n                    "
+                      ),
                       _c("v-autocomplete", {
                         attrs: {
                           items: _vm.province_list_alter,
@@ -19654,11 +19677,7 @@ var render = function () {
                       "v-btn",
                       {
                         attrs: { color: "green darken-1", text: "" },
-                        on: {
-                          click: function ($event) {
-                            _vm.dialog = false
-                          },
-                        },
+                        on: { click: _vm.closeFilterModal },
                       },
                       [_vm._v("\n                    Close\n                ")]
                     ),
@@ -19715,7 +19734,6 @@ var render = function () {
                     field: "un_firmname",
                     label: "Firmname",
                     sortable: "",
-                    searchable: "",
                   },
                   scopedSlots: _vm._u([
                     {
@@ -19738,7 +19756,6 @@ var render = function () {
                     field: "un_crs_number",
                     label: "CRS No.",
                     sortable: "",
-                    searchable: "",
                   },
                   scopedSlots: _vm._u([
                     {
@@ -19761,7 +19778,6 @@ var render = function () {
                     field: "un_proponent",
                     label: "Proponent",
                     sortable: "",
-                    searchable: "",
                   },
                   scopedSlots: _vm._u([
                     {
@@ -19785,7 +19801,6 @@ var render = function () {
                     label: "Firm Status",
                     sortable: "",
                     centered: "",
-                    searchable: "",
                   },
                   scopedSlots: _vm._u([
                     {
@@ -19806,12 +19821,7 @@ var render = function () {
                 }),
                 _vm._v(" "),
                 _c("b-table-column", {
-                  attrs: {
-                    field: "provDesc",
-                    label: "Province",
-                    sortable: "",
-                    searchable: "",
-                  },
+                  attrs: { field: "provDesc", label: "Province", sortable: "" },
                   scopedSlots: _vm._u([
                     {
                       key: "default",
@@ -19833,7 +19843,6 @@ var render = function () {
                     field: "provDesc",
                     label: "City/Municipality",
                     sortable: "",
-                    searchable: "",
                   },
                   scopedSlots: _vm._u([
                     {
@@ -19852,12 +19861,7 @@ var render = function () {
                 }),
                 _vm._v(" "),
                 _c("b-table-column", {
-                  attrs: {
-                    field: "provDesc",
-                    label: "Barangay",
-                    sortable: "",
-                    searchable: "",
-                  },
+                  attrs: { field: "provDesc", label: "Barangay", sortable: "" },
                   scopedSlots: _vm._u([
                     {
                       key: "default",
