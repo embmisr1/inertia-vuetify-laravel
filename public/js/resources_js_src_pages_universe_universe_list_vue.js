@@ -508,6 +508,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _mixins___WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../mixins/ */ "./resources/js/src/mixins/index.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
@@ -670,11 +671,86 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  mixins: [_mixins___WEBPACK_IMPORTED_MODULE_5__.page, _mixins___WEBPACK_IMPORTED_MODULE_5__.toasts],
   components: {
     DefaultLayout: _layouts_default_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
     Link: _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_1__.Link
@@ -686,29 +762,71 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     barangay_list: Array,
     filter: Object
   },
-  methods: {
-    onPageChange: function onPageChange(page) {
-      var _this = this;
+  mounted: function mounted() {
+    var _this = this;
 
-      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                _context.next = 2;
-                return _this.get({
-                  page: page
-                });
+    return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+      var prov_data, citymun_data, brgy_data;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              if (!_this.filter.PK_province_ID) {
+                _context.next = 5;
+                break;
+              }
 
-              case 2:
-              case "end":
-                return _context.stop();
-            }
+              _context.next = 3;
+              return _this.filter_prov();
+
+            case 3:
+              prov_data = _context.sent;
+              _this.searchProvince = prov_data.provDesc; // } else this.filter.PK_province_ID = "";
+
+            case 5:
+              if (!_this.filter.PK_citymun_ID) {
+                _context.next = 12;
+                break;
+              }
+
+              _context.next = 8;
+              return _this.provinceDropdown(_this.filter.PK_province_ID);
+
+            case 8:
+              _context.next = 10;
+              return _this.filter_citymun();
+
+            case 10:
+              citymun_data = _context.sent;
+              _this.searchCityMun = citymun_data.citymunDesc; // } else this.filter.PK_citymun_ID = "";
+
+            case 12:
+              if (!_this.filter.PK_brgy_ID) {
+                _context.next = 19;
+                break;
+              }
+
+              _context.next = 15;
+              return _this.municipalityDropdown(_this.filter.PK_citymun_ID);
+
+            case 15:
+              _context.next = 17;
+              return _this.filter_brgy();
+
+            case 17:
+              brgy_data = _context.sent;
+              _this.searchBrgy = brgy_data.brgyDesc; // } else this.filter.PK_brgy_ID = "";
+
+            case 19:
+            case "end":
+              return _context.stop();
           }
-        }, _callee);
-      }))();
-    },
-    filterUniverse: function filterUniverse() {
+        }
+      }, _callee);
+    }))();
+  },
+  methods: {
+    filter_prov: function filter_prov() {
       var _this2 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
@@ -716,11 +834,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
-                // this.dialog = false;
-                // this.onPageChange();
-                _this2.get(_this2.filtersObject);
+                _context2.next = 2;
+                return lodash__WEBPACK_IMPORTED_MODULE_4___default().find(_this2.province_list, function (data) {
+                  return data.provCode == _this2.filter.PK_province_ID;
+                });
 
-              case 1:
+              case 2:
+                return _context2.abrupt("return", _context2.sent);
+
+              case 3:
               case "end":
                 return _context2.stop();
             }
@@ -728,24 +850,23 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }, _callee2);
       }))();
     },
-    provinceDropdown: function provinceDropdown(val) {
+    filter_citymun: function filter_citymun() {
       var _this3 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3() {
-        var municipality;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
           while (1) {
             switch (_context3.prev = _context3.next) {
               case 0:
                 _context3.next = 2;
-                return axios__WEBPACK_IMPORTED_MODULE_3___default().get("http://127.0.0.1:8000/api/app/province_dropdown/".concat(val));
+                return lodash__WEBPACK_IMPORTED_MODULE_4___default().find(_this3.municipality_list_alter, function (data) {
+                  return data.PK_citymun_ID == _this3.filter.PK_citymun_ID;
+                });
 
               case 2:
-                municipality = _context3.sent;
-                _this3.municipality_list_alter = municipality.data;
-                _this3.barangay_list_alter = [];
+                return _context3.abrupt("return", _context3.sent);
 
-              case 5:
+              case 3:
               case "end":
                 return _context3.stop();
             }
@@ -753,23 +874,23 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }, _callee3);
       }))();
     },
-    municipalityDropdown: function municipalityDropdown(val) {
+    filter_brgy: function filter_brgy() {
       var _this4 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee4() {
-        var barangay;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee4$(_context4) {
           while (1) {
             switch (_context4.prev = _context4.next) {
               case 0:
                 _context4.next = 2;
-                return axios__WEBPACK_IMPORTED_MODULE_3___default().get("http://127.0.0.1:8000/api/app/municipality_dropdown/".concat(val));
+                return lodash__WEBPACK_IMPORTED_MODULE_4___default().find(_this4.barangay_list_alter, function (data) {
+                  return data.PK_brgy_ID == _this4.filter.PK_brgy_ID;
+                });
 
               case 2:
-                barangay = _context4.sent;
-                _this4.barangay_list_alter = barangay.data;
+                return _context4.abrupt("return", _context4.sent);
 
-              case 4:
+              case 3:
               case "end":
                 return _context4.stop();
             }
@@ -777,53 +898,132 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }, _callee4);
       }))();
     },
-    get: lodash__WEBPACK_IMPORTED_MODULE_4___default().debounce( /*#__PURE__*/function () {
-      var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee5(params) {
+    filterUniverse: function filterUniverse() {
+      var _this5 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee5() {
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee5$(_context5) {
           while (1) {
             switch (_context5.prev = _context5.next) {
               case 0:
-                _context5.prev = 0;
-                _context5.next = 3;
-                return this.$inertia.get("#", _objectSpread({}, params));
+                // this.dialog = false;
+                // this.onPageChange();
+                _this5.get(_this5.filtersObject);
 
-              case 3:
-                console.log(params);
-                _context5.next = 10;
-                break;
-
-              case 6:
-                _context5.prev = 6;
-                _context5.t0 = _context5["catch"](0);
-                console.log(_context5.t0);
-                this.error("Project Type Get - error");
-
-              case 10:
+              case 1:
               case "end":
                 return _context5.stop();
             }
           }
-        }, _callee5, this, [[0, 6]]);
+        }, _callee5);
+      }))();
+    },
+    provinceDropdown: function provinceDropdown(val) {
+      var _this6 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee6() {
+        var municipality;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee6$(_context6) {
+          while (1) {
+            switch (_context6.prev = _context6.next) {
+              case 0:
+                _context6.prev = 0;
+                _this6.loading = true;
+                _context6.next = 4;
+                return axios__WEBPACK_IMPORTED_MODULE_3___default().get("http://127.0.0.1:8000/api/app/province_dropdown/".concat(val));
+
+              case 4:
+                municipality = _context6.sent;
+                _this6.municipality_list_alter = municipality.data;
+                _this6.loading = false;
+                _context6.next = 12;
+                break;
+
+              case 9:
+                _context6.prev = 9;
+                _context6.t0 = _context6["catch"](0);
+
+                _this6.error(_context6.t0.response.data.message);
+
+              case 12:
+              case "end":
+                return _context6.stop();
+            }
+          }
+        }, _callee6, null, [[0, 9]]);
+      }))();
+    },
+    municipalityDropdown: function municipalityDropdown(val) {
+      var _this7 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee7() {
+        var barangay;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee7$(_context7) {
+          while (1) {
+            switch (_context7.prev = _context7.next) {
+              case 0:
+                _this7.loading = true;
+                _context7.next = 3;
+                return axios__WEBPACK_IMPORTED_MODULE_3___default().get("http://127.0.0.1:8000/api/app/municipality_dropdown/".concat(val));
+
+              case 3:
+                barangay = _context7.sent;
+                _this7.barangay_list_alter = barangay.data;
+                _this7.loading = false;
+
+              case 6:
+              case "end":
+                return _context7.stop();
+            }
+          }
+        }, _callee7);
+      }))();
+    },
+    get: lodash__WEBPACK_IMPORTED_MODULE_4___default().debounce( /*#__PURE__*/function () {
+      var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee8(params) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee8$(_context8) {
+          while (1) {
+            switch (_context8.prev = _context8.next) {
+              case 0:
+                _context8.prev = 0;
+                this.loading = true;
+                _context8.next = 4;
+                return this.$inertia.get("#", _objectSpread({}, params));
+
+              case 4:
+                this.loading = false;
+                _context8.next = 12;
+                break;
+
+              case 7:
+                _context8.prev = 7;
+                _context8.t0 = _context8["catch"](0);
+                this.loading = false;
+                console.log(_context8.t0);
+                this.error("Project Type Get - error");
+
+              case 12:
+              case "end":
+                return _context8.stop();
+            }
+          }
+        }, _callee8, this, [[0, 7]]);
       }));
 
       return function (_x) {
         return _ref.apply(this, arguments);
       };
-    }(), 1000),
-    closeFilterModal: function closeFilterModal() {
-      var filters = this.filter;
-      filters = {
-        PK_province_ID: '',
-        PK_citymun_ID: "",
-        PK_brgy_ID: ""
-      };
-      console.log(this.filter);
-      this.dialog = false;
-    }
+    }(), 1000)
   },
   computed: {
     filtersObject: function filtersObject() {
       return this.filter;
+    },
+    PK_province_ID: function PK_province_ID() {
+      return this.filter.PK_province_ID;
+    },
+    PK_citymun_ID: function PK_citymun_ID() {
+      return this.filter.PK_citymun_ID;
     }
   },
   data: function data() {
@@ -833,12 +1033,1641 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       municipality_list_alter: [],
       barangay_list_alter: [],
       // filter: {},
-      searchProvince: null
+      searchProvince: null,
+      searchCityMun: null,
+      searchBrgy: null
     };
   },
   watch: {
     searchProvince: function searchProvince(data) {
-      this.provinceDropdown(data);
+      if (!data) {
+        this.filter.PK_province_ID = "";
+        this.filter.PK_citymun_ID = "";
+        this.filter.PK_brgy_ID = "";
+      }
+    },
+    searchCityMun: function searchCityMun(data) {
+      if (!data) this.filter.PK_citymun_ID = "";
+    },
+    searchBrgy: function searchBrgy(data) {
+      if (!data) this.filter.PK_brgy_ID = "";
+    },
+    PK_province_ID: function PK_province_ID(value) {
+      if (value) this.provinceDropdown(value);
+    },
+    PK_citymun_ID: function PK_citymun_ID(value) {
+      if (value) this.municipalityDropdown(value);
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/src/helpers/urls.js":
+/*!******************************************!*\
+  !*** ./resources/js/src/helpers/urls.js ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+var root = "http://unisys.test/api/v1/";
+var urls = {
+  psic_group_class: root + "psic_group_class",
+  psic_sub_class: root + "psic_sub_class",
+  project_type: root + "project/type",
+  project_subtype: root + "project/subtype",
+  project_specifictype: root + "project/specifictype"
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (urls);
+
+/***/ }),
+
+/***/ "./resources/js/src/mixins/dialogs.js":
+/*!********************************************!*\
+  !*** ./resources/js/src/mixins/dialogs.js ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  methods: {
+    confirmDelete: function confirmDelete() {
+      var message = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'This action  cannot be undone';
+      var callback = arguments.length > 1 ? arguments[1] : undefined;
+      this.$buefy.dialog.confirm({
+        title: 'Are You Sure',
+        message: message,
+        confirmText: 'Delete',
+        type: 'is-danger',
+        hasIcon: true,
+        onConfirm: callback
+      });
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/src/mixins/index.js":
+/*!******************************************!*\
+  !*** ./resources/js/src/mixins/index.js ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "dialogs": () => (/* reexport safe */ _dialogs__WEBPACK_IMPORTED_MODULE_4__["default"]),
+/* harmony export */   "page": () => (/* reexport safe */ _page__WEBPACK_IMPORTED_MODULE_0__["default"]),
+/* harmony export */   "project": () => (/* reexport safe */ _project__WEBPACK_IMPORTED_MODULE_3__["default"]),
+/* harmony export */   "psic": () => (/* reexport safe */ _psic__WEBPACK_IMPORTED_MODULE_2__["default"]),
+/* harmony export */   "toasts": () => (/* reexport safe */ _toasts__WEBPACK_IMPORTED_MODULE_1__["default"])
+/* harmony export */ });
+/* harmony import */ var _page__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./page */ "./resources/js/src/mixins/page.js");
+/* harmony import */ var _toasts__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./toasts */ "./resources/js/src/mixins/toasts.js");
+/* harmony import */ var _psic__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./psic */ "./resources/js/src/mixins/psic.js");
+/* harmony import */ var _project__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./project */ "./resources/js/src/mixins/project.js");
+/* harmony import */ var _dialogs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./dialogs */ "./resources/js/src/mixins/dialogs.js");
+
+
+
+
+
+
+
+/***/ }),
+
+/***/ "./resources/js/src/mixins/page.js":
+/*!*****************************************!*\
+  !*** ./resources/js/src/mixins/page.js ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: {
+    errors: Object,
+    filters: Object,
+    flash: Object,
+    route: Object
+  },
+  data: function data() {
+    return {
+      loading: false,
+      currentPage: 1
+    };
+  },
+  computed: {
+    route_back: function route_back() {
+      return this.route.back_at_one;
+    },
+    filtersObject: function filtersObject() {
+      return _objectSpread({}, this.filters);
+    },
+    isTheme: function isTheme() {
+      return this.$vuetify.theme.dark;
+    },
+    errorMessage: function errorMessage() {
+      return _objectSpread({}, this.errors);
+    },
+    successMessage: function successMessage() {
+      return _objectSpread({}, this.flash);
+    }
+  },
+  methods: {
+    onPageChange: function onPageChange(page) {
+      var _this = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _this.loading = true;
+                _context.next = 3;
+                return _this.get({
+                  page: page
+                });
+
+              case 3:
+                _this.loading = false;
+
+              case 4:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }))();
+    },
+    onSort: function onSort(sort, order) {
+      var _this2 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
+        var newSort;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.prev = 0;
+
+                if (!_this2.loading) {
+                  _context2.next = 3;
+                  break;
+                }
+
+                return _context2.abrupt("return");
+
+              case 3:
+                console.log("sort", sort, order);
+                newSort = {};
+                newSort[sort] = order; // this.setSort(newSort)
+
+                _context2.next = 10;
+                break;
+
+              case 8:
+                _context2.prev = 8;
+                _context2.t0 = _context2["catch"](0);
+
+              case 10:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, null, [[0, 8]]);
+      }))();
+    }
+  },
+  watch: {
+    filtersObject: function filtersObject() {
+      this.loading = true;
+      this.get(_objectSpread({}, this.filtersObject));
+      this.loading = false;
+    },
+    errorMessage: function errorMessage(data) {
+      if (data.error_message) this.error(data.error_message);
+      if (data.items) this.error(data.items);
+      if (Object.keys(data).length > 1) this.error("Form Error");
+    },
+    successMessage: function successMessage(data) {
+      if (data.message) this.success(data.message);
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/src/mixins/project.js":
+/*!********************************************!*\
+  !*** ./resources/js/src/mixins/project.js ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _helpers_urls__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../helpers/urls */ "./resources/js/src/helpers/urls.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_3__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      typeModal: {
+        active: false,
+        form: this.$inertia.form({
+          project_type_desc: "",
+          request_type: "post"
+        })
+      },
+      subTypeModal: {
+        active: false,
+        form: this.$inertia.form({
+          project_subtype_desc: "",
+          project_type_FK: "",
+          request_type: "post"
+        })
+      },
+      specificTypeModal: {
+        active: false,
+        form: this.$inertia.form({
+          project_specific_type_desc: "",
+          project_subtype_FK: "",
+          request_type: "post"
+        })
+      },
+      specificSubTypeModal: {
+        active: false,
+        form: this.$inertia.form({
+          project_specific_subtype_desc: "",
+          project_specific_type_FK: "",
+          request_type: "post"
+        })
+      },
+      project_type: [],
+      project_subtype: [],
+      project_specific_type: []
+    };
+  },
+  methods: {
+    // type
+    set_project_type: function set_project_type(data, type) {
+      this.typeModal = {
+        active: true,
+        form: this.$inertia.form(_objectSpread(_objectSpread({}, data), {}, {
+          request_type: type
+        }))
+      };
+    },
+    typeClose: function typeClose() {
+      var _this = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                try {
+                  _this.typeModal = {
+                    active: false,
+                    form: _this.$inertia.form({
+                      project_type_desc: "",
+                      request_type: "post"
+                    })
+                  };
+                } catch (error) {
+                  console.log(erro);
+
+                  _this.error("typeClose-error");
+                }
+
+              case 1:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }))();
+    },
+    submitProjectType: function submitProjectType() {
+      var _this2 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
+        var type_form;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.prev = 0;
+                _this2.loading = true;
+                type_form = _this2.typeModal.form;
+                _context2.t0 = type_form.request_type;
+                _context2.next = _context2.t0 === "post" ? 6 : _context2.t0 === "patch" ? 9 : _context2.t0 === "delete" ? 12 : 15;
+                break;
+
+              case 6:
+                _context2.next = 8;
+                return type_form.post("#");
+
+              case 8:
+                return _context2.abrupt("break", 17);
+
+              case 9:
+                _context2.next = 11;
+                return type_form.patch("type/".concat(type_form.id));
+
+              case 11:
+                return _context2.abrupt("break", 17);
+
+              case 12:
+                _context2.next = 14;
+                return type_form["delete"]("type/".concat(type_form.id));
+
+              case 14:
+                return _context2.abrupt("break", 17);
+
+              case 15:
+                _context2.next = 17;
+                return type_form.post("#");
+
+              case 17:
+                _this2.typeClose();
+
+                _this2.loading = false;
+                _context2.next = 25;
+                break;
+
+              case 21:
+                _context2.prev = 21;
+                _context2.t1 = _context2["catch"](0);
+                console.log(_context2.t1);
+
+                _this2.error("submitProjectType-error");
+
+              case 25:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, null, [[0, 21]]);
+      }))();
+    },
+    searchProjectType: lodash__WEBPACK_IMPORTED_MODULE_3___default().debounce( /*#__PURE__*/function () {
+      var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3(project_type_desc) {
+        var _yield$axios$get, data;
+
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                _context3.prev = 0;
+                this.loading = true;
+
+                if (project_type_desc) {
+                  _context3.next = 5;
+                  break;
+                }
+
+                this.loading = false;
+                return _context3.abrupt("return", this.psicGroup = []);
+
+              case 5:
+                _context3.next = 7;
+                return axios__WEBPACK_IMPORTED_MODULE_2___default().get(_helpers_urls__WEBPACK_IMPORTED_MODULE_1__["default"].project_type, {
+                  params: {
+                    project_type_desc: project_type_desc
+                  }
+                });
+
+              case 7:
+                _yield$axios$get = _context3.sent;
+                data = _yield$axios$get.data;
+                this.project_type = data.data;
+                this.loading = false;
+                _context3.next = 18;
+                break;
+
+              case 13:
+                _context3.prev = 13;
+                _context3.t0 = _context3["catch"](0);
+                console.log(_context3.t0);
+                this.loading = false;
+                this.error("searchGroup - error");
+
+              case 18:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3, this, [[0, 13]]);
+      }));
+
+      return function (_x) {
+        return _ref.apply(this, arguments);
+      };
+    }(), 1500),
+    // sub type
+    add_sub_type_via_page: function add_sub_type_via_page(data) {
+      var _this3 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee4() {
+        var id, project_type_desc;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee4$(_context4) {
+          while (1) {
+            switch (_context4.prev = _context4.next) {
+              case 0:
+                try {
+                  id = data.id, project_type_desc = data.project_type_desc;
+                  _this3.subTypeModal = {
+                    active: true,
+                    form: _this3.$inertia.form({
+                      project_subtype_desc: "",
+                      project_type_FK: id,
+                      searchClass: project_type_desc,
+                      request_type: "post"
+                    })
+                  };
+                } catch (error) {
+                  console.log(error);
+
+                  _this3.error("add_group_class_via_group_page - error");
+                }
+
+              case 1:
+              case "end":
+                return _context4.stop();
+            }
+          }
+        }, _callee4);
+      }))();
+    },
+    set_project_sub_type: function set_project_sub_type(data, type) {
+      var id = data.id,
+          project_subtype_desc = data.project_subtype_desc,
+          project_type = data.project_type;
+      this.subTypeModal = {
+        active: true,
+        form: this.$inertia.form({
+          // ...data,
+          id: id,
+          project_subtype_desc: project_subtype_desc,
+          project_type_FK: project_type.id,
+          searchClass: project_type.desc,
+          request_type: type
+        })
+      };
+    },
+    projectSubTypeClose: function projectSubTypeClose() {
+      var _this4 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee5() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee5$(_context5) {
+          while (1) {
+            switch (_context5.prev = _context5.next) {
+              case 0:
+                try {
+                  _this4.subTypeModal = {
+                    active: false,
+                    form: _this4.$inertia.form({
+                      project_subtype_desc: "",
+                      psic_type_FK: "",
+                      request_type: "post"
+                    })
+                  };
+                } catch (error) {
+                  console.log(erro);
+
+                  _this4.error("projectSubTypeClose-error");
+                }
+
+              case 1:
+              case "end":
+                return _context5.stop();
+            }
+          }
+        }, _callee5);
+      }))();
+    },
+    submitSubTypeClass: function submitSubTypeClass() {
+      var _this5 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee6() {
+        var subType_form;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee6$(_context6) {
+          while (1) {
+            switch (_context6.prev = _context6.next) {
+              case 0:
+                _context6.prev = 0;
+                _this5.loading = true;
+                subType_form = _this5.subTypeModal.form;
+                _context6.t0 = subType_form.request_type;
+                _context6.next = _context6.t0 === "post" ? 6 : _context6.t0 === "patch" ? 9 : _context6.t0 === "delete" ? 12 : 15;
+                break;
+
+              case 6:
+                _context6.next = 8;
+                return subType_form.post("/app/project/subtype");
+
+              case 8:
+                return _context6.abrupt("break", 17);
+
+              case 9:
+                _context6.next = 11;
+                return subType_form.patch("subtype/".concat(subType_form.id));
+
+              case 11:
+                return _context6.abrupt("break", 17);
+
+              case 12:
+                _context6.next = 14;
+                return subType_form["delete"]("subtype/".concat(subType_form.id));
+
+              case 14:
+                return _context6.abrupt("break", 17);
+
+              case 15:
+                _context6.next = 17;
+                return subType_form.post("/app/project/subtype");
+
+              case 17:
+                _this5.projectSubTypeClose();
+
+                _this5.loading = false;
+                _context6.next = 25;
+                break;
+
+              case 21:
+                _context6.prev = 21;
+                _context6.t1 = _context6["catch"](0);
+                console.log(_context6.t1);
+
+                _this5.error("submitGroupClass-error");
+
+              case 25:
+              case "end":
+                return _context6.stop();
+            }
+          }
+        }, _callee6, null, [[0, 21]]);
+      }))();
+    },
+    searchSubType: lodash__WEBPACK_IMPORTED_MODULE_3___default().debounce( /*#__PURE__*/function () {
+      var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee7(project_subtype_desc) {
+        var _yield$axios$get2, data;
+
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee7$(_context7) {
+          while (1) {
+            switch (_context7.prev = _context7.next) {
+              case 0:
+                _context7.prev = 0;
+                this.loading = true;
+
+                if (project_subtype_desc) {
+                  _context7.next = 5;
+                  break;
+                }
+
+                this.loading = false;
+                return _context7.abrupt("return", this.psicClass = []);
+
+              case 5:
+                _context7.next = 7;
+                return axios__WEBPACK_IMPORTED_MODULE_2___default().get(_helpers_urls__WEBPACK_IMPORTED_MODULE_1__["default"].project_subtype, {
+                  params: {
+                    project_subtype_desc: project_subtype_desc
+                  }
+                });
+
+              case 7:
+                _yield$axios$get2 = _context7.sent;
+                data = _yield$axios$get2.data;
+                this.project_subtype = data.data;
+                this.loading = false;
+                _context7.next = 18;
+                break;
+
+              case 13:
+                _context7.prev = 13;
+                _context7.t0 = _context7["catch"](0);
+                console.log(_context7.t0);
+                this.loading = false;
+                this.error("searchClass - error");
+
+              case 18:
+              case "end":
+                return _context7.stop();
+            }
+          }
+        }, _callee7, this, [[0, 13]]);
+      }));
+
+      return function (_x2) {
+        return _ref2.apply(this, arguments);
+      };
+    }(), 1500),
+    //specific type
+    add_specific_type_via_page: function add_specific_type_via_page(data) {
+      var _this6 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee8() {
+        var id, project_subtype_desc;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee8$(_context8) {
+          while (1) {
+            switch (_context8.prev = _context8.next) {
+              case 0:
+                try {
+                  id = data.id, project_subtype_desc = data.project_subtype_desc;
+                  _this6.specificTypeModal = {
+                    active: true,
+                    form: _this6.$inertia.form({
+                      project_specific_type_desc: "",
+                      project_subtype_FK: id,
+                      searchClass: project_subtype_desc,
+                      request_type: "post"
+                    })
+                  };
+                } catch (error) {
+                  console.log(error);
+
+                  _this6.error("add_sub_class_via_class_page - error");
+                }
+
+              case 1:
+              case "end":
+                return _context8.stop();
+            }
+          }
+        }, _callee8);
+      }))();
+    },
+    set_project_specific_type: function set_project_specific_type(data, type) {
+      var id = data.id,
+          project_specific_type_desc = data.project_specific_type_desc,
+          project_subtype = data.project_subtype;
+      this.specificTypeModal = {
+        active: true,
+        form: this.$inertia.form({
+          // ...data,
+          id: id,
+          project_specific_type_desc: project_specific_type_desc,
+          project_subtype_FK: project_subtype.id,
+          searchClass: project_subtype.desc,
+          request_type: type
+        })
+      };
+    },
+    specificTypeClose: function specificTypeClose() {
+      var _this7 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee9() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee9$(_context9) {
+          while (1) {
+            switch (_context9.prev = _context9.next) {
+              case 0:
+                try {
+                  _this7.specificTypeModal = {
+                    active: false,
+                    form: _this7.$inertia.form({
+                      project_specific_type_desc: "",
+                      project_subtype_FK: "",
+                      request_type: "post"
+                    })
+                  };
+                } catch (error) {
+                  console.log(erro);
+
+                  _this7.error("specificTypeClose-error");
+                }
+
+              case 1:
+              case "end":
+                return _context9.stop();
+            }
+          }
+        }, _callee9);
+      }))();
+    },
+    submitProjectSpecificType: function submitProjectSpecificType() {
+      var _this8 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee10() {
+        var form;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee10$(_context10) {
+          while (1) {
+            switch (_context10.prev = _context10.next) {
+              case 0:
+                _context10.prev = 0;
+                _this8.loading = true;
+                form = _this8.specificTypeModal.form;
+                _context10.t0 = form.request_type;
+                _context10.next = _context10.t0 === "post" ? 6 : _context10.t0 === "patch" ? 9 : _context10.t0 === "delete" ? 12 : 15;
+                break;
+
+              case 6:
+                _context10.next = 8;
+                return form.post("/app/project/specifictype");
+
+              case 8:
+                return _context10.abrupt("break", 17);
+
+              case 9:
+                _context10.next = 11;
+                return form.patch("specifictype/".concat(form.id));
+
+              case 11:
+                return _context10.abrupt("break", 17);
+
+              case 12:
+                _context10.next = 14;
+                return form["delete"]("specifictype/".concat(form.id));
+
+              case 14:
+                return _context10.abrupt("break", 17);
+
+              case 15:
+                _context10.next = 17;
+                return form.post("#");
+
+              case 17:
+                _this8.specificTypeClose();
+
+                _this8.loading = false;
+                _context10.next = 25;
+                break;
+
+              case 21:
+                _context10.prev = 21;
+                _context10.t1 = _context10["catch"](0);
+                console.log(_context10.t1);
+
+                _this8.error("submitProjectSpecificType-error");
+
+              case 25:
+              case "end":
+                return _context10.stop();
+            }
+          }
+        }, _callee10, null, [[0, 21]]);
+      }))();
+    },
+    searchProjectSpecificType: lodash__WEBPACK_IMPORTED_MODULE_3___default().debounce( /*#__PURE__*/function () {
+      var _ref3 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee11(project_specific_type_desc) {
+        var _yield$axios$get3, data;
+
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee11$(_context11) {
+          while (1) {
+            switch (_context11.prev = _context11.next) {
+              case 0:
+                _context11.prev = 0;
+                this.loading = true;
+
+                if (project_specific_type_desc) {
+                  _context11.next = 5;
+                  break;
+                }
+
+                this.loading = false;
+                return _context11.abrupt("return", this.psicClass = []);
+
+              case 5:
+                _context11.next = 7;
+                return axios__WEBPACK_IMPORTED_MODULE_2___default().get(_helpers_urls__WEBPACK_IMPORTED_MODULE_1__["default"].project_specifictype, {
+                  params: {
+                    project_specific_type_desc: project_specific_type_desc
+                  }
+                });
+
+              case 7:
+                _yield$axios$get3 = _context11.sent;
+                data = _yield$axios$get3.data;
+                this.project_specific_type = data.data;
+                this.loading = false;
+                _context11.next = 18;
+                break;
+
+              case 13:
+                _context11.prev = 13;
+                _context11.t0 = _context11["catch"](0);
+                console.log(_context11.t0);
+                this.loading = false;
+                this.error("searchClass - error");
+
+              case 18:
+              case "end":
+                return _context11.stop();
+            }
+          }
+        }, _callee11, this, [[0, 13]]);
+      }));
+
+      return function (_x3) {
+        return _ref3.apply(this, arguments);
+      };
+    }(), 1500),
+    //specific sub type
+    add_specific_sub_type_via_page: function add_specific_sub_type_via_page(data) {
+      var _this9 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee12() {
+        var id, project_specific_type_desc;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee12$(_context12) {
+          while (1) {
+            switch (_context12.prev = _context12.next) {
+              case 0:
+                try {
+                  id = data.id, project_specific_type_desc = data.project_specific_type_desc;
+                  _this9.specificSubTypeModal = {
+                    active: true,
+                    form: _this9.$inertia.form({
+                      project_specific_subtype_desc: "",
+                      project_specific_type_FK: id,
+                      searchClass: project_specific_type_desc,
+                      request_type: "post"
+                    })
+                  };
+                } catch (error) {
+                  console.log(error);
+
+                  _this9.error("add_sub_class_via_class_page - error");
+                }
+
+              case 1:
+              case "end":
+                return _context12.stop();
+            }
+          }
+        }, _callee12);
+      }))();
+    },
+    set_project_specific_sub_type: function set_project_specific_sub_type(data, type) {
+      var id = data.id,
+          project_specific_subtype_desc = data.project_specific_subtype_desc,
+          project_specific_type = data.project_specific_type;
+      this.specificSubTypeModal = {
+        active: true,
+        form: this.$inertia.form({
+          // ...data,
+          id: id,
+          project_specific_subtype_desc: project_specific_subtype_desc,
+          project_specific_type_FK: project_specific_type.id,
+          searchClass: project_specific_type.desc,
+          request_type: type
+        })
+      };
+    },
+    specificSubTypeClose: function specificSubTypeClose() {
+      var _this10 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee13() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee13$(_context13) {
+          while (1) {
+            switch (_context13.prev = _context13.next) {
+              case 0:
+                try {
+                  _this10.specificSubTypeModal = {
+                    active: false,
+                    form: _this10.$inertia.form({
+                      project_specific_subtype_desc: "",
+                      project_specific_type_FK: "",
+                      request_type: "post"
+                    })
+                  };
+                } catch (error) {
+                  console.log(erro);
+
+                  _this10.error("specificTypeClose-error");
+                }
+
+              case 1:
+              case "end":
+                return _context13.stop();
+            }
+          }
+        }, _callee13);
+      }))();
+    },
+    submitProjectSpecificSubType: function submitProjectSpecificSubType() {
+      var _this11 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee14() {
+        var form;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee14$(_context14) {
+          while (1) {
+            switch (_context14.prev = _context14.next) {
+              case 0:
+                _context14.prev = 0;
+                _this11.loading = true;
+                form = _this11.specificSubTypeModal.form;
+                _context14.t0 = form.request_type;
+                _context14.next = _context14.t0 === "post" ? 6 : _context14.t0 === "patch" ? 9 : _context14.t0 === "delete" ? 12 : 15;
+                break;
+
+              case 6:
+                _context14.next = 8;
+                return form.post("/app/project/specificsubtype");
+
+              case 8:
+                return _context14.abrupt("break", 17);
+
+              case 9:
+                _context14.next = 11;
+                return form.patch("specificsubtype/".concat(form.id));
+
+              case 11:
+                return _context14.abrupt("break", 17);
+
+              case 12:
+                _context14.next = 14;
+                return form["delete"]("specificsubtype/".concat(form.id));
+
+              case 14:
+                return _context14.abrupt("break", 17);
+
+              case 15:
+                _context14.next = 17;
+                return form.post("#");
+
+              case 17:
+                _this11.specificSubTypeClose();
+
+                _this11.loading = false;
+                _context14.next = 25;
+                break;
+
+              case 21:
+                _context14.prev = 21;
+                _context14.t1 = _context14["catch"](0);
+                console.log(_context14.t1);
+
+                _this11.error("submitProjectSpecificSubType-error");
+
+              case 25:
+              case "end":
+                return _context14.stop();
+            }
+          }
+        }, _callee14, null, [[0, 21]]);
+      }))();
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/src/mixins/psic.js":
+/*!*****************************************!*\
+  !*** ./resources/js/src/mixins/psic.js ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _helpers_urls__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../helpers/urls */ "./resources/js/src/helpers/urls.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_3__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      groupModal: {
+        active: false,
+        form: this.$inertia.form({
+          psic_group_desc: "",
+          request_type: "post"
+        })
+      },
+      groupClassModal: {
+        active: false,
+        form: this.$inertia.form({
+          psic_class_desc: "",
+          psic_group_FK: "",
+          request_type: "post"
+        })
+      },
+      subClassModal: {
+        active: false,
+        form: this.$inertia.form({
+          psic_subclass_desc: "",
+          psic_class_FK: "",
+          request_type: "post"
+        })
+      },
+      psic_group_desc: "",
+      psicGroup: [],
+      psicClass: []
+    };
+  },
+  methods: {
+    // group
+    set_psic_group: function set_psic_group(data, type) {
+      this.groupModal = {
+        active: true,
+        form: this.$inertia.form(_objectSpread(_objectSpread({}, data), {}, {
+          request_type: type
+        }))
+      };
+    },
+    groupClose: function groupClose() {
+      var _this = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                try {
+                  _this.groupModal = {
+                    active: false,
+                    form: _this.$inertia.form({
+                      psic_group_desc: "",
+                      request_type: "post"
+                    })
+                  };
+                } catch (error) {
+                  console.log(erro);
+
+                  _this.error("groupClose-error");
+                }
+
+              case 1:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }))();
+    },
+    submitGroup: function submitGroup() {
+      var _this2 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
+        var group_form;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.prev = 0;
+                _this2.loading = true;
+                group_form = _this2.groupModal.form;
+                _context2.t0 = group_form.request_type;
+                _context2.next = _context2.t0 === "post" ? 6 : _context2.t0 === "patch" ? 9 : _context2.t0 === "delete" ? 12 : 15;
+                break;
+
+              case 6:
+                _context2.next = 8;
+                return group_form.post("#");
+
+              case 8:
+                return _context2.abrupt("break", 17);
+
+              case 9:
+                _context2.next = 11;
+                return group_form.patch("group/".concat(group_form.id));
+
+              case 11:
+                return _context2.abrupt("break", 17);
+
+              case 12:
+                _context2.next = 14;
+                return group_form["delete"]("group/".concat(group_form.id));
+
+              case 14:
+                return _context2.abrupt("break", 17);
+
+              case 15:
+                _context2.next = 17;
+                return group_form.post("#");
+
+              case 17:
+                _this2.groupClose();
+
+                _this2.loading = false;
+                _context2.next = 25;
+                break;
+
+              case 21:
+                _context2.prev = 21;
+                _context2.t1 = _context2["catch"](0);
+                console.log(_context2.t1);
+
+                _this2.error("submitGroup-error");
+
+              case 25:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, null, [[0, 21]]);
+      }))();
+    },
+    searchGroup: lodash__WEBPACK_IMPORTED_MODULE_3___default().debounce( /*#__PURE__*/function () {
+      var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3(psic_group_desc) {
+        var _yield$axios$get, data;
+
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                _context3.prev = 0;
+                this.loading = true;
+
+                if (psic_group_desc) {
+                  _context3.next = 5;
+                  break;
+                }
+
+                this.loading = false;
+                return _context3.abrupt("return", this.psicGroup = []);
+
+              case 5:
+                _context3.next = 7;
+                return axios__WEBPACK_IMPORTED_MODULE_2___default().get(_helpers_urls__WEBPACK_IMPORTED_MODULE_1__["default"].psic_group_class, {
+                  params: {
+                    psic_group_desc: psic_group_desc
+                  }
+                });
+
+              case 7:
+                _yield$axios$get = _context3.sent;
+                data = _yield$axios$get.data;
+                this.psicGroup = data.data;
+                this.loading = false;
+                _context3.next = 18;
+                break;
+
+              case 13:
+                _context3.prev = 13;
+                _context3.t0 = _context3["catch"](0);
+                console.log(_context3.t0);
+                this.loading = false;
+                this.error("searchGroup - error");
+
+              case 18:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3, this, [[0, 13]]);
+      }));
+
+      return function (_x) {
+        return _ref.apply(this, arguments);
+      };
+    }(), 1500),
+    // class
+    add_group_class_via_group_page: function add_group_class_via_group_page(data) {
+      var _this3 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee4() {
+        var id, psic_group_desc;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee4$(_context4) {
+          while (1) {
+            switch (_context4.prev = _context4.next) {
+              case 0:
+                try {
+                  id = data.id, psic_group_desc = data.psic_group_desc;
+                  _this3.groupClassModal = {
+                    active: true,
+                    form: _this3.$inertia.form({
+                      psic_class_desc: "",
+                      psic_group_FK: id,
+                      searchClass: psic_group_desc,
+                      request_type: "post"
+                    })
+                  };
+                } catch (error) {
+                  console.log(error);
+
+                  _this3.error("add_group_class_via_group_page - error");
+                }
+
+              case 1:
+              case "end":
+                return _context4.stop();
+            }
+          }
+        }, _callee4);
+      }))();
+    },
+    set_psic_group_class: function set_psic_group_class(data, type) {
+      var id = data.id,
+          psic_class_desc = data.psic_class_desc,
+          psic_group = data.psic_group;
+      this.groupClassModal = {
+        active: true,
+        form: this.$inertia.form({
+          // ...data,
+          id: id,
+          psic_class_desc: psic_class_desc,
+          psic_group_FK: psic_group.id,
+          searchClass: psic_group.desc,
+          request_type: type
+        })
+      };
+    },
+    groupClassClose: function groupClassClose() {
+      var _this4 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee5() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee5$(_context5) {
+          while (1) {
+            switch (_context5.prev = _context5.next) {
+              case 0:
+                try {
+                  _this4.groupClassModal = {
+                    active: false,
+                    form: _this4.$inertia.form({
+                      psic_group_desc: "",
+                      request_type: "post"
+                    })
+                  };
+                } catch (error) {
+                  console.log(erro);
+
+                  _this4.error("groupClose-error");
+                }
+
+              case 1:
+              case "end":
+                return _context5.stop();
+            }
+          }
+        }, _callee5);
+      }))();
+    },
+    submitGroupClass: function submitGroupClass() {
+      var _this5 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee6() {
+        var group_class_form;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee6$(_context6) {
+          while (1) {
+            switch (_context6.prev = _context6.next) {
+              case 0:
+                _context6.prev = 0;
+                _this5.loading = true;
+                group_class_form = _this5.groupClassModal.form;
+                _context6.t0 = group_class_form.request_type;
+                _context6.next = _context6.t0 === "post" ? 6 : _context6.t0 === "patch" ? 9 : _context6.t0 === "delete" ? 12 : 15;
+                break;
+
+              case 6:
+                _context6.next = 8;
+                return group_class_form.post("/app/psic/class");
+
+              case 8:
+                return _context6.abrupt("break", 17);
+
+              case 9:
+                _context6.next = 11;
+                return group_class_form.patch("class/".concat(group_class_form.id));
+
+              case 11:
+                return _context6.abrupt("break", 17);
+
+              case 12:
+                _context6.next = 14;
+                return group_class_form["delete"]("class/".concat(group_class_form.id));
+
+              case 14:
+                return _context6.abrupt("break", 17);
+
+              case 15:
+                _context6.next = 17;
+                return group_class_form.post("#");
+
+              case 17:
+                _this5.groupClassClose();
+
+                _this5.loading = false;
+                _context6.next = 25;
+                break;
+
+              case 21:
+                _context6.prev = 21;
+                _context6.t1 = _context6["catch"](0);
+                console.log(_context6.t1);
+
+                _this5.error("submitGroupClass-error");
+
+              case 25:
+              case "end":
+                return _context6.stop();
+            }
+          }
+        }, _callee6, null, [[0, 21]]);
+      }))();
+    },
+    searchClass: lodash__WEBPACK_IMPORTED_MODULE_3___default().debounce( /*#__PURE__*/function () {
+      var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee7(psic_class_desc) {
+        var _yield$axios$get2, data;
+
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee7$(_context7) {
+          while (1) {
+            switch (_context7.prev = _context7.next) {
+              case 0:
+                _context7.prev = 0;
+                this.loading = true;
+
+                if (psic_class_desc) {
+                  _context7.next = 5;
+                  break;
+                }
+
+                this.loading = false;
+                return _context7.abrupt("return", this.psicClass = []);
+
+              case 5:
+                _context7.next = 7;
+                return axios__WEBPACK_IMPORTED_MODULE_2___default().get(_helpers_urls__WEBPACK_IMPORTED_MODULE_1__["default"].psic_sub_class, {
+                  params: {
+                    psic_class_desc: psic_class_desc
+                  }
+                });
+
+              case 7:
+                _yield$axios$get2 = _context7.sent;
+                data = _yield$axios$get2.data;
+                this.psicClass = data.data;
+                this.loading = false;
+                _context7.next = 18;
+                break;
+
+              case 13:
+                _context7.prev = 13;
+                _context7.t0 = _context7["catch"](0);
+                console.log(_context7.t0);
+                this.loading = false;
+                this.error("searchClass - error");
+
+              case 18:
+              case "end":
+                return _context7.stop();
+            }
+          }
+        }, _callee7, this, [[0, 13]]);
+      }));
+
+      return function (_x2) {
+        return _ref2.apply(this, arguments);
+      };
+    }(), 1500),
+    //sub class
+    add_sub_class_via_class_page: function add_sub_class_via_class_page(data) {
+      var _this6 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee8() {
+        var id, psic_class_desc;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee8$(_context8) {
+          while (1) {
+            switch (_context8.prev = _context8.next) {
+              case 0:
+                try {
+                  id = data.id, psic_class_desc = data.psic_class_desc;
+                  _this6.subClassModal = {
+                    active: true,
+                    form: _this6.$inertia.form({
+                      psic_subclass_desc: "",
+                      psic_class_FK: id,
+                      searchClass: psic_class_desc,
+                      request_type: "post"
+                    })
+                  };
+                } catch (error) {
+                  console.log(error);
+
+                  _this6.error("add_sub_class_via_class_page - error");
+                }
+
+              case 1:
+              case "end":
+                return _context8.stop();
+            }
+          }
+        }, _callee8);
+      }))();
+    },
+    set_psic_sub_class: function set_psic_sub_class(data, type) {
+      var id = data.id,
+          psic_subclass_desc = data.psic_subclass_desc,
+          psic_class = data.psic_class;
+      this.subClassModal = {
+        active: true,
+        form: this.$inertia.form({
+          // ...data,
+          id: id,
+          psic_subclass_desc: psic_subclass_desc,
+          psic_class_FK: psic_class.id,
+          searchClass: psic_class.desc,
+          request_type: type
+        })
+      };
+    },
+    subClassClose: function subClassClose() {
+      var _this7 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee9() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee9$(_context9) {
+          while (1) {
+            switch (_context9.prev = _context9.next) {
+              case 0:
+                try {
+                  _this7.subClassModal = {
+                    active: false,
+                    form: _this7.$inertia.form({
+                      psic_subclass_desc: "",
+                      psic_class_FK: "",
+                      request_type: "post"
+                    })
+                  };
+                } catch (error) {
+                  console.log(erro);
+
+                  _this7.error("subClassClose-error");
+                }
+
+              case 1:
+              case "end":
+                return _context9.stop();
+            }
+          }
+        }, _callee9);
+      }))();
+    },
+    submitSubClass: function submitSubClass() {
+      var _this8 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee10() {
+        var sub_class_form;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee10$(_context10) {
+          while (1) {
+            switch (_context10.prev = _context10.next) {
+              case 0:
+                _context10.prev = 0;
+                _this8.loading = true;
+                sub_class_form = _this8.subClassModal.form;
+                _context10.t0 = sub_class_form.request_type;
+                _context10.next = _context10.t0 === "post" ? 6 : _context10.t0 === "patch" ? 9 : _context10.t0 === "delete" ? 12 : 15;
+                break;
+
+              case 6:
+                _context10.next = 8;
+                return sub_class_form.post("/app/psic/sub-class");
+
+              case 8:
+                return _context10.abrupt("break", 17);
+
+              case 9:
+                _context10.next = 11;
+                return sub_class_form.patch("sub-class/".concat(sub_class_form.id));
+
+              case 11:
+                return _context10.abrupt("break", 17);
+
+              case 12:
+                _context10.next = 14;
+                return sub_class_form["delete"]("sub-class/".concat(sub_class_form.id));
+
+              case 14:
+                return _context10.abrupt("break", 17);
+
+              case 15:
+                _context10.next = 17;
+                return sub_class_form.post("#");
+
+              case 17:
+                _this8.subClassClose();
+
+                _this8.loading = false;
+                _context10.next = 25;
+                break;
+
+              case 21:
+                _context10.prev = 21;
+                _context10.t1 = _context10["catch"](0);
+                console.log(_context10.t1);
+
+                _this8.error("submitSubClass-error");
+
+              case 25:
+              case "end":
+                return _context10.stop();
+            }
+          }
+        }, _callee10, null, [[0, 21]]);
+      }))();
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/src/mixins/toasts.js":
+/*!*******************************************!*\
+  !*** ./resources/js/src/mixins/toasts.js ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  methods: {
+    success: function success() {
+      var message = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "No Message";
+      this.$buefy.toast.open({
+        message: message,
+        type: "is-success",
+        position: "is-top-right",
+        queue: false
+      });
+    },
+    error: function error() {
+      var message = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "No Message";
+      this.$buefy.toast.open({
+        message: message,
+        type: "is-danger",
+        position: "is-top-right",
+        queue: false
+      });
+    },
+    info: function info() {
+      var message = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "No Message";
+      this.$buefy.toast.open({
+        message: message,
+        position: "is-top-right",
+        queue: false
+      });
     }
   }
 });
@@ -19519,434 +21348,459 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("DefaultLayout", [
-    _c(
-      "div",
-      { staticClass: "container", attrs: { id: "app" } },
-      [
-        _c(
-          "v-dialog",
-          {
-            attrs: { persistent: "", "max-width": "290" },
-            scopedSlots: _vm._u([
-              {
-                key: "activator",
-                fn: function (ref) {
-                  var on = ref.on
-                  var attrs = ref.attrs
-                  return [
-                    _c(
-                      "v-btn",
-                      _vm._g(
-                        _vm._b(
-                          {
-                            staticClass: "mb-2",
-                            attrs: { color: "primary", dark: "" },
-                          },
-                          "v-btn",
-                          attrs,
-                          false
-                        ),
-                        on
-                      ),
-                      [
-                        _c("v-icon", { attrs: { dark: "" } }, [
-                          _vm._v(
-                            "\n                    mdi-filter\n\n                "
-                          ),
-                        ]),
-                        _vm._v(" Filter\n            "),
-                      ],
-                      1
-                    ),
-                  ]
+  return _c(
+    "DefaultLayout",
+    [
+      _c(
+        "div",
+        { staticClass: "container", attrs: { id: "app" } },
+        [
+          _c(
+            "v-btn",
+            {
+              staticClass: "mb-2",
+              attrs: { color: "primary", dark: "" },
+              on: {
+                click: function ($event) {
+                  _vm.dialog = true
                 },
               },
-            ]),
-            model: {
-              value: _vm.dialog,
-              callback: function ($$v) {
-                _vm.dialog = $$v
-              },
-              expression: "dialog",
             },
-          },
-          [
-            _vm._v(" "),
-            _c(
-              "v-card",
-              [
-                _c(
-                  "v-card-title",
-                  { staticClass: "text-h5" },
-                  [
-                    _c("v-icon", [
-                      _vm._v(
-                        "\n                    mdi-filter\n                "
-                      ),
-                    ]),
-                    _vm._v(" Filter Options\n            "),
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c("v-card-text", [
-                  _c(
-                    "div",
-                    [
-                      _vm._v(
-                        "\n                    " +
-                          _vm._s(_vm.filter.PK_province_ID) +
-                          "\n                    "
-                      ),
-                      _c("v-autocomplete", {
-                        attrs: {
-                          items: _vm.province_list_alter,
-                          label: "Province",
-                          "item-text": "provDesc",
-                          "item-value": "PK_province_ID",
-                          clearable: "",
-                        },
-                        on: { change: _vm.provinceDropdown },
-                        model: {
-                          value: _vm.filter.PK_province_ID,
-                          callback: function ($$v) {
-                            _vm.$set(_vm.filter, "PK_province_ID", $$v)
-                          },
-                          expression: "filter.PK_province_ID",
-                        },
-                      }),
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    [
-                      _c("v-autocomplete", {
-                        attrs: {
-                          items: _vm.municipality_list_alter,
-                          label: "Municipality",
-                          "item-text": "citymunDesc",
-                          "item-value": "PK_citymun_ID",
-                          clearable: "",
-                        },
-                        on: { change: _vm.municipalityDropdown },
-                        model: {
-                          value: _vm.filter.PK_citymun_ID,
-                          callback: function ($$v) {
-                            _vm.$set(_vm.filter, "PK_citymun_ID", $$v)
-                          },
-                          expression: "filter.PK_citymun_ID",
-                        },
-                      }),
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    [
-                      _c("v-autocomplete", {
-                        attrs: {
-                          items: _vm.barangay_list_alter,
-                          label: "Barangay",
-                          "item-text": "brgyDesc",
-                          "item-value": "PK_brgy_ID",
-                          clearable: "",
-                        },
-                        model: {
-                          value: _vm.filter.PK_brgy_ID,
-                          callback: function ($$v) {
-                            _vm.$set(_vm.filter, "PK_brgy_ID", $$v)
-                          },
-                          expression: "filter.PK_brgy_ID",
-                        },
-                      }),
-                    ],
-                    1
-                  ),
-                ]),
-                _vm._v(" "),
-                _c(
-                  "v-card-actions",
-                  [
-                    _c("v-spacer"),
-                    _vm._v(" "),
-                    _c(
-                      "v-btn",
-                      {
-                        attrs: { color: "green darken-1", text: "" },
-                        on: { click: _vm.closeFilterModal },
-                      },
-                      [_vm._v("\n                    Close\n                ")]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "v-btn",
-                      {
-                        attrs: { color: "green darken-1", text: "" },
-                        on: { click: _vm.filterUniverse },
-                      },
-                      [_vm._v("\n                    Filter\n                ")]
-                    ),
-                  ],
-                  1
-                ),
-              ],
-              1
-            ),
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c(
-          "section",
-          [
-            _c(
-              "b-table",
-              {
-                attrs: {
-                  data: _vm.query.data,
-                  total: _vm.query.total,
-                  "per-page": _vm.query.per_page,
-                  "current-page": _vm.query.current_page,
-                  "pagination-position": "bottom",
-                  "default-sort-direction": "asd",
-                  "sort-icon": "arrow-up",
-                  "sort-icon-size": "is-small",
-                  paginated: "",
-                  "backend-pagination": "",
+            [
+              _c("v-icon", { attrs: { dark: "" } }, [_vm._v(" mdi-filter ")]),
+              _vm._v(" Filter\n        "),
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "section",
+            [
+              _c(
+                "b-table",
+                {
+                  attrs: {
+                    data: _vm.query.data,
+                    total: _vm.query.total,
+                    "per-page": _vm.query.per_page,
+                    "current-page": _vm.query.current_page,
+                    "pagination-position": "bottom",
+                    "default-sort-direction": "asd",
+                    "sort-icon": "arrow-up",
+                    "sort-icon-size": "is-small",
+                    loading: _vm.loading,
+                    paginated: "",
+                    "backend-pagination": "",
+                  },
+                  on: {
+                    "update:currentPage": function ($event) {
+                      return _vm.$set(_vm.query, "current_page", $event)
+                    },
+                    "update:current-page": function ($event) {
+                      return _vm.$set(_vm.query, "current_page", $event)
+                    },
+                    "page-change": _vm.onPageChange,
+                  },
                 },
-                on: {
-                  "update:currentPage": function ($event) {
-                    return _vm.$set(_vm.query, "current_page", $event)
-                  },
-                  "update:current-page": function ($event) {
-                    return _vm.$set(_vm.query, "current_page", $event)
-                  },
-                  "page-change": _vm.onPageChange,
-                },
-              },
-              [
-                _c("b-table-column", {
-                  attrs: {
-                    field: "un_firmname",
-                    label: "Firmname",
-                    sortable: "",
-                  },
-                  scopedSlots: _vm._u([
-                    {
-                      key: "default",
-                      fn: function (props) {
-                        return [
-                          _vm._v(
-                            "\n                " +
-                              _vm._s(props.row.un_firmname) +
-                              "\n            "
-                          ),
-                        ]
-                      },
+                [
+                  _c("b-table-column", {
+                    attrs: {
+                      field: "un_firmname",
+                      label: "Firmname",
+                      sortable: "",
                     },
-                  ]),
-                }),
-                _vm._v(" "),
-                _c("b-table-column", {
-                  attrs: {
-                    field: "un_crs_number",
-                    label: "CRS No.",
-                    sortable: "",
-                  },
-                  scopedSlots: _vm._u([
-                    {
-                      key: "default",
-                      fn: function (props) {
-                        return [
-                          _vm._v(
-                            "\n                " +
-                              _vm._s(props.row.un_crs_number) +
-                              "\n            "
-                          ),
-                        ]
-                      },
-                    },
-                  ]),
-                }),
-                _vm._v(" "),
-                _c("b-table-column", {
-                  attrs: {
-                    field: "un_proponent",
-                    label: "Proponent",
-                    sortable: "",
-                  },
-                  scopedSlots: _vm._u([
-                    {
-                      key: "default",
-                      fn: function (props) {
-                        return [
-                          _vm._v(
-                            "\n                " +
-                              _vm._s(props.row.un_proponent) +
-                              "\n            "
-                          ),
-                        ]
-                      },
-                    },
-                  ]),
-                }),
-                _vm._v(" "),
-                _c("b-table-column", {
-                  attrs: {
-                    field: "un_status",
-                    label: "Firm Status",
-                    sortable: "",
-                    centered: "",
-                  },
-                  scopedSlots: _vm._u([
-                    {
-                      key: "default",
-                      fn: function (props) {
-                        return [
-                          _c("span", { staticClass: "tag is-success" }, [
+                    scopedSlots: _vm._u([
+                      {
+                        key: "default",
+                        fn: function (props) {
+                          return [
                             _vm._v(
                               "\n                    " +
-                                _vm._s(props.row.un_status) +
+                                _vm._s(props.row.un_firmname) +
                                 "\n                "
                             ),
-                          ]),
-                        ]
+                          ]
+                        },
                       },
+                    ]),
+                  }),
+                  _vm._v(" "),
+                  _c("b-table-column", {
+                    attrs: {
+                      field: "un_crs_number",
+                      label: "CRS No.",
+                      sortable: "",
                     },
-                  ]),
-                }),
-                _vm._v(" "),
-                _c("b-table-column", {
-                  attrs: { field: "provDesc", label: "Province", sortable: "" },
-                  scopedSlots: _vm._u([
-                    {
-                      key: "default",
-                      fn: function (props) {
-                        return [
-                          _vm._v(
-                            "\n                " +
-                              _vm._s(props.row.provDesc) +
-                              "\n            "
-                          ),
-                        ]
+                    scopedSlots: _vm._u([
+                      {
+                        key: "default",
+                        fn: function (props) {
+                          return [
+                            _vm._v(
+                              "\n                    " +
+                                _vm._s(props.row.un_crs_number) +
+                                "\n                "
+                            ),
+                          ]
+                        },
                       },
+                    ]),
+                  }),
+                  _vm._v(" "),
+                  _c("b-table-column", {
+                    attrs: {
+                      field: "un_proponent",
+                      label: "Proponent",
+                      sortable: "",
                     },
-                  ]),
-                }),
-                _vm._v(" "),
-                _c("b-table-column", {
-                  attrs: {
-                    field: "provDesc",
-                    label: "City/Municipality",
-                    sortable: "",
-                  },
-                  scopedSlots: _vm._u([
-                    {
-                      key: "default",
-                      fn: function (props) {
-                        return [
-                          _vm._v(
-                            "\n                " +
-                              _vm._s(props.row.citymunDesc) +
-                              "\n            "
-                          ),
-                        ]
+                    scopedSlots: _vm._u([
+                      {
+                        key: "default",
+                        fn: function (props) {
+                          return [
+                            _vm._v(
+                              "\n                    " +
+                                _vm._s(props.row.un_proponent) +
+                                "\n                "
+                            ),
+                          ]
+                        },
                       },
+                    ]),
+                  }),
+                  _vm._v(" "),
+                  _c("b-table-column", {
+                    attrs: {
+                      field: "un_status",
+                      label: "Firm Status",
+                      sortable: "",
+                      centered: "",
                     },
-                  ]),
-                }),
-                _vm._v(" "),
-                _c("b-table-column", {
-                  attrs: { field: "provDesc", label: "Barangay", sortable: "" },
-                  scopedSlots: _vm._u([
-                    {
-                      key: "default",
-                      fn: function (props) {
-                        return [
-                          _vm._v(
-                            "\n                " +
-                              _vm._s(props.row.brgyDesc) +
-                              "\n            "
-                          ),
-                        ]
-                      },
-                    },
-                  ]),
-                }),
-                _vm._v(" "),
-                _c("b-table-column", {
-                  attrs: { label: "Action" },
-                  scopedSlots: _vm._u([
-                    {
-                      key: "default",
-                      fn: function (props) {
-                        return [
-                          _c(
-                            "span",
-                            [
-                              _c(
-                                "Link",
-                                {
-                                  attrs: {
-                                    href: "/app/universe_form/" + props.row.id,
-                                    as: "button",
-                                  },
-                                },
-                                [
-                                  _c(
-                                    "v-btn",
-                                    {
-                                      attrs: { link: "", small: "", icon: "" },
-                                    },
-                                    [
-                                      _c(
-                                        "b-tooltip",
-                                        {
-                                          attrs: {
-                                            type: "is-dark",
-                                            label:
-                                              "Edit - " + props.row.un_firmname,
-                                          },
-                                        },
-                                        [
-                                          _c("box-icon", {
-                                            attrs: {
-                                              name: "edit",
-                                              color: "orange",
-                                              animation: "tada-hover",
-                                            },
-                                          }),
-                                        ],
-                                        1
-                                      ),
-                                    ],
-                                    1
-                                  ),
-                                ],
-                                1
+                    scopedSlots: _vm._u([
+                      {
+                        key: "default",
+                        fn: function (props) {
+                          return [
+                            _c("span", { staticClass: "tag is-success" }, [
+                              _vm._v(
+                                "\n                        " +
+                                  _vm._s(props.row.un_status) +
+                                  "\n                    "
                               ),
-                            ],
-                            1
-                          ),
-                        ]
+                            ]),
+                          ]
+                        },
+                      },
+                    ]),
+                  }),
+                  _vm._v(" "),
+                  _c("b-table-column", {
+                    attrs: {
+                      field: "provDesc",
+                      label: "Province",
+                      sortable: "",
+                    },
+                    scopedSlots: _vm._u([
+                      {
+                        key: "default",
+                        fn: function (props) {
+                          return [
+                            _vm._v(
+                              "\n                    " +
+                                _vm._s(props.row.provDesc) +
+                                "\n                "
+                            ),
+                          ]
+                        },
+                      },
+                    ]),
+                  }),
+                  _vm._v(" "),
+                  _c("b-table-column", {
+                    attrs: {
+                      field: "provDesc",
+                      label: "City/Municipality",
+                      sortable: "",
+                    },
+                    scopedSlots: _vm._u([
+                      {
+                        key: "default",
+                        fn: function (props) {
+                          return [
+                            _vm._v(
+                              "\n                    " +
+                                _vm._s(props.row.citymunDesc) +
+                                "\n                "
+                            ),
+                          ]
+                        },
+                      },
+                    ]),
+                  }),
+                  _vm._v(" "),
+                  _c("b-table-column", {
+                    attrs: {
+                      field: "provDesc",
+                      label: "Barangay",
+                      sortable: "",
+                    },
+                    scopedSlots: _vm._u([
+                      {
+                        key: "default",
+                        fn: function (props) {
+                          return [
+                            _vm._v(
+                              "\n                    " +
+                                _vm._s(props.row.brgyDesc) +
+                                "\n                "
+                            ),
+                          ]
+                        },
+                      },
+                    ]),
+                  }),
+                  _vm._v(" "),
+                  _c("b-table-column", {
+                    attrs: { label: "Action" },
+                    scopedSlots: _vm._u([
+                      {
+                        key: "default",
+                        fn: function (props) {
+                          return [
+                            _c(
+                              "span",
+                              [
+                                _c(
+                                  "Link",
+                                  {
+                                    attrs: {
+                                      href:
+                                        "/app/universe_form/" + props.row.id,
+                                      as: "button",
+                                    },
+                                  },
+                                  [
+                                    _c(
+                                      "v-btn",
+                                      {
+                                        attrs: {
+                                          link: "",
+                                          small: "",
+                                          icon: "",
+                                        },
+                                      },
+                                      [
+                                        _c(
+                                          "b-tooltip",
+                                          {
+                                            attrs: {
+                                              type: "is-dark",
+                                              label:
+                                                "Edit - " +
+                                                props.row.un_firmname,
+                                            },
+                                          },
+                                          [
+                                            _c("box-icon", {
+                                              attrs: {
+                                                name: "edit",
+                                                color: "orange",
+                                                animation: "tada-hover",
+                                              },
+                                            }),
+                                          ],
+                                          1
+                                        ),
+                                      ],
+                                      1
+                                    ),
+                                  ],
+                                  1
+                                ),
+                              ],
+                              1
+                            ),
+                          ]
+                        },
+                      },
+                    ]),
+                  }),
+                ],
+                1
+              ),
+            ],
+            1
+          ),
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "v-dialog",
+        {
+          attrs: { persistent: "", "max-width": "500" },
+          model: {
+            value: _vm.dialog,
+            callback: function ($$v) {
+              _vm.dialog = $$v
+            },
+            expression: "dialog",
+          },
+        },
+        [
+          _c(
+            "v-card",
+            [
+              _c(
+                "v-card-title",
+                { staticClass: "text-h5" },
+                [
+                  _c("v-icon", [_vm._v(" mdi-filter ")]),
+                  _vm._v(" Filter Options\n            "),
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c("v-card-text", [
+                _c(
+                  "div",
+                  [
+                    _c("v-autocomplete", {
+                      attrs: {
+                        loading: _vm.loading,
+                        items: _vm.province_list_alter,
+                        label: "Province",
+                        "item-text": "provDesc",
+                        "item-value": "PK_province_ID",
+                        clearable: "",
+                        "search-input": _vm.searchProvince,
+                      },
+                      on: {
+                        "update:searchInput": function ($event) {
+                          _vm.searchProvince = $event
+                        },
+                        "update:search-input": function ($event) {
+                          _vm.searchProvince = $event
+                        },
+                      },
+                      model: {
+                        value: _vm.filter.PK_province_ID,
+                        callback: function ($$v) {
+                          _vm.$set(_vm.filter, "PK_province_ID", $$v)
+                        },
+                        expression: "filter.PK_province_ID",
+                      },
+                    }),
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  [
+                    _c("v-autocomplete", {
+                      attrs: {
+                        loading: _vm.loading,
+                        items: _vm.municipality_list_alter,
+                        label: "Municipality",
+                        "item-text": "citymunDesc",
+                        "item-value": "PK_citymun_ID",
+                        clearable: "",
+                        "search-input": _vm.searchCityMun,
+                      },
+                      on: {
+                        "update:searchInput": function ($event) {
+                          _vm.searchCityMun = $event
+                        },
+                        "update:search-input": function ($event) {
+                          _vm.searchCityMun = $event
+                        },
+                      },
+                      model: {
+                        value: _vm.filter.PK_citymun_ID,
+                        callback: function ($$v) {
+                          _vm.$set(_vm.filter, "PK_citymun_ID", $$v)
+                        },
+                        expression: "filter.PK_citymun_ID",
+                      },
+                    }),
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  [
+                    _c("v-autocomplete", {
+                      attrs: {
+                        loading: _vm.loading,
+                        items: _vm.barangay_list_alter,
+                        label: "Barangay",
+                        "item-text": "brgyDesc",
+                        "item-value": "PK_brgy_ID",
+                        clearable: "",
+                        "search-input": _vm.searchBrgy,
+                      },
+                      on: {
+                        "update:searchInput": function ($event) {
+                          _vm.searchBrgy = $event
+                        },
+                        "update:search-input": function ($event) {
+                          _vm.searchBrgy = $event
+                        },
+                      },
+                      model: {
+                        value: _vm.filter.PK_brgy_ID,
+                        callback: function ($$v) {
+                          _vm.$set(_vm.filter, "PK_brgy_ID", $$v)
+                        },
+                        expression: "filter.PK_brgy_ID",
+                      },
+                    }),
+                  ],
+                  1
+                ),
+              ]),
+              _vm._v(" "),
+              _c(
+                "v-card-actions",
+                [
+                  _c("v-spacer"),
+                  _vm._v(" "),
+                  _c(
+                    "v-btn",
+                    {
+                      attrs: { color: "red darken-4", text: "" },
+                      on: {
+                        click: function ($event) {
+                          _vm.dialog = false
+                        },
                       },
                     },
-                  ]),
-                }),
-              ],
-              1
-            ),
-          ],
-          1
-        ),
-      ],
-      1
-    ),
-  ])
+                    [_vm._v("\n                    Close\n                ")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-btn",
+                    {
+                      staticClass: "white--text",
+                      attrs: { color: "green darken-1" },
+                      on: { click: _vm.filterUniverse },
+                    },
+                    [_vm._v("\n                    Filter\n                ")]
+                  ),
+                ],
+                1
+              ),
+            ],
+            1
+          ),
+        ],
+        1
+      ),
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
