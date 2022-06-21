@@ -494,9 +494,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .col-span-2 {
   grid-column: span 2 / span 2;
 }
-.float-right {
-  float: right;
-}
 .float-left {
   float: left;
 }
@@ -564,21 +561,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .mt-1 {
   margin-top: 0.25rem;
 }
-.mt-10 {
-  margin-top: 2.5rem;
-}
-.mt-9 {
-  margin-top: 2.25rem;
-}
-.mt-12 {
-  margin-top: 3rem;
-}
-.mt-3 {
-  margin-top: 0.75rem;
-}
-.mt-14 {
-  margin-top: 3.5rem;
-}
 .mt-7 {
   margin-top: 1.75rem;
 }
@@ -627,9 +609,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .cursor-pointer {
   cursor: pointer;
 }
-.grid-flow-col {
-  grid-auto-flow: column;
-}
 .grid-cols-1 {
   grid-template-columns: repeat(1, minmax(0, 1fr));
 }
@@ -648,9 +627,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .grid-cols-6 {
   grid-template-columns: repeat(6, minmax(0, 1fr));
 }
-.grid-rows-4 {
-  grid-template-rows: repeat(4, minmax(0, 1fr));
-}
 .flex-wrap {
   flex-wrap: wrap;
 }
@@ -668,15 +644,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .gap-4 {
   gap: 1rem;
-}
-.gap-5 {
-  gap: 1.25rem;
-}
-.gap-1 {
-  gap: 0.25rem;
-}
-.gap-3 {
-  gap: 0.75rem;
 }
 .gap-x-10 {
   -moz-column-gap: 2.5rem;
@@ -730,9 +697,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .border {
   border-width: 1px;
 }
-.border-2 {
-  border-width: 2px;
-}
 .border-t {
   border-top-width: 1px;
 }
@@ -745,18 +709,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .border-gray-200 {
   --tw-border-opacity: 1;
   border-color: rgb(229 231 235 / var(--tw-border-opacity));
-}
-.border-rose-600 {
-  --tw-border-opacity: 1;
-  border-color: rgb(225 29 72 / var(--tw-border-opacity));
-}
-.border-cyan-400 {
-  --tw-border-opacity: 1;
-  border-color: rgb(34 211 238 / var(--tw-border-opacity));
-}
-.border-blue-600 {
-  --tw-border-opacity: 1;
-  border-color: rgb(37 99 235 / var(--tw-border-opacity));
 }
 .border-blue-500 {
   --tw-border-opacity: 1;
@@ -800,9 +752,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .p-3 {
   padding: 0.75rem;
-}
-.p-10 {
-  padding: 2.5rem;
 }
 .py-4 {
   padding-top: 1rem;
