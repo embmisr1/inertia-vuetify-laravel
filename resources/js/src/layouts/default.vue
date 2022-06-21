@@ -129,7 +129,7 @@ export default {
                             child: [
                                 {
                                     name: "Universe Dashboard",
-                                    link: "",
+                                    link: "/app/universe_dashboard/",
                                     icon: "mdi-link",
                                 },
                                 {

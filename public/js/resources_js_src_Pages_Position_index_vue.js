@@ -412,7 +412,7 @@ __webpack_require__.r(__webpack_exports__);
           icon: "mdi-view-dashboard",
           child: [{
             name: "Universe Dashboard",
-            link: "",
+            link: "/app/universe_dashboard/",
             icon: "mdi-link"
           }, {
             name: "Universe",

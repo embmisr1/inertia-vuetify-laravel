@@ -2267,6 +2267,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     form_permit_info: Object,
@@ -6125,11 +6134,17 @@ var render = function () {
             "primary text-xl rounded-t-lg text-white border-b p-2 text-center",
         },
         [
-          _vm._v("\n        " + _vm._s(_vm.dashboard_header_label)),
+          _c(
+            "v-icon",
+            { staticClass: "float-left mt-1", attrs: { dark: "" } },
+            [_vm._v(" mdi-folder")]
+          ),
+          _vm._v(" " + _vm._s(_vm.dashboard_header_label)),
           _c("b", { staticClass: "text-2xl" }, [
             _vm._v(_vm._s(_vm.dashboard_header)),
           ]),
-        ]
+        ],
+        1
       ),
       _vm._v(" "),
       _c("div", { staticClass: "text-lg p-4" }, [
@@ -7514,6 +7529,22 @@ var render = function () {
                 _vm._v("\n                mdi-content-save\n            "),
               ]),
               _vm._v("\n            Submit\n        "),
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "v-btn",
+            {
+              attrs: { depressed: "", dark: "", color: "cyan", type: "button" },
+            },
+            [
+              _c("v-icon", { staticClass: "mr-2", attrs: { small: "" } }, [
+                _vm._v(
+                  "\n                mdi-plus-circle-outline\n            "
+                ),
+              ]),
+              _vm._v("\n            Add Permit\n        "),
             ],
             1
           ),

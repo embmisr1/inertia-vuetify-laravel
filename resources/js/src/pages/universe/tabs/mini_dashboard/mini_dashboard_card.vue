@@ -1,7 +1,7 @@
 <template>
     <div class="text-black bg-white rounded-lg" style="box-shadow: 0px 0px 5px #9C9C9C;">
         <div class="primary text-xl rounded-t-lg text-white border-b p-2 text-center">
-            {{dashboard_header_label}}<b class="text-2xl">{{dashboard_header}}</b>
+            <v-icon dark class="float-left mt-1"> mdi-folder</v-icon> {{dashboard_header_label}}<b class="text-2xl">{{dashboard_header}}</b>
         </div>
         <div class="text-lg p-4">
             <div v-if="dashboard_header_label === 'Permits: '">
