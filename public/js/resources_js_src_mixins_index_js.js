@@ -174,191 +174,42 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         }, _callee);
       }))();
     },
-    modalHandler: function modalHandler(item, action) {
+    onSort: function onSort(sort, order) {
       var _this2 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
-        var title;
+        var newSort;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
-                _context2.next = 2;
-                return _this2.getTitle(item);
+                _context2.prev = 0;
 
-              case 2:
-                title = _context2.sent;
-                item = JSON.parse(JSON.stringify(item));
-                _context2.t0 = action;
-                _context2.next = _context2.t0 === "changepass" ? 7 : _context2.t0 === "changeaccesscontroll" ? 8 : _context2.t0 === "update" ? 9 : _context2.t0 === "delete" ? 12 : 15;
-                break;
-
-              case 7:
-                return _context2.abrupt("return", _this2.changepassmodal = {
-                  active: true,
-                  title: "Update ".concat(title, " password"),
-                  data: JSON.parse(JSON.stringify(item))
-                });
-
-              case 8:
-                return _context2.abrupt("return", _this2.changeaccesscontrollmodal = {
-                  active: true,
-                  title: "Change ".concat(item.name, " Access"),
-                  action: "changeaccesscontroll",
-                  data: JSON.parse(JSON.stringify(item))
-                });
-
-              case 9:
-                title = "Update ".concat(title);
-
-                if (_this2.alterData) {// item = this.alterData(item)
-                }
-
-                return _context2.abrupt("break", 16);
-
-              case 12:
-                title = "Delete ".concat(title);
-
-                if (_this2.alterData) {// item = this.alterData(item)
-                }
-
-                return _context2.abrupt("break", 16);
-
-              case 15:
-                return _context2.abrupt("break", 16);
-
-              case 16:
-                _this2.modal = Object.assign({}, {
-                  active: true,
-                  title: title,
-                  action: action,
-                  data: item
-                });
-
-              case 17:
-              case "end":
-                return _context2.stop();
-            }
-          }
-        }, _callee2);
-      }))();
-    },
-    closeModal: function closeModal() {
-      var _this3 = this;
-
-      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3() {
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
-          while (1) {
-            switch (_context3.prev = _context3.next) {
-              case 0:
-                try {
-                  _this3.modal = Object.assign({}, {
-                    active: false,
-                    title: "Create ".concat(_this3.name),
-                    action: "add" // data: this.TheModel(),
-
-                  });
-                  console.log("closeModal");
-                } catch (error) {
-                  console.log(error);
-                }
-
-              case 1:
-              case "end":
-                return _context3.stop();
-            }
-          }
-        }, _callee3);
-      }))();
-    },
-    closeChangePassModal: function closeChangePassModal() {
-      var _this4 = this;
-
-      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee4() {
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee4$(_context4) {
-          while (1) {
-            switch (_context4.prev = _context4.next) {
-              case 0:
-                try {
-                  _this4.changepassmodal = Object.assign({}, {
-                    active: false,
-                    title: "Update password" // data: this.TheModel(),
-
-                  });
-                } catch (error) {
-                  console.log(error);
-                }
-
-              case 1:
-              case "end":
-                return _context4.stop();
-            }
-          }
-        }, _callee4);
-      }))();
-    },
-    closeAccessControllModal: function closeAccessControllModal() {
-      var _this5 = this;
-
-      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee5() {
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee5$(_context5) {
-          while (1) {
-            switch (_context5.prev = _context5.next) {
-              case 0:
-                try {
-                  _this5.changeaccesscontrollmodal = Object.assign({}, {
-                    active: false,
-                    title: "" // data: this.TheModel(),
-
-                  });
-                } catch (error) {
-                  console.log(error);
-                }
-
-              case 1:
-              case "end":
-                return _context5.stop();
-            }
-          }
-        }, _callee5);
-      }))();
-    },
-    onSort: function onSort(sort, order) {
-      var _this6 = this;
-
-      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee6() {
-        var newSort;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee6$(_context6) {
-          while (1) {
-            switch (_context6.prev = _context6.next) {
-              case 0:
-                _context6.prev = 0;
-
-                if (!_this6.loading) {
-                  _context6.next = 3;
+                if (!_this2.loading) {
+                  _context2.next = 3;
                   break;
                 }
 
-                return _context6.abrupt("return");
+                return _context2.abrupt("return");
 
               case 3:
                 console.log("sort", sort, order);
                 newSort = {};
                 newSort[sort] = order; // this.setSort(newSort)
 
-                _context6.next = 10;
+                _context2.next = 10;
                 break;
 
               case 8:
-                _context6.prev = 8;
-                _context6.t0 = _context6["catch"](0);
+                _context2.prev = 8;
+                _context2.t0 = _context2["catch"](0);
 
               case 10:
               case "end":
-                return _context6.stop();
+                return _context2.stop();
             }
           }
-        }, _callee6, null, [[0, 8]]);
+        }, _callee2, null, [[0, 8]]);
       }))();
     }
   },
