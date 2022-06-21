@@ -75,6 +75,7 @@ class UniverseController extends Controller
     }
     
     public function universe_dashboard(request $request){
+        $query_registered_industries = DB::table('tbl_universe')->select('*')->count();
         $query_permit_1586 = DB::table('tbl_permit')->select('*')->where('perm_law','PD 1586')->count();
         $query_permit_8749 = DB::table('tbl_permit')->select('*')->where('perm_law','RA 8749')->count();
         $query_permit_9275 = DB::table('tbl_permit')->select('*')->where('perm_law','RA 9275')->count();
@@ -84,14 +85,22 @@ class UniverseController extends Controller
         $query_permit_8749_expired = DB::table('tbl_permit')->select('*')->where('perm_law','RA 8749')->where('perm_date_expiry','<=',Carbon::today()->toDateString())->count();
         $query_permit_9275_expired = DB::table('tbl_permit')->select('*')->where('perm_law','RA 9275')->where('perm_date_expiry','<=',Carbon::today()->toDateString())->count();
         $query_pco_all = DB::table('tbl_pco')->select('*')->count();
-        $query_nov_all = DB::table('tbl_legal')->select('*')->where('nov_compliance_status',null)->count();
-        $query_nov_1586 = '';
-        $query_nov_8749 = '';
-        $query_nov_9275 = '';
-        $query_nov_6969 = '';
-        $query_order_issued = '';
-        $query_monitoring_report = '';
+        $query_nov_all = DB::table('tbl_legal')->select('*')->where('nov_compliance_status','!=','Complied')->count();
+        $query_nov_1586 = DB::table('tbl_legal')->select('*')->where('nov_compliance_status','!=','Complied')->where('nov_law','like','%PD 1586%')->count();
+        $query_nov_8749 = DB::table('tbl_legal')->select('*')->where('nov_compliance_status','!=','Complied')->where('nov_law','like','%RA 8749%')->count();
+        $query_nov_9275 = DB::table('tbl_legal')->select('*')->where('nov_compliance_status','!=','Complied')->where('nov_law','like','%RA 9275%')->count();
+        $query_nov_6969 = DB::table('tbl_legal')->select('*')->where('nov_compliance_status','!=','Complied')->where('nov_law','like','%RA 6969%')->count();
+        $query_nov_9003 = DB::table('tbl_legal')->select('*')->where('nov_compliance_status','!=','Complied')->where('nov_law','like','%RA 9003%')->count();
+        $query_order_issued = DB::table('tbl_legal')->select('*')->where('nov_compliance_status','!=','Complied')->where('nov_order_number','!=',null)->count();
+        $query_monitoring_all = DB::table('tbl_monitoring')->select('*')->count();
+        $query_monitoring_1586 = DB::table('tbl_monitoring')->select('*')->where('mon_law','like','%PD 1586%')->count();
+        $query_monitoring_8749 = DB::table('tbl_monitoring')->select('*')->where('mon_law','like','%RA 8749%')->count();
+        $query_monitoring_9275 = DB::table('tbl_monitoring')->select('*')->where('mon_law','like','%RA 9275%')->count();
+        $query_monitoring_6969 = DB::table('tbl_monitoring')->select('*')->where('mon_law','like','%RA 6969%')->count();
+        $query_monitoring_9003 = DB::table('tbl_monitoring')->select('*')->where('mon_law','like','%RA 9003%')->count();
+        $query_complaint = DB::table('tbl_complaint')->select('*')->count();
         return Inertia::render("pages/universe/universe_dashboard",[
+            'query_registered_industries'=>$query_registered_industries,
             'query_permit_1586'=>$query_permit_1586,
             'query_permit_8749'=>$query_permit_8749,
             'query_permit_9275'=>$query_permit_9275,
@@ -102,6 +111,19 @@ class UniverseController extends Controller
             'query_permit_9275_expired'=>$query_permit_9275_expired,
             'query_pco_all'=>$query_pco_all,
             'query_nov_all'=>$query_nov_all,
+            'query_nov_1586'=>$query_nov_1586,
+            'query_nov_8749'=>$query_nov_8749,
+            'query_nov_9275'=>$query_nov_9275,
+            'query_nov_6969'=>$query_nov_6969,
+            'query_nov_9003'=>$query_nov_9003,
+            'query_order_issued'=>$query_order_issued,
+            'query_monitoring_all'=>$query_monitoring_all,
+            'query_monitoring_1586'=>$query_monitoring_1586,
+            'query_monitoring_8749'=>$query_monitoring_8749,
+            'query_monitoring_9275'=>$query_monitoring_9275,
+            'query_monitoring_6969'=>$query_monitoring_6969,
+            'query_monitoring_9003'=>$query_monitoring_9003,
+            'query_complaint'=>$query_complaint,
         ]);
     }
 

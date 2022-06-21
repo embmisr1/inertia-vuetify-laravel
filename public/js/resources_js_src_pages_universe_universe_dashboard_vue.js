@@ -526,12 +526,45 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     label: String,
     query_counter_total: Number,
     query_counter_valid: Number,
-    query_counter_expired: Number
+    query_counter_expired: Number,
+    query_counter_1586: Number,
+    query_counter_8749: Number,
+    query_counter_9275: Number,
+    query_counter_6969: Number,
+    query_counter_9003: Number
   },
   components: {},
   data: function data() {
@@ -605,6 +638,42 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -617,6 +686,8 @@ __webpack_require__.r(__webpack_exports__);
     MainDashboard: _dashboard_cards_main_dashboard_card__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   props: {
+    query_registered_industries: Number,
+    query_all_firm: Number,
     query_permit_1586: Number,
     query_permit_8749: Number,
     query_permit_9275: Number,
@@ -626,7 +697,20 @@ __webpack_require__.r(__webpack_exports__);
     query_permit_8749_expired: Number,
     query_permit_9275_expired: Number,
     query_pco_all: Number,
-    query_nov_all: Number
+    query_nov_all: Number,
+    query_nov_1586: Number,
+    query_nov_8749: Number,
+    query_nov_9275: Number,
+    query_nov_6969: Number,
+    query_nov_9003: Number,
+    query_order_issued: Number,
+    query_monitoring_all: Number,
+    query_monitoring_1586: Number,
+    query_monitoring_8749: Number,
+    query_monitoring_9275: Number,
+    query_monitoring_6969: Number,
+    query_monitoring_9003: Number,
+    query_complaint: Number
   },
   data: function data() {
     return {};
@@ -1446,11 +1530,16 @@ var render = function () {
       ),
       _vm._v(" "),
       _c("div", { staticClass: "text-lg p-4" }, [
-        _vm.query_counter_expired == null
+        _vm.label == "REGISTERED FIRMS" ||
+        _vm.label == "WITH 1586" ||
+        _vm.label == "WITH 6969" ||
+        _vm.label == "WITH PCO" ||
+        _vm.label == "WITH ORDER" ||
+        _vm.label == "COMPLAINT"
           ? _c("div", { staticClass: "text-xl text-center grid grid-cols-1" }, [
               _c(
                 "div",
-                { staticClass: "text-xl text-center grid grid-cols-1" },
+                { staticClass: "text-xl text-center grid grid-cols-1 pt-6" },
                 [
                   _c("div", [
                     _vm._v("\n                    Total: "),
@@ -1465,7 +1554,7 @@ var render = function () {
             ])
           : _vm._e(),
         _vm._v(" "),
-        _vm.query_counter_expired != null
+        _vm.label == "WITH 8749" || _vm.label == "WITH 9275"
           ? _c("div", [
               _c(
                 "div",
@@ -1496,8 +1585,87 @@ var render = function () {
                   _vm._v(" "),
                   _c("div", [
                     _vm._v("\n                    Expired: "),
-                    _c("b", { staticClass: "text-2xl" }, [
+                    _c("b", { staticClass: "text-2xl text-rose-600" }, [
                       _vm._v(_vm._s(_vm.query_counter_expired)),
+                    ]),
+                  ]),
+                ]
+              ),
+            ])
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.label == "WITH NOV" || _vm.label == "MONITORING"
+          ? _c("div", [
+              _c(
+                "div",
+                { staticClass: "text-xl text-center grid grid-cols-1" },
+                [
+                  _c("div", [
+                    _vm._v("\n                    Total: "),
+                    _c("b", { staticClass: "text-2xl" }, [
+                      _vm._v(_vm._s(_vm.query_counter_total)),
+                    ]),
+                  ]),
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "text-xl text-left grid grid-cols-2 mt-5 border-t-2 border-blue-500",
+                },
+                [
+                  _c("div", [
+                    _vm._v("\n                    PD1586: "),
+                    _c("b", { staticClass: "text-2xl" }, [
+                      _vm._v(_vm._s(_vm.query_counter_1586)),
+                    ]),
+                  ]),
+                  _vm._v(" "),
+                  _c("div", [
+                    _vm._v("\n                    RA8749: "),
+                    _c("b", { staticClass: "text-2xl" }, [
+                      _vm._v(_vm._s(_vm.query_counter_8749)),
+                    ]),
+                  ]),
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "text-xl text-left grid grid-cols-2 mt-5 border-t-2 border-blue-500",
+                },
+                [
+                  _c("div", [
+                    _vm._v("\n                    RA9275: "),
+                    _c("b", { staticClass: "text-2xl" }, [
+                      _vm._v(_vm._s(_vm.query_counter_9275)),
+                    ]),
+                  ]),
+                  _vm._v(" "),
+                  _c("div", [
+                    _vm._v("\n                    RA6969: "),
+                    _c("b", { staticClass: "text-2xl" }, [
+                      _vm._v(_vm._s(_vm.query_counter_6969)),
+                    ]),
+                  ]),
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "text-xl text-left grid grid-cols-2 mt-5 border-t-2 border-blue-500",
+                },
+                [
+                  _c("div", [
+                    _vm._v("\n                    RA9003: "),
+                    _c("b", { staticClass: "text-2xl" }, [
+                      _vm._v(_vm._s(_vm.query_counter_9003)),
                     ]),
                   ]),
                 ]
@@ -1513,11 +1681,9 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "text-xl text-left grid grid-cols-1 mt-7" },
-      [_c("div", [_vm._v(" ")])]
-    )
+    return _c("div", { staticClass: "text-xl text-left grid grid-cols-1" }, [
+      _c("div", [_vm._v(" ")]),
+    ])
   },
 ]
 render._withStripped = true
@@ -1543,14 +1709,16 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("DefaultLayout", [
-    _c("div", { staticClass: "grid grid-cols-4 gap-4" }, [
+    _c("div", { staticClass: "grid grid-cols-5 gap-5 mb-5" }, [
       _c(
         "div",
         [
           _c("MainDashboard", {
             attrs: {
-              query_counter_total: _vm.query_permit_1586,
-              label: "WITH 1586",
+              query_counter_total: _vm.query_permit_9275,
+              query_counter_valid: _vm.query_permit_9275_valid,
+              query_counter_expired: _vm.query_permit_9275_expired,
+              label: "WITH 9275",
             },
           }),
         ],
@@ -1565,22 +1733,7 @@ var render = function () {
               query_counter_total: _vm.query_permit_8749,
               query_counter_valid: _vm.query_permit_8749_valid,
               query_counter_expired: _vm.query_permit_8749_expired,
-              label: "WITH 8749 ",
-            },
-          }),
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        [
-          _c("MainDashboard", {
-            attrs: {
-              query_counter_total: _vm.query_permit_9275,
-              query_counter_valid: _vm.query_permit_9275_valid,
-              query_counter_expired: _vm.query_permit_9275_expired,
-              label: "WITH 9275",
+              label: "WITH 8749",
             },
           }),
         ],
@@ -1605,6 +1758,83 @@ var render = function () {
         [
           _c("MainDashboard", {
             attrs: {
+              query_counter_total: _vm.query_permit_1586,
+              label: "WITH 1586",
+            },
+          }),
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        [
+          _c("MainDashboard", {
+            attrs: {
+              query_counter_total: _vm.query_registered_industries,
+              label: "REGISTERED FIRMS",
+            },
+          }),
+        ],
+        1
+      ),
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "grid grid-cols-5 gap-5" }, [
+      _c(
+        "div",
+        [
+          _c("MainDashboard", {
+            attrs: {
+              query_counter_total: _vm.query_monitoring_all,
+              query_counter_1586: _vm.query_monitoring_1586,
+              query_counter_8749: _vm.query_monitoring_8749,
+              query_counter_9275: _vm.query_monitoring_9275,
+              query_counter_6969: _vm.query_monitoring_6969,
+              query_counter_9003: _vm.query_monitoring_9003,
+              label: "MONITORING",
+            },
+          }),
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        [
+          _c("MainDashboard", {
+            attrs: {
+              query_counter_total: _vm.query_nov_all,
+              query_counter_1586: _vm.query_nov_1586,
+              query_counter_8749: _vm.query_nov_8749,
+              query_counter_9275: _vm.query_nov_9275,
+              query_counter_6969: _vm.query_nov_6969,
+              query_counter_9003: _vm.query_nov_9003,
+              label: "WITH NOV",
+            },
+          }),
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        [
+          _c("MainDashboard", {
+            attrs: {
+              query_counter_total: _vm.query_order_issued,
+              label: "WITH ORDER",
+            },
+          }),
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        [
+          _c("MainDashboard", {
+            attrs: {
               query_counter_total: _vm.query_pco_all,
               label: "WITH PCO",
             },
@@ -1618,8 +1848,8 @@ var render = function () {
         [
           _c("MainDashboard", {
             attrs: {
-              query_counter_total: _vm.query_nov_all,
-              label: "WITH NOV",
+              query_counter_total: _vm.query_complaint,
+              label: "COMPLAINT",
             },
           }),
         ],

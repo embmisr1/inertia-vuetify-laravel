@@ -1,21 +1,7 @@
 <template>
     <DefaultLayout>
         
-        <div class="grid grid-cols-4 gap-4">
-            <div>
-                <MainDashboard 
-                    :query_counter_total="query_permit_1586" 
-                    label="WITH 1586">
-                </MainDashboard>
-            </div>
-            <div>
-                <MainDashboard 
-                    :query_counter_total="query_permit_8749" 
-                    :query_counter_valid="query_permit_8749_valid" 
-                    :query_counter_expired="query_permit_8749_expired" 
-                    label="WITH 8749 ">
-                </MainDashboard>
-            </div>
+        <div class="grid grid-cols-5 gap-5 mb-5">
             <div>
                 <MainDashboard 
                     :query_counter_total="query_permit_9275" 
@@ -26,8 +12,58 @@
             </div>
             <div>
                 <MainDashboard 
+                    :query_counter_total="query_permit_8749" 
+                    :query_counter_valid="query_permit_8749_valid" 
+                    :query_counter_expired="query_permit_8749_expired" 
+                    label="WITH 8749">
+                </MainDashboard>
+            </div>
+            <div>
+                <MainDashboard 
                     :query_counter_total="query_permit_6969" 
                     label="WITH 6969">
+                </MainDashboard>
+            </div>
+            <div>
+                <MainDashboard 
+                    :query_counter_total="query_permit_1586" 
+                    label="WITH 1586">
+                </MainDashboard>
+            </div>
+            <div>
+                <MainDashboard 
+                    :query_counter_total="query_registered_industries" 
+                    label="REGISTERED FIRMS">
+                </MainDashboard>
+            </div>
+        </div>
+        <div class="grid grid-cols-5 gap-5">
+            <div>
+                <MainDashboard 
+                    :query_counter_total="query_monitoring_all" 
+                    :query_counter_1586="query_monitoring_1586" 
+                    :query_counter_8749="query_monitoring_8749" 
+                    :query_counter_9275="query_monitoring_9275" 
+                    :query_counter_6969="query_monitoring_6969" 
+                    :query_counter_9003="query_monitoring_9003" 
+                    label="MONITORING">
+                </MainDashboard>
+            </div>
+            <div>
+                <MainDashboard 
+                    :query_counter_total="query_nov_all" 
+                    :query_counter_1586="query_nov_1586" 
+                    :query_counter_8749="query_nov_8749" 
+                    :query_counter_9275="query_nov_9275" 
+                    :query_counter_6969="query_nov_6969" 
+                    :query_counter_9003="query_nov_9003" 
+                    label="WITH NOV">
+                </MainDashboard>
+            </div>
+            <div>
+                <MainDashboard 
+                    :query_counter_total="query_order_issued" 
+                    label="WITH ORDER">
                 </MainDashboard>
             </div>
             <div>
@@ -38,8 +74,8 @@
             </div>
             <div>
                 <MainDashboard 
-                    :query_counter_total="query_nov_all" 
-                    label="WITH NOV">
+                    :query_counter_total="query_complaint" 
+                    label="COMPLAINT">
                 </MainDashboard>
             </div>
         </div>
@@ -61,6 +97,8 @@ export default {
         MainDashboard,
     },
     props: {
+        query_registered_industries: Number,
+        query_all_firm: Number,
         query_permit_1586: Number,
         query_permit_8749: Number,
         query_permit_9275: Number,
@@ -71,6 +109,19 @@ export default {
         query_permit_9275_expired: Number,
         query_pco_all: Number,
         query_nov_all: Number,
+        query_nov_1586: Number,
+        query_nov_8749: Number,
+        query_nov_9275: Number,
+        query_nov_6969: Number,
+        query_nov_9003: Number,
+        query_order_issued: Number,
+        query_monitoring_all: Number,
+        query_monitoring_1586: Number,
+        query_monitoring_8749: Number,
+        query_monitoring_9275: Number,
+        query_monitoring_6969: Number,
+        query_monitoring_9003: Number,
+        query_complaint: Number,
     },
     data: () => ({}),
 };

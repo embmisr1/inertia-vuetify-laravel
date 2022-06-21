@@ -48,12 +48,45 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     label: String,
     query_counter_total: Number,
     query_counter_valid: Number,
-    query_counter_expired: Number
+    query_counter_expired: Number,
+    query_counter_1586: Number,
+    query_counter_8749: Number,
+    query_counter_9275: Number,
+    query_counter_6969: Number,
+    query_counter_9003: Number
   },
   components: {},
   data: function data() {
@@ -178,11 +211,16 @@ var render = function () {
       ),
       _vm._v(" "),
       _c("div", { staticClass: "text-lg p-4" }, [
-        _vm.query_counter_expired == null
+        _vm.label == "REGISTERED FIRMS" ||
+        _vm.label == "WITH 1586" ||
+        _vm.label == "WITH 6969" ||
+        _vm.label == "WITH PCO" ||
+        _vm.label == "WITH ORDER" ||
+        _vm.label == "COMPLAINT"
           ? _c("div", { staticClass: "text-xl text-center grid grid-cols-1" }, [
               _c(
                 "div",
-                { staticClass: "text-xl text-center grid grid-cols-1" },
+                { staticClass: "text-xl text-center grid grid-cols-1 pt-6" },
                 [
                   _c("div", [
                     _vm._v("\n                    Total: "),
@@ -197,7 +235,7 @@ var render = function () {
             ])
           : _vm._e(),
         _vm._v(" "),
-        _vm.query_counter_expired != null
+        _vm.label == "WITH 8749" || _vm.label == "WITH 9275"
           ? _c("div", [
               _c(
                 "div",
@@ -228,8 +266,87 @@ var render = function () {
                   _vm._v(" "),
                   _c("div", [
                     _vm._v("\n                    Expired: "),
-                    _c("b", { staticClass: "text-2xl" }, [
+                    _c("b", { staticClass: "text-2xl text-rose-600" }, [
                       _vm._v(_vm._s(_vm.query_counter_expired)),
+                    ]),
+                  ]),
+                ]
+              ),
+            ])
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.label == "WITH NOV" || _vm.label == "MONITORING"
+          ? _c("div", [
+              _c(
+                "div",
+                { staticClass: "text-xl text-center grid grid-cols-1" },
+                [
+                  _c("div", [
+                    _vm._v("\n                    Total: "),
+                    _c("b", { staticClass: "text-2xl" }, [
+                      _vm._v(_vm._s(_vm.query_counter_total)),
+                    ]),
+                  ]),
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "text-xl text-left grid grid-cols-2 mt-5 border-t-2 border-blue-500",
+                },
+                [
+                  _c("div", [
+                    _vm._v("\n                    PD1586: "),
+                    _c("b", { staticClass: "text-2xl" }, [
+                      _vm._v(_vm._s(_vm.query_counter_1586)),
+                    ]),
+                  ]),
+                  _vm._v(" "),
+                  _c("div", [
+                    _vm._v("\n                    RA8749: "),
+                    _c("b", { staticClass: "text-2xl" }, [
+                      _vm._v(_vm._s(_vm.query_counter_8749)),
+                    ]),
+                  ]),
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "text-xl text-left grid grid-cols-2 mt-5 border-t-2 border-blue-500",
+                },
+                [
+                  _c("div", [
+                    _vm._v("\n                    RA9275: "),
+                    _c("b", { staticClass: "text-2xl" }, [
+                      _vm._v(_vm._s(_vm.query_counter_9275)),
+                    ]),
+                  ]),
+                  _vm._v(" "),
+                  _c("div", [
+                    _vm._v("\n                    RA6969: "),
+                    _c("b", { staticClass: "text-2xl" }, [
+                      _vm._v(_vm._s(_vm.query_counter_6969)),
+                    ]),
+                  ]),
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "text-xl text-left grid grid-cols-2 mt-5 border-t-2 border-blue-500",
+                },
+                [
+                  _c("div", [
+                    _vm._v("\n                    RA9003: "),
+                    _c("b", { staticClass: "text-2xl" }, [
+                      _vm._v(_vm._s(_vm.query_counter_9003)),
                     ]),
                   ]),
                 ]
@@ -245,11 +362,9 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "text-xl text-left grid grid-cols-1 mt-7" },
-      [_c("div", [_vm._v(" ")])]
-    )
+    return _c("div", { staticClass: "text-xl text-left grid grid-cols-1" }, [
+      _c("div", [_vm._v(" ")]),
+    ])
   },
 ]
 render._withStripped = true

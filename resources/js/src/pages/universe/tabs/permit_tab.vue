@@ -160,6 +160,7 @@
                     </v-icon>
                     Submit
                 </v-btn>
+                <!--
                 <v-btn depressed dark color="cyan" type="button">
                     <v-icon
                         small
@@ -169,6 +170,7 @@
                     </v-icon>
                     Add Permit
                 </v-btn>
+                -->
                 <v-btn depressed color="warning" type="button" @click="resetPermit">
                     <v-icon
                         small

@@ -68,25 +68,25 @@
             </v-toolbar>
             <v-tabs vertical>
               <v-tab>
-                <div class="flex flex-start">
+                <div class="flex flex-start text-left">
                   <v-icon>mdi-information</v-icon>&nbsp;
                   Basic Information
                 </div>
               </v-tab>
               <v-tab>
-                <div class="flex flex-start">
+                <div class="flex flex-start text-left">
                   <v-icon>mdi-file-document-multiple-outline</v-icon>&nbsp;
                   Permit
                 </div>
               </v-tab>
               <v-tab>
-                <div class="flex flex-start">
+                <div class="flex flex-start text-left">
                   <v-icon>mdi-file-document-multiple-outline</v-icon>&nbsp;
                   Monitoring
                 </div>
               </v-tab>
               <v-tab>
-                <div class="flex flex-start">
+                <div class="flex flex-start text-left">
                   <v-icon>mdi-file-document-multiple-outline</v-icon>&nbsp;
                   Legal
                 </div>
@@ -100,13 +100,13 @@
               </v-tab>
               -->
               <v-tab>
-                <div class="flex flex-start">
+                <div class="flex flex-start text-left">
                   <v-icon>mdi-file-document-multiple-outline</v-icon>&nbsp;
                   PCO
                 </div>
               </v-tab>
               <v-tab>
-                <div class="flex flex-start">
+                <div class="flex flex-start text-left">
                   <v-icon>mdi-file-document-multiple-outline</v-icon>&nbsp;
                   Complaint
                 </div>

@@ -176,6 +176,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     form_monitoring_info: Object,
@@ -1172,6 +1178,18 @@ var render = function () {
             _c("v-checkbox", {
               staticClass: "p-0 m-0",
               attrs: { label: "RA 6969", value: "RA 6969" },
+              model: {
+                value: _vm.form_monitoring_info.mon_law,
+                callback: function ($$v) {
+                  _vm.$set(_vm.form_monitoring_info, "mon_law", $$v)
+                },
+                expression: "form_monitoring_info.mon_law",
+              },
+            }),
+            _vm._v(" "),
+            _c("v-checkbox", {
+              staticClass: "p-0 m-0",
+              attrs: { label: "RA 9003", value: "RA 9003" },
               model: {
                 value: _vm.form_monitoring_info.mon_law,
                 callback: function ($$v) {

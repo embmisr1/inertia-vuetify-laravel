@@ -42,6 +42,12 @@
                             value="RA 6969"
                             class="p-0 m-0"
                         ></v-checkbox>
+                        <v-checkbox
+                            v-model="form_legal_info.nov_law"
+                            label="RA 9003"
+                            value="RA 9003"
+                            class="p-0 m-0"
+                        ></v-checkbox>
                     </div>
                     <!--
                     <div>
