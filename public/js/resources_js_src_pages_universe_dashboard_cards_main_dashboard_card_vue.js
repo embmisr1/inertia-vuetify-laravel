@@ -195,7 +195,10 @@ var render = function () {
               _vm._v(" "),
               _vm._m(0),
             ])
-          : _c("div", [
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.query_counter_expired != null
+          ? _c("div", [
               _c(
                 "div",
                 { staticClass: "text-xl text-center grid grid-cols-1" },
@@ -231,7 +234,8 @@ var render = function () {
                   ]),
                 ]
               ),
-            ]),
+            ])
+          : _vm._e(),
       ]),
     ]
   )

@@ -5,8 +5,6 @@
             <div>
                 <MainDashboard 
                     :query_counter_total="query_permit_1586" 
-                    :query_counter_valid="query_permit_1586" 
-                    :query_counter_expired="null_value" 
                     label="WITH 1586">
                 </MainDashboard>
             </div>
@@ -29,9 +27,19 @@
             <div>
                 <MainDashboard 
                     :query_counter_total="query_permit_6969" 
-                    :query_counter_valid="query_permit_6969" 
-                    :query_counter_expired="null_value" 
                     label="WITH 6969">
+                </MainDashboard>
+            </div>
+            <div>
+                <MainDashboard 
+                    :query_counter_total="query_pco_all" 
+                    label="WITH PCO">
+                </MainDashboard>
+            </div>
+            <div>
+                <MainDashboard 
+                    :query_counter_total="query_nov_all" 
+                    label="WITH NOV">
                 </MainDashboard>
             </div>
         </div>
@@ -53,7 +61,6 @@ export default {
         MainDashboard,
     },
     props: {
-        null_value: Number,
         query_permit_1586: Number,
         query_permit_8749: Number,
         query_permit_9275: Number,
@@ -62,6 +69,8 @@ export default {
         query_permit_9275_valid: Number,
         query_permit_8749_expired: Number,
         query_permit_9275_expired: Number,
+        query_pco_all: Number,
+        query_nov_all: Number,
     },
     data: () => ({}),
 };

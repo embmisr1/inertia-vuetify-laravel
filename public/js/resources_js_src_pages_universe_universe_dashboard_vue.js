@@ -597,6 +597,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -609,7 +617,6 @@ __webpack_require__.r(__webpack_exports__);
     MainDashboard: _dashboard_cards_main_dashboard_card__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   props: {
-    null_value: Number,
     query_permit_1586: Number,
     query_permit_8749: Number,
     query_permit_9275: Number,
@@ -617,7 +624,9 @@ __webpack_require__.r(__webpack_exports__);
     query_permit_8749_valid: Number,
     query_permit_9275_valid: Number,
     query_permit_8749_expired: Number,
-    query_permit_9275_expired: Number
+    query_permit_9275_expired: Number,
+    query_pco_all: Number,
+    query_nov_all: Number
   },
   data: function data() {
     return {};
@@ -1454,7 +1463,10 @@ var render = function () {
               _vm._v(" "),
               _vm._m(0),
             ])
-          : _c("div", [
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.query_counter_expired != null
+          ? _c("div", [
               _c(
                 "div",
                 { staticClass: "text-xl text-center grid grid-cols-1" },
@@ -1490,7 +1502,8 @@ var render = function () {
                   ]),
                 ]
               ),
-            ]),
+            ])
+          : _vm._e(),
       ]),
     ]
   )
@@ -1537,8 +1550,6 @@ var render = function () {
           _c("MainDashboard", {
             attrs: {
               query_counter_total: _vm.query_permit_1586,
-              query_counter_valid: _vm.query_permit_1586,
-              query_counter_expired: _vm.null_value,
               label: "WITH 1586",
             },
           }),
@@ -1582,9 +1593,33 @@ var render = function () {
           _c("MainDashboard", {
             attrs: {
               query_counter_total: _vm.query_permit_6969,
-              query_counter_valid: _vm.query_permit_6969,
-              query_counter_expired: _vm.null_value,
               label: "WITH 6969",
+            },
+          }),
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        [
+          _c("MainDashboard", {
+            attrs: {
+              query_counter_total: _vm.query_pco_all,
+              label: "WITH PCO",
+            },
+          }),
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        [
+          _c("MainDashboard", {
+            attrs: {
+              query_counter_total: _vm.query_nov_all,
+              label: "WITH NOV",
             },
           }),
         ],

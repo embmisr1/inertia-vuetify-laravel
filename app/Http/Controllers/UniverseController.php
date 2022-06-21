@@ -83,6 +83,8 @@ class UniverseController extends Controller
         $query_permit_9275_valid = DB::table('tbl_permit')->select('*')->where('perm_law','RA 9275')->where('perm_date_expiry','>',Carbon::today()->toDateString())->count();
         $query_permit_8749_expired = DB::table('tbl_permit')->select('*')->where('perm_law','RA 8749')->where('perm_date_expiry','<=',Carbon::today()->toDateString())->count();
         $query_permit_9275_expired = DB::table('tbl_permit')->select('*')->where('perm_law','RA 9275')->where('perm_date_expiry','<=',Carbon::today()->toDateString())->count();
+        $query_pco_all = DB::table('tbl_pco')->select('*')->count();
+        $query_nov_all = DB::table('tbl_legal')->select('*')->where('nov_compliance_status',null)->count();
         $query_nov_1586 = '';
         $query_nov_8749 = '';
         $query_nov_9275 = '';
@@ -90,7 +92,6 @@ class UniverseController extends Controller
         $query_order_issued = '';
         $query_monitoring_report = '';
         return Inertia::render("pages/universe/universe_dashboard",[
-            'null_value'=>null,
             'query_permit_1586'=>$query_permit_1586,
             'query_permit_8749'=>$query_permit_8749,
             'query_permit_9275'=>$query_permit_9275,
@@ -99,6 +100,8 @@ class UniverseController extends Controller
             'query_permit_9275_valid'=>$query_permit_9275_valid,
             'query_permit_8749_expired'=>$query_permit_8749_expired,
             'query_permit_9275_expired'=>$query_permit_9275_expired,
+            'query_pco_all'=>$query_pco_all,
+            'query_nov_all'=>$query_nov_all,
         ]);
     }
 

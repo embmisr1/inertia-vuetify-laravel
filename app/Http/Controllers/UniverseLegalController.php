@@ -16,6 +16,9 @@ class UniverseLegalController extends Controller
             }
             $query->nov_law = $this->industry_laws($request, 'legal', 'nov_law');
             $query->universe_FK = $universe_id;
+            if($request->legal['nov_compliance_status'] == null){
+                $query->nov_compliance_status = 'Not Complied';
+            }
             $query->save();
             return $query->id;
         }
@@ -33,6 +36,9 @@ class UniverseLegalController extends Controller
             }
             $query->nov_law = $this->industry_laws($request, 'legal', 'nov_law');
             $query->universe_FK = $universe_id;
+            if($request->legal['nov_compliance_status'] == null){
+                $query->nov_compliance_status = 'Not Complied';
+            }
             $query->save();
             return $request->legal['nov_id'];
         }

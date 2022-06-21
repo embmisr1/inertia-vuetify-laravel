@@ -17,7 +17,7 @@
                     <div>&nbsp;</div>
                 </div>
             </div>
-            <div v-else>
+            <div v-if="(query_counter_expired != null)">
                 <div class="text-xl text-center grid grid-cols-1">
                     <div>
                         Total: <b class="text-2xl">{{query_counter_total}}</b>
