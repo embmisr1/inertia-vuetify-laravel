@@ -76,29 +76,29 @@ class UniverseController extends Controller
     
     public function universe_dashboard(request $request){
         $query_registered_industries = DB::table('tbl_universe')->select('*')->count();
-        $query_permit_1586 = DB::table('tbl_permit')->select('*')->where('perm_law','PD 1586')->count();
-        $query_permit_8749 = DB::table('tbl_permit')->select('*')->where('perm_law','RA 8749')->count();
-        $query_permit_9275 = DB::table('tbl_permit')->select('*')->where('perm_law','RA 9275')->count();
-        $query_permit_6969 = DB::table('tbl_permit')->select('*')->where('perm_law','RA 6969')->count();
-        $query_permit_8749_valid = DB::table('tbl_permit')->select('*')->where('perm_law','RA 8749')->where('perm_date_expiry','>',Carbon::today()->toDateString())->count();
-        $query_permit_9275_valid = DB::table('tbl_permit')->select('*')->where('perm_law','RA 9275')->where('perm_date_expiry','>',Carbon::today()->toDateString())->count();
-        $query_permit_8749_expired = DB::table('tbl_permit')->select('*')->where('perm_law','RA 8749')->where('perm_date_expiry','<=',Carbon::today()->toDateString())->count();
-        $query_permit_9275_expired = DB::table('tbl_permit')->select('*')->where('perm_law','RA 9275')->where('perm_date_expiry','<=',Carbon::today()->toDateString())->count();
-        $query_pco_all = DB::table('tbl_pco')->select('*')->count();
-        $query_nov_all = DB::table('tbl_legal')->select('*')->where('nov_compliance_status','!=','Complied')->count();
-        $query_nov_1586 = DB::table('tbl_legal')->select('*')->where('nov_compliance_status','!=','Complied')->where('nov_law','like','%PD 1586%')->count();
-        $query_nov_8749 = DB::table('tbl_legal')->select('*')->where('nov_compliance_status','!=','Complied')->where('nov_law','like','%RA 8749%')->count();
-        $query_nov_9275 = DB::table('tbl_legal')->select('*')->where('nov_compliance_status','!=','Complied')->where('nov_law','like','%RA 9275%')->count();
-        $query_nov_6969 = DB::table('tbl_legal')->select('*')->where('nov_compliance_status','!=','Complied')->where('nov_law','like','%RA 6969%')->count();
-        $query_nov_9003 = DB::table('tbl_legal')->select('*')->where('nov_compliance_status','!=','Complied')->where('nov_law','like','%RA 9003%')->count();
-        $query_order_issued = DB::table('tbl_legal')->select('*')->where('nov_compliance_status','!=','Complied')->where('nov_order_number','!=',null)->count();
-        $query_monitoring_all = DB::table('tbl_monitoring')->select('*')->count();
-        $query_monitoring_1586 = DB::table('tbl_monitoring')->select('*')->where('mon_law','like','%PD 1586%')->count();
-        $query_monitoring_8749 = DB::table('tbl_monitoring')->select('*')->where('mon_law','like','%RA 8749%')->count();
-        $query_monitoring_9275 = DB::table('tbl_monitoring')->select('*')->where('mon_law','like','%RA 9275%')->count();
-        $query_monitoring_6969 = DB::table('tbl_monitoring')->select('*')->where('mon_law','like','%RA 6969%')->count();
-        $query_monitoring_9003 = DB::table('tbl_monitoring')->select('*')->where('mon_law','like','%RA 9003%')->count();
-        $query_complaint = DB::table('tbl_complaint')->select('*')->count();
+        $query_permit_1586 = Permit::where('perm_law','PD 1586')->count();
+        $query_permit_8749 = Permit::where('perm_law','RA 8749')->count();
+        $query_permit_9275 = Permit::where('perm_law','RA 9275')->count();
+        $query_permit_6969 = Permit::where('perm_law','RA 6969')->count();
+        $query_permit_8749_valid = Permit::where('perm_law','RA 8749')->where('perm_date_expiry','>',Carbon::today()->toDateString())->count();
+        $query_permit_9275_valid = Permit::where('perm_law','RA 9275')->where('perm_date_expiry','>',Carbon::today()->toDateString())->count();
+        $query_permit_8749_expired = Permit::where('perm_law','RA 8749')->where('perm_date_expiry','<=',Carbon::today()->toDateString())->count();
+        $query_permit_9275_expired = Permit::where('perm_law','RA 9275')->where('perm_date_expiry','<=',Carbon::today()->toDateString())->count();
+        $query_pco_all = Pco::count();
+        $query_nov_all = Legal::where('nov_compliance_status','!=','Complied')->count();
+        $query_nov_1586 = Legal::where('nov_compliance_status','!=','Complied')->where('nov_law','like','%PD 1586%')->count();
+        $query_nov_8749 = Legal::where('nov_compliance_status','!=','Complied')->where('nov_law','like','%RA 8749%')->count();
+        $query_nov_9275 = Legal::where('nov_compliance_status','!=','Complied')->where('nov_law','like','%RA 9275%')->count();
+        $query_nov_6969 = Legal::where('nov_compliance_status','!=','Complied')->where('nov_law','like','%RA 6969%')->count();
+        $query_nov_9003 = Legal::where('nov_compliance_status','!=','Complied')->where('nov_law','like','%RA 9003%')->count();
+        $query_order_issued = Legal::where('nov_compliance_status','!=','Complied')->where('nov_order_number','!=',null)->count();
+        $query_monitoring_all = Monitoring::count();
+        $query_monitoring_1586 = Monitoring::where('mon_law','like','%PD 1586%')->count();
+        $query_monitoring_8749 = Monitoring::where('mon_law','like','%RA 8749%')->count();
+        $query_monitoring_9275 = Monitoring::where('mon_law','like','%RA 9275%')->count();
+        $query_monitoring_6969 = Monitoring::where('mon_law','like','%RA 6969%')->count();
+        $query_monitoring_9003 = Monitoring::where('mon_law','like','%RA 9003%')->count();
+        $query_complaint = Complaint::count();
         return Inertia::render("pages/universe/universe_dashboard",[
             'query_registered_industries'=>$query_registered_industries,
             'query_permit_1586'=>$query_permit_1586,

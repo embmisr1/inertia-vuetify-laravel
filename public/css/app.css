@@ -543,14 +543,14 @@ Ensure the default browser behavior of the `hidden` attribute.
 .mb-0 {
   margin-bottom: 0px;
 }
+.mb-5 {
+  margin-bottom: 1.25rem;
+}
 .mb-2 {
   margin-bottom: 0.5rem;
 }
 .mt-1 {
   margin-top: 0.25rem;
-}
-.mt-7 {
-  margin-top: 1.75rem;
 }
 .mt-5 {
   margin-top: 1.25rem;
@@ -560,12 +560,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .ml-8 {
   margin-left: 2rem;
-}
-.mb-5 {
-  margin-bottom: 1.25rem;
-}
-.mb-10 {
-  margin-bottom: 2.5rem;
 }
 .flex {
   display: flex;
@@ -591,15 +585,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .h-24 {
   height: 6rem;
 }
-.h-20 {
-  height: 5rem;
-}
-.h-40 {
-  height: 10rem;
-}
-.h-32 {
-  height: 8rem;
-}
 .max-h-12 {
   max-height: 3rem;
 }
@@ -624,6 +609,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .grid-cols-1 {
   grid-template-columns: repeat(1, minmax(0, 1fr));
 }
+.grid-cols-5 {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
 .grid-cols-4 {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
@@ -632,9 +620,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .grid-cols-3 {
   grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-.grid-cols-5 {
-  grid-template-columns: repeat(5, minmax(0, 1fr));
 }
 .grid-cols-6 {
   grid-template-columns: repeat(6, minmax(0, 1fr));
@@ -654,14 +639,15 @@ Ensure the default browser behavior of the `hidden` attribute.
 .justify-center {
   justify-content: center;
 }
+.gap-5 {
+  gap: 1.25rem;
+}
 .gap-4 {
   gap: 1rem;
 }
-.gap-3 {
-  gap: 0.75rem;
-}
-.gap-5 {
-  gap: 1.25rem;
+.gap-x-3 {
+  -moz-column-gap: 0.75rem;
+       column-gap: 0.75rem;
 }
 .gap-x-10 {
   -moz-column-gap: 2.5rem;
@@ -676,10 +662,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .gap-y-3 {
   row-gap: 0.75rem;
-}
-.gap-x-3 {
-  -moz-column-gap: 0.75rem;
-       column-gap: 0.75rem;
 }
 .gap-y-2 {
   row-gap: 0.5rem;
@@ -790,12 +772,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .pt-8 {
   padding-top: 2rem;
 }
-.pt-10 {
-  padding-top: 2.5rem;
-}
-.pt-7 {
-  padding-top: 1.75rem;
-}
 .pt-6 {
   padding-top: 1.5rem;
 }
@@ -878,10 +854,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .text-black {
   --tw-text-opacity: 1;
   color: rgb(0 0 0 / var(--tw-text-opacity));
-}
-.text-blue-600 {
-  --tw-text-opacity: 1;
-  color: rgb(37 99 235 / var(--tw-text-opacity));
 }
 .text-rose-600 {
   --tw-text-opacity: 1;
