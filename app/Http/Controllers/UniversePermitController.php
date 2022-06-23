@@ -15,6 +15,7 @@ class UniversePermitController extends Controller
                 $query->$cols = $request->permit[$cols];
             }
             $query->universe_FK = $universe_id;
+            $query->is_priority = 1;
             $query->save();
             return $query->id;
         }
@@ -22,6 +23,14 @@ class UniversePermitController extends Controller
 
     public function permit_process_update($request, $universe_id){
         if($request->permit['perm_law'] && $request->permit['perm_number']){
+            $query_null_priority = DB::table('tbl_permit')
+            ->where('universe_FK',$universe_id)
+            ->where('perm_law',$request->permit['perm_law'])
+            ->update([
+                'is_priority' => null,
+            ]);
+            $query_null_priority;
+            
             if($request->permit['perm_id']){
                 $query = Permit::find($request->permit['perm_id']);
             }else{
@@ -31,6 +40,7 @@ class UniversePermitController extends Controller
                 $query->$cols = $request->permit[$cols];
             }
             $query->universe_FK = $universe_id;
+            $query->is_priority = 1;
             $query->save();
             return $request->permit['perm_id'];
         }
