@@ -76,14 +76,14 @@ class UniverseController extends Controller
     
     public function universe_dashboard(request $request){
         $query_registered_industries = DB::table('tbl_universe')->select('*')->count();
-        $query_permit_1586 = Permit::where('perm_law','PD 1586')->count();
-        $query_permit_8749 = Permit::where('perm_law','RA 8749')->count();
-        $query_permit_9275 = Permit::where('perm_law','RA 9275')->count();
-        $query_permit_6969 = Permit::where('perm_law','RA 6969')->count();
-        $query_permit_8749_valid = Permit::where('perm_law','RA 8749')->where('perm_date_expiry','>',Carbon::today()->toDateString())->count();
-        $query_permit_9275_valid = Permit::where('perm_law','RA 9275')->where('perm_date_expiry','>',Carbon::today()->toDateString())->count();
-        $query_permit_8749_expired = Permit::where('perm_law','RA 8749')->where('perm_date_expiry','<=',Carbon::today()->toDateString())->count();
-        $query_permit_9275_expired = Permit::where('perm_law','RA 9275')->where('perm_date_expiry','<=',Carbon::today()->toDateString())->count();
+        $query_permit_1586 = Permit::where('perm_law','PD 1586')->where('is_priority',1)->count();
+        $query_permit_8749 = Permit::where('perm_law','RA 8749')->where('is_priority',1)->count();
+        $query_permit_9275 = Permit::where('perm_law','RA 9275')->where('is_priority',1)->count();
+        $query_permit_6969 = Permit::where('perm_law','RA 6969')->where('is_priority',1)->count();
+        $query_permit_8749_valid = Permit::where('perm_law','RA 8749')->where('is_priority',1)->where('perm_date_expiry','>',Carbon::today()->toDateString())->count();
+        $query_permit_9275_valid = Permit::where('perm_law','RA 9275')->where('is_priority',1)->where('perm_date_expiry','>',Carbon::today()->toDateString())->count();
+        $query_permit_8749_expired = Permit::where('perm_law','RA 8749')->where('is_priority',1)->where('perm_date_expiry','<=',Carbon::today()->toDateString())->count();
+        $query_permit_9275_expired = Permit::where('perm_law','RA 9275')->where('is_priority',1)->where('perm_date_expiry','<=',Carbon::today()->toDateString())->count();
         $query_pco_all = Pco::count();
         $query_nov_all = Legal::where('nov_compliance_status','!=','Complied')->count();
         $query_nov_1586 = Legal::where('nov_compliance_status','!=','Complied')->where('nov_law','like','%PD 1586%')->count();
