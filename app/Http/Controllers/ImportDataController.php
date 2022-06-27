@@ -50,7 +50,7 @@ class ImportDataController extends Controller
         //     $query_import->un_type = $qry->firm_or_lgu;
         //     $query_import->save();
         // }
-        // =============================================== PERMIT TABLE ===============================================
+        // =============================================== PERMIT TABLE - AIR WATER HAZWASTE ===============================================
         // $query = DB::table('rips_permits')->select('*')->get();
         // foreach($query as $qry){
         //     $query_import = new Permit();
@@ -68,6 +68,7 @@ class ImportDataController extends Controller
         //     $query_import->updated_at = $qry->updated_at;
         //     $query_import->save();
         // }
+        // =============================================== PERMIT TABLE - HAZWASTE ===============================================
         // $query = DB::table('rips_hazwaste')->select('*')->get();
         // foreach($query as $qry){
         //     $query_import = new Permit();
@@ -82,6 +83,32 @@ class ImportDataController extends Controller
         //     $query_import->created_at = $qry->created_at;
         //     $query_import->updated_at = $qry->updated_at;
         //     $query_import->save();
+        // }
+        // =============================================== PERMIT TABLE - IS PRIORITY ===============================================
+        // $query = DB::table('tbl_permit as a')
+        // ->select('a.perm_hazwaste_type','a.perm_law','a.universe_FK')
+        // ->groupby('a.perm_hazwaste_type')
+        // ->groupby('a.perm_law')
+        // ->groupby('a.universe_FK')
+        // ->orderby('a.universe_FK','desc')
+        // ->where('id','>',16000)
+        // ->where('id','<=',17000)
+        // ->where('a.perm_law','!=',null)
+        // ->get();
+        // foreach($query as $qry){
+        //     $query2 = DB::table('tbl_permit')->select('*')
+        //     ->where('universe_FK', $qry->universe_FK)
+        //     ->where('perm_hazwaste_type', $qry->perm_hazwaste_type)
+        //     ->where('perm_law', $qry->perm_law)
+        //     ->orderby('id','desc')->limit(1)->get();
+
+        //     $query_update = Permit::find($query2[0]->id);
+        //     $query_update->is_priority = 1;
+        //     $query_update->save();
+            
+        //     echo $query2[0]->id.' - ';
+        //     echo $query2[0]->perm_law.' - ';
+        //     echo $query2[0]->universe_FK.'<br/>';
         // }
         // =============================================== MONITORING TABLE ===============================================
         // $query = DB::table('rips_monitoring')->select('*')->get();
