@@ -45,18 +45,6 @@ class UniverseController extends Controller
             })
             ->paginate(3);
 
-        // if($request->PK_province_ID){
-        //     $query = $query->where('a.un_province',$request->PK_province_ID);
-        // }
-        // if($request->PK_citymun_ID){
-        //     $query = $query->where('a.un_municipality',$request->PK_citymun_ID);
-        // }
-        // if($request->PK_citymun_ID){
-        //     $query = $query->where('a.un_brgy',$request->PK_brgy_ID);
-        // }
-
-        // $query = $query->paginate(3);
-
         return Inertia::render("pages/universe/universe_list", [
             // "filter" => FacadeRequest::all(
             //     'PK_province_ID',

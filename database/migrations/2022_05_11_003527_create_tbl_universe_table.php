@@ -26,8 +26,8 @@ class CreateTblUniverseTable extends Migration
             $table->integer('un_project_subtype')->nullable();
             $table->integer('un_project_specific_type')->nullable();
             $table->integer('un_project_specific_subtype')->nullable();
-            $table->integer('un_detailed_description')->nullable();
-            $table->integer('un_specific_address')->nullable();
+            $table->longText('un_detailed_description')->nullable();
+            $table->longText('un_specific_address')->nullable();
             $table->integer('un_brgy')->nullable();
             $table->integer('un_municipality')->nullable();
             $table->integer('un_province')->nullable();

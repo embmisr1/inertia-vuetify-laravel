@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Dashboard;
 use App\Http\Controllers\DivisionController;
+use App\Http\Controllers\ImportDataController;
 use App\Http\Controllers\PositionController;
 use App\Http\Controllers\Profile;
 use App\Http\Controllers\ProjectSpecificSubTypeController;
@@ -80,6 +81,7 @@ Route::group([
     // OWENS
 
     // GET REQUESTS
+    Route::get('/import_data', [ImportDataController::class, 'import_data'])->name("import_data");
     Route::get('/universe', [UniverseController::class, 'universe_list'])->name("universe_list");
     Route::get('/universe_dashboard', [UniverseController::class, 'universe_dashboard'])->name("universe_dashboard");
     Route::get('/universe_form', [UniverseController::class, 'universe_form'])->name("universe_form");
