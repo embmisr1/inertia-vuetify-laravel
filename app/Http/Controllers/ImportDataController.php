@@ -156,5 +156,34 @@ class ImportDataController extends Controller
         //     $query_import->universe_FK = $qry->FK_ripsUniverse_ID;
         //     $query_import->save();
         // }
+        // =============================================== MONITORING AND LEGAL COMMA SEPARATOR WITH SPACE ===============================================
+        // $query = DB::table('tbl_monitoring')->select('*')->orderby('id','desc')->get();
+        // foreach($query as $qry){
+        //     $converted_string = $qry->mon_law;
+        //     $converted_string = str_replace(', ',',',$qry->mon_law);
+        //     $query = Monitoring::find($qry->id);
+        //     $query->mon_law = $converted_string;
+        //     $query->save();
+        //     $converted_string = $qry->mon_law;
+        //     $converted_string = str_replace(',',', ',$qry->mon_law);
+        //     $query = Monitoring::find($qry->id);
+        //     $query->mon_law = $converted_string;
+        //     $query->save();
+        //     echo $converted_string.'<br/>';
+        // }
+        // $query = DB::table('tbl_legal')->select('*')->orderby('id','desc')->get();
+        // foreach($query as $qry){
+        //     $converted_string = $qry->nov_law;
+        //     $converted_string = str_replace(', ',',',$qry->nov_law);
+        //     $query = Legal::find($qry->id);
+        //     $query->nov_law = $converted_string;
+        //     $query->save();
+        //     $converted_string = $qry->nov_law;
+        //     $converted_string = str_replace(',',', ',$qry->nov_law);
+        //     $query = Legal::find($qry->id);
+        //     $query->nov_law = $converted_string;
+        //     $query->save();
+        //     echo $converted_string.'<br/>';
+        // }
     }
 }
