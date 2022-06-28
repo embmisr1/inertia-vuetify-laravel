@@ -7,6 +7,7 @@
                     :query_counter_total="query_permit_9275" 
                     :query_counter_valid="query_permit_9275_valid" 
                     :query_counter_expired="query_permit_9275_expired" 
+                    :query_counter_undefined="query_permit_9275_undefined" 
                     label="WITH 9275">
                 </MainDashboard>
             </div>
@@ -15,6 +16,7 @@
                     :query_counter_total="query_permit_8749" 
                     :query_counter_valid="query_permit_8749_valid" 
                     :query_counter_expired="query_permit_8749_expired" 
+                    :query_counter_undefined="query_permit_8749_undefined" 
                     label="WITH 8749">
                 </MainDashboard>
             </div>
@@ -107,6 +109,8 @@ export default {
         query_permit_9275_valid: Number,
         query_permit_8749_expired: Number,
         query_permit_9275_expired: Number,
+        query_permit_8749_undefined: Number,
+        query_permit_9275_undefined: Number,
         query_pco_all: Number,
         query_nov_all: Number,
         query_nov_1586: Number,

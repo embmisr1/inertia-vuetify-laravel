@@ -43,7 +43,7 @@ class UniverseController extends Controller
             ->when(request('PK_citymun_ID'), function ($query) {
                 $query->where('a.un_brgy', request('PK_citymun_ID'));
             })
-            ->paginate(3);
+            ->paginate(10);
 
         return Inertia::render("pages/universe/universe_list", [
             // "filter" => FacadeRequest::all(
@@ -72,6 +72,18 @@ class UniverseController extends Controller
         $query_permit_9275_valid = Permit::where('perm_law','RA 9275')->where('is_priority',1)->where('perm_date_expiry','>',Carbon::today()->toDateString())->count();
         $query_permit_8749_expired = Permit::where('perm_law','RA 8749')->where('is_priority',1)->where('perm_date_expiry','<=',Carbon::today()->toDateString())->count();
         $query_permit_9275_expired = Permit::where('perm_law','RA 9275')->where('is_priority',1)->where('perm_date_expiry','<=',Carbon::today()->toDateString())->count();
+        $query_permit_8749_undefined = Permit::where('perm_law','RA 8749')->where('is_priority',1)
+        ->where(
+            function($query) {
+              return $query->where('perm_date_expiry', null)->orWhere('perm_date_expiry', null);
+            }
+        )->count();
+        $query_permit_9275_undefined = Permit::where('perm_law','RA 9275')->where('is_priority',1)
+        ->where(
+            function($query) {
+              return $query->where('perm_date_expiry', null)->orWhere('perm_date_expiry', null);
+            }
+        )->count();
         $query_pco_all = Pco::count();
         $query_nov_all = Legal::where('nov_compliance_status','!=','Complied')->count();
         $query_nov_1586 = Legal::where('nov_compliance_status','!=','Complied')->where('nov_law','like','%PD 1586%')->count();
@@ -97,6 +109,8 @@ class UniverseController extends Controller
             'query_permit_9275_valid'=>$query_permit_9275_valid,
             'query_permit_8749_expired'=>$query_permit_8749_expired,
             'query_permit_9275_expired'=>$query_permit_9275_expired,
+            'query_permit_8749_undefined'=>$query_permit_8749_undefined,
+            'query_permit_9275_undefined'=>$query_permit_9275_undefined,
             'query_pco_all'=>$query_pco_all,
             'query_nov_all'=>$query_nov_all,
             'query_nov_1586'=>$query_nov_1586,

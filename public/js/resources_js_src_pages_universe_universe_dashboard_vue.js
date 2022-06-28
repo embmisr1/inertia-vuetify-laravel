@@ -554,12 +554,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     label: String,
     query_counter_total: Number,
     query_counter_valid: Number,
     query_counter_expired: Number,
+    query_counter_undefined: Number,
     query_counter_1586: Number,
     query_counter_8749: Number,
     query_counter_9275: Number,
@@ -674,6 +680,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 
@@ -696,6 +704,8 @@ __webpack_require__.r(__webpack_exports__);
     query_permit_9275_valid: Number,
     query_permit_8749_expired: Number,
     query_permit_9275_expired: Number,
+    query_permit_8749_undefined: Number,
+    query_permit_9275_undefined: Number,
     query_pco_all: Number,
     query_nov_all: Number,
     query_nov_1586: Number,
@@ -1578,6 +1588,7 @@ var render = function () {
                 [
                   _c("div", [
                     _vm._v("\n                    Active: "),
+                    _c("br"),
                     _c("b", { staticClass: "text-2xl" }, [
                       _vm._v(_vm._s(_vm.query_counter_valid)),
                     ]),
@@ -1585,8 +1596,26 @@ var render = function () {
                   _vm._v(" "),
                   _c("div", [
                     _vm._v("\n                    Expired: "),
+                    _c("br"),
                     _c("b", { staticClass: "text-2xl text-rose-600" }, [
                       _vm._v(_vm._s(_vm.query_counter_expired)),
+                    ]),
+                  ]),
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "text-xl text-left grid grid-cols-1 mt-5 border-t-2 border-blue-500",
+                },
+                [
+                  _c("div", [
+                    _vm._v("\n                    Undefined: "),
+                    _c("br"),
+                    _c("b", { staticClass: "text-2xl" }, [
+                      _vm._v(_vm._s(_vm.query_counter_undefined)),
                     ]),
                   ]),
                 ]
@@ -1618,6 +1647,7 @@ var render = function () {
                 [
                   _c("div", [
                     _vm._v("\n                    PD1586: "),
+                    _c("br"),
                     _c("b", { staticClass: "text-2xl" }, [
                       _vm._v(_vm._s(_vm.query_counter_1586)),
                     ]),
@@ -1625,6 +1655,7 @@ var render = function () {
                   _vm._v(" "),
                   _c("div", [
                     _vm._v("\n                    RA8749: "),
+                    _c("br"),
                     _c("b", { staticClass: "text-2xl" }, [
                       _vm._v(_vm._s(_vm.query_counter_8749)),
                     ]),
@@ -1641,6 +1672,7 @@ var render = function () {
                 [
                   _c("div", [
                     _vm._v("\n                    RA9275: "),
+                    _c("br"),
                     _c("b", { staticClass: "text-2xl" }, [
                       _vm._v(_vm._s(_vm.query_counter_9275)),
                     ]),
@@ -1648,6 +1680,7 @@ var render = function () {
                   _vm._v(" "),
                   _c("div", [
                     _vm._v("\n                    RA6969: "),
+                    _c("br"),
                     _c("b", { staticClass: "text-2xl" }, [
                       _vm._v(_vm._s(_vm.query_counter_6969)),
                     ]),
@@ -1659,7 +1692,7 @@ var render = function () {
                 "div",
                 {
                   staticClass:
-                    "text-xl text-left grid grid-cols-2 mt-5 border-t-2 border-blue-500",
+                    "text-xl text-left grid grid-cols-1 mt-5 border-t-2 border-blue-500",
                 },
                 [
                   _c("div", [
@@ -1718,6 +1751,7 @@ var render = function () {
               query_counter_total: _vm.query_permit_9275,
               query_counter_valid: _vm.query_permit_9275_valid,
               query_counter_expired: _vm.query_permit_9275_expired,
+              query_counter_undefined: _vm.query_permit_9275_undefined,
               label: "WITH 9275",
             },
           }),
@@ -1733,6 +1767,7 @@ var render = function () {
               query_counter_total: _vm.query_permit_8749,
               query_counter_valid: _vm.query_permit_8749_valid,
               query_counter_expired: _vm.query_permit_8749_expired,
+              query_counter_undefined: _vm.query_permit_8749_undefined,
               label: "WITH 8749",
             },
           }),

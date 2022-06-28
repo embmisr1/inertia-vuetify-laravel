@@ -21,7 +21,7 @@ class MiniDashboardController extends Controller
         
     public function mini_dashboard($fk){
         $today = Carbon::now('Asia/Manila');
-        $ctr_permit = Permit::where('universe_FK',$fk)->count();
+        $ctr_permit = Permit::where('universe_FK',$fk)->where('is_priority',1)->count();
         $ctr_permit_pd1586 = Permit::where('universe_FK',$fk)->where('perm_law','like','%PD 1586%')->where('is_priority',1)->count();
         $ctr_permit_ra8749 = Permit::where('universe_FK',$fk)->where('perm_law','like','%RA 8749%')->where('is_priority',1)->count();
         $ctr_permit_ra9275 = Permit::where('universe_FK',$fk)->where('perm_law','like','%RA 9275%')->where('is_priority',1)->count();
@@ -33,11 +33,13 @@ class MiniDashboardController extends Controller
         $ctr_monitoring_ra8749 = Monitoring::where('universe_FK',$fk)->where('mon_law','like','%RA 8749%')->count();
         $ctr_monitoring_ra9275 = Monitoring::where('universe_FK',$fk)->where('mon_law','like','%RA 9275%')->count();
         $ctr_monitoring_ra6969 = Monitoring::where('universe_FK',$fk)->where('mon_law','like','%RA 6969%')->count();
+        $ctr_monitoring_ra9003 = Monitoring::where('universe_FK',$fk)->where('mon_law','like','%RA 9003%')->count();
         $ctr_legal = Legal::where('universe_FK',$fk)->where('nov_compliance_status','!=','Complied')->count();
         $ctr_legal_pd1586 = Legal::where('universe_FK',$fk)->where('nov_law','like','%PD 1586%')->where('nov_compliance_status','!=','Complied')->count();
         $ctr_legal_ra8749 = Legal::where('universe_FK',$fk)->where('nov_law','like','%RA 8749%')->where('nov_compliance_status','!=','Complied')->count();
         $ctr_legal_ra9275 = Legal::where('universe_FK',$fk)->where('nov_law','like','%RA 9275%')->where('nov_compliance_status','!=','Complied')->count();
         $ctr_legal_ra6969 = Legal::where('universe_FK',$fk)->where('nov_law','like','%RA 6969%')->where('nov_compliance_status','!=','Complied')->count();
+        $ctr_legal_ra9003 = Legal::where('universe_FK',$fk)->where('nov_law','like','%RA 9003%')->where('nov_compliance_status','!=','Complied')->count();
         $ctr_hazwaste = Hazwaste::where('universe_FK',$fk)->count();
         $ctr_pco = Pco::where('universe_FK',$fk)->count();
         $ctr_complaint = Complaint::where('universe_FK',$fk)->count();
@@ -68,12 +70,14 @@ class MiniDashboardController extends Controller
                     'RA 8749: ',
                     'RA 9275: ',
                     'RA 6969: ',
+                    'RA 9003: ',
                 ],
                 'content' => [
                     $ctr_legal_pd1586,
                     $ctr_legal_ra8749,
                     $ctr_legal_ra9275,
                     $ctr_legal_ra6969,
+                    $ctr_legal_ra9003,
                 ],
             ],
             'monitoring' => [
@@ -83,12 +87,14 @@ class MiniDashboardController extends Controller
                     'RA 8749: ',
                     'RA 9275: ',
                     'RA 6969: ',
+                    'RA 9003: ',
                 ],
                 'content' => [
                     $ctr_monitoring_pd1586,
                     $ctr_monitoring_ra8749,
                     $ctr_monitoring_ra9275,
                     $ctr_monitoring_ra6969,
+                    $ctr_monitoring_ra9003,
                 ],
             ],
             'hazwaste' => [
