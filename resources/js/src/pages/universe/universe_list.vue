@@ -211,36 +211,38 @@
                             clearable
                         ></v-autocomplete>
                     </div>
-                    <v-checkbox
-                        v-model="filter.search1586"
-                        label="PD 1586"
-                        value="PD 1586"
-                        class="p-0 m-0 mt-5"
-                    ></v-checkbox>
-                    <v-checkbox
-                        v-model="filter.search8749"
-                        label="RA 8749"
-                        value="RA 8749"
-                        class="p-0 m-0"
-                    ></v-checkbox>
-                    <v-checkbox
-                        v-model="filter.search9275"
-                        label="RA 9275"
-                        value="RA 9275"
-                        class="p-0 m-0"
-                    ></v-checkbox>
-                    <v-checkbox
-                        v-model="filter.search6969"
-                        label="RA 6969"
-                        value="RA 6969"
-                        class="p-0 m-0"
-                    ></v-checkbox>
-                    <v-checkbox
-                        v-model="filter.search9003"
-                        label="RA 9003"
-                        value="RA 9003"
-                        class="p-0 m-0"
-                    ></v-checkbox>
+                    <div v-if="selectedSearchCategory == 'PERMIT' || selectedSearchCategory == 'MONITORING' || selectedSearchCategory == 'LEGAL'">
+                        <v-checkbox
+                            v-model="filter.search1586"
+                            label="PD 1586"
+                            value="PD 1586"
+                            class="p-0 m-0 mt-5"
+                        ></v-checkbox>
+                        <v-checkbox
+                            v-model="filter.search8749"
+                            label="RA 8749"
+                            value="RA 8749"
+                            class="p-0 m-0"
+                        ></v-checkbox>
+                        <v-checkbox
+                            v-model="filter.search9275"
+                            label="RA 9275"
+                            value="RA 9275"
+                            class="p-0 m-0"
+                        ></v-checkbox>
+                        <v-checkbox
+                            v-model="filter.search6969"
+                            label="RA 6969"
+                            value="RA 6969"
+                            class="p-0 m-0"
+                        ></v-checkbox>
+                        <v-checkbox v-if="selectedSearchCategory == 'MONITORING' || selectedSearchCategory == 'LEGAL'"
+                            v-model="filter.search9003"
+                            label="RA 9003"
+                            value="RA 9003"
+                            class="p-0 m-0"
+                        ></v-checkbox>
+                    </div>
                 </v-card-text>
                 <v-card-actions>
                     <v-spacer></v-spacer>
@@ -365,6 +367,9 @@ export default {
         PK_citymun_ID() {
             return this.filter.PK_citymun_ID;
         },
+        selectedSearchCategory(){
+            return this.filter.selectedSearchCategory;
+        }
     },
 
     data() {
@@ -377,8 +382,8 @@ export default {
             searchProvince: null,
             searchCityMun: null,
             searchBrgy: null,
-            searchCategory: ['PERMIT', 'MONITORING', 'LEGAL', 'PCO', 'COMPLAINT'],
-            selectedCategory:null
+            searchCategory: ['PERMIT', 'MONITORING', 'LEGAL', 'ORDER', 'PCO', 'COMPLAINT', 'ALL FIRMS'],
+            selectedCategory:null,
         };
     },
     watch: {
@@ -400,6 +405,18 @@ export default {
         },
         PK_citymun_ID(value) {
             if (value) this.municipalityDropdown(value);
+        },
+        selectedSearchCategory(data){
+            if( data == 'ORDER' || data == 'PCO' || data == 'COMPLAINT' || data == 'ALL FIRMS'){
+                this.filter.search1586 = null;
+                this.filter.search8749 = null;
+                this.filter.search9275 = null;
+                this.filter.search6969 = null;
+                this.filter.search9003 = null;
+            }
+            if( data == 'PERMIT'){
+                this.filter.search9003 = null;
+            }
         },
     },
 };

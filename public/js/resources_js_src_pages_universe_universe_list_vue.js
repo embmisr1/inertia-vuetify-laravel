@@ -783,6 +783,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
 
 
 
@@ -1063,6 +1065,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     },
     PK_citymun_ID: function PK_citymun_ID() {
       return this.filter.PK_citymun_ID;
+    },
+    selectedSearchCategory: function selectedSearchCategory() {
+      return this.filter.selectedSearchCategory;
     }
   },
   data: function data() {
@@ -1075,7 +1080,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       searchProvince: null,
       searchCityMun: null,
       searchBrgy: null,
-      searchCategory: ['PERMIT', 'MONITORING', 'LEGAL', 'PCO', 'COMPLAINT'],
+      searchCategory: ['PERMIT', 'MONITORING', 'LEGAL', 'ORDER', 'PCO', 'COMPLAINT', 'ALL FIRMS'],
       selectedCategory: null
     };
   },
@@ -1098,6 +1103,19 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     },
     PK_citymun_ID: function PK_citymun_ID(value) {
       if (value) this.municipalityDropdown(value);
+    },
+    selectedSearchCategory: function selectedSearchCategory(data) {
+      if (data == 'ORDER' || data == 'PCO' || data == 'COMPLAINT' || data == 'ALL FIRMS') {
+        this.filter.search1586 = null;
+        this.filter.search8749 = null;
+        this.filter.search9275 = null;
+        this.filter.search6969 = null;
+        this.filter.search9003 = null;
+      }
+
+      if (data == 'PERMIT') {
+        this.filter.search9003 = null;
+      }
     }
   }
 });
@@ -21702,192 +21720,201 @@ var render = function () {
                 1
               ),
               _vm._v(" "),
-              _c(
-                "v-card-text",
-                [
-                  _c(
-                    "div",
-                    [
-                      _c("v-autocomplete", {
-                        attrs: {
-                          loading: _vm.loading,
-                          items: _vm.province_list_alter,
-                          label: "Province",
-                          "item-text": "provDesc",
-                          "item-value": "PK_province_ID",
-                          clearable: "",
-                          "search-input": _vm.searchProvince,
-                        },
-                        on: {
-                          "update:searchInput": function ($event) {
-                            _vm.searchProvince = $event
-                          },
-                          "update:search-input": function ($event) {
-                            _vm.searchProvince = $event
-                          },
-                        },
-                        model: {
-                          value: _vm.filter.PK_province_ID,
-                          callback: function ($$v) {
-                            _vm.$set(_vm.filter, "PK_province_ID", $$v)
-                          },
-                          expression: "filter.PK_province_ID",
-                        },
-                      }),
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    [
-                      _c("v-autocomplete", {
-                        attrs: {
-                          loading: _vm.loading,
-                          items: _vm.municipality_list_alter,
-                          label: "Municipality",
-                          "item-text": "citymunDesc",
-                          "item-value": "PK_citymun_ID",
-                          clearable: "",
-                          "search-input": _vm.searchCityMun,
-                        },
-                        on: {
-                          "update:searchInput": function ($event) {
-                            _vm.searchCityMun = $event
-                          },
-                          "update:search-input": function ($event) {
-                            _vm.searchCityMun = $event
-                          },
-                        },
-                        model: {
-                          value: _vm.filter.PK_citymun_ID,
-                          callback: function ($$v) {
-                            _vm.$set(_vm.filter, "PK_citymun_ID", $$v)
-                          },
-                          expression: "filter.PK_citymun_ID",
-                        },
-                      }),
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    [
-                      _c("v-autocomplete", {
-                        attrs: {
-                          loading: _vm.loading,
-                          items: _vm.barangay_list_alter,
-                          label: "Barangay",
-                          "item-text": "brgyDesc",
-                          "item-value": "PK_brgy_ID",
-                          clearable: "",
-                          "search-input": _vm.searchBrgy,
-                        },
-                        on: {
-                          "update:searchInput": function ($event) {
-                            _vm.searchBrgy = $event
-                          },
-                          "update:search-input": function ($event) {
-                            _vm.searchBrgy = $event
-                          },
-                        },
-                        model: {
-                          value: _vm.filter.PK_brgy_ID,
-                          callback: function ($$v) {
-                            _vm.$set(_vm.filter, "PK_brgy_ID", $$v)
-                          },
-                          expression: "filter.PK_brgy_ID",
-                        },
-                      }),
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    [
-                      _c("v-autocomplete", {
-                        attrs: {
-                          loading: _vm.loading,
-                          items: _vm.searchCategory,
-                          label: "Category",
-                          clearable: "",
-                        },
-                        model: {
-                          value: _vm.filter.selectedSearchCategory,
-                          callback: function ($$v) {
-                            _vm.$set(_vm.filter, "selectedSearchCategory", $$v)
-                          },
-                          expression: "filter.selectedSearchCategory",
-                        },
-                      }),
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c("v-checkbox", {
-                    staticClass: "p-0 m-0 mt-5",
-                    attrs: { label: "PD 1586", value: "PD 1586" },
-                    model: {
-                      value: _vm.filter.search1586,
-                      callback: function ($$v) {
-                        _vm.$set(_vm.filter, "search1586", $$v)
+              _c("v-card-text", [
+                _c(
+                  "div",
+                  [
+                    _c("v-autocomplete", {
+                      attrs: {
+                        loading: _vm.loading,
+                        items: _vm.province_list_alter,
+                        label: "Province",
+                        "item-text": "provDesc",
+                        "item-value": "PK_province_ID",
+                        clearable: "",
+                        "search-input": _vm.searchProvince,
                       },
-                      expression: "filter.search1586",
-                    },
-                  }),
-                  _vm._v(" "),
-                  _c("v-checkbox", {
-                    staticClass: "p-0 m-0",
-                    attrs: { label: "RA 8749", value: "RA 8749" },
-                    model: {
-                      value: _vm.filter.search8749,
-                      callback: function ($$v) {
-                        _vm.$set(_vm.filter, "search8749", $$v)
+                      on: {
+                        "update:searchInput": function ($event) {
+                          _vm.searchProvince = $event
+                        },
+                        "update:search-input": function ($event) {
+                          _vm.searchProvince = $event
+                        },
                       },
-                      expression: "filter.search8749",
-                    },
-                  }),
-                  _vm._v(" "),
-                  _c("v-checkbox", {
-                    staticClass: "p-0 m-0",
-                    attrs: { label: "RA 9275", value: "RA 9275" },
-                    model: {
-                      value: _vm.filter.search9275,
-                      callback: function ($$v) {
-                        _vm.$set(_vm.filter, "search9275", $$v)
+                      model: {
+                        value: _vm.filter.PK_province_ID,
+                        callback: function ($$v) {
+                          _vm.$set(_vm.filter, "PK_province_ID", $$v)
+                        },
+                        expression: "filter.PK_province_ID",
                       },
-                      expression: "filter.search9275",
-                    },
-                  }),
-                  _vm._v(" "),
-                  _c("v-checkbox", {
-                    staticClass: "p-0 m-0",
-                    attrs: { label: "RA 6969", value: "RA 6969" },
-                    model: {
-                      value: _vm.filter.search6969,
-                      callback: function ($$v) {
-                        _vm.$set(_vm.filter, "search6969", $$v)
+                    }),
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  [
+                    _c("v-autocomplete", {
+                      attrs: {
+                        loading: _vm.loading,
+                        items: _vm.municipality_list_alter,
+                        label: "Municipality",
+                        "item-text": "citymunDesc",
+                        "item-value": "PK_citymun_ID",
+                        clearable: "",
+                        "search-input": _vm.searchCityMun,
                       },
-                      expression: "filter.search6969",
-                    },
-                  }),
-                  _vm._v(" "),
-                  _c("v-checkbox", {
-                    staticClass: "p-0 m-0",
-                    attrs: { label: "RA 9003", value: "RA 9003" },
-                    model: {
-                      value: _vm.filter.search9003,
-                      callback: function ($$v) {
-                        _vm.$set(_vm.filter, "search9003", $$v)
+                      on: {
+                        "update:searchInput": function ($event) {
+                          _vm.searchCityMun = $event
+                        },
+                        "update:search-input": function ($event) {
+                          _vm.searchCityMun = $event
+                        },
                       },
-                      expression: "filter.search9003",
-                    },
-                  }),
-                ],
-                1
-              ),
+                      model: {
+                        value: _vm.filter.PK_citymun_ID,
+                        callback: function ($$v) {
+                          _vm.$set(_vm.filter, "PK_citymun_ID", $$v)
+                        },
+                        expression: "filter.PK_citymun_ID",
+                      },
+                    }),
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  [
+                    _c("v-autocomplete", {
+                      attrs: {
+                        loading: _vm.loading,
+                        items: _vm.barangay_list_alter,
+                        label: "Barangay",
+                        "item-text": "brgyDesc",
+                        "item-value": "PK_brgy_ID",
+                        clearable: "",
+                        "search-input": _vm.searchBrgy,
+                      },
+                      on: {
+                        "update:searchInput": function ($event) {
+                          _vm.searchBrgy = $event
+                        },
+                        "update:search-input": function ($event) {
+                          _vm.searchBrgy = $event
+                        },
+                      },
+                      model: {
+                        value: _vm.filter.PK_brgy_ID,
+                        callback: function ($$v) {
+                          _vm.$set(_vm.filter, "PK_brgy_ID", $$v)
+                        },
+                        expression: "filter.PK_brgy_ID",
+                      },
+                    }),
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  [
+                    _c("v-autocomplete", {
+                      attrs: {
+                        loading: _vm.loading,
+                        items: _vm.searchCategory,
+                        label: "Category",
+                        clearable: "",
+                      },
+                      model: {
+                        value: _vm.filter.selectedSearchCategory,
+                        callback: function ($$v) {
+                          _vm.$set(_vm.filter, "selectedSearchCategory", $$v)
+                        },
+                        expression: "filter.selectedSearchCategory",
+                      },
+                    }),
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _vm.selectedSearchCategory == "PERMIT" ||
+                _vm.selectedSearchCategory == "MONITORING" ||
+                _vm.selectedSearchCategory == "LEGAL"
+                  ? _c(
+                      "div",
+                      [
+                        _c("v-checkbox", {
+                          staticClass: "p-0 m-0 mt-5",
+                          attrs: { label: "PD 1586", value: "PD 1586" },
+                          model: {
+                            value: _vm.filter.search1586,
+                            callback: function ($$v) {
+                              _vm.$set(_vm.filter, "search1586", $$v)
+                            },
+                            expression: "filter.search1586",
+                          },
+                        }),
+                        _vm._v(" "),
+                        _c("v-checkbox", {
+                          staticClass: "p-0 m-0",
+                          attrs: { label: "RA 8749", value: "RA 8749" },
+                          model: {
+                            value: _vm.filter.search8749,
+                            callback: function ($$v) {
+                              _vm.$set(_vm.filter, "search8749", $$v)
+                            },
+                            expression: "filter.search8749",
+                          },
+                        }),
+                        _vm._v(" "),
+                        _c("v-checkbox", {
+                          staticClass: "p-0 m-0",
+                          attrs: { label: "RA 9275", value: "RA 9275" },
+                          model: {
+                            value: _vm.filter.search9275,
+                            callback: function ($$v) {
+                              _vm.$set(_vm.filter, "search9275", $$v)
+                            },
+                            expression: "filter.search9275",
+                          },
+                        }),
+                        _vm._v(" "),
+                        _c("v-checkbox", {
+                          staticClass: "p-0 m-0",
+                          attrs: { label: "RA 6969", value: "RA 6969" },
+                          model: {
+                            value: _vm.filter.search6969,
+                            callback: function ($$v) {
+                              _vm.$set(_vm.filter, "search6969", $$v)
+                            },
+                            expression: "filter.search6969",
+                          },
+                        }),
+                        _vm._v(" "),
+                        _vm.selectedSearchCategory == "MONITORING" ||
+                        _vm.selectedSearchCategory == "LEGAL"
+                          ? _c("v-checkbox", {
+                              staticClass: "p-0 m-0",
+                              attrs: { label: "RA 9003", value: "RA 9003" },
+                              model: {
+                                value: _vm.filter.search9003,
+                                callback: function ($$v) {
+                                  _vm.$set(_vm.filter, "search9003", $$v)
+                                },
+                                expression: "filter.search9003",
+                              },
+                            })
+                          : _vm._e(),
+                      ],
+                      1
+                    )
+                  : _vm._e(),
+              ]),
               _vm._v(" "),
               _c(
                 "v-card-actions",
