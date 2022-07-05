@@ -40,25 +40,27 @@ class UniverseController extends Controller
             ->when(request('PK_citymun_ID'), function ($query) {
                 $query->where('a.un_municipality', request('PK_citymun_ID'));
             })
-            ->when(request('PK_citymun_ID'), function ($query) {
-                $query->where('a.un_brgy', request('PK_citymun_ID'));
+            ->when(request('PK_brgy_ID'), function ($query) {
+                $query->where('a.un_brgy', request('PK_brgy_ID'));
             })
             ->paginate(10);
 
         return Inertia::render("pages/universe/universe_list", [
-            // "filter" => FacadeRequest::all(
-            //     'PK_province_ID',
-            //     'PK_citymun_ID',
-            //     'PK_brgy_ID',
-            // ),
             "filter" => [
                 'PK_province_ID' => request('PK_province_ID'),
                 'PK_citymun_ID' => request('PK_citymun_ID'),
                 'PK_brgy_ID' => request('PK_brgy_ID'),
+                "selectedSearchCategory"=>request("selectedSearchCategory"),
+                "search1586"=>request("search1586"),
+                "search8749"=>request("search8749"),
+                "search9275"=>request("search9275"),
+                "search6969"=>request("search6969"),
+                "search9003"=>request("search9003"),
             ],
 
             'query' => $query,
             'province_list' => $province_list,
+            // 'selectedSearchCategory' => '',
         ]);
     }
     

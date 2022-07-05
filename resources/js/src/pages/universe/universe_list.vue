@@ -202,6 +202,45 @@
                             :search-input.sync="searchBrgy"
                         ></v-autocomplete>
                     </div>
+                    <div>
+                        <v-autocomplete
+                            :loading="loading"
+                            :items="searchCategory"
+                            label="Category"
+                            v-model="filter.selectedSearchCategory"
+                            clearable
+                        ></v-autocomplete>
+                    </div>
+                    <v-checkbox
+                        v-model="filter.search1586"
+                        label="PD 1586"
+                        value="PD 1586"
+                        class="p-0 m-0 mt-5"
+                    ></v-checkbox>
+                    <v-checkbox
+                        v-model="filter.search8749"
+                        label="RA 8749"
+                        value="RA 8749"
+                        class="p-0 m-0"
+                    ></v-checkbox>
+                    <v-checkbox
+                        v-model="filter.search9275"
+                        label="RA 9275"
+                        value="RA 9275"
+                        class="p-0 m-0"
+                    ></v-checkbox>
+                    <v-checkbox
+                        v-model="filter.search6969"
+                        label="RA 6969"
+                        value="RA 6969"
+                        class="p-0 m-0"
+                    ></v-checkbox>
+                    <v-checkbox
+                        v-model="filter.search9003"
+                        label="RA 9003"
+                        value="RA 9003"
+                        class="p-0 m-0"
+                    ></v-checkbox>
                 </v-card-text>
                 <v-card-actions>
                     <v-spacer></v-spacer>
@@ -338,6 +377,8 @@ export default {
             searchProvince: null,
             searchCityMun: null,
             searchBrgy: null,
+            searchCategory: ['PERMIT', 'MONITORING', 'LEGAL', 'PCO', 'COMPLAINT'],
+            selectedCategory:null
         };
     },
     watch: {

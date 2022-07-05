@@ -33,7 +33,7 @@
                 </div>
                 <div class="text-xl text-left grid grid-cols-1 mt-5 border-t-2 border-blue-500">
                     <div>
-                        Undefined: <br/><b class="text-2xl">{{query_counter_undefined}}</b>
+                        Undefined: <b class="text-2xl">{{query_counter_undefined}}</b>
                     </div>
                 </div>
             </div>
