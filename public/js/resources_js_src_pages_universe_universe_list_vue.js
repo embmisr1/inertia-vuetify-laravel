@@ -1080,7 +1080,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       searchProvince: null,
       searchCityMun: null,
       searchBrgy: null,
-      searchCategory: ['PERMIT', 'MONITORING', 'LEGAL', 'ORDER', 'PCO', 'COMPLAINT', 'ALL FIRMS'],
+      searchCategory: ['PERMIT', 'MONITORING', 'NOV', 'ORDER', 'PCO', 'COMPLAINT', 'ALL FIRMS'],
       selectedCategory: null
     };
   },
@@ -21844,7 +21844,7 @@ var render = function () {
                 _vm._v(" "),
                 _vm.selectedSearchCategory == "PERMIT" ||
                 _vm.selectedSearchCategory == "MONITORING" ||
-                _vm.selectedSearchCategory == "LEGAL"
+                _vm.selectedSearchCategory == "NOV"
                   ? _c(
                       "div",
                       [
@@ -21897,7 +21897,7 @@ var render = function () {
                         }),
                         _vm._v(" "),
                         _vm.selectedSearchCategory == "MONITORING" ||
-                        _vm.selectedSearchCategory == "LEGAL"
+                        _vm.selectedSearchCategory == "NOV"
                           ? _c("v-checkbox", {
                               staticClass: "p-0 m-0",
                               attrs: { label: "RA 9003", value: "RA 9003" },

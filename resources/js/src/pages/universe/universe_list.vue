@@ -211,7 +211,7 @@
                             clearable
                         ></v-autocomplete>
                     </div>
-                    <div v-if="selectedSearchCategory == 'PERMIT' || selectedSearchCategory == 'MONITORING' || selectedSearchCategory == 'LEGAL'">
+                    <div v-if="selectedSearchCategory == 'PERMIT' || selectedSearchCategory == 'MONITORING' || selectedSearchCategory == 'NOV'">
                         <v-checkbox
                             v-model="filter.search1586"
                             label="PD 1586"
@@ -236,7 +236,7 @@
                             value="RA 6969"
                             class="p-0 m-0"
                         ></v-checkbox>
-                        <v-checkbox v-if="selectedSearchCategory == 'MONITORING' || selectedSearchCategory == 'LEGAL'"
+                        <v-checkbox v-if="selectedSearchCategory == 'MONITORING' || selectedSearchCategory == 'NOV'"
                             v-model="filter.search9003"
                             label="RA 9003"
                             value="RA 9003"
@@ -382,7 +382,7 @@ export default {
             searchProvince: null,
             searchCityMun: null,
             searchBrgy: null,
-            searchCategory: ['PERMIT', 'MONITORING', 'LEGAL', 'ORDER', 'PCO', 'COMPLAINT', 'ALL FIRMS'],
+            searchCategory: ['PERMIT', 'MONITORING', 'NOV', 'ORDER', 'PCO', 'COMPLAINT', 'ALL FIRMS'],
             selectedCategory:null,
         };
     },
