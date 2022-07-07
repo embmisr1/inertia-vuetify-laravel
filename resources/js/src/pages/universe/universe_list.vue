@@ -352,8 +352,6 @@ export default {
         }
     },
 
-<<<<<<< HEAD
-=======
     data() {
         return {
             dialog: false,
@@ -368,7 +366,6 @@ export default {
             selectedCategory:null,
         };
     },
->>>>>>> f2c1633f7287f70ef663595c89eb42fe9d65f29d
     watch: {
         PK_province_ID(value) {
             if (value) this.provinceDropdown(value);
