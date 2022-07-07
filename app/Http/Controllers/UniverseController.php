@@ -26,11 +26,11 @@ class UniverseController extends Controller
     {
         $province_list = Province::where('regCode', '01')->get();
         $query = DB::table('tbl_universe as a')->select(
-            'a.*',
-            'b.provDesc',
-            'c.citymunDesc',
-            'd.brgyDesc',
-        )
+                'a.*',
+                'b.provDesc',
+                'c.citymunDesc',
+                'd.brgyDesc',
+            )
             ->leftjoin('ref_province as b', 'a.un_province', '=', 'b.PK_province_ID')
             ->leftjoin('ref_citymun as c', 'a.un_municipality', '=', 'c.PK_citymun_ID')
             ->leftjoin('ref_brgy as d', 'a.un_brgy', '=', 'd.PK_brgy_ID')
@@ -40,25 +40,93 @@ class UniverseController extends Controller
             ->when(request('PK_citymun_ID'), function ($query) {
                 $query->where('a.un_municipality', request('PK_citymun_ID'));
             })
-            ->when(request('PK_citymun_ID'), function ($query) {
-                $query->where('a.un_brgy', request('PK_citymun_ID'));
+            ->when(request('PK_brgy_ID'), function ($query) {
+                $query->where('a.un_brgy', request('PK_brgy_ID'));
+            })
+            ->when(request('selectedSearchCategory') == 'PERMIT', function ($query) {
+                $query->leftjoin('tbl_permit as e', 'a.id', '=', 'e.universe_FK');
+                $query->where(
+                    function($query) {
+                        if(request('search1586')){
+                            $query->orwhere('e.perm_law', 'like', '%'.request("search1586").'%');
+                        }
+                        if(request('search8749')){
+                            $query->orwhere('e.perm_law', 'like', '%'.request("search8749").'%');
+                        }
+                        if(request('search9275')){
+                            $query->orwhere('e.perm_law', 'like', '%'.request("search9275").'%');
+                        }
+                        if(request('search6969')){
+                            $query->orwhere('e.perm_law', 'like', '%'.request("search6969").'%');
+                        }
+                        return $query->where('e.is_priority', 1);
+                    }
+                );
+            })
+            ->when(request('selectedSearchCategory') == 'MONITORING', function ($query) {
+                $query->leftjoin('tbl_monitoring as f', 'a.id', '=', 'f.universe_FK');
+                $query->where(
+                    function($query) {
+                        if(request('search1586')){
+                            $query->orwhere('f.mon_law', 'like', '%'.request("search1586").'%');
+                        }
+                        if(request('search8749')){
+                            $query->orwhere('f.mon_law', 'like', '%'.request("search8749").'%');
+                        }
+                        if(request('search9275')){
+                            $query->orwhere('f.mon_law', 'like', '%'.request("search9275").'%');
+                        }
+                        if(request('search6969')){
+                            $query->orwhere('f.mon_law', 'like', '%'.request("search6969").'%');
+                        }
+                        if(request('search9003')){
+                            $query->orwhere('f.mon_law', 'like', '%'.request("search9003").'%');
+                        }
+                        return $query;
+                    }
+                );
+            })
+            ->when(request('selectedSearchCategory') == 'NOV', function ($query) {
+                $query->leftjoin('tbl_legal as g', 'a.id', '=', 'g.universe_FK');
+                $query->where(
+                    function($query) {
+                        if(request('search1586')){
+                            $query->orwhere('g.nov_law', 'like', '%'.request("search1586").'%');
+                        }
+                        if(request('search8749')){
+                            $query->orwhere('g.nov_law', 'like', '%'.request("search8749").'%');
+                        }
+                        if(request('search9275')){
+                            $query->orwhere('g.nov_law', 'like', '%'.request("search9275").'%');
+                        }
+                        if(request('search6969')){
+                            $query->orwhere('g.nov_law', 'like', '%'.request("search6969").'%');
+                        }
+                        if(request('search9003')){
+                            $query->orwhere('g.nov_law', 'like', '%'.request("search9003").'%');
+                        }
+                        return $query;
+                    }
+                );
             })
             ->paginate(10);
 
         return Inertia::render("pages/universe/universe_list", [
-            // "filter" => FacadeRequest::all(
-            //     'PK_province_ID',
-            //     'PK_citymun_ID',
-            //     'PK_brgy_ID',
-            // ),
             "filter" => [
                 'PK_province_ID' => request('PK_province_ID'),
                 'PK_citymun_ID' => request('PK_citymun_ID'),
                 'PK_brgy_ID' => request('PK_brgy_ID'),
+                "selectedSearchCategory"=>request("selectedSearchCategory"),
+                "search1586"=>request("search1586"),
+                "search8749"=>request("search8749"),
+                "search9275"=>request("search9275"),
+                "search6969"=>request("search6969"),
+                "search9003"=>request("search9003"),
             ],
 
             'query' => $query,
             'province_list' => $province_list,
+            // 'selectedSearchCategory' => '',
         ]);
     }
     
