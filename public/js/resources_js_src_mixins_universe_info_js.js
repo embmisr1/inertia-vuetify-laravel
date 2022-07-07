@@ -73,7 +73,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         perm_number: "",
         perm_date_issuance: "",
         perm_date_expiry: "",
-        perm_file: "",
+        perm_file: [],
         perm_description: "",
         perm_status: ""
       },
