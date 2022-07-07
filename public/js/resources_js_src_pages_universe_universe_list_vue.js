@@ -733,17 +733,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -758,66 +747,43 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   props: {
     query: Object,
     province_list: Array,
-    municipality_list: Array,
     barangay_list: Array,
     filter: Object
+  },
+  data: function data() {
+    return {
+      dialog: false,
+      province_list_alter: this.province_list,
+      municipality_list_alter: [],
+      barangay_list_alter: [],
+      // filter: {},
+      searchProvince: null,
+      searchCityMun: null,
+      searchBrgy: null,
+      openFilter: false
+    };
   },
   mounted: function mounted() {
     var _this = this;
 
     return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
-      var prov_data, citymun_data, brgy_data;
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              if (!_this.filter.PK_province_ID) {
+              if (!_this.filter.PK_citymun_ID) {
                 _context.next = 5;
                 break;
               }
 
               _context.next = 3;
-              return _this.filter_prov();
-
-            case 3:
-              prov_data = _context.sent;
-              _this.searchProvince = prov_data.provDesc; // } else this.filter.PK_province_ID = "";
-
-            case 5:
-              if (!_this.filter.PK_citymun_ID) {
-                _context.next = 12;
-                break;
-              }
-
-              _context.next = 8;
               return _this.provinceDropdown(_this.filter.PK_province_ID);
 
-            case 8:
-              _context.next = 10;
-              return _this.filter_citymun();
-
-            case 10:
-              citymun_data = _context.sent;
-              _this.searchCityMun = citymun_data.citymunDesc; // } else this.filter.PK_citymun_ID = "";
-
-            case 12:
-              if (!_this.filter.PK_brgy_ID) {
-                _context.next = 19;
-                break;
-              }
-
-              _context.next = 15;
+            case 3:
+              _context.next = 5;
               return _this.municipalityDropdown(_this.filter.PK_citymun_ID);
 
-            case 15:
-              _context.next = 17;
-              return _this.filter_brgy();
-
-            case 17:
-              brgy_data = _context.sent;
-              _this.searchBrgy = brgy_data.brgyDesc; // } else this.filter.PK_brgy_ID = "";
-
-            case 19:
+            case 5:
             case "end":
               return _context.stop();
           }
@@ -826,7 +792,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     }))();
   },
   methods: {
-    filter_prov: function filter_prov() {
+    clearFilter: function clearFilter() {
       var _this2 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
@@ -834,15 +800,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
-                _context2.next = 2;
-                return lodash__WEBPACK_IMPORTED_MODULE_4___default().find(_this2.province_list, function (data) {
-                  return data.provCode == _this2.filter.PK_province_ID;
-                });
+                _this2.filter = {
+                  PK_province_ID: "",
+                  PK_citymun_ID: "",
+                  PK_brgy_ID: ""
+                };
 
-              case 2:
-                return _context2.abrupt("return", _context2.sent);
-
-              case 3:
+              case 1:
               case "end":
                 return _context2.stop();
             }
@@ -850,7 +814,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }, _callee2);
       }))();
     },
-    filter_citymun: function filter_citymun() {
+    filterUniverse: function filterUniverse() {
       var _this3 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3() {
@@ -858,15 +822,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context3.prev = _context3.next) {
               case 0:
-                _context3.next = 2;
-                return lodash__WEBPACK_IMPORTED_MODULE_4___default().find(_this3.municipality_list_alter, function (data) {
-                  return data.PK_citymun_ID == _this3.filter.PK_citymun_ID;
-                });
+                // this.dialog = false;
+                // this.onPageChange();
+                _this3.get(_this3.filtersObject);
 
-              case 2:
-                return _context3.abrupt("return", _context3.sent);
-
-              case 3:
+              case 1:
               case "end":
                 return _context3.stop();
             }
@@ -874,43 +834,60 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }, _callee3);
       }))();
     },
-    filter_brgy: function filter_brgy() {
+    provinceDropdown: function provinceDropdown(val) {
       var _this4 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee4() {
+        var municipality;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee4$(_context4) {
           while (1) {
             switch (_context4.prev = _context4.next) {
               case 0:
-                _context4.next = 2;
-                return lodash__WEBPACK_IMPORTED_MODULE_4___default().find(_this4.barangay_list_alter, function (data) {
-                  return data.PK_brgy_ID == _this4.filter.PK_brgy_ID;
-                });
+                _context4.prev = 0;
+                _this4.loading = true;
+                _context4.next = 4;
+                return axios__WEBPACK_IMPORTED_MODULE_3___default().get("http://127.0.0.1:8000/api/app/province_dropdown/".concat(val));
 
-              case 2:
-                return _context4.abrupt("return", _context4.sent);
+              case 4:
+                municipality = _context4.sent;
+                _this4.municipality_list_alter = municipality.data;
+                _this4.loading = false;
+                _context4.next = 12;
+                break;
 
-              case 3:
+              case 9:
+                _context4.prev = 9;
+                _context4.t0 = _context4["catch"](0);
+
+                _this4.error(_context4.t0.response.data.message);
+
+              case 12:
               case "end":
                 return _context4.stop();
             }
           }
-        }, _callee4);
+        }, _callee4, null, [[0, 9]]);
       }))();
     },
-    filterUniverse: function filterUniverse() {
+    municipalityDropdown: function municipalityDropdown(val) {
       var _this5 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee5() {
+        var barangay;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee5$(_context5) {
           while (1) {
             switch (_context5.prev = _context5.next) {
               case 0:
-                // this.dialog = false;
-                // this.onPageChange();
-                _this5.get(_this5.filtersObject);
+                _this5.loading = true;
+                _context5.next = 3;
+                return axios__WEBPACK_IMPORTED_MODULE_3___default().get("http://127.0.0.1:8000/api/app/municipality_dropdown/".concat(val));
 
-              case 1:
+              case 3:
+                barangay = _context5.sent;
+                _this5.barangay_list_alter = barangay.data;
+                _this5.loading = false;
+
+              case 6:
               case "end":
                 return _context5.stop();
             }
@@ -918,96 +895,36 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }, _callee5);
       }))();
     },
-    provinceDropdown: function provinceDropdown(val) {
-      var _this6 = this;
-
-      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee6() {
-        var municipality;
+    get: lodash__WEBPACK_IMPORTED_MODULE_4___default().debounce( /*#__PURE__*/function () {
+      var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee6(params) {
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee6$(_context6) {
           while (1) {
             switch (_context6.prev = _context6.next) {
               case 0:
                 _context6.prev = 0;
-                _this6.loading = true;
-                _context6.next = 4;
-                return axios__WEBPACK_IMPORTED_MODULE_3___default().get("http://127.0.0.1:8000/api/app/province_dropdown/".concat(val));
-
-              case 4:
-                municipality = _context6.sent;
-                _this6.municipality_list_alter = municipality.data;
-                _this6.loading = false;
-                _context6.next = 12;
-                break;
-
-              case 9:
-                _context6.prev = 9;
-                _context6.t0 = _context6["catch"](0);
-
-                _this6.error(_context6.t0.response.data.message);
-
-              case 12:
-              case "end":
-                return _context6.stop();
-            }
-          }
-        }, _callee6, null, [[0, 9]]);
-      }))();
-    },
-    municipalityDropdown: function municipalityDropdown(val) {
-      var _this7 = this;
-
-      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee7() {
-        var barangay;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee7$(_context7) {
-          while (1) {
-            switch (_context7.prev = _context7.next) {
-              case 0:
-                _this7.loading = true;
-                _context7.next = 3;
-                return axios__WEBPACK_IMPORTED_MODULE_3___default().get("http://127.0.0.1:8000/api/app/municipality_dropdown/".concat(val));
-
-              case 3:
-                barangay = _context7.sent;
-                _this7.barangay_list_alter = barangay.data;
-                _this7.loading = false;
-
-              case 6:
-              case "end":
-                return _context7.stop();
-            }
-          }
-        }, _callee7);
-      }))();
-    },
-    get: lodash__WEBPACK_IMPORTED_MODULE_4___default().debounce( /*#__PURE__*/function () {
-      var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee8(params) {
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee8$(_context8) {
-          while (1) {
-            switch (_context8.prev = _context8.next) {
-              case 0:
-                _context8.prev = 0;
                 this.loading = true;
-                _context8.next = 4;
+                _context6.next = 4;
                 return this.$inertia.get("#", _objectSpread({}, params));
 
               case 4:
                 this.loading = false;
-                _context8.next = 12;
+                this.dialog = false;
+                _context6.next = 13;
                 break;
 
-              case 7:
-                _context8.prev = 7;
-                _context8.t0 = _context8["catch"](0);
+              case 8:
+                _context6.prev = 8;
+                _context6.t0 = _context6["catch"](0);
                 this.loading = false;
-                console.log(_context8.t0);
+                console.log(_context6.t0);
                 this.error("Project Type Get - error");
 
-              case 12:
+              case 13:
               case "end":
-                return _context8.stop();
+                return _context6.stop();
             }
           }
-        }, _callee8, this, [[0, 7]]);
+        }, _callee6, this, [[0, 8]]);
       }));
 
       return function (_x) {
@@ -1026,32 +943,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       return this.filter.PK_citymun_ID;
     }
   },
-  data: function data() {
-    return {
-      dialog: false,
-      province_list_alter: this.province_list,
-      municipality_list_alter: [],
-      barangay_list_alter: [],
-      // filter: {},
-      searchProvince: null,
-      searchCityMun: null,
-      searchBrgy: null
-    };
-  },
   watch: {
-    searchProvince: function searchProvince(data) {
-      if (!data) {
-        this.filter.PK_province_ID = "";
-        this.filter.PK_citymun_ID = "";
-        this.filter.PK_brgy_ID = "";
-      }
-    },
-    searchCityMun: function searchCityMun(data) {
-      if (!data) this.filter.PK_citymun_ID = "";
-    },
-    searchBrgy: function searchBrgy(data) {
-      if (!data) this.filter.PK_brgy_ID = "";
-    },
     PK_province_ID: function PK_province_ID(value) {
       if (value) this.provinceDropdown(value);
     },
@@ -21362,13 +21254,17 @@ var render = function () {
               attrs: { color: "primary", dark: "" },
               on: {
                 click: function ($event) {
-                  _vm.dialog = true
+                  _vm.dialog = !_vm.dialog
                 },
               },
             },
             [
               _c("v-icon", { attrs: { dark: "" } }, [_vm._v(" mdi-filter ")]),
-              _vm._v(" Filter\n        "),
+              _vm._v(
+                "\n            " +
+                  _vm._s(!_vm.dialog ? "Open Filter" : "Close Filter") +
+                  "\n        "
+              ),
             ],
             1
           ),
@@ -21638,7 +21534,7 @@ var render = function () {
       _c(
         "v-dialog",
         {
-          attrs: { persistent: "", "max-width": "500" },
+          attrs: { "max-width": "500", persistent: "" },
           model: {
             value: _vm.dialog,
             callback: function ($$v) {
@@ -21662,104 +21558,171 @@ var render = function () {
               ),
               _vm._v(" "),
               _c("v-card-text", [
-                _c(
-                  "div",
-                  [
-                    _c("v-autocomplete", {
-                      attrs: {
-                        loading: _vm.loading,
-                        items: _vm.province_list_alter,
-                        label: "Province",
-                        "item-text": "provDesc",
-                        "item-value": "PK_province_ID",
-                        clearable: "",
-                        "search-input": _vm.searchProvince,
-                      },
-                      on: {
-                        "update:searchInput": function ($event) {
-                          _vm.searchProvince = $event
+                _c("div", { staticClass: "space-y-4" }, [
+                  _c(
+                    "div",
+                    [
+                      _c(
+                        "b-field",
+                        {
+                          attrs: {
+                            label: "Province",
+                            "label-position": "inside",
+                            type: "is-dark",
+                          },
                         },
-                        "update:search-input": function ($event) {
-                          _vm.searchProvince = $event
+                        [
+                          _c(
+                            "b-select",
+                            {
+                              attrs: {
+                                placeholder: "Select a Province",
+                                expanded: "",
+                              },
+                              model: {
+                                value: _vm.filter.PK_province_ID,
+                                callback: function ($$v) {
+                                  _vm.$set(_vm.filter, "PK_province_ID", $$v)
+                                },
+                                expression: "filter.PK_province_ID",
+                              },
+                            },
+                            _vm._l(_vm.province_list, function (option) {
+                              return _c(
+                                "option",
+                                {
+                                  key: option.PK_province_ID,
+                                  domProps: { value: option.PK_province_ID },
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                                    " +
+                                      _vm._s(option.provDesc) +
+                                      "\n                                "
+                                  ),
+                                ]
+                              )
+                            }),
+                            0
+                          ),
+                        ],
+                        1
+                      ),
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    [
+                      _c(
+                        "b-field",
+                        {
+                          attrs: {
+                            label: "Municipality",
+                            "label-position": "inside",
+                            type: "is-dark",
+                          },
                         },
-                      },
-                      model: {
-                        value: _vm.filter.PK_province_ID,
-                        callback: function ($$v) {
-                          _vm.$set(_vm.filter, "PK_province_ID", $$v)
+                        [
+                          _c(
+                            "b-select",
+                            {
+                              attrs: {
+                                placeholder: "Select a Municipality",
+                                expanded: "",
+                                "label-position": "inside",
+                              },
+                              model: {
+                                value: _vm.filter.PK_citymun_ID,
+                                callback: function ($$v) {
+                                  _vm.$set(_vm.filter, "PK_citymun_ID", $$v)
+                                },
+                                expression: "filter.PK_citymun_ID",
+                              },
+                            },
+                            _vm._l(
+                              _vm.municipality_list_alter,
+                              function (option) {
+                                return _c(
+                                  "option",
+                                  {
+                                    key: option.PK_citymun_ID,
+                                    domProps: { value: option.PK_citymun_ID },
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\n                                    " +
+                                        _vm._s(option.citymunDesc) +
+                                        "\n                                "
+                                    ),
+                                  ]
+                                )
+                              }
+                            ),
+                            0
+                          ),
+                        ],
+                        1
+                      ),
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    [
+                      _c(
+                        "b-field",
+                        {
+                          attrs: {
+                            label: "Barangay",
+                            "label-position": "inside",
+                            type: "is-dark",
+                          },
                         },
-                        expression: "filter.PK_province_ID",
-                      },
-                    }),
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  [
-                    _c("v-autocomplete", {
-                      attrs: {
-                        loading: _vm.loading,
-                        items: _vm.municipality_list_alter,
-                        label: "Municipality",
-                        "item-text": "citymunDesc",
-                        "item-value": "PK_citymun_ID",
-                        clearable: "",
-                        "search-input": _vm.searchCityMun,
-                      },
-                      on: {
-                        "update:searchInput": function ($event) {
-                          _vm.searchCityMun = $event
-                        },
-                        "update:search-input": function ($event) {
-                          _vm.searchCityMun = $event
-                        },
-                      },
-                      model: {
-                        value: _vm.filter.PK_citymun_ID,
-                        callback: function ($$v) {
-                          _vm.$set(_vm.filter, "PK_citymun_ID", $$v)
-                        },
-                        expression: "filter.PK_citymun_ID",
-                      },
-                    }),
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  [
-                    _c("v-autocomplete", {
-                      attrs: {
-                        loading: _vm.loading,
-                        items: _vm.barangay_list_alter,
-                        label: "Barangay",
-                        "item-text": "brgyDesc",
-                        "item-value": "PK_brgy_ID",
-                        clearable: "",
-                        "search-input": _vm.searchBrgy,
-                      },
-                      on: {
-                        "update:searchInput": function ($event) {
-                          _vm.searchBrgy = $event
-                        },
-                        "update:search-input": function ($event) {
-                          _vm.searchBrgy = $event
-                        },
-                      },
-                      model: {
-                        value: _vm.filter.PK_brgy_ID,
-                        callback: function ($$v) {
-                          _vm.$set(_vm.filter, "PK_brgy_ID", $$v)
-                        },
-                        expression: "filter.PK_brgy_ID",
-                      },
-                    }),
-                  ],
-                  1
-                ),
+                        [
+                          _c(
+                            "b-select",
+                            {
+                              attrs: {
+                                placeholder: "Select a Barangay",
+                                expanded: "",
+                                "label-position": "inside",
+                              },
+                              model: {
+                                value: _vm.filter.PK_brgy_ID,
+                                callback: function ($$v) {
+                                  _vm.$set(_vm.filter, "PK_brgy_ID", $$v)
+                                },
+                                expression: "filter.PK_brgy_ID",
+                              },
+                            },
+                            _vm._l(_vm.barangay_list_alter, function (option) {
+                              return _c(
+                                "option",
+                                {
+                                  key: option.PK_brgy_ID,
+                                  domProps: { value: option.PK_brgy_ID },
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                                    " +
+                                      _vm._s(option.brgyDesc) +
+                                      "\n                                "
+                                  ),
+                                ]
+                              )
+                            }),
+                            0
+                          ),
+                        ],
+                        1
+                      ),
+                    ],
+                    1
+                  ),
+                ]),
               ]),
               _vm._v(" "),
               _c(
@@ -21778,6 +21741,20 @@ var render = function () {
                       },
                     },
                     [_vm._v("\n                    Close\n                ")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-btn",
+                    {
+                      staticClass: "white--text",
+                      attrs: { color: "red darken-1" },
+                      on: { click: _vm.clearFilter },
+                    },
+                    [
+                      _vm._v(
+                        "\n                    Clear Filter\n                "
+                      ),
+                    ]
                   ),
                   _vm._v(" "),
                   _c(
