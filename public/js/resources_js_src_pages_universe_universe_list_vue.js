@@ -999,7 +999,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     searchProvince: null,
     searchCityMun: null,
     searchBrgy: null,
-    searchCategory: ['PERMIT', 'MONITORING', 'NOV', 'ORDER', 'PCO', 'COMPLAINT', 'ALL FIRMS'],
+    searchCategory: ['PERMIT', 'MONITORING', 'NOV', 'ORDER', 'PCO', 'COMPLAINT'],
     selectedCategory: null
   };
 }), _defineProperty(_mixins$components$pr, "watch", {
@@ -1010,7 +1010,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     if (value) this.municipalityDropdown(value);
   },
   selectedSearchCategory: function selectedSearchCategory(data) {
-    if (data == 'ORDER' || data == 'PCO' || data == 'COMPLAINT' || data == 'ALL FIRMS') {
+    if (data == 'ORDER' || data == 'PCO' || data == 'COMPLAINT') {
       this.filter.search1586 = null;
       this.filter.search8749 = null;
       this.filter.search9275 = null;

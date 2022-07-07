@@ -362,7 +362,7 @@ export default {
             searchProvince: null,
             searchCityMun: null,
             searchBrgy: null,
-            searchCategory: ['PERMIT', 'MONITORING', 'NOV', 'ORDER', 'PCO', 'COMPLAINT', 'ALL FIRMS'],
+            searchCategory: ['PERMIT', 'MONITORING', 'NOV', 'ORDER', 'PCO', 'COMPLAINT'],
             selectedCategory:null,
         };
     },
@@ -374,7 +374,7 @@ export default {
             if (value) this.municipalityDropdown(value);
         },
         selectedSearchCategory(data){
-            if( data == 'ORDER' || data == 'PCO' || data == 'COMPLAINT' || data == 'ALL FIRMS'){
+            if( data == 'ORDER' || data == 'PCO' || data == 'COMPLAINT'){
                 this.filter.search1586 = null;
                 this.filter.search8749 = null;
                 this.filter.search9275 = null;

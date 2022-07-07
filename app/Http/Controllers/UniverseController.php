@@ -59,9 +59,11 @@ class UniverseController extends Controller
                         if(request('search6969')){
                             $query->orwhere('e.perm_law', 'like', '%'.request("search6969").'%');
                         }
-                        return $query->where('e.is_priority', 1);
                     }
                 );
+                $query->where('e.perm_law', '!=', '');
+                $query->whereNotNull('e.perm_law');
+                return $query->where('e.is_priority', 1);
             })
             ->when(request('selectedSearchCategory') == 'MONITORING', function ($query) {
                 $query->leftjoin('tbl_monitoring as f', 'a.id', '=', 'f.universe_FK');
@@ -82,6 +84,8 @@ class UniverseController extends Controller
                         if(request('search9003')){
                             $query->orwhere('f.mon_law', 'like', '%'.request("search9003").'%');
                         }
+                        $query->where('f.mon_law', '!=', '');
+                        $query->whereNotNull('f.mon_law');
                         return $query;
                     }
                 );
@@ -108,6 +112,25 @@ class UniverseController extends Controller
                         return $query;
                     }
                 );
+                $query->where('g.nov_law', '!=', '');
+                $query->whereNotNull('g.nov_law');
+                $query->where('g.nov_compliance_status', '!=', 'Complied');
+            })
+            ->when(request('selectedSearchCategory') == 'ORDER', function ($query) {
+                $query->leftjoin('tbl_legal as h', 'a.id', '=', 'h.universe_FK');
+                $query->where('h.nov_law', '!=', '');
+                $query->whereNotNull('h.nov_law');
+                $query->where('h.nov_compliance_status','!=','Complied')->where('h.nov_order_number','!=',null);
+            })
+            ->when(request('selectedSearchCategory') == 'PCO', function ($query) {
+                $query->leftjoin('tbl_pco as i', 'a.id', '=', 'i.universe_FK');
+                $query->where('i.pco_name', '!=', '');
+                $query->whereNotNull('i.pco_name');
+            })
+            ->when(request('selectedSearchCategory') == 'COMPLAINT', function ($query) {
+                $query->leftjoin('tbl_complaint as j', 'a.id', '=', 'j.universe_FK');
+                $query->where('j.comp_name', '!=', '');
+                $query->whereNotNull('j.comp_name');
             })
             ->paginate(10);
 
@@ -152,21 +175,21 @@ class UniverseController extends Controller
               return $query->where('perm_date_expiry', null)->orWhere('perm_date_expiry', null);
             }
         )->count();
-        $query_pco_all = Pco::count();
-        $query_nov_all = Legal::where('nov_compliance_status','!=','Complied')->count();
+        $query_pco_all = Pco::where('pco_name','!=','')->whereNotNull('pco_name')->count();
+        $query_nov_all = Legal::where('nov_compliance_status','!=','Complied')->where('nov_law','!=','')->whereNotNull('nov_law')->count();
         $query_nov_1586 = Legal::where('nov_compliance_status','!=','Complied')->where('nov_law','like','%PD 1586%')->count();
         $query_nov_8749 = Legal::where('nov_compliance_status','!=','Complied')->where('nov_law','like','%RA 8749%')->count();
         $query_nov_9275 = Legal::where('nov_compliance_status','!=','Complied')->where('nov_law','like','%RA 9275%')->count();
         $query_nov_6969 = Legal::where('nov_compliance_status','!=','Complied')->where('nov_law','like','%RA 6969%')->count();
         $query_nov_9003 = Legal::where('nov_compliance_status','!=','Complied')->where('nov_law','like','%RA 9003%')->count();
-        $query_order_issued = Legal::where('nov_compliance_status','!=','Complied')->where('nov_order_number','!=',null)->count();
-        $query_monitoring_all = Monitoring::count();
+        $query_order_issued = Legal::where('nov_compliance_status','!=','Complied')->where('nov_order_number','!=','')->whereNotNull('nov_order_number')->count();
+        $query_monitoring_all = Monitoring::where('mon_law','!=','')->whereNotNull('mon_law')->count();
         $query_monitoring_1586 = Monitoring::where('mon_law','like','%PD 1586%')->count();
         $query_monitoring_8749 = Monitoring::where('mon_law','like','%RA 8749%')->count();
         $query_monitoring_9275 = Monitoring::where('mon_law','like','%RA 9275%')->count();
         $query_monitoring_6969 = Monitoring::where('mon_law','like','%RA 6969%')->count();
         $query_monitoring_9003 = Monitoring::where('mon_law','like','%RA 9003%')->count();
-        $query_complaint = Complaint::count();
+        $query_complaint = Complaint::where('comp_name','!=','')->whereNotNull('comp_name')->count();
         return Inertia::render("pages/universe/universe_dashboard",[
             'query_registered_industries'=>$query_registered_industries,
             'query_permit_1586'=>$query_permit_1586,
