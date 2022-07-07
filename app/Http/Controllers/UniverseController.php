@@ -127,6 +127,11 @@ class UniverseController extends Controller
                 $query->where('i.pco_name', '!=', '');
                 $query->whereNotNull('i.pco_name');
             })
+            ->when(request('selectedSearchCategory') == 'COMPLAINT', function ($query) {
+                $query->leftjoin('tbl_complaint as j', 'a.id', '=', 'j.universe_FK');
+                $query->where('j.comp_name', '!=', '');
+                $query->whereNotNull('j.comp_name');
+            })
             ->paginate(10);
 
         return Inertia::render("pages/universe/universe_list", [
