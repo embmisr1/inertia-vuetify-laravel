@@ -1,57 +1,10 @@
 <template>
     <DefaultLayout>
         <div id="app" class="container">
-            <v-btn color="primary" dark class="mb-2" @click="dialog = true">
-                <v-icon dark> mdi-filter </v-icon> Filter
+            <v-btn color="primary" dark class="mb-2" @click="dialog = !dialog">
+                <v-icon dark> mdi-filter </v-icon>
+                {{ !dialog ? "Open Filter" : "Close Filter" }}
             </v-btn>
-
-            <!-- <div class="grid grid-cols-4 gap-x-3">
-                <div>
-                    <v-autocomplete
-                        :loading="loading"
-                        :items="province_list_alter"
-                        v-model="filter.PK_province_ID"
-                        label="Province"
-                        item-text="provDesc"
-                        item-value="PK_province_ID"
-                        clearable
-                        :search-input.sync="searchProvince"
-                        solo
-                        dense
-                    ></v-autocomplete>
-                </div>
-                <div>
-                    <v-autocomplete
-                        :loading="loading"
-                        :items="municipality_list_alter"
-                        v-model="filter.PK_citymun_ID"
-                        label="Municipality"
-                        item-text="citymunDesc"
-                        item-value="PK_citymun_ID"
-                        clearable
-                        :search-input.sync="searchCityMun"
-                        solo
-                        dense
-                    ></v-autocomplete>
-                </div>
-                <div>
-                    <v-autocomplete
-                        :loading="loading"
-                        :items="barangay_list_alter"
-                        v-model="filter.PK_brgy_ID"
-                        label="Barangay"
-                        item-text="brgyDesc"
-                        item-value="PK_brgy_ID"
-                        clearable
-                        :search-input.sync="searchBrgy"
-                        solo
-                        dense
-                    ></v-autocomplete>
-                </div>
-                <v-btn color="primary darken-4" @click="filterUniverse">
-                    Filter
-                </v-btn>
-            </div> -->
             <section>
                 <b-table
                     :data="query.data"
@@ -158,49 +111,78 @@
                 </b-table>
             </section>
         </div>
-        <v-dialog v-model="dialog" persistent max-width="500">
+        <v-dialog v-model="dialog" max-width="500" persistent>
             <v-card>
                 <v-card-title class="text-h5">
                     <v-icon> mdi-filter </v-icon> Filter Options
                 </v-card-title>
                 <v-card-text>
-                    <div>
-                        <!-- @change="provinceDropdown" -->
-                        <v-autocomplete
-                            :loading="loading"
-                            :items="province_list_alter"
-                            v-model="filter.PK_province_ID"
-                            label="Province"
-                            item-text="provDesc"
-                            item-value="PK_province_ID"
-                            clearable
-                            :search-input.sync="searchProvince"
-                        ></v-autocomplete>
-                    </div>
-                    <div>
-                        <!-- @change="municipalityDropdown" -->
-                        <v-autocomplete
-                            :loading="loading"
-                            :items="municipality_list_alter"
-                            v-model="filter.PK_citymun_ID"
-                            label="Municipality"
-                            item-text="citymunDesc"
-                            item-value="PK_citymun_ID"
-                            clearable
-                            :search-input.sync="searchCityMun"
-                        ></v-autocomplete>
-                    </div>
-                    <div>
-                        <v-autocomplete
-                            :loading="loading"
-                            :items="barangay_list_alter"
-                            v-model="filter.PK_brgy_ID"
-                            label="Barangay"
-                            item-text="brgyDesc"
-                            item-value="PK_brgy_ID"
-                            clearable
-                            :search-input.sync="searchBrgy"
-                        ></v-autocomplete>
+                    <div class="space-y-4">
+                        <div>
+                            <b-field
+                                label="Province"
+                                label-position="inside"
+                                type="is-dark"
+                            >
+                                <b-select
+                                    v-model="filter.PK_province_ID"
+                                    placeholder="Select a Province"
+                                    expanded
+                                >
+                                    <option
+                                        v-for="option in province_list"
+                                        :value="option.PK_province_ID"
+                                        :key="option.PK_province_ID"
+                                    >
+                                        {{ option.provDesc }}
+                                    </option>
+                                </b-select>
+                            </b-field>
+                        </div>
+                        <div>
+                            <b-field
+                                label="Municipality"
+                                label-position="inside"
+                                type="is-dark"
+                            >
+                                <b-select
+                                    v-model="filter.PK_citymun_ID"
+                                    placeholder="Select a Municipality"
+                                    expanded
+                                    label-position="inside"
+                                >
+                                    <option
+                                        v-for="option in municipality_list_alter"
+                                        :value="option.PK_citymun_ID"
+                                        :key="option.PK_citymun_ID"
+                                    >
+                                        {{ option.citymunDesc }}
+                                    </option>
+                                </b-select>
+                            </b-field>
+                        </div>
+                        <div>
+                            <b-field
+                                label="Barangay"
+                                label-position="inside"
+                                type="is-dark"
+                            >
+                                <b-select
+                                    v-model="filter.PK_brgy_ID"
+                                    placeholder="Select a Barangay"
+                                    expanded
+                                    label-position="inside"
+                                >
+                                    <option
+                                        v-for="option in barangay_list_alter"
+                                        :value="option.PK_brgy_ID"
+                                        :key="option.PK_brgy_ID"
+                                    >
+                                        {{ option.brgyDesc }}
+                                    </option>
+                                </b-select>
+                            </b-field>
+                        </div>
                     </div>
                     <div>
                         <v-autocomplete
@@ -250,6 +232,13 @@
                         Close
                     </v-btn>
                     <v-btn
+                        color="red darken-1"
+                        class="white--text"
+                        @click="clearFilter"
+                    >
+                        Clear Filter
+                    </v-btn>
+                    <v-btn
                         color="green darken-1"
                         class="white--text"
                         @click="filterUniverse"
@@ -278,46 +267,36 @@ export default {
     props: {
         query: Object,
         province_list: Array,
-        municipality_list: Array,
         barangay_list: Array,
         filter: Object,
     },
-    async mounted() {
-        if (this.filter.PK_province_ID) {
-            const prov_data = await this.filter_prov();
-            this.searchProvince = prov_data.provDesc;
-        // } else this.filter.PK_province_ID = "";
-        }
+    data() {
+        return {
+            dialog: false,
+            province_list_alter: this.province_list,
+            municipality_list_alter: [],
 
+            barangay_list_alter: [],
+            // filter: {},
+            searchProvince: null,
+            searchCityMun: null,
+            searchBrgy: null,
+            openFilter: false,
+        };
+    },
+    async mounted() {
         if (this.filter.PK_citymun_ID) {
             await this.provinceDropdown(this.filter.PK_province_ID);
-            const citymun_data = await this.filter_citymun();
-            this.searchCityMun = citymun_data.citymunDesc;
-        // } else this.filter.PK_citymun_ID = "";
-        }
-
-        if (this.filter.PK_brgy_ID) {
             await this.municipalityDropdown(this.filter.PK_citymun_ID);
-            const brgy_data = await this.filter_brgy();
-            this.searchBrgy = brgy_data.brgyDesc;
-        // } else this.filter.PK_brgy_ID = "";
         }
     },
     methods: {
-        async filter_prov() {
-            return await _.find(this.province_list, (data) => {
-                return data.provCode == this.filter.PK_province_ID;
-            });
-        },
-        async filter_citymun() {
-            return await _.find(this.municipality_list_alter, (data) => {
-                return data.PK_citymun_ID == this.filter.PK_citymun_ID;
-            });
-        },
-        async filter_brgy() {
-            return await _.find(this.barangay_list_alter, (data) => {
-                return data.PK_brgy_ID == this.filter.PK_brgy_ID;
-            });
+        async clearFilter() {
+            this.filter = {
+                PK_province_ID: "",
+                PK_citymun_ID: "",
+                PK_brgy_ID: "",
+            };
         },
         async filterUniverse() {
             // this.dialog = false;
@@ -350,6 +329,7 @@ export default {
                 this.loading = true;
                 await this.$inertia.get("#", { ...params });
                 this.loading = false;
+                this.dialog = false;
             } catch (error) {
                 this.loading = false;
                 console.log(error);
@@ -387,19 +367,6 @@ export default {
         };
     },
     watch: {
-        searchProvince(data) {
-            if (!data) {
-                this.filter.PK_province_ID = "";
-                this.filter.PK_citymun_ID = "";
-                this.filter.PK_brgy_ID = "";
-            }
-        },
-        searchCityMun(data) {
-            if (!data) this.filter.PK_citymun_ID = "";
-        },
-        searchBrgy(data) {
-            if (!data) this.filter.PK_brgy_ID = "";
-        },
         PK_province_ID(value) {
             if (value) this.provinceDropdown(value);
         },
