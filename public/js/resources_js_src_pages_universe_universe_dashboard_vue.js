@@ -281,8 +281,12 @@ __webpack_require__.r(__webpack_exports__);
           link: null,
           icon: "mdi-view-dashboard",
           child: [{
-            name: "Universe Dashboard",
-            link: "/app/universe_dashboard/",
+            name: "Universe Dashboard Firm",
+            link: "/app/universe_dashboard/firm",
+            icon: "mdi-link"
+          }, {
+            name: "Universe Dashboard LGU",
+            link: "/app/universe_dashboard/lgu",
             icon: "mdi-link"
           }, {
             name: "Universe",
@@ -562,6 +566,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     label: String,
+    firm_type: String,
     query_counter_total: Number,
     query_counter_valid: Number,
     query_counter_expired: Number,
@@ -682,6 +687,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -694,6 +709,7 @@ __webpack_require__.r(__webpack_exports__);
     MainDashboard: _dashboard_cards_main_dashboard_card__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   props: {
+    firm_type: String,
     query_registered_industries: Number,
     query_all_firm: Number,
     query_permit_1586: Number,
@@ -1751,6 +1767,7 @@ var render = function () {
               query_counter_valid: _vm.query_permit_9275_valid,
               query_counter_expired: _vm.query_permit_9275_expired,
               query_counter_undefined: _vm.query_permit_9275_undefined,
+              firm_type: _vm.firm_type,
               label: "WITH 9275",
             },
           }),
@@ -1767,6 +1784,7 @@ var render = function () {
               query_counter_valid: _vm.query_permit_8749_valid,
               query_counter_expired: _vm.query_permit_8749_expired,
               query_counter_undefined: _vm.query_permit_8749_undefined,
+              firm_type: _vm.firm_type,
               label: "WITH 8749",
             },
           }),
@@ -1780,6 +1798,7 @@ var render = function () {
           _c("MainDashboard", {
             attrs: {
               query_counter_total: _vm.query_permit_6969,
+              firm_type: _vm.firm_type,
               label: "WITH 6969",
             },
           }),
@@ -1793,6 +1812,7 @@ var render = function () {
           _c("MainDashboard", {
             attrs: {
               query_counter_total: _vm.query_permit_1586,
+              firm_type: _vm.firm_type,
               label: "WITH 1586",
             },
           }),
@@ -1806,6 +1826,7 @@ var render = function () {
           _c("MainDashboard", {
             attrs: {
               query_counter_total: _vm.query_registered_industries,
+              firm_type: _vm.firm_type,
               label: "REGISTERED FIRMS",
             },
           }),
@@ -1826,6 +1847,7 @@ var render = function () {
               query_counter_9275: _vm.query_monitoring_9275,
               query_counter_6969: _vm.query_monitoring_6969,
               query_counter_9003: _vm.query_monitoring_9003,
+              firm_type: _vm.firm_type,
               label: "MONITORING",
             },
           }),
@@ -1844,6 +1866,7 @@ var render = function () {
               query_counter_9275: _vm.query_nov_9275,
               query_counter_6969: _vm.query_nov_6969,
               query_counter_9003: _vm.query_nov_9003,
+              firm_type: _vm.firm_type,
               label: "WITH NOV",
             },
           }),
@@ -1857,6 +1880,7 @@ var render = function () {
           _c("MainDashboard", {
             attrs: {
               query_counter_total: _vm.query_order_issued,
+              firm_type: _vm.firm_type,
               label: "WITH ORDER",
             },
           }),
@@ -1870,6 +1894,7 @@ var render = function () {
           _c("MainDashboard", {
             attrs: {
               query_counter_total: _vm.query_pco_all,
+              firm_type: _vm.firm_type,
               label: "WITH PCO",
             },
           }),
@@ -1883,6 +1908,7 @@ var render = function () {
           _c("MainDashboard", {
             attrs: {
               query_counter_total: _vm.query_complaint,
+              firm_type: _vm.firm_type,
               label: "COMPLAINT",
             },
           }),

@@ -54,7 +54,7 @@
                         centered
                         v-slot="props"
                     >
-                        <span class="tag is-success">
+                        <span class="tag is-default">
                             {{ props.row.un_status }}
                         </span>
                     </b-table-column>
@@ -183,6 +183,24 @@
                                 </b-select>
                             </b-field>
                         </div>
+                    </div>
+                    <div>
+                        <v-autocomplete
+                            :loading="loading"
+                            :items="searchStatus"
+                            label="Status"
+                            v-model="filter.searchStatus"
+                            clearable
+                        ></v-autocomplete>
+                    </div>
+                    <div>
+                        <v-autocomplete
+                            :loading="loading"
+                            :items="searchType"
+                            label="Firm Type"
+                            v-model="filter.searchType"
+                            clearable
+                        ></v-autocomplete>
                     </div>
                     <div>
                         <v-autocomplete
@@ -363,6 +381,8 @@ export default {
             searchCityMun: null,
             searchBrgy: null,
             searchCategory: ['PERMIT', 'MONITORING', 'NOV', 'ORDER', 'PCO', 'COMPLAINT'],
+            searchStatus: ['Active-Operational', 'Active-Proposed', 'Cancelled', 'Ceased', 'Ceased Operation', 'Delisted', 'Inactive-', 'Inactive-CANCELLED'],
+            searchType: ['FIRM', 'LGU'],
             selectedCategory:null,
         };
     },

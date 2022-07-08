@@ -84,6 +84,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     label: String,
+    firm_type: String,
     query_counter_total: Number,
     query_counter_valid: Number,
     query_counter_expired: Number,

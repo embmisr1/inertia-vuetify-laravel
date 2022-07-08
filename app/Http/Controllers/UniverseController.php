@@ -43,6 +43,12 @@ class UniverseController extends Controller
             ->when(request('PK_brgy_ID'), function ($query) {
                 $query->where('a.un_brgy', request('PK_brgy_ID'));
             })
+            ->when(request('searchStatus'), function ($query) {
+                $query->where('a.un_status', request('searchStatus'));
+            })
+            ->when(request('searchType'), function ($query) {
+                $query->where('a.un_type', request('searchType'));
+            })
             ->when(request('selectedSearchCategory') == 'PERMIT', function ($query) {
                 $query->leftjoin('tbl_permit as e', 'a.id', '=', 'e.universe_FK');
                 $query->where(
@@ -140,6 +146,8 @@ class UniverseController extends Controller
                 'PK_citymun_ID' => request('PK_citymun_ID'),
                 'PK_brgy_ID' => request('PK_brgy_ID'),
                 "selectedSearchCategory"=>request("selectedSearchCategory"),
+                "searchStatus"=>request("searchStatus"),
+                "searchType"=>request("searchType"),
                 "search1586"=>request("search1586"),
                 "search8749"=>request("search8749"),
                 "search9275"=>request("search9275"),
@@ -149,74 +157,76 @@ class UniverseController extends Controller
 
             'query' => $query,
             'province_list' => $province_list,
-            // 'selectedSearchCategory' => '',
         ]);
     }
     
     public function universe_dashboard(request $request){
-        $query_registered_industries = DB::table('tbl_universe')->select('*')->count();
-        $query_permit_1586 = Permit::where('perm_law','PD 1586')->where('is_priority',1)->count();
-        $query_permit_8749 = Permit::where('perm_law','RA 8749')->where('is_priority',1)->count();
-        $query_permit_9275 = Permit::where('perm_law','RA 9275')->where('is_priority',1)->count();
-        $query_permit_6969 = Permit::where('perm_law','RA 6969')->where('is_priority',1)->count();
-        $query_permit_8749_valid = Permit::where('perm_law','RA 8749')->where('is_priority',1)->where('perm_date_expiry','>',Carbon::today()->toDateString())->count();
-        $query_permit_9275_valid = Permit::where('perm_law','RA 9275')->where('is_priority',1)->where('perm_date_expiry','>',Carbon::today()->toDateString())->count();
-        $query_permit_8749_expired = Permit::where('perm_law','RA 8749')->where('is_priority',1)->where('perm_date_expiry','<=',Carbon::today()->toDateString())->count();
-        $query_permit_9275_expired = Permit::where('perm_law','RA 9275')->where('is_priority',1)->where('perm_date_expiry','<=',Carbon::today()->toDateString())->count();
-        $query_permit_8749_undefined = Permit::where('perm_law','RA 8749')->where('is_priority',1)
+        $firm_type = $request->firm_type;
+        $query_registered_industries = DB::table('tbl_universe')->select('*')->where('un_type', $firm_type);
+        $query_permit_1586 = DB::table('tbl_permit as a')->leftjoin('tbl_universe as b','a.universe_FK','=','b.id')->where('b.un_type', $firm_type)->where('a.perm_law','PD 1586')->where('a.is_priority',1);
+        $query_permit_8749 = DB::table('tbl_permit as a')->leftjoin('tbl_universe as b','a.universe_FK','=','b.id')->where('b.un_type', $firm_type)->where('a.perm_law','RA 8749')->where('a.is_priority',1);
+        $query_permit_9275 = DB::table('tbl_permit as a')->leftjoin('tbl_universe as b','a.universe_FK','=','b.id')->where('b.un_type', $firm_type)->where('a.perm_law','RA 9275')->where('a.is_priority',1);
+        $query_permit_6969 = DB::table('tbl_permit as a')->leftjoin('tbl_universe as b','a.universe_FK','=','b.id')->where('b.un_type', $firm_type)->where('a.perm_law','RA 6969')->where('a.is_priority',1);
+        // >------>
+        $query_permit_8749_valid = DB::table('tbl_permit as a')->leftjoin('tbl_universe as b','a.universe_FK','=','b.id')->where('b.un_type', $firm_type)->where('a.perm_law','RA 8749')->where('a.is_priority',1)->where('a.perm_date_expiry','>',Carbon::today()->toDateString());
+        $query_permit_9275_valid = DB::table('tbl_permit as a')->leftjoin('tbl_universe as b','a.universe_FK','=','b.id')->where('b.un_type', $firm_type)->where('a.perm_law','RA 9275')->where('a.is_priority',1)->where('a.perm_date_expiry','>',Carbon::today()->toDateString());
+        $query_permit_8749_expired = DB::table('tbl_permit as a')->leftjoin('tbl_universe as b','a.universe_FK','=','b.id')->where('b.un_type', $firm_type)->where('a.perm_law','RA 8749')->where('a.is_priority',1)->where('a.perm_date_expiry','<=',Carbon::today()->toDateString());
+        $query_permit_9275_expired = DB::table('tbl_permit as a')->leftjoin('tbl_universe as b','a.universe_FK','=','b.id')->where('b.un_type', $firm_type)->where('a.perm_law','RA 9275')->where('a.is_priority',1)->where('a.perm_date_expiry','<=',Carbon::today()->toDateString());
+        $query_permit_8749_undefined = DB::table('tbl_permit as a')->leftjoin('tbl_universe as b','a.universe_FK','=','b.id')->where('b.un_type', $firm_type)->where('a.perm_law','RA 8749')->where('a.is_priority',1)
         ->where(
             function($query) {
               return $query->where('perm_date_expiry', null)->orWhere('perm_date_expiry', null);
             }
-        )->count();
-        $query_permit_9275_undefined = Permit::where('perm_law','RA 9275')->where('is_priority',1)
+        );
+        $query_permit_9275_undefined = DB::table('tbl_permit as a')->leftjoin('tbl_universe as b','a.universe_FK','=','b.id')->where('b.un_type', $firm_type)->where('a.perm_law','RA 9275')->where('a.is_priority',1)
         ->where(
             function($query) {
               return $query->where('perm_date_expiry', null)->orWhere('perm_date_expiry', null);
             }
-        )->count();
-        $query_pco_all = Pco::where('pco_name','!=','')->whereNotNull('pco_name')->count();
-        $query_nov_all = Legal::where('nov_compliance_status','!=','Complied')->where('nov_law','!=','')->whereNotNull('nov_law')->count();
-        $query_nov_1586 = Legal::where('nov_compliance_status','!=','Complied')->where('nov_law','like','%PD 1586%')->count();
-        $query_nov_8749 = Legal::where('nov_compliance_status','!=','Complied')->where('nov_law','like','%RA 8749%')->count();
-        $query_nov_9275 = Legal::where('nov_compliance_status','!=','Complied')->where('nov_law','like','%RA 9275%')->count();
-        $query_nov_6969 = Legal::where('nov_compliance_status','!=','Complied')->where('nov_law','like','%RA 6969%')->count();
-        $query_nov_9003 = Legal::where('nov_compliance_status','!=','Complied')->where('nov_law','like','%RA 9003%')->count();
-        $query_order_issued = Legal::where('nov_compliance_status','!=','Complied')->where('nov_order_number','!=','')->whereNotNull('nov_order_number')->count();
-        $query_monitoring_all = Monitoring::where('mon_law','!=','')->whereNotNull('mon_law')->count();
-        $query_monitoring_1586 = Monitoring::where('mon_law','like','%PD 1586%')->count();
-        $query_monitoring_8749 = Monitoring::where('mon_law','like','%RA 8749%')->count();
-        $query_monitoring_9275 = Monitoring::where('mon_law','like','%RA 9275%')->count();
-        $query_monitoring_6969 = Monitoring::where('mon_law','like','%RA 6969%')->count();
-        $query_monitoring_9003 = Monitoring::where('mon_law','like','%RA 9003%')->count();
-        $query_complaint = Complaint::where('comp_name','!=','')->whereNotNull('comp_name')->count();
+        );
+        $query_pco_all = DB::table('tbl_pco as a')->leftjoin('tbl_universe as b','a.universe_FK','=','b.id')->where('b.un_type', $firm_type)->where('a.pco_name','!=','')->whereNotNull('a.pco_name');
+        $query_nov_all = DB::table('tbl_legal as a')->leftjoin('tbl_universe as b','a.universe_FK','=','b.id')->where('b.un_type', $firm_type)->where('a.nov_compliance_status','!=','Complied')->where('a.nov_law','!=','')->whereNotNull('a.nov_law');
+        $query_nov_1586 = DB::table('tbl_legal as a')->leftjoin('tbl_universe as b','a.universe_FK','=','b.id')->where('b.un_type', $firm_type)->where('a.nov_compliance_status','!=','Complied')->where('a.nov_law','like','%PD 1586%');
+        $query_nov_8749 = DB::table('tbl_legal as a')->leftjoin('tbl_universe as b','a.universe_FK','=','b.id')->where('b.un_type', $firm_type)->where('a.nov_compliance_status','!=','Complied')->where('a.nov_law','like','%RA 8749%');
+        $query_nov_9275 = DB::table('tbl_legal as a')->leftjoin('tbl_universe as b','a.universe_FK','=','b.id')->where('b.un_type', $firm_type)->where('a.nov_compliance_status','!=','Complied')->where('a.nov_law','like','%RA 9275%');
+        $query_nov_6969 = DB::table('tbl_legal as a')->leftjoin('tbl_universe as b','a.universe_FK','=','b.id')->where('b.un_type', $firm_type)->where('a.nov_compliance_status','!=','Complied')->where('a.nov_law','like','%RA 6969%');
+        $query_nov_9003 = DB::table('tbl_legal as a')->leftjoin('tbl_universe as b','a.universe_FK','=','b.id')->where('b.un_type', $firm_type)->where('a.nov_compliance_status','!=','Complied')->where('a.nov_law','like','%RA 9003%');
+        $query_order_issued = DB::table('tbl_legal as a')->leftjoin('tbl_universe as b','a.universe_FK','=','b.id')->where('b.un_type', $firm_type)->where('a.nov_compliance_status','!=','Complied')->where('a.nov_order_number','!=','')->whereNotNull('a.nov_order_number');
+        $query_monitoring_all = DB::table('tbl_monitoring as a')->leftjoin('tbl_universe as b','a.universe_FK','=','b.id')->where('b.un_type', $firm_type)->where('a.mon_law','!=','')->whereNotNull('a.mon_law');
+        $query_monitoring_1586 = DB::table('tbl_monitoring as a')->leftjoin('tbl_universe as b','a.universe_FK','=','b.id')->where('b.un_type', $firm_type)->where('a.mon_law','like','%PD 1586%');
+        $query_monitoring_8749 = DB::table('tbl_monitoring as a')->leftjoin('tbl_universe as b','a.universe_FK','=','b.id')->where('b.un_type', $firm_type)->where('a.mon_law','like','%RA 8749%');
+        $query_monitoring_9275 = DB::table('tbl_monitoring as a')->leftjoin('tbl_universe as b','a.universe_FK','=','b.id')->where('b.un_type', $firm_type)->where('a.mon_law','like','%RA 9275%');
+        $query_monitoring_6969 = DB::table('tbl_monitoring as a')->leftjoin('tbl_universe as b','a.universe_FK','=','b.id')->where('b.un_type', $firm_type)->where('a.mon_law','like','%RA 6969%');
+        $query_monitoring_9003 = DB::table('tbl_monitoring as a')->leftjoin('tbl_universe as b','a.universe_FK','=','b.id')->where('b.un_type', $firm_type)->where('a.mon_law','like','%RA 9003%');
+        $query_complaint = DB::table('tbl_complaint as a')->leftjoin('tbl_universe as b','a.universe_FK','=','b.id')->where('b.un_type', $firm_type)->where('a.comp_name','!=','')->whereNotNull('a.comp_name');
         return Inertia::render("pages/universe/universe_dashboard",[
-            'query_registered_industries'=>$query_registered_industries,
-            'query_permit_1586'=>$query_permit_1586,
-            'query_permit_8749'=>$query_permit_8749,
-            'query_permit_9275'=>$query_permit_9275,
-            'query_permit_6969'=>$query_permit_6969,
-            'query_permit_8749_valid'=>$query_permit_8749_valid,
-            'query_permit_9275_valid'=>$query_permit_9275_valid,
-            'query_permit_8749_expired'=>$query_permit_8749_expired,
-            'query_permit_9275_expired'=>$query_permit_9275_expired,
-            'query_permit_8749_undefined'=>$query_permit_8749_undefined,
-            'query_permit_9275_undefined'=>$query_permit_9275_undefined,
-            'query_pco_all'=>$query_pco_all,
-            'query_nov_all'=>$query_nov_all,
-            'query_nov_1586'=>$query_nov_1586,
-            'query_nov_8749'=>$query_nov_8749,
-            'query_nov_9275'=>$query_nov_9275,
-            'query_nov_6969'=>$query_nov_6969,
-            'query_nov_9003'=>$query_nov_9003,
-            'query_order_issued'=>$query_order_issued,
-            'query_monitoring_all'=>$query_monitoring_all,
-            'query_monitoring_1586'=>$query_monitoring_1586,
-            'query_monitoring_8749'=>$query_monitoring_8749,
-            'query_monitoring_9275'=>$query_monitoring_9275,
-            'query_monitoring_6969'=>$query_monitoring_6969,
-            'query_monitoring_9003'=>$query_monitoring_9003,
-            'query_complaint'=>$query_complaint,
+            'query_registered_industries'=>$query_registered_industries->count(),
+            'query_permit_1586'=>$query_permit_1586->count(),
+            'query_permit_8749'=>$query_permit_8749->count(),
+            'query_permit_9275'=>$query_permit_9275->count(),
+            'query_permit_6969'=>$query_permit_6969->count(),
+            'query_permit_8749_valid'=>$query_permit_8749_valid->count(),
+            'query_permit_9275_valid'=>$query_permit_9275_valid->count(),
+            'query_permit_8749_expired'=>$query_permit_8749_expired->count(),
+            'query_permit_9275_expired'=>$query_permit_9275_expired->count(),
+            'query_permit_8749_undefined'=>$query_permit_8749_undefined->count(),
+            'query_permit_9275_undefined'=>$query_permit_9275_undefined->count(),
+            'query_pco_all'=>$query_pco_all->count(),
+            'query_nov_all'=>$query_nov_all->count(),
+            'query_nov_1586'=>$query_nov_1586->count(),
+            'query_nov_8749'=>$query_nov_8749->count(),
+            'query_nov_9275'=>$query_nov_9275->count(),
+            'query_nov_6969'=>$query_nov_6969->count(),
+            'query_nov_9003'=>$query_nov_9003->count(),
+            'query_order_issued'=>$query_order_issued->count(),
+            'query_monitoring_all'=>$query_monitoring_all->count(),
+            'query_monitoring_1586'=>$query_monitoring_1586->count(),
+            'query_monitoring_8749'=>$query_monitoring_8749->count(),
+            'query_monitoring_9275'=>$query_monitoring_9275->count(),
+            'query_monitoring_6969'=>$query_monitoring_6969->count(),
+            'query_monitoring_9003'=>$query_monitoring_9003->count(),
+            'query_complaint'=>$query_complaint->count(),
+            'firm_type'=>$firm_type,
         ]);
     }
 

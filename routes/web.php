@@ -83,7 +83,7 @@ Route::group([
     // GET REQUESTS
     Route::get('/import_data', [ImportDataController::class, 'import_data'])->name("import_data");
     Route::get('/universe', [UniverseController::class, 'universe_list'])->name("universe_list");
-    Route::get('/universe_dashboard', [UniverseController::class, 'universe_dashboard'])->name("universe_dashboard");
+    Route::get('/universe_dashboard/{firm_type}', [UniverseController::class, 'universe_dashboard'])->name("universe_dashboard");
     Route::get('/universe_form', [UniverseController::class, 'universe_form'])->name("universe_form");
     Route::get('/universe_form/{id}', [UniverseController::class, 'universe_form'])->name("universe_form_id");
     // POST REQUESTS

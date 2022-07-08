@@ -292,8 +292,12 @@ __webpack_require__.r(__webpack_exports__);
           link: null,
           icon: "mdi-view-dashboard",
           child: [{
-            name: "Universe Dashboard",
-            link: "/app/universe_dashboard/",
+            name: "Universe Dashboard Firm",
+            link: "/app/universe_dashboard/firm",
+            icon: "mdi-link"
+          }, {
+            name: "Universe Dashboard LGU",
+            link: "/app/universe_dashboard/lgu",
             icon: "mdi-link"
           }, {
             name: "Universe",
@@ -776,6 +780,24 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -1000,6 +1022,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     searchCityMun: null,
     searchBrgy: null,
     searchCategory: ['PERMIT', 'MONITORING', 'NOV', 'ORDER', 'PCO', 'COMPLAINT'],
+    searchStatus: ['Active-Operational', 'Active-Proposed', 'Cancelled', 'Ceased', 'Ceased Operation', 'Delisted', 'Inactive-', 'Inactive-CANCELLED'],
+    searchType: ['FIRM', 'LGU'],
     selectedCategory: null
   };
 }), _defineProperty(_mixins$components$pr, "watch", {
@@ -21448,7 +21472,7 @@ var render = function () {
                         key: "default",
                         fn: function (props) {
                           return [
-                            _c("span", { staticClass: "tag is-success" }, [
+                            _c("span", { staticClass: "tag is-default" }, [
                               _vm._v(
                                 "\n                        " +
                                   _vm._s(props.row.un_status) +
@@ -21794,6 +21818,50 @@ var render = function () {
                     1
                   ),
                 ]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  [
+                    _c("v-autocomplete", {
+                      attrs: {
+                        loading: _vm.loading,
+                        items: _vm.searchStatus,
+                        label: "Status",
+                        clearable: "",
+                      },
+                      model: {
+                        value: _vm.filter.searchStatus,
+                        callback: function ($$v) {
+                          _vm.$set(_vm.filter, "searchStatus", $$v)
+                        },
+                        expression: "filter.searchStatus",
+                      },
+                    }),
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  [
+                    _c("v-autocomplete", {
+                      attrs: {
+                        loading: _vm.loading,
+                        items: _vm.searchType,
+                        label: "Firm Type",
+                        clearable: "",
+                      },
+                      model: {
+                        value: _vm.filter.searchType,
+                        callback: function ($$v) {
+                          _vm.$set(_vm.filter, "searchType", $$v)
+                        },
+                        expression: "filter.searchType",
+                      },
+                    }),
+                  ],
+                  1
+                ),
                 _vm._v(" "),
                 _c(
                   "div",

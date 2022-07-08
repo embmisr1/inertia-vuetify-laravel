@@ -292,8 +292,12 @@ __webpack_require__.r(__webpack_exports__);
           link: null,
           icon: "mdi-view-dashboard",
           child: [{
-            name: "Universe Dashboard",
-            link: "/app/universe_dashboard/",
+            name: "Universe Dashboard Firm",
+            link: "/app/universe_dashboard/firm",
+            icon: "mdi-link"
+          }, {
+            name: "Universe Dashboard LGU",
+            link: "/app/universe_dashboard/lgu",
             icon: "mdi-link"
           }, {
             name: "Universe",
@@ -808,9 +812,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   data: function data() {
     return {
       universe_type_selection: [{
-        'universe_type_selection_obj': 'Firm'
+        'universe_type_selection_obj': 'FIRM'
       }, {
-        'universe_type_selection_obj': 'Lgu'
+        'universe_type_selection_obj': 'LGU'
       }],
       basic_tab: null,
       province_list_alter: this.province_list,

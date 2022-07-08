@@ -330,9 +330,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   data: function data() {
     return {
       universe_type_selection: [{
-        'universe_type_selection_obj': 'Firm'
+        'universe_type_selection_obj': 'FIRM'
       }, {
-        'universe_type_selection_obj': 'Lgu'
+        'universe_type_selection_obj': 'LGU'
       }],
       basic_tab: null,
       province_list_alter: this.province_list,

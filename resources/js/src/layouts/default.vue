@@ -128,8 +128,13 @@ export default {
                             icon: "mdi-view-dashboard",
                             child: [
                                 {
-                                    name: "Universe Dashboard",
-                                    link: "/app/universe_dashboard/",
+                                    name: "Universe Dashboard Firm",
+                                    link: "/app/universe_dashboard/firm",
+                                    icon: "mdi-link",
+                                },
+                                {
+                                    name: "Universe Dashboard LGU",
+                                    link: "/app/universe_dashboard/lgu",
                                     icon: "mdi-link",
                                 },
                                 {

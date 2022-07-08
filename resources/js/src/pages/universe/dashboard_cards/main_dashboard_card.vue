@@ -72,6 +72,7 @@
   export default {
     props:{
         label: String,
+        firm_type: String,
         query_counter_total: Number,
         query_counter_valid: Number,
         query_counter_expired: Number,
