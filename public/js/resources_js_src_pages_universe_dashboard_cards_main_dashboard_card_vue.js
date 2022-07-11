@@ -11,6 +11,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @inertiajs/inertia-vue */ "./node_modules/@inertiajs/inertia-vue/dist/index.js");
 //
 //
 //
@@ -81,6 +82,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     label: String,
@@ -93,9 +95,17 @@ __webpack_require__.r(__webpack_exports__);
     query_counter_8749: Number,
     query_counter_9275: Number,
     query_counter_6969: Number,
-    query_counter_9003: Number
+    query_counter_9003: Number,
+    href_1586: String,
+    href_8749: String,
+    href_9275: String,
+    href_6969: String,
+    href_9003: String,
+    href: String
   },
-  components: {},
+  components: {
+    Link: _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_0__.Link
+  },
   data: function data() {
     return {};
   }
@@ -229,12 +239,20 @@ var render = function () {
                 "div",
                 { staticClass: "text-xl text-center grid grid-cols-1 pt-6" },
                 [
-                  _c("div", [
-                    _vm._v("\n                    Total: "),
-                    _c("b", { staticClass: "text-2xl" }, [
-                      _vm._v(_vm._s(_vm.query_counter_total)),
-                    ]),
-                  ]),
+                  _c(
+                    "div",
+                    [
+                      _c("Link", { attrs: { href: _vm.href } }, [
+                        _c("span", { staticClass: "text-black" }, [
+                          _vm._v("Total: "),
+                          _c("b", { staticClass: "text-2xl" }, [
+                            _vm._v(_vm._s(_vm.query_counter_total)),
+                          ]),
+                        ]),
+                      ]),
+                    ],
+                    1
+                  ),
                 ]
               ),
               _vm._v(" "),
@@ -248,12 +266,20 @@ var render = function () {
                 "div",
                 { staticClass: "text-xl text-center grid grid-cols-1" },
                 [
-                  _c("div", [
-                    _vm._v("\n                    Total: "),
-                    _c("b", { staticClass: "text-2xl" }, [
-                      _vm._v(_vm._s(_vm.query_counter_total)),
-                    ]),
-                  ]),
+                  _c(
+                    "div",
+                    [
+                      _c("Link", { attrs: { href: _vm.href } }, [
+                        _c("span", { staticClass: "text-black" }, [
+                          _vm._v("Total: "),
+                          _c("b", { staticClass: "text-2xl" }, [
+                            _vm._v(_vm._s(_vm.query_counter_total)),
+                          ]),
+                        ]),
+                      ]),
+                    ],
+                    1
+                  ),
                 ]
               ),
               _vm._v(" "),
@@ -306,12 +332,20 @@ var render = function () {
                 "div",
                 { staticClass: "text-xl text-center grid grid-cols-1" },
                 [
-                  _c("div", [
-                    _vm._v("\n                    Total: "),
-                    _c("b", { staticClass: "text-2xl" }, [
-                      _vm._v(_vm._s(_vm.query_counter_total)),
-                    ]),
-                  ]),
+                  _c(
+                    "div",
+                    [
+                      _c("Link", { attrs: { href: _vm.href } }, [
+                        _c("span", { staticClass: "text-black" }, [
+                          _vm._v("Total: "),
+                          _c("b", { staticClass: "text-2xl" }, [
+                            _vm._v(_vm._s(_vm.query_counter_total)),
+                          ]),
+                        ]),
+                      ]),
+                    ],
+                    1
+                  ),
                 ]
               ),
               _vm._v(" "),
@@ -322,21 +356,37 @@ var render = function () {
                     "text-xl text-left grid grid-cols-2 mt-5 border-t-2 border-blue-500",
                 },
                 [
-                  _c("div", [
-                    _vm._v("\n                    PD1586: "),
-                    _c("br"),
-                    _c("b", { staticClass: "text-2xl" }, [
-                      _vm._v(_vm._s(_vm.query_counter_1586)),
-                    ]),
-                  ]),
+                  _c(
+                    "div",
+                    [
+                      _c("Link", { attrs: { href: _vm.href_1586 } }, [
+                        _c("span", { staticClass: "text-black" }, [
+                          _vm._v("PD1586: "),
+                          _c("br"),
+                          _c("b", { staticClass: "text-2xl" }, [
+                            _vm._v(_vm._s(_vm.query_counter_1586)),
+                          ]),
+                        ]),
+                      ]),
+                    ],
+                    1
+                  ),
                   _vm._v(" "),
-                  _c("div", [
-                    _vm._v("\n                    RA8749: "),
-                    _c("br"),
-                    _c("b", { staticClass: "text-2xl" }, [
-                      _vm._v(_vm._s(_vm.query_counter_8749)),
-                    ]),
-                  ]),
+                  _c(
+                    "div",
+                    [
+                      _c("Link", { attrs: { href: _vm.href_8749 } }, [
+                        _c("span", { staticClass: "text-black" }, [
+                          _vm._v("RA8749: "),
+                          _c("br"),
+                          _c("b", { staticClass: "text-2xl" }, [
+                            _vm._v(_vm._s(_vm.query_counter_8749)),
+                          ]),
+                        ]),
+                      ]),
+                    ],
+                    1
+                  ),
                 ]
               ),
               _vm._v(" "),
@@ -347,21 +397,37 @@ var render = function () {
                     "text-xl text-left grid grid-cols-2 mt-5 border-t-2 border-blue-500",
                 },
                 [
-                  _c("div", [
-                    _vm._v("\n                    RA9275: "),
-                    _c("br"),
-                    _c("b", { staticClass: "text-2xl" }, [
-                      _vm._v(_vm._s(_vm.query_counter_9275)),
-                    ]),
-                  ]),
+                  _c(
+                    "div",
+                    [
+                      _c("Link", { attrs: { href: _vm.href_9275 } }, [
+                        _c("span", { staticClass: "text-black" }, [
+                          _vm._v("RA9275: "),
+                          _c("br"),
+                          _c("b", { staticClass: "text-2xl" }, [
+                            _vm._v(_vm._s(_vm.query_counter_9275)),
+                          ]),
+                        ]),
+                      ]),
+                    ],
+                    1
+                  ),
                   _vm._v(" "),
-                  _c("div", [
-                    _vm._v("\n                    RA6969: "),
-                    _c("br"),
-                    _c("b", { staticClass: "text-2xl" }, [
-                      _vm._v(_vm._s(_vm.query_counter_6969)),
-                    ]),
-                  ]),
+                  _c(
+                    "div",
+                    [
+                      _c("Link", { attrs: { href: _vm.href_6969 } }, [
+                        _c("span", { staticClass: "text-black" }, [
+                          _vm._v("RA6969: "),
+                          _c("br"),
+                          _c("b", { staticClass: "text-2xl" }, [
+                            _vm._v(_vm._s(_vm.query_counter_6969)),
+                          ]),
+                        ]),
+                      ]),
+                    ],
+                    1
+                  ),
                 ]
               ),
               _vm._v(" "),
@@ -372,12 +438,20 @@ var render = function () {
                     "text-xl text-left grid grid-cols-1 mt-5 border-t-2 border-blue-500",
                 },
                 [
-                  _c("div", [
-                    _vm._v("\n                    RA9003: "),
-                    _c("b", { staticClass: "text-2xl" }, [
-                      _vm._v(_vm._s(_vm.query_counter_9003)),
-                    ]),
-                  ]),
+                  _c(
+                    "div",
+                    [
+                      _c("Link", { attrs: { href: _vm.href_9003 } }, [
+                        _c("span", { staticClass: "text-black" }, [
+                          _vm._v("RA9003: "),
+                          _c("b", { staticClass: "text-2xl" }, [
+                            _vm._v(_vm._s(_vm.query_counter_9003)),
+                          ]),
+                        ]),
+                      ]),
+                    ],
+                    1
+                  ),
                 ]
               ),
             ])

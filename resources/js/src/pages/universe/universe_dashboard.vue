@@ -9,6 +9,7 @@
                     :query_counter_expired="query_permit_9275_expired" 
                     :query_counter_undefined="query_permit_9275_undefined" 
                     :firm_type="firm_type" 
+                    :href="`/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=PERMIT&searchStatus=&searchType=${firm_type}&search1586=&search8749=&search9275=RA%209275&search6969=&search9003=`"
                     label="WITH 9275">
                 </MainDashboard>
             </div>
@@ -18,6 +19,7 @@
                     :query_counter_valid="query_permit_8749_valid" 
                     :query_counter_expired="query_permit_8749_expired" 
                     :query_counter_undefined="query_permit_8749_undefined" 
+                    :href="`/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=PERMIT&searchStatus=&searchType=${firm_type}&search1586=&search8749=RA%208749&search9275=&search6969=&search9003=`"
                     :firm_type="firm_type" 
                     label="WITH 8749">
                 </MainDashboard>
@@ -26,6 +28,7 @@
                 <MainDashboard 
                     :query_counter_total="query_permit_6969" 
                     :firm_type="firm_type" 
+                    :href="`/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=PERMIT&searchStatus=&searchType=${firm_type}&search1586=&search8749=&search9275=&search6969=RA%206969&search9003=`"
                     label="WITH 6969">
                 </MainDashboard>
             </div>
@@ -33,6 +36,7 @@
                 <MainDashboard 
                     :query_counter_total="query_permit_1586" 
                     :firm_type="firm_type" 
+                    :href="`/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=PERMIT&searchStatus=&searchType=${firm_type}&search1586=PD%201586&search8749=&search9275=&search6969=&search9003=`"
                     label="WITH 1586">
                 </MainDashboard>
             </div>
@@ -40,6 +44,7 @@
                 <MainDashboard 
                     :query_counter_total="query_registered_industries" 
                     :firm_type="firm_type" 
+                    :href="`/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=&searchStatus=&searchType=${firm_type}&search1586=&search8749=&search9275=&search6969=&search9003=`"
                     label="REGISTERED FIRMS">
                 </MainDashboard>
             </div>
@@ -53,6 +58,12 @@
                     :query_counter_9275="query_monitoring_9275" 
                     :query_counter_6969="query_monitoring_6969" 
                     :query_counter_9003="query_monitoring_9003" 
+                    :href_1586="`/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=MONITORING&searchStatus=&searchType=${firm_type}&search1586=PD%201586&search8749=&search9275=&search6969=&search9003=`"
+                    :href_8749="`/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=MONITORING&searchStatus=&searchType=${firm_type}&search1586=&search8749=RA%208749&search9275=&search6969=&search9003=`"
+                    :href_9275="`/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=MONITORING&searchStatus=&searchType=${firm_type}&search1586=&search8749=&search9275=RA%209275&search6969=&search9003=`"
+                    :href_6969="`/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=MONITORING&searchStatus=&searchType=${firm_type}&search1586=&search8749=&search9275=&search6969=RA%206969&search9003=`"
+                    :href_9003="`/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=MONITORING&searchStatus=&searchType=${firm_type}&search1586=&search8749=&search9275=&search6969=&search9003=RA%209003`"
+                    :href="`/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=MONITORING&searchStatus=&searchType=${firm_type}&search1586=PD%201586&search8749=RA%208749&search9275=RA%209275&search6969=RA%206969&search9003=RA%209003`"
                     :firm_type="firm_type" 
                     label="MONITORING">
                 </MainDashboard>
@@ -65,6 +76,12 @@
                     :query_counter_9275="query_nov_9275" 
                     :query_counter_6969="query_nov_6969" 
                     :query_counter_9003="query_nov_9003" 
+                    :href_1586="`/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=NOV&searchStatus=&searchType=${firm_type}&search1586=PD%201586&search8749=&search9275=&search6969=&search9003=`"
+                    :href_8749="`/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=NOV&searchStatus=&searchType=${firm_type}&search1586=&search8749=RA%208749&search9275=&search6969=&search9003=`"
+                    :href_9275="`/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=NOV&searchStatus=&searchType=${firm_type}&search1586=&search8749=&search9275=RA%209275&search6969=&search9003=`"
+                    :href_6969="`/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=NOV&searchStatus=&searchType=${firm_type}&search1586=&search8749=&search9275=&search6969=RA%206969&search9003=`"
+                    :href_9003="`/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=NOV&searchStatus=&searchType=${firm_type}&search1586=&search8749=&search9275=&search6969=&search9003=RA%209003`"
+                    :href="`/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=NOV&searchStatus=&searchType=${firm_type}&search1586=PD%201586&search8749=RA%208749&search9275=RA%209275&search6969=RA%206969&search9003=RA%209003`"
                     :firm_type="firm_type" 
                     label="WITH NOV">
                 </MainDashboard>
@@ -73,6 +90,7 @@
                 <MainDashboard 
                     :query_counter_total="query_order_issued" 
                     :firm_type="firm_type" 
+                    :href="`/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=ORDER&searchStatus=&searchType=${firm_type}&search1586=&search8749=&search9275=&search6969=&search9003=`"
                     label="WITH ORDER">
                 </MainDashboard>
             </div>
@@ -80,6 +98,7 @@
                 <MainDashboard 
                     :query_counter_total="query_pco_all" 
                     :firm_type="firm_type" 
+                    :href="`/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=PCO&searchStatus=&searchType=${firm_type}&search1586=&search8749=&search9275=&search6969=&search9003=`"
                     label="WITH PCO">
                 </MainDashboard>
             </div>
@@ -87,6 +106,7 @@
                 <MainDashboard 
                     :query_counter_total="query_complaint" 
                     :firm_type="firm_type" 
+                    :href="`/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=COMPLAINT&searchStatus=&searchType=${firm_type}&search1586=&search8749=&search9275=&search6969=&search9003=`"
                     label="COMPLAINT">
                 </MainDashboard>
             </div>

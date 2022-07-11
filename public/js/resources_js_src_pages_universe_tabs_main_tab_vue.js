@@ -11,6 +11,139 @@ module.exports = __webpack_require__(/*! regenerator-runtime */ "./node_modules/
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/components/UploadDialog.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/components/UploadDialog.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: {
+    modal: Boolean,
+    close: Function,
+    submit: Function
+  },
+  data: function data() {
+    return {
+      attachments: []
+    };
+  },
+  methods: {
+    submitUpload: function submitUpload() {
+      var _this = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                try {
+                  // this.$emit('submit')
+                  _this.submit(_this.attachments);
+                } catch (error) {
+                  console.log(error);
+                }
+
+              case 1:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }))();
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/pages/universe/tabs/basic_tab.vue?vue&type=script&lang=js&":
 /*!*****************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/pages/universe/tabs/basic_tab.vue?vue&type=script&lang=js& ***!
@@ -2072,6 +2205,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var vue2_dropzone__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue2-dropzone */ "./node_modules/vue2-dropzone/dist/vue2Dropzone.js");
+/* harmony import */ var vue2_dropzone__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue2_dropzone__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var vue2_dropzone_dist_vue2Dropzone_min_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue2-dropzone/dist/vue2Dropzone.min.css */ "./node_modules/vue2-dropzone/dist/vue2Dropzone.min.css");
+/* harmony import */ var _components_UploadDialog_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../components/UploadDialog.vue */ "./resources/js/src/components/UploadDialog.vue");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -2290,91 +2427,105 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+
+
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     form_permit_info: Object,
     permit_table: Array
   },
+  components: {
+    vueDropzone: (vue2_dropzone__WEBPACK_IMPORTED_MODULE_1___default()),
+    UploadDialog: _components_UploadDialog_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
+  },
   data: function data() {
     return {
+      uploadDialog: false,
       headers: [{
-        text: 'Law',
-        align: 'start',
+        text: "Law",
+        align: "start",
         sortable: false,
-        value: 'perm_law'
+        value: "perm_law"
       }, {
-        text: 'Hazwaste Type',
-        align: 'start',
+        text: "Hazwaste Type",
+        align: "start",
         sortable: false,
-        value: 'perm_hazwaste_type'
+        value: "perm_hazwaste_type"
       }, {
-        text: 'No.',
-        align: 'start',
+        text: "No.",
+        align: "start",
         sortable: false,
-        value: 'perm_number'
+        value: "perm_number"
       }, {
-        text: 'Status.',
-        align: 'start',
+        text: "Status.",
+        align: "start",
         sortable: false,
-        value: 'perm_status'
+        value: "perm_status"
       }, {
-        text: 'Date Issuance',
-        align: 'start',
+        text: "Date Issuance",
+        align: "start",
         sortable: false,
-        value: 'perm_date_issuance'
+        value: "perm_date_issuance"
       }, {
-        text: 'Date Expiry',
-        align: 'start',
+        text: "Date Expiry",
+        align: "start",
         sortable: false,
-        value: 'perm_date_expiry'
+        value: "perm_date_expiry"
       }, {
-        text: 'Attachment',
-        align: 'start',
+        text: "Attachment",
+        align: "start",
         sortable: false,
-        value: 'perm_file'
+        value: "perm_file"
       }, {
-        width: '100px',
-        text: 'Actions',
-        value: 'actions',
+        width: "100px",
+        text: "Actions",
+        value: "actions",
         sortable: false
       }],
       permit_law_selection: [{
-        'law_selection': 'PD 1586'
+        law_selection: "PD 1586"
       }, {
-        'law_selection': 'RA 8749'
+        law_selection: "RA 8749"
       }, {
-        'law_selection': 'RA 9275'
+        law_selection: "RA 9275"
       }, {
-        'law_selection': 'RA 6969'
+        law_selection: "RA 6969"
       }],
       permit_status_selection: [{
-        'status_selection': 'Operational'
+        status_selection: "Operational"
       }, {
-        'status_selection': 'Relief'
+        status_selection: "Relief"
       }, {
-        'status_selection': 'Delisted'
+        status_selection: "Delisted"
       }, {
-        'status_selection': 'Non Operational'
+        status_selection: "Non Operational"
       }, {
-        'status_selection': 'Exempted'
+        status_selection: "Exempted"
       }, {
-        'status_selection': 'Cancelled'
+        status_selection: "Cancelled"
       }],
       permit_hazwaste_selection: [{
-        'hazwaste_selection': 'TSD'
+        hazwaste_selection: "TSD"
       }, {
-        'hazwaste_selection': 'Transporter'
+        hazwaste_selection: "Transporter"
       }, {
-        'hazwaste_selection': 'Hazwaste ID'
+        hazwaste_selection: "Hazwaste ID"
       }, {
-        'hazwaste_selection': 'CCO Cyanide'
+        hazwaste_selection: "CCO Cyanide"
       }, {
-        'hazwaste_selection': 'CCO Mercury'
+        hazwaste_selection: "CCO Mercury"
       }, {
-        'hazwaste_selection': 'CCO Asbestos'
+        hazwaste_selection: "CCO Asbestos"
       }],
-      date_permit_issuance_menu: '',
-      date_permit_expiry_menu: ''
+      date_permit_issuance_menu: "",
+      date_permit_expiry_menu: "",
+      dropzoneOptions: {
+        url: "/store-multiple-image" //   headers: {
+        //     "X-CSRF-TOKEN": document.head.querySelector("[name=csrf-token]").content
+        //    }
+
+      }
     };
   },
   methods: {
@@ -3194,6 +3345,45 @@ try {
 
 /***/ }),
 
+/***/ "./resources/js/src/components/UploadDialog.vue":
+/*!******************************************************!*\
+  !*** ./resources/js/src/components/UploadDialog.vue ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _UploadDialog_vue_vue_type_template_id_89c0f12e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./UploadDialog.vue?vue&type=template&id=89c0f12e& */ "./resources/js/src/components/UploadDialog.vue?vue&type=template&id=89c0f12e&");
+/* harmony import */ var _UploadDialog_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./UploadDialog.vue?vue&type=script&lang=js& */ "./resources/js/src/components/UploadDialog.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _UploadDialog_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _UploadDialog_vue_vue_type_template_id_89c0f12e___WEBPACK_IMPORTED_MODULE_0__.render,
+  _UploadDialog_vue_vue_type_template_id_89c0f12e___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/src/components/UploadDialog.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/src/pages/universe/tabs/basic_tab.vue":
 /*!************************************************************!*\
   !*** ./resources/js/src/pages/universe/tabs/basic_tab.vue ***!
@@ -3545,6 +3735,22 @@ component.options.__file = "resources/js/src/pages/universe/tabs/permit_tab.vue"
 
 /***/ }),
 
+/***/ "./resources/js/src/components/UploadDialog.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************!*\
+  !*** ./resources/js/src/components/UploadDialog.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_UploadDialog_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./UploadDialog.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/components/UploadDialog.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_UploadDialog_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/src/pages/universe/tabs/basic_tab.vue?vue&type=script&lang=js&":
 /*!*************************************************************************************!*\
   !*** ./resources/js/src/pages/universe/tabs/basic_tab.vue?vue&type=script&lang=js& ***!
@@ -3686,6 +3892,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_permit_tab_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./permit_tab.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/pages/universe/tabs/permit_tab.vue?vue&type=script&lang=js&");
  /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_permit_tab_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/src/components/UploadDialog.vue?vue&type=template&id=89c0f12e&":
+/*!*************************************************************************************!*\
+  !*** ./resources/js/src/components/UploadDialog.vue?vue&type=template&id=89c0f12e& ***!
+  \*************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_UploadDialog_vue_vue_type_template_id_89c0f12e___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_UploadDialog_vue_vue_type_template_id_89c0f12e___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_UploadDialog_vue_vue_type_template_id_89c0f12e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./UploadDialog.vue?vue&type=template&id=89c0f12e& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/components/UploadDialog.vue?vue&type=template&id=89c0f12e&");
+
 
 /***/ }),
 
@@ -3838,6 +4061,224 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_permit_tab_vue_vue_type_template_id_23e91e4c___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_permit_tab_vue_vue_type_template_id_23e91e4c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./permit_tab.vue?vue&type=template&id=23e91e4c& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/pages/universe/tabs/permit_tab.vue?vue&type=template&id=23e91e4c&");
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/components/UploadDialog.vue?vue&type=template&id=89c0f12e&":
+/*!****************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/components/UploadDialog.vue?vue&type=template&id=89c0f12e& ***!
+  \****************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "v-dialog",
+    {
+      attrs: { "max-width": "800" },
+      model: {
+        value: _vm.modal,
+        callback: function ($$v) {
+          _vm.modal = $$v
+        },
+        expression: "modal",
+      },
+    },
+    [
+      _c(
+        "v-card",
+        [
+          _c("v-card-title", { staticClass: "text-h5" }, [
+            _vm._v(" Upload A File/s "),
+          ]),
+          _vm._v(" "),
+          _c("v-card-text", [
+            _c(
+              "div",
+              { staticClass: "flex justify-between" },
+              [
+                _c(
+                  "b-field",
+                  [
+                    _c(
+                      "b-upload",
+                      {
+                        attrs: {
+                          multiple: "",
+                          "drag-drop": "",
+                          expanded: "",
+                          type: "is-dark",
+                          accept: ".pdf,.docx,.jpeg,.jpg,.png",
+                        },
+                        model: {
+                          value: _vm.attachments,
+                          callback: function ($$v) {
+                            _vm.attachments = $$v
+                          },
+                          expression: "attachments",
+                        },
+                      },
+                      [
+                        _c("section", { staticClass: "section" }, [
+                          _c(
+                            "div",
+                            { staticClass: "content has-text-centered" },
+                            [
+                              _c(
+                                "p",
+                                [
+                                  _c("b-icon", {
+                                    attrs: {
+                                      icon: "upload",
+                                      size: "is-medium",
+                                    },
+                                  }),
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c("p", [
+                                _vm._v(
+                                  "Drop your files here or click to upload"
+                                ),
+                              ]),
+                            ]
+                          ),
+                        ]),
+                      ]
+                    ),
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _vm.attachments.length
+                  ? _c(
+                      "div",
+                      { staticClass: "h-56 overflow-y-auto" },
+                      [
+                        _c(
+                          "v-list",
+                          { attrs: { dense: "" } },
+                          [
+                            _c(
+                              "v-list-item-group",
+                              [
+                                _vm._l(_vm.attachments, function (item, index) {
+                                  return _c(
+                                    "div",
+                                    { key: item.name },
+                                    [
+                                      _c("v-list-item", {
+                                        scopedSlots: _vm._u(
+                                          [
+                                            {
+                                              key: "default",
+                                              fn: function (ref) {
+                                                var active = ref.active
+                                                return [
+                                                  _c(
+                                                    "v-list-item-content",
+                                                    [
+                                                      _c("v-list-item-title", {
+                                                        domProps: {
+                                                          textContent: _vm._s(
+                                                            item.name
+                                                          ),
+                                                        },
+                                                      }),
+                                                    ],
+                                                    1
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "v-list-item-action",
+                                                    [
+                                                      _c("box-icon", {
+                                                        attrs: {
+                                                          type: "solid",
+                                                          name: "trash",
+                                                          animation:
+                                                            "tada-hover",
+                                                        },
+                                                      }),
+                                                    ],
+                                                    1
+                                                  ),
+                                                ]
+                                              },
+                                            },
+                                          ],
+                                          null,
+                                          true
+                                        ),
+                                      }),
+                                      _vm._v(" "),
+                                      index < _vm.attachments.length - 1
+                                        ? _c("v-divider", { key: index })
+                                        : _vm._e(),
+                                    ],
+                                    1
+                                  )
+                                }),
+                              ],
+                              2
+                            ),
+                          ],
+                          1
+                        ),
+                      ],
+                      1
+                    )
+                  : _vm._e(),
+              ],
+              1
+            ),
+          ]),
+          _vm._v(" "),
+          _c(
+            "v-card-actions",
+            [
+              _c("v-spacer"),
+              _vm._v(" "),
+              _c(
+                "v-btn",
+                {
+                  attrs: { color: "red darken-1", text: "" },
+                  on: { click: _vm.close },
+                },
+                [_vm._v("\n                Close\n            ")]
+              ),
+              _vm._v(" "),
+              _c(
+                "v-btn",
+                {
+                  attrs: { color: "green darken-1", text: "" },
+                  on: { click: _vm.submitUpload },
+                },
+                [_vm._v("\n                Submit\n            ")]
+              ),
+            ],
+            1
+          ),
+        ],
+        1
+      ),
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
 
 
 /***/ }),
@@ -5919,16 +6360,7 @@ var render = function () {
                     _c(
                       "v-toolbar",
                       { attrs: { flat: "", color: "primary", dark: "" } },
-                      [
-                        _c(
-                          "v-btn",
-                          { attrs: { icon: "" } },
-                          [_c("v-icon", [_vm._v("mdi-arrow-left")])],
-                          1
-                        ),
-                        _vm._v(" "),
-                        _c("v-toolbar-title", [_vm._v("Firm Information")]),
-                      ],
+                      [_c("v-toolbar-title", [_vm._v("Firm Information")])],
                       1
                     ),
                     _vm._v(" "),
@@ -7121,538 +7553,566 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "v-card",
-    { staticClass: "p-4", attrs: { elevation: "0" } },
+    "div",
     [
-      _c("div", { staticClass: "grid grid-cols-5 gap-y-0 gap-x-4 ml-8" }, [
-        _c(
-          "div",
-          { attrs: { hidden: "" } },
-          [
-            _c("v-text-field", {
-              attrs: { label: "Permit Id", clearable: "" },
-              model: {
-                value: _vm.form_permit_info.perm_id,
-                callback: function ($$v) {
-                  _vm.$set(_vm.form_permit_info, "perm_id", $$v)
-                },
-                expression: "form_permit_info.perm_id",
-              },
-            }),
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          [
-            _c("v-autocomplete", {
-              attrs: {
-                items: _vm.permit_law_selection,
-                label: "Law",
-                "item-text": "law_selection",
-                "item-value": "law_selection",
-                clearable: "",
-              },
-              model: {
-                value: _vm.form_permit_info.perm_law,
-                callback: function ($$v) {
-                  _vm.$set(_vm.form_permit_info, "perm_law", $$v)
-                },
-                expression: "form_permit_info.perm_law",
-              },
-            }),
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          [
-            _c("v-text-field", {
-              attrs: { label: "Permit No.", clearable: "" },
-              model: {
-                value: _vm.form_permit_info.perm_number,
-                callback: function ($$v) {
-                  _vm.$set(_vm.form_permit_info, "perm_number", $$v)
-                },
-                expression: "form_permit_info.perm_number",
-              },
-            }),
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          [
-            _c("v-autocomplete", {
-              attrs: {
-                items: _vm.permit_status_selection,
-                label: "Permit Status",
-                "item-text": "status_selection",
-                "item-value": "status_selection",
-                clearable: "",
-              },
-              model: {
-                value: _vm.form_permit_info.perm_status,
-                callback: function ($$v) {
-                  _vm.$set(_vm.form_permit_info, "perm_status", $$v)
-                },
-                expression: "form_permit_info.perm_status",
-              },
-            }),
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          [
+      _c(
+        "v-card",
+        { staticClass: "p-4", attrs: { elevation: "0" } },
+        [
+          _c("div", { staticClass: "grid grid-cols-5 gap-y-0 gap-x-4 ml-8" }, [
             _c(
-              "v-menu",
-              {
-                ref: "date_permit_issuance_menu",
-                attrs: {
-                  "close-on-content-click": false,
-                  "return-value": _vm.form_permit_info.perm_date_issuance,
-                  transition: "scale-transition",
-                  "offset-y": "",
-                  "min-width": "auto",
-                },
-                on: {
-                  "update:returnValue": function ($event) {
-                    return _vm.$set(
-                      _vm.form_permit_info,
-                      "perm_date_issuance",
-                      $event
-                    )
-                  },
-                  "update:return-value": function ($event) {
-                    return _vm.$set(
-                      _vm.form_permit_info,
-                      "perm_date_issuance",
-                      $event
-                    )
-                  },
-                },
-                scopedSlots: _vm._u([
-                  {
-                    key: "activator",
-                    fn: function (ref) {
-                      var on = ref.on
-                      var attrs = ref.attrs
-                      return [
-                        _c(
-                          "v-text-field",
-                          _vm._g(
-                            _vm._b(
-                              {
-                                attrs: {
-                                  label: "Date Issuance",
-                                  readonly: "",
-                                  clearable: "",
-                                },
-                                model: {
-                                  value:
-                                    _vm.form_permit_info.perm_date_issuance,
-                                  callback: function ($$v) {
-                                    _vm.$set(
-                                      _vm.form_permit_info,
-                                      "perm_date_issuance",
-                                      $$v
-                                    )
-                                  },
-                                  expression:
-                                    "form_permit_info.perm_date_issuance",
-                                },
-                              },
-                              "v-text-field",
-                              attrs,
-                              false
-                            ),
-                            on
-                          )
-                        ),
-                      ]
-                    },
-                  },
-                ]),
-                model: {
-                  value: _vm.date_permit_issuance_menu,
-                  callback: function ($$v) {
-                    _vm.date_permit_issuance_menu = $$v
-                  },
-                  expression: "date_permit_issuance_menu",
-                },
-              },
-              [
-                _vm._v(" "),
-                _c(
-                  "v-date-picker",
-                  {
-                    attrs: { "no-title": "", scrollable: "" },
-                    model: {
-                      value: _vm.form_permit_info.perm_date_issuance,
-                      callback: function ($$v) {
-                        _vm.$set(
-                          _vm.form_permit_info,
-                          "perm_date_issuance",
-                          $$v
-                        )
-                      },
-                      expression: "form_permit_info.perm_date_issuance",
-                    },
-                  },
-                  [
-                    _c("v-spacer"),
-                    _vm._v(" "),
-                    _c(
-                      "v-btn",
-                      {
-                        attrs: { text: "", color: "primary" },
-                        on: {
-                          click: function ($event) {
-                            _vm.date_permit_issuance_menu = false
-                          },
-                        },
-                      },
-                      [
-                        _vm._v(
-                          "\n                        Cancel\n                    "
-                        ),
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "v-btn",
-                      {
-                        attrs: { text: "", color: "primary" },
-                        on: {
-                          click: function ($event) {
-                            return _vm.$refs.date_permit_issuance_menu.save(
-                              _vm.form_permit_info.perm_date_issuance
-                            )
-                          },
-                        },
-                      },
-                      [
-                        _vm._v(
-                          "\n                        OK\n                    "
-                        ),
-                      ]
-                    ),
-                  ],
-                  1
-                ),
-              ],
-              1
-            ),
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          [
-            _c(
-              "v-menu",
-              {
-                ref: "date_permit_expiry_menu",
-                attrs: {
-                  "close-on-content-click": false,
-                  "return-value": _vm.form_permit_info.perm_date_expiry,
-                  transition: "scale-transition",
-                  "offset-y": "",
-                  "min-width": "auto",
-                },
-                on: {
-                  "update:returnValue": function ($event) {
-                    return _vm.$set(
-                      _vm.form_permit_info,
-                      "perm_date_expiry",
-                      $event
-                    )
-                  },
-                  "update:return-value": function ($event) {
-                    return _vm.$set(
-                      _vm.form_permit_info,
-                      "perm_date_expiry",
-                      $event
-                    )
-                  },
-                },
-                scopedSlots: _vm._u([
-                  {
-                    key: "activator",
-                    fn: function (ref) {
-                      var on = ref.on
-                      var attrs = ref.attrs
-                      return [
-                        _c(
-                          "v-text-field",
-                          _vm._g(
-                            _vm._b(
-                              {
-                                attrs: {
-                                  label: "Date Expiry",
-                                  readonly: "",
-                                  clearable: "",
-                                },
-                                model: {
-                                  value: _vm.form_permit_info.perm_date_expiry,
-                                  callback: function ($$v) {
-                                    _vm.$set(
-                                      _vm.form_permit_info,
-                                      "perm_date_expiry",
-                                      $$v
-                                    )
-                                  },
-                                  expression:
-                                    "form_permit_info.perm_date_expiry",
-                                },
-                              },
-                              "v-text-field",
-                              attrs,
-                              false
-                            ),
-                            on
-                          )
-                        ),
-                      ]
-                    },
-                  },
-                ]),
-                model: {
-                  value: _vm.date_permit_expiry_menu,
-                  callback: function ($$v) {
-                    _vm.date_permit_expiry_menu = $$v
-                  },
-                  expression: "date_permit_expiry_menu",
-                },
-              },
-              [
-                _vm._v(" "),
-                _c(
-                  "v-date-picker",
-                  {
-                    attrs: { "no-title": "", scrollable: "" },
-                    model: {
-                      value: _vm.form_permit_info.perm_date_expiry,
-                      callback: function ($$v) {
-                        _vm.$set(_vm.form_permit_info, "perm_date_expiry", $$v)
-                      },
-                      expression: "form_permit_info.perm_date_expiry",
-                    },
-                  },
-                  [
-                    _c("v-spacer"),
-                    _vm._v(" "),
-                    _c(
-                      "v-btn",
-                      {
-                        attrs: { text: "", color: "primary" },
-                        on: {
-                          click: function ($event) {
-                            _vm.date_permit_expiry_menu = false
-                          },
-                        },
-                      },
-                      [
-                        _vm._v(
-                          "\n                        Cancel\n                    "
-                        ),
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "v-btn",
-                      {
-                        attrs: { text: "", color: "primary" },
-                        on: {
-                          click: function ($event) {
-                            return _vm.$refs.date_permit_expiry_menu.save(
-                              _vm.form_permit_info.perm_date_expiry
-                            )
-                          },
-                        },
-                      },
-                      [
-                        _vm._v(
-                          "\n                        OK\n                    "
-                        ),
-                      ]
-                    ),
-                  ],
-                  1
-                ),
-              ],
-              1
-            ),
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _vm.form_permit_info.perm_law === "RA 6969"
-          ? _c(
               "div",
+              { attrs: { hidden: "" } },
               [
-                _c("v-autocomplete", {
-                  attrs: {
-                    items: _vm.permit_hazwaste_selection,
-                    label: "Hazwaste Type",
-                    "item-text": "hazwaste_selection",
-                    "item-value": "hazwaste_selection",
-                    clearable: "",
-                  },
+                _c("v-text-field", {
+                  attrs: { label: "Permit Id", clearable: "" },
                   model: {
-                    value: _vm.form_permit_info.perm_hazwaste_type,
+                    value: _vm.form_permit_info.perm_id,
                     callback: function ($$v) {
-                      _vm.$set(_vm.form_permit_info, "perm_hazwaste_type", $$v)
+                      _vm.$set(_vm.form_permit_info, "perm_id", $$v)
                     },
-                    expression: "form_permit_info.perm_hazwaste_type",
+                    expression: "form_permit_info.perm_id",
                   },
                 }),
               ],
               1
-            )
-          : _vm._e(),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "grid grid-cols-2 gap-y-0 gap-x-4 ml-8" }, [
-        _c(
-          "div",
-          [
-            _c("v-text-field", {
-              attrs: { label: "Permit Description", clearable: "" },
-              model: {
-                value: _vm.form_permit_info.perm_description,
-                callback: function ($$v) {
-                  _vm.$set(_vm.form_permit_info, "perm_description", $$v)
-                },
-                expression: "form_permit_info.perm_description",
-              },
-            }),
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          [
-            _c("v-text-field", {
-              attrs: { label: "Permit File Upload", clearable: "" },
-              model: {
-                value: _vm.form_permit_info.perm_file,
-                callback: function ($$v) {
-                  _vm.$set(_vm.form_permit_info, "perm_file", $$v)
-                },
-                expression: "form_permit_info.perm_file",
-              },
-            }),
-          ],
-          1
-        ),
-      ]),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "text-center" },
-        [
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              [
+                _c("v-autocomplete", {
+                  attrs: {
+                    items: _vm.permit_law_selection,
+                    label: "Law",
+                    "item-text": "law_selection",
+                    "item-value": "law_selection",
+                    clearable: "",
+                  },
+                  model: {
+                    value: _vm.form_permit_info.perm_law,
+                    callback: function ($$v) {
+                      _vm.$set(_vm.form_permit_info, "perm_law", $$v)
+                    },
+                    expression: "form_permit_info.perm_law",
+                  },
+                }),
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              [
+                _c("v-text-field", {
+                  attrs: { label: "Permit No.", clearable: "" },
+                  model: {
+                    value: _vm.form_permit_info.perm_number,
+                    callback: function ($$v) {
+                      _vm.$set(_vm.form_permit_info, "perm_number", $$v)
+                    },
+                    expression: "form_permit_info.perm_number",
+                  },
+                }),
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              [
+                _c("v-autocomplete", {
+                  attrs: {
+                    items: _vm.permit_status_selection,
+                    label: "Permit Status",
+                    "item-text": "status_selection",
+                    "item-value": "status_selection",
+                    clearable: "",
+                  },
+                  model: {
+                    value: _vm.form_permit_info.perm_status,
+                    callback: function ($$v) {
+                      _vm.$set(_vm.form_permit_info, "perm_status", $$v)
+                    },
+                    expression: "form_permit_info.perm_status",
+                  },
+                }),
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              [
+                _c(
+                  "v-menu",
+                  {
+                    ref: "date_permit_issuance_menu",
+                    attrs: {
+                      "close-on-content-click": false,
+                      "return-value": _vm.form_permit_info.perm_date_issuance,
+                      transition: "scale-transition",
+                      "offset-y": "",
+                      "min-width": "auto",
+                    },
+                    on: {
+                      "update:returnValue": function ($event) {
+                        return _vm.$set(
+                          _vm.form_permit_info,
+                          "perm_date_issuance",
+                          $event
+                        )
+                      },
+                      "update:return-value": function ($event) {
+                        return _vm.$set(
+                          _vm.form_permit_info,
+                          "perm_date_issuance",
+                          $event
+                        )
+                      },
+                    },
+                    scopedSlots: _vm._u([
+                      {
+                        key: "activator",
+                        fn: function (ref) {
+                          var on = ref.on
+                          var attrs = ref.attrs
+                          return [
+                            _c(
+                              "v-text-field",
+                              _vm._g(
+                                _vm._b(
+                                  {
+                                    attrs: {
+                                      label: "Date Issuance",
+                                      readonly: "",
+                                      clearable: "",
+                                    },
+                                    model: {
+                                      value:
+                                        _vm.form_permit_info.perm_date_issuance,
+                                      callback: function ($$v) {
+                                        _vm.$set(
+                                          _vm.form_permit_info,
+                                          "perm_date_issuance",
+                                          $$v
+                                        )
+                                      },
+                                      expression:
+                                        "form_permit_info.perm_date_issuance",
+                                    },
+                                  },
+                                  "v-text-field",
+                                  attrs,
+                                  false
+                                ),
+                                on
+                              )
+                            ),
+                          ]
+                        },
+                      },
+                    ]),
+                    model: {
+                      value: _vm.date_permit_issuance_menu,
+                      callback: function ($$v) {
+                        _vm.date_permit_issuance_menu = $$v
+                      },
+                      expression: "date_permit_issuance_menu",
+                    },
+                  },
+                  [
+                    _vm._v(" "),
+                    _c(
+                      "v-date-picker",
+                      {
+                        attrs: { "no-title": "", scrollable: "" },
+                        model: {
+                          value: _vm.form_permit_info.perm_date_issuance,
+                          callback: function ($$v) {
+                            _vm.$set(
+                              _vm.form_permit_info,
+                              "perm_date_issuance",
+                              $$v
+                            )
+                          },
+                          expression: "form_permit_info.perm_date_issuance",
+                        },
+                      },
+                      [
+                        _c("v-spacer"),
+                        _vm._v(" "),
+                        _c(
+                          "v-btn",
+                          {
+                            attrs: { text: "", color: "primary" },
+                            on: {
+                              click: function ($event) {
+                                _vm.date_permit_issuance_menu = false
+                              },
+                            },
+                          },
+                          [
+                            _vm._v(
+                              "\r\n                            Cancel\r\n                        "
+                            ),
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "v-btn",
+                          {
+                            attrs: { text: "", color: "primary" },
+                            on: {
+                              click: function ($event) {
+                                return _vm.$refs.date_permit_issuance_menu.save(
+                                  _vm.form_permit_info.perm_date_issuance
+                                )
+                              },
+                            },
+                          },
+                          [
+                            _vm._v(
+                              "\r\n                            OK\r\n                        "
+                            ),
+                          ]
+                        ),
+                      ],
+                      1
+                    ),
+                  ],
+                  1
+                ),
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              [
+                _c(
+                  "v-menu",
+                  {
+                    ref: "date_permit_expiry_menu",
+                    attrs: {
+                      "close-on-content-click": false,
+                      "return-value": _vm.form_permit_info.perm_date_expiry,
+                      transition: "scale-transition",
+                      "offset-y": "",
+                      "min-width": "auto",
+                    },
+                    on: {
+                      "update:returnValue": function ($event) {
+                        return _vm.$set(
+                          _vm.form_permit_info,
+                          "perm_date_expiry",
+                          $event
+                        )
+                      },
+                      "update:return-value": function ($event) {
+                        return _vm.$set(
+                          _vm.form_permit_info,
+                          "perm_date_expiry",
+                          $event
+                        )
+                      },
+                    },
+                    scopedSlots: _vm._u([
+                      {
+                        key: "activator",
+                        fn: function (ref) {
+                          var on = ref.on
+                          var attrs = ref.attrs
+                          return [
+                            _c(
+                              "v-text-field",
+                              _vm._g(
+                                _vm._b(
+                                  {
+                                    attrs: {
+                                      label: "Date Expiry",
+                                      readonly: "",
+                                      clearable: "",
+                                    },
+                                    model: {
+                                      value:
+                                        _vm.form_permit_info.perm_date_expiry,
+                                      callback: function ($$v) {
+                                        _vm.$set(
+                                          _vm.form_permit_info,
+                                          "perm_date_expiry",
+                                          $$v
+                                        )
+                                      },
+                                      expression:
+                                        "form_permit_info.perm_date_expiry",
+                                    },
+                                  },
+                                  "v-text-field",
+                                  attrs,
+                                  false
+                                ),
+                                on
+                              )
+                            ),
+                          ]
+                        },
+                      },
+                    ]),
+                    model: {
+                      value: _vm.date_permit_expiry_menu,
+                      callback: function ($$v) {
+                        _vm.date_permit_expiry_menu = $$v
+                      },
+                      expression: "date_permit_expiry_menu",
+                    },
+                  },
+                  [
+                    _vm._v(" "),
+                    _c(
+                      "v-date-picker",
+                      {
+                        attrs: { "no-title": "", scrollable: "" },
+                        model: {
+                          value: _vm.form_permit_info.perm_date_expiry,
+                          callback: function ($$v) {
+                            _vm.$set(
+                              _vm.form_permit_info,
+                              "perm_date_expiry",
+                              $$v
+                            )
+                          },
+                          expression: "form_permit_info.perm_date_expiry",
+                        },
+                      },
+                      [
+                        _c("v-spacer"),
+                        _vm._v(" "),
+                        _c(
+                          "v-btn",
+                          {
+                            attrs: { text: "", color: "primary" },
+                            on: {
+                              click: function ($event) {
+                                _vm.date_permit_expiry_menu = false
+                              },
+                            },
+                          },
+                          [
+                            _vm._v(
+                              "\r\n                            Cancel\r\n                        "
+                            ),
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "v-btn",
+                          {
+                            attrs: { text: "", color: "primary" },
+                            on: {
+                              click: function ($event) {
+                                return _vm.$refs.date_permit_expiry_menu.save(
+                                  _vm.form_permit_info.perm_date_expiry
+                                )
+                              },
+                            },
+                          },
+                          [
+                            _vm._v(
+                              "\r\n                            OK\r\n                        "
+                            ),
+                          ]
+                        ),
+                      ],
+                      1
+                    ),
+                  ],
+                  1
+                ),
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _vm.form_permit_info.perm_law === "RA 6969"
+              ? _c(
+                  "div",
+                  [
+                    _c("v-autocomplete", {
+                      attrs: {
+                        items: _vm.permit_hazwaste_selection,
+                        label: "Hazwaste Type",
+                        "item-text": "hazwaste_selection",
+                        "item-value": "hazwaste_selection",
+                        clearable: "",
+                      },
+                      model: {
+                        value: _vm.form_permit_info.perm_hazwaste_type,
+                        callback: function ($$v) {
+                          _vm.$set(
+                            _vm.form_permit_info,
+                            "perm_hazwaste_type",
+                            $$v
+                          )
+                        },
+                        expression: "form_permit_info.perm_hazwaste_type",
+                      },
+                    }),
+                  ],
+                  1
+                )
+              : _vm._e(),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "grid grid-cols-2 gap-y-0 gap-x-4 ml-8" }, [
+            _c(
+              "div",
+              [
+                _c("v-text-field", {
+                  attrs: { label: "Permit Description", clearable: "" },
+                  model: {
+                    value: _vm.form_permit_info.perm_description,
+                    callback: function ($$v) {
+                      _vm.$set(_vm.form_permit_info, "perm_description", $$v)
+                    },
+                    expression: "form_permit_info.perm_description",
+                  },
+                }),
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "pt-2" },
+              [
+                _c(
+                  "v-btn",
+                  {
+                    attrs: { dark: "", block: "" },
+                    on: {
+                      click: function ($event) {
+                        _vm.uploadDialog = true
+                      },
+                    },
+                  },
+                  [_vm._v("Upload A File")]
+                ),
+              ],
+              1
+            ),
+          ]),
+          _vm._v(" "),
           _c(
-            "v-btn",
-            { attrs: { depressed: "", color: "primary", type: "submit" } },
+            "div",
+            { staticClass: "text-center" },
             [
-              _c("v-icon", { staticClass: "mr-2", attrs: { small: "" } }, [
-                _vm._v("\n                mdi-content-save\n            "),
-              ]),
-              _vm._v("\n            Submit\n        "),
+              _c(
+                "v-btn",
+                { attrs: { depressed: "", color: "primary", type: "submit" } },
+                [
+                  _c("v-icon", { staticClass: "mr-2", attrs: { small: "" } }, [
+                    _vm._v(" mdi-content-save "),
+                  ]),
+                  _vm._v("\r\n                Submit\r\n            "),
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "v-btn",
+                {
+                  attrs: { depressed: "", color: "warning", type: "button" },
+                  on: { click: _vm.resetPermit },
+                },
+                [
+                  _c("v-icon", { staticClass: "mr-2", attrs: { small: "" } }, [
+                    _vm._v(" mdi-autorenew "),
+                  ]),
+                  _vm._v("\r\n                Reset\r\n            "),
+                ],
+                1
+              ),
             ],
             1
           ),
           _vm._v(" "),
-          _c(
-            "v-btn",
-            {
-              attrs: { depressed: "", color: "warning", type: "button" },
-              on: { click: _vm.resetPermit },
-            },
-            [
-              _c("v-icon", { staticClass: "mr-2", attrs: { small: "" } }, [
-                _vm._v("\n                mdi-autorenew\n            "),
-              ]),
-              _vm._v("\n            Reset\n        "),
-            ],
-            1
-          ),
+          [
+            _c(
+              "v-card",
+              { staticClass: "mt-5", attrs: { elevation: "2" } },
+              [
+                _c("v-data-table", {
+                  staticClass: "elevation-1",
+                  attrs: {
+                    dense: "",
+                    headers: _vm.headers,
+                    items: _vm.permit_table,
+                    "item-key": "permit_tables",
+                  },
+                  scopedSlots: _vm._u([
+                    {
+                      key: "item.actions",
+                      fn: function (ref) {
+                        var item = ref.item
+                        return [
+                          _c(
+                            "v-icon",
+                            {
+                              staticClass: "mr-2",
+                              attrs: { small: "" },
+                              on: {
+                                click: function ($event) {
+                                  return _vm.editPermit(item)
+                                },
+                              },
+                            },
+                            [
+                              _vm._v(
+                                "\r\n                            mdi-pencil\r\n                        "
+                              ),
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "v-icon",
+                            {
+                              attrs: { small: "" },
+                              on: {
+                                click: function ($event) {
+                                  return _vm.deletePermit(item)
+                                },
+                              },
+                            },
+                            [
+                              _vm._v(
+                                "\r\n                            mdi-delete\r\n                        "
+                              ),
+                            ]
+                          ),
+                        ]
+                      },
+                    },
+                  ]),
+                }),
+              ],
+              1
+            ),
+          ],
         ],
-        1
+        2
       ),
       _vm._v(" "),
-      [
-        _c(
-          "v-card",
-          { staticClass: "mt-5", attrs: { elevation: "2" } },
-          [
-            _c("v-data-table", {
-              staticClass: "elevation-1",
-              attrs: {
-                dense: "",
-                headers: _vm.headers,
-                items: _vm.permit_table,
-                "item-key": "permit_tables",
-              },
-              scopedSlots: _vm._u([
-                {
-                  key: "item.actions",
-                  fn: function (ref) {
-                    var item = ref.item
-                    return [
-                      _c(
-                        "v-icon",
-                        {
-                          staticClass: "mr-2",
-                          attrs: { small: "" },
-                          on: {
-                            click: function ($event) {
-                              return _vm.editPermit(item)
-                            },
-                          },
-                        },
-                        [
-                          _vm._v(
-                            "\n                        mdi-pencil\n                    "
-                          ),
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "v-icon",
-                        {
-                          attrs: { small: "" },
-                          on: {
-                            click: function ($event) {
-                              return _vm.deletePermit(item)
-                            },
-                          },
-                        },
-                        [
-                          _vm._v(
-                            "\n                        mdi-delete\n                    "
-                          ),
-                        ]
-                      ),
-                    ]
-                  },
-                },
-              ]),
-            }),
-          ],
-          1
-        ),
-      ],
+      _c("UploadDialog", {
+        attrs: {
+          modal: _vm.uploadDialog,
+          close: function () {
+            return (_vm.uploadDialog = false)
+          },
+          submit: function () {},
+        },
+      }),
     ],
-    2
+    1
   )
 }
 var staticRenderFns = []

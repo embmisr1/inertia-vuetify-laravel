@@ -10,42 +10,42 @@
         -->
               <div v-if="ctr_file" class="grid grid-cols-6 gap-y-3 gap-x-3 mb-2">
                   <div class="grid grid-cols-1 col-span-2 gap-y-2 gap-x-2">
-                      <MiniDashboard 
-                          dashboard_header_label="Permits: " 
-                          :dashboard_header="ctr_file['permit'].header" 
+                      <MiniDashboard
+                          dashboard_header_label="Permits: "
+                          :dashboard_header="ctr_file['permit'].header"
                           :dashboard_content_label="ctr_file['permit'].content_label"
                           :dashboard_content="ctr_file['permit'].content"
                       ></MiniDashboard>
                   </div>
-                  <MiniDashboard 
-                      dashboard_header_label="NOV's: " 
-                      :dashboard_header="ctr_file['nov'].header" 
+                  <MiniDashboard
+                      dashboard_header_label="NOV's: "
+                      :dashboard_header="ctr_file['nov'].header"
                       :dashboard_content_label="ctr_file['nov'].content_label"
                       :dashboard_content="ctr_file['nov'].content"
                   ></MiniDashboard>
-                  <MiniDashboard 
-                      dashboard_header_label="Monitoring: " 
-                      :dashboard_header="ctr_file['monitoring'].header" 
+                  <MiniDashboard
+                      dashboard_header_label="Monitoring: "
+                      :dashboard_header="ctr_file['monitoring'].header"
                       :dashboard_content_label="ctr_file['monitoring'].content_label"
                       :dashboard_content="ctr_file['monitoring'].content"
                   ></MiniDashboard>
-                  <MiniDashboard 
-                      dashboard_header_label="Pco" 
-                      :dashboard_header="ctr_file['pco'].header" 
+                  <MiniDashboard
+                      dashboard_header_label="Pco"
+                      :dashboard_header="ctr_file['pco'].header"
                       :dashboard_content_label="ctr_file['pco'].content_label"
                       :dashboard_content="ctr_file['pco'].content"
                   ></MiniDashboard>
-                  <MiniDashboard 
-                      dashboard_header_label="Complaint" 
-                      :dashboard_header="ctr_file['complaint'].header" 
+                  <MiniDashboard
+                      dashboard_header_label="Complaint"
+                      :dashboard_header="ctr_file['complaint'].header"
                       :dashboard_content_label="ctr_file['complaint'].content_label"
                       :dashboard_content="ctr_file['complaint'].content"
                   ></MiniDashboard>
                   <!--
-                  <MiniDashboard 
+                  <MiniDashboard
                       dashboard_color="bg-zinc-600"
-                      dashboard_header_label="Hazwaste" 
-                      :dashboard_header="ctr_file['hazwaste'].header" 
+                      dashboard_header_label="Hazwaste"
+                      :dashboard_header="ctr_file['hazwaste'].header"
                       :dashboard_content_label="ctr_file['hazwaste'].content_label"
                       :dashboard_content="ctr_file['hazwaste'].content"
                   ></MiniDashboard>
@@ -61,9 +61,9 @@
               color="primary"
               dark
             >
-              <v-btn icon>
+              <!-- <v-btn icon>
                 <v-icon>mdi-arrow-left</v-icon>
-              </v-btn>
+              </v-btn> -->
               <v-toolbar-title>Firm Information</v-toolbar-title>
             </v-toolbar>
             <v-tabs vertical>
@@ -113,9 +113,9 @@
               </v-tab>
 
               <v-tab-item>
-                  <BasicTab :form_basic_info="form_basic_info" 
-                    :province_list="province_list" 
-                    :municipality_list="municipality_list" 
+                  <BasicTab :form_basic_info="form_basic_info"
+                    :province_list="province_list"
+                    :municipality_list="municipality_list"
                     :barangay_list="barangay_list">
                   </BasicTab>
               </v-tab-item>
@@ -175,7 +175,7 @@
       submit_basic_info: Function,
 
       ctr_file: Object,
-      
+
       province_list: Array,
       municipality_list: Array,
       barangay_list: Array,

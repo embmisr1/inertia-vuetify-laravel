@@ -493,6 +493,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @inertiajs/inertia-vue */ "./node_modules/@inertiajs/inertia-vue/dist/index.js");
 //
 //
 //
@@ -563,6 +564,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     label: String,
@@ -575,9 +577,17 @@ __webpack_require__.r(__webpack_exports__);
     query_counter_8749: Number,
     query_counter_9275: Number,
     query_counter_6969: Number,
-    query_counter_9003: Number
+    query_counter_9003: Number,
+    href_1586: String,
+    href_8749: String,
+    href_9275: String,
+    href_6969: String,
+    href_9003: String,
+    href: String
   },
-  components: {},
+  components: {
+    Link: _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_0__.Link
+  },
   data: function data() {
     return {};
   }
@@ -601,6 +611,26 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _mixins_universe_dashboard__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_mixins_universe_dashboard__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _dashboard_cards_main_dashboard_card__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./dashboard_cards/main_dashboard_card */ "./resources/js/src/pages/universe/dashboard_cards/main_dashboard_card.vue");
 /* harmony import */ var _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @inertiajs/inertia-vue */ "./node_modules/@inertiajs/inertia-vue/dist/index.js");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -1567,12 +1597,20 @@ var render = function () {
                 "div",
                 { staticClass: "text-xl text-center grid grid-cols-1 pt-6" },
                 [
-                  _c("div", [
-                    _vm._v("\n                    Total: "),
-                    _c("b", { staticClass: "text-2xl" }, [
-                      _vm._v(_vm._s(_vm.query_counter_total)),
-                    ]),
-                  ]),
+                  _c(
+                    "div",
+                    [
+                      _c("Link", { attrs: { href: _vm.href } }, [
+                        _c("span", { staticClass: "text-black" }, [
+                          _vm._v("Total: "),
+                          _c("b", { staticClass: "text-2xl" }, [
+                            _vm._v(_vm._s(_vm.query_counter_total)),
+                          ]),
+                        ]),
+                      ]),
+                    ],
+                    1
+                  ),
                 ]
               ),
               _vm._v(" "),
@@ -1586,12 +1624,20 @@ var render = function () {
                 "div",
                 { staticClass: "text-xl text-center grid grid-cols-1" },
                 [
-                  _c("div", [
-                    _vm._v("\n                    Total: "),
-                    _c("b", { staticClass: "text-2xl" }, [
-                      _vm._v(_vm._s(_vm.query_counter_total)),
-                    ]),
-                  ]),
+                  _c(
+                    "div",
+                    [
+                      _c("Link", { attrs: { href: _vm.href } }, [
+                        _c("span", { staticClass: "text-black" }, [
+                          _vm._v("Total: "),
+                          _c("b", { staticClass: "text-2xl" }, [
+                            _vm._v(_vm._s(_vm.query_counter_total)),
+                          ]),
+                        ]),
+                      ]),
+                    ],
+                    1
+                  ),
                 ]
               ),
               _vm._v(" "),
@@ -1644,12 +1690,20 @@ var render = function () {
                 "div",
                 { staticClass: "text-xl text-center grid grid-cols-1" },
                 [
-                  _c("div", [
-                    _vm._v("\n                    Total: "),
-                    _c("b", { staticClass: "text-2xl" }, [
-                      _vm._v(_vm._s(_vm.query_counter_total)),
-                    ]),
-                  ]),
+                  _c(
+                    "div",
+                    [
+                      _c("Link", { attrs: { href: _vm.href } }, [
+                        _c("span", { staticClass: "text-black" }, [
+                          _vm._v("Total: "),
+                          _c("b", { staticClass: "text-2xl" }, [
+                            _vm._v(_vm._s(_vm.query_counter_total)),
+                          ]),
+                        ]),
+                      ]),
+                    ],
+                    1
+                  ),
                 ]
               ),
               _vm._v(" "),
@@ -1660,21 +1714,37 @@ var render = function () {
                     "text-xl text-left grid grid-cols-2 mt-5 border-t-2 border-blue-500",
                 },
                 [
-                  _c("div", [
-                    _vm._v("\n                    PD1586: "),
-                    _c("br"),
-                    _c("b", { staticClass: "text-2xl" }, [
-                      _vm._v(_vm._s(_vm.query_counter_1586)),
-                    ]),
-                  ]),
+                  _c(
+                    "div",
+                    [
+                      _c("Link", { attrs: { href: _vm.href_1586 } }, [
+                        _c("span", { staticClass: "text-black" }, [
+                          _vm._v("PD1586: "),
+                          _c("br"),
+                          _c("b", { staticClass: "text-2xl" }, [
+                            _vm._v(_vm._s(_vm.query_counter_1586)),
+                          ]),
+                        ]),
+                      ]),
+                    ],
+                    1
+                  ),
                   _vm._v(" "),
-                  _c("div", [
-                    _vm._v("\n                    RA8749: "),
-                    _c("br"),
-                    _c("b", { staticClass: "text-2xl" }, [
-                      _vm._v(_vm._s(_vm.query_counter_8749)),
-                    ]),
-                  ]),
+                  _c(
+                    "div",
+                    [
+                      _c("Link", { attrs: { href: _vm.href_8749 } }, [
+                        _c("span", { staticClass: "text-black" }, [
+                          _vm._v("RA8749: "),
+                          _c("br"),
+                          _c("b", { staticClass: "text-2xl" }, [
+                            _vm._v(_vm._s(_vm.query_counter_8749)),
+                          ]),
+                        ]),
+                      ]),
+                    ],
+                    1
+                  ),
                 ]
               ),
               _vm._v(" "),
@@ -1685,21 +1755,37 @@ var render = function () {
                     "text-xl text-left grid grid-cols-2 mt-5 border-t-2 border-blue-500",
                 },
                 [
-                  _c("div", [
-                    _vm._v("\n                    RA9275: "),
-                    _c("br"),
-                    _c("b", { staticClass: "text-2xl" }, [
-                      _vm._v(_vm._s(_vm.query_counter_9275)),
-                    ]),
-                  ]),
+                  _c(
+                    "div",
+                    [
+                      _c("Link", { attrs: { href: _vm.href_9275 } }, [
+                        _c("span", { staticClass: "text-black" }, [
+                          _vm._v("RA9275: "),
+                          _c("br"),
+                          _c("b", { staticClass: "text-2xl" }, [
+                            _vm._v(_vm._s(_vm.query_counter_9275)),
+                          ]),
+                        ]),
+                      ]),
+                    ],
+                    1
+                  ),
                   _vm._v(" "),
-                  _c("div", [
-                    _vm._v("\n                    RA6969: "),
-                    _c("br"),
-                    _c("b", { staticClass: "text-2xl" }, [
-                      _vm._v(_vm._s(_vm.query_counter_6969)),
-                    ]),
-                  ]),
+                  _c(
+                    "div",
+                    [
+                      _c("Link", { attrs: { href: _vm.href_6969 } }, [
+                        _c("span", { staticClass: "text-black" }, [
+                          _vm._v("RA6969: "),
+                          _c("br"),
+                          _c("b", { staticClass: "text-2xl" }, [
+                            _vm._v(_vm._s(_vm.query_counter_6969)),
+                          ]),
+                        ]),
+                      ]),
+                    ],
+                    1
+                  ),
                 ]
               ),
               _vm._v(" "),
@@ -1710,12 +1796,20 @@ var render = function () {
                     "text-xl text-left grid grid-cols-1 mt-5 border-t-2 border-blue-500",
                 },
                 [
-                  _c("div", [
-                    _vm._v("\n                    RA9003: "),
-                    _c("b", { staticClass: "text-2xl" }, [
-                      _vm._v(_vm._s(_vm.query_counter_9003)),
-                    ]),
-                  ]),
+                  _c(
+                    "div",
+                    [
+                      _c("Link", { attrs: { href: _vm.href_9003 } }, [
+                        _c("span", { staticClass: "text-black" }, [
+                          _vm._v("RA9003: "),
+                          _c("b", { staticClass: "text-2xl" }, [
+                            _vm._v(_vm._s(_vm.query_counter_9003)),
+                          ]),
+                        ]),
+                      ]),
+                    ],
+                    1
+                  ),
                 ]
               ),
             ])
@@ -1768,6 +1862,10 @@ var render = function () {
               query_counter_expired: _vm.query_permit_9275_expired,
               query_counter_undefined: _vm.query_permit_9275_undefined,
               firm_type: _vm.firm_type,
+              href:
+                "/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=PERMIT&searchStatus=&searchType=" +
+                _vm.firm_type +
+                "&search1586=&search8749=&search9275=RA%209275&search6969=&search9003=",
               label: "WITH 9275",
             },
           }),
@@ -1784,6 +1882,10 @@ var render = function () {
               query_counter_valid: _vm.query_permit_8749_valid,
               query_counter_expired: _vm.query_permit_8749_expired,
               query_counter_undefined: _vm.query_permit_8749_undefined,
+              href:
+                "/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=PERMIT&searchStatus=&searchType=" +
+                _vm.firm_type +
+                "&search1586=&search8749=RA%208749&search9275=&search6969=&search9003=",
               firm_type: _vm.firm_type,
               label: "WITH 8749",
             },
@@ -1799,6 +1901,10 @@ var render = function () {
             attrs: {
               query_counter_total: _vm.query_permit_6969,
               firm_type: _vm.firm_type,
+              href:
+                "/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=PERMIT&searchStatus=&searchType=" +
+                _vm.firm_type +
+                "&search1586=&search8749=&search9275=&search6969=RA%206969&search9003=",
               label: "WITH 6969",
             },
           }),
@@ -1813,6 +1919,10 @@ var render = function () {
             attrs: {
               query_counter_total: _vm.query_permit_1586,
               firm_type: _vm.firm_type,
+              href:
+                "/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=PERMIT&searchStatus=&searchType=" +
+                _vm.firm_type +
+                "&search1586=PD%201586&search8749=&search9275=&search6969=&search9003=",
               label: "WITH 1586",
             },
           }),
@@ -1827,6 +1937,10 @@ var render = function () {
             attrs: {
               query_counter_total: _vm.query_registered_industries,
               firm_type: _vm.firm_type,
+              href:
+                "/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=&searchStatus=&searchType=" +
+                _vm.firm_type +
+                "&search1586=&search8749=&search9275=&search6969=&search9003=",
               label: "REGISTERED FIRMS",
             },
           }),
@@ -1847,6 +1961,30 @@ var render = function () {
               query_counter_9275: _vm.query_monitoring_9275,
               query_counter_6969: _vm.query_monitoring_6969,
               query_counter_9003: _vm.query_monitoring_9003,
+              href_1586:
+                "/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=MONITORING&searchStatus=&searchType=" +
+                _vm.firm_type +
+                "&search1586=PD%201586&search8749=&search9275=&search6969=&search9003=",
+              href_8749:
+                "/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=MONITORING&searchStatus=&searchType=" +
+                _vm.firm_type +
+                "&search1586=&search8749=RA%208749&search9275=&search6969=&search9003=",
+              href_9275:
+                "/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=MONITORING&searchStatus=&searchType=" +
+                _vm.firm_type +
+                "&search1586=&search8749=&search9275=RA%209275&search6969=&search9003=",
+              href_6969:
+                "/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=MONITORING&searchStatus=&searchType=" +
+                _vm.firm_type +
+                "&search1586=&search8749=&search9275=&search6969=RA%206969&search9003=",
+              href_9003:
+                "/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=MONITORING&searchStatus=&searchType=" +
+                _vm.firm_type +
+                "&search1586=&search8749=&search9275=&search6969=&search9003=RA%209003",
+              href:
+                "/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=MONITORING&searchStatus=&searchType=" +
+                _vm.firm_type +
+                "&search1586=PD%201586&search8749=RA%208749&search9275=RA%209275&search6969=RA%206969&search9003=RA%209003",
               firm_type: _vm.firm_type,
               label: "MONITORING",
             },
@@ -1866,6 +2004,30 @@ var render = function () {
               query_counter_9275: _vm.query_nov_9275,
               query_counter_6969: _vm.query_nov_6969,
               query_counter_9003: _vm.query_nov_9003,
+              href_1586:
+                "/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=NOV&searchStatus=&searchType=" +
+                _vm.firm_type +
+                "&search1586=PD%201586&search8749=&search9275=&search6969=&search9003=",
+              href_8749:
+                "/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=NOV&searchStatus=&searchType=" +
+                _vm.firm_type +
+                "&search1586=&search8749=RA%208749&search9275=&search6969=&search9003=",
+              href_9275:
+                "/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=NOV&searchStatus=&searchType=" +
+                _vm.firm_type +
+                "&search1586=&search8749=&search9275=RA%209275&search6969=&search9003=",
+              href_6969:
+                "/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=NOV&searchStatus=&searchType=" +
+                _vm.firm_type +
+                "&search1586=&search8749=&search9275=&search6969=RA%206969&search9003=",
+              href_9003:
+                "/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=NOV&searchStatus=&searchType=" +
+                _vm.firm_type +
+                "&search1586=&search8749=&search9275=&search6969=&search9003=RA%209003",
+              href:
+                "/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=NOV&searchStatus=&searchType=" +
+                _vm.firm_type +
+                "&search1586=PD%201586&search8749=RA%208749&search9275=RA%209275&search6969=RA%206969&search9003=RA%209003",
               firm_type: _vm.firm_type,
               label: "WITH NOV",
             },
@@ -1881,6 +2043,10 @@ var render = function () {
             attrs: {
               query_counter_total: _vm.query_order_issued,
               firm_type: _vm.firm_type,
+              href:
+                "/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=ORDER&searchStatus=&searchType=" +
+                _vm.firm_type +
+                "&search1586=&search8749=&search9275=&search6969=&search9003=",
               label: "WITH ORDER",
             },
           }),
@@ -1895,6 +2061,10 @@ var render = function () {
             attrs: {
               query_counter_total: _vm.query_pco_all,
               firm_type: _vm.firm_type,
+              href:
+                "/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=PCO&searchStatus=&searchType=" +
+                _vm.firm_type +
+                "&search1586=&search8749=&search9275=&search6969=&search9003=",
               label: "WITH PCO",
             },
           }),
@@ -1909,6 +2079,10 @@ var render = function () {
             attrs: {
               query_counter_total: _vm.query_complaint,
               firm_type: _vm.firm_type,
+              href:
+                "/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=COMPLAINT&searchStatus=&searchType=" +
+                _vm.firm_type +
+                "&search1586=&search8749=&search9275=&search6969=&search9003=",
               label: "COMPLAINT",
             },
           }),

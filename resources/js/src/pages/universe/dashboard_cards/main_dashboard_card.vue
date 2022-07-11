@@ -10,7 +10,7 @@
                 <!--<b class="text-2xl">{{query_counter_total}}</b>-->
                 <div class="text-xl text-center grid grid-cols-1 pt-6">
                     <div>
-                        Total: <b class="text-2xl">{{query_counter_total}}</b>
+                        <Link :href="href"><span class="text-black">Total: <b class="text-2xl">{{query_counter_total}}</b></span></Link>
                     </div>
                 </div>
                 <div class="text-xl text-left grid grid-cols-1">
@@ -20,7 +20,7 @@
             <div v-if="(label == 'WITH 8749' || label == 'WITH 9275')">
                 <div class="text-xl text-center grid grid-cols-1">
                     <div>
-                        Total: <b class="text-2xl">{{query_counter_total}}</b>
+                        <Link :href="href"><span class="text-black">Total: <b class="text-2xl">{{query_counter_total}}</b></span></Link>
                     </div>
                 </div>
                 <div class="text-xl text-left grid grid-cols-2 mt-5 border-t-2 border-blue-500">
@@ -40,28 +40,28 @@
             <div v-if="(label == 'WITH NOV' || label == 'MONITORING')">
                 <div class="text-xl text-center grid grid-cols-1">
                     <div>
-                        Total: <b class="text-2xl">{{query_counter_total}}</b>
+                        <Link :href="href"><span class="text-black">Total: <b class="text-2xl">{{query_counter_total}}</b></span></Link>
                     </div>
                 </div>
                 <div class="text-xl text-left grid grid-cols-2 mt-5 border-t-2 border-blue-500">
                     <div>
-                        PD1586: <br/><b class="text-2xl">{{query_counter_1586}}</b>
+                        <Link :href="href_1586"><span class="text-black">PD1586: <br/><b class="text-2xl">{{query_counter_1586}}</b></span></Link>
                     </div>
                     <div>
-                        RA8749: <br/><b class="text-2xl">{{query_counter_8749}}</b>
+                        <Link :href="href_8749"><span class="text-black">RA8749: <br/><b class="text-2xl">{{query_counter_8749}}</b></span></Link>
                     </div>
                 </div>
                 <div class="text-xl text-left grid grid-cols-2 mt-5 border-t-2 border-blue-500">
                     <div>
-                        RA9275: <br/><b class="text-2xl">{{query_counter_9275}}</b>
+                        <Link :href="href_9275"><span class="text-black">RA9275: <br/><b class="text-2xl">{{query_counter_9275}}</b></span></Link>
                     </div>
                     <div>
-                        RA6969: <br/><b class="text-2xl">{{query_counter_6969}}</b>
+                        <Link :href="href_6969"><span class="text-black">RA6969: <br/><b class="text-2xl">{{query_counter_6969}}</b></span></Link>
                     </div>
                 </div>
                 <div class="text-xl text-left grid grid-cols-1 mt-5 border-t-2 border-blue-500">
                     <div>
-                        RA9003: <b class="text-2xl">{{query_counter_9003}}</b>
+                        <Link :href="href_9003"><span class="text-black">RA9003: <b class="text-2xl">{{query_counter_9003}}</b></span></Link>
                     </div>
                 </div>
             </div>
@@ -69,6 +69,7 @@
     </div>
 </template>
 <script>
+import { Link } from "@inertiajs/inertia-vue";
   export default {
     props:{
         label: String,
@@ -82,8 +83,15 @@
         query_counter_9275: Number,
         query_counter_6969: Number,
         query_counter_9003: Number,
+        href_1586: String,
+        href_8749: String,
+        href_9275: String,
+        href_6969: String,
+        href_9003: String,
+        href: String,
     },
     components:{
+        Link,
     },
     data () {
         return{
