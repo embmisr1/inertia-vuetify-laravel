@@ -379,6 +379,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 
@@ -2120,6 +2125,17 @@ var render = function () {
                   },
                   [_vm._v("Upload A File")]
                 ),
+                _vm._v(" "),
+                _c("v-text-field", {
+                  attrs: { label: "Permit File Upload", clearable: "" },
+                  model: {
+                    value: _vm.form_permit_info.perm_file,
+                    callback: function ($$v) {
+                      _vm.$set(_vm.form_permit_info, "perm_file", $$v)
+                    },
+                    expression: "form_permit_info.perm_file",
+                  },
+                }),
               ],
               1
             ),

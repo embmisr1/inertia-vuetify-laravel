@@ -242,6 +242,14 @@
                             value="RA 9003"
                             class="p-0 m-0"
                         ></v-checkbox>
+                        <div>
+                            <v-autocomplete v-if="computed_search8749 || computed_search9275"
+                                :items="searchValidity"
+                                label="Validity"
+                                v-model="filter.searchValidity"
+                                clearable
+                            ></v-autocomplete>
+                        </div>
                     </div>
                 </v-card-text>
                 <v-card-actions>
@@ -287,20 +295,6 @@ export default {
         province_list: Array,
         barangay_list: Array,
         filter: Object,
-    },
-    data() {
-        return {
-            dialog: false,
-            province_list_alter: this.province_list,
-            municipality_list_alter: [],
-
-            barangay_list_alter: [],
-            // filter: {},
-            searchProvince: null,
-            searchCityMun: null,
-            searchBrgy: null,
-            openFilter: false,
-        };
     },
     async mounted() {
         if (this.filter.PK_citymun_ID) {
@@ -367,7 +361,13 @@ export default {
         },
         selectedSearchCategory(){
             return this.filter.selectedSearchCategory;
-        }
+        },
+        computed_search8749(){
+            return this.filter.search8749;
+        },
+        computed_search9275(){
+            return this.filter.search9275;
+        },
     },
 
     data() {
@@ -376,14 +376,15 @@ export default {
             province_list_alter: this.province_list,
             municipality_list_alter: [],
             barangay_list_alter: [],
-            // filter: {},
             searchProvince: null,
             searchCityMun: null,
             searchBrgy: null,
             searchCategory: ['PERMIT', 'MONITORING', 'NOV', 'ORDER', 'PCO', 'COMPLAINT'],
             searchStatus: ['Active-Operational', 'Active-Proposed', 'Cancelled', 'Ceased', 'Ceased Operation', 'Delisted', 'Inactive-', 'Inactive-CANCELLED'],
             searchType: ['FIRM', 'LGU'],
+            searchValidity: ['VALID', 'EXPIRED', 'UNDEFINED'],
             selectedCategory:null,
+            openFilter: false,
         };
     },
     watch: {
@@ -400,9 +401,21 @@ export default {
                 this.filter.search9275 = null;
                 this.filter.search6969 = null;
                 this.filter.search9003 = null;
-            }
-            if( data == 'PERMIT'){
+                this.filter.searchValidity = null;
+            }else if( data == 'PERMIT'){
                 this.filter.search9003 = null;
+            }else{
+                this.filter.searchValidity = null;
+            }
+        },
+        computed_search8749(data){
+            if(data == null){
+                this.filter.searchValidity = null;
+            }
+        },
+        computed_search9275(data){
+            if(data == null){
+                this.filter.searchValidity = null;
             }
         },
     },

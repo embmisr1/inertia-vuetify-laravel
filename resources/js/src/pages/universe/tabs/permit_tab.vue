@@ -159,6 +159,11 @@
                         ></v-text-field> -->
                 <!-- <vue-dropzone ref="myVueDropzone" id="dropzone" :options="dropzoneOptions"></vue-dropzone> -->
                <v-btn dark block @click="uploadDialog = true">Upload A File</v-btn>
+                <v-text-field
+                    v-model="form_permit_info.perm_file"
+                    label="Permit File Upload"
+                    clearable
+                ></v-text-field>
             </div>
         </div>
         <div class="text-center">

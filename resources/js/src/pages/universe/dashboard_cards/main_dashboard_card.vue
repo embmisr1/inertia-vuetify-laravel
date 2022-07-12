@@ -25,7 +25,7 @@
                 </div>
                 <div class="text-xl text-left grid grid-cols-2 mt-5 border-t-2 border-blue-500">
                     <div>
-                        Active: <br/><b class="text-2xl">{{query_counter_valid}}</b>
+                        Valid: <br/><b class="text-2xl">{{query_counter_valid}}</b>
                     </div>
                     <div>
                         Expired: <br/><b class="text-2xl text-rose-600">{{query_counter_expired}}</b>

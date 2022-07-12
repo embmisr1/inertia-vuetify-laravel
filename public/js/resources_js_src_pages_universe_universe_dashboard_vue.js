@@ -1649,7 +1649,7 @@ var render = function () {
                 },
                 [
                   _c("div", [
-                    _vm._v("\n                    Active: "),
+                    _vm._v("\n                    Valid: "),
                     _c("br"),
                     _c("b", { staticClass: "text-2xl" }, [
                       _vm._v(_vm._s(_vm.query_counter_valid)),

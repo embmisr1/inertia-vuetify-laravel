@@ -513,8 +513,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _mixins___WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../mixins/ */ "./resources/js/src/mixins/index.js");
-var _mixins$components$pr;
-
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
@@ -798,12 +796,20 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
 
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_mixins$components$pr = {
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   mixins: [_mixins___WEBPACK_IMPORTED_MODULE_5__.page, _mixins___WEBPACK_IMPORTED_MODULE_5__.toasts],
   components: {
     DefaultLayout: _layouts_default_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
@@ -814,19 +820,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     province_list: Array,
     barangay_list: Array,
     filter: Object
-  },
-  data: function data() {
-    return {
-      dialog: false,
-      province_list_alter: this.province_list,
-      municipality_list_alter: [],
-      barangay_list_alter: [],
-      // filter: {},
-      searchProvince: null,
-      searchCityMun: null,
-      searchBrgy: null,
-      openFilter: false
-    };
   },
   mounted: function mounted() {
     var _this = this;
@@ -1009,44 +1002,64 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     },
     selectedSearchCategory: function selectedSearchCategory() {
       return this.filter.selectedSearchCategory;
+    },
+    computed_search8749: function computed_search8749() {
+      return this.filter.search8749;
+    },
+    computed_search9275: function computed_search9275() {
+      return this.filter.search9275;
+    }
+  },
+  data: function data() {
+    return {
+      dialog: false,
+      province_list_alter: this.province_list,
+      municipality_list_alter: [],
+      barangay_list_alter: [],
+      searchProvince: null,
+      searchCityMun: null,
+      searchBrgy: null,
+      searchCategory: ['PERMIT', 'MONITORING', 'NOV', 'ORDER', 'PCO', 'COMPLAINT'],
+      searchStatus: ['Active-Operational', 'Active-Proposed', 'Cancelled', 'Ceased', 'Ceased Operation', 'Delisted', 'Inactive-', 'Inactive-CANCELLED'],
+      searchType: ['FIRM', 'LGU'],
+      searchValidity: ['VALID', 'EXPIRED', 'UNDEFINED'],
+      selectedCategory: null,
+      openFilter: false
+    };
+  },
+  watch: {
+    PK_province_ID: function PK_province_ID(value) {
+      if (value) this.provinceDropdown(value);
+    },
+    PK_citymun_ID: function PK_citymun_ID(value) {
+      if (value) this.municipalityDropdown(value);
+    },
+    selectedSearchCategory: function selectedSearchCategory(data) {
+      if (data == 'ORDER' || data == 'PCO' || data == 'COMPLAINT') {
+        this.filter.search1586 = null;
+        this.filter.search8749 = null;
+        this.filter.search9275 = null;
+        this.filter.search6969 = null;
+        this.filter.search9003 = null;
+        this.filter.searchValidity = null;
+      } else if (data == 'PERMIT') {
+        this.filter.search9003 = null;
+      } else {
+        this.filter.searchValidity = null;
+      }
+    },
+    computed_search8749: function computed_search8749(data) {
+      if (data == null) {
+        this.filter.searchValidity = null;
+      }
+    },
+    computed_search9275: function computed_search9275(data) {
+      if (data == null) {
+        this.filter.searchValidity = null;
+      }
     }
   }
-}, _defineProperty(_mixins$components$pr, "data", function data() {
-  return {
-    dialog: false,
-    province_list_alter: this.province_list,
-    municipality_list_alter: [],
-    barangay_list_alter: [],
-    // filter: {},
-    searchProvince: null,
-    searchCityMun: null,
-    searchBrgy: null,
-    searchCategory: ['PERMIT', 'MONITORING', 'NOV', 'ORDER', 'PCO', 'COMPLAINT'],
-    searchStatus: ['Active-Operational', 'Active-Proposed', 'Cancelled', 'Ceased', 'Ceased Operation', 'Delisted', 'Inactive-', 'Inactive-CANCELLED'],
-    searchType: ['FIRM', 'LGU'],
-    selectedCategory: null
-  };
-}), _defineProperty(_mixins$components$pr, "watch", {
-  PK_province_ID: function PK_province_ID(value) {
-    if (value) this.provinceDropdown(value);
-  },
-  PK_citymun_ID: function PK_citymun_ID(value) {
-    if (value) this.municipalityDropdown(value);
-  },
-  selectedSearchCategory: function selectedSearchCategory(data) {
-    if (data == 'ORDER' || data == 'PCO' || data == 'COMPLAINT') {
-      this.filter.search1586 = null;
-      this.filter.search8749 = null;
-      this.filter.search9275 = null;
-      this.filter.search6969 = null;
-      this.filter.search9003 = null;
-    }
-
-    if (data == 'PERMIT') {
-      this.filter.search9003 = null;
-    }
-  }
-}), _mixins$components$pr);
+});
 
 /***/ }),
 
@@ -21953,6 +21966,33 @@ var render = function () {
                               },
                             })
                           : _vm._e(),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          [
+                            _vm.computed_search8749 || _vm.computed_search9275
+                              ? _c("v-autocomplete", {
+                                  attrs: {
+                                    items: _vm.searchValidity,
+                                    label: "Validity",
+                                    clearable: "",
+                                  },
+                                  model: {
+                                    value: _vm.filter.searchValidity,
+                                    callback: function ($$v) {
+                                      _vm.$set(
+                                        _vm.filter,
+                                        "searchValidity",
+                                        $$v
+                                      )
+                                    },
+                                    expression: "filter.searchValidity",
+                                  },
+                                })
+                              : _vm._e(),
+                          ],
+                          1
+                        ),
                       ],
                       1
                     )

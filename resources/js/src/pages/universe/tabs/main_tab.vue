@@ -30,7 +30,7 @@
                       :dashboard_content="ctr_file['monitoring'].content"
                   ></MiniDashboard>
                   <MiniDashboard
-                      dashboard_header_label="Pco"
+                      dashboard_header_label="PCO"
                       :dashboard_header="ctr_file['pco'].header"
                       :dashboard_content_label="ctr_file['pco'].content_label"
                       :dashboard_content="ctr_file['pco'].content"
