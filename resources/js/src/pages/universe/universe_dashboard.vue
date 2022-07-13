@@ -10,6 +10,9 @@
                     :query_counter_undefined="query_permit_9275_undefined" 
                     :firm_type="firm_type" 
                     :href="`/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=PERMIT&searchStatus=&searchType=${firm_type}&search1586=&search8749=&search9275=RA%209275&search6969=&search9003=`"
+                    :href_valid="`/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=PERMIT&searchStatus=&searchType=${firm_type}&search1586=&search8749=&search9275=RA%209275&search6969=&search9003=&searchValidity=VALID`"
+                    :href_expired="`/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=PERMIT&searchStatus=&searchType=${firm_type}&search1586=&search8749=&search9275=RA%209275&search6969=&search9003=&searchValidity=EXPIRED`"
+                    :href_undefined="`/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=PERMIT&searchStatus=&searchType=${firm_type}&search1586=&search8749=&search9275=RA%209275&search6969=&search9003=&searchValidity=UNDEFINED`"
                     label="WITH 9275">
                 </MainDashboard>
             </div>
@@ -20,6 +23,9 @@
                     :query_counter_expired="query_permit_8749_expired" 
                     :query_counter_undefined="query_permit_8749_undefined" 
                     :href="`/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=PERMIT&searchStatus=&searchType=${firm_type}&search1586=&search8749=RA%208749&search9275=&search6969=&search9003=`"
+                    :href_valid="`/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=PERMIT&searchStatus=&searchType=${firm_type}&search1586=&search8749=&search9275=RA%208749&search6969=&search9003=&searchValidity=VALID`"
+                    :href_expired="`/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=PERMIT&searchStatus=&searchType=${firm_type}&search1586=&search8749=&search9275=RA%208749&search6969=&search9003=&searchValidity=EXPIRED`"
+                    :href_undefined="`/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=PERMIT&searchStatus=&searchType=${firm_type}&search1586=&search8749=&search9275=RA%208749&search6969=&search9003=&searchValidity=UNDEFINED`"
                     :firm_type="firm_type" 
                     label="WITH 8749">
                 </MainDashboard>

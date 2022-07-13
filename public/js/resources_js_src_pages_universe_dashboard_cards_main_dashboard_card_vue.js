@@ -101,6 +101,9 @@ __webpack_require__.r(__webpack_exports__);
     href_9275: String,
     href_6969: String,
     href_9003: String,
+    href_valid: String,
+    href_expired: String,
+    href_undefined: String,
     href: String
   },
   components: {
@@ -290,21 +293,37 @@ var render = function () {
                     "text-xl text-left grid grid-cols-2 mt-5 border-t-2 border-blue-500",
                 },
                 [
-                  _c("div", [
-                    _vm._v("\n                    Valid: "),
-                    _c("br"),
-                    _c("b", { staticClass: "text-2xl" }, [
-                      _vm._v(_vm._s(_vm.query_counter_valid)),
-                    ]),
-                  ]),
+                  _c(
+                    "div",
+                    [
+                      _c("Link", { attrs: { href: _vm.href_valid } }, [
+                        _c("span", { staticClass: "text-black" }, [
+                          _vm._v("Valid: "),
+                          _c("br"),
+                          _c("b", { staticClass: "text-2xl" }, [
+                            _vm._v(_vm._s(_vm.query_counter_valid)),
+                          ]),
+                        ]),
+                      ]),
+                    ],
+                    1
+                  ),
                   _vm._v(" "),
-                  _c("div", [
-                    _vm._v("\n                    Expired: "),
-                    _c("br"),
-                    _c("b", { staticClass: "text-2xl text-rose-600" }, [
-                      _vm._v(_vm._s(_vm.query_counter_expired)),
-                    ]),
-                  ]),
+                  _c(
+                    "div",
+                    [
+                      _c("Link", { attrs: { href: _vm.href_expired } }, [
+                        _c("span", { staticClass: "text-black" }, [
+                          _vm._v("Expired: "),
+                          _c("br"),
+                          _c("b", { staticClass: "text-2xl text-rose-600" }, [
+                            _vm._v(_vm._s(_vm.query_counter_expired)),
+                          ]),
+                        ]),
+                      ]),
+                    ],
+                    1
+                  ),
                 ]
               ),
               _vm._v(" "),
@@ -315,12 +334,20 @@ var render = function () {
                     "text-xl text-left grid grid-cols-1 mt-5 border-t-2 border-blue-500",
                 },
                 [
-                  _c("div", [
-                    _vm._v("\n                    Undefined: "),
-                    _c("b", { staticClass: "text-2xl" }, [
-                      _vm._v(_vm._s(_vm.query_counter_undefined)),
-                    ]),
-                  ]),
+                  _c(
+                    "div",
+                    [
+                      _c("Link", { attrs: { href: _vm.href_undefined } }, [
+                        _c("span", { staticClass: "text-black" }, [
+                          _vm._v("Undefined: "),
+                          _c("b", { staticClass: "text-2xl" }, [
+                            _vm._v(_vm._s(_vm.query_counter_undefined)),
+                          ]),
+                        ]),
+                      ]),
+                    ],
+                    1
+                  ),
                 ]
               ),
             ])

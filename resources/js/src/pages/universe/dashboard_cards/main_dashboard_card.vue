@@ -25,15 +25,15 @@
                 </div>
                 <div class="text-xl text-left grid grid-cols-2 mt-5 border-t-2 border-blue-500">
                     <div>
-                        Valid: <br/><b class="text-2xl">{{query_counter_valid}}</b>
+                        <Link :href="href_valid"><span class="text-black">Valid: <br/><b class="text-2xl">{{query_counter_valid}}</b></span></Link>
                     </div>
                     <div>
-                        Expired: <br/><b class="text-2xl text-rose-600">{{query_counter_expired}}</b>
+                        <Link :href="href_expired"><span class="text-black">Expired: <br/><b class="text-2xl text-rose-600">{{query_counter_expired}}</b></span></Link>
                     </div>
                 </div>
                 <div class="text-xl text-left grid grid-cols-1 mt-5 border-t-2 border-blue-500">
                     <div>
-                        Undefined: <b class="text-2xl">{{query_counter_undefined}}</b>
+                        <Link :href="href_undefined"><span class="text-black">Undefined: <b class="text-2xl">{{query_counter_undefined}}</b></span></Link>
                     </div>
                 </div>
             </div>
@@ -88,6 +88,9 @@ import { Link } from "@inertiajs/inertia-vue";
         href_9275: String,
         href_6969: String,
         href_9003: String,
+        href_valid: String,
+        href_expired: String,
+        href_undefined: String,
         href: String,
     },
     components:{

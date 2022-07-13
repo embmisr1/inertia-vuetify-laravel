@@ -1049,12 +1049,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }
     },
     computed_search8749: function computed_search8749(data) {
-      if (data == null) {
+      if (data == null && this.computed_search9275 == null) {
         this.filter.searchValidity = null;
       }
     },
     computed_search9275: function computed_search9275(data) {
-      if (data == null) {
+      if (data == null && this.computed_search8749 == null) {
         this.filter.searchValidity = null;
       }
     }
@@ -21967,11 +21967,11 @@ var render = function () {
                             })
                           : _vm._e(),
                         _vm._v(" "),
-                        _c(
-                          "div",
-                          [
-                            _vm.computed_search8749 || _vm.computed_search9275
-                              ? _c("v-autocomplete", {
+                        _vm.computed_search8749 || _vm.computed_search9275
+                          ? _c(
+                              "div",
+                              [
+                                _c("v-autocomplete", {
                                   attrs: {
                                     items: _vm.searchValidity,
                                     label: "Validity",
@@ -21988,11 +21988,11 @@ var render = function () {
                                     },
                                     expression: "filter.searchValidity",
                                   },
-                                })
-                              : _vm._e(),
-                          ],
-                          1
-                        ),
+                                }),
+                              ],
+                              1
+                            )
+                          : _vm._e(),
                       ],
                       1
                     )

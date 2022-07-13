@@ -138,6 +138,15 @@ class UniverseController extends Controller
                 $query->where('j.comp_name', '!=', '');
                 $query->whereNotNull('j.comp_name');
             })
+            ->when(request('searchValidity'), function ($query) {
+                if(request('searchValidity') == 'EXPIRED'){
+                    $query->where('e.perm_date_expiry','<=', Carbon::today()->toDateString());
+                }elseif(request('searchValidity') == 'VALID'){
+                    $query->where('e.perm_date_expiry','>', Carbon::today()->toDateString());
+                }else{
+                    $query->where('e.perm_date_expiry', null);
+                }
+            })
             ->paginate(10);
 
         return Inertia::render("pages/universe/universe_list", [
@@ -176,13 +185,13 @@ class UniverseController extends Controller
         $query_permit_8749_undefined = DB::table('tbl_permit as a')->leftjoin('tbl_universe as b','a.universe_FK','=','b.id')->where('b.un_type', $firm_type)->where('a.perm_law','RA 8749')->where('a.is_priority',1)
         ->where(
             function($query) {
-              return $query->where('perm_date_expiry', null)->orWhere('perm_date_expiry', null);
+              return $query->where('perm_date_expiry', null);
             }
         );
         $query_permit_9275_undefined = DB::table('tbl_permit as a')->leftjoin('tbl_universe as b','a.universe_FK','=','b.id')->where('b.un_type', $firm_type)->where('a.perm_law','RA 9275')->where('a.is_priority',1)
         ->where(
             function($query) {
-              return $query->where('perm_date_expiry', null)->orWhere('perm_date_expiry', null);
+              return $query->where('perm_date_expiry', null);
             }
         );
         $query_pco_all = DB::table('tbl_pco as a')->leftjoin('tbl_universe as b','a.universe_FK','=','b.id')->where('b.un_type', $firm_type)->where('a.pco_name','!=','')->whereNotNull('a.pco_name');

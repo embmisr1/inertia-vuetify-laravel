@@ -242,8 +242,8 @@
                             value="RA 9003"
                             class="p-0 m-0"
                         ></v-checkbox>
-                        <div>
-                            <v-autocomplete v-if="computed_search8749 || computed_search9275"
+                        <div v-if="computed_search8749 || computed_search9275">
+                            <v-autocomplete
                                 :items="searchValidity"
                                 label="Validity"
                                 v-model="filter.searchValidity"
@@ -409,12 +409,12 @@ export default {
             }
         },
         computed_search8749(data){
-            if(data == null){
+            if(data == null && this.computed_search9275 == null){
                 this.filter.searchValidity = null;
             }
         },
         computed_search9275(data){
-            if(data == null){
+            if(data == null && this.computed_search8749 == null){
                 this.filter.searchValidity = null;
             }
         },

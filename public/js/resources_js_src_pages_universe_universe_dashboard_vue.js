@@ -583,6 +583,9 @@ __webpack_require__.r(__webpack_exports__);
     href_9275: String,
     href_6969: String,
     href_9003: String,
+    href_valid: String,
+    href_expired: String,
+    href_undefined: String,
     href: String
   },
   components: {
@@ -611,6 +614,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _mixins_universe_dashboard__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_mixins_universe_dashboard__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _dashboard_cards_main_dashboard_card__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./dashboard_cards/main_dashboard_card */ "./resources/js/src/pages/universe/dashboard_cards/main_dashboard_card.vue");
 /* harmony import */ var _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @inertiajs/inertia-vue */ "./node_modules/@inertiajs/inertia-vue/dist/index.js");
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -1648,21 +1657,37 @@ var render = function () {
                     "text-xl text-left grid grid-cols-2 mt-5 border-t-2 border-blue-500",
                 },
                 [
-                  _c("div", [
-                    _vm._v("\n                    Valid: "),
-                    _c("br"),
-                    _c("b", { staticClass: "text-2xl" }, [
-                      _vm._v(_vm._s(_vm.query_counter_valid)),
-                    ]),
-                  ]),
+                  _c(
+                    "div",
+                    [
+                      _c("Link", { attrs: { href: _vm.href_valid } }, [
+                        _c("span", { staticClass: "text-black" }, [
+                          _vm._v("Valid: "),
+                          _c("br"),
+                          _c("b", { staticClass: "text-2xl" }, [
+                            _vm._v(_vm._s(_vm.query_counter_valid)),
+                          ]),
+                        ]),
+                      ]),
+                    ],
+                    1
+                  ),
                   _vm._v(" "),
-                  _c("div", [
-                    _vm._v("\n                    Expired: "),
-                    _c("br"),
-                    _c("b", { staticClass: "text-2xl text-rose-600" }, [
-                      _vm._v(_vm._s(_vm.query_counter_expired)),
-                    ]),
-                  ]),
+                  _c(
+                    "div",
+                    [
+                      _c("Link", { attrs: { href: _vm.href_expired } }, [
+                        _c("span", { staticClass: "text-black" }, [
+                          _vm._v("Expired: "),
+                          _c("br"),
+                          _c("b", { staticClass: "text-2xl text-rose-600" }, [
+                            _vm._v(_vm._s(_vm.query_counter_expired)),
+                          ]),
+                        ]),
+                      ]),
+                    ],
+                    1
+                  ),
                 ]
               ),
               _vm._v(" "),
@@ -1673,12 +1698,20 @@ var render = function () {
                     "text-xl text-left grid grid-cols-1 mt-5 border-t-2 border-blue-500",
                 },
                 [
-                  _c("div", [
-                    _vm._v("\n                    Undefined: "),
-                    _c("b", { staticClass: "text-2xl" }, [
-                      _vm._v(_vm._s(_vm.query_counter_undefined)),
-                    ]),
-                  ]),
+                  _c(
+                    "div",
+                    [
+                      _c("Link", { attrs: { href: _vm.href_undefined } }, [
+                        _c("span", { staticClass: "text-black" }, [
+                          _vm._v("Undefined: "),
+                          _c("b", { staticClass: "text-2xl" }, [
+                            _vm._v(_vm._s(_vm.query_counter_undefined)),
+                          ]),
+                        ]),
+                      ]),
+                    ],
+                    1
+                  ),
                 ]
               ),
             ])
@@ -1866,6 +1899,18 @@ var render = function () {
                 "/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=PERMIT&searchStatus=&searchType=" +
                 _vm.firm_type +
                 "&search1586=&search8749=&search9275=RA%209275&search6969=&search9003=",
+              href_valid:
+                "/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=PERMIT&searchStatus=&searchType=" +
+                _vm.firm_type +
+                "&search1586=&search8749=&search9275=RA%209275&search6969=&search9003=&searchValidity=VALID",
+              href_expired:
+                "/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=PERMIT&searchStatus=&searchType=" +
+                _vm.firm_type +
+                "&search1586=&search8749=&search9275=RA%209275&search6969=&search9003=&searchValidity=EXPIRED",
+              href_undefined:
+                "/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=PERMIT&searchStatus=&searchType=" +
+                _vm.firm_type +
+                "&search1586=&search8749=&search9275=RA%209275&search6969=&search9003=&searchValidity=UNDEFINED",
               label: "WITH 9275",
             },
           }),
@@ -1886,6 +1931,18 @@ var render = function () {
                 "/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=PERMIT&searchStatus=&searchType=" +
                 _vm.firm_type +
                 "&search1586=&search8749=RA%208749&search9275=&search6969=&search9003=",
+              href_valid:
+                "/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=PERMIT&searchStatus=&searchType=" +
+                _vm.firm_type +
+                "&search1586=&search8749=&search9275=RA%208749&search6969=&search9003=&searchValidity=VALID",
+              href_expired:
+                "/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=PERMIT&searchStatus=&searchType=" +
+                _vm.firm_type +
+                "&search1586=&search8749=&search9275=RA%208749&search6969=&search9003=&searchValidity=EXPIRED",
+              href_undefined:
+                "/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=PERMIT&searchStatus=&searchType=" +
+                _vm.firm_type +
+                "&search1586=&search8749=&search9275=RA%208749&search6969=&search9003=&searchValidity=UNDEFINED",
               firm_type: _vm.firm_type,
               label: "WITH 8749",
             },
