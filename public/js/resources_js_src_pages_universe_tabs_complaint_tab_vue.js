@@ -123,6 +123,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     form_complaint_info: Object,
@@ -160,7 +166,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         text: 'Actions',
         value: 'actions',
         sortable: false
-      }]
+      }],
+      addFileForm: false
     };
   },
   methods: {
@@ -171,6 +178,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.form_complaint_info.comp_attached_file = item.comp_attached_file;
       this.form_complaint_info.comp_action_file = item.comp_action_file;
       this.form_complaint_info.comp_remarks = item.comp_remarks;
+      this.addFileForm = true;
     },
     deleteComplaint: function deleteComplaint(item) {
       var _this = this;
@@ -201,6 +209,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.form_complaint_info.comp_attached_file = null;
       this.form_complaint_info.comp_action_file = null;
       this.form_complaint_info.comp_remarks = null;
+    },
+    addFile: function addFile() {
+      this.addFileForm = true;
+    },
+    closeFile: function closeFile() {
+      this.addFileForm = false;
+      this.resetComplaint();
     }
   }
 });
@@ -1063,142 +1078,212 @@ var render = function () {
     "v-card",
     { staticClass: "p-4", attrs: { elevation: "0" } },
     [
-      _c("div", { staticClass: "grid grid-cols-2 gap-y-0 gap-x-4 ml-8" }, [
-        _c(
-          "div",
-          { attrs: { hidden: "" } },
-          [
-            _c("v-text-field", {
-              attrs: { label: "Complaint Id", clearable: "" },
-              model: {
-                value: _vm.form_complaint_info.comp_id,
-                callback: function ($$v) {
-                  _vm.$set(_vm.form_complaint_info, "comp_id", $$v)
-                },
-                expression: "form_complaint_info.comp_id",
-              },
-            }),
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          [
-            _c("v-text-field", {
-              attrs: { label: "Name of Complainant", clearable: "" },
-              model: {
-                value: _vm.form_complaint_info.comp_name,
-                callback: function ($$v) {
-                  _vm.$set(_vm.form_complaint_info, "comp_name", $$v)
-                },
-                expression: "form_complaint_info.comp_name",
-              },
-            }),
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          [
-            _c("v-text-field", {
-              attrs: { label: "Nature of complaint", clearable: "" },
-              model: {
-                value: _vm.form_complaint_info.comp_nature,
-                callback: function ($$v) {
-                  _vm.$set(_vm.form_complaint_info, "comp_nature", $$v)
-                },
-                expression: "form_complaint_info.comp_nature",
-              },
-            }),
-          ],
-          1
-        ),
-      ]),
+      _vm.addFileForm
+        ? _c("div", [
+            _c(
+              "div",
+              { staticClass: "grid grid-cols-2 gap-y-0 gap-x-4 ml-8" },
+              [
+                _c(
+                  "div",
+                  { attrs: { hidden: "" } },
+                  [
+                    _c("v-text-field", {
+                      attrs: { label: "Complaint Id", clearable: "" },
+                      model: {
+                        value: _vm.form_complaint_info.comp_id,
+                        callback: function ($$v) {
+                          _vm.$set(_vm.form_complaint_info, "comp_id", $$v)
+                        },
+                        expression: "form_complaint_info.comp_id",
+                      },
+                    }),
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  [
+                    _c("v-text-field", {
+                      attrs: { label: "Name of Complainant", clearable: "" },
+                      model: {
+                        value: _vm.form_complaint_info.comp_name,
+                        callback: function ($$v) {
+                          _vm.$set(_vm.form_complaint_info, "comp_name", $$v)
+                        },
+                        expression: "form_complaint_info.comp_name",
+                      },
+                    }),
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  [
+                    _c("v-text-field", {
+                      attrs: { label: "Nature of complaint", clearable: "" },
+                      model: {
+                        value: _vm.form_complaint_info.comp_nature,
+                        callback: function ($$v) {
+                          _vm.$set(_vm.form_complaint_info, "comp_nature", $$v)
+                        },
+                        expression: "form_complaint_info.comp_nature",
+                      },
+                    }),
+                  ],
+                  1
+                ),
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "grid grid-cols-2 gap-y-0 gap-x-4 ml-8" },
+              [
+                _c(
+                  "div",
+                  [
+                    _c("v-text-field", {
+                      attrs: { label: "Attached File", clearable: "" },
+                      model: {
+                        value: _vm.form_complaint_info.comp_attached_file,
+                        callback: function ($$v) {
+                          _vm.$set(
+                            _vm.form_complaint_info,
+                            "comp_attached_file",
+                            $$v
+                          )
+                        },
+                        expression: "form_complaint_info.comp_attached_file",
+                      },
+                    }),
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  [
+                    _c("v-text-field", {
+                      attrs: { label: "Action File", clearable: "" },
+                      model: {
+                        value: _vm.form_complaint_info.comp_action_file,
+                        callback: function ($$v) {
+                          _vm.$set(
+                            _vm.form_complaint_info,
+                            "comp_action_file",
+                            $$v
+                          )
+                        },
+                        expression: "form_complaint_info.comp_action_file",
+                      },
+                    }),
+                  ],
+                  1
+                ),
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "grid grid-cols-1 gap-y-0 gap-x-4 ml-8" },
+              [
+                _c(
+                  "div",
+                  [
+                    _c("v-text-field", {
+                      attrs: { label: "Complaint Remarks", clearable: "" },
+                      model: {
+                        value: _vm.form_complaint_info.comp_remarks,
+                        callback: function ($$v) {
+                          _vm.$set(_vm.form_complaint_info, "comp_remarks", $$v)
+                        },
+                        expression: "form_complaint_info.comp_remarks",
+                      },
+                    }),
+                  ],
+                  1
+                ),
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "text-center" },
+              [
+                _c(
+                  "v-btn",
+                  {
+                    attrs: { depressed: "", color: "primary", type: "submit" },
+                  },
+                  [
+                    _c(
+                      "v-icon",
+                      { staticClass: "mr-2", attrs: { small: "" } },
+                      [_vm._v(" mdi-content-save ")]
+                    ),
+                    _vm._v("\n                Submit\n            "),
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "v-btn",
+                  {
+                    attrs: { depressed: "", color: "warning", type: "button" },
+                    on: { click: _vm.resetComplaint },
+                  },
+                  [
+                    _c(
+                      "v-icon",
+                      { staticClass: "mr-2", attrs: { small: "" } },
+                      [_vm._v(" mdi-autorenew ")]
+                    ),
+                    _vm._v("\n                Reset\n            "),
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "v-btn",
+                  {
+                    attrs: { depressed: "", color: "error", type: "button" },
+                    on: { click: _vm.closeFile },
+                  },
+                  [
+                    _c(
+                      "v-icon",
+                      { staticClass: "mr-2", attrs: { small: "" } },
+                      [_vm._v(" mdi-plus-circle ")]
+                    ),
+                    _vm._v("\n                Close\n            "),
+                  ],
+                  1
+                ),
+              ],
+              1
+            ),
+          ])
+        : _vm._e(),
       _vm._v(" "),
-      _c("div", { staticClass: "grid grid-cols-2 gap-y-0 gap-x-4 ml-8" }, [
-        _c(
-          "div",
-          [
-            _c("v-text-field", {
-              attrs: { label: "Attached File", clearable: "" },
-              model: {
-                value: _vm.form_complaint_info.comp_attached_file,
-                callback: function ($$v) {
-                  _vm.$set(_vm.form_complaint_info, "comp_attached_file", $$v)
-                },
-                expression: "form_complaint_info.comp_attached_file",
-              },
-            }),
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          [
-            _c("v-text-field", {
-              attrs: { label: "Action File", clearable: "" },
-              model: {
-                value: _vm.form_complaint_info.comp_action_file,
-                callback: function ($$v) {
-                  _vm.$set(_vm.form_complaint_info, "comp_action_file", $$v)
-                },
-                expression: "form_complaint_info.comp_action_file",
-              },
-            }),
-          ],
-          1
-        ),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "grid grid-cols-1 gap-y-0 gap-x-4 ml-8" }, [
-        _c(
-          "div",
-          [
-            _c("v-text-field", {
-              attrs: { label: "Complaint Remarks", clearable: "" },
-              model: {
-                value: _vm.form_complaint_info.comp_remarks,
-                callback: function ($$v) {
-                  _vm.$set(_vm.form_complaint_info, "comp_remarks", $$v)
-                },
-                expression: "form_complaint_info.comp_remarks",
-              },
-            }),
-          ],
-          1
-        ),
-      ]),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "text-center" },
-        [
-          _c(
-            "v-btn",
-            { attrs: { depressed: "", color: "primary", type: "submit" } },
-            [_vm._v("\n            Submit\n        ")]
-          ),
-          _vm._v(" "),
-          _c(
+      !_vm.addFileForm
+        ? _c(
             "v-btn",
             {
-              attrs: { depressed: "", color: "warning", type: "button" },
-              on: { click: _vm.resetComplaint },
+              attrs: { depressed: "", color: "success", type: "button" },
+              on: { click: _vm.addFile },
             },
             [
               _c("v-icon", { staticClass: "mr-2", attrs: { small: "" } }, [
-                _vm._v("\n                mdi-autorenew\n            "),
+                _vm._v(" mdi-plus-circle "),
               ]),
-              _vm._v("\n            Reset\n        "),
+              _vm._v("\n        Add File\n    "),
             ],
             1
-          ),
-        ],
-        1
-      ),
+          )
+        : _vm._e(),
       _vm._v(" "),
       [
         _c(

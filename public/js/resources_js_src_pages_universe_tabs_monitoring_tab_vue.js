@@ -182,6 +182,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     form_monitoring_info: Object,
@@ -215,7 +221,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         value: 'actions',
         sortable: false
       }],
-      date_monitoring_menu: ''
+      date_monitoring_menu: '',
+      addFileForm: false
     };
   },
   methods: {
@@ -226,6 +233,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.form_monitoring_info.mon_date_monitored = item.mon_date_monitored;
       this.form_monitoring_info.mon_type = item.mon_type;
       this.form_monitoring_info.mon_file = item.mon_file;
+      this.addFileForm = true;
     },
     deleteMonitoring: function deleteMonitoring(item) {
       var _this = this;
@@ -255,6 +263,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.form_monitoring_info.mon_date_monitored = null;
       this.form_monitoring_info.mon_type = null;
       this.form_monitoring_info.mon_file = null;
+    },
+    addFile: function addFile() {
+      this.addFileForm = true;
+    },
+    closeFile: function closeFile() {
+      this.addFileForm = false;
+      this.resetMonitoring();
     }
   }
 });
@@ -1117,299 +1132,363 @@ var render = function () {
     "v-card",
     { staticClass: "p-4", attrs: { elevation: "0" } },
     [
-      _c("div", { staticClass: "grid grid-cols-4 gap-y-0 gap-x-4 ml-8" }, [
-        _c(
-          "div",
-          { attrs: { hidden: "" } },
-          [
-            _c("v-text-field", {
-              attrs: { label: "Monitoring Id", clearable: "" },
-              model: {
-                value: _vm.form_monitoring_info.mon_id,
-                callback: function ($$v) {
-                  _vm.$set(_vm.form_monitoring_info, "mon_id", $$v)
-                },
-                expression: "form_monitoring_info.mon_id",
-              },
-            }),
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          [
-            _c("v-checkbox", {
-              staticClass: "p-0 m-0 mt-5",
-              attrs: { label: "PD 1586", value: "PD 1586" },
-              model: {
-                value: _vm.form_monitoring_info.mon_law,
-                callback: function ($$v) {
-                  _vm.$set(_vm.form_monitoring_info, "mon_law", $$v)
-                },
-                expression: "form_monitoring_info.mon_law",
-              },
-            }),
-            _vm._v(" "),
-            _c("v-checkbox", {
-              staticClass: "p-0 m-0",
-              attrs: { label: "RA 8749", value: "RA 8749" },
-              model: {
-                value: _vm.form_monitoring_info.mon_law,
-                callback: function ($$v) {
-                  _vm.$set(_vm.form_monitoring_info, "mon_law", $$v)
-                },
-                expression: "form_monitoring_info.mon_law",
-              },
-            }),
-            _vm._v(" "),
-            _c("v-checkbox", {
-              staticClass: "p-0 m-0",
-              attrs: { label: "RA 9275", value: "RA 9275" },
-              model: {
-                value: _vm.form_monitoring_info.mon_law,
-                callback: function ($$v) {
-                  _vm.$set(_vm.form_monitoring_info, "mon_law", $$v)
-                },
-                expression: "form_monitoring_info.mon_law",
-              },
-            }),
-            _vm._v(" "),
-            _c("v-checkbox", {
-              staticClass: "p-0 m-0",
-              attrs: { label: "RA 6969", value: "RA 6969" },
-              model: {
-                value: _vm.form_monitoring_info.mon_law,
-                callback: function ($$v) {
-                  _vm.$set(_vm.form_monitoring_info, "mon_law", $$v)
-                },
-                expression: "form_monitoring_info.mon_law",
-              },
-            }),
-            _vm._v(" "),
-            _c("v-checkbox", {
-              staticClass: "p-0 m-0",
-              attrs: { label: "RA 9003", value: "RA 9003" },
-              model: {
-                value: _vm.form_monitoring_info.mon_law,
-                callback: function ($$v) {
-                  _vm.$set(_vm.form_monitoring_info, "mon_law", $$v)
-                },
-                expression: "form_monitoring_info.mon_law",
-              },
-            }),
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          [
+      _vm.addFileForm
+        ? _c("div", [
             _c(
-              "v-menu",
-              {
-                ref: "date_monitoring_menu",
-                attrs: {
-                  "close-on-content-click": false,
-                  "return-value": _vm.form_monitoring_info.mon_date_monitored,
-                  transition: "scale-transition",
-                  "offset-y": "",
-                  "min-width": "auto",
-                },
-                on: {
-                  "update:returnValue": function ($event) {
-                    return _vm.$set(
-                      _vm.form_monitoring_info,
-                      "mon_date_monitored",
-                      $event
-                    )
-                  },
-                  "update:return-value": function ($event) {
-                    return _vm.$set(
-                      _vm.form_monitoring_info,
-                      "mon_date_monitored",
-                      $event
-                    )
-                  },
-                },
-                scopedSlots: _vm._u([
-                  {
-                    key: "activator",
-                    fn: function (ref) {
-                      var on = ref.on
-                      var attrs = ref.attrs
-                      return [
-                        _c(
-                          "v-text-field",
-                          _vm._g(
-                            _vm._b(
-                              {
-                                attrs: {
-                                  label: "Date Monitored",
-                                  readonly: "",
-                                  clearable: "",
-                                },
-                                model: {
-                                  value:
-                                    _vm.form_monitoring_info.mon_date_monitored,
-                                  callback: function ($$v) {
-                                    _vm.$set(
-                                      _vm.form_monitoring_info,
-                                      "mon_date_monitored",
-                                      $$v
-                                    )
-                                  },
-                                  expression:
-                                    "form_monitoring_info.mon_date_monitored",
-                                },
-                              },
-                              "v-text-field",
-                              attrs,
-                              false
-                            ),
-                            on
-                          )
-                        ),
-                      ]
-                    },
-                  },
-                ]),
-                model: {
-                  value: _vm.date_monitoring_menu,
-                  callback: function ($$v) {
-                    _vm.date_monitoring_menu = $$v
-                  },
-                  expression: "date_monitoring_menu",
-                },
-              },
+              "div",
+              { staticClass: "grid grid-cols-4 gap-y-0 gap-x-4 ml-8" },
               [
+                _c(
+                  "div",
+                  { attrs: { hidden: "" } },
+                  [
+                    _c("v-text-field", {
+                      attrs: { label: "Monitoring Id", clearable: "" },
+                      model: {
+                        value: _vm.form_monitoring_info.mon_id,
+                        callback: function ($$v) {
+                          _vm.$set(_vm.form_monitoring_info, "mon_id", $$v)
+                        },
+                        expression: "form_monitoring_info.mon_id",
+                      },
+                    }),
+                  ],
+                  1
+                ),
                 _vm._v(" "),
                 _c(
-                  "v-date-picker",
-                  {
-                    attrs: { "no-title": "", scrollable: "" },
-                    model: {
-                      value: _vm.form_monitoring_info.mon_date_monitored,
-                      callback: function ($$v) {
-                        _vm.$set(
-                          _vm.form_monitoring_info,
-                          "mon_date_monitored",
-                          $$v
-                        )
-                      },
-                      expression: "form_monitoring_info.mon_date_monitored",
-                    },
-                  },
+                  "div",
                   [
-                    _c("v-spacer"),
-                    _vm._v(" "),
-                    _c(
-                      "v-btn",
-                      {
-                        attrs: { text: "", color: "primary" },
-                        on: {
-                          click: function ($event) {
-                            _vm.date_monitoring_menu = false
-                          },
+                    _c("v-checkbox", {
+                      staticClass: "p-0 m-0 mt-5",
+                      attrs: { label: "PD 1586", value: "PD 1586" },
+                      model: {
+                        value: _vm.form_monitoring_info.mon_law,
+                        callback: function ($$v) {
+                          _vm.$set(_vm.form_monitoring_info, "mon_law", $$v)
                         },
+                        expression: "form_monitoring_info.mon_law",
                       },
-                      [
-                        _vm._v(
-                          "\n                        Cancel\n                    "
-                        ),
-                      ]
-                    ),
+                    }),
                     _vm._v(" "),
+                    _c("v-checkbox", {
+                      staticClass: "p-0 m-0",
+                      attrs: { label: "RA 8749", value: "RA 8749" },
+                      model: {
+                        value: _vm.form_monitoring_info.mon_law,
+                        callback: function ($$v) {
+                          _vm.$set(_vm.form_monitoring_info, "mon_law", $$v)
+                        },
+                        expression: "form_monitoring_info.mon_law",
+                      },
+                    }),
+                    _vm._v(" "),
+                    _c("v-checkbox", {
+                      staticClass: "p-0 m-0",
+                      attrs: { label: "RA 9275", value: "RA 9275" },
+                      model: {
+                        value: _vm.form_monitoring_info.mon_law,
+                        callback: function ($$v) {
+                          _vm.$set(_vm.form_monitoring_info, "mon_law", $$v)
+                        },
+                        expression: "form_monitoring_info.mon_law",
+                      },
+                    }),
+                    _vm._v(" "),
+                    _c("v-checkbox", {
+                      staticClass: "p-0 m-0",
+                      attrs: { label: "RA 6969", value: "RA 6969" },
+                      model: {
+                        value: _vm.form_monitoring_info.mon_law,
+                        callback: function ($$v) {
+                          _vm.$set(_vm.form_monitoring_info, "mon_law", $$v)
+                        },
+                        expression: "form_monitoring_info.mon_law",
+                      },
+                    }),
+                    _vm._v(" "),
+                    _c("v-checkbox", {
+                      staticClass: "p-0 m-0",
+                      attrs: { label: "RA 9003", value: "RA 9003" },
+                      model: {
+                        value: _vm.form_monitoring_info.mon_law,
+                        callback: function ($$v) {
+                          _vm.$set(_vm.form_monitoring_info, "mon_law", $$v)
+                        },
+                        expression: "form_monitoring_info.mon_law",
+                      },
+                    }),
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  [
                     _c(
-                      "v-btn",
+                      "v-menu",
                       {
-                        attrs: { text: "", color: "primary" },
+                        ref: "date_monitoring_menu",
+                        attrs: {
+                          "close-on-content-click": false,
+                          "return-value":
+                            _vm.form_monitoring_info.mon_date_monitored,
+                          transition: "scale-transition",
+                          "offset-y": "",
+                          "min-width": "auto",
+                        },
                         on: {
-                          click: function ($event) {
-                            return _vm.$refs.date_monitoring_menu.save(
-                              _vm.form_monitoring_info.mon_date_monitored
+                          "update:returnValue": function ($event) {
+                            return _vm.$set(
+                              _vm.form_monitoring_info,
+                              "mon_date_monitored",
+                              $event
+                            )
+                          },
+                          "update:return-value": function ($event) {
+                            return _vm.$set(
+                              _vm.form_monitoring_info,
+                              "mon_date_monitored",
+                              $event
                             )
                           },
                         },
+                        scopedSlots: _vm._u(
+                          [
+                            {
+                              key: "activator",
+                              fn: function (ref) {
+                                var on = ref.on
+                                var attrs = ref.attrs
+                                return [
+                                  _c(
+                                    "v-text-field",
+                                    _vm._g(
+                                      _vm._b(
+                                        {
+                                          attrs: {
+                                            label: "Date Monitored",
+                                            readonly: "",
+                                            clearable: "",
+                                          },
+                                          model: {
+                                            value:
+                                              _vm.form_monitoring_info
+                                                .mon_date_monitored,
+                                            callback: function ($$v) {
+                                              _vm.$set(
+                                                _vm.form_monitoring_info,
+                                                "mon_date_monitored",
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "form_monitoring_info.mon_date_monitored",
+                                          },
+                                        },
+                                        "v-text-field",
+                                        attrs,
+                                        false
+                                      ),
+                                      on
+                                    )
+                                  ),
+                                ]
+                              },
+                            },
+                          ],
+                          null,
+                          false,
+                          3233197894
+                        ),
+                        model: {
+                          value: _vm.date_monitoring_menu,
+                          callback: function ($$v) {
+                            _vm.date_monitoring_menu = $$v
+                          },
+                          expression: "date_monitoring_menu",
+                        },
                       },
                       [
-                        _vm._v(
-                          "\n                        OK\n                    "
+                        _vm._v(" "),
+                        _c(
+                          "v-date-picker",
+                          {
+                            attrs: { "no-title": "", scrollable: "" },
+                            model: {
+                              value:
+                                _vm.form_monitoring_info.mon_date_monitored,
+                              callback: function ($$v) {
+                                _vm.$set(
+                                  _vm.form_monitoring_info,
+                                  "mon_date_monitored",
+                                  $$v
+                                )
+                              },
+                              expression:
+                                "form_monitoring_info.mon_date_monitored",
+                            },
+                          },
+                          [
+                            _c("v-spacer"),
+                            _vm._v(" "),
+                            _c(
+                              "v-btn",
+                              {
+                                attrs: { text: "", color: "primary" },
+                                on: {
+                                  click: function ($event) {
+                                    _vm.date_monitoring_menu = false
+                                  },
+                                },
+                              },
+                              [
+                                _vm._v(
+                                  "\n                            Cancel\n                        "
+                                ),
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "v-btn",
+                              {
+                                attrs: { text: "", color: "primary" },
+                                on: {
+                                  click: function ($event) {
+                                    return _vm.$refs.date_monitoring_menu.save(
+                                      _vm.form_monitoring_info
+                                        .mon_date_monitored
+                                    )
+                                  },
+                                },
+                              },
+                              [
+                                _vm._v(
+                                  "\n                            OK\n                        "
+                                ),
+                              ]
+                            ),
+                          ],
+                          1
                         ),
-                      ]
+                      ],
+                      1
                     ),
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  [
+                    _c("v-text-field", {
+                      attrs: { label: "Monitoring Type", clearable: "" },
+                      model: {
+                        value: _vm.form_monitoring_info.mon_type,
+                        callback: function ($$v) {
+                          _vm.$set(_vm.form_monitoring_info, "mon_type", $$v)
+                        },
+                        expression: "form_monitoring_info.mon_type",
+                      },
+                    }),
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  [
+                    _c("v-text-field", {
+                      attrs: { label: "Monitoring File", clearable: "" },
+                      model: {
+                        value: _vm.form_monitoring_info.mon_file,
+                        callback: function ($$v) {
+                          _vm.$set(_vm.form_monitoring_info, "mon_file", $$v)
+                        },
+                        expression: "form_monitoring_info.mon_file",
+                      },
+                    }),
+                  ],
+                  1
+                ),
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "text-center" },
+              [
+                _c(
+                  "v-btn",
+                  {
+                    attrs: { depressed: "", color: "primary", type: "submit" },
+                  },
+                  [
+                    _c(
+                      "v-icon",
+                      { staticClass: "mr-2", attrs: { small: "" } },
+                      [_vm._v(" mdi-content-save ")]
+                    ),
+                    _vm._v("\n                Submit\n            "),
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "v-btn",
+                  {
+                    attrs: { depressed: "", color: "warning", type: "button" },
+                    on: { click: _vm.resetMonitoring },
+                  },
+                  [
+                    _c(
+                      "v-icon",
+                      { staticClass: "mr-2", attrs: { small: "" } },
+                      [_vm._v(" mdi-autorenew ")]
+                    ),
+                    _vm._v("\n                Reset\n            "),
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "v-btn",
+                  {
+                    attrs: { depressed: "", color: "error", type: "button" },
+                    on: { click: _vm.closeFile },
+                  },
+                  [
+                    _c(
+                      "v-icon",
+                      { staticClass: "mr-2", attrs: { small: "" } },
+                      [_vm._v(" mdi-plus-circle ")]
+                    ),
+                    _vm._v("\n                Close\n            "),
                   ],
                   1
                 ),
               ],
               1
             ),
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          [
-            _c("v-text-field", {
-              attrs: { label: "Monitoring Type", clearable: "" },
-              model: {
-                value: _vm.form_monitoring_info.mon_type,
-                callback: function ($$v) {
-                  _vm.$set(_vm.form_monitoring_info, "mon_type", $$v)
-                },
-                expression: "form_monitoring_info.mon_type",
-              },
-            }),
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          [
-            _c("v-text-field", {
-              attrs: { label: "Monitoring File", clearable: "" },
-              model: {
-                value: _vm.form_monitoring_info.mon_file,
-                callback: function ($$v) {
-                  _vm.$set(_vm.form_monitoring_info, "mon_file", $$v)
-                },
-                expression: "form_monitoring_info.mon_file",
-              },
-            }),
-          ],
-          1
-        ),
-      ]),
+          ])
+        : _vm._e(),
       _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "text-center" },
-        [
-          _c(
-            "v-btn",
-            { attrs: { depressed: "", color: "primary", type: "submit" } },
-            [_vm._v("\n            Submit\n        ")]
-          ),
-          _vm._v(" "),
-          _c(
+      !_vm.addFileForm
+        ? _c(
             "v-btn",
             {
-              attrs: { depressed: "", color: "warning", type: "button" },
-              on: { click: _vm.resetMonitoring },
+              attrs: { depressed: "", color: "success", type: "button" },
+              on: { click: _vm.addFile },
             },
             [
               _c("v-icon", { staticClass: "mr-2", attrs: { small: "" } }, [
-                _vm._v("\n                mdi-autorenew\n            "),
+                _vm._v(" mdi-plus-circle "),
               ]),
-              _vm._v("\n            Reset\n        "),
+              _vm._v("\n        Add File\n    "),
             ],
             1
-          ),
-        ],
-        1
-      ),
+          )
+        : _vm._e(),
       _vm._v(" "),
       [
         _c(

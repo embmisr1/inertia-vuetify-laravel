@@ -1,192 +1,191 @@
 <template>
 <div>
     <v-card class="p-4" elevation="0">
-        <div class="grid grid-cols-5 gap-y-0 gap-x-4 ml-8">
-            <div hidden>
-                <v-text-field
-                    v-model="form_permit_info.perm_id"
-                    label="Permit Id"
-                    clearable
-                ></v-text-field>
-            </div>
-            <div>
-                <v-autocomplete
-                    :items="permit_law_selection"
-                    v-model="form_permit_info.perm_law"
-                    label="Law"
-                    item-text="law_selection"
-                    item-value="law_selection"
-                    clearable
-                ></v-autocomplete>
-            </div>
-            <div>
-                <v-text-field
-                    v-model="form_permit_info.perm_number"
-                    label="Permit No."
-                    clearable
-                ></v-text-field>
-            </div>
-            <div>
-                <v-autocomplete
-                    :items="permit_status_selection"
-                    v-model="form_permit_info.perm_status"
-                    label="Permit Status"
-                    item-text="status_selection"
-                    item-value="status_selection"
-                    clearable
-                ></v-autocomplete>
-            </div>
-            <!--date start-->
-            <div>
-                <v-menu
-                    ref="date_permit_issuance_menu"
-                    v-model="date_permit_issuance_menu"
-                    :close-on-content-click="false"
-                    :return-value.sync="form_permit_info.perm_date_issuance"
-                    transition="scale-transition"
-                    offset-y
-                    min-width="auto"
-                >
-                    <template v-slot:activator="{ on, attrs }">
-                        <v-text-field
+        <div v-if="addFileForm">
+            <div class="grid grid-cols-5 gap-y-0 gap-x-4 ml-8">
+                <div hidden>
+                    <v-text-field
+                        v-model="form_permit_info.perm_id"
+                        label="Permit Id"
+                        clearable
+                    ></v-text-field>
+                </div>
+                <div>
+                    <v-autocomplete
+                        :items="permit_law_selection"
+                        v-model="form_permit_info.perm_law"
+                        label="Law"
+                        item-text="law_selection"
+                        item-value="law_selection"
+                        clearable
+                    ></v-autocomplete>
+                </div>
+                <div>
+                    <v-text-field
+                        v-model="form_permit_info.perm_number"
+                        label="Permit No."
+                        clearable
+                    ></v-text-field>
+                </div>
+                <div>
+                    <v-autocomplete
+                        :items="permit_status_selection"
+                        v-model="form_permit_info.perm_status"
+                        label="Permit Status"
+                        item-text="status_selection"
+                        item-value="status_selection"
+                        clearable
+                    ></v-autocomplete>
+                </div>
+                <!--date start-->
+                <div>
+                    <v-menu
+                        ref="date_permit_issuance_menu"
+                        v-model="date_permit_issuance_menu"
+                        :close-on-content-click="false"
+                        :return-value.sync="form_permit_info.perm_date_issuance"
+                        transition="scale-transition"
+                        offset-y
+                        min-width="auto"
+                    >
+                        <template v-slot:activator="{ on, attrs }">
+                            <v-text-field
+                                v-model="form_permit_info.perm_date_issuance"
+                                label="Date Issuance"
+                                readonly
+                                v-bind="attrs"
+                                v-on="on"
+                                clearable
+                            ></v-text-field>
+                        </template>
+                        <v-date-picker
                             v-model="form_permit_info.perm_date_issuance"
-                            label="Date Issuance"
-                            readonly
-                            v-bind="attrs"
-                            v-on="on"
-                            clearable
-                        ></v-text-field>
-                    </template>
-                    <v-date-picker
-                        v-model="form_permit_info.perm_date_issuance"
-                        no-title
-                        scrollable
+                            no-title
+                            scrollable
+                        >
+                            <v-spacer></v-spacer>
+                            <v-btn
+                                text
+                                color="primary"
+                                @click="date_permit_issuance_menu = false"
+                            >
+                                Cancel
+                            </v-btn>
+                            <v-btn
+                                text
+                                color="primary"
+                                @click="
+                                    $refs.date_permit_issuance_menu.save(
+                                        form_permit_info.perm_date_issuance
+                                    )
+                                "
+                            >
+                                OK
+                            </v-btn>
+                        </v-date-picker>
+                    </v-menu>
+                </div>
+                <div>
+                    <v-menu
+                        ref="date_permit_expiry_menu"
+                        v-model="date_permit_expiry_menu"
+                        :close-on-content-click="false"
+                        :return-value.sync="form_permit_info.perm_date_expiry"
+                        transition="scale-transition"
+                        offset-y
+                        min-width="auto"
                     >
-                        <v-spacer></v-spacer>
-                        <v-btn
-                            text
-                            color="primary"
-                            @click="date_permit_issuance_menu = false"
-                        >
-                            Cancel
-                        </v-btn>
-                        <v-btn
-                            text
-                            color="primary"
-                            @click="
-                                $refs.date_permit_issuance_menu.save(
-                                    form_permit_info.perm_date_issuance
-                                )
-                            "
-                        >
-                            OK
-                        </v-btn>
-                    </v-date-picker>
-                </v-menu>
-            </div>
-            <div>
-                <v-menu
-                    ref="date_permit_expiry_menu"
-                    v-model="date_permit_expiry_menu"
-                    :close-on-content-click="false"
-                    :return-value.sync="form_permit_info.perm_date_expiry"
-                    transition="scale-transition"
-                    offset-y
-                    min-width="auto"
-                >
-                    <template v-slot:activator="{ on, attrs }">
-                        <v-text-field
+                        <template v-slot:activator="{ on, attrs }">
+                            <v-text-field
+                                v-model="form_permit_info.perm_date_expiry"
+                                label="Date Expiry"
+                                readonly
+                                v-bind="attrs"
+                                v-on="on"
+                                clearable
+                            ></v-text-field>
+                        </template>
+                        <v-date-picker
                             v-model="form_permit_info.perm_date_expiry"
-                            label="Date Expiry"
-                            readonly
-                            v-bind="attrs"
-                            v-on="on"
-                            clearable
-                        ></v-text-field>
-                    </template>
-                    <v-date-picker
-                        v-model="form_permit_info.perm_date_expiry"
-                        no-title
-                        scrollable
-                    >
-                        <v-spacer></v-spacer>
-                        <v-btn
-                            text
-                            color="primary"
-                            @click="date_permit_expiry_menu = false"
+                            no-title
+                            scrollable
                         >
-                            Cancel
-                        </v-btn>
-                        <v-btn
-                            text
-                            color="primary"
-                            @click="
-                                $refs.date_permit_expiry_menu.save(
-                                    form_permit_info.perm_date_expiry
-                                )
-                            "
-                        >
-                            OK
-                        </v-btn>
-                    </v-date-picker>
-                </v-menu>
+                            <v-spacer></v-spacer>
+                            <v-btn
+                                text
+                                color="primary"
+                                @click="date_permit_expiry_menu = false"
+                            >
+                                Cancel
+                            </v-btn>
+                            <v-btn
+                                text
+                                color="primary"
+                                @click="
+                                    $refs.date_permit_expiry_menu.save(
+                                        form_permit_info.perm_date_expiry
+                                    )
+                                "
+                            >
+                                OK
+                            </v-btn>
+                        </v-date-picker>
+                    </v-menu>
+                </div>
+                <!--date end-->
+                <div v-if="form_permit_info.perm_law === 'RA 6969'">
+                    <v-autocomplete
+                        :items="permit_hazwaste_selection"
+                        v-model="form_permit_info.perm_hazwaste_type"
+                        label="Hazwaste Type"
+                        item-text="hazwaste_selection"
+                        item-value="hazwaste_selection"
+                        clearable
+                    ></v-autocomplete>
+                </div>
             </div>
-            <!--date end-->
-            <div v-if="form_permit_info.perm_law === 'RA 6969'">
-                <v-autocomplete
-                    :items="permit_hazwaste_selection"
-                    v-model="form_permit_info.perm_hazwaste_type"
-                    label="Hazwaste Type"
-                    item-text="hazwaste_selection"
-                    item-value="hazwaste_selection"
-                    clearable
-                ></v-autocomplete>
+            <div class="grid grid-cols-2 gap-y-0 gap-x-4 ml-8">
+                <div>
+                    <v-text-field
+                        v-model="form_permit_info.perm_description"
+                        label="Permit Description"
+                        clearable
+                    ></v-text-field>
+                </div>
+                <div class="pt-2">
+                    <!-- <v-text-field
+                                v-model="form_permit_info.perm_file"
+                                label="Permit File Upload"
+                                clearable
+                            ></v-text-field> -->
+                    <!-- <vue-dropzone ref="myVueDropzone" id="dropzone" :options="dropzoneOptions"></vue-dropzone> -->
+                <v-btn dark block @click="uploadDialog = true">Upload A File</v-btn>
+                    <v-text-field
+                        v-model="form_permit_info.perm_file"
+                        label="Permit File Upload"
+                        clearable
+                    ></v-text-field>
+                </div>
             </div>
-        </div>
-        <div class="grid grid-cols-2 gap-y-0 gap-x-4 ml-8">
-            <div>
-                <v-text-field
-                    v-model="form_permit_info.perm_description"
-                    label="Permit Description"
-                    clearable
-                ></v-text-field>
-            </div>
-            <div class="pt-2">
-                <!-- <v-text-field
-                            v-model="form_permit_info.perm_file"
-                            label="Permit File Upload"
-                            clearable
-                        ></v-text-field> -->
-                <!-- <vue-dropzone ref="myVueDropzone" id="dropzone" :options="dropzoneOptions"></vue-dropzone> -->
-               <v-btn dark block @click="uploadDialog = true">Upload A File</v-btn>
-                <v-text-field
-                    v-model="form_permit_info.perm_file"
-                    label="Permit File Upload"
-                    clearable
-                ></v-text-field>
-            </div>
-        </div>
-        <div class="text-center">
-            <v-btn depressed color="primary" type="submit">
-                <v-icon small class="mr-2"> mdi-content-save </v-icon>
-                Submit
-            </v-btn>
-            <!--
-                <v-btn depressed dark color="cyan" type="button">
-                    <v-icon
-                        small
-                        class="mr-2"
-                    >
-                        mdi-plus-circle-outline
-                    </v-icon>
-                    Add Permit
+            <div class="text-center">
+                <v-btn depressed color="primary" type="submit">
+                    <v-icon small class="mr-2"> mdi-content-save </v-icon>
+                    Submit
                 </v-btn>
-                -->
-            <v-btn depressed color="warning" type="button" @click="resetPermit">
-                <v-icon small class="mr-2"> mdi-autorenew </v-icon>
-                Reset
-            </v-btn>
+                <v-btn depressed color="warning" type="button" @click="resetPermit">
+                    <v-icon small class="mr-2"> mdi-autorenew </v-icon>
+                    Reset
+                </v-btn>
+                <v-btn depressed color="error" type="button" @click="closeFile">
+                    <v-icon small class="mr-2"> mdi-plus-circle </v-icon>
+                    Close
+                </v-btn>
+            </div>
         </div>
+        <v-btn v-if="!addFileForm" depressed color="success" type="button" @click="addFile">
+            <v-icon small class="mr-2"> mdi-plus-circle </v-icon>
+            Add File
+        </v-btn>
         <template>
             <v-card elevation="2" class="mt-5">
                 <v-data-table
@@ -310,6 +309,7 @@ export default {
             //     "X-CSRF-TOKEN": document.head.querySelector("[name=csrf-token]").content
             //    }
         },
+        addFileForm: false,
     }),
     methods: {
         editPermit(item) {
@@ -324,6 +324,7 @@ export default {
             this.form_permit_info.perm_law = item.perm_law;
             this.form_permit_info.perm_number = item.perm_number;
             this.form_permit_info.perm_status = item.perm_status;
+            this.addFileForm = true;
         },
         async deletePermit(item) {
             await this.$inertia.delete(`/app/delete_permit/${item.id}`);
@@ -340,6 +341,13 @@ export default {
             this.form_permit_info.perm_law = null;
             this.form_permit_info.perm_number = null;
             this.form_permit_info.perm_status = null;
+        },
+        addFile(){
+            this.addFileForm = true;
+        },
+        closeFile(){
+            this.addFileForm = false;
+            this.resetPermit();
         },
     },
 };
