@@ -44,6 +44,7 @@ export default {
                 mon_id: "",
                 mon_law: [],
                 mon_date_monitored: "",
+                mon_or_survey: "",
                 mon_type: "",
                 mon_file: "",
             },
@@ -164,6 +165,7 @@ export default {
                 mon_id: "",
                 mon_law: [],
                 mon_date_monitored: "",
+                mon_or_survey: "",
                 mon_type: "",
                 mon_file: "",
             };

@@ -1,7 +1,7 @@
 <template>
         <v-card class="p-4" elevation="0">
             <div v-if="addFileForm">
-                <div class="grid grid-cols-4 gap-y-0 gap-x-4 ml-8">
+                <div class="grid grid-cols-5 gap-y-0 gap-x-5 ml-8">
                         <div hidden>
                             <v-text-field
                                 v-model="form_monitoring_info.mon_id"
@@ -92,6 +92,14 @@
                                 </v-btn>
                                 </v-date-picker>
                             </v-menu>
+                        </div>
+                        <div>
+                            <v-autocomplete
+                                :items="mon_or_sur_selection"
+                                v-model="form_monitoring_info.mon_or_survey"
+                                label="Monitoring/Survey"
+                                clearable
+                            ></v-autocomplete>
                         </div>
                         <div>
                             <v-text-field
@@ -198,6 +206,10 @@
       ],
       date_monitoring_menu: '',
       addFileForm: false,
+      mon_or_sur_selection: [
+            "Monitoring",
+            "Survey",
+      ],
     }),
     methods:{
         editMonitoring(item) {
@@ -205,6 +217,7 @@
             this.form_monitoring_info.mon_id = item.id;
             this.form_monitoring_info.mon_law = lawArray;
             this.form_monitoring_info.mon_date_monitored = item.mon_date_monitored;
+            this.form_monitoring_info.mon_or_survey = item.mon_or_survey;
             this.form_monitoring_info.mon_type = item.mon_type;
             this.form_monitoring_info.mon_file = item.mon_file;
             this.addFileForm = true;
@@ -217,6 +230,7 @@
             this.form_monitoring_info.mon_id = null;
             this.form_monitoring_info.mon_law = [];
             this.form_monitoring_info.mon_date_monitored = null;
+            this.form_monitoring_info.mon_or_survey = null;
             this.form_monitoring_info.mon_type = null;
             this.form_monitoring_info.mon_file = null;
         },

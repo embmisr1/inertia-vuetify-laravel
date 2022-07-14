@@ -1827,6 +1827,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     form_monitoring_info: Object,
@@ -1861,7 +1869,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         sortable: false
       }],
       date_monitoring_menu: '',
-      addFileForm: false
+      addFileForm: false,
+      mon_or_sur_selection: ["Monitoring", "Survey"]
     };
   },
   methods: {
@@ -1870,6 +1879,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.form_monitoring_info.mon_id = item.id;
       this.form_monitoring_info.mon_law = lawArray;
       this.form_monitoring_info.mon_date_monitored = item.mon_date_monitored;
+      this.form_monitoring_info.mon_or_survey = item.mon_or_survey;
       this.form_monitoring_info.mon_type = item.mon_type;
       this.form_monitoring_info.mon_file = item.mon_file;
       this.addFileForm = true;
@@ -1900,6 +1910,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.form_monitoring_info.mon_id = null;
       this.form_monitoring_info.mon_law = [];
       this.form_monitoring_info.mon_date_monitored = null;
+      this.form_monitoring_info.mon_or_survey = null;
       this.form_monitoring_info.mon_type = null;
       this.form_monitoring_info.mon_file = null;
     },
@@ -6936,7 +6947,7 @@ var render = function () {
         ? _c("div", [
             _c(
               "div",
-              { staticClass: "grid grid-cols-4 gap-y-0 gap-x-4 ml-8" },
+              { staticClass: "grid grid-cols-5 gap-y-0 gap-x-5 ml-8" },
               [
                 _c(
                   "div",
@@ -7174,6 +7185,31 @@ var render = function () {
                       ],
                       1
                     ),
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  [
+                    _c("v-autocomplete", {
+                      attrs: {
+                        items: _vm.mon_or_sur_selection,
+                        label: "Monitoring/Survey",
+                        clearable: "",
+                      },
+                      model: {
+                        value: _vm.form_monitoring_info.mon_or_survey,
+                        callback: function ($$v) {
+                          _vm.$set(
+                            _vm.form_monitoring_info,
+                            "mon_or_survey",
+                            $$v
+                          )
+                        },
+                        expression: "form_monitoring_info.mon_or_survey",
+                      },
+                    }),
                   ],
                   1
                 ),

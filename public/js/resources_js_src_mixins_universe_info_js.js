@@ -81,6 +81,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         mon_id: "",
         mon_law: [],
         mon_date_monitored: "",
+        mon_or_survey: "",
         mon_type: "",
         mon_file: ""
       },
@@ -227,6 +228,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         mon_id: "",
         mon_law: [],
         mon_date_monitored: "",
+        mon_or_survey: "",
         mon_type: "",
         mon_file: ""
       };
