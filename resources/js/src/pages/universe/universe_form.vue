@@ -4,6 +4,9 @@
             :province_list="province_list" 
             :municipality_list="municipality_list" 
             :barangay_list="barangay_list" 
+            :psic_group_list="psic_group_list" 
+            :psic_class_list="psic_class_list" 
+            :psic_subclass_list="psic_subclass_list" 
 
             :form_basic_info="form_basic_info" 
             :form_permit_info="form_permit_info" 
@@ -54,6 +57,9 @@ export default {
         province_list: Array,
         municipality_list: Array,
         barangay_list: Array,
+        psic_group_list: Array,
+        psic_class_list: Array,
+        psic_subclass_list: Array,
     },
     data: () => ({}),
 };

@@ -14,6 +14,9 @@ use App\Models\Pco;
 use App\Models\Barangay;
 use App\Models\Municipality;
 use App\Models\Province;
+use App\Models\PsicGroup;
+use App\Models\PsicClass;
+use App\Models\PsicSubClass;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
@@ -243,6 +246,7 @@ class UniverseController extends Controller
     public function universe_form(request $request)
     {
         $province_list = Province::where('regCode', '01')->get();
+        $psic_group_list = PsicGroup::all();
         if ($request->id) {
             $id = $request->id;
             $query = Universe::find($id);
@@ -253,9 +257,10 @@ class UniverseController extends Controller
             $query_pco = Pco::where('universe_FK', $id)->get();
             $query_complaint = Complaint::where('universe_FK', $id)->get();
             $ctr_file = $this->mini_dashboard_controller($id);
-            $province_list = Province::where('regCode', '01')->get();
             $municipality_list = Municipality::where('provCode', $query->un_province)->get();
             $barangay_list = Barangay::where('citymunCode', $query->un_municipality)->get();
+            $psic_class_list = PsicClass::where('psic_group_FK', $query->un_psic_group)->get();
+            $psic_subclass_list = PsicSubClass::where('psic_class_FK', $query->un_psic_class)->get();
             if ($query->count() > 0) {
                 return Inertia::render("pages/universe/universe_form", [
                     'query' => $query,
@@ -269,6 +274,9 @@ class UniverseController extends Controller
                     'province_list' => $province_list,
                     'municipality_list' => $municipality_list,
                     'barangay_list' => $barangay_list,
+                    'psic_group_list' => $psic_group_list,
+                    'psic_class_list' => $psic_class_list,
+                    'psic_subclass_list' => $psic_subclass_list,
                 ]);
             } else {
                 return Inertia::render("pages/universe/universe_form", [
@@ -282,6 +290,9 @@ class UniverseController extends Controller
                     'province_list' => $province_list,
                     'municipality_list' => $municipality_list,
                     'barangay_list' => $barangay_list,
+                    'psic_group_list' => $psic_group_list,
+                    'psic_class_list' => $psic_class_list,
+                    'psic_subclass_list' => $psic_subclass_list,
                 ]);
             }
         } else {
@@ -289,6 +300,9 @@ class UniverseController extends Controller
                 'province_list' => $province_list,
                 'municipality_list' => [],
                 'barangay_list' => [],
+                'psic_group_list' => $psic_group_list,
+                'psic_class_list' => [],
+                'psic_subclass_list' => [],
             ]);
         }
     }

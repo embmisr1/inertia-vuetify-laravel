@@ -143,7 +143,7 @@
                     <div class="col-span-3">
                         <div class="text-white bg-blue-500 rounded-md p-2" style="box-shadow: 0px 0px 5px #9C9C9C;">PSIC Code</div>
                     </div>
-                    <div>
+                    <!--<div>
                         <v-text-field
                             v-model="form_basic_info.un_psic_group"
                             label="Group"
@@ -163,6 +163,38 @@
                             label="Subclass"
                             clearable
                         ></v-text-field>
+                    </div>-->
+                    <div>
+                        <v-autocomplete
+                            :items="psic_group_list_alter"
+                            v-model="form_basic_info.un_psic_group"
+                            @change="psicGroupDropdown"
+                            label="Group"
+                            item-text="psic_group_desc"
+                            item-value="id"
+                            clearable
+                        ></v-autocomplete>
+                    </div>
+                    <div>
+                        <v-autocomplete
+                            :items="psic_class_list_alter"
+                            v-model="form_basic_info.un_psic_class"
+                            @change="psicClassDropdown"
+                            label="Class"
+                            item-text="psic_class_desc"
+                            item-value="id"
+                            clearable
+                        ></v-autocomplete>
+                    </div>
+                    <div>
+                        <v-autocomplete
+                            :items="psic_subclass_list_alter"
+                            v-model="form_basic_info.un_psic_subclass"
+                            label="Sub Class"
+                            item-text="psic_subclass_desc"
+                            item-value="id"
+                            clearable
+                        ></v-autocomplete>
                     </div>
             </div>
             <div class="grid grid-cols-3 gap-y-0 gap-x-4 ml-8">
@@ -242,6 +274,9 @@ import axios from 'axios';
         province_list: Array,
         municipality_list: Array,
         barangay_list: Array,
+        psic_group_list: Array,
+        psic_class_list: Array,
+        psic_subclass_list: Array,
     },
     methods:{
         async provinceDropdown(val){
@@ -252,7 +287,17 @@ import axios from 'axios';
         async municipalityDropdown(val){
             const barangay = await axios.get(`http://127.0.0.1:8000/api/app/municipality_dropdown/${val}`);
             this.barangay_list_alter = barangay.data;
-        }
+        },
+        async psicGroupDropdown(val){
+            const psic_class = await axios.get(`http://127.0.0.1:8000/api/app/psic_group_dropdown/${val}`);
+            this.psic_class_list_alter = psic_class.data;
+            console.log(1);
+        },
+        async psicClassDropdown(val){
+            const psic_subclass = await axios.get(`http://127.0.0.1:8000/api/app/psic_class_dropdown/${val}`);
+            this.psic_subclass_list_alter = psic_subclass.data;
+            console.log(1);
+        },
     },
     data () {
       return {
@@ -276,6 +321,9 @@ import axios from 'axios';
             { 'basic_status_selection': 'Cancelled'  },
             { 'basic_status_selection': 'Delisted'  },
         ],
+        psic_group_list_alter: this.psic_group_list,
+        psic_class_list_alter: this.psic_class_list,
+        psic_subclass_list_alter: this.psic_subclass_list,
       }
     },
   }

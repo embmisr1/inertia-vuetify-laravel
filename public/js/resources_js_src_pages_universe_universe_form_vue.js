@@ -883,13 +883,48 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     form_basic_info: Object,
     province_list: Array,
     municipality_list: Array,
-    barangay_list: Array
+    barangay_list: Array,
+    psic_group_list: Array,
+    psic_class_list: Array,
+    psic_subclass_list: Array
   },
   methods: {
     provinceDropdown: function provinceDropdown(val) {
@@ -940,6 +975,56 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           }
         }, _callee2);
       }))();
+    },
+    psicGroupDropdown: function psicGroupDropdown(val) {
+      var _this3 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3() {
+        var psic_class;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                _context3.next = 2;
+                return axios__WEBPACK_IMPORTED_MODULE_1___default().get("http://127.0.0.1:8000/api/app/psic_group_dropdown/".concat(val));
+
+              case 2:
+                psic_class = _context3.sent;
+                _this3.psic_class_list_alter = psic_class.data;
+                console.log(1);
+
+              case 5:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3);
+      }))();
+    },
+    psicClassDropdown: function psicClassDropdown(val) {
+      var _this4 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee4() {
+        var psic_subclass;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee4$(_context4) {
+          while (1) {
+            switch (_context4.prev = _context4.next) {
+              case 0:
+                _context4.next = 2;
+                return axios__WEBPACK_IMPORTED_MODULE_1___default().get("http://127.0.0.1:8000/api/app/psic_class_dropdown/".concat(val));
+
+              case 2:
+                psic_subclass = _context4.sent;
+                _this4.psic_subclass_list_alter = psic_subclass.data;
+                console.log(1);
+
+              case 5:
+              case "end":
+                return _context4.stop();
+            }
+          }
+        }, _callee4);
+      }))();
     }
   },
   data: function data() {
@@ -973,7 +1058,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         'basic_status_selection': 'Cancelled'
       }, {
         'basic_status_selection': 'Delisted'
-      }]
+      }],
+      psic_group_list_alter: this.psic_group_list,
+      psic_class_list_alter: this.psic_class_list,
+      psic_subclass_list_alter: this.psic_subclass_list
     };
   }
 });
@@ -2033,6 +2121,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 
 
@@ -2060,7 +2151,10 @@ __webpack_require__.r(__webpack_exports__);
     ctr_file: Object,
     province_list: Array,
     municipality_list: Array,
-    barangay_list: Array
+    barangay_list: Array,
+    psic_group_list: Array,
+    psic_class_list: Array,
+    psic_subclass_list: Array
   },
   components: {
     BasicTab: _basic_tab__WEBPACK_IMPORTED_MODULE_0__["default"],
@@ -3157,6 +3251,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 
 
@@ -3179,7 +3276,10 @@ __webpack_require__.r(__webpack_exports__);
     ctr_file: Object,
     province_list: Array,
     municipality_list: Array,
-    barangay_list: Array
+    barangay_list: Array,
+    psic_group_list: Array,
+    psic_class_list: Array,
+    psic_subclass_list: Array
   },
   data: function data() {
     return {};
@@ -6210,8 +6310,15 @@ var render = function () {
       _c(
         "div",
         [
-          _c("v-text-field", {
-            attrs: { label: "Group", clearable: "" },
+          _c("v-autocomplete", {
+            attrs: {
+              items: _vm.psic_group_list_alter,
+              label: "Group",
+              "item-text": "psic_group_desc",
+              "item-value": "id",
+              clearable: "",
+            },
+            on: { change: _vm.psicGroupDropdown },
             model: {
               value: _vm.form_basic_info.un_psic_group,
               callback: function ($$v) {
@@ -6227,8 +6334,15 @@ var render = function () {
       _c(
         "div",
         [
-          _c("v-text-field", {
-            attrs: { label: "Class", clearable: "" },
+          _c("v-autocomplete", {
+            attrs: {
+              items: _vm.psic_class_list_alter,
+              label: "Class",
+              "item-text": "psic_class_desc",
+              "item-value": "id",
+              clearable: "",
+            },
+            on: { change: _vm.psicClassDropdown },
             model: {
               value: _vm.form_basic_info.un_psic_class,
               callback: function ($$v) {
@@ -6244,8 +6358,14 @@ var render = function () {
       _c(
         "div",
         [
-          _c("v-text-field", {
-            attrs: { label: "Subclass", clearable: "" },
+          _c("v-autocomplete", {
+            attrs: {
+              items: _vm.psic_subclass_list_alter,
+              label: "Sub Class",
+              "item-text": "psic_subclass_desc",
+              "item-value": "id",
+              clearable: "",
+            },
             model: {
               value: _vm.form_basic_info.un_psic_subclass,
               callback: function ($$v) {
@@ -8232,6 +8352,9 @@ var render = function () {
                                 province_list: _vm.province_list,
                                 municipality_list: _vm.municipality_list,
                                 barangay_list: _vm.barangay_list,
+                                psic_group_list: _vm.psic_group_list,
+                                psic_class_list: _vm.psic_class_list,
+                                psic_subclass_list: _vm.psic_subclass_list,
                               },
                             }),
                           ],
@@ -10190,6 +10313,9 @@ var render = function () {
           province_list: _vm.province_list,
           municipality_list: _vm.municipality_list,
           barangay_list: _vm.barangay_list,
+          psic_group_list: _vm.psic_group_list,
+          psic_class_list: _vm.psic_class_list,
+          psic_subclass_list: _vm.psic_subclass_list,
           form_basic_info: _vm.form_basic_info,
           form_permit_info: _vm.form_permit_info,
           form_monitoring_info: _vm.form_monitoring_info,

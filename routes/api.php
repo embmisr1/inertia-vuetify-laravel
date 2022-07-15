@@ -27,6 +27,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 Route::get('app/province_dropdown/{id}', [ApiController::class, 'province_dropdown'])->name("province_dropdown");
 Route::get('app/municipality_dropdown/{id}', [ApiController::class, 'municipality_dropdown'])->name("municipality_dropdown");
+Route::get('app/psic_group_dropdown/{id}', [ApiController::class, 'psic_group_dropdown'])->name("psic_group_dropdown");
+Route::get('app/psic_class_dropdown/{id}', [ApiController::class, 'psic_class_dropdown'])->name("psic_class_dropdown");
 // Route::get('app/province_dropdown/{id}', [UniverseController::class, 'province_dropdown'])->name("province_dropdown");
 // Route::get('app/municipality_dropdown/{id}', [UniverseController::class, 'municipality_dropdown'])->name("municipality_dropdown");
 

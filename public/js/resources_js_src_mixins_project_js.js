@@ -22,7 +22,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-var root = "http://unisys.test/api/v1/";
+var root = "http://127.0.0.1:8000/api/v1/";
 var urls = {
   psic_group_class: root + "psic_group_class",
   psic_sub_class: root + "psic_sub_class",
