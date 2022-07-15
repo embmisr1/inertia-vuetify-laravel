@@ -143,27 +143,6 @@
                     <div class="col-span-3">
                         <div class="text-white bg-blue-500 rounded-md p-2" style="box-shadow: 0px 0px 5px #9C9C9C;">PSIC Code</div>
                     </div>
-                    <!--<div>
-                        <v-text-field
-                            v-model="form_basic_info.un_psic_group"
-                            label="Group"
-                            clearable
-                        ></v-text-field>
-                    </div>
-                    <div>
-                        <v-text-field
-                            v-model="form_basic_info.un_psic_class"
-                            label="Class"
-                            clearable
-                        ></v-text-field>
-                    </div>
-                    <div>
-                        <v-text-field
-                            v-model="form_basic_info.un_psic_subclass"
-                            label="Subclass"
-                            clearable
-                        ></v-text-field>
-                    </div>-->
                     <div>
                         <v-autocomplete
                             :items="psic_group_list_alter"
@@ -202,32 +181,47 @@
                         <div class="text-white bg-blue-500 rounded-md p-2" style="box-shadow: 0px 0px 5px #9C9C9C;">Project Type</div>
                     </div>
                     <div>
-                        <v-text-field
+                        <v-autocomplete
+                            :items="project_type_list_alter"
                             v-model="form_basic_info.un_project_type"
-                            label="Type"
+                            @change="projectTypeDropdown"
+                            label="Project Type"
+                            item-text="project_type_desc"
+                            item-value="id"
                             clearable
-                        ></v-text-field>
+                        ></v-autocomplete>
                     </div>
                     <div>
-                        <v-text-field
+                        <v-autocomplete
+                            :items="project_subtype_list_alter"
                             v-model="form_basic_info.un_project_subtype"
-                            label="Subtype"
+                            @change="projectSubTypeDropdown"
+                            label="Project Sub Type"
+                            item-text="project_subtype_desc"
+                            item-value="id"
                             clearable
-                        ></v-text-field>
+                        ></v-autocomplete>
                     </div>
                     <div>
-                        <v-text-field
+                        <v-autocomplete
+                            :items="project_specific_type_list_alter"
                             v-model="form_basic_info.un_project_specific_type"
-                            label="Specific Type"
+                            @change="projectSpecificTypeDropdown"
+                            label="Project Specific Type"
+                            item-text="project_specific_type_desc"
+                            item-value="id"
                             clearable
-                        ></v-text-field>
+                        ></v-autocomplete>
                     </div>
                     <div>
-                        <v-text-field
+                        <v-autocomplete
+                            :items="project_specific_subtype_list_alter"
                             v-model="form_basic_info.un_project_specific_subtype"
-                            label="Specific Subtype"
+                            label="Project Specific Sub Type"
+                            item-text="project_specific_subtype_desc"
+                            item-value="id"
                             clearable
-                        ></v-text-field>
+                        ></v-autocomplete>
                     </div>
                     <div>
                         <v-text-field
@@ -277,6 +271,10 @@ import axios from 'axios';
         psic_group_list: Array,
         psic_class_list: Array,
         psic_subclass_list: Array,
+        project_type_list: Array,
+        project_subtype_list: Array,
+        project_specific_type_list: Array,
+        project_specific_subtype_list: Array,
     },
     methods:{
         async provinceDropdown(val){
@@ -291,12 +289,22 @@ import axios from 'axios';
         async psicGroupDropdown(val){
             const psic_class = await axios.get(`http://127.0.0.1:8000/api/app/psic_group_dropdown/${val}`);
             this.psic_class_list_alter = psic_class.data;
-            console.log(1);
         },
         async psicClassDropdown(val){
             const psic_subclass = await axios.get(`http://127.0.0.1:8000/api/app/psic_class_dropdown/${val}`);
             this.psic_subclass_list_alter = psic_subclass.data;
-            console.log(1);
+        },
+        async projectTypeDropdown(val){
+            const project_subtype = await axios.get(`http://127.0.0.1:8000/api/app/project_type_dropdown/${val}`);
+            this.project_subtype_list_alter = project_subtype.data;
+        },
+        async projectSubTypeDropdown(val){
+            const project_specific_type = await axios.get(`http://127.0.0.1:8000/api/app/project_subtype_dropdown/${val}`);
+            this.project_specific_type_list_alter = project_specific_type.data;
+        },
+        async projectSpecificTypeDropdown(val){
+            const project_specific_subtype = await axios.get(`http://127.0.0.1:8000/api/app/project_specific_type_dropdown/${val}`);
+            this.project_specific_subtype_list_alter = project_specific_subtype.data;
         },
     },
     data () {
@@ -324,6 +332,10 @@ import axios from 'axios';
         psic_group_list_alter: this.psic_group_list,
         psic_class_list_alter: this.psic_class_list,
         psic_subclass_list_alter: this.psic_subclass_list,
+        project_type_list_alter: this.project_type_list,
+        project_subtype_list_alter: this.project_subtype_list,
+        project_specific_type_list_alter: this.project_specific_type_list,
+        project_specific_subtype_list_alter: this.project_specific_subtype_list,
       }
     },
   }

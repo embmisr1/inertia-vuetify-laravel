@@ -119,7 +119,11 @@
                     :barangay_list="barangay_list"
                     :psic_group_list="psic_group_list"
                     :psic_class_list="psic_class_list"
-                    :psic_subclass_list="psic_subclass_list">
+                    :psic_subclass_list="psic_subclass_list"
+                    :project_type_list="project_type_list" 
+                    :project_subtype_list="project_subtype_list" 
+                    :project_specific_type_list="project_specific_type_list" 
+                    :project_specific_subtype_list="project_specific_subtype_list" >
                   </BasicTab>
               </v-tab-item>
               <v-tab-item>
@@ -185,6 +189,10 @@
       psic_group_list: Array,
       psic_class_list: Array,
       psic_subclass_list: Array,
+      project_type_list: Array,
+      project_subtype_list: Array,
+      project_specific_type_list: Array,
+      project_specific_subtype_list: Array,
     },
     components:{
         BasicTab,

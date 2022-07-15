@@ -294,12 +294,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
@@ -309,7 +303,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     barangay_list: Array,
     psic_group_list: Array,
     psic_class_list: Array,
-    psic_subclass_list: Array
+    psic_subclass_list: Array,
+    project_type_list: Array,
+    project_subtype_list: Array,
+    project_specific_type_list: Array,
+    project_specific_subtype_list: Array
   },
   methods: {
     provinceDropdown: function provinceDropdown(val) {
@@ -376,9 +374,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 2:
                 psic_class = _context3.sent;
                 _this3.psic_class_list_alter = psic_class.data;
-                console.log(1);
 
-              case 5:
+              case 4:
               case "end":
                 return _context3.stop();
             }
@@ -401,14 +398,85 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 2:
                 psic_subclass = _context4.sent;
                 _this4.psic_subclass_list_alter = psic_subclass.data;
-                console.log(1);
 
-              case 5:
+              case 4:
               case "end":
                 return _context4.stop();
             }
           }
         }, _callee4);
+      }))();
+    },
+    projectTypeDropdown: function projectTypeDropdown(val) {
+      var _this5 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee5() {
+        var project_subtype;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee5$(_context5) {
+          while (1) {
+            switch (_context5.prev = _context5.next) {
+              case 0:
+                _context5.next = 2;
+                return axios__WEBPACK_IMPORTED_MODULE_1___default().get("http://127.0.0.1:8000/api/app/project_type_dropdown/".concat(val));
+
+              case 2:
+                project_subtype = _context5.sent;
+                _this5.project_subtype_list_alter = project_subtype.data;
+
+              case 4:
+              case "end":
+                return _context5.stop();
+            }
+          }
+        }, _callee5);
+      }))();
+    },
+    projectSubTypeDropdown: function projectSubTypeDropdown(val) {
+      var _this6 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee6() {
+        var project_specific_type;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee6$(_context6) {
+          while (1) {
+            switch (_context6.prev = _context6.next) {
+              case 0:
+                _context6.next = 2;
+                return axios__WEBPACK_IMPORTED_MODULE_1___default().get("http://127.0.0.1:8000/api/app/project_subtype_dropdown/".concat(val));
+
+              case 2:
+                project_specific_type = _context6.sent;
+                _this6.project_specific_type_list_alter = project_specific_type.data;
+
+              case 4:
+              case "end":
+                return _context6.stop();
+            }
+          }
+        }, _callee6);
+      }))();
+    },
+    projectSpecificTypeDropdown: function projectSpecificTypeDropdown(val) {
+      var _this7 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee7() {
+        var project_specific_subtype;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee7$(_context7) {
+          while (1) {
+            switch (_context7.prev = _context7.next) {
+              case 0:
+                _context7.next = 2;
+                return axios__WEBPACK_IMPORTED_MODULE_1___default().get("http://127.0.0.1:8000/api/app/project_specific_type_dropdown/".concat(val));
+
+              case 2:
+                project_specific_subtype = _context7.sent;
+                _this7.project_specific_subtype_list_alter = project_specific_subtype.data;
+
+              case 4:
+              case "end":
+                return _context7.stop();
+            }
+          }
+        }, _callee7);
       }))();
     }
   },
@@ -446,7 +514,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }],
       psic_group_list_alter: this.psic_group_list,
       psic_class_list_alter: this.psic_class_list,
-      psic_subclass_list_alter: this.psic_subclass_list
+      psic_subclass_list_alter: this.psic_subclass_list,
+      project_type_list_alter: this.project_type_list,
+      project_subtype_list_alter: this.project_subtype_list,
+      project_specific_type_list_alter: this.project_specific_type_list,
+      project_specific_subtype_list_alter: this.project_specific_subtype_list
     };
   }
 });
@@ -1734,8 +1806,15 @@ var render = function () {
       _c(
         "div",
         [
-          _c("v-text-field", {
-            attrs: { label: "Type", clearable: "" },
+          _c("v-autocomplete", {
+            attrs: {
+              items: _vm.project_type_list_alter,
+              label: "Project Type",
+              "item-text": "project_type_desc",
+              "item-value": "id",
+              clearable: "",
+            },
+            on: { change: _vm.projectTypeDropdown },
             model: {
               value: _vm.form_basic_info.un_project_type,
               callback: function ($$v) {
@@ -1751,8 +1830,15 @@ var render = function () {
       _c(
         "div",
         [
-          _c("v-text-field", {
-            attrs: { label: "Subtype", clearable: "" },
+          _c("v-autocomplete", {
+            attrs: {
+              items: _vm.project_subtype_list_alter,
+              label: "Project Sub Type",
+              "item-text": "project_subtype_desc",
+              "item-value": "id",
+              clearable: "",
+            },
+            on: { change: _vm.projectSubTypeDropdown },
             model: {
               value: _vm.form_basic_info.un_project_subtype,
               callback: function ($$v) {
@@ -1768,8 +1854,15 @@ var render = function () {
       _c(
         "div",
         [
-          _c("v-text-field", {
-            attrs: { label: "Specific Type", clearable: "" },
+          _c("v-autocomplete", {
+            attrs: {
+              items: _vm.project_specific_type_list_alter,
+              label: "Project Specific Type",
+              "item-text": "project_specific_type_desc",
+              "item-value": "id",
+              clearable: "",
+            },
+            on: { change: _vm.projectSpecificTypeDropdown },
             model: {
               value: _vm.form_basic_info.un_project_specific_type,
               callback: function ($$v) {
@@ -1785,8 +1878,14 @@ var render = function () {
       _c(
         "div",
         [
-          _c("v-text-field", {
-            attrs: { label: "Specific Subtype", clearable: "" },
+          _c("v-autocomplete", {
+            attrs: {
+              items: _vm.project_specific_subtype_list_alter,
+              label: "Project Specific Sub Type",
+              "item-text": "project_specific_subtype_desc",
+              "item-value": "id",
+              clearable: "",
+            },
             model: {
               value: _vm.form_basic_info.un_project_specific_subtype,
               callback: function ($$v) {

@@ -29,8 +29,9 @@ Route::get('app/province_dropdown/{id}', [ApiController::class, 'province_dropdo
 Route::get('app/municipality_dropdown/{id}', [ApiController::class, 'municipality_dropdown'])->name("municipality_dropdown");
 Route::get('app/psic_group_dropdown/{id}', [ApiController::class, 'psic_group_dropdown'])->name("psic_group_dropdown");
 Route::get('app/psic_class_dropdown/{id}', [ApiController::class, 'psic_class_dropdown'])->name("psic_class_dropdown");
-// Route::get('app/province_dropdown/{id}', [UniverseController::class, 'province_dropdown'])->name("province_dropdown");
-// Route::get('app/municipality_dropdown/{id}', [UniverseController::class, 'municipality_dropdown'])->name("municipality_dropdown");
+Route::get('app/project_type_dropdown/{id}', [ApiController::class, 'project_type_dropdown'])->name("project_type_dropdown");
+Route::get('app/project_subtype_dropdown/{id}', [ApiController::class, 'project_subtype_dropdown'])->name("project_subtype_dropdown");
+Route::get('app/project_specific_type_dropdown/{id}', [ApiController::class, 'project_specific_type_dropdown'])->name("project_specific_type_dropdown");
 
 Route::group([
     "prefix" => "v1"

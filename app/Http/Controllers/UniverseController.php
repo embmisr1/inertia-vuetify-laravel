@@ -17,6 +17,10 @@ use App\Models\Province;
 use App\Models\PsicGroup;
 use App\Models\PsicClass;
 use App\Models\PsicSubClass;
+use App\Models\ProjectType;
+use App\Models\ProjectSubType;
+use App\Models\ProjectSpecificType;
+use App\Models\ProjectSpecificSubType;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
@@ -247,6 +251,7 @@ class UniverseController extends Controller
     {
         $province_list = Province::where('regCode', '01')->get();
         $psic_group_list = PsicGroup::all();
+        $project_type_list = ProjectType::all();
         if ($request->id) {
             $id = $request->id;
             $query = Universe::find($id);
@@ -261,6 +266,9 @@ class UniverseController extends Controller
             $barangay_list = Barangay::where('citymunCode', $query->un_municipality)->get();
             $psic_class_list = PsicClass::where('psic_group_FK', $query->un_psic_group)->get();
             $psic_subclass_list = PsicSubClass::where('psic_class_FK', $query->un_psic_class)->get();
+            $project_subtype_list = ProjectSubType::where('project_type_FK', $query->un_project_type)->get();
+            $project_specific_type_list = ProjectSpecificType::where('project_subtype_FK', $query->un_project_subtype)->get();
+            $project_specific_subtype_list = ProjectSpecificSubType::where('project_specific_type_FK', $query->un_project_specific_type)->get();
             if ($query->count() > 0) {
                 return Inertia::render("pages/universe/universe_form", [
                     'query' => $query,
@@ -277,6 +285,10 @@ class UniverseController extends Controller
                     'psic_group_list' => $psic_group_list,
                     'psic_class_list' => $psic_class_list,
                     'psic_subclass_list' => $psic_subclass_list,
+                    'project_type_list' => $project_type_list,
+                    'project_subtype_list' => $project_subtype_list,
+                    'project_specific_type_list' => $project_specific_type_list,
+                    'project_specific_subtype_list' => $project_specific_subtype_list,
                 ]);
             } else {
                 return Inertia::render("pages/universe/universe_form", [
@@ -293,6 +305,10 @@ class UniverseController extends Controller
                     'psic_group_list' => $psic_group_list,
                     'psic_class_list' => $psic_class_list,
                     'psic_subclass_list' => $psic_subclass_list,
+                    'project_type_list' => $project_type_list,
+                    'project_subtype_list' => $project_subtype_list,
+                    'project_specific_type_list' => $project_specific_type_list,
+                    'project_specific_subtype_list' => $project_specific_subtype_list,
                 ]);
             }
         } else {
@@ -303,6 +319,10 @@ class UniverseController extends Controller
                 'psic_group_list' => $psic_group_list,
                 'psic_class_list' => [],
                 'psic_subclass_list' => [],
+                'project_type_list' => $project_type_list,
+                'project_subtype_list' => [],
+                'project_specific_type_list' => [],
+                'project_specific_subtype_list' => [],
             ]);
         }
     }
