@@ -25,6 +25,8 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Request as FacadeRequest;
+use App\Exports\UniverseExport;
+use Maatwebsite\Excel\Facades\Excel;
 use Carbon\Carbon;
 
 class UniverseController extends Controller
@@ -508,5 +510,12 @@ class UniverseController extends Controller
     {
         $mini_dashboard_controller = new MiniDashboardController;
         return $mini_dashboard_controller->mini_dashboard($id);
+    }
+
+    // =============================================== EXPORT EXCEL ===============================================
+
+    public function export() 
+    {
+        return Excel::download(new UniverseExport, 'universe.xlsx');
     }
 }

@@ -96,6 +96,7 @@ Route::group([
     Route::delete('/delete_complaint/{id}', [UniverseController::class, 'delete_complaint'])->name("delete_complaint");
     //Testing Route
     Route::get('/testing_route', [TestingController::class, 'testing_route'])->name("testing_route");
+    Route::get('/universe/export/', [UniverseController::class, 'export']);
 
     Route::group([
         'prefix' => "/psic",

@@ -804,6 +804,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -892,97 +899,117 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }, _callee3);
       }))();
     },
-    provinceDropdown: function provinceDropdown(val) {
+    exportUniverse: function exportUniverse() {
       var _this4 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee4() {
-        var municipality;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee4$(_context4) {
           while (1) {
             switch (_context4.prev = _context4.next) {
               case 0:
-                _context4.prev = 0;
-                _this4.loading = true;
-                _context4.next = 4;
-                return axios__WEBPACK_IMPORTED_MODULE_3___default().get("http://127.0.0.1:8000/api/app/province_dropdown/".concat(val));
+                // this.dialog = false;
+                // this.onPageChange();
+                _this4.get(_this4.filtersObject);
 
-              case 4:
-                municipality = _context4.sent;
-                _this4.municipality_list_alter = municipality.data;
-                _this4.loading = false;
-                _context4.next = 12;
-                break;
-
-              case 9:
-                _context4.prev = 9;
-                _context4.t0 = _context4["catch"](0);
-
-                _this4.error(_context4.t0.response.data.message);
-
-              case 12:
+              case 1:
               case "end":
                 return _context4.stop();
             }
           }
-        }, _callee4, null, [[0, 9]]);
+        }, _callee4);
       }))();
     },
-    municipalityDropdown: function municipalityDropdown(val) {
+    provinceDropdown: function provinceDropdown(val) {
       var _this5 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee5() {
-        var barangay;
+        var municipality;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee5$(_context5) {
           while (1) {
             switch (_context5.prev = _context5.next) {
               case 0:
+                _context5.prev = 0;
                 _this5.loading = true;
-                _context5.next = 3;
-                return axios__WEBPACK_IMPORTED_MODULE_3___default().get("http://127.0.0.1:8000/api/app/municipality_dropdown/".concat(val));
+                _context5.next = 4;
+                return axios__WEBPACK_IMPORTED_MODULE_3___default().get("http://127.0.0.1:8000/api/app/province_dropdown/".concat(val));
 
-              case 3:
-                barangay = _context5.sent;
-                _this5.barangay_list_alter = barangay.data;
+              case 4:
+                municipality = _context5.sent;
+                _this5.municipality_list_alter = municipality.data;
                 _this5.loading = false;
+                _context5.next = 12;
+                break;
 
-              case 6:
+              case 9:
+                _context5.prev = 9;
+                _context5.t0 = _context5["catch"](0);
+
+                _this5.error(_context5.t0.response.data.message);
+
+              case 12:
               case "end":
                 return _context5.stop();
             }
           }
-        }, _callee5);
+        }, _callee5, null, [[0, 9]]);
       }))();
     },
-    get: lodash__WEBPACK_IMPORTED_MODULE_4___default().debounce( /*#__PURE__*/function () {
-      var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee6(params) {
+    municipalityDropdown: function municipalityDropdown(val) {
+      var _this6 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee6() {
+        var barangay;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee6$(_context6) {
           while (1) {
             switch (_context6.prev = _context6.next) {
               case 0:
-                _context6.prev = 0;
+                _this6.loading = true;
+                _context6.next = 3;
+                return axios__WEBPACK_IMPORTED_MODULE_3___default().get("http://127.0.0.1:8000/api/app/municipality_dropdown/".concat(val));
+
+              case 3:
+                barangay = _context6.sent;
+                _this6.barangay_list_alter = barangay.data;
+                _this6.loading = false;
+
+              case 6:
+              case "end":
+                return _context6.stop();
+            }
+          }
+        }, _callee6);
+      }))();
+    },
+    get: lodash__WEBPACK_IMPORTED_MODULE_4___default().debounce( /*#__PURE__*/function () {
+      var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee7(params) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee7$(_context7) {
+          while (1) {
+            switch (_context7.prev = _context7.next) {
+              case 0:
+                _context7.prev = 0;
                 this.loading = true;
-                _context6.next = 4;
+                _context7.next = 4;
                 return this.$inertia.get("#", _objectSpread({}, params));
 
               case 4:
                 this.loading = false;
                 this.dialog = false;
-                _context6.next = 13;
+                _context7.next = 13;
                 break;
 
               case 8:
-                _context6.prev = 8;
-                _context6.t0 = _context6["catch"](0);
+                _context7.prev = 8;
+                _context7.t0 = _context7["catch"](0);
                 this.loading = false;
-                console.log(_context6.t0);
+                console.log(_context7.t0);
                 this.error("Project Type Get - error");
 
               case 13:
               case "end":
-                return _context6.stop();
+                return _context7.stop();
             }
           }
-        }, _callee6, this, [[0, 8]]);
+        }, _callee7, this, [[0, 8]]);
       }));
 
       return function (_x) {
@@ -22014,7 +22041,11 @@ var render = function () {
                         },
                       },
                     },
-                    [_vm._v("\n                    Close\n                ")]
+                    [
+                      _c("v-icon", [_vm._v(" mdi-close-circle ")]),
+                      _vm._v("\n                    Close\n                "),
+                    ],
+                    1
                   ),
                   _vm._v(" "),
                   _c(
@@ -22025,10 +22056,26 @@ var render = function () {
                       on: { click: _vm.clearFilter },
                     },
                     [
+                      _c("v-icon", [_vm._v(" mdi-autorenew ")]),
                       _vm._v(
                         "\n                    Clear Filter\n                "
                       ),
-                    ]
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-btn",
+                    {
+                      staticClass: "white--text",
+                      attrs: { color: "blue darken-1" },
+                      on: { click: _vm.filterUniverse },
+                    },
+                    [
+                      _c("v-icon", [_vm._v(" mdi-filter ")]),
+                      _vm._v("\n                    Filter\n                "),
+                    ],
+                    1
                   ),
                   _vm._v(" "),
                   _c(
@@ -22036,9 +22083,13 @@ var render = function () {
                     {
                       staticClass: "white--text",
                       attrs: { color: "green darken-1" },
-                      on: { click: _vm.filterUniverse },
+                      on: { click: _vm.exportUniverse },
                     },
-                    [_vm._v("\n                    Filter\n                ")]
+                    [
+                      _c("v-icon", [_vm._v(" mdi-microsoft-excel ")]),
+                      _vm._v("\n                    Export\n                "),
+                    ],
+                    1
                   ),
                 ],
                 1

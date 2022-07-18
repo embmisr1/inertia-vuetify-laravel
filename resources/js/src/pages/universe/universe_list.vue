@@ -254,22 +254,29 @@
                 </v-card-text>
                 <v-card-actions>
                     <v-spacer></v-spacer>
-                    <v-btn color="red darken-4" text @click="dialog = false">
+                    <v-btn color="red darken-4" text @click="dialog = false"><v-icon> mdi-close-circle </v-icon>
                         Close
                     </v-btn>
                     <v-btn
                         color="red darken-1"
                         class="white--text"
                         @click="clearFilter"
-                    >
+                    ><v-icon> mdi-autorenew </v-icon>
                         Clear Filter
+                    </v-btn>
+                    <v-btn
+                        color="blue darken-1"
+                        class="white--text"
+                        @click="filterUniverse"
+                    ><v-icon> mdi-filter </v-icon>
+                        Filter
                     </v-btn>
                     <v-btn
                         color="green darken-1"
                         class="white--text"
-                        @click="filterUniverse"
-                    >
-                        Filter
+                        @click="exportUniverse"
+                    ><v-icon> mdi-microsoft-excel </v-icon>
+                        Export
                     </v-btn>
                 </v-card-actions>
             </v-card>
@@ -311,6 +318,11 @@ export default {
             };
         },
         async filterUniverse() {
+            // this.dialog = false;
+            // this.onPageChange();
+            this.get(this.filtersObject);
+        },
+        async exportUniverse() {
             // this.dialog = false;
             // this.onPageChange();
             this.get(this.filtersObject);
