@@ -15,7 +15,7 @@ class CreateTblSolidwasteSlf extends Migration
     {
         Schema::create('tbl_solidwaste_slf', function (Blueprint $table) {
             $table->id();
-            $table->string('slf_complete_address')->nullable();
+            $table->longText('slf_complete_address')->nullable();
             $table->string('slf_latitude')->nullable();
             $table->string('slf_longitude')->nullable();
             $table->string('slf_project_operator')->nullable();

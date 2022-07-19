@@ -24,7 +24,7 @@ class CreateTblSolidwasteLca extends Migration
             $table->string('lca_municipality')->nullable();
             $table->string('lca_province')->nullable();
             $table->string('lca_disctrict')->nullable();
-            $table->string('lca_complete_address')->nullable();
+            $table->longText('lca_complete_address')->nullable();
             $table->string('lca_zip_code')->nullable();
             $table->string('lca_focal_person')->nullable();
             $table->string('lca_contact_number')->nullable();
