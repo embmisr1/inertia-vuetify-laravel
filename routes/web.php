@@ -13,6 +13,7 @@ use App\Http\Controllers\ProjectTypeController;
 use App\Http\Controllers\PsicClassController;
 use App\Http\Controllers\PsicGroupController;
 use App\Http\Controllers\PSICSubClassController;
+use App\Http\Controllers\SolidwasteLCEController;
 use App\Http\Controllers\UnitSectionController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\UniverseController;
@@ -98,6 +99,16 @@ Route::group([
     Route::get('/testing_route', [TestingController::class, 'testing_route'])->name("testing_route");
     Route::get('/universe/export/', [UniverseController::class, 'export']);
 
+
+
+    // SOLIDWASTE OWENS ROUTES
+    Route::get('/lce_testing_route', [SolidwasteLCEController::class, 'lce_testing_route'])->name("lce_testing_route");
+
+
+
+
+
+    // PCIC ALLAN ROUTES
     Route::group([
         'prefix' => "/psic",
     ], function () {
