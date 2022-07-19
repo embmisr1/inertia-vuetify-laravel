@@ -21,6 +21,9 @@ class CreateTblSolidwasteLce extends Migration
             $table->string('lce_last_name')->nullable();
             $table->string('lce_salutation')->nullable();
             $table->string('lce_position')->nullable();
+            $table->integer('lce_province_FK')->nullable();
+            $table->integer('lce_municipality_FK')->nullable();
+            $table->integer('lce_barangay_FK')->nullable();
             $table->string('lce_disctrict')->nullable();
             $table->string('lce_zip_code')->nullable();
             $table->string('lce_focal_person')->nullable();
@@ -28,9 +31,6 @@ class CreateTblSolidwasteLce extends Migration
             $table->string('lce_email_address')->nullable();
             $table->timestamps();
 
-            $table->integer('lce_province_FK')->nullable();
-            $table->integer('lce_municipality_FK')->nullable();
-            $table->integer('lce_barangay_FK')->nullable();
             $table->foreign('lce_province_FK')->references('PK_province_ID')->on('ref_province')->onUpdate('cascade')->nullOnDelete();
             $table->foreign('lce_municipality_FK')->references('PK_citymun_ID')->on('ref_citymun')->onUpdate('cascade')->nullOnDelete();
             $table->foreign('lce_barangay_FK')->references('PK_brgy_ID')->on('ref_brgy')->onUpdate('cascade')->nullOnDelete();
