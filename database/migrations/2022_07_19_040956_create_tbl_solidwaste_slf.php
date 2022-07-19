@@ -38,8 +38,8 @@ class CreateTblSolidwasteSlf extends Migration
             $table->string('slf_methane_recovery')->nullable();
             $table->string('slf_discharge_permit')->nullable();
             $table->string('slf_file')->nullable();
-            $table->unsignedBigInteger('lca_FK')->nullable();
-            $table->foreign('lca_FK')->references('id')->on('tbl_solidwaste_lca')->onUpdate('cascade')->nullOnDelete();
+            $table->unsignedBigInteger('lce_FK')->nullable();
+            $table->foreign('lce_FK')->references('id')->on('tbl_solidwaste_lce')->onUpdate('cascade')->nullOnDelete();
             $table->timestamps();
         });
     }
