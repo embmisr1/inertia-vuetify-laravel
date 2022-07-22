@@ -106,6 +106,7 @@ Route::group([
         Route::get('/lce_list', [SolidwasteLCEController::class, 'lce_list'])->name("lce_list");
         Route::get('/lce_register_process', [SolidwasteLCEController::class, 'create'])->name("rce_register_process_form");
         Route::get('/lce_edit/{id}', [SolidwasteLCEController::class, 'lce_edit'])->name("lce_edit");
+        Route::get('/lce_delete/{id}', [SolidwasteLCEController::class, 'lce_delete'])->name("lce_delete");
         Route::post('/lce_register_process', [SolidwasteLCEController::class, 'lce_register_process'])->name("lce_register_process");
         Route::post('/lce_update_process', [SolidwasteLCEController::class, 'lce_update_process'])->name("lce_update_process");
     });

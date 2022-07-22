@@ -33,9 +33,15 @@ class SolidwasteLCEController extends Controller
         ->orderBy('d.brgyDesc','asc')
         ->paginate(10);
         return Inertia::render("pages/swm/index",[
-            'lce_list'=>$lce_list
+            "filter" => [
+                'PK_province_ID' => request('PK_province_ID'),
+                'PK_citymun_ID' => request('PK_citymun_ID'),
+                'PK_brgy_ID' => request('PK_brgy_ID'),
+            ],
+            'lce_list'=>$lce_list,
         ]);
     }
+
     public function create(){
         $province_dropdown = Province::whereIn('PK_province_ID',[128, 129, 133, 155])->get();
         return Inertia::render("pages/swm/LCEForm",[
@@ -57,6 +63,7 @@ class SolidwasteLCEController extends Controller
             'province_dropdown' => $province_dropdown,
         ]);
     }
+
     public function lce_register_process(request $request){
         $query = new SolidwasteLCE();
         $query->lce_title = $request->lce_title;
@@ -76,6 +83,7 @@ class SolidwasteLCEController extends Controller
         $query->save();
         return back()->with("message","LCE Created");
     }
+
     public function lce_update_process(request $request){
         $query = SolidwasteLCE::find($request->id);
         $query->lce_title = $request->lce_title;
@@ -94,5 +102,10 @@ class SolidwasteLCEController extends Controller
         $query->lce_email_address = $request->lce_email_address;
         $query->save();
         return back()->with("message","LCE Updated");
+    }
+    public function lce_delete(request $request){
+        $lce_delete = SolidwasteLCE::find($request->id);
+        $lce_delete->delete();
+        return back()->with("message","LCE Deleted");
     }
 }
