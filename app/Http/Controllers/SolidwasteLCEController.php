@@ -32,7 +32,7 @@ class SolidwasteLCEController extends Controller
         ->orderBy('b.citymunDesc','asc')
         ->orderBy('b.brgyDesc','asc')
         ->paginate(10);
-        return Inertia::render("pages/solidwaste/lce",[ 
+        return Inertia::render("pages/swm/index",[
             'lce_list'=>$lce_list
         ]);
     }

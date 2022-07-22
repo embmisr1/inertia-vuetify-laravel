@@ -186,7 +186,7 @@ export default {
                         },
                         {
                             name: "SOLID WASTE",
-                            link: null,
+                            link: 'app/swm/rce_list',
                             icon: "mdi-trash-can",
                             child: [],
                         },
