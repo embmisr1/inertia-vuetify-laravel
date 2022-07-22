@@ -29,8 +29,8 @@ class SolidwasteLCEController extends Controller
             $lce_list->where('a.lce_barangay_FK', request('filter_barangay'));
         })
         ->orderBy('b.provDesc','asc')
-        ->orderBy('b.citymunDesc','asc')
-        ->orderBy('b.brgyDesc','asc')
+        ->orderBy('c.citymunDesc','asc')
+        ->orderBy('d.brgyDesc','asc')
         ->paginate(10);
         return Inertia::render("pages/swm/index",[
             'lce_list'=>$lce_list
@@ -48,7 +48,7 @@ class SolidwasteLCEController extends Controller
         ->leftjoin('ref_brgy as d', 'a.lce_barangay_FK', '=', 'd.PK_brgy_ID')
         ->where('a.id',$request->id)
         ->get();
-        return Inertia::render("pages/solidwaste/lce_form",[
+        return Inertia::render("pages/swm/LCEForm",[
             'lce_edit'=>$lce_edit
         ]);
     }
