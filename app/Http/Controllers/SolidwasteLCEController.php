@@ -51,7 +51,7 @@ class SolidwasteLCEController extends Controller
         ->leftjoin('ref_brgy as d', 'a.lce_barangay_FK', '=', 'd.PK_brgy_ID')
         ->where('a.id',$request->id)
         ->get();
-        return Inertia::render("pages/solidwaste/lce_form",[
+        return Inertia::render("pages/swm/LCEForm",[
             'lce_edit'=>$lce_edit
         ]);
     }
