@@ -36,13 +36,10 @@ class SolidwasteLCEController extends Controller
             'lce_list'=>$lce_list
         ]);
     }
-<<<<<<< HEAD
     public function create(){
         return Inertia::render("pages/swm/LCEForm");
     }
-    public function rce_register_process(request $request){
 
-=======
     public function lce_edit(request $request){
         $lce_edit = DB::table('tbl_solidwaste_lce as a')
         ->select('a.*', 'b.provDesc', 'c.citymunDesc', 'd.brgyDesc')
@@ -51,12 +48,11 @@ class SolidwasteLCEController extends Controller
         ->leftjoin('ref_brgy as d', 'a.lce_barangay_FK', '=', 'd.PK_brgy_ID')
         ->where('a.id',$request->id)
         ->get();
-        return Inertia::render("pages/solidwaste/lce_form",[ 
+        return Inertia::render("pages/solidwaste/lce_form",[
             'lce_edit'=>$lce_edit
         ]);
     }
     public function lce_register_process(request $request){
->>>>>>> 8425e14339c6e0ff0b42bb9576a28d9dc1072f1b
         $query = new SolidwasteLCE();
         $query->lce_title = $request->lce_title;
         $query->lce_first_name = $request->lce_first_name;
