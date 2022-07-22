@@ -44,6 +44,7 @@ class SolidwasteLCEController extends Controller
     }
 
     public function lce_edit(request $request){
+        $province_dropdown = Province::whereIn('PK_province_ID',[128, 129, 133, 155])->get();
         $lce_edit = DB::table('tbl_solidwaste_lce as a')
         ->select('a.*', 'b.provDesc', 'c.citymunDesc', 'd.brgyDesc')
         ->leftjoin('ref_province as b', 'a.lce_province_FK', '=', 'b.PK_province_ID')
@@ -52,7 +53,8 @@ class SolidwasteLCEController extends Controller
         ->where('a.id',$request->id)
         ->get();
         return Inertia::render("pages/swm/LCEForm",[
-            'lce_edit'=>$lce_edit
+            'lce_edit'=>$lce_edit,
+            'province_dropdown' => $province_dropdown,
         ]);
     }
     public function lce_register_process(request $request){
@@ -91,6 +93,6 @@ class SolidwasteLCEController extends Controller
         $query->lce_contact_number = $request->lce_contact_number;
         $query->lce_email_address = $request->lce_email_address;
         $query->save();
-        return $request->id;
+        return back()->with("message","LCE Updated");
     }
 }

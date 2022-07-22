@@ -1,15 +1,12 @@
 <template>
     <DefaultLayout>
-        <Link href="/app/swm/lce_list">
-            <v-btn color="dark">Back</v-btn></Link
-        >
+        <Link href="/app/swm/lce_list"> <v-btn color="dark">Back</v-btn></Link>
         <div class="font-bold text-2xl text-center py-6">LCE Form</div>
-
         <ValidationObserver
             v-slot="{ handleSubmit, invalid }"
             ref="psic_group_class_observer"
         >
-            <form @submit.prevent="saveLCEForm">
+            <form @submit.prevent="saveForm">
                 <v-container>
                     <div class="space-y-4">
                         <v-card>
@@ -23,11 +20,13 @@
                                         v-slot="{ errors }"
                                     >
                                         <v-select
-                                            :items="[]"
+                                            :items="province_dropdown"
                                             label="Select Province"
                                             :error-messages="errors[0]"
-                                            v-model="lce.lce_provinde_FK"
+                                            v-model="lce.lce_province_FK"
                                             outlined
+                                            item-text="provDesc"
+                                            item-value="PK_province_ID"
                                             clearable
                                             dense
                                             color="dark"
@@ -42,10 +41,13 @@
                                         v-slot="{ errors }"
                                     >
                                         <v-select
-                                            :items="[]"
+                                            :disabled="!cityMun.length"
+                                            :items="cityMun"
                                             label="Select Municipality"
                                             :error-messages="errors[0]"
                                             v-model="lce.lce_municipality_FK"
+                                            item-text="citymunDesc"
+                                            item-value="PK_citymun_ID"
                                             outlined
                                             clearable
                                             dense
@@ -61,10 +63,13 @@
                                         v-slot="{ errors }"
                                     >
                                         <v-select
-                                            :items="[]"
+                                            :disabled="!brgy.length"
+                                            :items="brgy"
                                             label="Select Barangay"
                                             :error-messages="errors[0]"
                                             v-model="lce.lce_barangay_FK"
+                                            item-text="brgyDesc"
+                                            item-value="PK_brgy_ID"
                                             outlined
                                             clearable
                                             dense
@@ -75,7 +80,7 @@
                                     </ValidationProvider>
                                 </div>
                                 <div class="grid grid-cols-5 gap-x-2">
-                                    <div class="col-span-4">
+                                    <!-- <div class="col-span-4">
                                         <ValidationProvider
                                             vid="disctrict"
                                             name="District"
@@ -94,7 +99,7 @@
                                                 persistent-hint
                                             ></v-text-field>
                                         </ValidationProvider>
-                                    </div>
+                                    </div> -->
                                     <ValidationProvider
                                         vid="zpip"
                                         name="Zip Code"
@@ -314,16 +319,41 @@ import { Link } from "@inertiajs/inertia-vue";
 import _ from "lodash";
 import { page, toasts, swm, dialogs } from "../../mixins/";
 export default {
+    props: {
+        lce_edit: Array,
+        province_dropdown: Array,
+    },
     components: {
         DefaultLayout,
         Link,
     },
     mixins: [page, toasts, swm, dialogs],
+    mounted() {
+        if (this.lce_edit.length > 0) {
+            this.lce = { ...this.lce_edit[0] };
+        }
+    },
     methods: {
+        saveForm() {
+            if (this.lce_edit.length > 0) {
+                this.updateLCEForm()
+            }else{
+                this.saveLCEForm();
+            }
+        },
         async saveLCEForm() {
             try {
                 const data = { ...this.lce };
                 await this.$inertia.post("#", data);
+            } catch (error) {
+                console.error(error.message);
+                this.error(error.dat.response.messsage);
+            }
+        },
+        async updateLCEForm() {
+            try {
+                const data = { ...this.lce };
+                await this.$inertia.post("/app/swm/lce_update_process", data);
             } catch (error) {
                 console.error(error.message);
                 this.error(error.dat.response.messsage);
