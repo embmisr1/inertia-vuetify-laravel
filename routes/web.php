@@ -99,12 +99,14 @@ Route::group([
     Route::get('/testing_route', [TestingController::class, 'testing_route'])->name("testing_route");
     Route::get('/universe/export/', [UniverseController::class, 'export']);
 
-
-
-    // SOLIDWASTE OWENS ROUTES
-    Route::get('/lce_testing_route', [SolidwasteLCEController::class, 'lce_testing_route'])->name("lce_testing_route");
-
-
+    //SOLID WASTE ROUTE
+    Route::group([
+        'prefix' => "/swm",
+    ], function () {
+        Route::get('/rce_list', [SolidwasteLCEController::class, 'rce_list'])->name("rce_list");
+        Route::post('/rce_register_process', [SolidwasteLCEController::class, 'rce_register_process'])->name("rce_register_process");
+        Route::post('/rce_update_process', [SolidwasteLCEController::class, 'rce_update_process'])->name("rce_update_process");
+    });
 
 
 

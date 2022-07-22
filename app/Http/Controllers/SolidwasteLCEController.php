@@ -13,9 +13,6 @@ use Illuminate\Support\Facades\DB;
 
 class SolidwasteLCEController extends Controller
 {
-    public function lce_testing_route(){
-        //
-    }
     public function rce_list(request $request){
         $lce_list = DB::table('tbl_solidwaste_lce as a')
         ->select('a.*', 'b.provDesc', 'c.citymunDesc', 'd.brgyDesc')
