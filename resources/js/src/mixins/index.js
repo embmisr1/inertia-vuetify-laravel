@@ -3,5 +3,6 @@ import toasts from "./toasts";
 import psic from "./psic";
 import project from "./project";
 import dialogs from "./dialogs";
+import swm from "./swm";
 
-export { toasts, page, psic, dialogs,project };
+export { toasts, page, psic, dialogs, project, swm };
