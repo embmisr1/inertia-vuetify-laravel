@@ -337,7 +337,11 @@ __webpack_require__.r(__webpack_exports__);
           child: []
         }, {
           name: "SOLID WASTE",
+<<<<<<< HEAD
+          link: 'app/swm/lce_list',
+=======
           link: 'app/swm/rce_list',
+>>>>>>> 8425e14339c6e0ff0b42bb9576a28d9dc1072f1b
           icon: "mdi-trash-can",
           child: []
         }, {
@@ -530,6 +534,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+<<<<<<< HEAD
+=======
 //
 //
 //
@@ -829,11 +835,18 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+>>>>>>> 8425e14339c6e0ff0b42bb9576a28d9dc1072f1b
 
 
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+<<<<<<< HEAD
+  props: {
+    lce_list: Object
+  },
+=======
+>>>>>>> 8425e14339c6e0ff0b42bb9576a28d9dc1072f1b
   components: {
     DefaultLayout: _layouts_default_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
     Link: _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_2__.Link
@@ -21233,6 +21246,12 @@ var render = function () {
   return _c(
     "DefaultLayout",
     [
+<<<<<<< HEAD
+      _c("Link", { attrs: { href: "rce_register_process" } }, [
+        _vm._v("Add LCE"),
+      ]),
+      _vm._v("\n    " + _vm._s(_vm.lce_list) + "\n"),
+=======
       _c("div", { staticClass: "font-bold text-2xl text-center py-6" }, [
         _vm._v("LCE Form"),
       ]),
@@ -22067,6 +22086,7 @@ var render = function () {
           },
         ]),
       }),
+>>>>>>> 8425e14339c6e0ff0b42bb9576a28d9dc1072f1b
     ],
     1
   )
