@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\DB;
 
 class SolidwasteLCEController extends Controller
 {
-    public function rce_list(request $request){
+    public function lce_list(request $request){
         $lce_list = DB::table('tbl_solidwaste_lce as a')
         ->select('a.*', 'b.provDesc', 'c.citymunDesc', 'd.brgyDesc')
         ->leftjoin('ref_province as b', 'a.lce_province_FK', '=', 'b.PK_province_ID')
@@ -28,16 +28,35 @@ class SolidwasteLCEController extends Controller
         ->when(request('filter_barangay'), function ($lce_list) {
             $lce_list->where('a.lce_barangay_FK', request('filter_barangay'));
         })
+        ->orderBy('b.provDesc','asc')
+        ->orderBy('b.citymunDesc','asc')
+        ->orderBy('b.brgyDesc','asc')
         ->paginate(10);
         return Inertia::render("pages/swm/index",[
             'lce_list'=>$lce_list
         ]);
     }
+<<<<<<< HEAD
     public function create(){
         return Inertia::render("pages/swm/LCEForm");
     }
     public function rce_register_process(request $request){
 
+=======
+    public function lce_edit(request $request){
+        $lce_edit = DB::table('tbl_solidwaste_lce as a')
+        ->select('a.*', 'b.provDesc', 'c.citymunDesc', 'd.brgyDesc')
+        ->leftjoin('ref_province as b', 'a.lce_province_FK', '=', 'b.PK_province_ID')
+        ->leftjoin('ref_citymun as c', 'a.lce_municipality_FK', '=', 'c.PK_citymun_ID')
+        ->leftjoin('ref_brgy as d', 'a.lce_barangay_FK', '=', 'd.PK_brgy_ID')
+        ->where('a.id',$request->id)
+        ->get();
+        return Inertia::render("pages/solidwaste/lce_form",[ 
+            'lce_edit'=>$lce_edit
+        ]);
+    }
+    public function lce_register_process(request $request){
+>>>>>>> 8425e14339c6e0ff0b42bb9576a28d9dc1072f1b
         $query = new SolidwasteLCE();
         $query->lce_title = $request->lce_title;
         $query->lce_first_name = $request->lce_first_name;
@@ -56,7 +75,7 @@ class SolidwasteLCEController extends Controller
         $query->save();
         return back()->with("message","LCE Created");
     }
-    public function rce_update_process(request $request){
+    public function lce_update_process(request $request){
         $query = SolidwasteLCE::find($request->id);
         $query->lce_title = $request->lce_title;
         $query->lce_first_name = $request->lce_first_name;
