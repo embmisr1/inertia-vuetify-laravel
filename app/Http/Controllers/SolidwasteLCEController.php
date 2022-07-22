@@ -37,7 +37,10 @@ class SolidwasteLCEController extends Controller
         ]);
     }
     public function create(){
-        return Inertia::render("pages/swm/LCEForm");
+        $province_dropdown = Province::whereIn('PK_province_ID',[128, 129, 133, 155])->get();
+        return Inertia::render("pages/swm/LCEForm",[
+            'province_dropdown' => $province_dropdown,
+        ]);
     }
 
     public function lce_edit(request $request){
