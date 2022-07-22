@@ -1,3 +1,5 @@
+import axios from "axios";
+
 export default {
     data() {
         return {
@@ -43,8 +45,50 @@ export default {
                 slf_file: null,
                 lce_FK: null,
             },
-            category:["Category 1","Category 2","Category 3","Category 4"],
-            leachment_type:["Recirculaation","Chemical","Biological"]
+            category: ["Category 1", "Category 2", "Category 3", "Category 4"],
+            leachment_type: ["Recirculaation", "Chemical", "Biological"],
+            cityMun:[],
+            brgy:[],
         };
+    },
+    computed: {
+        prov_id() {
+            return this.lce.lce_province_FK;
+        },
+        cityMun_id() {
+            return this.lce.lce_municipality_FK;
+        },
+    },
+    watch: {
+        prov_id(value) {
+            if (value !== "" || value !== null) return this.search_cityMun();
+        },
+        cityMun_id(value){
+            if (value !== "" || value !== null) return this.search_brgy();
+        },
+    },
+    methods: {
+        async search_cityMun() {
+            try {
+                const { data } = await axios.get(
+                    `http://127.0.0.1:8000/api/app/province_dropdown/${this.prov_id}`
+                );
+                this.cityMun = data
+            } catch (error) {
+                console.log("search_cityMun - error");
+                this.error(error.response.data.message);
+            }
+        },
+        async search_brgy() {
+            try {
+                const { data } = await axios.get(
+                    `http://127.0.0.1:8000/api/app/municipality_dropdown/${this.cityMun_id}`
+                );
+                this.brgy = data
+            } catch (error) {
+                console.log("search_brgy - error");
+                this.error(error.response.data.message);
+            }
+        },
     },
 };
