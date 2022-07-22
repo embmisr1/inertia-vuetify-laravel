@@ -32,7 +32,7 @@ class SolidwasteLCEController extends Controller
             $lce_list->where('a.lce_barangay_FK', request('filter_barangay'));
         })
         ->paginate(10);
-        return Inertia::render("pages/solidwaste/lce",[ 
+        return Inertia::render("pages/swm/index",[
             'lce_list'=>$lce_list
         ]);
     }
