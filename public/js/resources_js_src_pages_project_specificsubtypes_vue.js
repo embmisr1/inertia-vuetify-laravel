@@ -490,7 +490,7 @@ __webpack_require__.r(__webpack_exports__);
           child: []
         }, {
           name: "SOLID WASTE",
-          link: null,
+          link: 'app/swm/lce_list',
           icon: "mdi-trash-can",
           child: []
         }, {
@@ -921,6 +921,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "page": () => (/* reexport safe */ _page__WEBPACK_IMPORTED_MODULE_0__["default"]),
 /* harmony export */   "project": () => (/* reexport safe */ _project__WEBPACK_IMPORTED_MODULE_3__["default"]),
 /* harmony export */   "psic": () => (/* reexport safe */ _psic__WEBPACK_IMPORTED_MODULE_2__["default"]),
+/* harmony export */   "swm": () => (/* reexport safe */ _swm__WEBPACK_IMPORTED_MODULE_5__["default"]),
 /* harmony export */   "toasts": () => (/* reexport safe */ _toasts__WEBPACK_IMPORTED_MODULE_1__["default"])
 /* harmony export */ });
 /* harmony import */ var _page__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./page */ "./resources/js/src/mixins/page.js");
@@ -928,6 +929,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _psic__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./psic */ "./resources/js/src/mixins/psic.js");
 /* harmony import */ var _project__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./project */ "./resources/js/src/mixins/project.js");
 /* harmony import */ var _dialogs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./dialogs */ "./resources/js/src/mixins/dialogs.js");
+/* harmony import */ var _swm__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./swm */ "./resources/js/src/mixins/swm.js");
+
 
 
 
@@ -2417,6 +2420,70 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         }, _callee10, null, [[0, 21]]);
       }))();
     }
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/src/mixins/swm.js":
+/*!****************************************!*\
+  !*** ./resources/js/src/mixins/swm.js ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      lce: {
+        lce_title: "",
+        lce_first_name: "",
+        lce_middle_name: "",
+        lce_last_name: "",
+        lce_salutation: "",
+        lce_position: "",
+        lce_municipality_FK: "",
+        lce_province_FK: "",
+        lce_barangay_FK: "",
+        lce_disctrict: "",
+        lce_zip_code: "",
+        lce_focal_person: "",
+        lce_contact_number: "",
+        lce_email_address: ""
+      },
+      slf: {
+        slf_complete_address: null,
+        slf_latitude: null,
+        slf_longitude: null,
+        slf_project_operator: null,
+        slf_ecc_number: null,
+        slf_contact_person: null,
+        slf_contact_number: null,
+        slf_category: null,
+        slf_site_hectares: null,
+        slf_total_capacity: null,
+        slf_tons_per_day: null,
+        slf_service_life: null,
+        slf_remaining_service_life: null,
+        slf_exceeded_capacity: null,
+        slf_with_planned_extension: null,
+        slf_lgu_served: null,
+        slf_leachate_treatment: null,
+        slf_daily_soil_cover: null,
+        slf_presence_of_mrf: null,
+        slf_separate_cells_for_hazwaste: null,
+        slf_methane_recovery: null,
+        slf_discharge_permit: null,
+        slf_file: null,
+        lce_FK: null
+      },
+      category: ["Category 1", "Category 2", "Category 3", "Category 4"],
+      leachment_type: ["Recirculaation", "Chemical", "Biological"]
+    };
   }
 });
 

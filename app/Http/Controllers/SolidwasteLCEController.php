@@ -33,7 +33,11 @@ class SolidwasteLCEController extends Controller
             'lce_list'=>$lce_list
         ]);
     }
+    public function create(){
+        return Inertia::render("pages/swm/LCEForm");
+    }
     public function rce_register_process(request $request){
+
         $query = new SolidwasteLCE();
         $query->lce_title = $request->lce_title;
         $query->lce_first_name = $request->lce_first_name;
@@ -50,7 +54,7 @@ class SolidwasteLCEController extends Controller
         $query->lce_contact_number = $request->lce_contact_number;
         $query->lce_email_address = $request->lce_email_address;
         $query->save();
-        return back();
+        return back()->with("message","LCE Created");
     }
     public function rce_update_process(request $request){
         $query = SolidwasteLCE::find($request->id);

@@ -104,6 +104,7 @@ Route::group([
         'prefix' => "/swm",
     ], function () {
         Route::get('/rce_list', [SolidwasteLCEController::class, 'rce_list'])->name("rce_list");
+        Route::get('/rce_register_process', [SolidwasteLCEController::class, 'create'])->name("rce_register_process_form");
         Route::post('/rce_register_process', [SolidwasteLCEController::class, 'rce_register_process'])->name("rce_register_process");
         Route::post('/rce_update_process', [SolidwasteLCEController::class, 'rce_update_process'])->name("rce_update_process");
     });
