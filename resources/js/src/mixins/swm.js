@@ -4,7 +4,9 @@ export default {
     props: {
         lce_edit: Array,
         province_dropdown: Array,
-        lce_info:Array
+        lce_info: Array,
+        query_slf: Array, // slf table
+        slf_edit: Array,
     },
     data() {
         return {
@@ -50,6 +52,7 @@ export default {
                 slf_file: null,
                 lce_FK: null,
             },
+            slf_form_type: "create",
             complete_address: null,
             complete_address_setter: {
                 prov: {},
@@ -63,8 +66,8 @@ export default {
         };
     },
     computed: {
-        lce_id(){
-            return this.lce_details.id
+        lce_id() {
+            return this.lce_details.id;
         },
         lce_details() {
             return this.lce_edit[0];
@@ -75,7 +78,8 @@ export default {
             return `${lce_first_name} ${lce_middle_name} ${lce_last_name}`;
         },
         lce_address() {
-            const { provDesc, citymunDesc, lce_zip_code, districtCode } = this.lce_details;
+            const { provDesc, citymunDesc, lce_zip_code, districtCode } =
+                this.lce_details;
             return `${citymunDesc}, District No ${districtCode}, ${provDesc}, ${lce_zip_code} `;
         },
         lce_prov_id() {
@@ -93,8 +97,19 @@ export default {
         cityMun_id() {
             return this.complete_address_setter.cityMun.PK_citymun_ID;
         },
-        slf_address(){
-            const { provDesc, citymunDesc, lce_zip_code, districtCode } = this.lce_info[0];
+        slf_details() {
+            return this.slf_info[0];
+        },
+        slf_address() {
+            // const { provDesc, citymunDesc, lce_zip_code, districtCode } = this.lce_info[0];
+            let formdata = null;
+            if (this.slf_form_type === "create") {
+                formdata = this.lce_info[0];
+            } else if (this.slf_form_type === "patch") {
+                formdata = this.slf_edit[0];
+            }
+            const { provDesc, citymunDesc, lce_zip_code, districtCode } =
+                formdata;
             return `${citymunDesc}, District No ${districtCode}, ${provDesc}, ${lce_zip_code} `;
         },
     },

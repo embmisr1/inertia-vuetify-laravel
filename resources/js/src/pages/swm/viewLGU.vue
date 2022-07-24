@@ -113,15 +113,15 @@
                     </a>
                 </v-container>
                 <b-table
-                    :data=""
+                    :data="query_slf"
                     paginated
-                    :per-page="lce_list.per_page"
+                    :per-page="query_slf.per_page"
                     pagination-size="is-small"
                     page-input
                     hoverable
                     backend-pagination
-                    :total="lce_list.total"
-                    :current-page.sync="lce_list.current_page"
+                    :total="query_slf.total"
+                    :current-page.sync="query_slf.current_page"
                     pagination-position="top"
                     pagination-rounded
                     @page-change="onPageChange"
@@ -137,72 +137,120 @@
                     height="420"
                 >
                     <b-table-column
-                        field="province"
-                        label="Province"
+                        field="slf_ecc_number"
+                        label="ECC Number"
                         searchable
                     >
                         <template #searchable="props">
                             <b-input
-                                v-model="filters.provDesc"
                                 placeholder="Search..."
                                 icon="magnify"
                                 size="is-small"
                             />
                         </template>
                         <template v-slot="props">
-                            {{ props.row.provDesc }}
+                            {{ props.row.slf_ecc_number }}
                         </template>
                     </b-table-column>
                     <b-table-column
-                        field="municipality"
-                        label="Municipality"
+                        field="slf_project_operator"
+                        label="Project Operator"
                         searchable
                     >
                         <template #searchable="props">
                             <b-input
-                                v-model="filters.citymunDesc"
                                 placeholder="Search..."
                                 icon="magnify"
                                 size="is-small"
                             />
                         </template>
                         <template v-slot="props">
-                            {{ props.row.citymunDesc }}
+                            {{ props.row.slf_project_operator }}
                         </template>
                     </b-table-column>
                     <b-table-column
-                        field="barangay"
-                        label="Barangay"
+                        field="slf_contact_person"
+                        label="Contact Person"
                         searchable
                     >
                         <template #searchable="props">
                             <b-input
-                                v-model="filters.brgyDesc"
                                 placeholder="Search..."
                                 icon="magnify"
                                 size="is-small"
                             />
                         </template>
                         <template v-slot="props">
-                            {{ props.row.brgyDesc }}
+                            {{ props.row.slf_contact_person }}
                         </template>
                     </b-table-column>
 
                     <b-table-column
-                        field="district"
-                        label="District Code"
+                        field="slf_contact_number"
+                        label="Contact Number"
                         searchable
                     >
                         <template #searchable="props">
                             <b-input
-                                v-model="filters.districtCode"
                                 placeholder="Search..."
                                 icon="magnify"
                                 size="is-small"
                             />
                         </template>
                         <template v-slot="props">
-                            {{ props.row.districtCode }}
+                            {{ props.row.slf_contact_number }}
+                        </template>
+                    </b-table-column>
+
+                    <b-table-column
+                        field="slf_category"
+                        label="Category"
+                        searchable
+                    >
+                        <template #searchable="props">
+                            <b-input
+                                placeholder="Search..."
+                                icon="magnify"
+                                size="is-small"
+                            />
+                        </template>
+                        <template v-slot="props">
+                            {{ props.row.slf_category }}
+                        </template>
+                    </b-table-column>
+
+                    <b-table-column
+                        field="slf_site_hectares"
+                        label="Site Hectares(ha)"
+                        searchable
+                    >
+                        <template #searchable="props">
+                            <b-input
+                                lce_cityMun_id
+                                placeholder="Search..."
+                                icon="magnify"
+                                size="is-small"
+                            />
+                        </template>
+                        <template v-slot="props">
+                            {{ props.row.slf_site_hectares }}
+                        </template>
+                    </b-table-column>
+
+                    <b-table-column
+                        field="slf_total_capacity"
+                        label="Site Total Capacity"
+                        searchable
+                    >
+                        <template #searchable="props">
+                            <b-input
+                                placeholder="Search..."
+                                icon="magnify"
+                                size="is-small"
+                            />
+                        </template>
+                        <template v-slot="props">
+                            {{ props.row.slf_total_capacity }}
                         </template>
                     </b-table-column>
 
@@ -213,7 +261,7 @@
                         v-slot="props"
                     >
                         <a
-                            :href="`/app/swm/lce_show/${props.row.id}`"
+                            :href="`/app/swm/slf_edit/${props.row.id}`"
                             target="_blank"
                         >
                             <box-icon
@@ -222,7 +270,7 @@
                                 animation="tada-hover"
                             ></box-icon
                         ></a>
-                        <v-btn icon small
+                        <v-btn icon small @click="removeSLF(props.row.id)"
                             ><box-icon
                                 name="trash"
                                 color="red"
@@ -264,6 +312,21 @@ export default {
             tabs: ["LCE", "SLF", ""],
         };
     },
+    methods:{
+        async removeSLF(slf_id){
+            try {
+                this.loading = true;
+                await this.confirmDelete('',async () => {
+                    await this.$inertia.delete(`/app/swm/slf_delete/${slf_id}`)
+                })
+                this.loading = false;
+            } catch (error) {
+                this.loading = false;
+                console.log(error)
+                this.error(error.response.data.message)
+            }
+        }
+    }
 };
 </script>
 

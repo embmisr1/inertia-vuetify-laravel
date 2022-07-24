@@ -5,7 +5,7 @@
             v-slot="{ handleSubmit, invalid }"
             ref="psic_group_class_observer"
         >
-            <form @submit.prevent="saveForm">
+            <form @submit.prevent="handleSubmit(saveForm)">
                 <v-container>
                     <div class="space-y-4">
                         <v-card>
@@ -173,7 +173,7 @@
                                 </ValidationProvider>
                                 <ValidationProvider
                                     vid="tons_per_day"
-                                    name="Tones per Day"
+                                    name="Tons per Day"
                                     rules="required"
                                     v-slot="{ errors }"
                                 >
@@ -377,7 +377,7 @@
                                         color="dark"
                                     ></v-text-field>
                                 </ValidationProvider>
-                                <ValidationProvider
+                                <!-- <ValidationProvider
                                     vid="lce_fk"
                                     name="LCE"
                                     rules="required"
@@ -392,7 +392,7 @@
                                         dense
                                         color="dark"
                                     ></v-text-field>
-                                </ValidationProvider>
+                                </ValidationProvider> -->
                             </v-card-text>
                         </v-card>
                     </div>
@@ -400,7 +400,9 @@
                         <v-btn color="red darken-2" text type="reset"
                             >Reset</v-btn
                         >
-                        <v-btn color="primary" type="submit">Save</v-btn>
+                        <v-btn :disabled="invalid" color="primary" type="submit"
+                            >Save</v-btn
+                        >
                     </div>
                 </v-container>
             </form>
@@ -421,21 +423,30 @@ export default {
     },
     mixins: [page, toasts, swm, dialogs],
     mounted() {
-        if (this.lce_info.length > 0) {
-            this.slf = { ...this.lce_info[0] };
+        if (this.lce_info !== undefined) {
+            if (this.lce_info.length > 0) {
+                this.slf = { ...this.lce_info[0] };
+                this.slf_form_type = 'create';
+            }
+        }
+        if (this.slf_edit !== undefined) {
+            if (this.slf_edit.length > 0) {
+                this.slf_form_type = 'patch';
+                this.slf = { ...this.slf_edit[0] };
+            }
         }
     },
     methods: {
         saveForm() {
-            if (this.lce_info.length > 0) {
-                this.updateLCEForm();
-            } else {
+            if(this.slf_form_type === 'create'){
                 this.saveSLFForm();
+            } else if (this.slf_form_type === 'patch'){
+                this.updateSLFForm();
             }
         },
         async saveSLFForm() {
             try {
-                const data = { ...this.slf, lce_FK: this.lce_info[0].id };
+                const data = { ...this.slf, lce_FK: this.slf.id };
                 await this.$inertia.post("/app/swm/slf_register_process", data);
             } catch (error) {
                 console.error(error.message);
@@ -444,8 +455,8 @@ export default {
         },
         async updateSLFForm() {
             try {
-                const data = { ...this.slf, lce_FK: this.lce_info[0].id };
-                await this.$inertia.post("/app/swm/slf_update_process", data);
+                const data = { ...this.slf };
+                await this.$inertia.patch("/app/swm/slf_update_process", data);
             } catch (error) {
                 console.error(error.message);
                 this.error(error.data.response.messsage);

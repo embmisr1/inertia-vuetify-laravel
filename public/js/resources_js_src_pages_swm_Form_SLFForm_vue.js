@@ -933,6 +933,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
 
 
 
@@ -944,16 +946,26 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   mixins: [_mixins__WEBPACK_IMPORTED_MODULE_4__.page, _mixins__WEBPACK_IMPORTED_MODULE_4__.toasts, _mixins__WEBPACK_IMPORTED_MODULE_4__.swm, _mixins__WEBPACK_IMPORTED_MODULE_4__.dialogs],
   mounted: function mounted() {
-    if (this.lce_info.length > 0) {
-      this.slf = _objectSpread({}, this.lce_info[0]);
+    if (this.lce_info !== undefined) {
+      if (this.lce_info.length > 0) {
+        this.slf = _objectSpread({}, this.lce_info[0]);
+        this.slf_form_type = 'create';
+      }
+    }
+
+    if (this.slf_edit !== undefined) {
+      if (this.slf_edit.length > 0) {
+        this.slf_form_type = 'patch';
+        this.slf = _objectSpread({}, this.slf_edit[0]);
+      }
     }
   },
   methods: {
     saveForm: function saveForm() {
-      if (this.lce_info.length > 0) {
-        this.updateLCEForm();
-      } else {
+      if (this.slf_form_type === 'create') {
         this.saveSLFForm();
+      } else if (this.slf_form_type === 'patch') {
+        this.updateSLFForm();
       }
     },
     saveSLFForm: function saveSLFForm() {
@@ -967,7 +979,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
               case 0:
                 _context.prev = 0;
                 data = _objectSpread(_objectSpread({}, _this.slf), {}, {
-                  lce_FK: _this.lce_info[0].id
+                  lce_FK: _this.slf.id
                 });
                 _context.next = 4;
                 return _this.$inertia.post("/app/swm/slf_register_process", data);
@@ -1001,11 +1013,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             switch (_context2.prev = _context2.next) {
               case 0:
                 _context2.prev = 0;
-                data = _objectSpread(_objectSpread({}, _this2.slf), {}, {
-                  lce_FK: _this2.lce_info[0].id
-                });
+                data = _objectSpread({}, _this2.slf);
                 _context2.next = 4;
-                return _this2.$inertia.post("/app/swm/slf_update_process", data);
+                return _this2.$inertia.patch("/app/swm/slf_update_process", data);
 
               case 4:
                 _context2.next = 10;
@@ -2633,7 +2643,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   props: {
     lce_edit: Array,
     province_dropdown: Array,
-    lce_info: Array
+    lce_info: Array,
+    query_slf: Array,
+    // slf table
+    slf_edit: Array
   },
   data: function data() {
     return {
@@ -2679,6 +2692,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         slf_file: null,
         lce_FK: null
       },
+      slf_form_type: "create",
       complete_address: null,
       complete_address_setter: {
         prov: {},
@@ -2728,12 +2742,24 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     cityMun_id: function cityMun_id() {
       return this.complete_address_setter.cityMun.PK_citymun_ID;
     },
+    slf_details: function slf_details() {
+      return this.slf_info[0];
+    },
     slf_address: function slf_address() {
-      var _this$lce_info$ = this.lce_info[0],
-          provDesc = _this$lce_info$.provDesc,
-          citymunDesc = _this$lce_info$.citymunDesc,
-          lce_zip_code = _this$lce_info$.lce_zip_code,
-          districtCode = _this$lce_info$.districtCode;
+      // const { provDesc, citymunDesc, lce_zip_code, districtCode } = this.lce_info[0];
+      var formdata = null;
+
+      if (this.slf_form_type === "create") {
+        formdata = this.lce_info[0];
+      } else if (this.slf_form_type === "patch") {
+        formdata = this.slf_edit[0];
+      }
+
+      var _formdata = formdata,
+          provDesc = _formdata.provDesc,
+          citymunDesc = _formdata.citymunDesc,
+          lce_zip_code = _formdata.lce_zip_code,
+          districtCode = _formdata.districtCode;
       return "".concat(citymunDesc, ", District No ").concat(districtCode, ", ").concat(provDesc, ", ").concat(lce_zip_code, " ");
     }
   },
@@ -21583,7 +21609,7 @@ var render = function () {
                     on: {
                       submit: function ($event) {
                         $event.preventDefault()
-                        return _vm.saveForm.apply(null, arguments)
+                        return handleSubmit(_vm.saveForm)
                       },
                     },
                   },
@@ -22054,7 +22080,7 @@ var render = function () {
                                   _c("ValidationProvider", {
                                     attrs: {
                                       vid: "tons_per_day",
-                                      name: "Tones per Day",
+                                      name: "Tons per Day",
                                       rules: "required",
                                     },
                                     scopedSlots: _vm._u(
@@ -22625,49 +22651,6 @@ var render = function () {
                                       true
                                     ),
                                   }),
-                                  _vm._v(" "),
-                                  _c("ValidationProvider", {
-                                    attrs: {
-                                      vid: "lce_fk",
-                                      name: "LCE",
-                                      rules: "required",
-                                    },
-                                    scopedSlots: _vm._u(
-                                      [
-                                        {
-                                          key: "default",
-                                          fn: function (ref) {
-                                            var errors = ref.errors
-                                            return [
-                                              _c("v-text-field", {
-                                                attrs: {
-                                                  label: "LCE",
-                                                  "error-messages": errors[0],
-                                                  outlined: "",
-                                                  clearable: "",
-                                                  dense: "",
-                                                  color: "dark",
-                                                },
-                                                model: {
-                                                  value: _vm.slf.lce_FK,
-                                                  callback: function ($$v) {
-                                                    _vm.$set(
-                                                      _vm.slf,
-                                                      "lce_FK",
-                                                      $$v
-                                                    )
-                                                  },
-                                                  expression: "slf.lce_FK",
-                                                },
-                                              }),
-                                            ]
-                                          },
-                                        },
-                                      ],
-                                      null,
-                                      true
-                                    ),
-                                  }),
                                 ],
                                 1
                               ),
@@ -22696,7 +22679,13 @@ var render = function () {
                           _vm._v(" "),
                           _c(
                             "v-btn",
-                            { attrs: { color: "primary", type: "submit" } },
+                            {
+                              attrs: {
+                                disabled: invalid,
+                                color: "primary",
+                                type: "submit",
+                              },
+                            },
                             [_vm._v("Save")]
                           ),
                         ],

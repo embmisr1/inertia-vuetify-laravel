@@ -85,7 +85,7 @@ class SolidwasteSLFController extends Controller
         $query->slf_leachate_treatment = $request->slf_leachate_treatment;
         $query->slf_daily_soil_cover = $request->slf_daily_soil_cover;
         $query->slf_presence_of_mrf = $request->slf_presence_of_mrf;
-        $query->slf_separeted_cells_for_hazwaste = $request->slf_separeted_cells_for_hazwaste;
+        $query->slf_separate_cells_for_hazwaste = $request->slf_separate_cells_for_hazwaste;
         $query->slf_methane_recovery = $request->slf_methane_recovery;
         $query->slf_discharge_permit = $request->slf_discharge_permit;
         $query->slf_file = $request->slf_file;
