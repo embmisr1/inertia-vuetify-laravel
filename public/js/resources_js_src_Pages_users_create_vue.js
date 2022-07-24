@@ -337,11 +337,7 @@ __webpack_require__.r(__webpack_exports__);
           child: []
         }, {
           name: "SOLID WASTE",
-<<<<<<< HEAD
           link: '/app/swm/lce_list',
-=======
-          link: 'app/swm/lce_list',
->>>>>>> 451951f2d60c8ca36c030471f2fe1cd05003ea40
           icon: "mdi-trash-can",
           child: []
         }, {

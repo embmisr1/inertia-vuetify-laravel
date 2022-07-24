@@ -907,7 +907,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                 _context2.prev = 0;
                 data = _objectSpread({}, _this2.lce);
                 _context2.next = 4;
-                return _this2.$inertia.post("/app/swm/lce_update_process", data);
+                return _this2.$inertia.patch("/app/swm/lce_update_process", data);
 
               case 4:
                 _context2.next = 10;
@@ -2593,6 +2593,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     };
   },
   computed: {
+    lce_id: function lce_id() {
+      return this.lce_details.id;
+    },
     lce_details: function lce_details() {
       return this.lce_edit[0];
     },
@@ -2607,8 +2610,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var _this$lce_details2 = this.lce_details,
           provDesc = _this$lce_details2.provDesc,
           citymunDesc = _this$lce_details2.citymunDesc,
-          lce_zip_code = _this$lce_details2.lce_zip_code;
-      return "".concat(citymunDesc, ", District No, ").concat(provDesc, ", ").concat(lce_zip_code, " ");
+          lce_zip_code = _this$lce_details2.lce_zip_code,
+          districtCode = _this$lce_details2.districtCode;
+      return "".concat(citymunDesc, ", District No ").concat(districtCode, ", ").concat(provDesc, ", ").concat(lce_zip_code, " ");
     },
     lce_prov_id: function lce_prov_id() {
       return this.lce.lce_province_FK;
@@ -21453,13 +21457,6 @@ var render = function () {
   return _c(
     "DefaultLayout",
     [
-      _c(
-        "Link",
-        { attrs: { href: "/app/swm/lce_list" } },
-        [_c("v-btn", { attrs: { color: "dark" } }, [_vm._v("Back")])],
-        1
-      ),
-      _vm._v(" "),
       _c("div", { staticClass: "font-bold text-2xl text-center py-6" }, [
         _vm._v("LCE Form"),
       ]),
