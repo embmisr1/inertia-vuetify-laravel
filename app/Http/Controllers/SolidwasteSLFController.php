@@ -12,29 +12,25 @@ use App\Models\SolidwasteSLF;
 class SolidwasteSLFController extends Controller
 {
 
-    public function create(){
-        $lce_dropdown = DB::table('tbl_solidwaste_lce as a')
-        ->select('a.*', 'b.provDesc', 'c.citymunDesc', 'd.brgyDesc', 'c.districtCode')
+    public function create(request $request){
+        $id = $request->id;
+        $lce_info = DB::table('tbl_solidwaste_lce as a')
+        ->select('a.*', 'b.provDesc', 'c.citymunDesc', 'd.brgyDesc')
         ->leftjoin('ref_province as b','a.lce_province_FK','=','b.PK_province_ID')
         ->leftjoin('ref_citymun as c','a.lce_municipality_FK','=','c.PK_citymun_ID')
         ->leftjoin('ref_brgy as d','a.lce_barangay_FK','=','d.PK_brgy_ID')
+        ->where('id',$id)
         ->get();
         return Inertia::render("pages/swm/Form/SLFForm",[
-            'lce_dropdown' => $lce_dropdown,
+            'lce_info'=>$lce_info,
         ]);
     }
 
     public function slf_edit(request $request){
-        $lce_dropdown = DB::table('tbl_solidwaste_lce as a')
-        ->select('a.*', 'b.provDesc', 'c.citymunDesc', 'd.brgyDesc', 'c.districtCode')
-        ->leftjoin('ref_province as b','a.lce_province_FK','=','b.PK_province_ID')
-        ->leftjoin('ref_citymun as c','a.lce_municipality_FK','=','c.PK_citymun_ID')
-        ->leftjoin('ref_brgy as d','a.lce_barangay_FK','=','d.PK_brgy_ID')
-        ->get();
-        $slf_edit = DB::table('tbl_solidwaste_slf')->select('*')->where('id',$request->id)->get();
-        return Inertia::render("pages/swm/SLFForm",[
+        $id = $request->id;
+        $slf_edit = DB::table('tbl_solidwaste_slf')->select('*')->where('id',$id)->get();
+        return Inertia::render("pages/swm/Form/SLFForm",[
             'slf_edit'=>$slf_edit,
-            'lce_dropdown'=>$lce_dropdown,
         ]);
     }
 
