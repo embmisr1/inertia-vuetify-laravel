@@ -82,7 +82,7 @@
 
             <b-table-column field="action" label="" sortable v-slot="props">
                 <a
-                    :href="`/app/swm/lce_edit/${props.row.id}`"
+                    :href="`/app/swm/lce_show/${props.row.id}`"
                     target="_blank"
                 >
                     <box-icon
