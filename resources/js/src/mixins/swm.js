@@ -62,6 +62,9 @@ export default {
         };
     },
     computed: {
+        lce_id(){
+            return this.lce_details.id
+        },
         lce_details() {
             return this.lce_edit[0];
         },
@@ -71,8 +74,8 @@ export default {
             return `${lce_first_name} ${lce_middle_name} ${lce_last_name}`;
         },
         lce_address() {
-            const { provDesc, citymunDesc, lce_zip_code } = this.lce_details;
-            return `${citymunDesc}, District No, ${provDesc}, ${lce_zip_code} `;
+            const { provDesc, citymunDesc, lce_zip_code, districtCode } = this.lce_details;
+            return `${citymunDesc}, District No ${districtCode}, ${provDesc}, ${lce_zip_code} `;
         },
         lce_prov_id() {
             return this.lce.lce_province_FK;

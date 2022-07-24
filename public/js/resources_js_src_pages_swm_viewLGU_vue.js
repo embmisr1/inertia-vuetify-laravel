@@ -616,6 +616,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 
 
@@ -2298,6 +2301,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     };
   },
   computed: {
+    lce_id: function lce_id() {
+      return this.lce_details.id;
+    },
     lce_details: function lce_details() {
       return this.lce_edit[0];
     },
@@ -2312,8 +2318,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var _this$lce_details2 = this.lce_details,
           provDesc = _this$lce_details2.provDesc,
           citymunDesc = _this$lce_details2.citymunDesc,
-          lce_zip_code = _this$lce_details2.lce_zip_code;
-      return "".concat(citymunDesc, ", District No, ").concat(provDesc, ", ").concat(lce_zip_code, " ");
+          lce_zip_code = _this$lce_details2.lce_zip_code,
+          districtCode = _this$lce_details2.districtCode;
+      return "".concat(citymunDesc, ", District No ").concat(districtCode, ", ").concat(provDesc, ", ").concat(lce_zip_code, " ");
     },
     lce_prov_id: function lce_prov_id() {
       return this.lce.lce_province_FK;
@@ -21345,6 +21352,32 @@ var render = function () {
                             ]
                           ),
                         ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-card-actions",
+                        [
+                          _c("v-spacer"),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            {
+                              attrs: {
+                                href: "/app/swm/lce_edit/" + _vm.lce_id,
+                                target: "_blank",
+                              },
+                            },
+                            [
+                              _c(
+                                "v-btn",
+                                { attrs: { color: "orange lighten-2" } },
+                                [_vm._v("Update LCE")]
+                              ),
+                            ],
+                            1
+                          ),
+                        ],
+                        1
                       ),
                     ],
                     1

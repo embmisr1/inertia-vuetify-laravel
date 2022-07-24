@@ -1,6 +1,6 @@
 <template>
     <DefaultLayout>
-        <Link href="/app/swm/lce_list"> <v-btn color="dark">Back</v-btn></Link>
+        <!-- <Link href="/app/swm/lce_list"> <v-btn color="dark">Back</v-btn></Link> -->
         <div class="font-bold text-2xl text-center py-6">LCE Form</div>
         <ValidationObserver
             v-slot="{ handleSubmit, invalid }"
@@ -351,7 +351,7 @@ export default {
         async updateLCEForm() {
             try {
                 const data = { ...this.lce };
-                await this.$inertia.post("/app/swm/lce_update_process", data);
+                await this.$inertia.patch("/app/swm/lce_update_process", data);
             } catch (error) {
                 console.error(error.message);
                 this.error(error.data.response.messsage);

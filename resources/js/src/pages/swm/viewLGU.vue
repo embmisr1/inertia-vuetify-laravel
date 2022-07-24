@@ -90,6 +90,9 @@
                                 </div>
                             </div>
                         </v-card-text>
+                        <v-card-actions>
+                            <v-spacer></v-spacer> <a :href="`/app/swm/lce_edit/${lce_id}`" target="_blank"><v-btn color="orange lighten-2">Update LCE</v-btn></a>
+                        </v-card-actions>
                     </v-card>
                 </v-container>
             </v-tab-item>
