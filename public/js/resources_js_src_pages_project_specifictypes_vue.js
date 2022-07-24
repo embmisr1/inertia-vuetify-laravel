@@ -643,11 +643,7 @@ __webpack_require__.r(__webpack_exports__);
           child: []
         }, {
           name: "SOLID WASTE",
-<<<<<<< HEAD
           link: 'app/swm/lce_list',
-=======
-          link: 'app/swm/rce_list',
->>>>>>> 8425e14339c6e0ff0b42bb9576a28d9dc1072f1b
           icon: "mdi-trash-can",
           child: []
         }, {
@@ -2603,6 +2599,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -2649,8 +2656,100 @@ __webpack_require__.r(__webpack_exports__);
         lce_FK: null
       },
       category: ["Category 1", "Category 2", "Category 3", "Category 4"],
-      leachment_type: ["Recirculaation", "Chemical", "Biological"]
+      leachment_type: ["Recirculaation", "Chemical", "Biological"],
+      cityMun: [],
+      brgy: []
     };
+  },
+  computed: {
+    prov_id: function prov_id() {
+      return this.lce.lce_province_FK;
+    },
+    cityMun_id: function cityMun_id() {
+      return this.lce.lce_municipality_FK;
+    }
+  },
+  watch: {
+    prov_id: function prov_id(value) {
+      if (value !== "" || value !== null) return this.search_cityMun();
+    },
+    cityMun_id: function cityMun_id(value) {
+      if (value !== "" || value !== null) return this.search_brgy();
+    }
+  },
+  methods: {
+    search_cityMun: function search_cityMun() {
+      var _this = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+        var _yield$axios$get, data;
+
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.prev = 0;
+                _context.next = 3;
+                return axios__WEBPACK_IMPORTED_MODULE_1___default().get("http://127.0.0.1:8000/api/app/province_dropdown/".concat(_this.prov_id));
+
+              case 3:
+                _yield$axios$get = _context.sent;
+                data = _yield$axios$get.data;
+                _this.cityMun = data;
+                _context.next = 12;
+                break;
+
+              case 8:
+                _context.prev = 8;
+                _context.t0 = _context["catch"](0);
+                console.log("search_cityMun - error");
+
+                _this.error(_context.t0.response.data.message);
+
+              case 12:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, null, [[0, 8]]);
+      }))();
+    },
+    search_brgy: function search_brgy() {
+      var _this2 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
+        var _yield$axios$get2, data;
+
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.prev = 0;
+                _context2.next = 3;
+                return axios__WEBPACK_IMPORTED_MODULE_1___default().get("http://127.0.0.1:8000/api/app/municipality_dropdown/".concat(_this2.cityMun_id));
+
+              case 3:
+                _yield$axios$get2 = _context2.sent;
+                data = _yield$axios$get2.data;
+                _this2.brgy = data;
+                _context2.next = 12;
+                break;
+
+              case 8:
+                _context2.prev = 8;
+                _context2.t0 = _context2["catch"](0);
+                console.log("search_brgy - error");
+
+                _this2.error(_context2.t0.response.data.message);
+
+              case 12:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, null, [[0, 8]]);
+      }))();
+    }
   }
 });
 

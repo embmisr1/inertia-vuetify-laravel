@@ -13,7 +13,10 @@ use App\Http\Controllers\ProjectTypeController;
 use App\Http\Controllers\PsicClassController;
 use App\Http\Controllers\PsicGroupController;
 use App\Http\Controllers\PSICSubClassController;
+
 use App\Http\Controllers\SolidwasteLCEController;
+use App\Http\Controllers\SolidwasteSLFController;
+
 use App\Http\Controllers\UnitSectionController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\UniverseController;
@@ -103,12 +106,19 @@ Route::group([
     Route::group([
         'prefix' => "/swm",
     ], function () {
+        // LCE
         Route::get('/lce_list', [SolidwasteLCEController::class, 'lce_list'])->name("lce_list");
-        Route::get('/lce_register_process', [SolidwasteLCEController::class, 'create'])->name("rce_register_process_form");
+        Route::get('/lce_register', [SolidwasteLCEController::class, 'create'])->name("lce_register_form");
         Route::get('/lce_edit/{id}', [SolidwasteLCEController::class, 'lce_edit'])->name("lce_edit");
-        Route::get('/lce_delete/{id}', [SolidwasteLCEController::class, 'lce_delete'])->name("lce_delete");
         Route::post('/lce_register_process', [SolidwasteLCEController::class, 'lce_register_process'])->name("lce_register_process");
-        Route::post('/lce_update_process', [SolidwasteLCEController::class, 'lce_update_process'])->name("lce_update_process");
+        Route::patch('/lce_update_process', [SolidwasteLCEController::class, 'lce_update_process'])->name("lce_update_process");
+        Route::delete('/lce_delete/{id}', [SolidwasteLCEController::class, 'lce_delete'])->name("lce_delete");
+        // SLF
+        Route::get('/slf_register', [SolidwasteSLFController::class, 'create'])->name("slf_register_form");
+        Route::get('/slf_edit/{id}', [SolidwasteSLFController::class, 'slf_edit'])->name("slf_edit");
+        Route::post('/slf_register_process', [SolidwasteSLFController::class, 'slf_register_process'])->name("slf_register_process");
+        Route::patch('/slf_update_process', [SolidwasteSLFController::class, 'slf_update_process'])->name("slf_update_process");
+        Route::delete('/slf_delete/{id}', [SolidwasteSLFController::class, 'slf_delete'])->name("slf_delete");
     });
 
 

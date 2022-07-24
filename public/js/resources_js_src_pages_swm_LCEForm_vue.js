@@ -337,11 +337,7 @@ __webpack_require__.r(__webpack_exports__);
           child: []
         }, {
           name: "SOLID WASTE",
-<<<<<<< HEAD
           link: 'app/swm/lce_list',
-=======
-          link: 'app/swm/rce_list',
->>>>>>> 8425e14339c6e0ff0b42bb9576a28d9dc1072f1b
           icon: "mdi-trash-can",
           child: []
         }, {
@@ -508,7 +504,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-<<<<<<< HEAD
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _layouts_default_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../layouts/default.vue */ "./resources/js/src/layouts/default.vue");
@@ -518,16 +513,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _mixins___WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../mixins/ */ "./resources/js/src/mixins/index.js");
 
 
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
 //
 //
 //
@@ -537,13 +532,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-=======
-/* harmony import */ var _layouts_default_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../layouts/default.vue */ "./resources/js/src/layouts/default.vue");
-/* harmony import */ var _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @inertiajs/inertia-vue */ "./node_modules/@inertiajs/inertia-vue/dist/index.js");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _mixins___WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../mixins/ */ "./resources/js/src/mixins/index.js");
->>>>>>> 8425e14339c6e0ff0b42bb9576a28d9dc1072f1b
+//
+//
+//
+//
+//
 //
 //
 //
@@ -849,13 +842,28 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: {
+    lce_edit: Array,
+    province_dropdown: Array
+  },
   components: {
-<<<<<<< HEAD
     DefaultLayout: _layouts_default_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
     Link: _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_2__.Link
   },
   mixins: [_mixins___WEBPACK_IMPORTED_MODULE_4__.page, _mixins___WEBPACK_IMPORTED_MODULE_4__.toasts, _mixins___WEBPACK_IMPORTED_MODULE_4__.swm, _mixins___WEBPACK_IMPORTED_MODULE_4__.dialogs],
+  mounted: function mounted() {
+    if (this.lce_edit.length > 0) {
+      this.lce = _objectSpread({}, this.lce_edit[0]);
+    }
+  },
   methods: {
+    saveForm: function saveForm() {
+      if (this.lce_edit.length > 0) {
+        this.updateLCEForm();
+      } else {
+        this.saveLCEForm();
+      }
+    },
     saveLCEForm: function saveLCEForm() {
       var _this = this;
 
@@ -888,14 +896,41 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           }
         }, _callee, null, [[0, 6]]);
       }))();
+    },
+    updateLCEForm: function updateLCEForm() {
+      var _this2 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
+        var data;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.prev = 0;
+                data = _objectSpread({}, _this2.lce);
+                _context2.next = 4;
+                return _this2.$inertia.post("/app/swm/lce_update_process", data);
+
+              case 4:
+                _context2.next = 10;
+                break;
+
+              case 6:
+                _context2.prev = 6;
+                _context2.t0 = _context2["catch"](0);
+                console.error(_context2.t0.message);
+
+                _this2.error(_context2.t0.dat.response.messsage);
+
+              case 10:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, null, [[0, 6]]);
+      }))();
     }
   }
-=======
-    DefaultLayout: _layouts_default_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
-    Link: _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_1__.Link
-  },
-  mixins: [_mixins___WEBPACK_IMPORTED_MODULE_3__.page, _mixins___WEBPACK_IMPORTED_MODULE_3__.toasts, _mixins___WEBPACK_IMPORTED_MODULE_3__.swm, _mixins___WEBPACK_IMPORTED_MODULE_3__.dialogs]
->>>>>>> 8425e14339c6e0ff0b42bb9576a28d9dc1072f1b
 });
 
 /***/ }),
@@ -2481,6 +2516,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -2527,8 +2573,100 @@ __webpack_require__.r(__webpack_exports__);
         lce_FK: null
       },
       category: ["Category 1", "Category 2", "Category 3", "Category 4"],
-      leachment_type: ["Recirculaation", "Chemical", "Biological"]
+      leachment_type: ["Recirculaation", "Chemical", "Biological"],
+      cityMun: [],
+      brgy: []
     };
+  },
+  computed: {
+    prov_id: function prov_id() {
+      return this.lce.lce_province_FK;
+    },
+    cityMun_id: function cityMun_id() {
+      return this.lce.lce_municipality_FK;
+    }
+  },
+  watch: {
+    prov_id: function prov_id(value) {
+      if (value !== "" || value !== null) return this.search_cityMun();
+    },
+    cityMun_id: function cityMun_id(value) {
+      if (value !== "" || value !== null) return this.search_brgy();
+    }
+  },
+  methods: {
+    search_cityMun: function search_cityMun() {
+      var _this = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+        var _yield$axios$get, data;
+
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.prev = 0;
+                _context.next = 3;
+                return axios__WEBPACK_IMPORTED_MODULE_1___default().get("http://127.0.0.1:8000/api/app/province_dropdown/".concat(_this.prov_id));
+
+              case 3:
+                _yield$axios$get = _context.sent;
+                data = _yield$axios$get.data;
+                _this.cityMun = data;
+                _context.next = 12;
+                break;
+
+              case 8:
+                _context.prev = 8;
+                _context.t0 = _context["catch"](0);
+                console.log("search_cityMun - error");
+
+                _this.error(_context.t0.response.data.message);
+
+              case 12:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, null, [[0, 8]]);
+      }))();
+    },
+    search_brgy: function search_brgy() {
+      var _this2 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
+        var _yield$axios$get2, data;
+
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.prev = 0;
+                _context2.next = 3;
+                return axios__WEBPACK_IMPORTED_MODULE_1___default().get("http://127.0.0.1:8000/api/app/municipality_dropdown/".concat(_this2.cityMun_id));
+
+              case 3:
+                _yield$axios$get2 = _context2.sent;
+                data = _yield$axios$get2.data;
+                _this2.brgy = data;
+                _context2.next = 12;
+                break;
+
+              case 8:
+                _context2.prev = 8;
+                _context2.t0 = _context2["catch"](0);
+                console.log("search_brgy - error");
+
+                _this2.error(_context2.t0.response.data.message);
+
+              case 12:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, null, [[0, 8]]);
+      }))();
+    }
   }
 });
 
@@ -21255,7 +21393,6 @@ var render = function () {
   return _c(
     "DefaultLayout",
     [
-<<<<<<< HEAD
       _c(
         "Link",
         { attrs: { href: "/app/swm/lce_list" } },
@@ -21263,8 +21400,6 @@ var render = function () {
         1
       ),
       _vm._v(" "),
-=======
->>>>>>> 8425e14339c6e0ff0b42bb9576a28d9dc1072f1b
       _c("div", { staticClass: "font-bold text-2xl text-center py-6" }, [
         _vm._v("LCE Form"),
       ]),
@@ -21278,14 +21413,13 @@ var render = function () {
               var handleSubmit = ref.handleSubmit
               var invalid = ref.invalid
               return [
-<<<<<<< HEAD
                 _c(
                   "form",
                   {
                     on: {
                       submit: function ($event) {
                         $event.preventDefault()
-                        return _vm.saveLCEForm.apply(null, arguments)
+                        return _vm.saveForm.apply(null, arguments)
                       },
                     },
                   },
@@ -21322,10 +21456,14 @@ var render = function () {
                                               return [
                                                 _c("v-select", {
                                                   attrs: {
-                                                    items: [],
+                                                    items:
+                                                      _vm.province_dropdown,
                                                     label: "Select Province",
                                                     "error-messages": errors[0],
                                                     outlined: "",
+                                                    "item-text": "provDesc",
+                                                    "item-value":
+                                                      "PK_province_ID",
                                                     clearable: "",
                                                     dense: "",
                                                     color: "dark",
@@ -21334,16 +21472,16 @@ var render = function () {
                                                   },
                                                   model: {
                                                     value:
-                                                      _vm.lce.lce_provinde_FK,
+                                                      _vm.lce.lce_province_FK,
                                                     callback: function ($$v) {
                                                       _vm.$set(
                                                         _vm.lce,
-                                                        "lce_provinde_FK",
+                                                        "lce_province_FK",
                                                         $$v
                                                       )
                                                     },
                                                     expression:
-                                                      "lce.lce_provinde_FK",
+                                                      "lce.lce_province_FK",
                                                   },
                                                 }),
                                               ]
@@ -21370,10 +21508,15 @@ var render = function () {
                                               return [
                                                 _c("v-select", {
                                                   attrs: {
-                                                    items: [],
+                                                    disabled:
+                                                      !_vm.cityMun.length,
+                                                    items: _vm.cityMun,
                                                     label:
                                                       "Select Municipality",
                                                     "error-messages": errors[0],
+                                                    "item-text": "citymunDesc",
+                                                    "item-value":
+                                                      "PK_citymun_ID",
                                                     outlined: "",
                                                     clearable: "",
                                                     dense: "",
@@ -21420,9 +21563,12 @@ var render = function () {
                                               return [
                                                 _c("v-select", {
                                                   attrs: {
-                                                    items: [],
+                                                    disabled: !_vm.brgy.length,
+                                                    items: _vm.brgy,
                                                     label: "Select Barangay",
                                                     "error-messages": errors[0],
+                                                    "item-text": "brgyDesc",
+                                                    "item-value": "PK_brgy_ID",
                                                     outlined: "",
                                                     clearable: "",
                                                     dense: "",
@@ -21460,63 +21606,6 @@ var render = function () {
                                   "div",
                                   { staticClass: "grid grid-cols-5 gap-x-2" },
                                   [
-                                    _c(
-                                      "div",
-                                      { staticClass: "col-span-4" },
-                                      [
-                                        _c("ValidationProvider", {
-                                          attrs: {
-                                            vid: "disctrict",
-                                            name: "District",
-                                            rules: "required",
-                                          },
-                                          scopedSlots: _vm._u(
-                                            [
-                                              {
-                                                key: "default",
-                                                fn: function (ref) {
-                                                  var errors = ref.errors
-                                                  return [
-                                                    _c("v-text-field", {
-                                                      attrs: {
-                                                        label: "District",
-                                                        "error-messages":
-                                                          errors[0],
-                                                        outlined: "",
-                                                        clearable: "",
-                                                        dense: "",
-                                                        color: "dark",
-                                                        hint: "District 1",
-                                                        "persistent-hint": "",
-                                                      },
-                                                      model: {
-                                                        value:
-                                                          _vm.lce.lce_district,
-                                                        callback: function (
-                                                          $$v
-                                                        ) {
-                                                          _vm.$set(
-                                                            _vm.lce,
-                                                            "lce_district",
-                                                            $$v
-                                                          )
-                                                        },
-                                                        expression:
-                                                          "lce.lce_district",
-                                                      },
-                                                    }),
-                                                  ]
-                                                },
-                                              },
-                                            ],
-                                            null,
-                                            true
-                                          ),
-                                        }),
-                                      ],
-                                      1
-                                    ),
-                                    _vm._v(" "),
                                     _c("ValidationProvider", {
                                       attrs: {
                                         vid: "zpip",
@@ -21803,180 +21892,6 @@ var render = function () {
                                       attrs: {
                                         vid: "salutation",
                                         name: "Salutation",
-=======
-                _c("v-container", [
-                  _c(
-                    "div",
-                    { staticClass: "space-y-4" },
-                    [
-                      _c(
-                        "v-card",
-                        [
-                          _c("v-card-title", [_vm._v(" Address Information ")]),
-                          _vm._v(" "),
-                          _c("v-card-text", [
-                            _c(
-                              "div",
-                              { staticClass: "grid grid-cols-3 gap-x-2" },
-                              [
-                                _c("ValidationProvider", {
-                                  attrs: {
-                                    vid: "prov",
-                                    name: "Province",
-                                    rules: "required",
-                                  },
-                                  scopedSlots: _vm._u(
-                                    [
-                                      {
-                                        key: "default",
-                                        fn: function (ref) {
-                                          var errors = ref.errors
-                                          return [
-                                            _c("v-select", {
-                                              attrs: {
-                                                items: [],
-                                                label: "Select Province",
-                                                "error-messages": errors[0],
-                                                outlined: "",
-                                                clearable: "",
-                                                dense: "",
-                                                color: "dark",
-                                                hint: "La Union",
-                                                "persistent-hint": "",
-                                              },
-                                              model: {
-                                                value: _vm.lce.lce_provinde_FK,
-                                                callback: function ($$v) {
-                                                  _vm.$set(
-                                                    _vm.lce,
-                                                    "lce_provinde_FK",
-                                                    $$v
-                                                  )
-                                                },
-                                                expression:
-                                                  "lce.lce_provinde_FK",
-                                              },
-                                            }),
-                                          ]
-                                        },
-                                      },
-                                    ],
-                                    null,
-                                    true
-                                  ),
-                                }),
-                                _vm._v(" "),
-                                _c("ValidationProvider", {
-                                  attrs: {
-                                    vid: "mun",
-                                    name: "Municipaliiy",
-                                    rules: "required",
-                                  },
-                                  scopedSlots: _vm._u(
-                                    [
-                                      {
-                                        key: "default",
-                                        fn: function (ref) {
-                                          var errors = ref.errors
-                                          return [
-                                            _c("v-select", {
-                                              attrs: {
-                                                items: [],
-                                                label: "Select Municipality",
-                                                "error-messages": errors[0],
-                                                outlined: "",
-                                                clearable: "",
-                                                dense: "",
-                                                color: "dark",
-                                                hint: "City of San Fernando",
-                                                "persistent-hint": "",
-                                              },
-                                              model: {
-                                                value:
-                                                  _vm.lce.lce_municipality_FK,
-                                                callback: function ($$v) {
-                                                  _vm.$set(
-                                                    _vm.lce,
-                                                    "lce_municipality_FK",
-                                                    $$v
-                                                  )
-                                                },
-                                                expression:
-                                                  "lce.lce_municipality_FK",
-                                              },
-                                            }),
-                                          ]
-                                        },
-                                      },
-                                    ],
-                                    null,
-                                    true
-                                  ),
-                                }),
-                                _vm._v(" "),
-                                _c("ValidationProvider", {
-                                  attrs: {
-                                    vid: "brgy",
-                                    name: "Barangay",
-                                    rules: "required",
-                                  },
-                                  scopedSlots: _vm._u(
-                                    [
-                                      {
-                                        key: "default",
-                                        fn: function (ref) {
-                                          var errors = ref.errors
-                                          return [
-                                            _c("v-select", {
-                                              attrs: {
-                                                items: [],
-                                                label: "Select Barangay",
-                                                "error-messages": errors[0],
-                                                outlined: "",
-                                                clearable: "",
-                                                dense: "",
-                                                color: "dark",
-                                                hint: "Sevilla",
-                                                "persistent-hint": "",
-                                              },
-                                              model: {
-                                                value: _vm.lce.lce_barangay_FK,
-                                                callback: function ($$v) {
-                                                  _vm.$set(
-                                                    _vm.lce,
-                                                    "lce_barangay_FK",
-                                                    $$v
-                                                  )
-                                                },
-                                                expression:
-                                                  "lce.lce_barangay_FK",
-                                              },
-                                            }),
-                                          ]
-                                        },
-                                      },
-                                    ],
-                                    null,
-                                    true
-                                  ),
-                                }),
-                              ],
-                              1
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              { staticClass: "grid grid-cols-5 gap-x-2" },
-                              [
-                                _c(
-                                  "div",
-                                  { staticClass: "col-span-4" },
-                                  [
-                                    _c("ValidationProvider", {
-                                      attrs: {
-                                        vid: "disctrict",
-                                        name: "District",
->>>>>>> 8425e14339c6e0ff0b42bb9576a28d9dc1072f1b
                                         rules: "required",
                                       },
                                       scopedSlots: _vm._u(
@@ -21988,17 +21903,12 @@ var render = function () {
                                               return [
                                                 _c("v-text-field", {
                                                   attrs: {
-<<<<<<< HEAD
                                                     label: "Salutation",
-=======
-                                                    label: "District",
->>>>>>> 8425e14339c6e0ff0b42bb9576a28d9dc1072f1b
                                                     "error-messages": errors[0],
                                                     outlined: "",
                                                     clearable: "",
                                                     dense: "",
                                                     color: "dark",
-<<<<<<< HEAD
                                                     hint: "Mayor",
                                                     "persistent-hint": "",
                                                   },
@@ -22009,26 +21919,11 @@ var render = function () {
                                                       _vm.$set(
                                                         _vm.lce,
                                                         "lce_salutation",
-=======
-                                                    hint: "District 1",
-                                                    "persistent-hint": "",
-                                                  },
-                                                  model: {
-                                                    value: _vm.lce.lce_district,
-                                                    callback: function ($$v) {
-                                                      _vm.$set(
-                                                        _vm.lce,
-                                                        "lce_district",
->>>>>>> 8425e14339c6e0ff0b42bb9576a28d9dc1072f1b
                                                         $$v
                                                       )
                                                     },
                                                     expression:
-<<<<<<< HEAD
                                                       "lce.lce_salutation",
-=======
-                                                      "lce.lce_district",
->>>>>>> 8425e14339c6e0ff0b42bb9576a28d9dc1072f1b
                                                   },
                                                 }),
                                               ]
@@ -22039,7 +21934,6 @@ var render = function () {
                                         true
                                       ),
                                     }),
-<<<<<<< HEAD
                                     _vm._v(" "),
                                     _c(
                                       "div",
@@ -22258,64 +22152,11 @@ var render = function () {
                             ],
                             1
                           ),
-=======
-                                  ],
-                                  1
-                                ),
-                                _vm._v(" "),
-                                _c("ValidationProvider", {
-                                  attrs: {
-                                    vid: "zpip",
-                                    name: "Zip Code",
-                                    rules: "required",
-                                  },
-                                  scopedSlots: _vm._u(
-                                    [
-                                      {
-                                        key: "default",
-                                        fn: function (ref) {
-                                          var errors = ref.errors
-                                          return [
-                                            _c("v-text-field", {
-                                              attrs: {
-                                                label: "Zip Code",
-                                                "error-messages": errors[0],
-                                                outlined: "",
-                                                clearable: "",
-                                                dense: "",
-                                                color: "dark",
-                                              },
-                                              model: {
-                                                value: _vm.lce.lce_zip_code,
-                                                callback: function ($$v) {
-                                                  _vm.$set(
-                                                    _vm.lce,
-                                                    "lce_zip_code",
-                                                    $$v
-                                                  )
-                                                },
-                                                expression: "lce.lce_zip_code",
-                                              },
-                                            }),
-                                          ]
-                                        },
-                                      },
-                                    ],
-                                    null,
-                                    true
-                                  ),
-                                }),
-                              ],
-                              1
-                            ),
-                          ]),
->>>>>>> 8425e14339c6e0ff0b42bb9576a28d9dc1072f1b
                         ],
                         1
                       ),
                       _vm._v(" "),
                       _c(
-<<<<<<< HEAD
                         "div",
                         { staticClass: "flex justify-center mt-4" },
                         [
@@ -22335,510 +22176,14 @@ var render = function () {
                             "v-btn",
                             { attrs: { color: "primary", type: "submit" } },
                             [_vm._v("Save")]
-=======
-                        "v-card",
-                        [
-                          _c("v-card-title", [_vm._v(" Basic Information ")]),
-                          _vm._v(" "),
-                          _c("v-card-text", [
-                            _c(
-                              "div",
-                              { staticClass: "grid grid-cols-6 gap-x-2" },
-                              [
-                                _c(
-                                  "div",
-                                  { staticClass: "col-span-1" },
-                                  [
-                                    _c("ValidationProvider", {
-                                      attrs: {
-                                        vid: "title",
-                                        name: "Title",
-                                        rules: "required",
-                                      },
-                                      scopedSlots: _vm._u(
-                                        [
-                                          {
-                                            key: "default",
-                                            fn: function (ref) {
-                                              var errors = ref.errors
-                                              return [
-                                                _c("v-text-field", {
-                                                  attrs: {
-                                                    label: "Title",
-                                                    "error-messages": errors[0],
-                                                    outlined: "",
-                                                    clearable: "",
-                                                    dense: "",
-                                                    color: "dark",
-                                                    hint: "Honorable(Hone)",
-                                                    "persistent-hint": "",
-                                                  },
-                                                  model: {
-                                                    value: _vm.lce.lce_title,
-                                                    callback: function ($$v) {
-                                                      _vm.$set(
-                                                        _vm.lce,
-                                                        "lce_title",
-                                                        $$v
-                                                      )
-                                                    },
-                                                    expression: "lce.lce_title",
-                                                  },
-                                                }),
-                                              ]
-                                            },
-                                          },
-                                        ],
-                                        null,
-                                        true
-                                      ),
-                                    }),
-                                  ],
-                                  1
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "div",
-                                  {
-                                    staticClass:
-                                      "grid grid-cols-3 gap-x-2 col-span-5",
-                                  },
-                                  [
-                                    _c("ValidationProvider", {
-                                      attrs: {
-                                        vid: "fname",
-                                        name: "First Name",
-                                        rules: "required",
-                                      },
-                                      scopedSlots: _vm._u(
-                                        [
-                                          {
-                                            key: "default",
-                                            fn: function (ref) {
-                                              var errors = ref.errors
-                                              return [
-                                                _c("v-text-field", {
-                                                  attrs: {
-                                                    label: "First Name",
-                                                    "error-messages": errors[0],
-                                                    outlined: "",
-                                                    clearable: "",
-                                                    dense: "",
-                                                    color: "dark",
-                                                  },
-                                                  model: {
-                                                    value:
-                                                      _vm.lce.lce_first_name,
-                                                    callback: function ($$v) {
-                                                      _vm.$set(
-                                                        _vm.lce,
-                                                        "lce_first_name",
-                                                        $$v
-                                                      )
-                                                    },
-                                                    expression:
-                                                      "lce.lce_first_name",
-                                                  },
-                                                }),
-                                              ]
-                                            },
-                                          },
-                                        ],
-                                        null,
-                                        true
-                                      ),
-                                    }),
-                                    _vm._v(" "),
-                                    _c("ValidationProvider", {
-                                      attrs: {
-                                        vid: "mname",
-                                        name: "Middle Name",
-                                        rules: "required",
-                                      },
-                                      scopedSlots: _vm._u(
-                                        [
-                                          {
-                                            key: "default",
-                                            fn: function (ref) {
-                                              var errors = ref.errors
-                                              return [
-                                                _c("v-text-field", {
-                                                  attrs: {
-                                                    label: "Middle Name",
-                                                    "error-messages": errors[0],
-                                                    outlined: "",
-                                                    clearable: "",
-                                                    dense: "",
-                                                    color: "dark",
-                                                  },
-                                                  model: {
-                                                    value:
-                                                      _vm.lce.lce_middle_name,
-                                                    callback: function ($$v) {
-                                                      _vm.$set(
-                                                        _vm.lce,
-                                                        "lce_middle_name",
-                                                        $$v
-                                                      )
-                                                    },
-                                                    expression:
-                                                      "lce.lce_middle_name",
-                                                  },
-                                                }),
-                                              ]
-                                            },
-                                          },
-                                        ],
-                                        null,
-                                        true
-                                      ),
-                                    }),
-                                    _vm._v(" "),
-                                    _c("ValidationProvider", {
-                                      attrs: {
-                                        vid: "lname",
-                                        name: "Last Name",
-                                        rules: "required",
-                                      },
-                                      scopedSlots: _vm._u(
-                                        [
-                                          {
-                                            key: "default",
-                                            fn: function (ref) {
-                                              var errors = ref.errors
-                                              return [
-                                                _c("v-text-field", {
-                                                  attrs: {
-                                                    label: "Last Name",
-                                                    "error-messages": errors[0],
-                                                    outlined: "",
-                                                    clearable: "",
-                                                    dense: "",
-                                                    color: "dark",
-                                                  },
-                                                  model: {
-                                                    value:
-                                                      _vm.lce.lce_last_name,
-                                                    callback: function ($$v) {
-                                                      _vm.$set(
-                                                        _vm.lce,
-                                                        "lce_last_name",
-                                                        $$v
-                                                      )
-                                                    },
-                                                    expression:
-                                                      "lce.lce_last_name",
-                                                  },
-                                                }),
-                                              ]
-                                            },
-                                          },
-                                        ],
-                                        null,
-                                        true
-                                      ),
-                                    }),
-                                  ],
-                                  1
-                                ),
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              { staticClass: "grid grid-cols-5 gap-x-2" },
-                              [
-                                _c("ValidationProvider", {
-                                  attrs: {
-                                    vid: "salutation",
-                                    name: "Salutation",
-                                    rules: "required",
-                                  },
-                                  scopedSlots: _vm._u(
-                                    [
-                                      {
-                                        key: "default",
-                                        fn: function (ref) {
-                                          var errors = ref.errors
-                                          return [
-                                            _c("v-text-field", {
-                                              attrs: {
-                                                label: "Salutation",
-                                                "error-messages": errors[0],
-                                                outlined: "",
-                                                clearable: "",
-                                                dense: "",
-                                                color: "dark",
-                                                hint: "Mayor",
-                                                "persistent-hint": "",
-                                              },
-                                              model: {
-                                                value: _vm.lce.lce_salutation,
-                                                callback: function ($$v) {
-                                                  _vm.$set(
-                                                    _vm.lce,
-                                                    "lce_salutation",
-                                                    $$v
-                                                  )
-                                                },
-                                                expression:
-                                                  "lce.lce_salutation",
-                                              },
-                                            }),
-                                          ]
-                                        },
-                                      },
-                                    ],
-                                    null,
-                                    true
-                                  ),
-                                }),
-                                _vm._v(" "),
-                                _c(
-                                  "div",
-                                  { staticClass: "col-span-4" },
-                                  [
-                                    _c("ValidationProvider", {
-                                      attrs: {
-                                        vid: "position",
-                                        name: "Position",
-                                        rules: "required",
-                                      },
-                                      scopedSlots: _vm._u(
-                                        [
-                                          {
-                                            key: "default",
-                                            fn: function (ref) {
-                                              var errors = ref.errors
-                                              return [
-                                                _c("v-text-field", {
-                                                  attrs: {
-                                                    label: "Position",
-                                                    "error-messages": errors[0],
-                                                    outlined: "",
-                                                    clearable: "",
-                                                    dense: "",
-                                                    color: "dark",
-                                                    hint: "Municipal Mayor",
-                                                    "persistent-hint": "",
-                                                  },
-                                                  model: {
-                                                    value: _vm.lce.lce_position,
-                                                    callback: function ($$v) {
-                                                      _vm.$set(
-                                                        _vm.lce,
-                                                        "lce_position",
-                                                        $$v
-                                                      )
-                                                    },
-                                                    expression:
-                                                      "lce.lce_position",
-                                                  },
-                                                }),
-                                              ]
-                                            },
-                                          },
-                                        ],
-                                        null,
-                                        true
-                                      ),
-                                    }),
-                                  ],
-                                  1
-                                ),
-                              ],
-                              1
-                            ),
-                          ]),
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "v-card",
-                        [
-                          _c("v-card-title", [
-                            _vm._v(" Focal Person Information "),
-                          ]),
-                          _vm._v(" "),
-                          _c(
-                            "v-card-text",
-                            [
-                              _c("ValidationProvider", {
-                                attrs: {
-                                  vid: "focal",
-                                  name: "Focal Person",
-                                  rules: "required",
-                                },
-                                scopedSlots: _vm._u(
-                                  [
-                                    {
-                                      key: "default",
-                                      fn: function (ref) {
-                                        var errors = ref.errors
-                                        return [
-                                          _c("v-text-field", {
-                                            attrs: {
-                                              label: "Focal Person",
-                                              "error-messages": errors[0],
-                                              outlined: "",
-                                              clearable: "",
-                                              dense: "",
-                                              color: "dark",
-                                            },
-                                            model: {
-                                              value: _vm.lce.lce_focal_person,
-                                              callback: function ($$v) {
-                                                _vm.$set(
-                                                  _vm.lce,
-                                                  "lce_focal_person",
-                                                  $$v
-                                                )
-                                              },
-                                              expression:
-                                                "lce.lce_focal_person",
-                                            },
-                                          }),
-                                        ]
-                                      },
-                                    },
-                                  ],
-                                  null,
-                                  true
-                                ),
-                              }),
-                              _vm._v(" "),
-                              _c("ValidationProvider", {
-                                attrs: {
-                                  vid: "contact_no",
-                                  name: "Contact Number",
-                                  rules: "required",
-                                },
-                                scopedSlots: _vm._u(
-                                  [
-                                    {
-                                      key: "default",
-                                      fn: function (ref) {
-                                        var errors = ref.errors
-                                        return [
-                                          _c("v-text-field", {
-                                            attrs: {
-                                              label: "Contact No.",
-                                              "error-messages": errors[0],
-                                              outlined: "",
-                                              clearable: "",
-                                              dense: "",
-                                              color: "dark",
-                                            },
-                                            model: {
-                                              value: _vm.lce.lce_contact_number,
-                                              callback: function ($$v) {
-                                                _vm.$set(
-                                                  _vm.lce,
-                                                  "lce_contact_number",
-                                                  $$v
-                                                )
-                                              },
-                                              expression:
-                                                "lce.lce_contact_number",
-                                            },
-                                          }),
-                                        ]
-                                      },
-                                    },
-                                  ],
-                                  null,
-                                  true
-                                ),
-                              }),
-                              _vm._v(" "),
-                              _c("ValidationProvider", {
-                                attrs: {
-                                  vid: "email",
-                                  name: "Email",
-                                  rules: "required|email",
-                                },
-                                scopedSlots: _vm._u(
-                                  [
-                                    {
-                                      key: "default",
-                                      fn: function (ref) {
-                                        var errors = ref.errors
-                                        return [
-                                          _c("v-text-field", {
-                                            attrs: {
-                                              label: "Email",
-                                              "error-messages": errors[0],
-                                              outlined: "",
-                                              clearable: "",
-                                              dense: "",
-                                              color: "dark",
-                                              type: "email",
-                                            },
-                                            model: {
-                                              value: _vm.lce.lce_email_address,
-                                              callback: function ($$v) {
-                                                _vm.$set(
-                                                  _vm.lce,
-                                                  "lce_email_address",
-                                                  $$v
-                                                )
-                                              },
-                                              expression:
-                                                "lce.lce_email_address",
-                                            },
-                                          }),
-                                        ]
-                                      },
-                                    },
-                                  ],
-                                  null,
-                                  true
-                                ),
-                              }),
-                            ],
-                            1
->>>>>>> 8425e14339c6e0ff0b42bb9576a28d9dc1072f1b
                           ),
                         ],
                         1
                       ),
-<<<<<<< HEAD
                     ]),
                   ],
                   1
                 ),
-=======
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "flex justify-center mt-4" },
-                    [
-                      _c(
-                        "v-btn",
-                        {
-                          attrs: {
-                            color: "red darken-2",
-                            text: "",
-                            type: "reset",
-                          },
-                        },
-                        [_vm._v("Reset")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "v-btn",
-                        { attrs: { color: "primary", type: "submit" } },
-                        [_vm._v("Save")]
-                      ),
-                    ],
-                    1
-                  ),
-                ]),
->>>>>>> 8425e14339c6e0ff0b42bb9576a28d9dc1072f1b
               ]
             },
           },
