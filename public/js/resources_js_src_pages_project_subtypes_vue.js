@@ -2682,9 +2682,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     };
   },
   computed: {
+<<<<<<< HEAD
     lce_id: function lce_id() {
       return this.lce_details.id;
     },
+=======
+>>>>>>> e752c282dc0c6e23cb680214223b3805dd25afa2
     lce_details: function lce_details() {
       return this.lce_edit[0];
     },
