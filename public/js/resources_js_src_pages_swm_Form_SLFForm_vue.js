@@ -513,109 +513,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _mixins__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../mixins */ "./resources/js/src/mixins/index.js");
 
 
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -1036,13 +943,18 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     Link: _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_2__.Link
   },
   mixins: [_mixins__WEBPACK_IMPORTED_MODULE_4__.page, _mixins__WEBPACK_IMPORTED_MODULE_4__.toasts, _mixins__WEBPACK_IMPORTED_MODULE_4__.swm, _mixins__WEBPACK_IMPORTED_MODULE_4__.dialogs],
+  mounted: function mounted() {
+    if (this.lce_info.length > 0) {
+      this.slf = _objectSpread({}, this.lce_info[0]);
+    }
+  },
   methods: {
     saveForm: function saveForm() {
-      console.log(this.slf); // if (this.slf_edit.length > 0) {
-      //     this.updateLCEForm();
-      // } else {
-      //     this.saveSLFForm();
-      // }
+      if (this.lce_info.length > 0) {
+        this.updateLCEForm();
+      } else {
+        this.saveSLFForm();
+      }
     },
     saveSLFForm: function saveSLFForm() {
       var _this = this;
@@ -1054,9 +966,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context.prev = _context.next) {
               case 0:
                 _context.prev = 0;
-                data = _objectSpread({}, _this.lce);
+                data = _objectSpread(_objectSpread({}, _this.slf), {}, {
+                  lce_FK: _this.lce_info[0].id
+                });
                 _context.next = 4;
-                return _this.$inertia.post("#", data);
+                return _this.$inertia.post("/app/swm/slf_register_process", data);
 
               case 4:
                 _context.next = 10;
@@ -1087,9 +1001,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context2.prev = _context2.next) {
               case 0:
                 _context2.prev = 0;
-                data = _objectSpread({}, _this2.lce);
+                data = _objectSpread(_objectSpread({}, _this2.slf), {}, {
+                  lce_FK: _this2.lce_info[0].id
+                });
                 _context2.next = 4;
-                return _this2.$inertia.post("/app/swm/lce_update_process", data);
+                return _this2.$inertia.post("/app/swm/slf_update_process", data);
 
               case 4:
                 _context2.next = 10;
@@ -2716,7 +2632,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     lce_edit: Array,
-    province_dropdown: Array
+    province_dropdown: Array,
+    lce_info: Array
   },
   data: function data() {
     return {
@@ -2810,6 +2727,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     cityMun_id: function cityMun_id() {
       return this.complete_address_setter.cityMun.PK_citymun_ID;
+    },
+    slf_address: function slf_address() {
+      var _this$lce_info$ = this.lce_info[0],
+          provDesc = _this$lce_info$.provDesc,
+          citymunDesc = _this$lce_info$.citymunDesc,
+          lce_zip_code = _this$lce_info$.lce_zip_code,
+          districtCode = _this$lce_info$.districtCode;
+      return "".concat(citymunDesc, ", District No ").concat(districtCode, ", ").concat(provDesc, ", ").concat(lce_zip_code, " ");
     }
   },
   watch: {
@@ -21652,183 +21577,150 @@ var render = function () {
               var handleSubmit = ref.handleSubmit
               var invalid = ref.invalid
               return [
-                _c("v-container", [
-                  _c(
-                    "div",
-                    { staticClass: "space-y-4" },
-                    [
+                _c(
+                  "form",
+                  {
+                    on: {
+                      submit: function ($event) {
+                        $event.preventDefault()
+                        return _vm.saveForm.apply(null, arguments)
+                      },
+                    },
+                  },
+                  [
+                    _c("v-container", [
                       _c(
-                        "v-card",
+                        "div",
+                        { staticClass: "space-y-4" },
                         [
-                          _c("v-card-title", [_vm._v(" Address Information ")]),
+                          _c(
+                            "v-card",
+                            [
+                              _c("v-card-title", [
+                                _vm._v(" Address Information "),
+                              ]),
+                              _vm._v(" "),
+                              _c("v-card-text", {}, [
+                                _vm._v(
+                                  "\n                            " +
+                                    _vm._s(_vm.slf_address) +
+                                    "\n                            "
+                                ),
+                                _c(
+                                  "div",
+                                  { staticClass: "grid grid-cols-2 gap-2" },
+                                  [
+                                    _c("ValidationProvider", {
+                                      attrs: {
+                                        vid: "lat",
+                                        name: "Latitude",
+                                        rules: "required",
+                                      },
+                                      scopedSlots: _vm._u(
+                                        [
+                                          {
+                                            key: "default",
+                                            fn: function (ref) {
+                                              var errors = ref.errors
+                                              return [
+                                                _c("v-text-field", {
+                                                  attrs: {
+                                                    label: "Latitude",
+                                                    "error-messages": errors[0],
+                                                    outlined: "",
+                                                    clearable: "",
+                                                    dense: "",
+                                                    color: "dark",
+                                                  },
+                                                  model: {
+                                                    value: _vm.slf.slf_latitude,
+                                                    callback: function ($$v) {
+                                                      _vm.$set(
+                                                        _vm.slf,
+                                                        "slf_latitude",
+                                                        $$v
+                                                      )
+                                                    },
+                                                    expression:
+                                                      "slf.slf_latitude",
+                                                  },
+                                                }),
+                                              ]
+                                            },
+                                          },
+                                        ],
+                                        null,
+                                        true
+                                      ),
+                                    }),
+                                    _vm._v(" "),
+                                    _c("ValidationProvider", {
+                                      attrs: {
+                                        vid: "long",
+                                        name: "Longitude",
+                                        rules: "required",
+                                      },
+                                      scopedSlots: _vm._u(
+                                        [
+                                          {
+                                            key: "default",
+                                            fn: function (ref) {
+                                              var errors = ref.errors
+                                              return [
+                                                _c("v-text-field", {
+                                                  attrs: {
+                                                    label: "Longitude",
+                                                    "error-messages": errors[0],
+                                                    outlined: "",
+                                                    clearable: "",
+                                                    dense: "",
+                                                    color: "dark",
+                                                  },
+                                                  model: {
+                                                    value:
+                                                      _vm.slf.slf_longitude,
+                                                    callback: function ($$v) {
+                                                      _vm.$set(
+                                                        _vm.slf,
+                                                        "slf_longitude",
+                                                        $$v
+                                                      )
+                                                    },
+                                                    expression:
+                                                      "slf.slf_longitude",
+                                                  },
+                                                }),
+                                              ]
+                                            },
+                                          },
+                                        ],
+                                        null,
+                                        true
+                                      ),
+                                    }),
+                                  ],
+                                  1
+                                ),
+                              ]),
+                            ],
+                            1
+                          ),
                           _vm._v(" "),
                           _c(
-                            "v-card-text",
-                            {},
+                            "v-card",
                             [
+                              _c("v-card-title", [
+                                _vm._v(" Operator Information "),
+                              ]),
+                              _vm._v(" "),
                               _c(
-                                "div",
-                                { staticClass: "grid grid-cols-3 gap-2" },
+                                "v-card-text",
+                                { staticClass: "grid grid-cols-2 gap-2" },
                                 [
                                   _c("ValidationProvider", {
                                     attrs: {
-                                      vid: "prov",
-                                      name: "Province",
-                                      rules: "required",
-                                    },
-                                    scopedSlots: _vm._u(
-                                      [
-                                        {
-                                          key: "default",
-                                          fn: function (ref) {
-                                            var errors = ref.errors
-                                            return [
-                                              _c("v-select", {
-                                                attrs: {
-                                                  items: _vm.province_dropdown,
-                                                  label: "Select Province",
-                                                  "error-messages": errors[0],
-                                                  outlined: "",
-                                                  "item-text": "provDesc",
-                                                  "return-object": "",
-                                                  clearable: "",
-                                                  dense: "",
-                                                  color: "dark",
-                                                  hint: "La Union",
-                                                  "persistent-hint": "",
-                                                },
-                                                model: {
-                                                  value:
-                                                    _vm.complete_address_setter
-                                                      .prov,
-                                                  callback: function ($$v) {
-                                                    _vm.$set(
-                                                      _vm.complete_address_setter,
-                                                      "prov",
-                                                      $$v
-                                                    )
-                                                  },
-                                                  expression:
-                                                    "complete_address_setter.prov",
-                                                },
-                                              }),
-                                            ]
-                                          },
-                                        },
-                                      ],
-                                      null,
-                                      true
-                                    ),
-                                  }),
-                                  _vm._v(" "),
-                                  _c("ValidationProvider", {
-                                    attrs: {
-                                      vid: "mun",
-                                      name: "Municipaliiy",
-                                      rules: "required",
-                                    },
-                                    scopedSlots: _vm._u(
-                                      [
-                                        {
-                                          key: "default",
-                                          fn: function (ref) {
-                                            var errors = ref.errors
-                                            return [
-                                              _c("v-select", {
-                                                attrs: {
-                                                  disabled: !_vm.cityMun.length,
-                                                  items: _vm.cityMun,
-                                                  label: "Select Municipality",
-                                                  "error-messages": errors[0],
-                                                  "item-text": "citymunDesc",
-                                                  "return-object": "",
-                                                  outlined: "",
-                                                  clearable: "",
-                                                  dense: "",
-                                                  color: "dark",
-                                                  hint: "City of San Fernando",
-                                                  "persistent-hint": "",
-                                                },
-                                                model: {
-                                                  value:
-                                                    _vm.complete_address_setter
-                                                      .cityMun,
-                                                  callback: function ($$v) {
-                                                    _vm.$set(
-                                                      _vm.complete_address_setter,
-                                                      "cityMun",
-                                                      $$v
-                                                    )
-                                                  },
-                                                  expression:
-                                                    "\n                                        complete_address_setter.cityMun\n                                    ",
-                                                },
-                                              }),
-                                            ]
-                                          },
-                                        },
-                                      ],
-                                      null,
-                                      true
-                                    ),
-                                  }),
-                                  _vm._v(" "),
-                                  _c("ValidationProvider", {
-                                    attrs: {
-                                      vid: "brgy",
-                                      name: "Barangay",
-                                      rules: "required",
-                                    },
-                                    scopedSlots: _vm._u(
-                                      [
-                                        {
-                                          key: "default",
-                                          fn: function (ref) {
-                                            var errors = ref.errors
-                                            return [
-                                              _c("v-select", {
-                                                attrs: {
-                                                  disabled: !_vm.brgy.length,
-                                                  items: _vm.brgy,
-                                                  label: "Select Barangay",
-                                                  "error-messages": errors[0],
-                                                  "item-text": "brgyDesc",
-                                                  "return-object": "",
-                                                  outlined: "",
-                                                  clearable: "",
-                                                  dense: "",
-                                                  color: "dark",
-                                                  hint: "Sevilla",
-                                                  "persistent-hint": "",
-                                                },
-                                                model: {
-                                                  value:
-                                                    _vm.complete_address_setter
-                                                      .brgy,
-                                                  callback: function ($$v) {
-                                                    _vm.$set(
-                                                      _vm.complete_address_setter,
-                                                      "brgy",
-                                                      $$v
-                                                    )
-                                                  },
-                                                  expression:
-                                                    "complete_address_setter.brgy",
-                                                },
-                                              }),
-                                            ]
-                                          },
-                                        },
-                                      ],
-                                      null,
-                                      true
-                                    ),
-                                  }),
-                                  _vm._v(" "),
-                                  _c("ValidationProvider", {
-                                    attrs: {
-                                      vid: "zpip",
-                                      name: "Zip Code",
+                                      vid: "proj_operator",
+                                      name: "Project Operator",
                                       rules: "required",
                                     },
                                     scopedSlots: _vm._u(
@@ -21840,7 +21732,7 @@ var render = function () {
                                             return [
                                               _c("v-text-field", {
                                                 attrs: {
-                                                  label: "Zip Code",
+                                                  label: "Project Operator",
                                                   "error-messages": errors[0],
                                                   outlined: "",
                                                   clearable: "",
@@ -21849,61 +21741,17 @@ var render = function () {
                                                 },
                                                 model: {
                                                   value:
-                                                    _vm.complete_address_setter
-                                                      .zip,
-                                                  callback: function ($$v) {
-                                                    _vm.$set(
-                                                      _vm.complete_address_setter,
-                                                      "zip",
-                                                      $$v
-                                                    )
-                                                  },
-                                                  expression:
-                                                    "complete_address_setter.zip",
-                                                },
-                                              }),
-                                            ]
-                                          },
-                                        },
-                                      ],
-                                      null,
-                                      true
-                                    ),
-                                  }),
-                                  _vm._v(" "),
-                                  _c("ValidationProvider", {
-                                    attrs: {
-                                      vid: "lat",
-                                      name: "Latitude",
-                                      rules: "required",
-                                    },
-                                    scopedSlots: _vm._u(
-                                      [
-                                        {
-                                          key: "default",
-                                          fn: function (ref) {
-                                            var errors = ref.errors
-                                            return [
-                                              _c("v-text-field", {
-                                                attrs: {
-                                                  label: "Latitude",
-                                                  "error-messages": errors[0],
-                                                  outlined: "",
-                                                  clearable: "",
-                                                  dense: "",
-                                                  color: "dark",
-                                                },
-                                                model: {
-                                                  value: _vm.slf.slf_latitude,
+                                                    _vm.slf
+                                                      .slf_project_operator,
                                                   callback: function ($$v) {
                                                     _vm.$set(
                                                       _vm.slf,
-                                                      "slf_latitude",
+                                                      "slf_project_operator",
                                                       $$v
                                                     )
                                                   },
                                                   expression:
-                                                    "slf.slf_latitude",
+                                                    "slf.slf_project_operator",
                                                 },
                                               }),
                                             ]
@@ -21917,8 +21765,8 @@ var render = function () {
                                   _vm._v(" "),
                                   _c("ValidationProvider", {
                                     attrs: {
-                                      vid: "long",
-                                      name: "Longitude",
+                                      vid: "ecc_no",
+                                      name: "ECC Number",
                                       rules: "required",
                                     },
                                     scopedSlots: _vm._u(
@@ -21930,7 +21778,7 @@ var render = function () {
                                             return [
                                               _c("v-text-field", {
                                                 attrs: {
-                                                  label: "Longitude",
+                                                  label: "ECC Number",
                                                   "error-messages": errors[0],
                                                   outlined: "",
                                                   clearable: "",
@@ -21938,16 +21786,106 @@ var render = function () {
                                                   color: "dark",
                                                 },
                                                 model: {
-                                                  value: _vm.slf.slf_longitude,
+                                                  value: _vm.slf.slf_ecc_number,
                                                   callback: function ($$v) {
                                                     _vm.$set(
                                                       _vm.slf,
-                                                      "slf_longitude",
+                                                      "slf_ecc_number",
                                                       $$v
                                                     )
                                                   },
                                                   expression:
-                                                    "slf.slf_longitude",
+                                                    "slf.slf_ecc_number",
+                                                },
+                                              }),
+                                            ]
+                                          },
+                                        },
+                                      ],
+                                      null,
+                                      true
+                                    ),
+                                  }),
+                                  _vm._v(" "),
+                                  _c("ValidationProvider", {
+                                    attrs: {
+                                      vid: "contact_person",
+                                      name: "Contact Person",
+                                      rules: "required",
+                                    },
+                                    scopedSlots: _vm._u(
+                                      [
+                                        {
+                                          key: "default",
+                                          fn: function (ref) {
+                                            var errors = ref.errors
+                                            return [
+                                              _c("v-text-field", {
+                                                attrs: {
+                                                  label: "Contact Person",
+                                                  "error-messages": errors[0],
+                                                  outlined: "",
+                                                  clearable: "",
+                                                  dense: "",
+                                                  color: "dark",
+                                                },
+                                                model: {
+                                                  value:
+                                                    _vm.slf.slf_contact_person,
+                                                  callback: function ($$v) {
+                                                    _vm.$set(
+                                                      _vm.slf,
+                                                      "slf_contact_person",
+                                                      $$v
+                                                    )
+                                                  },
+                                                  expression:
+                                                    "slf.slf_contact_person",
+                                                },
+                                              }),
+                                            ]
+                                          },
+                                        },
+                                      ],
+                                      null,
+                                      true
+                                    ),
+                                  }),
+                                  _vm._v(" "),
+                                  _c("ValidationProvider", {
+                                    attrs: {
+                                      vid: "contact_no",
+                                      name: "Contact Number",
+                                      rules: "required",
+                                    },
+                                    scopedSlots: _vm._u(
+                                      [
+                                        {
+                                          key: "default",
+                                          fn: function (ref) {
+                                            var errors = ref.errors
+                                            return [
+                                              _c("v-text-field", {
+                                                attrs: {
+                                                  label: "Contact Number",
+                                                  "error-messages": errors[0],
+                                                  outlined: "",
+                                                  clearable: "",
+                                                  dense: "",
+                                                  color: "dark",
+                                                },
+                                                model: {
+                                                  value:
+                                                    _vm.slf.slf_contact_number,
+                                                  callback: function ($$v) {
+                                                    _vm.$set(
+                                                      _vm.slf,
+                                                      "slf_contact_number",
+                                                      $$v
+                                                    )
+                                                  },
+                                                  expression:
+                                                    "slf.slf_contact_number",
                                                 },
                                               }),
                                             ]
@@ -21961,78 +21899,358 @@ var render = function () {
                                 ],
                                 1
                               ),
-                              _vm._v(" "),
-                              _c("ValidationProvider", {
-                                attrs: {
-                                  vid: "address",
-                                  name: "Complete Address",
-                                  rules: "required",
-                                },
-                                scopedSlots: _vm._u(
-                                  [
-                                    {
-                                      key: "default",
-                                      fn: function (ref) {
-                                        var errors = ref.errors
-                                        return [
-                                          _c("v-text-field", {
-                                            attrs: {
-                                              label: "Complete Address",
-                                              "error-messages": errors[0],
-                                              outlined: "",
-                                              clearable: "",
-                                              dense: "",
-                                              color: "dark",
-                                            },
-                                            model: {
-                                              value:
-                                                _vm.slf.slf_complete_address,
-                                              callback: function ($$v) {
-                                                _vm.$set(
-                                                  _vm.slf,
-                                                  "slf_complete_address",
-                                                  $$v
-                                                )
-                                              },
-                                              expression:
-                                                "slf.slf_complete_address",
-                                            },
-                                          }),
-                                        ]
-                                      },
-                                    },
-                                  ],
-                                  null,
-                                  true
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "v-card",
+                            [
+                              _c("v-card-title", [
+                                _vm._v(
+                                  "\n                            Site Capacity Information\n                        "
                                 ),
-                              }),
-                              _vm._v(
-                                "\n                        " +
-                                  _vm._s(_vm.complete_address) +
-                                  "\n                    "
+                              ]),
+                              _vm._v(" "),
+                              _c(
+                                "v-card-text",
+                                { staticClass: "grid grid-cols-4 gap-2" },
+                                [
+                                  _c("ValidationProvider", {
+                                    attrs: {
+                                      vid: "cat",
+                                      name: "Select Category",
+                                      rules: "required",
+                                    },
+                                    scopedSlots: _vm._u(
+                                      [
+                                        {
+                                          key: "default",
+                                          fn: function (ref) {
+                                            var errors = ref.errors
+                                            return [
+                                              _c("v-select", {
+                                                attrs: {
+                                                  items: _vm.category,
+                                                  label: "Select Category",
+                                                  "error-messages": errors[0],
+                                                  outlined: "",
+                                                  clearable: "",
+                                                  dense: "",
+                                                  color: "dark",
+                                                },
+                                                model: {
+                                                  value: _vm.slf.slf_category,
+                                                  callback: function ($$v) {
+                                                    _vm.$set(
+                                                      _vm.slf,
+                                                      "slf_category",
+                                                      $$v
+                                                    )
+                                                  },
+                                                  expression:
+                                                    "slf.slf_category",
+                                                },
+                                              }),
+                                            ]
+                                          },
+                                        },
+                                      ],
+                                      null,
+                                      true
+                                    ),
+                                  }),
+                                  _vm._v(" "),
+                                  _c("ValidationProvider", {
+                                    attrs: {
+                                      vid: "site_ha",
+                                      name: "Site Hectares",
+                                      rules: "required",
+                                    },
+                                    scopedSlots: _vm._u(
+                                      [
+                                        {
+                                          key: "default",
+                                          fn: function (ref) {
+                                            var errors = ref.errors
+                                            return [
+                                              _c("v-text-field", {
+                                                attrs: {
+                                                  label: "Site Hectares",
+                                                  "error-messages": errors[0],
+                                                  outlined: "",
+                                                  clearable: "",
+                                                  dense: "",
+                                                  color: "dark",
+                                                },
+                                                model: {
+                                                  value:
+                                                    _vm.slf.slf_site_hectares,
+                                                  callback: function ($$v) {
+                                                    _vm.$set(
+                                                      _vm.slf,
+                                                      "slf_site_hectares",
+                                                      $$v
+                                                    )
+                                                  },
+                                                  expression:
+                                                    "slf.slf_site_hectares",
+                                                },
+                                              }),
+                                            ]
+                                          },
+                                        },
+                                      ],
+                                      null,
+                                      true
+                                    ),
+                                  }),
+                                  _vm._v(" "),
+                                  _c("ValidationProvider", {
+                                    attrs: {
+                                      vid: "site_cap",
+                                      name: "Site Capacity",
+                                      rules: "required",
+                                    },
+                                    scopedSlots: _vm._u(
+                                      [
+                                        {
+                                          key: "default",
+                                          fn: function (ref) {
+                                            var errors = ref.errors
+                                            return [
+                                              _c("v-text-field", {
+                                                attrs: {
+                                                  label: "Site Capacity",
+                                                  "error-messages": errors[0],
+                                                  outlined: "",
+                                                  clearable: "",
+                                                  dense: "",
+                                                  color: "dark",
+                                                },
+                                                model: {
+                                                  value:
+                                                    _vm.slf.slf_total_capacity,
+                                                  callback: function ($$v) {
+                                                    _vm.$set(
+                                                      _vm.slf,
+                                                      "slf_total_capacity",
+                                                      $$v
+                                                    )
+                                                  },
+                                                  expression:
+                                                    "slf.slf_total_capacity",
+                                                },
+                                              }),
+                                            ]
+                                          },
+                                        },
+                                      ],
+                                      null,
+                                      true
+                                    ),
+                                  }),
+                                  _vm._v(" "),
+                                  _c("ValidationProvider", {
+                                    attrs: {
+                                      vid: "tons_per_day",
+                                      name: "Tones per Day",
+                                      rules: "required",
+                                    },
+                                    scopedSlots: _vm._u(
+                                      [
+                                        {
+                                          key: "default",
+                                          fn: function (ref) {
+                                            var errors = ref.errors
+                                            return [
+                                              _c("v-text-field", {
+                                                attrs: {
+                                                  label: "Tons per Day",
+                                                  "error-messages": errors[0],
+                                                  outlined: "",
+                                                  clearable: "",
+                                                  dense: "",
+                                                  color: "dark",
+                                                },
+                                                model: {
+                                                  value:
+                                                    _vm.slf.slf_tons_per_day,
+                                                  callback: function ($$v) {
+                                                    _vm.$set(
+                                                      _vm.slf,
+                                                      "slf_tons_per_day",
+                                                      $$v
+                                                    )
+                                                  },
+                                                  expression:
+                                                    "slf.slf_tons_per_day",
+                                                },
+                                              }),
+                                            ]
+                                          },
+                                        },
+                                      ],
+                                      null,
+                                      true
+                                    ),
+                                  }),
+                                  _vm._v(" "),
+                                  _c("ValidationProvider", {
+                                    attrs: {
+                                      vid: "service_life",
+                                      name: "Service Life",
+                                      rules: "required",
+                                    },
+                                    scopedSlots: _vm._u(
+                                      [
+                                        {
+                                          key: "default",
+                                          fn: function (ref) {
+                                            var errors = ref.errors
+                                            return [
+                                              _c("v-text-field", {
+                                                attrs: {
+                                                  label: "Service Life",
+                                                  "error-messages": errors[0],
+                                                  outlined: "",
+                                                  clearable: "",
+                                                  dense: "",
+                                                  color: "dark",
+                                                },
+                                                model: {
+                                                  value:
+                                                    _vm.slf.slf_service_life,
+                                                  callback: function ($$v) {
+                                                    _vm.$set(
+                                                      _vm.slf,
+                                                      "slf_service_life",
+                                                      $$v
+                                                    )
+                                                  },
+                                                  expression:
+                                                    "slf.slf_service_life",
+                                                },
+                                              }),
+                                            ]
+                                          },
+                                        },
+                                      ],
+                                      null,
+                                      true
+                                    ),
+                                  }),
+                                  _vm._v(" "),
+                                  _c("ValidationProvider", {
+                                    attrs: {
+                                      vid: "rem_service_life",
+                                      name: "Remaining Service Life",
+                                      rules: "required",
+                                    },
+                                    scopedSlots: _vm._u(
+                                      [
+                                        {
+                                          key: "default",
+                                          fn: function (ref) {
+                                            var errors = ref.errors
+                                            return [
+                                              _c("v-text-field", {
+                                                attrs: {
+                                                  label:
+                                                    "Remaining Service Life",
+                                                  "error-messages": errors[0],
+                                                  outlined: "",
+                                                  clearable: "",
+                                                  dense: "",
+                                                  color: "dark",
+                                                },
+                                                model: {
+                                                  value:
+                                                    _vm.slf
+                                                      .slf_remaining_service_life,
+                                                  callback: function ($$v) {
+                                                    _vm.$set(
+                                                      _vm.slf,
+                                                      "slf_remaining_service_life",
+                                                      $$v
+                                                    )
+                                                  },
+                                                  expression:
+                                                    "slf.slf_remaining_service_life",
+                                                },
+                                              }),
+                                            ]
+                                          },
+                                        },
+                                      ],
+                                      null,
+                                      true
+                                    ),
+                                  }),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-span-2" },
+                                    [
+                                      _c("v-checkbox", {
+                                        attrs: {
+                                          label: "Exceeded Capacity",
+                                          value: "true",
+                                          "hide-details": "",
+                                          color: "dark",
+                                        },
+                                        model: {
+                                          value: _vm.slf.slf_exceeded_capacity,
+                                          callback: function ($$v) {
+                                            _vm.$set(
+                                              _vm.slf,
+                                              "slf_exceeded_capacity",
+                                              $$v
+                                            )
+                                          },
+                                          expression:
+                                            "slf.slf_exceeded_capacity",
+                                        },
+                                      }),
+                                      _vm._v(" "),
+                                      _c("v-checkbox", {
+                                        attrs: {
+                                          label: "With Planned Extension",
+                                          value: "true",
+                                          "hide-details": "",
+                                          color: "dark",
+                                        },
+                                        model: {
+                                          value:
+                                            _vm.slf.slf_with_planned_extension,
+                                          callback: function ($$v) {
+                                            _vm.$set(
+                                              _vm.slf,
+                                              "slf_with_planned_extension",
+                                              $$v
+                                            )
+                                          },
+                                          expression:
+                                            "slf.slf_with_planned_extension",
+                                        },
+                                      }),
+                                    ],
+                                    1
+                                  ),
+                                ],
+                                1
                               ),
                             ],
                             1
                           ),
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "v-card",
-                        [
-                          _c("v-card-title", [
-                            _vm._v(" Operator Information "),
-                          ]),
                           _vm._v(" "),
                           _c(
-                            "v-card-text",
-                            { staticClass: "grid grid-cols-2 gap-2" },
+                            "div",
                             [
                               _c("ValidationProvider", {
                                 attrs: {
-                                  vid: "proj_operator",
-                                  name: "Project Operator",
+                                  vid: "lgu_served",
+                                  name: "LGU Served",
                                   rules: "required",
                                 },
                                 scopedSlots: _vm._u(
@@ -22044,7 +22262,7 @@ var render = function () {
                                         return [
                                           _c("v-text-field", {
                                             attrs: {
-                                              label: "Project Operator",
+                                              label: "LGU Served",
                                               "error-messages": errors[0],
                                               outlined: "",
                                               clearable: "",
@@ -22052,148 +22270,15 @@ var render = function () {
                                               color: "dark",
                                             },
                                             model: {
-                                              value:
-                                                _vm.slf.slf_project_operator,
+                                              value: _vm.slf.slf_lgu_served,
                                               callback: function ($$v) {
                                                 _vm.$set(
                                                   _vm.slf,
-                                                  "slf_project_operator",
+                                                  "slf_lgu_served",
                                                   $$v
                                                 )
                                               },
-                                              expression:
-                                                "slf.slf_project_operator",
-                                            },
-                                          }),
-                                        ]
-                                      },
-                                    },
-                                  ],
-                                  null,
-                                  true
-                                ),
-                              }),
-                              _vm._v(" "),
-                              _c("ValidationProvider", {
-                                attrs: {
-                                  vid: "ecc_no",
-                                  name: "ECC Number",
-                                  rules: "required",
-                                },
-                                scopedSlots: _vm._u(
-                                  [
-                                    {
-                                      key: "default",
-                                      fn: function (ref) {
-                                        var errors = ref.errors
-                                        return [
-                                          _c("v-text-field", {
-                                            attrs: {
-                                              label: "ECC Number",
-                                              "error-messages": errors[0],
-                                              outlined: "",
-                                              clearable: "",
-                                              dense: "",
-                                              color: "dark",
-                                            },
-                                            model: {
-                                              value: _vm.slf.slf_ecc_number,
-                                              callback: function ($$v) {
-                                                _vm.$set(
-                                                  _vm.slf,
-                                                  "slf_ecc_number",
-                                                  $$v
-                                                )
-                                              },
-                                              expression: "slf.slf_ecc_number",
-                                            },
-                                          }),
-                                        ]
-                                      },
-                                    },
-                                  ],
-                                  null,
-                                  true
-                                ),
-                              }),
-                              _vm._v(" "),
-                              _c("ValidationProvider", {
-                                attrs: {
-                                  vid: "contact_person",
-                                  name: "Contact Person",
-                                  rules: "required",
-                                },
-                                scopedSlots: _vm._u(
-                                  [
-                                    {
-                                      key: "default",
-                                      fn: function (ref) {
-                                        var errors = ref.errors
-                                        return [
-                                          _c("v-text-field", {
-                                            attrs: {
-                                              label: "Contact Person",
-                                              "error-messages": errors[0],
-                                              outlined: "",
-                                              clearable: "",
-                                              dense: "",
-                                              color: "dark",
-                                            },
-                                            model: {
-                                              value: _vm.slf.slf_contact_person,
-                                              callback: function ($$v) {
-                                                _vm.$set(
-                                                  _vm.slf,
-                                                  "slf_contact_person",
-                                                  $$v
-                                                )
-                                              },
-                                              expression:
-                                                "slf.slf_contact_person",
-                                            },
-                                          }),
-                                        ]
-                                      },
-                                    },
-                                  ],
-                                  null,
-                                  true
-                                ),
-                              }),
-                              _vm._v(" "),
-                              _c("ValidationProvider", {
-                                attrs: {
-                                  vid: "contact_no",
-                                  name: "Contact Number",
-                                  rules: "required",
-                                },
-                                scopedSlots: _vm._u(
-                                  [
-                                    {
-                                      key: "default",
-                                      fn: function (ref) {
-                                        var errors = ref.errors
-                                        return [
-                                          _c("v-text-field", {
-                                            attrs: {
-                                              label: "Contact Number",
-                                              "error-messages": errors[0],
-                                              outlined: "",
-                                              clearable: "",
-                                              dense: "",
-                                              color: "dark",
-                                            },
-                                            model: {
-                                              value: _vm.slf.slf_contact_number,
-                                              callback: function ($$v) {
-                                                _vm.$set(
-                                                  _vm.slf,
-                                                  "slf_contact_number",
-                                                  $$v
-                                                )
-                                              },
-                                              expression:
-                                                "slf.slf_contact_number",
+                                              expression: "slf.slf_lgu_served",
                                             },
                                           }),
                                         ]
@@ -22207,330 +22292,381 @@ var render = function () {
                             ],
                             1
                           ),
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "v-card",
-                        [
-                          _c("v-card-title", [
-                            _vm._v(" Site Capacity Information "),
-                          ]),
                           _vm._v(" "),
                           _c(
-                            "v-card-text",
-                            { staticClass: "grid grid-cols-4 gap-2" },
+                            "v-card",
                             [
-                              _c("ValidationProvider", {
-                                attrs: {
-                                  vid: "cat",
-                                  name: "Select Category",
-                                  rules: "required",
-                                },
-                                scopedSlots: _vm._u(
-                                  [
-                                    {
-                                      key: "default",
-                                      fn: function (ref) {
-                                        var errors = ref.errors
-                                        return [
-                                          _c("v-select", {
-                                            attrs: {
-                                              items: _vm.category,
-                                              label: "Select Category",
-                                              "error-messages": errors[0],
-                                              outlined: "",
-                                              clearable: "",
-                                              dense: "",
-                                              color: "dark",
-                                            },
-                                            model: {
-                                              value: _vm.slf.slf_category,
-                                              callback: function ($$v) {
-                                                _vm.$set(
-                                                  _vm.slf,
-                                                  "slf_category",
-                                                  $$v
-                                                )
-                                              },
-                                              expression: "slf.slf_category",
-                                            },
-                                          }),
-                                        ]
-                                      },
-                                    },
-                                  ],
-                                  null,
-                                  true
+                              _c("v-card-title", [
+                                _vm._v(
+                                  "\n                            Treatment Process And Facilities Information\n                        "
                                 ),
-                              }),
-                              _vm._v(" "),
-                              _c("ValidationProvider", {
-                                attrs: {
-                                  vid: "site_ha",
-                                  name: "Site Hectares",
-                                  rules: "required",
-                                },
-                                scopedSlots: _vm._u(
-                                  [
-                                    {
-                                      key: "default",
-                                      fn: function (ref) {
-                                        var errors = ref.errors
-                                        return [
-                                          _c("v-text-field", {
-                                            attrs: {
-                                              label: "Site Hectares",
-                                              "error-messages": errors[0],
-                                              outlined: "",
-                                              clearable: "",
-                                              dense: "",
-                                              color: "dark",
-                                            },
-                                            model: {
-                                              value: _vm.slf.slf_site_hectares,
-                                              callback: function ($$v) {
-                                                _vm.$set(
-                                                  _vm.slf,
-                                                  "slf_site_hectares",
-                                                  $$v
-                                                )
-                                              },
-                                              expression:
-                                                "slf.slf_site_hectares",
-                                            },
-                                          }),
-                                        ]
-                                      },
-                                    },
-                                  ],
-                                  null,
-                                  true
-                                ),
-                              }),
-                              _vm._v(" "),
-                              _c("ValidationProvider", {
-                                attrs: {
-                                  vid: "site_cap",
-                                  name: "Site Capacity",
-                                  rules: "required",
-                                },
-                                scopedSlots: _vm._u(
-                                  [
-                                    {
-                                      key: "default",
-                                      fn: function (ref) {
-                                        var errors = ref.errors
-                                        return [
-                                          _c("v-text-field", {
-                                            attrs: {
-                                              label: "Site Capacity",
-                                              "error-messages": errors[0],
-                                              outlined: "",
-                                              clearable: "",
-                                              dense: "",
-                                              color: "dark",
-                                            },
-                                            model: {
-                                              value: _vm.slf.slf_site_capacity,
-                                              callback: function ($$v) {
-                                                _vm.$set(
-                                                  _vm.slf,
-                                                  "slf_site_capacity",
-                                                  $$v
-                                                )
-                                              },
-                                              expression:
-                                                "slf.slf_site_capacity",
-                                            },
-                                          }),
-                                        ]
-                                      },
-                                    },
-                                  ],
-                                  null,
-                                  true
-                                ),
-                              }),
-                              _vm._v(" "),
-                              _c("ValidationProvider", {
-                                attrs: {
-                                  vid: "tons_per_day",
-                                  name: "Tones per Day",
-                                  rules: "required",
-                                },
-                                scopedSlots: _vm._u(
-                                  [
-                                    {
-                                      key: "default",
-                                      fn: function (ref) {
-                                        var errors = ref.errors
-                                        return [
-                                          _c("v-text-field", {
-                                            attrs: {
-                                              label: "Tons per Day",
-                                              "error-messages": errors[0],
-                                              outlined: "",
-                                              clearable: "",
-                                              dense: "",
-                                              color: "dark",
-                                            },
-                                            model: {
-                                              value: _vm.slf.slf_tones_per_day,
-                                              callback: function ($$v) {
-                                                _vm.$set(
-                                                  _vm.slf,
-                                                  "slf_tones_per_day",
-                                                  $$v
-                                                )
-                                              },
-                                              expression:
-                                                "slf.slf_tones_per_day",
-                                            },
-                                          }),
-                                        ]
-                                      },
-                                    },
-                                  ],
-                                  null,
-                                  true
-                                ),
-                              }),
-                              _vm._v(" "),
-                              _c("ValidationProvider", {
-                                attrs: {
-                                  vid: "service_life",
-                                  name: "Service Life",
-                                  rules: "required",
-                                },
-                                scopedSlots: _vm._u(
-                                  [
-                                    {
-                                      key: "default",
-                                      fn: function (ref) {
-                                        var errors = ref.errors
-                                        return [
-                                          _c("v-text-field", {
-                                            attrs: {
-                                              label: "Service Life",
-                                              "error-messages": errors[0],
-                                              outlined: "",
-                                              clearable: "",
-                                              dense: "",
-                                              color: "dark",
-                                            },
-                                            model: {
-                                              value: _vm.slf.slf_service_life,
-                                              callback: function ($$v) {
-                                                _vm.$set(
-                                                  _vm.slf,
-                                                  "slf_service_life",
-                                                  $$v
-                                                )
-                                              },
-                                              expression:
-                                                "slf.slf_service_life",
-                                            },
-                                          }),
-                                        ]
-                                      },
-                                    },
-                                  ],
-                                  null,
-                                  true
-                                ),
-                              }),
-                              _vm._v(" "),
-                              _c("ValidationProvider", {
-                                attrs: {
-                                  vid: "rem_service_life",
-                                  name: "Remaining Service Life",
-                                  rules: "required",
-                                },
-                                scopedSlots: _vm._u(
-                                  [
-                                    {
-                                      key: "default",
-                                      fn: function (ref) {
-                                        var errors = ref.errors
-                                        return [
-                                          _c("v-text-field", {
-                                            attrs: {
-                                              label: "Remaining Service Life",
-                                              "error-messages": errors[0],
-                                              outlined: "",
-                                              clearable: "",
-                                              dense: "",
-                                              color: "dark",
-                                            },
-                                            model: {
-                                              value:
-                                                _vm.slf
-                                                  .slf_remaining_service_life,
-                                              callback: function ($$v) {
-                                                _vm.$set(
-                                                  _vm.slf,
-                                                  "slf_remaining_service_life",
-                                                  $$v
-                                                )
-                                              },
-                                              expression:
-                                                "slf.slf_remaining_service_life",
-                                            },
-                                          }),
-                                        ]
-                                      },
-                                    },
-                                  ],
-                                  null,
-                                  true
-                                ),
-                              }),
+                              ]),
                               _vm._v(" "),
                               _c(
-                                "div",
-                                { staticClass: "col-span-2" },
+                                "v-card-text",
+                                { staticClass: "grid grid-cols-4 gap-2" },
                                 [
-                                  _c("v-checkbox", {
+                                  _c("ValidationProvider", {
                                     attrs: {
-                                      label: "Exceeded Capacity",
-                                      value: "true",
-                                      "hide-details": "",
-                                      color: "dark",
+                                      vid: "leachate",
+                                      name: "Leachate Treatment",
+                                      rules: "required",
                                     },
-                                    model: {
-                                      value: _vm.slf.slf_exceeded_capacity,
-                                      callback: function ($$v) {
-                                        _vm.$set(
-                                          _vm.slf,
-                                          "slf_exceeded_capacity",
-                                          $$v
-                                        )
-                                      },
-                                      expression: "slf.slf_exceeded_capacity",
-                                    },
+                                    scopedSlots: _vm._u(
+                                      [
+                                        {
+                                          key: "default",
+                                          fn: function (ref) {
+                                            var errors = ref.errors
+                                            return [
+                                              _c("v-select", {
+                                                attrs: {
+                                                  items: _vm.leachment_type,
+                                                  label: "Leachate Treatment",
+                                                  "error-messages": errors[0],
+                                                  outlined: "",
+                                                  clearable: "",
+                                                  dense: "",
+                                                  color: "dark",
+                                                },
+                                                model: {
+                                                  value:
+                                                    _vm.slf
+                                                      .slf_leachate_treatment,
+                                                  callback: function ($$v) {
+                                                    _vm.$set(
+                                                      _vm.slf,
+                                                      "slf_leachate_treatment",
+                                                      $$v
+                                                    )
+                                                  },
+                                                  expression:
+                                                    "slf.slf_leachate_treatment",
+                                                },
+                                              }),
+                                            ]
+                                          },
+                                        },
+                                      ],
+                                      null,
+                                      true
+                                    ),
                                   }),
                                   _vm._v(" "),
-                                  _c("v-checkbox", {
+                                  _c("ValidationProvider", {
                                     attrs: {
-                                      label: "With Planned Extension",
-                                      value: "true",
-                                      "hide-details": "",
-                                      color: "dark",
+                                      vid: "soil_cover",
+                                      name: "Daily Soil Cover",
+                                      rules: "required",
                                     },
-                                    model: {
-                                      value: _vm.slf.slf_with_planned_extension,
-                                      callback: function ($$v) {
-                                        _vm.$set(
-                                          _vm.slf,
-                                          "slf_with_planned_extension",
-                                          $$v
-                                        )
-                                      },
-                                      expression:
-                                        "slf.slf_with_planned_extension",
+                                    scopedSlots: _vm._u(
+                                      [
+                                        {
+                                          key: "default",
+                                          fn: function (ref) {
+                                            var errors = ref.errors
+                                            return [
+                                              _c("v-text-field", {
+                                                attrs: {
+                                                  label: "Daily Soil Cover",
+                                                  "error-messages": errors[0],
+                                                  outlined: "",
+                                                  clearable: "",
+                                                  dense: "",
+                                                  color: "dark",
+                                                },
+                                                model: {
+                                                  value:
+                                                    _vm.slf
+                                                      .slf_daily_soil_cover,
+                                                  callback: function ($$v) {
+                                                    _vm.$set(
+                                                      _vm.slf,
+                                                      "slf_daily_soil_cover",
+                                                      $$v
+                                                    )
+                                                  },
+                                                  expression:
+                                                    "slf.slf_daily_soil_cover",
+                                                },
+                                              }),
+                                            ]
+                                          },
+                                        },
+                                      ],
+                                      null,
+                                      true
+                                    ),
+                                  }),
+                                  _vm._v(" "),
+                                  _c("ValidationProvider", {
+                                    attrs: {
+                                      vid: "isMRF",
+                                      name: "Precense of MRF",
+                                      rules: "required",
                                     },
+                                    scopedSlots: _vm._u(
+                                      [
+                                        {
+                                          key: "default",
+                                          fn: function (ref) {
+                                            var errors = ref.errors
+                                            return [
+                                              _c("v-text-field", {
+                                                attrs: {
+                                                  label: "Precense of MRF",
+                                                  "error-messages": errors[0],
+                                                  outlined: "",
+                                                  clearable: "",
+                                                  dense: "",
+                                                  color: "dark",
+                                                },
+                                                model: {
+                                                  value:
+                                                    _vm.slf.slf_presence_of_mrf,
+                                                  callback: function ($$v) {
+                                                    _vm.$set(
+                                                      _vm.slf,
+                                                      "slf_presence_of_mrf",
+                                                      $$v
+                                                    )
+                                                  },
+                                                  expression:
+                                                    "slf.slf_presence_of_mrf",
+                                                },
+                                              }),
+                                            ]
+                                          },
+                                        },
+                                      ],
+                                      null,
+                                      true
+                                    ),
+                                  }),
+                                  _vm._v(" "),
+                                  _c("ValidationProvider", {
+                                    attrs: {
+                                      vid: "hazwaste",
+                                      name: "Separate Cells for Hazwaste",
+                                      rules: "required",
+                                    },
+                                    scopedSlots: _vm._u(
+                                      [
+                                        {
+                                          key: "default",
+                                          fn: function (ref) {
+                                            var errors = ref.errors
+                                            return [
+                                              _c("v-text-field", {
+                                                attrs: {
+                                                  label:
+                                                    "Separate Cells for Hazwaste",
+                                                  "error-messages": errors[0],
+                                                  outlined: "",
+                                                  clearable: "",
+                                                  dense: "",
+                                                  color: "dark",
+                                                },
+                                                model: {
+                                                  value:
+                                                    _vm.slf
+                                                      .slf_separate_cells_for_hazwaste,
+                                                  callback: function ($$v) {
+                                                    _vm.$set(
+                                                      _vm.slf,
+                                                      "slf_separate_cells_for_hazwaste",
+                                                      $$v
+                                                    )
+                                                  },
+                                                  expression:
+                                                    "\n                                        slf.slf_separate_cells_for_hazwaste\n                                    ",
+                                                },
+                                              }),
+                                            ]
+                                          },
+                                        },
+                                      ],
+                                      null,
+                                      true
+                                    ),
+                                  }),
+                                  _vm._v(" "),
+                                  _c("ValidationProvider", {
+                                    attrs: {
+                                      vid: "methan_recovery",
+                                      name: "Methane Recovery",
+                                      rules: "required",
+                                    },
+                                    scopedSlots: _vm._u(
+                                      [
+                                        {
+                                          key: "default",
+                                          fn: function (ref) {
+                                            var errors = ref.errors
+                                            return [
+                                              _c("v-text-field", {
+                                                attrs: {
+                                                  label: "Methane Recovery",
+                                                  "error-messages": errors[0],
+                                                  outlined: "",
+                                                  clearable: "",
+                                                  dense: "",
+                                                  color: "dark",
+                                                },
+                                                model: {
+                                                  value:
+                                                    _vm.slf
+                                                      .slf_methane_recovery,
+                                                  callback: function ($$v) {
+                                                    _vm.$set(
+                                                      _vm.slf,
+                                                      "slf_methane_recovery",
+                                                      $$v
+                                                    )
+                                                  },
+                                                  expression:
+                                                    "slf.slf_methane_recovery",
+                                                },
+                                              }),
+                                            ]
+                                          },
+                                        },
+                                      ],
+                                      null,
+                                      true
+                                    ),
+                                  }),
+                                  _vm._v(" "),
+                                  _c("ValidationProvider", {
+                                    attrs: {
+                                      vid: "discharge_permit",
+                                      name: "Dischage Permit",
+                                      rules: "required",
+                                    },
+                                    scopedSlots: _vm._u(
+                                      [
+                                        {
+                                          key: "default",
+                                          fn: function (ref) {
+                                            var errors = ref.errors
+                                            return [
+                                              _c("v-text-field", {
+                                                attrs: {
+                                                  label: "Discharge Permit",
+                                                  "error-messages": errors[0],
+                                                  outlined: "",
+                                                  clearable: "",
+                                                  dense: "",
+                                                  color: "dark",
+                                                },
+                                                model: {
+                                                  value:
+                                                    _vm.slf
+                                                      .slf_discharge_permit,
+                                                  callback: function ($$v) {
+                                                    _vm.$set(
+                                                      _vm.slf,
+                                                      "slf_discharge_permit",
+                                                      $$v
+                                                    )
+                                                  },
+                                                  expression:
+                                                    "slf.slf_discharge_permit",
+                                                },
+                                              }),
+                                            ]
+                                          },
+                                        },
+                                      ],
+                                      null,
+                                      true
+                                    ),
+                                  }),
+                                  _vm._v(" "),
+                                  _c("ValidationProvider", {
+                                    attrs: {
+                                      vid: "file",
+                                      name: "File",
+                                      rules: "required",
+                                    },
+                                    scopedSlots: _vm._u(
+                                      [
+                                        {
+                                          key: "default",
+                                          fn: function (ref) {
+                                            var errors = ref.errors
+                                            return [
+                                              _c("v-text-field", {
+                                                attrs: {
+                                                  label: "File",
+                                                  "error-messages": errors[0],
+                                                  outlined: "",
+                                                  clearable: "",
+                                                  dense: "",
+                                                  color: "dark",
+                                                },
+                                                model: {
+                                                  value: _vm.slf.slf_file,
+                                                  callback: function ($$v) {
+                                                    _vm.$set(
+                                                      _vm.slf,
+                                                      "slf_file",
+                                                      $$v
+                                                    )
+                                                  },
+                                                  expression: "slf.slf_file",
+                                                },
+                                              }),
+                                            ]
+                                          },
+                                        },
+                                      ],
+                                      null,
+                                      true
+                                    ),
+                                  }),
+                                  _vm._v(" "),
+                                  _c("ValidationProvider", {
+                                    attrs: {
+                                      vid: "lce_fk",
+                                      name: "LCE",
+                                      rules: "required",
+                                    },
+                                    scopedSlots: _vm._u(
+                                      [
+                                        {
+                                          key: "default",
+                                          fn: function (ref) {
+                                            var errors = ref.errors
+                                            return [
+                                              _c("v-text-field", {
+                                                attrs: {
+                                                  label: "LCE",
+                                                  "error-messages": errors[0],
+                                                  outlined: "",
+                                                  clearable: "",
+                                                  dense: "",
+                                                  color: "dark",
+                                                },
+                                                model: {
+                                                  value: _vm.slf.lce_FK,
+                                                  callback: function ($$v) {
+                                                    _vm.$set(
+                                                      _vm.slf,
+                                                      "lce_FK",
+                                                      $$v
+                                                    )
+                                                  },
+                                                  expression: "slf.lce_FK",
+                                                },
+                                              }),
+                                            ]
+                                          },
+                                        },
+                                      ],
+                                      null,
+                                      true
+                                    ),
                                   }),
                                 ],
                                 1
@@ -22544,455 +22680,32 @@ var render = function () {
                       _vm._v(" "),
                       _c(
                         "div",
+                        { staticClass: "flex justify-center mt-4" },
                         [
-                          _c("ValidationProvider", {
-                            attrs: {
-                              vid: "lgu_served",
-                              name: "LGU Served",
-                              rules: "required",
+                          _c(
+                            "v-btn",
+                            {
+                              attrs: {
+                                color: "red darken-2",
+                                text: "",
+                                type: "reset",
+                              },
                             },
-                            scopedSlots: _vm._u(
-                              [
-                                {
-                                  key: "default",
-                                  fn: function (ref) {
-                                    var errors = ref.errors
-                                    return [
-                                      _c("v-text-field", {
-                                        attrs: {
-                                          label: "LGU Served",
-                                          "error-messages": errors[0],
-                                          outlined: "",
-                                          clearable: "",
-                                          dense: "",
-                                          color: "dark",
-                                        },
-                                        model: {
-                                          value: _vm.slf.slf_lgu_served,
-                                          callback: function ($$v) {
-                                            _vm.$set(
-                                              _vm.slf,
-                                              "slf_lgu_served",
-                                              $$v
-                                            )
-                                          },
-                                          expression: "slf.slf_lgu_served",
-                                        },
-                                      }),
-                                    ]
-                                  },
-                                },
-                              ],
-                              null,
-                              true
-                            ),
-                          }),
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "v-card",
-                        [
-                          _c("v-card-title", [
-                            _vm._v(
-                              "\n                        Treatment Process And Facilities Information\n                    "
-                            ),
-                          ]),
+                            [_vm._v("Reset")]
+                          ),
                           _vm._v(" "),
                           _c(
-                            "v-card-text",
-                            { staticClass: "grid grid-cols-4 gap-2" },
-                            [
-                              _c("ValidationProvider", {
-                                attrs: {
-                                  vid: "leachate",
-                                  name: "Leachate Treatment",
-                                  rules: "required",
-                                },
-                                scopedSlots: _vm._u(
-                                  [
-                                    {
-                                      key: "default",
-                                      fn: function (ref) {
-                                        var errors = ref.errors
-                                        return [
-                                          _c("v-select", {
-                                            attrs: {
-                                              items: _vm.leachment_type,
-                                              label: "Leachate Treatment",
-                                              "error-messages": errors[0],
-                                              outlined: "",
-                                              clearable: "",
-                                              dense: "",
-                                              color: "dark",
-                                            },
-                                            model: {
-                                              value:
-                                                _vm.slf.slf_leachate_treatment,
-                                              callback: function ($$v) {
-                                                _vm.$set(
-                                                  _vm.slf,
-                                                  "slf_leachate_treatment",
-                                                  $$v
-                                                )
-                                              },
-                                              expression:
-                                                "slf.slf_leachate_treatment",
-                                            },
-                                          }),
-                                        ]
-                                      },
-                                    },
-                                  ],
-                                  null,
-                                  true
-                                ),
-                              }),
-                              _vm._v(" "),
-                              _c("ValidationProvider", {
-                                attrs: {
-                                  vid: "soil_cover",
-                                  name: "Daily Soil Cover",
-                                  rules: "required",
-                                },
-                                scopedSlots: _vm._u(
-                                  [
-                                    {
-                                      key: "default",
-                                      fn: function (ref) {
-                                        var errors = ref.errors
-                                        return [
-                                          _c("v-text-field", {
-                                            attrs: {
-                                              label: "Daily Soil Cover",
-                                              "error-messages": errors[0],
-                                              outlined: "",
-                                              clearable: "",
-                                              dense: "",
-                                              color: "dark",
-                                            },
-                                            model: {
-                                              value:
-                                                _vm.slf.slf_daily_soil_cover,
-                                              callback: function ($$v) {
-                                                _vm.$set(
-                                                  _vm.slf,
-                                                  "slf_daily_soil_cover",
-                                                  $$v
-                                                )
-                                              },
-                                              expression:
-                                                "slf.slf_daily_soil_cover",
-                                            },
-                                          }),
-                                        ]
-                                      },
-                                    },
-                                  ],
-                                  null,
-                                  true
-                                ),
-                              }),
-                              _vm._v(" "),
-                              _c("ValidationProvider", {
-                                attrs: {
-                                  vid: "isMRF",
-                                  name: "Precense of MRF",
-                                  rules: "required",
-                                },
-                                scopedSlots: _vm._u(
-                                  [
-                                    {
-                                      key: "default",
-                                      fn: function (ref) {
-                                        var errors = ref.errors
-                                        return [
-                                          _c("v-text-field", {
-                                            attrs: {
-                                              label: "Precense of MRF",
-                                              "error-messages": errors[0],
-                                              outlined: "",
-                                              clearable: "",
-                                              dense: "",
-                                              color: "dark",
-                                            },
-                                            model: {
-                                              value:
-                                                _vm.slf.slf_presence_of_mrf,
-                                              callback: function ($$v) {
-                                                _vm.$set(
-                                                  _vm.slf,
-                                                  "slf_presence_of_mrf",
-                                                  $$v
-                                                )
-                                              },
-                                              expression:
-                                                "slf.slf_presence_of_mrf",
-                                            },
-                                          }),
-                                        ]
-                                      },
-                                    },
-                                  ],
-                                  null,
-                                  true
-                                ),
-                              }),
-                              _vm._v(" "),
-                              _c("ValidationProvider", {
-                                attrs: {
-                                  vid: "hazwaste",
-                                  name: "Separate Cells for Hazwaste",
-                                  rules: "required",
-                                },
-                                scopedSlots: _vm._u(
-                                  [
-                                    {
-                                      key: "default",
-                                      fn: function (ref) {
-                                        var errors = ref.errors
-                                        return [
-                                          _c("v-text-field", {
-                                            attrs: {
-                                              label:
-                                                "Separate Cells for Hazwaste",
-                                              "error-messages": errors[0],
-                                              outlined: "",
-                                              clearable: "",
-                                              dense: "",
-                                              color: "dark",
-                                            },
-                                            model: {
-                                              value:
-                                                _vm.slf
-                                                  .slf_separate_cells_for_hazwaste,
-                                              callback: function ($$v) {
-                                                _vm.$set(
-                                                  _vm.slf,
-                                                  "slf_separate_cells_for_hazwaste",
-                                                  $$v
-                                                )
-                                              },
-                                              expression:
-                                                "\n                                    slf.slf_separate_cells_for_hazwaste\n                                ",
-                                            },
-                                          }),
-                                        ]
-                                      },
-                                    },
-                                  ],
-                                  null,
-                                  true
-                                ),
-                              }),
-                              _vm._v(" "),
-                              _c("ValidationProvider", {
-                                attrs: {
-                                  vid: "methan_recovery",
-                                  name: "Methane Recovery",
-                                  rules: "required",
-                                },
-                                scopedSlots: _vm._u(
-                                  [
-                                    {
-                                      key: "default",
-                                      fn: function (ref) {
-                                        var errors = ref.errors
-                                        return [
-                                          _c("v-text-field", {
-                                            attrs: {
-                                              label: "Methane Recovery",
-                                              "error-messages": errors[0],
-                                              outlined: "",
-                                              clearable: "",
-                                              dense: "",
-                                              color: "dark",
-                                            },
-                                            model: {
-                                              value:
-                                                _vm.slf.slf_methane_recovery,
-                                              callback: function ($$v) {
-                                                _vm.$set(
-                                                  _vm.slf,
-                                                  "slf_methane_recovery",
-                                                  $$v
-                                                )
-                                              },
-                                              expression:
-                                                "slf.slf_methane_recovery",
-                                            },
-                                          }),
-                                        ]
-                                      },
-                                    },
-                                  ],
-                                  null,
-                                  true
-                                ),
-                              }),
-                              _vm._v(" "),
-                              _c("ValidationProvider", {
-                                attrs: {
-                                  vid: "discharge_permit",
-                                  name: "Dischage Permit",
-                                  rules: "required",
-                                },
-                                scopedSlots: _vm._u(
-                                  [
-                                    {
-                                      key: "default",
-                                      fn: function (ref) {
-                                        var errors = ref.errors
-                                        return [
-                                          _c("v-text-field", {
-                                            attrs: {
-                                              label: "Discharge Permit",
-                                              "error-messages": errors[0],
-                                              outlined: "",
-                                              clearable: "",
-                                              dense: "",
-                                              color: "dark",
-                                            },
-                                            model: {
-                                              value:
-                                                _vm.slf.slf_discharge_permit,
-                                              callback: function ($$v) {
-                                                _vm.$set(
-                                                  _vm.slf,
-                                                  "slf_discharge_permit",
-                                                  $$v
-                                                )
-                                              },
-                                              expression:
-                                                "slf.slf_discharge_permit",
-                                            },
-                                          }),
-                                        ]
-                                      },
-                                    },
-                                  ],
-                                  null,
-                                  true
-                                ),
-                              }),
-                              _vm._v(" "),
-                              _c("ValidationProvider", {
-                                attrs: {
-                                  vid: "file",
-                                  name: "File",
-                                  rules: "required",
-                                },
-                                scopedSlots: _vm._u(
-                                  [
-                                    {
-                                      key: "default",
-                                      fn: function (ref) {
-                                        var errors = ref.errors
-                                        return [
-                                          _c("v-text-field", {
-                                            attrs: {
-                                              label: "File",
-                                              "error-messages": errors[0],
-                                              outlined: "",
-                                              clearable: "",
-                                              dense: "",
-                                              color: "dark",
-                                            },
-                                            model: {
-                                              value: _vm.slf.slf_file,
-                                              callback: function ($$v) {
-                                                _vm.$set(
-                                                  _vm.slf,
-                                                  "slf_file",
-                                                  $$v
-                                                )
-                                              },
-                                              expression: "slf.slf_file",
-                                            },
-                                          }),
-                                        ]
-                                      },
-                                    },
-                                  ],
-                                  null,
-                                  true
-                                ),
-                              }),
-                              _vm._v(" "),
-                              _c("ValidationProvider", {
-                                attrs: {
-                                  vid: "lce_fk",
-                                  name: "LCE",
-                                  rules: "required",
-                                },
-                                scopedSlots: _vm._u(
-                                  [
-                                    {
-                                      key: "default",
-                                      fn: function (ref) {
-                                        var errors = ref.errors
-                                        return [
-                                          _c("v-text-field", {
-                                            attrs: {
-                                              label: "LCE",
-                                              "error-messages": errors[0],
-                                              outlined: "",
-                                              clearable: "",
-                                              dense: "",
-                                              color: "dark",
-                                            },
-                                            model: {
-                                              value: _vm.slf.lce_FK,
-                                              callback: function ($$v) {
-                                                _vm.$set(_vm.slf, "lce_FK", $$v)
-                                              },
-                                              expression: "slf.lce_FK",
-                                            },
-                                          }),
-                                        ]
-                                      },
-                                    },
-                                  ],
-                                  null,
-                                  true
-                                ),
-                              }),
-                            ],
-                            1
+                            "v-btn",
+                            { attrs: { color: "primary", type: "submit" } },
+                            [_vm._v("Save")]
                           ),
                         ],
                         1
                       ),
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "flex justify-center mt-4" },
-                    [
-                      _c(
-                        "v-btn",
-                        {
-                          attrs: {
-                            color: "red darken-2",
-                            text: "",
-                            type: "reset",
-                          },
-                        },
-                        [_vm._v("Reset")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "v-btn",
-                        { attrs: { color: "primary", type: "submit" } },
-                        [_vm._v("Save")]
-                      ),
-                    ],
-                    1
-                  ),
-                ]),
+                    ]),
+                  ],
+                  1
+                ),
               ]
             },
           },

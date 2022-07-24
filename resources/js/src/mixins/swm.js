@@ -4,6 +4,7 @@ export default {
     props: {
         lce_edit: Array,
         province_dropdown: Array,
+        lce_info:Array
     },
     data() {
         return {
@@ -91,6 +92,10 @@ export default {
         },
         cityMun_id() {
             return this.complete_address_setter.cityMun.PK_citymun_ID;
+        },
+        slf_address(){
+            const { provDesc, citymunDesc, lce_zip_code, districtCode } = this.lce_info[0];
+            return `${citymunDesc}, District No ${districtCode}, ${provDesc}, ${lce_zip_code} `;
         },
     },
     watch: {

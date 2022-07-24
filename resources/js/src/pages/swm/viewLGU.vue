@@ -91,18 +91,154 @@
                             </div>
                         </v-card-text>
                         <v-card-actions>
-                            <v-spacer></v-spacer> <a :href="`/app/swm/lce_edit/${lce_id}`" target="_blank"><v-btn color="orange lighten-2">Update LCE</v-btn></a>
+                            <v-spacer></v-spacer>
+                            <a
+                                :href="`/app/swm/lce_edit/${lce_id}`"
+                                target="_blank"
+                                ><v-btn color="orange lighten-2"
+                                    >Update LCE</v-btn
+                                ></a
+                            >
                         </v-card-actions>
                     </v-card>
                 </v-container>
             </v-tab-item>
             <v-tab-item>
                 <v-container>
-                    <a href="/app/swm/slf_register" target="_blank">
+                    <a
+                        :href="`/app/swm/slf_register/${lce_id}`"
+                        target="_blank"
+                    >
                         <v-btn dark>Add SLF</v-btn>
                     </a>
-                </v-container></v-tab-item
-            >
+                </v-container>
+                <b-table
+                    :data=""
+                    paginated
+                    :per-page="lce_list.per_page"
+                    pagination-size="is-small"
+                    page-input
+                    hoverable
+                    backend-pagination
+                    :total="lce_list.total"
+                    :current-page.sync="lce_list.current_page"
+                    pagination-position="top"
+                    pagination-rounded
+                    @page-change="onPageChange"
+                    narrowed
+                    :loading="loading"
+                    bordered
+                    sticky-header
+                    scrollable
+                    :row-class="
+                        (row, index) => (isTheme ? 'bg-black text-white' : '')
+                    "
+                    :header-class="isTheme ? 'bg-black text-white' : ''"
+                    height="420"
+                >
+                    <b-table-column
+                        field="province"
+                        label="Province"
+                        searchable
+                    >
+                        <template #searchable="props">
+                            <b-input
+                                v-model="filters.provDesc"
+                                placeholder="Search..."
+                                icon="magnify"
+                                size="is-small"
+                            />
+                        </template>
+                        <template v-slot="props">
+                            {{ props.row.provDesc }}
+                        </template>
+                    </b-table-column>
+                    <b-table-column
+                        field="municipality"
+                        label="Municipality"
+                        searchable
+                    >
+                        <template #searchable="props">
+                            <b-input
+                                v-model="filters.citymunDesc"
+                                placeholder="Search..."
+                                icon="magnify"
+                                size="is-small"
+                            />
+                        </template>
+                        <template v-slot="props">
+                            {{ props.row.citymunDesc }}
+                        </template>
+                    </b-table-column>
+                    <b-table-column
+                        field="barangay"
+                        label="Barangay"
+                        searchable
+                    >
+                        <template #searchable="props">
+                            <b-input
+                                v-model="filters.brgyDesc"
+                                placeholder="Search..."
+                                icon="magnify"
+                                size="is-small"
+                            />
+                        </template>
+                        <template v-slot="props">
+                            {{ props.row.brgyDesc }}
+                        </template>
+                    </b-table-column>
+
+                    <b-table-column
+                        field="district"
+                        label="District Code"
+                        searchable
+                    >
+                        <template #searchable="props">
+                            <b-input
+                                v-model="filters.districtCode"
+                                placeholder="Search..."
+                                icon="magnify"
+                                size="is-small"
+                            />
+                        </template>
+                        <template v-slot="props">
+                            {{ props.row.districtCode }}
+                        </template>
+                    </b-table-column>
+
+                    <b-table-column
+                        field="action"
+                        label=""
+                        sortable
+                        v-slot="props"
+                    >
+                        <a
+                            :href="`/app/swm/lce_show/${props.row.id}`"
+                            target="_blank"
+                        >
+                            <box-icon
+                                name="edit"
+                                color="orange"
+                                animation="tada-hover"
+                            ></box-icon
+                        ></a>
+                        <v-btn icon small
+                            ><box-icon
+                                name="trash"
+                                color="red"
+                                animation="tada-hover"
+                            ></box-icon
+                        ></v-btn>
+                    </b-table-column>
+                    <template #empty>
+                        <div
+                            class="text-center text-3xl text-gray-500 font-extrabold"
+                        >
+                            No lce_list Found
+                        </div>
+                    </template>
+                </b-table>
+            </v-tab-item>
             <v-tab-item> </v-tab-item>
         </v-tabs>
     </DefaultLayout>

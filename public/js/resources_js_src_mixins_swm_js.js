@@ -42,7 +42,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     lce_edit: Array,
-    province_dropdown: Array
+    province_dropdown: Array,
+    lce_info: Array
   },
   data: function data() {
     return {
@@ -101,12 +102,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     };
   },
   computed: {
-<<<<<<< HEAD
     lce_id: function lce_id() {
       return this.lce_details.id;
     },
-=======
->>>>>>> e752c282dc0c6e23cb680214223b3805dd25afa2
     lce_details: function lce_details() {
       return this.lce_edit[0];
     },
@@ -139,6 +137,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     cityMun_id: function cityMun_id() {
       return this.complete_address_setter.cityMun.PK_citymun_ID;
+    },
+    slf_address: function slf_address() {
+      var _this$lce_info$ = this.lce_info[0],
+          provDesc = _this$lce_info$.provDesc,
+          citymunDesc = _this$lce_info$.citymunDesc,
+          lce_zip_code = _this$lce_info$.lce_zip_code,
+          districtCode = _this$lce_info$.districtCode;
+      return "".concat(citymunDesc, ", District No ").concat(districtCode, ", ").concat(provDesc, ", ").concat(lce_zip_code, " ");
     }
   },
   watch: {

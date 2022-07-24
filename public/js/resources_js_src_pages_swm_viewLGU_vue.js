@@ -619,6 +619,142 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -2242,7 +2378,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     lce_edit: Array,
-    province_dropdown: Array
+    province_dropdown: Array,
+    lce_info: Array
   },
   data: function data() {
     return {
@@ -2336,6 +2473,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     cityMun_id: function cityMun_id() {
       return this.complete_address_setter.cityMun.PK_citymun_ID;
+    },
+    slf_address: function slf_address() {
+      var _this$lce_info$ = this.lce_info[0],
+          provDesc = _this$lce_info$.provDesc,
+          citymunDesc = _this$lce_info$.citymunDesc,
+          lce_zip_code = _this$lce_info$.lce_zip_code,
+          districtCode = _this$lce_info$.districtCode;
+      return "".concat(citymunDesc, ", District No ").concat(districtCode, ", ").concat(provDesc, ", ").concat(lce_zip_code, " ");
     }
   },
   watch: {
@@ -21158,264 +21303,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => (/* binding */ render),
 /* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
 /* harmony export */ });
-var render = function () {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "DefaultLayout",
-    [
-      _c(
-        "v-toolbar",
-        { attrs: { flat: "", dark: "" } },
-        [_c("v-toolbar-title", [_vm._v("User Profile")])],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "v-tabs",
-        {
-          staticClass: "h-fit",
-          attrs: {
-            vertical: "",
-            "show-arrows": "",
-            "active-class": "black",
-            "background-color": "primary",
-          },
-        },
-        [
-          _vm._l(_vm.tabs, function (n) {
-            return _c("v-tab", { key: n }, [_vm._v(_vm._s(n) + " ")])
-          }),
-          _vm._v(" "),
-          _c(
-            "v-tab-item",
-            { attrs: { "active-class": "bg-#F4F5FA" } },
-            [
-              _c(
-                "v-container",
-                [
-                  _c(
-                    "v-card",
-                    [
-                      _c(
-                        "v-card-text",
-                        { staticClass: "grid grid-cols-5 gap-x-2" },
-                        [
-                          _c(
-                            "div",
-                            { staticClass: "col-span-1" },
-                            [
-                              _c("box-icon", {
-                                attrs: {
-                                  pull: "burst",
-                                  type: "solid",
-                                  name: "user-account",
-                                  size: "200px",
-                                  border: "square",
-                                },
-                              }),
-                            ],
-                            1
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "div",
-                            { staticClass: "col-span-4 font-extrabold" },
-                            [
-                              _c("div", { staticClass: "pl-2" }, [
-                                _c("div", [_vm._v("Name")]),
-                                _vm._v(" "),
-                                _c("div", [
-                                  _c(
-                                    "span",
-                                    { staticClass: "text-sm italic" },
-                                    [
-                                      _vm._v(
-                                        _vm._s(this.lce_details.lce_title) +
-                                          ".\n                                    "
-                                      ),
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "span",
-                                    { staticClass: "text-black text-2xl" },
-                                    [_vm._v(_vm._s(_vm.lce_complete_name))]
-                                  ),
-                                ]),
-                              ]),
-                              _vm._v(" "),
-                              _c("div", { staticClass: "pl-2 text-black" }, [
-                                _c("span", { staticClass: "text-sm italic" }, [
-                                  _vm._v(
-                                    _vm._s(this.lce_details.lce_salutation) +
-                                      ".\n                                "
-                                  ),
-                                ]),
-                                _vm._v(" "),
-                                _c("span", { staticClass: "text-sm italic" }, [
-                                  _vm._v(
-                                    _vm._s(this.lce_details.lce_position) +
-                                      ".\n                                "
-                                  ),
-                                ]),
-                              ]),
-                              _vm._v(" "),
-                              _c("div", [
-                                _c("div", { staticClass: "text-sm italic" }, [
-                                  _vm._v("Address:"),
-                                ]),
-                                _vm._v(" "),
-                                _c(
-                                  "span",
-                                  {
-                                    staticClass:
-                                      "text-xl italic pl-2 text-black",
-                                  },
-                                  [
-                                    _vm._v(
-                                      _vm._s(_vm.lce_address) +
-                                        "\n                                "
-                                    ),
-                                  ]
-                                ),
-                              ]),
-                              _vm._v(" "),
-                              _c("div", { staticClass: "py-4" }, [
-                                _c("div", { staticClass: "text-black" }, [
-                                  _c("p", [_vm._v("Focal Person")]),
-                                ]),
-                                _vm._v(" "),
-                                _c("div", [
-                                  _c("div", [
-                                    _vm._v(
-                                      "\n                                        Name:\n                                        "
-                                    ),
-                                    _c(
-                                      "span",
-                                      {
-                                        staticClass:
-                                          "font-bold text-lg text-black",
-                                      },
-                                      [
-                                        _vm._v(
-                                          _vm._s(
-                                            _vm.lce_details.lce_focal_person
-                                          )
-                                        ),
-                                      ]
-                                    ),
-                                  ]),
-                                  _vm._v(" "),
-                                  _c("div", [
-                                    _vm._v(
-                                      "\n                                        Contact No.:\n                                        "
-                                    ),
-                                    _c(
-                                      "span",
-                                      {
-                                        staticClass:
-                                          "font-bold text-lg text-black",
-                                      },
-                                      [
-                                        _vm._v(
-                                          _vm._s(
-                                            _vm.lce_details.lce_contact_number
-                                          )
-                                        ),
-                                      ]
-                                    ),
-                                  ]),
-                                  _vm._v(" "),
-                                  _c("div", [
-                                    _vm._v(
-                                      "\n                                        Email:\n                                        "
-                                    ),
-                                    _c(
-                                      "span",
-                                      {
-                                        staticClass:
-                                          "font-bold text-lg text-black",
-                                      },
-                                      [
-                                        _vm._v(
-                                          _vm._s(
-                                            _vm.lce_details.lce_email_address
-                                          )
-                                        ),
-                                      ]
-                                    ),
-                                  ]),
-                                ]),
-                              ]),
-                            ]
-                          ),
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "v-card-actions",
-                        [
-                          _c("v-spacer"),
-                          _vm._v(" "),
-                          _c(
-                            "a",
-                            {
-                              attrs: {
-                                href: "/app/swm/lce_edit/" + _vm.lce_id,
-                                target: "_blank",
-                              },
-                            },
-                            [
-                              _c(
-                                "v-btn",
-                                { attrs: { color: "orange lighten-2" } },
-                                [_vm._v("Update LCE")]
-                              ),
-                            ],
-                            1
-                          ),
-                        ],
-                        1
-                      ),
-                    ],
-                    1
-                  ),
-                ],
-                1
-              ),
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "v-tab-item",
-            [
-              _c("v-container", [
-                _c(
-                  "a",
-                  {
-                    attrs: { href: "/app/swm/slf_register", target: "_blank" },
-                  },
-                  [_c("v-btn", { attrs: { dark: "" } }, [_vm._v("Add SLF")])],
-                  1
-                ),
-              ]),
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c("v-tab-item"),
-        ],
-        2
-      ),
-    ],
-    1
-  )
-}
+var render = function () {}
 var staticRenderFns = []
-render._withStripped = true
 
 
 
