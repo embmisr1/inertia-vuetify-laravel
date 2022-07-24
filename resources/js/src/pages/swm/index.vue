@@ -1,8 +1,5 @@
 <template>
     <DefaultLayout>
-        <Link href="lce_register_process">Add LCE</Link>
-        <!-- {{ Object.keys(lce_list.data[0]) }} -->
-
         <b-table
             :data="lce_list.data"
             paginated
@@ -84,16 +81,16 @@
             </b-table-column>
 
             <b-table-column field="action" label="" sortable v-slot="props">
-                <Link
+                <a
                     :href="`/app/swm/lce_edit/${props.row.id}`"
-                    taget="_blank"
+                    target="_blank"
                 >
                     <box-icon
                         name="edit"
                         color="orange"
                         animation="tada-hover"
                     ></box-icon
-                ></Link>
+                ></a>
                 <v-btn icon small @click="deleteLCEForm(props.row.id)"
                     ><box-icon
                         name="trash"

@@ -337,11 +337,7 @@ __webpack_require__.r(__webpack_exports__);
           child: []
         }, {
           name: "SOLID WASTE",
-<<<<<<< HEAD
-          link: 'app/swm/lce_list',
-=======
-          link: 'app/swm/rce_list',
->>>>>>> 8425e14339c6e0ff0b42bb9576a28d9dc1072f1b
+          link: '/app/swm/lce_list',
           icon: "mdi-trash-can",
           child: []
         }, {
@@ -2675,7 +2671,28 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: {
+    lce_edit: Array,
+    province_dropdown: Array
+  },
   data: function data() {
     return {
       lce: {
@@ -2720,9 +2737,153 @@ __webpack_require__.r(__webpack_exports__);
         slf_file: null,
         lce_FK: null
       },
+      complete_address: null,
+      complete_address_setter: {
+        prov: {},
+        cityMun: {},
+        brgy: {}
+      },
       category: ["Category 1", "Category 2", "Category 3", "Category 4"],
-      leachment_type: ["Recirculaation", "Chemical", "Biological"]
+      leachment_type: ["Recirculaation", "Chemical", "Biological"],
+      cityMun: [],
+      brgy: []
     };
+  },
+  computed: {
+    lce_details: function lce_details() {
+      return this.lce_edit[0];
+    },
+    lce_complete_name: function lce_complete_name() {
+      var _this$lce_details = this.lce_details,
+          lce_first_name = _this$lce_details.lce_first_name,
+          lce_middle_name = _this$lce_details.lce_middle_name,
+          lce_last_name = _this$lce_details.lce_last_name;
+      return "".concat(lce_first_name, " ").concat(lce_middle_name, " ").concat(lce_last_name);
+    },
+    lce_address: function lce_address() {
+      var _this$lce_details2 = this.lce_details,
+          provDesc = _this$lce_details2.provDesc,
+          citymunDesc = _this$lce_details2.citymunDesc,
+          lce_zip_code = _this$lce_details2.lce_zip_code;
+      return "".concat(citymunDesc, ", District No, ").concat(provDesc, ", ").concat(lce_zip_code, " ");
+    },
+    lce_prov_id: function lce_prov_id() {
+      return this.lce.lce_province_FK;
+    },
+    lce_cityMun_id: function lce_cityMun_id() {
+      return this.lce.lce_municipality_FK;
+    },
+    address_setter: function address_setter() {
+      return _objectSpread({}, this.complete_address_setter);
+    },
+    prov_id: function prov_id() {
+      return this.complete_address_setter.prov.PK_province_ID;
+    },
+    cityMun_id: function cityMun_id() {
+      return this.complete_address_setter.cityMun.PK_citymun_ID;
+    }
+  },
+  watch: {
+    lce_prov_id: function lce_prov_id(value) {
+      if (value !== "" || value !== null) return this.search_cityMun(value);
+    },
+    lce_cityMun_id: function lce_cityMun_id(value) {
+      if (value !== "" || value !== null) return this.search_brgy(value);
+    },
+    prov_id: function prov_id(value) {
+      if (value !== "" || value !== null) return this.search_cityMun(value);
+    },
+    cityMun_id: function cityMun_id(value) {
+      if (value !== "" || value !== null) return this.search_brgy(value);
+    },
+    address_setter: function address_setter(data) {
+      var _prov$provDesc, _cityMun$citymunDesc, _brgy$brgyDesc;
+
+      var prov = data.prov,
+          cityMun = data.cityMun,
+          brgy = data.brgy;
+      this.complete_address = "".concat((_prov$provDesc = prov.provDesc) !== null && _prov$provDesc !== void 0 ? _prov$provDesc : "", ", ").concat((_cityMun$citymunDesc = cityMun.citymunDesc) !== null && _cityMun$citymunDesc !== void 0 ? _cityMun$citymunDesc : "", ", ").concat((_brgy$brgyDesc = brgy.brgyDesc) !== null && _brgy$brgyDesc !== void 0 ? _brgy$brgyDesc : "");
+    }
+  },
+  methods: {
+    search_cityMun: function search_cityMun(prov_id) {
+      var _this = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+        var _yield$axios$get, data;
+
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.prev = 0;
+                _this.loading = true;
+                _context.next = 4;
+                return axios__WEBPACK_IMPORTED_MODULE_1___default().get("http://127.0.0.1:8000/api/app/province_dropdown/".concat(prov_id));
+
+              case 4:
+                _yield$axios$get = _context.sent;
+                data = _yield$axios$get.data;
+                _this.cityMun = data;
+                _this.loading = false;
+                _context.next = 15;
+                break;
+
+              case 10:
+                _context.prev = 10;
+                _context.t0 = _context["catch"](0);
+                _this.loading = false;
+                console.log("search_cityMun - error");
+
+                _this.error(_context.t0.response.data.message);
+
+              case 15:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, null, [[0, 10]]);
+      }))();
+    },
+    search_brgy: function search_brgy(cityMun_id) {
+      var _this2 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
+        var _yield$axios$get2, data;
+
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.prev = 0;
+                _this2.loading = true;
+                _context2.next = 4;
+                return axios__WEBPACK_IMPORTED_MODULE_1___default().get("http://127.0.0.1:8000/api/app/municipality_dropdown/".concat(cityMun_id));
+
+              case 4:
+                _yield$axios$get2 = _context2.sent;
+                data = _yield$axios$get2.data;
+                _this2.brgy = data;
+                _this2.loading = false;
+                _context2.next = 15;
+                break;
+
+              case 10:
+                _context2.prev = 10;
+                _context2.t0 = _context2["catch"](0);
+                _this2.loading = false;
+                console.log("search_brgy - error");
+
+                _this2.error(_context2.t0.response.data.message);
+
+              case 15:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, null, [[0, 10]]);
+      }))();
+    }
   }
 });
 

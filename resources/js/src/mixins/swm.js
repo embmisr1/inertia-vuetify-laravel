@@ -1,6 +1,10 @@
 import axios from "axios";
 
 export default {
+    props: {
+        lce_edit: Array,
+        province_dropdown: Array,
+    },
     data() {
         return {
             lce: {
@@ -45,47 +49,94 @@ export default {
                 slf_file: null,
                 lce_FK: null,
             },
+            complete_address: null,
+            complete_address_setter: {
+                prov: {},
+                cityMun: {},
+                brgy: {},
+            },
             category: ["Category 1", "Category 2", "Category 3", "Category 4"],
             leachment_type: ["Recirculaation", "Chemical", "Biological"],
-            cityMun:[],
-            brgy:[],
+            cityMun: [],
+            brgy: [],
         };
     },
     computed: {
-        prov_id() {
+        lce_details() {
+            return this.lce_edit[0];
+        },
+        lce_complete_name() {
+            const { lce_first_name, lce_middle_name, lce_last_name } =
+                this.lce_details;
+            return `${lce_first_name} ${lce_middle_name} ${lce_last_name}`;
+        },
+        lce_address() {
+            const { provDesc, citymunDesc, lce_zip_code } = this.lce_details;
+            return `${citymunDesc}, District No, ${provDesc}, ${lce_zip_code} `;
+        },
+        lce_prov_id() {
             return this.lce.lce_province_FK;
         },
-        cityMun_id() {
+        lce_cityMun_id() {
             return this.lce.lce_municipality_FK;
+        },
+        address_setter() {
+            return { ...this.complete_address_setter };
+        },
+        prov_id() {
+            return this.complete_address_setter.prov.PK_province_ID;
+        },
+        cityMun_id() {
+            return this.complete_address_setter.cityMun.PK_citymun_ID;
         },
     },
     watch: {
-        prov_id(value) {
-            if (value !== "" || value !== null) return this.search_cityMun();
+        lce_prov_id(value) {
+            if (value !== "" || value !== null)
+                return this.search_cityMun(value);
         },
-        cityMun_id(value){
-            if (value !== "" || value !== null) return this.search_brgy();
+        lce_cityMun_id(value) {
+            if (value !== "" || value !== null) return this.search_brgy(value);
+        },
+        prov_id(value) {
+            if (value !== "" || value !== null)
+                return this.search_cityMun(value);
+        },
+        cityMun_id(value) {
+            if (value !== "" || value !== null) return this.search_brgy(value);
+        },
+        address_setter(data) {
+            const { prov, cityMun, brgy } = data;
+            this.complete_address = `${prov.provDesc ?? ""}, ${
+                cityMun.citymunDesc ?? ""
+            }, ${brgy.brgyDesc ?? ""}`;
         },
     },
     methods: {
-        async search_cityMun() {
+        async search_cityMun(prov_id) {
             try {
+                this.loading = true;
                 const { data } = await axios.get(
-                    `http://127.0.0.1:8000/api/app/province_dropdown/${this.prov_id}`
+                    `http://127.0.0.1:8000/api/app/province_dropdown/${prov_id}`
                 );
-                this.cityMun = data
+                this.cityMun = data;
+                this.loading = false;
             } catch (error) {
+                this.loading = false;
                 console.log("search_cityMun - error");
                 this.error(error.response.data.message);
             }
         },
-        async search_brgy() {
+        async search_brgy(cityMun_id) {
             try {
+                this.loading = true;
                 const { data } = await axios.get(
-                    `http://127.0.0.1:8000/api/app/municipality_dropdown/${this.cityMun_id}`
+                    `http://127.0.0.1:8000/api/app/municipality_dropdown/${cityMun_id}`
                 );
-                this.brgy = data
+                this.brgy = data;
+                this.loading = false;
             } catch (error) {
+                this.loading = false;
                 console.log("search_brgy - error");
                 this.error(error.response.data.message);
             }
