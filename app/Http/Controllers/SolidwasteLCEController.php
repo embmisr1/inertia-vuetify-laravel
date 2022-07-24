@@ -52,7 +52,7 @@ class SolidwasteLCEController extends Controller
     public function lce_edit(request $request){
         $province_dropdown = Province::whereIn('PK_province_ID',[128, 129, 133, 155])->get();
         $lce_edit = DB::table('tbl_solidwaste_lce as a')
-        ->select('a.*', 'b.provDesc', 'c.citymunDesc', 'd.brgyDesc')
+        ->select('a.*', 'b.provDesc', 'c.citymunDesc', 'd.brgyDesc', 'c.districtCode')
         ->leftjoin('ref_province as b', 'a.lce_province_FK', '=', 'b.PK_province_ID')
         ->leftjoin('ref_citymun as c', 'a.lce_municipality_FK', '=', 'c.PK_citymun_ID')
         ->leftjoin('ref_brgy as d', 'a.lce_barangay_FK', '=', 'd.PK_brgy_ID')

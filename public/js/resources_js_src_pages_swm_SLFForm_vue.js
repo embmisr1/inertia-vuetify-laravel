@@ -337,7 +337,11 @@ __webpack_require__.r(__webpack_exports__);
           child: []
         }, {
           name: "SOLID WASTE",
+<<<<<<< HEAD
           link: '/app/swm/lce_list',
+=======
+          link: 'app/swm/lce_list',
+>>>>>>> 451951f2d60c8ca36c030471f2fe1cd05003ea40
           icon: "mdi-trash-can",
           child: []
         }, {
@@ -2591,9 +2595,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     };
   },
   computed: {
+<<<<<<< HEAD
     lce_details: function lce_details() {
       return this.lce_edit[0];
     },
+=======
+>>>>>>> 451951f2d60c8ca36c030471f2fe1cd05003ea40
     prov_id: function prov_id() {
       return this.lce.lce_province_FK;
     },
@@ -2621,6 +2628,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context.prev = _context.next) {
               case 0:
                 _context.prev = 0;
+<<<<<<< HEAD
                 _this.loading = true;
                 _context.next = 4;
                 return axios__WEBPACK_IMPORTED_MODULE_1___default().get("http://127.0.0.1:8000/api/app/province_dropdown/".concat(_this.prov_id));
@@ -2637,16 +2645,39 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 _context.prev = 10;
                 _context.t0 = _context["catch"](0);
                 _this.loading = false;
+=======
+                _context.next = 3;
+                return axios__WEBPACK_IMPORTED_MODULE_1___default().get("http://127.0.0.1:8000/api/app/province_dropdown/".concat(_this.prov_id));
+
+              case 3:
+                _yield$axios$get = _context.sent;
+                data = _yield$axios$get.data;
+                _this.cityMun = data;
+                _context.next = 12;
+                break;
+
+              case 8:
+                _context.prev = 8;
+                _context.t0 = _context["catch"](0);
+>>>>>>> 451951f2d60c8ca36c030471f2fe1cd05003ea40
                 console.log("search_cityMun - error");
 
                 _this.error(_context.t0.response.data.message);
 
+<<<<<<< HEAD
               case 15:
+=======
+              case 12:
+>>>>>>> 451951f2d60c8ca36c030471f2fe1cd05003ea40
               case "end":
                 return _context.stop();
             }
           }
+<<<<<<< HEAD
         }, _callee, null, [[0, 10]]);
+=======
+        }, _callee, null, [[0, 8]]);
+>>>>>>> 451951f2d60c8ca36c030471f2fe1cd05003ea40
       }))();
     },
     search_brgy: function search_brgy() {
@@ -2660,6 +2691,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context2.prev = _context2.next) {
               case 0:
                 _context2.prev = 0;
+<<<<<<< HEAD
                 _this2.loading = true;
                 _context2.next = 4;
                 return axios__WEBPACK_IMPORTED_MODULE_1___default().get("http://127.0.0.1:8000/api/app/municipality_dropdown/".concat(_this2.cityMun_id));
@@ -2676,16 +2708,39 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 _context2.prev = 10;
                 _context2.t0 = _context2["catch"](0);
                 _this2.loading = false;
+=======
+                _context2.next = 3;
+                return axios__WEBPACK_IMPORTED_MODULE_1___default().get("http://127.0.0.1:8000/api/app/municipality_dropdown/".concat(_this2.cityMun_id));
+
+              case 3:
+                _yield$axios$get2 = _context2.sent;
+                data = _yield$axios$get2.data;
+                _this2.brgy = data;
+                _context2.next = 12;
+                break;
+
+              case 8:
+                _context2.prev = 8;
+                _context2.t0 = _context2["catch"](0);
+>>>>>>> 451951f2d60c8ca36c030471f2fe1cd05003ea40
                 console.log("search_brgy - error");
 
                 _this2.error(_context2.t0.response.data.message);
 
+<<<<<<< HEAD
               case 15:
+=======
+              case 12:
+>>>>>>> 451951f2d60c8ca36c030471f2fe1cd05003ea40
               case "end":
                 return _context2.stop();
             }
           }
+<<<<<<< HEAD
         }, _callee2, null, [[0, 10]]);
+=======
+        }, _callee2, null, [[0, 8]]);
+>>>>>>> 451951f2d60c8ca36c030471f2fe1cd05003ea40
       }))();
     }
   }
