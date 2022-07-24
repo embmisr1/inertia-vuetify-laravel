@@ -579,11 +579,7 @@ __webpack_require__.r(__webpack_exports__);
           child: []
         }, {
           name: "SOLID WASTE",
-<<<<<<< HEAD
           link: '/app/swm/lce_list',
-=======
-          link: 'app/swm/lce_list',
->>>>>>> 451951f2d60c8ca36c030471f2fe1cd05003ea40
           icon: "mdi-trash-can",
           child: []
         }, {
@@ -2526,15 +2522,12 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-<<<<<<< HEAD
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-=======
->>>>>>> 451951f2d60c8ca36c030471f2fe1cd05003ea40
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
@@ -2598,7 +2591,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     };
   },
   computed: {
-<<<<<<< HEAD
     lce_details: function lce_details() {
       return this.lce_edit[0];
     },
@@ -2656,25 +2648,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   methods: {
     search_cityMun: function search_cityMun(prov_id) {
-=======
-    prov_id: function prov_id() {
-      return this.lce.lce_province_FK;
-    },
-    cityMun_id: function cityMun_id() {
-      return this.lce.lce_municipality_FK;
-    }
-  },
-  watch: {
-    prov_id: function prov_id(value) {
-      if (value !== "" || value !== null) return this.search_cityMun();
-    },
-    cityMun_id: function cityMun_id(value) {
-      if (value !== "" || value !== null) return this.search_brgy();
-    }
-  },
-  methods: {
-    search_cityMun: function search_cityMun() {
->>>>>>> 451951f2d60c8ca36c030471f2fe1cd05003ea40
       var _this = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
@@ -2685,7 +2658,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             switch (_context.prev = _context.next) {
               case 0:
                 _context.prev = 0;
-<<<<<<< HEAD
                 _this.loading = true;
                 _context.next = 4;
                 return axios__WEBPACK_IMPORTED_MODULE_1___default().get("http://127.0.0.1:8000/api/app/province_dropdown/".concat(prov_id));
@@ -2702,45 +2674,19 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                 _context.prev = 10;
                 _context.t0 = _context["catch"](0);
                 _this.loading = false;
-=======
-                _context.next = 3;
-                return axios__WEBPACK_IMPORTED_MODULE_1___default().get("http://127.0.0.1:8000/api/app/province_dropdown/".concat(_this.prov_id));
-
-              case 3:
-                _yield$axios$get = _context.sent;
-                data = _yield$axios$get.data;
-                _this.cityMun = data;
-                _context.next = 12;
-                break;
-
-              case 8:
-                _context.prev = 8;
-                _context.t0 = _context["catch"](0);
->>>>>>> 451951f2d60c8ca36c030471f2fe1cd05003ea40
                 console.log("search_cityMun - error");
 
                 _this.error(_context.t0.response.data.message);
 
-<<<<<<< HEAD
               case 15:
-=======
-              case 12:
->>>>>>> 451951f2d60c8ca36c030471f2fe1cd05003ea40
               case "end":
                 return _context.stop();
             }
           }
-<<<<<<< HEAD
         }, _callee, null, [[0, 10]]);
       }))();
     },
     search_brgy: function search_brgy(cityMun_id) {
-=======
-        }, _callee, null, [[0, 8]]);
-      }))();
-    },
-    search_brgy: function search_brgy() {
->>>>>>> 451951f2d60c8ca36c030471f2fe1cd05003ea40
       var _this2 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
@@ -2751,7 +2697,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             switch (_context2.prev = _context2.next) {
               case 0:
                 _context2.prev = 0;
-<<<<<<< HEAD
                 _this2.loading = true;
                 _context2.next = 4;
                 return axios__WEBPACK_IMPORTED_MODULE_1___default().get("http://127.0.0.1:8000/api/app/municipality_dropdown/".concat(cityMun_id));
@@ -2768,39 +2713,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                 _context2.prev = 10;
                 _context2.t0 = _context2["catch"](0);
                 _this2.loading = false;
-=======
-                _context2.next = 3;
-                return axios__WEBPACK_IMPORTED_MODULE_1___default().get("http://127.0.0.1:8000/api/app/municipality_dropdown/".concat(_this2.cityMun_id));
-
-              case 3:
-                _yield$axios$get2 = _context2.sent;
-                data = _yield$axios$get2.data;
-                _this2.brgy = data;
-                _context2.next = 12;
-                break;
-
-              case 8:
-                _context2.prev = 8;
-                _context2.t0 = _context2["catch"](0);
->>>>>>> 451951f2d60c8ca36c030471f2fe1cd05003ea40
                 console.log("search_brgy - error");
 
                 _this2.error(_context2.t0.response.data.message);
 
-<<<<<<< HEAD
               case 15:
-=======
-              case 12:
->>>>>>> 451951f2d60c8ca36c030471f2fe1cd05003ea40
               case "end":
                 return _context2.stop();
             }
           }
-<<<<<<< HEAD
         }, _callee2, null, [[0, 10]]);
-=======
-        }, _callee2, null, [[0, 8]]);
->>>>>>> 451951f2d60c8ca36c030471f2fe1cd05003ea40
       }))();
     }
   }

@@ -21362,7 +21362,9 @@ var render = function () {
               _c("v-container", [
                 _c(
                   "a",
-                  { attrs: { href: "/app/swm/slf_create", target: "_blank" } },
+                  {
+                    attrs: { href: "/app/swm/slf_register", target: "_blank" },
+                  },
                   [_c("v-btn", { attrs: { dark: "" } }, [_vm._v("Add SLF")])],
                   1
                 ),
