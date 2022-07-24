@@ -1,7 +1,6 @@
 <template>
     <DefaultLayout>
         <div class="font-bold text-2xl text-center py-6">SLF Form</div>
-
         <ValidationObserver
             v-slot="{ handleSubmit, invalid }"
             ref="psic_group_class_observer"

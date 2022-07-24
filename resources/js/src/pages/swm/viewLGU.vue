@@ -95,7 +95,7 @@
             </v-tab-item>
             <v-tab-item>
                 <v-container>
-                    <a href="/app/swm/slf_create" target="_blank">
+                    <a href="/app/swm/slf_register" target="_blank">
                         <v-btn dark>Add SLF</v-btn>
                     </a>
                 </v-container></v-tab-item
