@@ -34,7 +34,7 @@ class SolidwasteSLFController extends Controller
         ->leftjoin('ref_province as c','b.lce_province_FK','=','c.PK_province_ID')
         ->leftjoin('ref_citymun as d','b.lce_municipality_FK','=','d.PK_citymun_ID')
         ->leftjoin('ref_brgy as e','b.lce_barangay_FK','=','e.PK_brgy_ID')
-        ->where('id',$id)->get();
+        ->where('a.id',$id)->get();
         return Inertia::render("pages/swm/Form/SLFForm",[
             'slf_edit'=>$slf_edit,
         ]);
