@@ -29,7 +29,7 @@ class SolidwasteSLFController extends Controller
     public function slf_edit(request $request){
         $id = $request->id;
         $slf_edit = DB::table('tbl_solidwaste_slf as a')
-        ->select('a.*', 'c.provDesc', 'd.citymunDesc', 'e.brgyDesc')
+        ->select('a.*', 'c.provDesc', 'd.citymunDesc', 'e.brgyDesc', 'd.districtCode')
         ->leftjoin('tbl_solidwaste_lce as b','a.lce_FK','=','b.id')
         ->leftjoin('ref_province as c','b.lce_province_FK','=','c.PK_province_ID')
         ->leftjoin('ref_citymun as d','b.lce_municipality_FK','=','d.PK_citymun_ID')
