@@ -91,18 +91,202 @@
                             </div>
                         </v-card-text>
                         <v-card-actions>
-                            <v-spacer></v-spacer> <a :href="`/app/swm/lce_edit/${lce_id}`" target="_blank"><v-btn color="orange lighten-2">Update LCE</v-btn></a>
+                            <v-spacer></v-spacer>
+                            <a
+                                :href="`/app/swm/lce_edit/${lce_id}`"
+                                target="_blank"
+                                ><v-btn color="orange lighten-2"
+                                    >Update LCE</v-btn
+                                ></a
+                            >
                         </v-card-actions>
                     </v-card>
                 </v-container>
             </v-tab-item>
             <v-tab-item>
                 <v-container>
-                    <a href="/app/swm/slf_register" target="_blank">
+                    <a
+                        :href="`/app/swm/slf_register/${lce_id}`"
+                        target="_blank"
+                    >
                         <v-btn dark>Add SLF</v-btn>
                     </a>
-                </v-container></v-tab-item
-            >
+                </v-container>
+                <b-table
+                    :data="query_slf"
+                    paginated
+                    :per-page="query_slf.per_page"
+                    pagination-size="is-small"
+                    page-input
+                    hoverable
+                    backend-pagination
+                    :total="query_slf.total"
+                    :current-page.sync="query_slf.current_page"
+                    pagination-position="top"
+                    pagination-rounded
+                    @page-change="onPageChange"
+                    narrowed
+                    :loading="loading"
+                    bordered
+                    sticky-header
+                    scrollable
+                    :row-class="
+                        (row, index) => (isTheme ? 'bg-black text-white' : '')
+                    "
+                    :header-class="isTheme ? 'bg-black text-white' : ''"
+                    height="420"
+                >
+                    <b-table-column
+                        field="slf_ecc_number"
+                        label="ECC Number"
+                        searchable
+                    >
+                        <template #searchable="props">
+                            <b-input
+                                placeholder="Search..."
+                                icon="magnify"
+                                size="is-small"
+                            />
+                        </template>
+                        <template v-slot="props">
+                            {{ props.row.slf_ecc_number }}
+                        </template>
+                    </b-table-column>
+                    <b-table-column
+                        field="slf_project_operator"
+                        label="Project Operator"
+                        searchable
+                    >
+                        <template #searchable="props">
+                            <b-input
+                                placeholder="Search..."
+                                icon="magnify"
+                                size="is-small"
+                            />
+                        </template>
+                        <template v-slot="props">
+                            {{ props.row.slf_project_operator }}
+                        </template>
+                    </b-table-column>
+                    <b-table-column
+                        field="slf_contact_person"
+                        label="Contact Person"
+                        searchable
+                    >
+                        <template #searchable="props">
+                            <b-input
+                                placeholder="Search..."
+                                icon="magnify"
+                                size="is-small"
+                            />
+                        </template>
+                        <template v-slot="props">
+                            {{ props.row.slf_contact_person }}
+                        </template>
+                    </b-table-column>
+
+                    <b-table-column
+                        field="slf_contact_number"
+                        label="Contact Number"
+                        searchable
+                    >
+                        <template #searchable="props">
+                            <b-input
+                                placeholder="Search..."
+                                icon="magnify"
+                                size="is-small"
+                            />
+                        </template>
+                        <template v-slot="props">
+                            {{ props.row.slf_contact_number }}
+                        </template>
+                    </b-table-column>
+
+                    <b-table-column
+                        field="slf_category"
+                        label="Category"
+                        searchable
+                    >
+                        <template #searchable="props">
+                            <b-input
+                                placeholder="Search..."
+                                icon="magnify"
+                                size="is-small"
+                            />
+                        </template>
+                        <template v-slot="props">
+                            {{ props.row.slf_category }}
+                        </template>
+                    </b-table-column>
+
+                    <b-table-column
+                        field="slf_site_hectares"
+                        label="Site Hectares(ha)"
+                        searchable
+                    >
+                        <template #searchable="props">
+                            <b-input
+                                lce_cityMun_id
+                                placeholder="Search..."
+                                icon="magnify"
+                                size="is-small"
+                            />
+                        </template>
+                        <template v-slot="props">
+                            {{ props.row.slf_site_hectares }}
+                        </template>
+                    </b-table-column>
+
+                    <b-table-column
+                        field="slf_total_capacity"
+                        label="Site Total Capacity"
+                        searchable
+                    >
+                        <template #searchable="props">
+                            <b-input
+                                placeholder="Search..."
+                                icon="magnify"
+                                size="is-small"
+                            />
+                        </template>
+                        <template v-slot="props">
+                            {{ props.row.slf_total_capacity }}
+                        </template>
+                    </b-table-column>
+
+                    <b-table-column
+                        field="action"
+                        label=""
+                        sortable
+                        v-slot="props"
+                    >
+                        <a
+                            :href="`/app/swm/slf_edit/${props.row.id}`"
+                            target="_blank"
+                        >
+                            <box-icon
+                                name="edit"
+                                color="orange"
+                                animation="tada-hover"
+                            ></box-icon
+                        ></a>
+                        <v-btn icon small @click="removeSLF(props.row.id)"
+                            ><box-icon
+                                name="trash"
+                                color="red"
+                                animation="tada-hover"
+                            ></box-icon
+                        ></v-btn>
+                    </b-table-column>
+                    <template #empty>
+                        <div
+                            class="text-center text-3xl text-gray-500 font-extrabold"
+                        >
+                            No lce_list Found
+                        </div>
+                    </template>
+                </b-table>
+            </v-tab-item>
             <v-tab-item> </v-tab-item>
         </v-tabs>
     </DefaultLayout>
@@ -128,6 +312,21 @@ export default {
             tabs: ["LCE", "SLF", ""],
         };
     },
+    methods:{
+        async removeSLF(slf_id){
+            try {
+                this.loading = true;
+                await this.confirmDelete('',async () => {
+                    await this.$inertia.delete(`/app/swm/slf_delete/${slf_id}`)
+                })
+                this.loading = false;
+            } catch (error) {
+                this.loading = false;
+                console.log(error)
+                this.error(error.response.data.message)
+            }
+        }
+    }
 };
 </script>
 

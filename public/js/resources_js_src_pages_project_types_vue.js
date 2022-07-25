@@ -2534,7 +2534,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     lce_edit: Array,
-    province_dropdown: Array
+    province_dropdown: Array,
+    lce_info: Array,
+    query_slf: Array,
+    // slf table
+    slf_edit: Array
   },
   data: function data() {
     return {
@@ -2580,6 +2584,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         slf_file: null,
         lce_FK: null
       },
+      slf_form_type: "create",
       complete_address: null,
       complete_address_setter: {
         prov: {},
@@ -2628,6 +2633,26 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     cityMun_id: function cityMun_id() {
       return this.complete_address_setter.cityMun.PK_citymun_ID;
+    },
+    slf_details: function slf_details() {
+      return this.slf_info[0];
+    },
+    slf_address: function slf_address() {
+      // const { provDesc, citymunDesc, lce_zip_code, districtCode } = this.lce_info[0];
+      var formdata = null;
+
+      if (this.slf_form_type === "create") {
+        formdata = this.lce_info[0];
+      } else if (this.slf_form_type === "patch") {
+        formdata = this.slf_edit[0];
+      }
+
+      var _formdata = formdata,
+          provDesc = _formdata.provDesc,
+          citymunDesc = _formdata.citymunDesc,
+          lce_zip_code = _formdata.lce_zip_code,
+          districtCode = _formdata.districtCode;
+      return "".concat(citymunDesc, ", District No ").concat(districtCode, ", ").concat(provDesc, ", ").concat(lce_zip_code, " ");
     }
   },
   watch: {
