@@ -227,7 +227,7 @@
                                             color="dark"
                                         ></v-text-field>
                                     </ValidationProvider>
-                                    <div class="col-span-2">
+                                    <div class="">
                                         <v-checkbox
                                             v-model="slf.slf_exceeded_capacity"
                                             label="Exceeded Capacity"
@@ -235,6 +235,8 @@
                                             hide-details
                                             color="dark"
                                         ></v-checkbox>
+                                    </div>
+                                    <div class="">
                                         <v-checkbox
                                             v-model="
                                                 slf.slf_with_planned_extension
@@ -289,95 +291,50 @@
                                             color="dark"
                                         ></v-select>
                                     </ValidationProvider>
-                                    <ValidationProvider
-                                        vid="soil_cover"
-                                        name="Daily Soil Cover"
-                                        rules="required"
-                                        v-slot="{ errors }"
-                                    >
-                                        <v-text-field
-                                            label="Daily Soil Cover"
-                                            :error-messages="errors[0]"
-                                            v-model="slf.slf_daily_soil_cover"
-                                            outlined
-                                            clearable
-                                            dense
-                                            color="dark"
-                                        ></v-text-field>
-                                    </ValidationProvider>
-                                    <ValidationProvider
-                                        vid="isMRF"
-                                        name="Precense of MRF"
-                                        rules="required"
-                                        v-slot="{ errors }"
-                                    >
-                                        <v-text-field
-                                            label="Precense of MRF"
-                                            :error-messages="errors[0]"
-                                            v-model="slf.slf_presence_of_mrf"
-                                            outlined
-                                            clearable
-                                            dense
-                                            color="dark"
-                                        ></v-text-field>
-                                    </ValidationProvider>
-                                    <ValidationProvider
-                                        vid="hazwaste"
-                                        name="Separate Cells for Hazwaste"
-                                        rules="required"
-                                        v-slot="{ errors }"
-                                    >
-                                        <v-text-field
-                                            label="Separate Cells for Hazwaste"
-                                            :error-messages="errors[0]"
-                                            v-model="
-                                                slf.slf_separate_cells_for_hazwaste
-                                            "
-                                            outlined
-                                            clearable
-                                            dense
-                                            color="dark"
-                                        ></v-text-field>
-                                    </ValidationProvider>
-                                    <ValidationProvider
-                                        vid="methan_recovery"
-                                        name="Methane Recovery"
-                                        rules="required"
-                                        v-slot="{ errors }"
-                                    >
-                                        <v-text-field
-                                            label="Methane Recovery"
-                                            :error-messages="errors[0]"
-                                            v-model="slf.slf_methane_recovery"
-                                            outlined
-                                            clearable
-                                            dense
-                                            color="dark"
-                                        ></v-text-field>
-                                    </ValidationProvider>
-                                    <ValidationProvider
-                                        vid="discharge_permit"
-                                        name="Dischage Permit"
-                                        rules="required"
-                                        v-slot="{ errors }"
-                                    >
-                                        <v-text-field
-                                            label="Discharge Permit"
-                                            :error-messages="errors[0]"
-                                            v-model="slf.slf_discharge_permit"
-                                            outlined
-                                            clearable
-                                            dense
-                                            color="dark"
-                                        ></v-text-field>
-                                    </ValidationProvider>
+                                    <v-checkbox
+                                        v-model="slf.slf_daily_soil_cover"
+                                        label="Daily Soil Cover"
+                                        value="true"
+                                        hide-details
+                                        color="dark"
+                                    ></v-checkbox>
+                                    <v-checkbox
+                                        v-model="slf.slf_presence_of_mrf"
+                                        label="Precense of MRF"
+                                        value="true"
+                                        hide-details
+                                        color="dark"
+                                    ></v-checkbox>
+                                    <v-checkbox
+                                        v-model="
+                                            slf.slf_separate_cells_for_hazwaste
+                                        "
+                                        label="Separate Cells for Hazwaste"
+                                        value="true"
+                                        hide-details
+                                        color="dark"
+                                    ></v-checkbox>
+                                    <v-checkbox
+                                        v-model="slf.slf_methane_recovery"
+                                        label="Methane Recovery"
+                                        value="true"
+                                        hide-details
+                                        color="dark"
+                                    ></v-checkbox>
+                                    <v-checkbox
+                                        v-model="slf.slf_discharge_permit"
+                                        label="Discharge Permit"
+                                        value="true"
+                                        hide-details
+                                        color="dark"
+                                    ></v-checkbox>
                                     <ValidationProvider
                                         vid="file"
                                         name="File"
-                                        rules="required"
+                                        rules=""
                                         v-slot="{ errors }"
                                     >
-                                        <v-text-field
+                                        <!-- <v-text-field
                                             label="File"
                                             :error-messages="errors[0]"
                                             v-model="slf.slf_file"
@@ -385,8 +342,19 @@
                                             clearable
                                             dense
                                             color="dark"
-                                        ></v-text-field>
+                                        ></v-text-field> -->
+                                        <v-file-input
+                                            label="File"
+                                            :error-messages="errors[0]"
+                                            v-model="slf.slf_file"
+                                            outlined
+                                            clearable
+                                            dense
+                                            color="dark"
+                                            truncate-length="15"
+                                        ></v-file-input>
                                     </ValidationProvider>
+                                    <!-- <FileUpload name="demo[]" url="./upload" /> -->
                                     <!-- <ValidationProvider
                                         vid="lce_fk"
                                         name="LCE"
