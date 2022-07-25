@@ -7,6 +7,7 @@ use Inertia\Inertia;
 use App\Models\SWM\LCE;
 use App\Models\SolidwasteLCE;
 use App\Models\SolidwasteSLF;
+use App\Models\SolidwasteMRF;
 use App\Models\Barangay;
 use App\Models\Municipality;
 use App\Models\Province;
@@ -54,7 +55,8 @@ class SolidwasteLCEController extends Controller
 
     public function lce_show(request $request){
         $id = $request->id;
-        $query_slf = SolidwasteSLF::where('lce_FK',$id)->get();
+        $query_slf = SolidwasteSLF::where('lce_FK',$id)->orderyBy('created_at', 'desc')->get();
+        $query_mrf = SolidwasteMRF::where('lce_FK',$id)->orderyBy('created_at', 'desc')->get();
         $province_dropdown = Province::whereIn('PK_province_ID',[128, 129, 133, 155])->get();
         $lce_edit = DB::table('tbl_solidwaste_lce as a')
         ->select('a.*', 'b.provDesc', 'c.citymunDesc', 'd.brgyDesc', 'c.districtCode')
@@ -67,6 +69,7 @@ class SolidwasteLCEController extends Controller
             'lce_edit'=>$lce_edit,
             'province_dropdown' => $province_dropdown,
             'query_slf'=>$query_slf,
+            'query_mrf'=>$query_mrf,
         ]);
     }
 
