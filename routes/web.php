@@ -16,6 +16,7 @@ use App\Http\Controllers\PSICSubClassController;
 
 use App\Http\Controllers\SolidwasteLCEController;
 use App\Http\Controllers\SolidwasteSLFController;
+use App\Http\Controllers\SolidwasteMRFController;
 
 use App\Http\Controllers\UnitSectionController;
 use App\Http\Controllers\UsersController;
@@ -120,6 +121,12 @@ Route::group([
         Route::post('/slf_register_process', [SolidwasteSLFController::class, 'slf_register_process'])->name("slf_register_process");
         Route::patch('/slf_update_process', [SolidwasteSLFController::class, 'slf_update_process'])->name("slf_update_process");
         Route::delete('/slf_delete/{id}', [SolidwasteSLFController::class, 'slf_delete'])->name("slf_delete");
+        // MRF
+        Route::get('/mrf_register/{id}', [SolidwasteMRFController::class, 'create'])->name("mrf_register_form");
+        Route::get('/mrf_edit/{id}', [SolidwasteMRFController::class, 'mrf_edit'])->name("mrf_edit");
+        Route::post('/mrf_register_process', [SolidwasteMRFController::class, 'mrf_register_process'])->name("mrf_register_process");
+        Route::patch('/mrf_update_process', [SolidwasteMRFController::class, 'mrf_update_process'])->name("mrf_update_process");
+        Route::delete('/mrf_delete/{id}', [SolidwasteMRFController::class, 'mrf_delete'])->name("mrf_delete");
     });
 
 
