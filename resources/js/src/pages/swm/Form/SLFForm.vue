@@ -352,6 +352,8 @@
                                             dense
                                             color="dark"
                                             truncate-length="15"
+                                            multiple
+                                            accept="image/png, image/jpeg, application/pdf"
                                         ></v-file-input>
                                     </ValidationProvider>
                                     <!-- <FileUpload name="demo[]" url="./upload" /> -->
