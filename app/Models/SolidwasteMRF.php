@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 
-class SolidwasteMRF extends Model implements InteractsWithMedia
+class SolidwasteMRF extends Model implements HasMedia
 {
     protected $table = 'tbl_solidwaste_mrf';
     use HasFactory, InteractsWithMedia;
