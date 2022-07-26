@@ -921,6 +921,33 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+<<<<<<< HEAD
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+=======
+>>>>>>> 8df829fe0fa82bafb38ebf8fcd0e1a9a1cb1891f
 
 
 
@@ -22553,6 +22580,75 @@ var render = function () {
                                           },
                                         }),
                                         _vm._v(" "),
+<<<<<<< HEAD
+                                        _c("v-checkbox", {
+                                          attrs: {
+                                            label:
+                                              "Separate Cells for Hazwaste",
+                                            value: "true",
+                                            "hide-details": "",
+                                            color: "dark",
+                                          },
+                                          model: {
+                                            value:
+                                              _vm.slf
+                                                .slf_separate_cells_for_hazwaste,
+                                            callback: function ($$v) {
+                                              _vm.$set(
+                                                _vm.slf,
+                                                "slf_separate_cells_for_hazwaste",
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "\n                                        slf.slf_separate_cells_for_hazwaste\n                                    ",
+                                          },
+                                        }),
+                                        _vm._v(" "),
+                                        _c("v-checkbox", {
+                                          attrs: {
+                                            label: "Methane Recovery",
+                                            value: "true",
+                                            "hide-details": "",
+                                            color: "dark",
+                                          },
+                                          model: {
+                                            value: _vm.slf.slf_methane_recovery,
+                                            callback: function ($$v) {
+                                              _vm.$set(
+                                                _vm.slf,
+                                                "slf_methane_recovery",
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "slf.slf_methane_recovery",
+                                          },
+                                        }),
+                                        _vm._v(" "),
+                                        _c("v-checkbox", {
+                                          attrs: {
+                                            label: "Discharge Permit",
+                                            value: "true",
+                                            "hide-details": "",
+                                            color: "dark",
+                                          },
+                                          model: {
+                                            value: _vm.slf.slf_discharge_permit,
+                                            callback: function ($$v) {
+                                              _vm.$set(
+                                                _vm.slf,
+                                                "slf_discharge_permit",
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "slf.slf_discharge_permit",
+                                          },
+                                        }),
+                                        _vm._v(" "),
+=======
+>>>>>>> 8df829fe0fa82bafb38ebf8fcd0e1a9a1cb1891f
                                         _c("ValidationProvider", {
                                           attrs: {
                                             vid: "file",

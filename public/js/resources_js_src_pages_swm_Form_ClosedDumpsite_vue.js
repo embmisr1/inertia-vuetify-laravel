@@ -1,4 +1,4 @@
-(self["webpackChunk"] = self["webpackChunk"] || []).push([["resources_js_src_pages_swm_Form_MRFForm_vue"],{
+(self["webpackChunk"] = self["webpackChunk"] || []).push([["resources_js_src_pages_swm_Form_ClosedDumpsite_vue"],{
 
 /***/ "./node_modules/@babel/runtime/regenerator/index.js":
 /*!**********************************************************!*\
@@ -495,10 +495,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/pages/swm/Form/MRFForm.vue?vue&type=script&lang=js&":
-/*!**********************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/pages/swm/Form/MRFForm.vue?vue&type=script&lang=js& ***!
-  \**********************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/pages/swm/Form/ClosedDumpsite.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/pages/swm/Form/ClosedDumpsite.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -20934,10 +20934,10 @@ component.options.__file = "resources/js/src/layouts/default.vue"
 
 /***/ }),
 
-/***/ "./resources/js/src/pages/swm/Form/MRFForm.vue":
-/*!*****************************************************!*\
-  !*** ./resources/js/src/pages/swm/Form/MRFForm.vue ***!
-  \*****************************************************/
+/***/ "./resources/js/src/pages/swm/Form/ClosedDumpsite.vue":
+/*!************************************************************!*\
+  !*** ./resources/js/src/pages/swm/Form/ClosedDumpsite.vue ***!
+  \************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -20945,8 +20945,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _MRFForm_vue_vue_type_template_id_440930b4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MRFForm.vue?vue&type=template&id=440930b4& */ "./resources/js/src/pages/swm/Form/MRFForm.vue?vue&type=template&id=440930b4&");
-/* harmony import */ var _MRFForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MRFForm.vue?vue&type=script&lang=js& */ "./resources/js/src/pages/swm/Form/MRFForm.vue?vue&type=script&lang=js&");
+/* harmony import */ var _ClosedDumpsite_vue_vue_type_template_id_64a1e328___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ClosedDumpsite.vue?vue&type=template&id=64a1e328& */ "./resources/js/src/pages/swm/Form/ClosedDumpsite.vue?vue&type=template&id=64a1e328&");
+/* harmony import */ var _ClosedDumpsite_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ClosedDumpsite.vue?vue&type=script&lang=js& */ "./resources/js/src/pages/swm/Form/ClosedDumpsite.vue?vue&type=script&lang=js&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -20956,9 +20956,9 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 ;
 var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _MRFForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _MRFForm_vue_vue_type_template_id_440930b4___WEBPACK_IMPORTED_MODULE_0__.render,
-  _MRFForm_vue_vue_type_template_id_440930b4___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  _ClosedDumpsite_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _ClosedDumpsite_vue_vue_type_template_id_64a1e328___WEBPACK_IMPORTED_MODULE_0__.render,
+  _ClosedDumpsite_vue_vue_type_template_id_64a1e328___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
   false,
   null,
   null,
@@ -20968,7 +20968,7 @@ var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/src/pages/swm/Form/MRFForm.vue"
+component.options.__file = "resources/js/src/pages/swm/Form/ClosedDumpsite.vue"
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
 
 /***/ }),
@@ -21021,10 +21021,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/src/pages/swm/Form/MRFForm.vue?vue&type=script&lang=js&":
-/*!******************************************************************************!*\
-  !*** ./resources/js/src/pages/swm/Form/MRFForm.vue?vue&type=script&lang=js& ***!
-  \******************************************************************************/
+/***/ "./resources/js/src/pages/swm/Form/ClosedDumpsite.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************!*\
+  !*** ./resources/js/src/pages/swm/Form/ClosedDumpsite.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -21032,8 +21032,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MRFForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MRFForm.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/pages/swm/Form/MRFForm.vue?vue&type=script&lang=js&");
- /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MRFForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ClosedDumpsite_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ClosedDumpsite.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/pages/swm/Form/ClosedDumpsite.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ClosedDumpsite_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -21088,19 +21088,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/src/pages/swm/Form/MRFForm.vue?vue&type=template&id=440930b4&":
-/*!************************************************************************************!*\
-  !*** ./resources/js/src/pages/swm/Form/MRFForm.vue?vue&type=template&id=440930b4& ***!
-  \************************************************************************************/
+/***/ "./resources/js/src/pages/swm/Form/ClosedDumpsite.vue?vue&type=template&id=64a1e328&":
+/*!*******************************************************************************************!*\
+  !*** ./resources/js/src/pages/swm/Form/ClosedDumpsite.vue?vue&type=template&id=64a1e328& ***!
+  \*******************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MRFForm_vue_vue_type_template_id_440930b4___WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MRFForm_vue_vue_type_template_id_440930b4___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ClosedDumpsite_vue_vue_type_template_id_64a1e328___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ClosedDumpsite_vue_vue_type_template_id_64a1e328___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MRFForm_vue_vue_type_template_id_440930b4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MRFForm.vue?vue&type=template&id=440930b4& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/pages/swm/Form/MRFForm.vue?vue&type=template&id=440930b4&");
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ClosedDumpsite_vue_vue_type_template_id_64a1e328___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ClosedDumpsite.vue?vue&type=template&id=64a1e328& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/pages/swm/Form/ClosedDumpsite.vue?vue&type=template&id=64a1e328&");
 
 
 /***/ }),
@@ -21478,10 +21478,10 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/pages/swm/Form/MRFForm.vue?vue&type=template&id=440930b4&":
-/*!***************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/pages/swm/Form/MRFForm.vue?vue&type=template&id=440930b4& ***!
-  \***************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/pages/swm/Form/ClosedDumpsite.vue?vue&type=template&id=64a1e328&":
+/*!**********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/pages/swm/Form/ClosedDumpsite.vue?vue&type=template&id=64a1e328& ***!
+  \**********************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -21496,11 +21496,7 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c("DefaultLayout", [
     _c("div", { staticClass: "font-bold text-2xl text-center py-6" }, [
-<<<<<<< HEAD
-      _vm._v("Closed Dumpsite Form"),
-=======
       _vm._v("MRF Form"),
->>>>>>> 8df829fe0fa82bafb38ebf8fcd0e1a9a1cb1891f
     ]),
     _vm._v(" "),
     _vm.loading
