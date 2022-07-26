@@ -9,4 +9,11 @@ class SolidwasteClosedDumpsite extends Model
 {
     protected $table = 'tbl_solidwaste_closed_dumpsite';
     use HasFactory;
+    public function registerMediaCollections(): void
+    {
+        $this
+            ->addMediaCollection('dump_site')
+            ->acceptsMimeTypes(['image/jpeg', 'image/png', 'image/jpg', 'application/pdf'])
+            ->useDisk('dump_site');
+    }
 }

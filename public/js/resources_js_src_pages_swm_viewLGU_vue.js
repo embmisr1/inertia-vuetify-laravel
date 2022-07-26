@@ -921,6 +921,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -936,7 +945,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   mixins: [_mixins___WEBPACK_IMPORTED_MODULE_4__.page, _mixins___WEBPACK_IMPORTED_MODULE_4__.toasts, _mixins___WEBPACK_IMPORTED_MODULE_4__.swm, _mixins___WEBPACK_IMPORTED_MODULE_4__.dialogs],
   data: function data() {
     return {
-      tabs: ["LCE", "SLF", "MRF"]
+      tabs: ["LCE", "SLF", "MRF", "RCA"]
     };
   },
   methods: {
@@ -2711,6 +2720,23 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         mrf_total_waste_diverted: null,
         mrf_number_of_waste_diverted: null,
         mrf_file: null,
+        lce_FK: null
+      },
+      cd: {
+        cd_total_land_area: null,
+        cd_date_monitored: null,
+        cd_site_clearing: null,
+        cd_site_grading: null,
+        cd_application_maintenance: null,
+        cd_provision_drainage: null,
+        cd_leachate_management: null,
+        cd_gas_management: null,
+        cd_fencing_security: null,
+        cd_putting_sinages: null,
+        cd_prohibition: null,
+        cd_status: null,
+        cd_remarks: null,
+        cd_date_closure: null,
         lce_FK: null
       },
       complete_address: null,
@@ -21767,23 +21793,49 @@ var render = function () {
                         [
                           _c("v-spacer"),
                           _vm._v(" "),
-                          _c(
-                            "a",
-                            {
-                              attrs: {
-                                href: "/app/swm/lce_edit/" + _vm.lce_id,
-                                target: "_blank",
+                          _c("div", { staticClass: "space-x-4" }, [
+                            _c(
+                              "a",
+                              {
+                                attrs: {
+                                  href: "/app/swm/cd_register/" + _vm.lce_id,
+                                  target: "_blank",
+                                },
                               },
-                            },
-                            [
-                              _c(
-                                "v-btn",
-                                { attrs: { color: "orange lighten-2" } },
-                                [_vm._v("Update LCE")]
-                              ),
-                            ],
-                            1
-                          ),
+                              [
+                                _c(
+                                  "v-btn",
+                                  {
+                                    attrs: {
+                                      border: "",
+                                      outlined: "",
+                                      color: "red lighten-2",
+                                    },
+                                  },
+                                  [_vm._v("Close Dumpsite")]
+                                ),
+                              ],
+                              1
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "a",
+                              {
+                                attrs: {
+                                  href: "/app/swm/lce_edit/" + _vm.lce_id,
+                                  target: "_blank",
+                                },
+                              },
+                              [
+                                _c(
+                                  "v-btn",
+                                  { attrs: { color: "orange lighten-2" } },
+                                  [_vm._v("Update LCE")]
+                                ),
+                              ],
+                              1
+                            ),
+                          ]),
                         ],
                         1
                       ),

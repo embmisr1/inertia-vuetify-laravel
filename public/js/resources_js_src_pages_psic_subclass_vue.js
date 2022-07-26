@@ -2611,6 +2611,23 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         mrf_file: null,
         lce_FK: null
       },
+      cd: {
+        cd_total_land_area: null,
+        cd_date_monitored: null,
+        cd_site_clearing: null,
+        cd_site_grading: null,
+        cd_application_maintenance: null,
+        cd_provision_drainage: null,
+        cd_leachate_management: null,
+        cd_gas_management: null,
+        cd_fencing_security: null,
+        cd_putting_sinages: null,
+        cd_prohibition: null,
+        cd_status: null,
+        cd_remarks: null,
+        cd_date_closure: null,
+        lce_FK: null
+      },
       complete_address: null,
       complete_address_setter: {
         prov: {},

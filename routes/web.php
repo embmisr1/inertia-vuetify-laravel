@@ -13,7 +13,7 @@ use App\Http\Controllers\ProjectTypeController;
 use App\Http\Controllers\PsicClassController;
 use App\Http\Controllers\PsicGroupController;
 use App\Http\Controllers\PSICSubClassController;
-
+use App\Http\Controllers\SolidwasteClosedDumpsiteController;
 use App\Http\Controllers\SolidwasteLCEController;
 use App\Http\Controllers\SolidwasteSLFController;
 use App\Http\Controllers\SolidwasteMRFController;

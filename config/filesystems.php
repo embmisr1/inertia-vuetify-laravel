@@ -53,6 +53,24 @@ return [
             'use_path_style_endpoint' => env('AWS_USE_PATH_STYLE_ENDPOINT', false),
         ],
 
+        'slf' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/slf'),
+            'url' => env('APP_URL') . '/storage/slf',
+            'visibility' => 'public',
+        ],
+        'mrf' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/mrf'),
+            'url' => env('APP_URL') . '/storage/mrf',
+            'visibility' => 'public',
+        ],
+        'lce' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/lce'),
+            'url' => env('APP_URL') . '/storage/lce',
+            'visibility' => 'public',
+        ],
     ],
 
     /*
