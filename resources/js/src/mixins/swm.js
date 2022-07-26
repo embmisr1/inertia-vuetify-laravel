@@ -7,6 +7,8 @@ export default {
         lce_info: Array,
         query_slf: Array, // slf table
         slf_edit: Array,
+        query_mrf: Array, // mrf table
+        mrf_edit: Array,
     },
     data() {
         return {
@@ -52,7 +54,21 @@ export default {
                 slf_file: null,
                 lce_FK: null,
             },
-            slf_form_type: "create",
+            mrf: {
+                mrf_emb_funded: null,
+                mrf_latitude: null,
+                mrf_longitude: null,
+                mrf_status_operation: null,
+                mrf_service_area: null,
+                mrf_total_waste_generation: null,
+                mrf_biodegradable: null,
+                mrf_recyclable: null,
+                mrf_special_waste: null,
+                mrf_total_waste_diverted: null,
+                mrf_number_of_waste_diverted: null,
+                mrf_file: null,
+                lce_FK: null,
+            },
             complete_address: null,
             complete_address_setter: {
                 prov: {},
@@ -61,6 +77,7 @@ export default {
             },
             category: ["Category 1", "Category 2", "Category 3", "Category 4"],
             leachment_type: ["Recirculaation", "Chemical", "Biological"],
+            status_of_operation: ["Operational", "Not Operational"],
             cityMun: [],
             brgy: [],
         };
@@ -100,18 +117,7 @@ export default {
         slf_details() {
             return this.slf_info[0];
         },
-        slf_address() {
-            // const { provDesc, citymunDesc, lce_zip_code, districtCode } = this.lce_info[0];
-            let formdata = null;
-            if (this.slf_form_type === "create") {
-                formdata = this.lce_info[0];
-            } else if (this.slf_form_type === "patch") {
-                formdata = this.slf_edit[0];
-            }
-            const { provDesc, citymunDesc, lce_zip_code, districtCode } =
-                formdata;
-            return `${citymunDesc}, District No ${districtCode}, ${provDesc}, ${lce_zip_code} `;
-        },
+
     },
     watch: {
         lce_prov_id(value) {

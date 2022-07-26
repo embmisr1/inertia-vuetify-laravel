@@ -47,20 +47,22 @@
                         v-on="on"
                     />
                 </template>
-                <RightMenu :items="items" :themeColor="isDark" />
+                <!-- <RightMenu :items="items" :themeColor="isDark" /> -->
             </v-menu>
         </v-app-bar>
 
         <!-- Sizes your content based upon application components -->
         <v-main
             class=""
-            style="background-color: #f4f5fa !important; overflow-y: hidden"
+            style=" background-color: #f4f5fa !important; overflow-y: hidden"
         >
             <!-- Provides the application the proper gutter -->
-            <v-container fluid class="scrollbar-thin overflow-y-scroll">
+            <!-- <v-container class="w-screen scrollbar-thin overflow-y-scroll"> -->
+                <div class="p-4">
+                    <slot />
+                </div>
                 <!-- If using vue-router -->
-                <slot />
-            </v-container>
+            <!-- </v-container> -->
         </v-main>
 
         <v-footer app rounded>

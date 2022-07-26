@@ -1,6 +1,6 @@
 <template>
     <DefaultLayout>
-        <div class="font-bold text-2xl text-center py-6">SLF Form</div>
+        <div class="font-bold text-2xl text-center py-6">MRF Form</div>
         <div v-if="loading">Loading..</div>
         <div v-else>
             <ValidationObserver
@@ -15,7 +15,7 @@
                                     Address Information
                                 </v-card-title>
                                 <v-card-text class="">
-                                    {{ slf_address }}
+                                    {{ address }}
                                     <div class="grid grid-cols-2 gap-2">
                                         <ValidationProvider
                                             vid="lat"
@@ -26,7 +26,7 @@
                                             <v-text-field
                                                 label="Latitude"
                                                 :error-messages="errors[0]"
-                                                v-model="slf.slf_latitude"
+                                                v-model="mrf.mrf_latitude"
                                                 outlined
                                                 clearable
                                                 dense
@@ -42,7 +42,7 @@
                                             <v-text-field
                                                 label="Longitude"
                                                 :error-messages="errors[0]"
-                                                v-model="slf.slf_longitude"
+                                                v-model="mrf.mrf_longitude"
                                                 outlined
                                                 clearable
                                                 dense
@@ -54,213 +54,92 @@
                             </v-card>
                             <v-card>
                                 <v-card-title>
-                                    Operator Information
+                                    Funded Information
                                 </v-card-title>
                                 <v-card-text class="grid grid-cols-2 gap-2">
+                                    <!-- <v-checkbox
+                                        v-model="mrf.mrf_lgu"
+                                        label="LGU Funded"
+                                        value="true"
+                                        hide-details
+                                        color="dark"
+                                    ></v-checkbox> -->
+                                    <!-- <v-checkbox
+                                        v-model="mrf.mrf_emb_funded"
+                                        label="EMB Funded"
+                                        value="true"
+                                        hide-details
+                                        color="dark"
+                                    ></v-checkbox>
                                     <ValidationProvider
-                                        vid="proj_operator"
-                                        name="Project Operator"
+                                        vid="mrf_emb_lgu_funded"
+                                        name="EMB LGU FUNDED"
                                         rules="required"
                                         v-slot="{ errors }"
                                     >
                                         <v-text-field
-                                            label="Project Operator"
+                                            label="EMB LGU FUNDED"
                                             :error-messages="errors[0]"
-                                            v-model="slf.slf_project_operator"
+                                            v-model="mrf.mrf_emb_lgu_funded"
                                             outlined
                                             clearable
                                             dense
                                             color="dark"
                                         ></v-text-field>
-                                    </ValidationProvider>
+                                    </ValidationProvider> -->
                                     <ValidationProvider
-                                        vid="ecc_no"
-                                        name="ECC Number"
+                                        vid="mrf_emb_funded"
+                                        name="EMB FUNDED"
                                         rules="required"
                                         v-slot="{ errors }"
                                     >
                                         <v-text-field
-                                            label="ECC Number"
+                                            label="EMB FUNDED"
                                             :error-messages="errors[0]"
-                                            v-model="slf.slf_ecc_number"
+                                            v-model="mrf.mrf_emb_funded"
                                             outlined
                                             clearable
                                             dense
                                             color="dark"
-                                        ></v-text-field>
+                                            hint="in Philippine PESO"
+                                            persistent-hint
+                                        >
+                                        <template #prepend-inner>
+
+                                            <div class=" text-xl font-bold">&#8369</div>
+                                        </template></v-text-field>
                                     </ValidationProvider>
                                     <ValidationProvider
-                                        vid="contact_person"
-                                        name="Contact Person"
-                                        rules="required"
-                                        v-slot="{ errors }"
-                                    >
-                                        <v-text-field
-                                            label="Contact Person"
-                                            :error-messages="errors[0]"
-                                            v-model="slf.slf_contact_person"
-                                            outlined
-                                            clearable
-                                            dense
-                                            color="dark"
-                                        ></v-text-field>
-                                    </ValidationProvider>
-                                    <ValidationProvider
-                                        vid="contact_no"
-                                        name="Contact Number"
-                                        rules="required"
-                                        v-slot="{ errors }"
-                                    >
-                                        <v-text-field
-                                            label="Contact Number"
-                                            :error-messages="errors[0]"
-                                            v-model="slf.slf_contact_number"
-                                            outlined
-                                            clearable
-                                            dense
-                                            color="dark"
-                                        ></v-text-field>
-                                    </ValidationProvider>
-                                </v-card-text>
-                            </v-card>
-                            <v-card>
-                                <v-card-title>
-                                    Site Capacity Information
-                                </v-card-title>
-                                <v-card-text class="grid grid-cols-4 gap-2">
-                                    <ValidationProvider
-                                        vid="cat"
-                                        name="Select Category"
+                                        vid="mrf_status_operation"
+                                        name="Status of Operation"
                                         rules="required"
                                         v-slot="{ errors }"
                                     >
                                         <v-select
-                                            :items="category"
-                                            label="Select Category"
+                                            :items="status_of_operation"
+                                            label="Status of Operation"
                                             :error-messages="errors[0]"
-                                            v-model="slf.slf_category"
+                                            v-model="mrf.mrf_status_operation"
                                             outlined
                                             clearable
                                             dense
                                             color="dark"
                                         ></v-select>
                                     </ValidationProvider>
-                                    <ValidationProvider
-                                        vid="site_ha"
-                                        name="Site Hectares"
-                                        rules="required"
-                                        v-slot="{ errors }"
-                                    >
-                                        <v-text-field
-                                            label="Site Hectares"
-                                            :error-messages="errors[0]"
-                                            v-model="slf.slf_site_hectares"
-                                            outlined
-                                            clearable
-                                            dense
-                                            color="dark"
-                                        ></v-text-field>
-                                    </ValidationProvider>
-                                    <ValidationProvider
-                                        vid="site_cap"
-                                        name="Site Capacity"
-                                        rules="required"
-                                        v-slot="{ errors }"
-                                    >
-                                        <v-text-field
-                                            label="Site Capacity"
-                                            :error-messages="errors[0]"
-                                            v-model="slf.slf_total_capacity"
-                                            outlined
-                                            clearable
-                                            dense
-                                            color="dark"
-                                        ></v-text-field>
-                                    </ValidationProvider>
-                                    <ValidationProvider
-                                        vid="tons_per_day"
-                                        name="Tons per Day"
-                                        rules="required"
-                                        v-slot="{ errors }"
-                                    >
-                                        <v-text-field
-                                            label="Tons per Day"
-                                            :error-messages="errors[0]"
-                                            v-model="slf.slf_tons_per_day"
-                                            outlined
-                                            clearable
-                                            dense
-                                            color="dark"
-                                        ></v-text-field>
-                                    </ValidationProvider>
-                                    <ValidationProvider
-                                        vid="service_life"
-                                        name="Service Life"
-                                        rules="required"
-                                        v-slot="{ errors }"
-                                    >
-                                        <v-text-field
-                                            label="Service Life"
-                                            :error-messages="errors[0]"
-                                            v-model="slf.slf_service_life"
-                                            outlined
-                                            clearable
-                                            dense
-                                            color="dark"
-                                        ></v-text-field>
-                                    </ValidationProvider>
-                                    <ValidationProvider
-                                        vid="rem_service_life"
-                                        name="Remaining Service Life"
-                                        rules="required"
-                                        v-slot="{ errors }"
-                                    >
-                                        <v-text-field
-                                            label="Remaining Service Life"
-                                            :error-messages="errors[0]"
-                                            v-model="
-                                                slf.slf_remaining_service_life
-                                            "
-                                            outlined
-                                            clearable
-                                            dense
-                                            color="dark"
-                                        ></v-text-field>
-                                    </ValidationProvider>
-                                    <div class="">
-                                        <v-checkbox
-                                            v-model="slf.slf_exceeded_capacity"
-                                            label="Exceeded Capacity"
-                                            value="true"
-                                            hide-details
-                                            color="dark"
-                                        ></v-checkbox>
-                                    </div>
-                                    <div class="">
-                                        <v-checkbox
-                                            v-model="
-                                                slf.slf_with_planned_extension
-                                            "
-                                            label="With Planned Extension"
-                                            value="true"
-                                            hide-details
-                                            color="dark"
-                                        ></v-checkbox>
-                                    </div>
                                 </v-card-text>
                             </v-card>
 
                             <div>
                                 <ValidationProvider
-                                    vid="lgu_served"
-                                    name="LGU Served"
+                                    vid="mrf_service_area"
+                                    name="Area/s"
                                     rules="required"
                                     v-slot="{ errors }"
                                 >
                                     <v-text-field
-                                        label="LGU Served"
+                                        label="Service Area/s"
                                         :error-messages="errors[0]"
-                                        v-model="slf.slf_lgu_served"
+                                        v-model="mrf.mrf_service_area"
                                         outlined
                                         clearable
                                         dense
@@ -270,64 +149,118 @@
                             </div>
 
                             <v-card>
-                                <v-card-title>
-                                    Treatment Process And Facilities Information
-                                </v-card-title>
-                                <v-card-text class="grid grid-cols-4 gap-2">
+                                <v-card-title> Waste Information </v-card-title>
+                                <v-card-text class="grid grid-cols-2 gap-2">
                                     <ValidationProvider
-                                        vid="leachate"
-                                        name="Leachate Treatment"
+                                        vid="mrf_total_waste_generation"
+                                        name="Total Waste Generation"
                                         rules="required"
                                         v-slot="{ errors }"
                                     >
-                                        <v-select
-                                            :items="leachment_type"
-                                            label="Leachate Treatment"
+                                        <v-text-field
+                                            label="Total Waste Generation"
                                             :error-messages="errors[0]"
-                                            v-model="slf.slf_leachate_treatment"
+                                            v-model="
+                                                mrf.mrf_total_waste_generation
+                                            "
                                             outlined
                                             clearable
                                             dense
                                             color="dark"
-                                        ></v-select>
+                                        ></v-text-field>
                                     </ValidationProvider>
-                                    <v-checkbox
-                                        v-model="slf.slf_daily_soil_cover"
-                                        label="Daily Soil Cover"
-                                        value="true"
-                                        hide-details
-                                        color="dark"
-                                    ></v-checkbox>
-                                    <v-checkbox
-                                        v-model="slf.slf_presence_of_mrf"
-                                        label="Precense of MRF"
-                                        value="true"
-                                        hide-details
-                                        color="dark"
-                                    ></v-checkbox>
-                                    <v-checkbox
-                                        v-model="
-                                            slf.slf_separate_cells_for_hazwaste
-                                        "
-                                        label="Separate Cells for Hazwaste"
-                                        value="true"
-                                        hide-details
-                                        color="dark"
-                                    ></v-checkbox>
-                                    <v-checkbox
-                                        v-model="slf.slf_methane_recovery"
-                                        label="Methane Recovery"
-                                        value="true"
-                                        hide-details
-                                        color="dark"
-                                    ></v-checkbox>
-                                    <v-checkbox
-                                        v-model="slf.slf_discharge_permit"
-                                        label="Discharge Permit"
-                                        value="true"
-                                        hide-details
-                                        color="dark"
-                                    ></v-checkbox>
+                                    <ValidationProvider
+                                        vid="mrf_biodegradable"
+                                        name="Biodegradable"
+                                        rules="required"
+                                        v-slot="{ errors }"
+                                    >
+                                        <v-text-field
+                                            label="Biodegradable "
+                                            :error-messages="errors[0]"
+                                            v-model="mrf.mrf_biodegradable"
+                                            outlined
+                                            clearable
+                                            dense
+                                            color="dark"
+                                            hint="kg/day"
+                                            persistent-hint
+                                        ></v-text-field>
+                                    </ValidationProvider>
+                                    <ValidationProvider
+                                        vid="mrf_recyclable"
+                                        name="Recyclable"
+                                        rules="required"
+                                        v-slot="{ errors }"
+                                    >
+                                        <v-text-field
+                                            label="Recyclable"
+                                            :error-messages="errors[0]"
+                                            v-model="mrf.mrf_recyclable"
+                                            outlined
+                                            clearable
+                                            dense
+                                            color="dark"
+                                            hint="kg/day"
+                                            persistent-hint
+                                        ></v-text-field>
+                                    </ValidationProvider>
+                                    <ValidationProvider
+                                        vid="mrf_special_waste"
+                                        name="Special Waste"
+                                        rules="required"
+                                        v-slot="{ errors }"
+                                    >
+                                        <v-text-field
+                                            label="Special Waste"
+                                            :error-messages="errors[0]"
+                                            v-model="mrf.mrf_special_waste"
+                                            outlined
+                                            clearable
+                                            dense
+                                            color="dark"
+                                            hint="kg/day"
+                                            persistent-hint
+                                        ></v-text-field>
+                                    </ValidationProvider>
+                                    <ValidationProvider
+                                        vid="mrf_total_waste_diverted"
+                                        name="Waste Diverted"
+                                        rules="required"
+                                        v-slot="{ errors }"
+                                    >
+                                        <v-text-field
+                                            label="Waste Diverted"
+                                            :error-messages="errors[0]"
+                                            v-model="
+                                                mrf.mrf_total_waste_diverted
+                                            "
+                                            outlined
+                                            clearable
+                                            dense
+                                            color="dark"
+                                            hint="kg/day"
+                                            persistent-hint
+                                        ></v-text-field>
+                                    </ValidationProvider>
+                                    <ValidationProvider
+                                        vid="mrf_number_of_waste_diverted"
+                                        name="% of Waster Diverted"
+                                        rules="required"
+                                        v-slot="{ errors }"
+                                    >
+                                        <v-text-field
+                                            label="% of Waster Diverted"
+                                            :error-messages="errors[0]"
+                                            v-model="
+                                                mrf.mrf_number_of_waste_diverted
+                                            "
+                                            outlined
+                                            clearable
+                                            dense
+                                            color="dark"
+                                        ></v-text-field>
+                                    </ValidationProvider>
                                     <ValidationProvider
                                         vid="file"
                                         name="File"
@@ -346,7 +279,7 @@
                                         <v-file-input
                                             label="File"
                                             :error-messages="errors[0]"
-                                            v-model="slf.slf_file"
+                                            v-model="mrf.mrf_file"
                                             outlined
                                             clearable
                                             dense
@@ -356,23 +289,6 @@
                                             accept="image/png, image/jpeg, application/pdf"
                                         ></v-file-input>
                                     </ValidationProvider>
-                                    <!-- <FileUpload name="demo[]" url="./upload" /> -->
-                                    <!-- <ValidationProvider
-                                        vid="lce_fk"
-                                        name="LCE"
-                                        rules="required"
-                                        v-slot="{ errors }"
-                                    >
-                                        <v-text-field
-                                            label="LCE"
-                                            :error-messages="errors[0]"
-                                            v-model="slf.lce_FK"
-                                            outlined
-                                            clearable
-                                            dense
-                                            color="dark"
-                                        ></v-text-field>
-                                    </ValidationProvider> -->
                                 </v-card-text>
                             </v-card>
                         </div>
@@ -408,31 +324,31 @@ export default {
     mixins: [page, toasts, swm, dialogs],
     data() {
         return {
-            slf_form_type: "create",
+            mrf_form_type: "create",
         };
     },
     created() {
         this.loading = true;
         if (this.lce_info !== undefined) {
             if (this.lce_info.length > 0) {
-                this.slf = { ...this.lce_info[0] };
-                this.slf_form_type = "create";
+                this.mrf = { ...this.lce_info[0] };
+                this.mrf_form_type = "create";
             }
-        } else if (this.slf_edit !== undefined) {
-            if (this.slf_edit.length > 0) {
-                this.slf_form_type = "patch";
-                this.slf = { ...this.slf_edit[0] };
+        } else if (this.mrf_edit !== undefined) {
+            if (this.mrf_edit.length > 0) {
+                this.mrf_form_type = "patch";
+                this.mrf = { ...this.mrf_edit[0] };
             }
         }
         this.loading = false;
     },
     computed: {
-        slf_address() {
+        address() {
             let formdata = null;
-            if (this.slf_form_type === "create") {
+            if (this.mrf_form_type === "create") {
                 formdata = this.lce_info[0];
-            } else if (this.slf_form_type === "patch") {
-                formdata = this.slf_edit[0];
+            } else if (this.mrf_form_type === "patch") {
+                formdata = this.mrf_edit[0];
             }
             const { provDesc, citymunDesc, lce_zip_code, districtCode } =
                 formdata;
@@ -441,25 +357,25 @@ export default {
     },
     methods: {
         saveForm() {
-            if (this.slf_form_type === "create") {
-                this.saveSLFForm();
-            } else if (this.slf_form_type === "patch") {
-                this.updateSLFForm();
+            if (this.mrf_form_type === "create") {
+                this.saveMRFForm();
+            } else if (this.mrf_form_type === "patch") {
+                this.updateMRFForm();
             }
         },
-        async saveSLFForm() {
+        async saveMRFForm() {
             try {
-                const data = { ...this.slf, lce_FK: this.slf.id };
-                await this.$inertia.post("/app/swm/slf_register_process", data);
+                const data = { ...this.mrf, lce_FK: this.mrf.id };
+                await this.$inertia.post("/app/swm/mrf_register_process", data);
             } catch (error) {
                 console.error(error.message);
-                this.error(error.da.aresponse.messsage);
+                this.error(error.data.response.messsage);
             }
         },
-        async updateSLFForm() {
+        async updateMRFForm() {
             try {
-                const data = { ...this.slf };
-                await this.$inertia.patch("/app/swm/slf_update_process", data);
+                const data = { ...this.mrf };
+                await this.$inertia.patch("/app/swm/mrf_update_process", data);
             } catch (error) {
                 console.error(error.message);
                 this.error(error.data.response.messsage);
