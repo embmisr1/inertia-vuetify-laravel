@@ -51,7 +51,8 @@ class SolidwasteMRFController extends Controller
         $query->mrf_biodegradable = $request->mrf_biodegradable;
         $query->mrf_recyclable = $request->mrf_recyclable;
         $query->mrf_special_waste = $request->mrf_special_waste;
-        $query->mrf_total_waste_delivered = $request->mrf_total_waste_delivered;
+        $query->mrf_total_waste_diverted = $request->mrf_total_waste_diverted;
+        $query->mrf_number_of_waste_diverted = $request->mrf_number_of_waste_diverted;
         $query->mrf_file = $request->mrf_file;
         $query->lce_FK = $request->lce_FK;
         $query->save();
@@ -71,7 +72,8 @@ class SolidwasteMRFController extends Controller
         $query->mrf_biodegradable = $request->mrf_biodegradable;
         $query->mrf_recyclable = $request->mrf_recyclable;
         $query->mrf_special_waste = $request->mrf_special_waste;
-        $query->mrf_total_waste_delivered = $request->mrf_total_waste_delivered;
+        $query->mrf_total_waste_diverted = $request->mrf_total_waste_diverted;
+        $query->mrf_number_of_waste_diverted = $request->mrf_number_of_waste_diverted;
         $query->mrf_file = $request->mrf_file;
         $query->lce_FK = $request->lce_FK;
         $query->save();
