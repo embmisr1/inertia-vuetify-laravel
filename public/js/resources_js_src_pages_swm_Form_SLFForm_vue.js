@@ -921,6 +921,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+<<<<<<< HEAD
 //
 //
 //
@@ -945,6 +946,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+=======
+>>>>>>> 8df829fe0fa82bafb38ebf8fcd0e1a9a1cb1891f
 
 
 
@@ -22577,6 +22580,7 @@ var render = function () {
                                           },
                                         }),
                                         _vm._v(" "),
+<<<<<<< HEAD
                                         _c("v-checkbox", {
                                           attrs: {
                                             label:
@@ -22643,6 +22647,8 @@ var render = function () {
                                           },
                                         }),
                                         _vm._v(" "),
+=======
+>>>>>>> 8df829fe0fa82bafb38ebf8fcd0e1a9a1cb1891f
                                         _c("ValidationProvider", {
                                           attrs: {
                                             vid: "file",

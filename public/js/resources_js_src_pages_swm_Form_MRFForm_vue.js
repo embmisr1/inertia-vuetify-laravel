@@ -21496,7 +21496,11 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c("DefaultLayout", [
     _c("div", { staticClass: "font-bold text-2xl text-center py-6" }, [
+<<<<<<< HEAD
       _vm._v("Closed Dumpsite Form"),
+=======
+      _vm._v("MRF Form"),
+>>>>>>> 8df829fe0fa82bafb38ebf8fcd0e1a9a1cb1891f
     ]),
     _vm._v(" "),
     _vm.loading
