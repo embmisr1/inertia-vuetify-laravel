@@ -64,9 +64,9 @@ class SolidwasteSLFController extends Controller
         $query->slf_separate_cells_for_hazwaste = $request->slf_separate_cells_for_hazwaste;
         $query->slf_methane_recovery = $request->slf_methane_recovery;
         $query->slf_discharge_permit = $request->slf_discharge_permit;
-        $query->slf_1586_compliance = $request->slf_discharge_permit;
-        $query->slf_9275_compliance = $request->slf_discharge_permit;
-        $query->slf_6969_compliance = $request->slf_discharge_permit;
+        $query->slf_1586_compliance = $request->slf_1586_compliance;
+        $query->slf_9275_compliance = $request->slf_9275_compliance;
+        $query->slf_6969_compliance = $request->slf_6969_compliance;
         $query->slf_file = $request->slf_file;
         $query->lce_FK = $request->lce_FK;
         $query->save();
@@ -97,9 +97,9 @@ class SolidwasteSLFController extends Controller
         $query->slf_separate_cells_for_hazwaste = $request->slf_separate_cells_for_hazwaste;
         $query->slf_methane_recovery = $request->slf_methane_recovery;
         $query->slf_discharge_permit = $request->slf_discharge_permit;
-        $query->slf_1586_compliance = $request->slf_discharge_permit;
-        $query->slf_9275_compliance = $request->slf_discharge_permit;
-        $query->slf_6969_compliance = $request->slf_discharge_permit;
+        $query->slf_1586_compliance = $request->slf_1586_compliance;
+        $query->slf_9275_compliance = $request->slf_9275_compliance;
+        $query->slf_6969_compliance = $request->slf_6969_compliance;
         $query->slf_file = $request->slf_file;
         $query->lce_FK = $request->lce_FK;
         $query->save();

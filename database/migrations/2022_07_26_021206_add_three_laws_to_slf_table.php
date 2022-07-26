@@ -14,9 +14,9 @@ class AddThreeLawsToSlfTable extends Migration
     public function up()
     {
         Schema::table('tbl_solidwaste_slf', function (Blueprint $table) {
-            $table->string('slf_1586_compliance')->after('slf_discharge_permit');
-            $table->string('slf_9275_compliance')->after('slf_1586_compliance');
-            $table->string('slf_6969_compliance')->after('slf_9275_compliance');
+            $table->string('slf_1586_compliance')->nullable()->after('slf_discharge_permit');
+            $table->string('slf_9275_compliance')->nullable()->after('slf_1586_compliance');
+            $table->string('slf_6969_compliance')->nullable()->after('slf_9275_compliance');
         });
     }
 

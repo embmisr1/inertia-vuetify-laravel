@@ -14,7 +14,7 @@ class AddMrfOrRcaToMrfTable extends Migration
     public function up()
     {
         Schema::table('tbl_solidwaste_mrf', function (Blueprint $table) {
-            $table->string('mrf_or_rca')->after('mrf_file');
+            $table->string('mrf_or_rca')->nullable()->after('mrf_file');
         });
     }
 
