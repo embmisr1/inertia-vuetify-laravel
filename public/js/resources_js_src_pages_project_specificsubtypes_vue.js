@@ -2508,6 +2508,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         slf_separate_cells_for_hazwaste: null,
         slf_methane_recovery: null,
         slf_discharge_permit: null,
+        slf_1586_compliance: null,
+        slf_9275_compliance: null,
+        slf_6969_compliance: null,
         slf_file: null,
         lce_FK: null
       },

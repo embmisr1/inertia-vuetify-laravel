@@ -2619,6 +2619,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         slf_separate_cells_for_hazwaste: null,
         slf_methane_recovery: null,
         slf_discharge_permit: null,
+        slf_1586_compliance: null,
+        slf_9275_compliance: null,
+        slf_6969_compliance: null,
         slf_file: null,
         lce_FK: null
       },
@@ -21496,11 +21499,7 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c("DefaultLayout", [
     _c("div", { staticClass: "font-bold text-2xl text-center py-6" }, [
-<<<<<<< HEAD
-      _vm._v("Closed Dumpsite Form"),
-=======
       _vm._v("MRF Form"),
->>>>>>> 8df829fe0fa82bafb38ebf8fcd0e1a9a1cb1891f
     ]),
     _vm._v(" "),
     _vm.loading
