@@ -51,6 +51,9 @@ export default {
                 slf_separate_cells_for_hazwaste: null,
                 slf_methane_recovery: null,
                 slf_discharge_permit: null,
+                slf_1586_compliance: null,
+                slf_9275_compliance: null,
+                slf_6969_compliance: null,
                 slf_file: null,
                 lce_FK: null,
             },
@@ -117,7 +120,6 @@ export default {
         slf_details() {
             return this.slf_info[0];
         },
-
     },
     watch: {
         lce_prov_id(value) {
