@@ -494,11 +494,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 .col-span-5 {
   grid-column: span 5 / span 5;
 }
-.col-span-2 {
-  grid-column: span 2 / span 2;
-}
 .col-span-3 {
   grid-column: span 3 / span 3;
+}
+.col-span-2 {
+  grid-column: span 2 / span 2;
 }
 .float-left {
   float: left;
@@ -619,6 +619,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .w-auto {
   width: auto;
+}
+.w-screen {
+  width: 100vw;
 }
 .max-w-6xl {
   max-width: 72rem;

@@ -1616,7 +1616,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     lce_info: Array,
     query_slf: Array,
     // slf table
-    slf_edit: Array
+    slf_edit: Array,
+    query_mrf: Array,
+    // mrf table
+    mrf_edit: Array
   },
   data: function data() {
     return {
@@ -1662,7 +1665,21 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         slf_file: null,
         lce_FK: null
       },
-      slf_form_type: "create",
+      mrf: {
+        mrf_emb_funded: null,
+        mrf_latitude: null,
+        mrf_longitude: null,
+        mrf_status_operation: null,
+        mrf_service_area: null,
+        mrf_total_waste_generation: null,
+        mrf_biodegradable: null,
+        mrf_recyclable: null,
+        mrf_special_waste: null,
+        mrf_total_waste_diverted: null,
+        mrf_number_of_waste_diverted: null,
+        mrf_file: null,
+        lce_FK: null
+      },
       complete_address: null,
       complete_address_setter: {
         prov: {},
@@ -1671,6 +1688,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       },
       category: ["Category 1", "Category 2", "Category 3", "Category 4"],
       leachment_type: ["Recirculaation", "Chemical", "Biological"],
+      status_of_operation: ["Operational", "Not Operational"],
       cityMun: [],
       brgy: []
     };
@@ -1714,23 +1732,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     slf_details: function slf_details() {
       return this.slf_info[0];
-    },
-    slf_address: function slf_address() {
-      // const { provDesc, citymunDesc, lce_zip_code, districtCode } = this.lce_info[0];
-      var formdata = null;
-
-      if (this.slf_form_type === "create") {
-        formdata = this.lce_info[0];
-      } else if (this.slf_form_type === "patch") {
-        formdata = this.slf_edit[0];
-      }
-
-      var _formdata = formdata,
-          provDesc = _formdata.provDesc,
-          citymunDesc = _formdata.citymunDesc,
-          lce_zip_code = _formdata.lce_zip_code,
-          districtCode = _formdata.districtCode;
-      return "".concat(citymunDesc, ", District No ").concat(districtCode, ", ").concat(provDesc, ", ").concat(lce_zip_code, " ");
     }
   },
   watch: {
