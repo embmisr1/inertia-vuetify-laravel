@@ -249,6 +249,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 
@@ -811,6 +813,114 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -826,7 +936,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   mixins: [_mixins___WEBPACK_IMPORTED_MODULE_4__.page, _mixins___WEBPACK_IMPORTED_MODULE_4__.toasts, _mixins___WEBPACK_IMPORTED_MODULE_4__.swm, _mixins___WEBPACK_IMPORTED_MODULE_4__.dialogs],
   data: function data() {
     return {
-      tabs: ["LCE", "SLF", ""]
+      tabs: ["LCE", "SLF", "MRF"]
     };
   },
   methods: {
@@ -841,7 +951,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 _context2.prev = 0;
                 _this.loading = true;
                 _context2.next = 4;
-                return _this.confirmDelete('', /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+                return _this.confirmDelete("This action  cannot be undone", /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
                   return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
                     while (1) {
                       switch (_context.prev = _context.next) {
@@ -876,6 +986,54 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             }
           }
         }, _callee2, null, [[0, 7]]);
+      }))();
+    },
+    removeMRF: function removeMRF(mrf_id) {
+      var _this2 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee4() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee4$(_context4) {
+          while (1) {
+            switch (_context4.prev = _context4.next) {
+              case 0:
+                _context4.prev = 0;
+                _this2.loading = true;
+                _context4.next = 4;
+                return _this2.confirmDelete("This action  cannot be undone", /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3() {
+                  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
+                    while (1) {
+                      switch (_context3.prev = _context3.next) {
+                        case 0:
+                          _context3.next = 2;
+                          return _this2.$inertia["delete"]("/app/swm/mrf_delete/".concat(mrf_id));
+
+                        case 2:
+                        case "end":
+                          return _context3.stop();
+                      }
+                    }
+                  }, _callee3);
+                })));
+
+              case 4:
+                _this2.loading = false;
+                _context4.next = 12;
+                break;
+
+              case 7:
+                _context4.prev = 7;
+                _context4.t0 = _context4["catch"](0);
+                _this2.loading = false;
+                console.log(_context4.t0);
+
+                _this2.error(_context4.t0.response.data.message);
+
+              case 12:
+              case "end":
+                return _context4.stop();
+            }
+          }
+        }, _callee4, null, [[0, 7]]);
       }))();
     }
   }
@@ -2488,7 +2646,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     lce_info: Array,
     query_slf: Array,
     // slf table
-    slf_edit: Array
+    slf_edit: Array,
+    query_mrf: Array,
+    // mrf table
+    mrf_edit: Array
   },
   data: function data() {
     return {
@@ -2534,7 +2695,21 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         slf_file: null,
         lce_FK: null
       },
-      slf_form_type: "create",
+      mrf: {
+        mrf_emb_funded: null,
+        mrf_latitude: null,
+        mrf_longitude: null,
+        mrf_status_operation: null,
+        mrf_service_area: null,
+        mrf_total_waste_generation: null,
+        mrf_biodegradable: null,
+        mrf_recyclable: null,
+        mrf_special_waste: null,
+        mrf_total_waste_diverted: null,
+        mrf_number_of_waste_diverted: null,
+        mrf_file: null,
+        lce_FK: null
+      },
       complete_address: null,
       complete_address_setter: {
         prov: {},
@@ -2543,6 +2718,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       },
       category: ["Category 1", "Category 2", "Category 3", "Category 4"],
       leachment_type: ["Recirculaation", "Chemical", "Biological"],
+      status_of_operation: ["Operational", "Not Operational"],
       cityMun: [],
       brgy: []
     };
@@ -2586,23 +2762,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     slf_details: function slf_details() {
       return this.slf_info[0];
-    },
-    slf_address: function slf_address() {
-      // const { provDesc, citymunDesc, lce_zip_code, districtCode } = this.lce_info[0];
-      var formdata = null;
-
-      if (this.slf_form_type === "create") {
-        formdata = this.lce_info[0];
-      } else if (this.slf_form_type === "patch") {
-        formdata = this.slf_edit[0];
-      }
-
-      var _formdata = formdata,
-          provDesc = _formdata.provDesc,
-          citymunDesc = _formdata.citymunDesc,
-          lce_zip_code = _formdata.lce_zip_code,
-          districtCode = _formdata.districtCode;
-      return "".concat(citymunDesc, ", District No ").concat(districtCode, ", ").concat(provDesc, ", ").concat(lce_zip_code, " ");
     }
   },
   watch: {
@@ -21304,54 +21463,44 @@ var render = function () {
           _vm._v(" "),
           _c("v-spacer"),
           _vm._v(" "),
-          _c(
-            "v-menu",
-            {
-              attrs: {
-                "offset-x": "",
-                left: "",
-                "z-index": "50",
-                origin: "center center",
-                transition: "scale-transition",
-              },
-              scopedSlots: _vm._u([
-                {
-                  key: "activator",
-                  fn: function (ref) {
-                    var on = ref.on
-                    var attrs = ref.attrs
-                    return [
-                      _c(
-                        "img",
-                        _vm._g(
-                          _vm._b(
-                            {
-                              staticClass: "max-h-12 object-cover",
-                              attrs: {
-                                src: "http://r1.emb.gov.ph/wp-content/uploads/2022/03/cropped-DENR-LOGO.png",
-                                alt: "DENR - EMB Region 1",
-                              },
-                            },
-                            "img",
-                            attrs,
-                            false
-                          ),
-                          on
-                        )
-                      ),
-                    ]
-                  },
-                },
-              ]),
+          _c("v-menu", {
+            attrs: {
+              "offset-x": "",
+              left: "",
+              "z-index": "50",
+              origin: "center center",
+              transition: "scale-transition",
             },
-            [
-              _vm._v(" "),
-              _c("RightMenu", {
-                attrs: { items: _vm.items, themeColor: _vm.isDark },
-              }),
-            ],
-            1
-          ),
+            scopedSlots: _vm._u([
+              {
+                key: "activator",
+                fn: function (ref) {
+                  var on = ref.on
+                  var attrs = ref.attrs
+                  return [
+                    _c(
+                      "img",
+                      _vm._g(
+                        _vm._b(
+                          {
+                            staticClass: "max-h-12 object-cover",
+                            attrs: {
+                              src: "http://r1.emb.gov.ph/wp-content/uploads/2022/03/cropped-DENR-LOGO.png",
+                              alt: "DENR - EMB Region 1",
+                            },
+                          },
+                          "img",
+                          attrs,
+                          false
+                        ),
+                        on
+                      )
+                    ),
+                  ]
+                },
+              },
+            ]),
+          }),
         ],
         1
       ),
@@ -21364,18 +21513,7 @@ var render = function () {
             "overflow-y": "hidden",
           },
         },
-        [
-          _c(
-            "v-container",
-            {
-              staticClass: "scrollbar-thin overflow-y-scroll",
-              attrs: { fluid: "" },
-            },
-            [_vm._t("default")],
-            2
-          ),
-        ],
-        1
+        [_c("div", { staticClass: "p-4" }, [_vm._t("default")], 2)]
       ),
       _vm._v(" "),
       _c(
@@ -21659,385 +21797,377 @@ var render = function () {
           _c(
             "v-tab-item",
             [
-              _c("v-container", [
-                _c(
-                  "a",
-                  {
-                    attrs: {
-                      href: "/app/swm/slf_register/" + _vm.lce_id,
-                      target: "_blank",
-                    },
-                  },
-                  [_c("v-btn", { attrs: { dark: "" } }, [_vm._v("Add SLF")])],
-                  1
-                ),
-              ]),
-              _vm._v(" "),
               _c(
-                "b-table",
-                {
-                  attrs: {
-                    data: _vm.query_slf,
-                    paginated: "",
-                    "per-page": _vm.query_slf.per_page,
-                    "pagination-size": "is-small",
-                    "page-input": "",
-                    hoverable: "",
-                    "backend-pagination": "",
-                    total: _vm.query_slf.total,
-                    "current-page": _vm.query_slf.current_page,
-                    "pagination-position": "top",
-                    "pagination-rounded": "",
-                    narrowed: "",
-                    loading: _vm.loading,
-                    bordered: "",
-                    "sticky-header": "",
-                    scrollable: "",
-                    "row-class": function (row, index) {
-                      return _vm.isTheme ? "bg-black text-white" : ""
-                    },
-                    "header-class": _vm.isTheme ? "bg-black text-white" : "",
-                    height: "420",
-                  },
-                  on: {
-                    "update:currentPage": function ($event) {
-                      return _vm.$set(_vm.query_slf, "current_page", $event)
-                    },
-                    "update:current-page": function ($event) {
-                      return _vm.$set(_vm.query_slf, "current_page", $event)
-                    },
-                    "page-change": _vm.onPageChange,
-                  },
-                  scopedSlots: _vm._u([
+                "v-container",
+                [
+                  _c(
+                    "a",
                     {
-                      key: "empty",
-                      fn: function () {
-                        return [
-                          _c(
-                            "div",
-                            {
-                              staticClass:
-                                "text-center text-3xl text-gray-500 font-extrabold",
-                            },
-                            [
-                              _vm._v(
-                                "\n                        No lce_list Found\n                    "
+                      attrs: {
+                        href: "/app/swm/slf_register/" + _vm.lce_id,
+                        target: "_blank",
+                      },
+                    },
+                    [_c("v-btn", { attrs: { dark: "" } }, [_vm._v("Add SLF")])],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "b-table",
+                    {
+                      attrs: {
+                        data: _vm.query_slf,
+                        "per-page": _vm.query_slf.per_page,
+                        "pagination-size": "is-small",
+                        "page-input": "",
+                        hoverable: "",
+                        "backend-pagination": "",
+                        total: _vm.query_slf.total,
+                        "current-page": _vm.query_slf.current_page,
+                        "pagination-position": "top",
+                        "pagination-rounded": "",
+                        narrowed: "",
+                        loading: _vm.loading,
+                        bordered: "",
+                        "sticky-header": "",
+                        scrollable: "",
+                        "row-class": function (row, index) {
+                          return _vm.isTheme ? "bg-black text-white" : ""
+                        },
+                        "header-class": _vm.isTheme
+                          ? "bg-black text-white"
+                          : "",
+                        height: "420",
+                      },
+                      on: {
+                        "update:currentPage": function ($event) {
+                          return _vm.$set(_vm.query_slf, "current_page", $event)
+                        },
+                        "update:current-page": function ($event) {
+                          return _vm.$set(_vm.query_slf, "current_page", $event)
+                        },
+                        "page-change": _vm.onPageChange,
+                      },
+                      scopedSlots: _vm._u([
+                        {
+                          key: "empty",
+                          fn: function () {
+                            return [
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "text-center text-3xl text-gray-500 font-extrabold",
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                            No lce_list Found\n                        "
+                                  ),
+                                ]
                               ),
                             ]
-                          ),
-                        ]
-                      },
-                      proxy: true,
+                          },
+                          proxy: true,
+                        },
+                      ]),
                     },
-                  ]),
-                },
-                [
-                  _c("b-table-column", {
-                    attrs: {
-                      field: "slf_ecc_number",
-                      label: "ECC Number",
-                      searchable: "",
-                    },
-                    scopedSlots: _vm._u([
-                      {
-                        key: "searchable",
-                        fn: function (props) {
-                          return [
-                            _c("b-input", {
-                              attrs: {
-                                placeholder: "Search...",
-                                icon: "magnify",
-                                size: "is-small",
-                              },
-                            }),
-                          ]
-                        },
-                      },
-                      {
-                        key: "default",
-                        fn: function (props) {
-                          return [
-                            _vm._v(
-                              "\n                        " +
-                                _vm._s(props.row.slf_ecc_number) +
-                                "\n                    "
-                            ),
-                          ]
-                        },
-                      },
-                    ]),
-                  }),
-                  _vm._v(" "),
-                  _c("b-table-column", {
-                    attrs: {
-                      field: "slf_project_operator",
-                      label: "Project Operator",
-                      searchable: "",
-                    },
-                    scopedSlots: _vm._u([
-                      {
-                        key: "searchable",
-                        fn: function (props) {
-                          return [
-                            _c("b-input", {
-                              attrs: {
-                                placeholder: "Search...",
-                                icon: "magnify",
-                                size: "is-small",
-                              },
-                            }),
-                          ]
-                        },
-                      },
-                      {
-                        key: "default",
-                        fn: function (props) {
-                          return [
-                            _vm._v(
-                              "\n                        " +
-                                _vm._s(props.row.slf_project_operator) +
-                                "\n                    "
-                            ),
-                          ]
-                        },
-                      },
-                    ]),
-                  }),
-                  _vm._v(" "),
-                  _c("b-table-column", {
-                    attrs: {
-                      field: "slf_contact_person",
-                      label: "Contact Person",
-                      searchable: "",
-                    },
-                    scopedSlots: _vm._u([
-                      {
-                        key: "searchable",
-                        fn: function (props) {
-                          return [
-                            _c("b-input", {
-                              attrs: {
-                                placeholder: "Search...",
-                                icon: "magnify",
-                                size: "is-small",
-                              },
-                            }),
-                          ]
-                        },
-                      },
-                      {
-                        key: "default",
-                        fn: function (props) {
-                          return [
-                            _vm._v(
-                              "\n                        " +
-                                _vm._s(props.row.slf_contact_person) +
-                                "\n                    "
-                            ),
-                          ]
-                        },
-                      },
-                    ]),
-                  }),
-                  _vm._v(" "),
-                  _c("b-table-column", {
-                    attrs: {
-                      field: "slf_contact_number",
-                      label: "Contact Number",
-                      searchable: "",
-                    },
-                    scopedSlots: _vm._u([
-                      {
-                        key: "searchable",
-                        fn: function (props) {
-                          return [
-                            _c("b-input", {
-                              attrs: {
-                                placeholder: "Search...",
-                                icon: "magnify",
-                                size: "is-small",
-                              },
-                            }),
-                          ]
-                        },
-                      },
-                      {
-                        key: "default",
-                        fn: function (props) {
-                          return [
-                            _vm._v(
-                              "\n                        " +
-                                _vm._s(props.row.slf_contact_number) +
-                                "\n                    "
-                            ),
-                          ]
-                        },
-                      },
-                    ]),
-                  }),
-                  _vm._v(" "),
-                  _c("b-table-column", {
-                    attrs: {
-                      field: "slf_category",
-                      label: "Category",
-                      searchable: "",
-                    },
-                    scopedSlots: _vm._u([
-                      {
-                        key: "searchable",
-                        fn: function (props) {
-                          return [
-                            _c("b-input", {
-                              attrs: {
-                                placeholder: "Search...",
-                                icon: "magnify",
-                                size: "is-small",
-                              },
-                            }),
-                          ]
-                        },
-                      },
-                      {
-                        key: "default",
-                        fn: function (props) {
-                          return [
-                            _vm._v(
-                              "\n                        " +
-                                _vm._s(props.row.slf_category) +
-                                "\n                    "
-                            ),
-                          ]
-                        },
-                      },
-                    ]),
-                  }),
-                  _vm._v(" "),
-                  _c("b-table-column", {
-                    attrs: {
-                      field: "slf_site_hectares",
-                      label: "Site Hectares(ha)",
-                      searchable: "",
-                    },
-                    scopedSlots: _vm._u([
-                      {
-                        key: "searchable",
-                        fn: function (props) {
-                          return [
-                            _c("b-input", {
-                              attrs: {
-                                lce_cityMun_id: "",
-                                placeholder: "Search...",
-                                icon: "magnify",
-                                size: "is-small",
-                              },
-                            }),
-                          ]
-                        },
-                      },
-                      {
-                        key: "default",
-                        fn: function (props) {
-                          return [
-                            _vm._v(
-                              "\n                        " +
-                                _vm._s(props.row.slf_site_hectares) +
-                                "\n                    "
-                            ),
-                          ]
-                        },
-                      },
-                    ]),
-                  }),
-                  _vm._v(" "),
-                  _c("b-table-column", {
-                    attrs: {
-                      field: "slf_total_capacity",
-                      label: "Site Total Capacity",
-                      searchable: "",
-                    },
-                    scopedSlots: _vm._u([
-                      {
-                        key: "searchable",
-                        fn: function (props) {
-                          return [
-                            _c("b-input", {
-                              attrs: {
-                                placeholder: "Search...",
-                                icon: "magnify",
-                                size: "is-small",
-                              },
-                            }),
-                          ]
-                        },
-                      },
-                      {
-                        key: "default",
-                        fn: function (props) {
-                          return [
-                            _vm._v(
-                              "\n                        " +
-                                _vm._s(props.row.slf_total_capacity) +
-                                "\n                    "
-                            ),
-                          ]
-                        },
-                      },
-                    ]),
-                  }),
-                  _vm._v(" "),
-                  _c("b-table-column", {
-                    attrs: { field: "action", label: "", sortable: "" },
-                    scopedSlots: _vm._u([
-                      {
-                        key: "default",
-                        fn: function (props) {
-                          return [
-                            _c(
-                              "a",
-                              {
-                                attrs: {
-                                  href: "/app/swm/slf_edit/" + props.row.id,
-                                  target: "_blank",
-                                },
-                              },
-                              [
-                                _c("box-icon", {
+                    [
+                      _c("b-table-column", {
+                        attrs: { field: "slf_ecc_number", label: "ECC Number" },
+                        scopedSlots: _vm._u([
+                          {
+                            key: "searchable",
+                            fn: function (props) {
+                              return [
+                                _c("b-input", {
                                   attrs: {
-                                    name: "edit",
-                                    color: "orange",
-                                    animation: "tada-hover",
+                                    placeholder: "Search...",
+                                    icon: "magnify",
+                                    size: "is-small",
                                   },
                                 }),
-                              ],
-                              1
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "v-btn",
-                              {
-                                attrs: { icon: "", small: "" },
-                                on: {
-                                  click: function ($event) {
-                                    return _vm.removeSLF(props.row.id)
-                                  },
-                                },
-                              },
-                              [
-                                _c("box-icon", {
+                              ]
+                            },
+                          },
+                          {
+                            key: "default",
+                            fn: function (props) {
+                              return [
+                                _vm._v(
+                                  "\n                            " +
+                                    _vm._s(props.row.slf_ecc_number) +
+                                    "\n                        "
+                                ),
+                              ]
+                            },
+                          },
+                        ]),
+                      }),
+                      _vm._v(" "),
+                      _c("b-table-column", {
+                        attrs: {
+                          field: "slf_project_operator",
+                          label: "Project Operator",
+                        },
+                        scopedSlots: _vm._u([
+                          {
+                            key: "searchable",
+                            fn: function (props) {
+                              return [
+                                _c("b-input", {
                                   attrs: {
-                                    name: "trash",
-                                    color: "red",
-                                    animation: "tada-hover",
+                                    placeholder: "Search...",
+                                    icon: "magnify",
+                                    size: "is-small",
                                   },
                                 }),
-                              ],
-                              1
-                            ),
-                          ]
+                              ]
+                            },
+                          },
+                          {
+                            key: "default",
+                            fn: function (props) {
+                              return [
+                                _vm._v(
+                                  "\n                            " +
+                                    _vm._s(props.row.slf_project_operator) +
+                                    "\n                        "
+                                ),
+                              ]
+                            },
+                          },
+                        ]),
+                      }),
+                      _vm._v(" "),
+                      _c("b-table-column", {
+                        attrs: {
+                          field: "slf_contact_person",
+                          label: "Contact Person",
                         },
-                      },
-                    ]),
-                  }),
+                        scopedSlots: _vm._u([
+                          {
+                            key: "searchable",
+                            fn: function (props) {
+                              return [
+                                _c("b-input", {
+                                  attrs: {
+                                    placeholder: "Search...",
+                                    icon: "magnify",
+                                    size: "is-small",
+                                  },
+                                }),
+                              ]
+                            },
+                          },
+                          {
+                            key: "default",
+                            fn: function (props) {
+                              return [
+                                _vm._v(
+                                  "\n                            " +
+                                    _vm._s(props.row.slf_contact_person) +
+                                    "\n                        "
+                                ),
+                              ]
+                            },
+                          },
+                        ]),
+                      }),
+                      _vm._v(" "),
+                      _c("b-table-column", {
+                        attrs: {
+                          field: "slf_contact_number",
+                          label: "Contact Number",
+                        },
+                        scopedSlots: _vm._u([
+                          {
+                            key: "searchable",
+                            fn: function (props) {
+                              return [
+                                _c("b-input", {
+                                  attrs: {
+                                    placeholder: "Search...",
+                                    icon: "magnify",
+                                    size: "is-small",
+                                  },
+                                }),
+                              ]
+                            },
+                          },
+                          {
+                            key: "default",
+                            fn: function (props) {
+                              return [
+                                _vm._v(
+                                  "\n                            " +
+                                    _vm._s(props.row.slf_contact_number) +
+                                    "\n                        "
+                                ),
+                              ]
+                            },
+                          },
+                        ]),
+                      }),
+                      _vm._v(" "),
+                      _c("b-table-column", {
+                        attrs: { field: "slf_category", label: "Category" },
+                        scopedSlots: _vm._u([
+                          {
+                            key: "searchable",
+                            fn: function (props) {
+                              return [
+                                _c("b-input", {
+                                  attrs: {
+                                    placeholder: "Search...",
+                                    icon: "magnify",
+                                    size: "is-small",
+                                  },
+                                }),
+                              ]
+                            },
+                          },
+                          {
+                            key: "default",
+                            fn: function (props) {
+                              return [
+                                _vm._v(
+                                  "\n                            " +
+                                    _vm._s(props.row.slf_category) +
+                                    "\n                        "
+                                ),
+                              ]
+                            },
+                          },
+                        ]),
+                      }),
+                      _vm._v(" "),
+                      _c("b-table-column", {
+                        attrs: {
+                          field: "slf_site_hectares",
+                          label: "Site Hectares(ha)",
+                        },
+                        scopedSlots: _vm._u([
+                          {
+                            key: "searchable",
+                            fn: function (props) {
+                              return [
+                                _c("b-input", {
+                                  attrs: {
+                                    lce_cityMun_id: "",
+                                    placeholder: "Search...",
+                                    icon: "magnify",
+                                    size: "is-small",
+                                  },
+                                }),
+                              ]
+                            },
+                          },
+                          {
+                            key: "default",
+                            fn: function (props) {
+                              return [
+                                _vm._v(
+                                  "\n                            " +
+                                    _vm._s(props.row.slf_site_hectares) +
+                                    "\n                        "
+                                ),
+                              ]
+                            },
+                          },
+                        ]),
+                      }),
+                      _vm._v(" "),
+                      _c("b-table-column", {
+                        attrs: {
+                          field: "slf_total_capacity",
+                          label: "Site Total Capacity",
+                        },
+                        scopedSlots: _vm._u([
+                          {
+                            key: "searchable",
+                            fn: function (props) {
+                              return [
+                                _c("b-input", {
+                                  attrs: {
+                                    placeholder: "Search...",
+                                    icon: "magnify",
+                                    size: "is-small",
+                                  },
+                                }),
+                              ]
+                            },
+                          },
+                          {
+                            key: "default",
+                            fn: function (props) {
+                              return [
+                                _vm._v(
+                                  "\n                            " +
+                                    _vm._s(props.row.slf_total_capacity) +
+                                    "\n                        "
+                                ),
+                              ]
+                            },
+                          },
+                        ]),
+                      }),
+                      _vm._v(" "),
+                      _c("b-table-column", {
+                        attrs: { field: "action", label: "" },
+                        scopedSlots: _vm._u([
+                          {
+                            key: "default",
+                            fn: function (props) {
+                              return [
+                                _c(
+                                  "a",
+                                  {
+                                    attrs: {
+                                      href: "/app/swm/slf_edit/" + props.row.id,
+                                      target: "_blank",
+                                    },
+                                  },
+                                  [
+                                    _c("box-icon", {
+                                      attrs: {
+                                        name: "edit",
+                                        color: "orange",
+                                        animation: "tada-hover",
+                                      },
+                                    }),
+                                  ],
+                                  1
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "v-btn",
+                                  {
+                                    attrs: { icon: "", small: "" },
+                                    on: {
+                                      click: function ($event) {
+                                        return _vm.removeSLF(props.row.id)
+                                      },
+                                    },
+                                  },
+                                  [
+                                    _c("box-icon", {
+                                      attrs: {
+                                        name: "trash",
+                                        color: "red",
+                                        animation: "tada-hover",
+                                      },
+                                    }),
+                                  ],
+                                  1
+                                ),
+                              ]
+                            },
+                          },
+                        ]),
+                      }),
+                    ],
+                    1
+                  ),
                 ],
                 1
               ),
@@ -22045,7 +22175,256 @@ var render = function () {
             1
           ),
           _vm._v(" "),
-          _c("v-tab-item"),
+          _c(
+            "v-tab-item",
+            [
+              _c(
+                "v-container",
+                [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        href: "/app/swm/mrf_register/" + _vm.lce_id,
+                        target: "_blank",
+                      },
+                    },
+                    [_c("v-btn", { attrs: { dark: "" } }, [_vm._v("Add MRF")])],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "b-table",
+                    {
+                      attrs: {
+                        data: _vm.query_mrf,
+                        "per-page": _vm.query_mrf.per_page,
+                        "pagination-size": "is-small",
+                        "page-input": "",
+                        hoverable: "",
+                        "backend-pagination": "",
+                        total: _vm.query_mrf.total,
+                        "current-page": _vm.query_mrf.current_page,
+                        "pagination-position": "top",
+                        "pagination-rounded": "",
+                        narrowed: "",
+                        loading: _vm.loading,
+                        bordered: "",
+                        "sticky-header": "",
+                        scrollable: "",
+                        "row-class": function (row, index) {
+                          return _vm.isTheme ? "bg-black text-white" : ""
+                        },
+                        "header-class": _vm.isTheme
+                          ? "bg-black text-white"
+                          : "",
+                        height: "420",
+                      },
+                      on: {
+                        "update:currentPage": function ($event) {
+                          return _vm.$set(_vm.query_mrf, "current_page", $event)
+                        },
+                        "update:current-page": function ($event) {
+                          return _vm.$set(_vm.query_mrf, "current_page", $event)
+                        },
+                        "page-change": _vm.onPageChange,
+                      },
+                      scopedSlots: _vm._u([
+                        {
+                          key: "empty",
+                          fn: function () {
+                            return [
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "text-center text-3xl text-gray-500 font-extrabold",
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                            No lce_list Found\n                        "
+                                  ),
+                                ]
+                              ),
+                            ]
+                          },
+                          proxy: true,
+                        },
+                      ]),
+                    },
+                    [
+                      _c("b-table-column", {
+                        attrs: {
+                          field: "mrf_emb_funded",
+                          label: "EMB Funded",
+                          centered: "",
+                        },
+                        scopedSlots: _vm._u([
+                          {
+                            key: "searchable",
+                            fn: function (props) {
+                              return [
+                                _c("b-input", {
+                                  attrs: {
+                                    placeholder: "Search...",
+                                    icon: "magnify",
+                                    size: "is-small",
+                                  },
+                                }),
+                              ]
+                            },
+                          },
+                          {
+                            key: "default",
+                            fn: function (props) {
+                              return [
+                                _vm._v(
+                                  "\n                        ₱ " +
+                                    _vm._s(
+                                      props.row.mrf_emb_funded.toLocaleString(
+                                        "en-US"
+                                      )
+                                    ) +
+                                    "\n                        "
+                                ),
+                              ]
+                            },
+                          },
+                        ]),
+                      }),
+                      _vm._v(" "),
+                      _c("b-table-column", {
+                        attrs: {
+                          field: "mrf_status_operation",
+                          label: "Status Operation",
+                        },
+                        scopedSlots: _vm._u([
+                          {
+                            key: "searchable",
+                            fn: function (props) {
+                              return [
+                                _c("b-input", {
+                                  attrs: {
+                                    placeholder: "Search...",
+                                    icon: "magnify",
+                                    size: "is-small",
+                                  },
+                                }),
+                              ]
+                            },
+                          },
+                          {
+                            key: "default",
+                            fn: function (props) {
+                              return [
+                                _vm._v(
+                                  "\n                            " +
+                                    _vm._s(props.row.mrf_status_operation) +
+                                    "\n                        "
+                                ),
+                              ]
+                            },
+                          },
+                        ]),
+                      }),
+                      _vm._v(" "),
+                      _c("b-table-column", {
+                        attrs: {
+                          field: "mrf_service_area",
+                          label: "Service Area",
+                        },
+                        scopedSlots: _vm._u([
+                          {
+                            key: "searchable",
+                            fn: function (props) {
+                              return [
+                                _c("b-input", {
+                                  attrs: {
+                                    placeholder: "Search...",
+                                    icon: "magnify",
+                                    size: "is-small",
+                                  },
+                                }),
+                              ]
+                            },
+                          },
+                          {
+                            key: "default",
+                            fn: function (props) {
+                              return [
+                                _vm._v(
+                                  "\n                            " +
+                                    _vm._s(props.row.mrf_service_area) +
+                                    "\n                        "
+                                ),
+                              ]
+                            },
+                          },
+                        ]),
+                      }),
+                      _vm._v(" "),
+                      _c("b-table-column", {
+                        attrs: { field: "action", label: "" },
+                        scopedSlots: _vm._u([
+                          {
+                            key: "default",
+                            fn: function (props) {
+                              return [
+                                _c(
+                                  "a",
+                                  {
+                                    attrs: {
+                                      href: "/app/swm/mrf_edit/" + props.row.id,
+                                      target: "_blank",
+                                    },
+                                  },
+                                  [
+                                    _c("box-icon", {
+                                      attrs: {
+                                        name: "edit",
+                                        color: "orange",
+                                        animation: "tada-hover",
+                                      },
+                                    }),
+                                  ],
+                                  1
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "v-btn",
+                                  {
+                                    attrs: { icon: "", small: "" },
+                                    on: {
+                                      click: function ($event) {
+                                        return _vm.removeMRF(props.row.id)
+                                      },
+                                    },
+                                  },
+                                  [
+                                    _c("box-icon", {
+                                      attrs: {
+                                        name: "trash",
+                                        color: "red",
+                                        animation: "tada-hover",
+                                      },
+                                    }),
+                                  ],
+                                  1
+                                ),
+                              ]
+                            },
+                          },
+                        ]),
+                      }),
+                    ],
+                    1
+                  ),
+                ],
+                1
+              ),
+            ],
+            1
+          ),
         ],
         2
       ),

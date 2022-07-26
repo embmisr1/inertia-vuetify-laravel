@@ -1,4 +1,4 @@
-(self["webpackChunk"] = self["webpackChunk"] || []).push([["resources_js_src_pages_psic_group_vue"],{
+(self["webpackChunk"] = self["webpackChunk"] || []).push([["resources_js_src_pages_swm_Form_ClosedDumpsite_vue"],{
 
 /***/ "./node_modules/@babel/runtime/regenerator/index.js":
 /*!**********************************************************!*\
@@ -8,248 +8,6 @@
 
 module.exports = __webpack_require__(/*! regenerator-runtime */ "./node_modules/regenerator-runtime/runtime.js");
 
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/components/PSIC/Class.vue?vue&type=script&lang=js&":
-/*!*********************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/components/PSIC/Class.vue?vue&type=script&lang=js& ***!
-  \*********************************************************************************************************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: {
-    modal: Object,
-    close: Function,
-    submit: Function,
-    loading: {
-      type: Boolean,
-      "default": true
-    },
-    items: Array
-  },
-  data: function data() {
-    return {
-      searchClass: null
-    };
-  },
-  watch: {
-    isModalActive: function isModalActive(value) {
-      if (!value) return;
-      this.searchClass = this.modal.form.searchClass ? this.modal.form.searchClass : null;
-    }
-  },
-  computed: {
-    isModalActive: function isModalActive() {
-      return this.modal.active;
-    }
-  }
-});
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/components/PSIC/Group.vue?vue&type=script&lang=js&":
-/*!*********************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/components/PSIC/Group.vue?vue&type=script&lang=js& ***!
-  \*********************************************************************************************************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: {
-    modal: Object,
-    close: Function,
-    submit: Function,
-    loading: {
-      type: Boolean,
-      "default": true
-    }
-  }
-});
 
 /***/ }),
 
@@ -737,10 +495,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/pages/psic/group.vue?vue&type=script&lang=js&":
-/*!****************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/pages/psic/group.vue?vue&type=script&lang=js& ***!
-  \****************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/pages/swm/Form/ClosedDumpsite.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/pages/swm/Form/ClosedDumpsite.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -750,14 +508,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _layouts_default_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../layouts/default.vue */ "./resources/js/src/layouts/default.vue");
+/* harmony import */ var _layouts_default_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../layouts/default.vue */ "./resources/js/src/layouts/default.vue");
 /* harmony import */ var _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @inertiajs/inertia-vue */ "./node_modules/@inertiajs/inertia-vue/dist/index.js");
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _mixins___WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../mixins/ */ "./resources/js/src/mixins/index.js");
-/* harmony import */ var _components_PSIC_Group_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../components/PSIC/Group.vue */ "./resources/js/src/components/PSIC/Group.vue");
-/* harmony import */ var _components_PSIC_Class_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../components/PSIC/Class.vue */ "./resources/js/src/components/PSIC/Class.vue");
+/* harmony import */ var _mixins__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../mixins */ "./resources/js/src/mixins/index.js");
 
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
@@ -765,10 +525,6 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
 //
 //
 //
@@ -873,8 +629,214 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-
-
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -882,52 +844,125 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
     DefaultLayout: _layouts_default_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
-    Group: _components_PSIC_Group_vue__WEBPACK_IMPORTED_MODULE_5__["default"],
-    Class: _components_PSIC_Class_vue__WEBPACK_IMPORTED_MODULE_6__["default"]
+    Link: _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_2__.Link
   },
-  mixins: [_mixins___WEBPACK_IMPORTED_MODULE_4__.page, _mixins___WEBPACK_IMPORTED_MODULE_4__.toasts, _mixins___WEBPACK_IMPORTED_MODULE_4__.psic, _mixins___WEBPACK_IMPORTED_MODULE_4__.dialogs],
-  props: {
-    data: Object
-  },
+  mixins: [_mixins__WEBPACK_IMPORTED_MODULE_4__.page, _mixins__WEBPACK_IMPORTED_MODULE_4__.toasts, _mixins__WEBPACK_IMPORTED_MODULE_4__.swm, _mixins__WEBPACK_IMPORTED_MODULE_4__.dialogs],
   data: function data() {
-    return {};
+    return {
+      mrf_form_type: "create"
+    };
+  },
+  created: function created() {
+    this.loading = true;
+
+    if (this.lce_info !== undefined) {
+      if (this.lce_info.length > 0) {
+        this.mrf = _objectSpread({}, this.lce_info[0]);
+        this.mrf_form_type = "create";
+      }
+    } else if (this.mrf_edit !== undefined) {
+      if (this.mrf_edit.length > 0) {
+        this.mrf_form_type = "patch";
+        this.mrf = _objectSpread({}, this.mrf_edit[0]);
+      }
+    }
+
+    this.loading = false;
+  },
+  computed: {
+    address: function address() {
+      var formdata = null;
+
+      if (this.mrf_form_type === "create") {
+        formdata = this.lce_info[0];
+      } else if (this.mrf_form_type === "patch") {
+        formdata = this.mrf_edit[0];
+      }
+
+      var _formdata = formdata,
+          provDesc = _formdata.provDesc,
+          citymunDesc = _formdata.citymunDesc,
+          lce_zip_code = _formdata.lce_zip_code,
+          districtCode = _formdata.districtCode;
+      return "".concat(citymunDesc, ", District No ").concat(districtCode, ", ").concat(provDesc, ", ").concat(lce_zip_code, " ");
+    }
   },
   methods: {
-    get: lodash__WEBPACK_IMPORTED_MODULE_3___default().debounce( /*#__PURE__*/function () {
-      var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(params) {
+    saveForm: function saveForm() {
+      if (this.mrf_form_type === "create") {
+        this.saveMRFForm();
+      } else if (this.mrf_form_type === "patch") {
+        this.updateMRFForm();
+      }
+    },
+    saveMRFForm: function saveMRFForm() {
+      var _this = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+        var data;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
                 _context.prev = 0;
-                this.loading = true;
+                data = _objectSpread(_objectSpread({}, _this.mrf), {}, {
+                  lce_FK: _this.mrf.id
+                });
                 _context.next = 4;
-                return this.$inertia.get("#", _objectSpread({}, params));
+                return _this.$inertia.post("/app/swm/mrf_register_process", data);
 
               case 4:
-                this.loading = false;
-                _context.next = 12;
+                _context.next = 10;
                 break;
 
-              case 7:
-                _context.prev = 7;
+              case 6:
+                _context.prev = 6;
                 _context.t0 = _context["catch"](0);
-                this.loading = false;
-                console.log(_context.t0);
-                this.error("PSIC Group Get - error");
+                console.error(_context.t0.message);
 
-              case 12:
+                _this.error(_context.t0.data.response.messsage);
+
+              case 10:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, this, [[0, 7]]);
-      }));
+        }, _callee, null, [[0, 6]]);
+      }))();
+    },
+    updateMRFForm: function updateMRFForm() {
+      var _this2 = this;
 
-      return function (_x) {
-        return _ref.apply(this, arguments);
-      };
-    }(), 1500)
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
+        var data;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.prev = 0;
+                data = _objectSpread({}, _this2.mrf);
+                _context2.next = 4;
+                return _this2.$inertia.patch("/app/swm/mrf_update_process", data);
+
+              case 4:
+                _context2.next = 10;
+                break;
+
+              case 6:
+                _context2.prev = 6;
+                _context2.t0 = _context2["catch"](0);
+                console.error(_context2.t0.message);
+
+                _this2.error(_context2.t0.data.response.messsage);
+
+              case 10:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, null, [[0, 6]]);
+      }))();
+    }
   }
 });
 
@@ -20782,84 +20817,6 @@ try {
 
 /***/ }),
 
-/***/ "./resources/js/src/components/PSIC/Class.vue":
-/*!****************************************************!*\
-  !*** ./resources/js/src/components/PSIC/Class.vue ***!
-  \****************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _Class_vue_vue_type_template_id_6b342f46___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Class.vue?vue&type=template&id=6b342f46& */ "./resources/js/src/components/PSIC/Class.vue?vue&type=template&id=6b342f46&");
-/* harmony import */ var _Class_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Class.vue?vue&type=script&lang=js& */ "./resources/js/src/components/PSIC/Class.vue?vue&type=script&lang=js&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
-/* normalize component */
-;
-var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _Class_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _Class_vue_vue_type_template_id_6b342f46___WEBPACK_IMPORTED_MODULE_0__.render,
-  _Class_vue_vue_type_template_id_6b342f46___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/src/components/PSIC/Class.vue"
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
-
-/***/ }),
-
-/***/ "./resources/js/src/components/PSIC/Group.vue":
-/*!****************************************************!*\
-  !*** ./resources/js/src/components/PSIC/Group.vue ***!
-  \****************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _Group_vue_vue_type_template_id_1363a0cd___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Group.vue?vue&type=template&id=1363a0cd& */ "./resources/js/src/components/PSIC/Group.vue?vue&type=template&id=1363a0cd&");
-/* harmony import */ var _Group_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Group.vue?vue&type=script&lang=js& */ "./resources/js/src/components/PSIC/Group.vue?vue&type=script&lang=js&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
-/* normalize component */
-;
-var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _Group_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _Group_vue_vue_type_template_id_1363a0cd___WEBPACK_IMPORTED_MODULE_0__.render,
-  _Group_vue_vue_type_template_id_1363a0cd___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/src/components/PSIC/Group.vue"
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
-
-/***/ }),
-
 /***/ "./resources/js/src/components/RightMenu.vue":
 /*!***************************************************!*\
   !*** ./resources/js/src/components/RightMenu.vue ***!
@@ -20977,10 +20934,10 @@ component.options.__file = "resources/js/src/layouts/default.vue"
 
 /***/ }),
 
-/***/ "./resources/js/src/pages/psic/group.vue":
-/*!***********************************************!*\
-  !*** ./resources/js/src/pages/psic/group.vue ***!
-  \***********************************************/
+/***/ "./resources/js/src/pages/swm/Form/ClosedDumpsite.vue":
+/*!************************************************************!*\
+  !*** ./resources/js/src/pages/swm/Form/ClosedDumpsite.vue ***!
+  \************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -20988,9 +20945,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _group_vue_vue_type_template_id_4d96c841___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./group.vue?vue&type=template&id=4d96c841& */ "./resources/js/src/pages/psic/group.vue?vue&type=template&id=4d96c841&");
-/* harmony import */ var _group_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./group.vue?vue&type=script&lang=js& */ "./resources/js/src/pages/psic/group.vue?vue&type=script&lang=js&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _ClosedDumpsite_vue_vue_type_template_id_64a1e328___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ClosedDumpsite.vue?vue&type=template&id=64a1e328& */ "./resources/js/src/pages/swm/Form/ClosedDumpsite.vue?vue&type=template&id=64a1e328&");
+/* harmony import */ var _ClosedDumpsite_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ClosedDumpsite.vue?vue&type=script&lang=js& */ "./resources/js/src/pages/swm/Form/ClosedDumpsite.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -20999,9 +20956,9 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 ;
 var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _group_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _group_vue_vue_type_template_id_4d96c841___WEBPACK_IMPORTED_MODULE_0__.render,
-  _group_vue_vue_type_template_id_4d96c841___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  _ClosedDumpsite_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _ClosedDumpsite_vue_vue_type_template_id_64a1e328___WEBPACK_IMPORTED_MODULE_0__.render,
+  _ClosedDumpsite_vue_vue_type_template_id_64a1e328___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
   false,
   null,
   null,
@@ -21011,40 +20968,8 @@ var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/src/pages/psic/group.vue"
+component.options.__file = "resources/js/src/pages/swm/Form/ClosedDumpsite.vue"
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
-
-/***/ }),
-
-/***/ "./resources/js/src/components/PSIC/Class.vue?vue&type=script&lang=js&":
-/*!*****************************************************************************!*\
-  !*** ./resources/js/src/components/PSIC/Class.vue?vue&type=script&lang=js& ***!
-  \*****************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Class_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Class.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/components/PSIC/Class.vue?vue&type=script&lang=js&");
- /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Class_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/js/src/components/PSIC/Group.vue?vue&type=script&lang=js&":
-/*!*****************************************************************************!*\
-  !*** ./resources/js/src/components/PSIC/Group.vue?vue&type=script&lang=js& ***!
-  \*****************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Group_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Group.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/components/PSIC/Group.vue?vue&type=script&lang=js&");
- /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Group_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -21096,10 +21021,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/src/pages/psic/group.vue?vue&type=script&lang=js&":
-/*!************************************************************************!*\
-  !*** ./resources/js/src/pages/psic/group.vue?vue&type=script&lang=js& ***!
-  \************************************************************************/
+/***/ "./resources/js/src/pages/swm/Form/ClosedDumpsite.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************!*\
+  !*** ./resources/js/src/pages/swm/Form/ClosedDumpsite.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -21107,42 +21032,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_group_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./group.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/pages/psic/group.vue?vue&type=script&lang=js&");
- /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_group_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/js/src/components/PSIC/Class.vue?vue&type=template&id=6b342f46&":
-/*!***********************************************************************************!*\
-  !*** ./resources/js/src/components/PSIC/Class.vue?vue&type=template&id=6b342f46& ***!
-  \***********************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Class_vue_vue_type_template_id_6b342f46___WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Class_vue_vue_type_template_id_6b342f46___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
-/* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Class_vue_vue_type_template_id_6b342f46___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Class.vue?vue&type=template&id=6b342f46& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/components/PSIC/Class.vue?vue&type=template&id=6b342f46&");
-
-
-/***/ }),
-
-/***/ "./resources/js/src/components/PSIC/Group.vue?vue&type=template&id=1363a0cd&":
-/*!***********************************************************************************!*\
-  !*** ./resources/js/src/components/PSIC/Group.vue?vue&type=template&id=1363a0cd& ***!
-  \***********************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Group_vue_vue_type_template_id_1363a0cd___WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Group_vue_vue_type_template_id_1363a0cd___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
-/* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Group_vue_vue_type_template_id_1363a0cd___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Group.vue?vue&type=template&id=1363a0cd& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/components/PSIC/Group.vue?vue&type=template&id=1363a0cd&");
-
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ClosedDumpsite_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ClosedDumpsite.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/pages/swm/Form/ClosedDumpsite.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ClosedDumpsite_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -21197,485 +21088,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/src/pages/psic/group.vue?vue&type=template&id=4d96c841&":
-/*!******************************************************************************!*\
-  !*** ./resources/js/src/pages/psic/group.vue?vue&type=template&id=4d96c841& ***!
-  \******************************************************************************/
+/***/ "./resources/js/src/pages/swm/Form/ClosedDumpsite.vue?vue&type=template&id=64a1e328&":
+/*!*******************************************************************************************!*\
+  !*** ./resources/js/src/pages/swm/Form/ClosedDumpsite.vue?vue&type=template&id=64a1e328& ***!
+  \*******************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_group_vue_vue_type_template_id_4d96c841___WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_group_vue_vue_type_template_id_4d96c841___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ClosedDumpsite_vue_vue_type_template_id_64a1e328___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ClosedDumpsite_vue_vue_type_template_id_64a1e328___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_group_vue_vue_type_template_id_4d96c841___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./group.vue?vue&type=template&id=4d96c841& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/pages/psic/group.vue?vue&type=template&id=4d96c841&");
-
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/components/PSIC/Class.vue?vue&type=template&id=6b342f46&":
-/*!**************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/components/PSIC/Class.vue?vue&type=template&id=6b342f46& ***!
-  \**************************************************************************************************************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* binding */ render),
-/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
-/* harmony export */ });
-var render = function () {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "v-dialog",
-    {
-      attrs: { "max-width": "500", persistent: "" },
-      model: {
-        value: _vm.modal.active,
-        callback: function ($$v) {
-          _vm.$set(_vm.modal, "active", $$v)
-        },
-        expression: "modal.active",
-      },
-    },
-    [
-      _c("ValidationObserver", {
-        ref: "psic_group_class_observer",
-        scopedSlots: _vm._u([
-          {
-            key: "default",
-            fn: function (ref) {
-              var handleSubmit = ref.handleSubmit
-              var invalid = ref.invalid
-              return [
-                _c(
-                  "form",
-                  {
-                    on: {
-                      submit: function ($event) {
-                        $event.preventDefault()
-                        return _vm.submit.apply(null, arguments)
-                      },
-                    },
-                  },
-                  [
-                    _c(
-                      "v-card",
-                      { attrs: { loading: _vm.loading } },
-                      [
-                        _c("v-card-title", { staticClass: "text-h5" }, [
-                          _vm._v(
-                            "\n                    PSIC Group Class Description\n                "
-                          ),
-                        ]),
-                        _vm._v(" "),
-                        _c("v-card-text", { staticClass: "space-y-4" }, [
-                          _c(
-                            "div",
-                            [
-                              _c("ValidationProvider", {
-                                attrs: {
-                                  vid: "psic_class_desc",
-                                  name: "Group Class Description",
-                                  rules: "required",
-                                },
-                                scopedSlots: _vm._u(
-                                  [
-                                    {
-                                      key: "default",
-                                      fn: function (ref) {
-                                        var errors = ref.errors
-                                        return [
-                                          _c(
-                                            "b-field",
-                                            {
-                                              attrs: {
-                                                label: "PSIC Group Desc",
-                                                type: {
-                                                  "is-danger": errors[0],
-                                                },
-                                                message: errors[0],
-                                              },
-                                            },
-                                            [
-                                              _c("b-autocomplete", {
-                                                attrs: {
-                                                  loading: _vm.loading,
-                                                  disabled: _vm.loading,
-                                                  placeholder: "Search...",
-                                                  "keep-first": "",
-                                                  "open-onfocus": "",
-                                                  data: _vm.items,
-                                                  field: "psic_group_desc",
-                                                  clearable: "",
-                                                },
-                                                on: {
-                                                  select: function (option) {
-                                                    return (_vm.modal.form.psic_group_FK =
-                                                      option.id)
-                                                  },
-                                                  typing: function (value) {
-                                                    return _vm.$emit(
-                                                      "search",
-                                                      value
-                                                    )
-                                                  },
-                                                },
-                                                scopedSlots: _vm._u(
-                                                  [
-                                                    {
-                                                      key: "empty",
-                                                      fn: function () {
-                                                        return [
-                                                          _vm._v(
-                                                            "\n                                        No Data Found\n                                    "
-                                                          ),
-                                                        ]
-                                                      },
-                                                      proxy: true,
-                                                    },
-                                                  ],
-                                                  null,
-                                                  true
-                                                ),
-                                                model: {
-                                                  value: _vm.searchClass,
-                                                  callback: function ($$v) {
-                                                    _vm.searchClass = $$v
-                                                  },
-                                                  expression: "searchClass",
-                                                },
-                                              }),
-                                            ],
-                                            1
-                                          ),
-                                        ]
-                                      },
-                                    },
-                                  ],
-                                  null,
-                                  true
-                                ),
-                              }),
-                            ],
-                            1
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "div",
-                            [
-                              _c("ValidationProvider", {
-                                attrs: {
-                                  vid: "psic_class_desc",
-                                  name: "Group Class Description",
-                                  rules: "required|min:6",
-                                },
-                                scopedSlots: _vm._u(
-                                  [
-                                    {
-                                      key: "default",
-                                      fn: function (ref) {
-                                        var errors = ref.errors
-                                        return [
-                                          _c("v-textarea", {
-                                            attrs: {
-                                              disabled:
-                                                !_vm.modal.form.psic_group_FK,
-                                              label: "Group Class Description",
-                                              filled: "",
-                                              clearable: "",
-                                              row: "3",
-                                              outlined: "",
-                                              loading: _vm.loading,
-                                              "error-messages": errors[0],
-                                              readonly:
-                                                _vm.modal.form.request_type ===
-                                                "delete",
-                                            },
-                                            model: {
-                                              value:
-                                                _vm.modal.form.psic_class_desc,
-                                              callback: function ($$v) {
-                                                _vm.$set(
-                                                  _vm.modal.form,
-                                                  "psic_class_desc",
-                                                  $$v
-                                                )
-                                              },
-                                              expression:
-                                                "modal.form.psic_class_desc",
-                                            },
-                                          }),
-                                        ]
-                                      },
-                                    },
-                                  ],
-                                  null,
-                                  true
-                                ),
-                              }),
-                            ],
-                            1
-                          ),
-                        ]),
-                        _vm._v(" "),
-                        _c(
-                          "v-card-actions",
-                          [
-                            _c("v-spacer"),
-                            _vm._v(" "),
-                            _c(
-                              "v-btn",
-                              {
-                                staticClass: "cursor-pointer",
-                                attrs: {
-                                  color: "red darken-1",
-                                  text: "",
-                                  loading: _vm.loading,
-                                },
-                                on: { click: _vm.close },
-                              },
-                              [
-                                _vm._v(
-                                  "\n                        Close\n                    "
-                                ),
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "v-btn",
-                              {
-                                staticClass: "cursor-pointer",
-                                attrs: {
-                                  disabled: invalid,
-                                  loading: _vm.loading,
-                                  color: "green darken-1",
-                                  text: "",
-                                },
-                                on: { click: _vm.submit },
-                              },
-                              [
-                                _vm._v(
-                                  "\n                        " +
-                                    _vm._s(
-                                      _vm.modal.form.request_type === "delete"
-                                        ? "Delete"
-                                        : "Submit"
-                                    ) +
-                                    "\n                    "
-                                ),
-                              ]
-                            ),
-                          ],
-                          1
-                        ),
-                      ],
-                      1
-                    ),
-                  ],
-                  1
-                ),
-              ]
-            },
-          },
-        ]),
-      }),
-    ],
-    1
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-
-
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/components/PSIC/Group.vue?vue&type=template&id=1363a0cd&":
-/*!**************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/components/PSIC/Group.vue?vue&type=template&id=1363a0cd& ***!
-  \**************************************************************************************************************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* binding */ render),
-/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
-/* harmony export */ });
-var render = function () {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "v-dialog",
-    {
-      attrs: { "max-width": "500", persistent: "" },
-      model: {
-        value: _vm.modal.active,
-        callback: function ($$v) {
-          _vm.$set(_vm.modal, "active", $$v)
-        },
-        expression: "modal.active",
-      },
-    },
-    [
-      _c("ValidationObserver", {
-        ref: "psic_group_observer",
-        scopedSlots: _vm._u([
-          {
-            key: "default",
-            fn: function (ref) {
-              var handleSubmit = ref.handleSubmit
-              var invalid = ref.invalid
-              return [
-                _c(
-                  "form",
-                  {
-                    on: {
-                      submit: function ($event) {
-                        $event.preventDefault()
-                        return _vm.submit.apply(null, arguments)
-                      },
-                    },
-                  },
-                  [
-                    _c(
-                      "v-card",
-                      { attrs: { loading: _vm.loading } },
-                      [
-                        _c("v-card-title", { staticClass: "text-h5" }, [
-                          _vm._v(
-                            "\n                    PSIC Group Description\n                "
-                          ),
-                        ]),
-                        _vm._v(" "),
-                        _c(
-                          "v-card-text",
-                          [
-                            _c("ValidationProvider", {
-                              attrs: {
-                                vid: "psic_group_desc",
-                                name: "Group Description",
-                                rules: "required|min:6",
-                              },
-                              scopedSlots: _vm._u(
-                                [
-                                  {
-                                    key: "default",
-                                    fn: function (ref) {
-                                      var errors = ref.errors
-                                      return [
-                                        _c("v-textarea", {
-                                          attrs: {
-                                            label: "Group Description",
-                                            filled: "",
-                                            clearable: "",
-                                            row: "3",
-                                            outlined: "",
-                                            loading: _vm.loading,
-                                            "error-messages": errors[0],
-                                            readonly:
-                                              _vm.modal.form.request_type ===
-                                              "delete",
-                                          },
-                                          model: {
-                                            value:
-                                              _vm.modal.form.psic_group_desc,
-                                            callback: function ($$v) {
-                                              _vm.$set(
-                                                _vm.modal.form,
-                                                "psic_group_desc",
-                                                $$v
-                                              )
-                                            },
-                                            expression:
-                                              "modal.form.psic_group_desc",
-                                          },
-                                        }),
-                                      ]
-                                    },
-                                  },
-                                ],
-                                null,
-                                true
-                              ),
-                            }),
-                          ],
-                          1
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "v-card-actions",
-                          [
-                            _c("v-spacer"),
-                            _vm._v(" "),
-                            _c(
-                              "v-btn",
-                              {
-                                staticClass: "cursor-pointer",
-                                attrs: {
-                                  color: "red darken-1",
-                                  text: "",
-                                  loading: _vm.loading,
-                                },
-                                on: { click: _vm.close },
-                              },
-                              [
-                                _vm._v(
-                                  "\n                        Close\n                    "
-                                ),
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "v-btn",
-                              {
-                                staticClass: "cursor-pointer white--text",
-                                attrs: {
-                                  disabled: invalid,
-                                  loading: _vm.loading,
-                                  color: "green darken-1",
-                                },
-                                on: { click: _vm.submit },
-                              },
-                              [
-                                _vm._v(
-                                  "\n                        " +
-                                    _vm._s(
-                                      _vm.modal.form.request_type === "delete"
-                                        ? "Delete"
-                                        : "Submit"
-                                    ) +
-                                    "\n                    "
-                                ),
-                              ]
-                            ),
-                          ],
-                          1
-                        ),
-                      ],
-                      1
-                    ),
-                  ],
-                  1
-                ),
-              ]
-            },
-          },
-        ]),
-      }),
-    ],
-    1
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ClosedDumpsite_vue_vue_type_template_id_64a1e328___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ClosedDumpsite.vue?vue&type=template&id=64a1e328& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/pages/swm/Form/ClosedDumpsite.vue?vue&type=template&id=64a1e328&");
 
 
 /***/ }),
@@ -22053,10 +21478,10 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/pages/psic/group.vue?vue&type=template&id=4d96c841&":
-/*!*********************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/pages/psic/group.vue?vue&type=template&id=4d96c841& ***!
-  \*********************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/pages/swm/Form/ClosedDumpsite.vue?vue&type=template&id=64a1e328&":
+/*!**********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/pages/swm/Form/ClosedDumpsite.vue?vue&type=template&id=64a1e328& ***!
+  \**********************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -22069,245 +21494,780 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "DefaultLayout",
-    [
-      _c(
-        "v-btn",
-        {
-          attrs: { elevation: "10", small: "" },
-          on: {
-            click: function ($event) {
-              _vm.groupModal.active = true
-            },
-          },
-        },
-        [
-          _c("box-icon", {
-            attrs: {
-              name: "plus",
-              animation: "tada-hover",
-              color: _vm.isTheme ? "white" : "black",
-            },
-          }),
-          _vm._v("\n        Add Group\n    "),
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "b-table",
-        {
-          attrs: {
-            data: _vm.data.data,
-            paginated: "",
-            "per-page": _vm.data.meta.per_page,
-            "pagination-size": "is-small",
-            "page-input": "",
-            hoverable: "",
-            "backend-pagination": "",
-            total: _vm.data.meta.total,
-            "current-page": _vm.data.meta.current_page,
-            "pagination-position": "top",
-            "pagination-rounded": "",
-            narrowed: "",
-            loading: _vm.loading,
-            bordered: "",
-            "sticky-header": "",
-            scrollable: "",
-            "row-class": function (row, index) {
-              return _vm.isTheme ? "bg-black text-white" : ""
-            },
-            "header-class": _vm.isTheme ? "bg-black text-white" : "",
-            height: "420",
-          },
-          on: {
-            "update:currentPage": function ($event) {
-              return _vm.$set(_vm.data.meta, "current_page", $event)
-            },
-            "update:current-page": function ($event) {
-              return _vm.$set(_vm.data.meta, "current_page", $event)
-            },
-            "page-change": _vm.onPageChange,
-          },
-          scopedSlots: _vm._u([
-            {
-              key: "empty",
-              fn: function () {
-                return [
-                  _c(
-                    "div",
-                    {
-                      staticClass:
-                        "text-center text-3xl text-gray-500 font-extrabold",
-                    },
-                    [_vm._v("\n                No Data Found\n            ")]
-                  ),
-                ]
-              },
-              proxy: true,
-            },
-          ]),
-        },
-        [
-          _c("b-table-column", {
-            attrs: {
-              field: "psic_group_desc",
-              label: "Description",
-              searchable: "",
-            },
-            scopedSlots: _vm._u([
-              {
-                key: "searchable",
-                fn: function (props) {
-                  return [
-                    _c("b-input", {
-                      attrs: {
-                        placeholder: "Search...",
-                        icon: "magnify",
-                        size: "is-small",
-                      },
-                      model: {
-                        value: _vm.filters.psic_group_desc,
-                        callback: function ($$v) {
-                          _vm.$set(_vm.filters, "psic_group_desc", $$v)
-                        },
-                        expression: "filters.psic_group_desc",
-                      },
-                    }),
-                  ]
-                },
-              },
-              {
-                key: "default",
-                fn: function (props) {
-                  return [
-                    _vm._v(
-                      "\n                " +
-                        _vm._s(props.row.psic_group_desc) +
-                        "\n            "
-                    ),
-                  ]
-                },
-              },
-            ]),
-          }),
-          _vm._v(" "),
-          _c("b-table-column", {
-            attrs: { field: "action", label: "", sortable: "" },
-            scopedSlots: _vm._u([
-              {
-                key: "default",
-                fn: function (props) {
-                  return [
-                    _c(
-                      "b-tooltip",
-                      {
-                        attrs: {
-                          label: "Add Group Class",
-                          position: "is-top",
-                          type: "is-dark",
-                        },
-                      },
-                      [
-                        _c(
-                          "v-btn",
-                          {
-                            attrs: { small: "", icon: "" },
-                            on: {
-                              click: function ($event) {
-                                return _vm.add_group_class_via_group_page(
-                                  props.row,
-                                  "post"
-                                )
-                              },
+  return _c("DefaultLayout", [
+    _c("div", { staticClass: "font-bold text-2xl text-center py-6" }, [
+      _vm._v("MRF Form"),
+    ]),
+    _vm._v(" "),
+    _vm.loading
+      ? _c("div", [_vm._v("Loading..")])
+      : _c(
+          "div",
+          [
+            _c("ValidationObserver", {
+              ref: "psic_group_class_observer",
+              scopedSlots: _vm._u([
+                {
+                  key: "default",
+                  fn: function (ref) {
+                    var handleSubmit = ref.handleSubmit
+                    var invalid = ref.invalid
+                    return [
+                      _c(
+                        "form",
+                        {
+                          on: {
+                            submit: function ($event) {
+                              $event.preventDefault()
+                              return handleSubmit(_vm.saveForm)
                             },
                           },
-                          [
-                            _c("box-icon", {
-                              attrs: { name: "link", animation: "tada-hover" },
-                            }),
-                          ],
-                          1
-                        ),
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "v-btn",
-                      {
-                        attrs: { small: "", icon: "" },
-                        on: {
-                          click: function ($event) {
-                            return _vm.set_psic_group(props.row, "patch")
-                          },
                         },
-                      },
-                      [
-                        _c("box-icon", {
-                          attrs: {
-                            name: "edit",
-                            color: "orange",
-                            animation: "tada-hover",
-                          },
-                        }),
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "v-btn",
-                      {
-                        attrs: { icon: "", small: "" },
-                        on: {
-                          click: function ($event) {
-                            return _vm.set_psic_group(props.row, "delete")
-                          },
-                        },
-                      },
-                      [
-                        _c("box-icon", {
-                          attrs: {
-                            name: "trash",
-                            color: "red",
-                            animation: "tada-hover",
-                          },
-                        }),
-                      ],
-                      1
-                    ),
-                  ]
+                        [
+                          _c("v-container", [
+                            _c(
+                              "div",
+                              { staticClass: "space-y-4" },
+                              [
+                                _c(
+                                  "v-card",
+                                  [
+                                    _c("v-card-title", [
+                                      _vm._v(
+                                        "\n                                Address Information\n                            "
+                                      ),
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("v-card-text", {}, [
+                                      _vm._v(
+                                        "\n                                " +
+                                          _vm._s(_vm.address) +
+                                          "\n                                "
+                                      ),
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass: "grid grid-cols-2 gap-2",
+                                        },
+                                        [
+                                          _c("ValidationProvider", {
+                                            attrs: {
+                                              vid: "lat",
+                                              name: "Latitude",
+                                              rules: "required",
+                                            },
+                                            scopedSlots: _vm._u(
+                                              [
+                                                {
+                                                  key: "default",
+                                                  fn: function (ref) {
+                                                    var errors = ref.errors
+                                                    return [
+                                                      _c("v-text-field", {
+                                                        attrs: {
+                                                          label: "Latitude",
+                                                          "error-messages":
+                                                            errors[0],
+                                                          outlined: "",
+                                                          clearable: "",
+                                                          dense: "",
+                                                          color: "dark",
+                                                        },
+                                                        model: {
+                                                          value:
+                                                            _vm.mrf
+                                                              .mrf_latitude,
+                                                          callback: function (
+                                                            $$v
+                                                          ) {
+                                                            _vm.$set(
+                                                              _vm.mrf,
+                                                              "mrf_latitude",
+                                                              $$v
+                                                            )
+                                                          },
+                                                          expression:
+                                                            "mrf.mrf_latitude",
+                                                        },
+                                                      }),
+                                                    ]
+                                                  },
+                                                },
+                                              ],
+                                              null,
+                                              true
+                                            ),
+                                          }),
+                                          _vm._v(" "),
+                                          _c("ValidationProvider", {
+                                            attrs: {
+                                              vid: "long",
+                                              name: "Longitude",
+                                              rules: "required",
+                                            },
+                                            scopedSlots: _vm._u(
+                                              [
+                                                {
+                                                  key: "default",
+                                                  fn: function (ref) {
+                                                    var errors = ref.errors
+                                                    return [
+                                                      _c("v-text-field", {
+                                                        attrs: {
+                                                          label: "Longitude",
+                                                          "error-messages":
+                                                            errors[0],
+                                                          outlined: "",
+                                                          clearable: "",
+                                                          dense: "",
+                                                          color: "dark",
+                                                        },
+                                                        model: {
+                                                          value:
+                                                            _vm.mrf
+                                                              .mrf_longitude,
+                                                          callback: function (
+                                                            $$v
+                                                          ) {
+                                                            _vm.$set(
+                                                              _vm.mrf,
+                                                              "mrf_longitude",
+                                                              $$v
+                                                            )
+                                                          },
+                                                          expression:
+                                                            "mrf.mrf_longitude",
+                                                        },
+                                                      }),
+                                                    ]
+                                                  },
+                                                },
+                                              ],
+                                              null,
+                                              true
+                                            ),
+                                          }),
+                                        ],
+                                        1
+                                      ),
+                                    ]),
+                                  ],
+                                  1
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "v-card",
+                                  [
+                                    _c("v-card-title", [
+                                      _vm._v(
+                                        "\n                                Funded Information\n                            "
+                                      ),
+                                    ]),
+                                    _vm._v(" "),
+                                    _c(
+                                      "v-card-text",
+                                      { staticClass: "grid grid-cols-2 gap-2" },
+                                      [
+                                        _c("ValidationProvider", {
+                                          attrs: {
+                                            vid: "mrf_emb_funded",
+                                            name: "EMB FUNDED",
+                                            rules: "required",
+                                          },
+                                          scopedSlots: _vm._u(
+                                            [
+                                              {
+                                                key: "default",
+                                                fn: function (ref) {
+                                                  var errors = ref.errors
+                                                  return [
+                                                    _c("v-text-field", {
+                                                      attrs: {
+                                                        label: "EMB FUNDED",
+                                                        "error-messages":
+                                                          errors[0],
+                                                        outlined: "",
+                                                        clearable: "",
+                                                        dense: "",
+                                                        color: "dark",
+                                                        hint: "in Philippine PESO",
+                                                        "persistent-hint": "",
+                                                      },
+                                                      scopedSlots: _vm._u(
+                                                        [
+                                                          {
+                                                            key: "prepend-inner",
+                                                            fn: function () {
+                                                              return [
+                                                                _c(
+                                                                  "div",
+                                                                  {
+                                                                    staticClass:
+                                                                      " text-xl font-bold",
+                                                                  },
+                                                                  [_vm._v("₱")]
+                                                                ),
+                                                              ]
+                                                            },
+                                                            proxy: true,
+                                                          },
+                                                        ],
+                                                        null,
+                                                        true
+                                                      ),
+                                                      model: {
+                                                        value:
+                                                          _vm.mrf
+                                                            .mrf_emb_funded,
+                                                        callback: function (
+                                                          $$v
+                                                        ) {
+                                                          _vm.$set(
+                                                            _vm.mrf,
+                                                            "mrf_emb_funded",
+                                                            $$v
+                                                          )
+                                                        },
+                                                        expression:
+                                                          "mrf.mrf_emb_funded",
+                                                      },
+                                                    }),
+                                                  ]
+                                                },
+                                              },
+                                            ],
+                                            null,
+                                            true
+                                          ),
+                                        }),
+                                        _vm._v(" "),
+                                        _c("ValidationProvider", {
+                                          attrs: {
+                                            vid: "mrf_status_operation",
+                                            name: "Status of Operation",
+                                            rules: "required",
+                                          },
+                                          scopedSlots: _vm._u(
+                                            [
+                                              {
+                                                key: "default",
+                                                fn: function (ref) {
+                                                  var errors = ref.errors
+                                                  return [
+                                                    _c("v-select", {
+                                                      attrs: {
+                                                        items:
+                                                          _vm.status_of_operation,
+                                                        label:
+                                                          "Status of Operation",
+                                                        "error-messages":
+                                                          errors[0],
+                                                        outlined: "",
+                                                        clearable: "",
+                                                        dense: "",
+                                                        color: "dark",
+                                                      },
+                                                      model: {
+                                                        value:
+                                                          _vm.mrf
+                                                            .mrf_status_operation,
+                                                        callback: function (
+                                                          $$v
+                                                        ) {
+                                                          _vm.$set(
+                                                            _vm.mrf,
+                                                            "mrf_status_operation",
+                                                            $$v
+                                                          )
+                                                        },
+                                                        expression:
+                                                          "mrf.mrf_status_operation",
+                                                      },
+                                                    }),
+                                                  ]
+                                                },
+                                              },
+                                            ],
+                                            null,
+                                            true
+                                          ),
+                                        }),
+                                      ],
+                                      1
+                                    ),
+                                  ],
+                                  1
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "div",
+                                  [
+                                    _c("ValidationProvider", {
+                                      attrs: {
+                                        vid: "mrf_service_area",
+                                        name: "Area/s",
+                                        rules: "required",
+                                      },
+                                      scopedSlots: _vm._u(
+                                        [
+                                          {
+                                            key: "default",
+                                            fn: function (ref) {
+                                              var errors = ref.errors
+                                              return [
+                                                _c("v-text-field", {
+                                                  attrs: {
+                                                    label: "Service Area/s",
+                                                    "error-messages": errors[0],
+                                                    outlined: "",
+                                                    clearable: "",
+                                                    dense: "",
+                                                    color: "dark",
+                                                  },
+                                                  model: {
+                                                    value:
+                                                      _vm.mrf.mrf_service_area,
+                                                    callback: function ($$v) {
+                                                      _vm.$set(
+                                                        _vm.mrf,
+                                                        "mrf_service_area",
+                                                        $$v
+                                                      )
+                                                    },
+                                                    expression:
+                                                      "mrf.mrf_service_area",
+                                                  },
+                                                }),
+                                              ]
+                                            },
+                                          },
+                                        ],
+                                        null,
+                                        true
+                                      ),
+                                    }),
+                                  ],
+                                  1
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "v-card",
+                                  [
+                                    _c("v-card-title", [
+                                      _vm._v(" Waste Information "),
+                                    ]),
+                                    _vm._v(" "),
+                                    _c(
+                                      "v-card-text",
+                                      { staticClass: "grid grid-cols-2 gap-2" },
+                                      [
+                                        _c("ValidationProvider", {
+                                          attrs: {
+                                            vid: "mrf_total_waste_generation",
+                                            name: "Total Waste Generation",
+                                            rules: "required",
+                                          },
+                                          scopedSlots: _vm._u(
+                                            [
+                                              {
+                                                key: "default",
+                                                fn: function (ref) {
+                                                  var errors = ref.errors
+                                                  return [
+                                                    _c("v-text-field", {
+                                                      attrs: {
+                                                        label:
+                                                          "Total Waste Generation",
+                                                        "error-messages":
+                                                          errors[0],
+                                                        outlined: "",
+                                                        clearable: "",
+                                                        dense: "",
+                                                        color: "dark",
+                                                      },
+                                                      model: {
+                                                        value:
+                                                          _vm.mrf
+                                                            .mrf_total_waste_generation,
+                                                        callback: function (
+                                                          $$v
+                                                        ) {
+                                                          _vm.$set(
+                                                            _vm.mrf,
+                                                            "mrf_total_waste_generation",
+                                                            $$v
+                                                          )
+                                                        },
+                                                        expression:
+                                                          "\n                                            mrf.mrf_total_waste_generation\n                                        ",
+                                                      },
+                                                    }),
+                                                  ]
+                                                },
+                                              },
+                                            ],
+                                            null,
+                                            true
+                                          ),
+                                        }),
+                                        _vm._v(" "),
+                                        _c("ValidationProvider", {
+                                          attrs: {
+                                            vid: "mrf_biodegradable",
+                                            name: "Biodegradable",
+                                            rules: "required",
+                                          },
+                                          scopedSlots: _vm._u(
+                                            [
+                                              {
+                                                key: "default",
+                                                fn: function (ref) {
+                                                  var errors = ref.errors
+                                                  return [
+                                                    _c("v-text-field", {
+                                                      attrs: {
+                                                        label: "Biodegradable ",
+                                                        "error-messages":
+                                                          errors[0],
+                                                        outlined: "",
+                                                        clearable: "",
+                                                        dense: "",
+                                                        color: "dark",
+                                                        hint: "kg/day",
+                                                        "persistent-hint": "",
+                                                      },
+                                                      model: {
+                                                        value:
+                                                          _vm.mrf
+                                                            .mrf_biodegradable,
+                                                        callback: function (
+                                                          $$v
+                                                        ) {
+                                                          _vm.$set(
+                                                            _vm.mrf,
+                                                            "mrf_biodegradable",
+                                                            $$v
+                                                          )
+                                                        },
+                                                        expression:
+                                                          "mrf.mrf_biodegradable",
+                                                      },
+                                                    }),
+                                                  ]
+                                                },
+                                              },
+                                            ],
+                                            null,
+                                            true
+                                          ),
+                                        }),
+                                        _vm._v(" "),
+                                        _c("ValidationProvider", {
+                                          attrs: {
+                                            vid: "mrf_recyclable",
+                                            name: "Recyclable",
+                                            rules: "required",
+                                          },
+                                          scopedSlots: _vm._u(
+                                            [
+                                              {
+                                                key: "default",
+                                                fn: function (ref) {
+                                                  var errors = ref.errors
+                                                  return [
+                                                    _c("v-text-field", {
+                                                      attrs: {
+                                                        label: "Recyclable",
+                                                        "error-messages":
+                                                          errors[0],
+                                                        outlined: "",
+                                                        clearable: "",
+                                                        dense: "",
+                                                        color: "dark",
+                                                        hint: "kg/day",
+                                                        "persistent-hint": "",
+                                                      },
+                                                      model: {
+                                                        value:
+                                                          _vm.mrf
+                                                            .mrf_recyclable,
+                                                        callback: function (
+                                                          $$v
+                                                        ) {
+                                                          _vm.$set(
+                                                            _vm.mrf,
+                                                            "mrf_recyclable",
+                                                            $$v
+                                                          )
+                                                        },
+                                                        expression:
+                                                          "mrf.mrf_recyclable",
+                                                      },
+                                                    }),
+                                                  ]
+                                                },
+                                              },
+                                            ],
+                                            null,
+                                            true
+                                          ),
+                                        }),
+                                        _vm._v(" "),
+                                        _c("ValidationProvider", {
+                                          attrs: {
+                                            vid: "mrf_special_waste",
+                                            name: "Special Waste",
+                                            rules: "required",
+                                          },
+                                          scopedSlots: _vm._u(
+                                            [
+                                              {
+                                                key: "default",
+                                                fn: function (ref) {
+                                                  var errors = ref.errors
+                                                  return [
+                                                    _c("v-text-field", {
+                                                      attrs: {
+                                                        label: "Special Waste",
+                                                        "error-messages":
+                                                          errors[0],
+                                                        outlined: "",
+                                                        clearable: "",
+                                                        dense: "",
+                                                        color: "dark",
+                                                        hint: "kg/day",
+                                                        "persistent-hint": "",
+                                                      },
+                                                      model: {
+                                                        value:
+                                                          _vm.mrf
+                                                            .mrf_special_waste,
+                                                        callback: function (
+                                                          $$v
+                                                        ) {
+                                                          _vm.$set(
+                                                            _vm.mrf,
+                                                            "mrf_special_waste",
+                                                            $$v
+                                                          )
+                                                        },
+                                                        expression:
+                                                          "mrf.mrf_special_waste",
+                                                      },
+                                                    }),
+                                                  ]
+                                                },
+                                              },
+                                            ],
+                                            null,
+                                            true
+                                          ),
+                                        }),
+                                        _vm._v(" "),
+                                        _c("ValidationProvider", {
+                                          attrs: {
+                                            vid: "mrf_total_waste_diverted",
+                                            name: "Waste Diverted",
+                                            rules: "required",
+                                          },
+                                          scopedSlots: _vm._u(
+                                            [
+                                              {
+                                                key: "default",
+                                                fn: function (ref) {
+                                                  var errors = ref.errors
+                                                  return [
+                                                    _c("v-text-field", {
+                                                      attrs: {
+                                                        label: "Waste Diverted",
+                                                        "error-messages":
+                                                          errors[0],
+                                                        outlined: "",
+                                                        clearable: "",
+                                                        dense: "",
+                                                        color: "dark",
+                                                        hint: "kg/day",
+                                                        "persistent-hint": "",
+                                                      },
+                                                      model: {
+                                                        value:
+                                                          _vm.mrf
+                                                            .mrf_total_waste_diverted,
+                                                        callback: function (
+                                                          $$v
+                                                        ) {
+                                                          _vm.$set(
+                                                            _vm.mrf,
+                                                            "mrf_total_waste_diverted",
+                                                            $$v
+                                                          )
+                                                        },
+                                                        expression:
+                                                          "\n                                            mrf.mrf_total_waste_diverted\n                                        ",
+                                                      },
+                                                    }),
+                                                  ]
+                                                },
+                                              },
+                                            ],
+                                            null,
+                                            true
+                                          ),
+                                        }),
+                                        _vm._v(" "),
+                                        _c("ValidationProvider", {
+                                          attrs: {
+                                            vid: "mrf_number_of_waste_diverted",
+                                            name: "% of Waster Diverted",
+                                            rules: "required",
+                                          },
+                                          scopedSlots: _vm._u(
+                                            [
+                                              {
+                                                key: "default",
+                                                fn: function (ref) {
+                                                  var errors = ref.errors
+                                                  return [
+                                                    _c("v-text-field", {
+                                                      attrs: {
+                                                        label:
+                                                          "% of Waster Diverted",
+                                                        "error-messages":
+                                                          errors[0],
+                                                        outlined: "",
+                                                        clearable: "",
+                                                        dense: "",
+                                                        color: "dark",
+                                                      },
+                                                      model: {
+                                                        value:
+                                                          _vm.mrf
+                                                            .mrf_number_of_waste_diverted,
+                                                        callback: function (
+                                                          $$v
+                                                        ) {
+                                                          _vm.$set(
+                                                            _vm.mrf,
+                                                            "mrf_number_of_waste_diverted",
+                                                            $$v
+                                                          )
+                                                        },
+                                                        expression:
+                                                          "\n                                            mrf.mrf_number_of_waste_diverted\n                                        ",
+                                                      },
+                                                    }),
+                                                  ]
+                                                },
+                                              },
+                                            ],
+                                            null,
+                                            true
+                                          ),
+                                        }),
+                                        _vm._v(" "),
+                                        _c("ValidationProvider", {
+                                          attrs: {
+                                            vid: "file",
+                                            name: "File",
+                                            rules: "",
+                                          },
+                                          scopedSlots: _vm._u(
+                                            [
+                                              {
+                                                key: "default",
+                                                fn: function (ref) {
+                                                  var errors = ref.errors
+                                                  return [
+                                                    _c("v-file-input", {
+                                                      attrs: {
+                                                        label: "File",
+                                                        "error-messages":
+                                                          errors[0],
+                                                        outlined: "",
+                                                        clearable: "",
+                                                        dense: "",
+                                                        color: "dark",
+                                                        "truncate-length": "15",
+                                                        multiple: "",
+                                                        accept:
+                                                          "image/png, image/jpeg, application/pdf",
+                                                      },
+                                                      model: {
+                                                        value: _vm.mrf.mrf_file,
+                                                        callback: function (
+                                                          $$v
+                                                        ) {
+                                                          _vm.$set(
+                                                            _vm.mrf,
+                                                            "mrf_file",
+                                                            $$v
+                                                          )
+                                                        },
+                                                        expression:
+                                                          "mrf.mrf_file",
+                                                      },
+                                                    }),
+                                                  ]
+                                                },
+                                              },
+                                            ],
+                                            null,
+                                            true
+                                          ),
+                                        }),
+                                      ],
+                                      1
+                                    ),
+                                  ],
+                                  1
+                                ),
+                              ],
+                              1
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              { staticClass: "flex justify-center mt-4" },
+                              [
+                                _c(
+                                  "v-btn",
+                                  {
+                                    attrs: {
+                                      color: "red darken-2",
+                                      text: "",
+                                      type: "reset",
+                                    },
+                                  },
+                                  [_vm._v("Reset")]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "v-btn",
+                                  {
+                                    attrs: {
+                                      disabled: invalid,
+                                      color: "primary",
+                                      type: "submit",
+                                    },
+                                  },
+                                  [_vm._v("Save")]
+                                ),
+                              ],
+                              1
+                            ),
+                          ]),
+                        ],
+                        1
+                      ),
+                    ]
+                  },
                 },
-              },
-            ]),
-          }),
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c("Group", {
-        attrs: {
-          modal: _vm.groupModal,
-          close: _vm.groupClose,
-          submit: _vm.submitGroup,
-          loading: _vm.loading,
-        },
-      }),
-      _vm._v(" "),
-      _c("Class", {
-        attrs: {
-          modal: _vm.groupClassModal,
-          close: _vm.groupClassClose,
-          submit: _vm.submitGroupClass,
-          loading: _vm.loading,
-          items: _vm.psicGroup,
-        },
-        on: { search: _vm.searchGroup },
-      }),
-    ],
-    1
-  )
+              ]),
+            }),
+          ],
+          1
+        ),
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
