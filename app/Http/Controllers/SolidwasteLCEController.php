@@ -8,6 +8,7 @@ use App\Models\SWM\LCE;
 use App\Models\SolidwasteLCE;
 use App\Models\SolidwasteSLF;
 use App\Models\SolidwasteMRF;
+use App\Models\SolidwasteClosedDumpsite;
 use App\Models\Barangay;
 use App\Models\Municipality;
 use App\Models\Province;
@@ -57,6 +58,7 @@ class SolidwasteLCEController extends Controller
         $id = $request->id;
         $query_slf = SolidwasteSLF::where('lce_FK',$id)->orderBy('created_at', 'desc')->get();
         $query_mrf = SolidwasteMRF::where('lce_FK',$id)->orderBy('created_at', 'desc')->get();
+        $query_closed_dumpsite = SolidwasteClosedDumpsite::where('lce_FK',$id)->limit(1)->get();
         $province_dropdown = Province::whereIn('PK_province_ID',[128, 129, 133, 155])->get();
         $lce_edit = DB::table('tbl_solidwaste_lce as a')
         ->select('a.*', 'b.provDesc', 'c.citymunDesc', 'd.brgyDesc', 'c.districtCode')
@@ -70,6 +72,7 @@ class SolidwasteLCEController extends Controller
             'province_dropdown' => $province_dropdown,
             'query_slf'=>$query_slf,
             'query_mrf'=>$query_mrf,
+            'query_closed_dumpsite_id'=>$query_closed_dumpsite[0]->id,
         ]);
     }
 
