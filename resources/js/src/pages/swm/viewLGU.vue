@@ -1,7 +1,7 @@
 <template>
     <DefaultLayout>
         <v-toolbar flat dark>
-            <v-toolbar-title>User Profile</v-toolbar-title>
+            <v-toolbar-title>User Profile </v-toolbar-title>
         </v-toolbar>
 
         <v-tabs
@@ -9,7 +9,7 @@
             show-arrows
             active-class="black"
             background-color="primary"
-            class="h-fit"
+            class="h-96"
         >
             <v-tab v-for="n in tabs" :key="n">{{ n }} </v-tab>
 
@@ -92,6 +92,23 @@
                         </v-card-text>
                         <v-card-actions>
                             <v-spacer></v-spacer>
+                            <div class="space-x-4">
+                                <a
+                                v-if="!query_closed_dumpsite_id"
+                                :href="`/app/swm/cd_register/${lce_id}`"
+                                target="_blank"
+                                ><v-btn border outlined color="red lighten-2"
+                                    >Close Dumpsite</v-btn
+                                ></a
+                            >
+                            <a
+                                v-else
+                                :href="`/app/swm/cd_edit/${query_closed_dumpsite_id}`"
+                                target="_blank"
+                                ><v-btn border outlined color="red lighten-2"
+                                    >Close Dumpsite</v-btn
+                                ></a
+                            >
                             <a
                                 :href="`/app/swm/lce_edit/${lce_id}`"
                                 target="_blank"
@@ -99,6 +116,7 @@
                                     >Update LCE</v-btn
                                 ></a
                             >
+                            </div>
                         </v-card-actions>
                     </v-card>
                 </v-container>
@@ -417,7 +435,7 @@ export default {
     mixins: [page, toasts, swm, dialogs],
     data() {
         return {
-            tabs: ["LCE", "SLF", "MRF"],
+            tabs: ["LCE", "SLF", "MRF","RCA"],
         };
     },
     methods: {
