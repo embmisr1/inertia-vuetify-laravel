@@ -328,6 +328,30 @@
                                         hide-details
                                         color="dark"
                                     ></v-checkbox>
+
+                                     <v-checkbox
+                                        v-model="
+                                            slf.slf_1586_compliance
+                                        "
+                                        label="1586 Compliance"
+                                        value="true"
+                                        hide-details
+                                        color="dark"
+                                    ></v-checkbox>
+                                    <v-checkbox
+                                        v-model="slf.slf_9275_compliance"
+                                        label="9275 Compliance"
+                                        value="true"
+                                        hide-details
+                                        color="dark"
+                                    ></v-checkbox>
+                                    <v-checkbox
+                                        v-model="slf.slf_6969_compliance"
+                                        label="6969 Compliance"
+                                        value="true"
+                                        hide-details
+                                        color="dark"
+                                    ></v-checkbox>
                                     <ValidationProvider
                                         vid="file"
                                         name="File"
