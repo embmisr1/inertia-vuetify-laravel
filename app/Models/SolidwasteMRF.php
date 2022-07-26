@@ -11,9 +11,7 @@ class SolidwasteMRF extends Model
     use HasFactory;
 
     protected $fillable = [
-        "mrf_lgu",
         "mrf_emb_funded",
-        "mrf_emb_lgu_funded",
         "mrf_latitude",
         "mrf_longitude",
         "mrf_status_operation",
