@@ -74,7 +74,7 @@ class SolidwasteLCEController extends Controller
             'query_slf'=>$query_slf,
             'query_mrf'=>$query_mrf,
             'query_rca'=>$query_rca,
-            'query_closed_dumpsite_id'=>$query_closed_dumpsite[0]->id,
+            'query_closed_dumpsite_id'=>isset($query_closed_dumpsite[0]->id),
         ]);
     }
 
