@@ -15,9 +15,7 @@ class CreateTblSolidwasteMrf extends Migration
     {
         Schema::create('tbl_solidwaste_mrf', function (Blueprint $table) {
             $table->id();
-            $table->string('mrf_lgu')->nullable();
-            $table->string('mrf_emb_funded')->nullable();
-            $table->string('mrf_emb_lgu_funded')->nullable();
+            $table->float('mrf_emb_funded', 11, 2)->nullable();
             $table->string('mrf_latitude')->nullable();
             $table->string('mrf_longitude')->nullable();
             $table->string('mrf_status_operation')->nullable();
