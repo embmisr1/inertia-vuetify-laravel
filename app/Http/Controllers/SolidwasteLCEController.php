@@ -57,7 +57,8 @@ class SolidwasteLCEController extends Controller
     public function lce_show(request $request){
         $id = $request->id;
         $query_slf = SolidwasteSLF::where('lce_FK',$id)->orderBy('created_at', 'desc')->get();
-        $query_mrf = SolidwasteMRF::where('lce_FK',$id)->orderBy('created_at', 'desc')->get();
+        $query_mrf = SolidwasteMRF::where('lce_FK',$id)->where('mrf_or_rca','mrf')->orderBy('created_at', 'desc')->get();
+        $query_rca = SolidwasteMRF::where('lce_FK',$id)->where('mrf_or_rca','rca')->orderBy('created_at', 'desc')->get();
         $query_closed_dumpsite = SolidwasteClosedDumpsite::where('lce_FK',$id)->limit(1)->get();
         $province_dropdown = Province::whereIn('PK_province_ID',[128, 129, 133, 155])->get();
         $lce_edit = DB::table('tbl_solidwaste_lce as a')
@@ -72,6 +73,7 @@ class SolidwasteLCEController extends Controller
             'province_dropdown' => $province_dropdown,
             'query_slf'=>$query_slf,
             'query_mrf'=>$query_mrf,
+            'query_rca'=>$query_rca,
             'query_closed_dumpsite_id'=>$query_closed_dumpsite[0]->id,
         ]);
     }
