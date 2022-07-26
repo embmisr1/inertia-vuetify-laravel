@@ -40,9 +40,7 @@ class SolidwasteMRFController extends Controller
 
     public function mrf_register_process(request $request){
         $query = new SolidwasteMRF();
-        $query->mrf_lgu = $request->mrf_lgu;
         $query->mrf_emb_funded = $request->mrf_emb_funded;
-        $query->mrf_emb_lgu_funded = $request->mrf_emb_lgu_funded;
         $query->mrf_latitude = $request->mrf_latitude;
         $query->mrf_longitude = $request->mrf_longitude;
         $query->mrf_status_operation = $request->mrf_status_operation;
@@ -60,9 +58,7 @@ class SolidwasteMRFController extends Controller
 
     public function mrf_update_process(request $request){
         $query = SolidwasteMRF::find($request->id);
-        $query->mrf_lgu = $request->mrf_lgu;
         $query->mrf_emb_funded = $request->mrf_emb_funded;
-        $query->mrf_emb_lgu_funded = $request->mrf_emb_lgu_funded;
         $query->mrf_latitude = $request->mrf_latitude;
         $query->mrf_longitude = $request->mrf_longitude;
         $query->mrf_status_operation = $request->mrf_status_operation;
