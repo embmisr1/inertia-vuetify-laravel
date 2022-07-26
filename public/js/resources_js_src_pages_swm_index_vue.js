@@ -2369,6 +2369,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         slf_separate_cells_for_hazwaste: null,
         slf_methane_recovery: null,
         slf_discharge_permit: null,
+        slf_1586_compliance: null,
+        slf_9275_compliance: null,
+        slf_6969_compliance: null,
         slf_file: null,
         lce_FK: null
       },
@@ -2385,6 +2388,23 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         mrf_total_waste_diverted: null,
         mrf_number_of_waste_diverted: null,
         mrf_file: null,
+        lce_FK: null
+      },
+      cd: {
+        cd_total_land_area: null,
+        cd_date_monitored: null,
+        cd_site_clearing: null,
+        cd_site_grading: null,
+        cd_application_maintenance: null,
+        cd_provision_drainage: null,
+        cd_leachate_management: null,
+        cd_gas_management: null,
+        cd_fencing_security: null,
+        cd_putting_sinages: null,
+        cd_prohibition: null,
+        cd_status: null,
+        cd_remarks: null,
+        cd_date_closure: null,
         lce_FK: null
       },
       complete_address: null,

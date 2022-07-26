@@ -921,7 +921,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-<<<<<<< HEAD
 //
 //
 //
@@ -946,8 +945,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-=======
->>>>>>> 8df829fe0fa82bafb38ebf8fcd0e1a9a1cb1891f
 
 
 
@@ -2730,6 +2727,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         slf_separate_cells_for_hazwaste: null,
         slf_methane_recovery: null,
         slf_discharge_permit: null,
+        slf_1586_compliance: null,
+        slf_9275_compliance: null,
+        slf_6969_compliance: null,
         slf_file: null,
         lce_FK: null
       },
@@ -2746,6 +2746,23 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         mrf_total_waste_diverted: null,
         mrf_number_of_waste_diverted: null,
         mrf_file: null,
+        lce_FK: null
+      },
+      cd: {
+        cd_total_land_area: null,
+        cd_date_monitored: null,
+        cd_site_clearing: null,
+        cd_site_grading: null,
+        cd_application_maintenance: null,
+        cd_provision_drainage: null,
+        cd_leachate_management: null,
+        cd_gas_management: null,
+        cd_fencing_security: null,
+        cd_putting_sinages: null,
+        cd_prohibition: null,
+        cd_status: null,
+        cd_remarks: null,
+        cd_date_closure: null,
         lce_FK: null
       },
       complete_address: null,
@@ -22580,75 +22597,69 @@ var render = function () {
                                           },
                                         }),
                                         _vm._v(" "),
-<<<<<<< HEAD
                                         _c("v-checkbox", {
                                           attrs: {
-                                            label:
-                                              "Separate Cells for Hazwaste",
+                                            label: "1586 Compliance",
                                             value: "true",
                                             "hide-details": "",
                                             color: "dark",
                                           },
                                           model: {
-                                            value:
-                                              _vm.slf
-                                                .slf_separate_cells_for_hazwaste,
+                                            value: _vm.slf.slf_1586_compliance,
                                             callback: function ($$v) {
                                               _vm.$set(
                                                 _vm.slf,
-                                                "slf_separate_cells_for_hazwaste",
+                                                "slf_1586_compliance",
                                                 $$v
                                               )
                                             },
                                             expression:
-                                              "\n                                        slf.slf_separate_cells_for_hazwaste\n                                    ",
+                                              "\n                                        slf.slf_1586_compliance\n                                    ",
                                           },
                                         }),
                                         _vm._v(" "),
                                         _c("v-checkbox", {
                                           attrs: {
-                                            label: "Methane Recovery",
+                                            label: "9275 Compliance",
                                             value: "true",
                                             "hide-details": "",
                                             color: "dark",
                                           },
                                           model: {
-                                            value: _vm.slf.slf_methane_recovery,
+                                            value: _vm.slf.slf_9275_compliance,
                                             callback: function ($$v) {
                                               _vm.$set(
                                                 _vm.slf,
-                                                "slf_methane_recovery",
+                                                "slf_9275_compliance",
                                                 $$v
                                               )
                                             },
                                             expression:
-                                              "slf.slf_methane_recovery",
+                                              "slf.slf_9275_compliance",
                                           },
                                         }),
                                         _vm._v(" "),
                                         _c("v-checkbox", {
                                           attrs: {
-                                            label: "Discharge Permit",
+                                            label: "6969 Compliance",
                                             value: "true",
                                             "hide-details": "",
                                             color: "dark",
                                           },
                                           model: {
-                                            value: _vm.slf.slf_discharge_permit,
+                                            value: _vm.slf.slf_6969_compliance,
                                             callback: function ($$v) {
                                               _vm.$set(
                                                 _vm.slf,
-                                                "slf_discharge_permit",
+                                                "slf_6969_compliance",
                                                 $$v
                                               )
                                             },
                                             expression:
-                                              "slf.slf_discharge_permit",
+                                              "slf.slf_6969_compliance",
                                           },
                                         }),
                                         _vm._v(" "),
-=======
->>>>>>> 8df829fe0fa82bafb38ebf8fcd0e1a9a1cb1891f
                                         _c("ValidationProvider", {
                                           attrs: {
                                             vid: "file",
