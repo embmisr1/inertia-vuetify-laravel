@@ -52,6 +52,7 @@ class SolidwasteMRFController extends Controller
         $query->mrf_total_waste_diverted = $request->mrf_total_waste_diverted;
         $query->mrf_number_of_waste_diverted = $request->mrf_number_of_waste_diverted;
         $query->mrf_file = $request->mrf_file;
+        $query->mrf_or_rca = $request->mrf_or_rca;
         $query->lce_FK = $request->lce_FK;
         $query->save();
         return back()->with("message","MRF Created");
@@ -71,6 +72,7 @@ class SolidwasteMRFController extends Controller
         $query->mrf_total_waste_diverted = $request->mrf_total_waste_diverted;
         $query->mrf_number_of_waste_diverted = $request->mrf_number_of_waste_diverted;
         $query->mrf_file = $request->mrf_file;
+        $query->mrf_or_rca = $request->mrf_or_rca;
         $query->lce_FK = $request->lce_FK;
         $query->save();
         return back()->with("message","MRF Updated");
