@@ -1,6 +1,6 @@
 <template>
     <DefaultLayout>
-        <div class="font-bold text-2xl text-center py-6">MRF Form</div>
+        <div class="font-bold text-2xl text-center py-6"><span>{{form_type.toUpperCase()}}</span> Form</div>
         <div v-if="loading">Loading..</div>
         <div v-else>
             <ValidationObserver
@@ -354,6 +354,9 @@ export default {
                 formdata;
             return `${citymunDesc}, District No ${districtCode}, ${provDesc}, ${lce_zip_code} `;
         },
+        form_type(){
+            return this.search_query_params("form_type").value
+        },
     },
     methods: {
         saveForm() {
@@ -365,7 +368,7 @@ export default {
         },
         async saveMRFForm() {
             try {
-                const data = { ...this.mrf, lce_FK: this.mrf.id };
+                const data = { ...this.mrf, lce_FK: this.mrf.id, mrf_or_rca:this.form_type };
                 await this.$inertia.post("/app/swm/mrf_register_process", data);
             } catch (error) {
                 console.error(error.message);

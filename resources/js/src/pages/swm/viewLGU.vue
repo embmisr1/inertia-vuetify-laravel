@@ -301,7 +301,7 @@
             <v-tab-item
                 ><v-container>
                     <a
-                        :href="`/app/swm/mrf_register/${lce_id}`"
+                        :href="`/app/swm/mrf_register/${lce_id}?form_type=mrf`"
                         target="_blank"
                     >
                         <v-btn dark>Add MRF</v-btn>
@@ -387,7 +387,123 @@
                             v-slot="props"
                         >
                             <a
-                                :href="`/app/swm/mrf_edit/${props.row.id}`"
+                                :href="`/app/swm/mrf_edit/${props.row.id}?form_type=mrf`"
+                                target="_blank"
+                            >
+                                <box-icon
+                                    name="edit"
+                                    color="orange"
+                                    animation="tada-hover"
+                                ></box-icon
+                            ></a>
+                            <v-btn icon small @click="removeMRF(props.row.id)"
+                                ><box-icon
+                                    name="trash"
+                                    color="red"
+                                    animation="tada-hover"
+                                ></box-icon
+                            ></v-btn>
+                        </b-table-column>
+                        <template #empty>
+                            <div
+                                class="text-center text-3xl text-gray-500 font-extrabold"
+                            >
+                                No lce_list Found
+                            </div>
+                        </template>
+                    </b-table>
+                </v-container></v-tab-item
+            >
+            <v-tab-item
+                ><v-container>
+                    <a
+                        :href="`/app/swm/mrf_register/${lce_id}?form_type=rca`"
+                        target="_blank"
+                    >
+                        <v-btn dark>Add RCA</v-btn>
+                    </a>
+                    <b-table
+                        :data="query_rca"
+
+                        :per-page="query_rca.per_page"
+                        pagination-size="is-small"
+                        page-input
+                        hoverable
+                        backend-pagination
+                        :total="query_rca.total"
+                        :current-page.sync="query_rca.current_page"
+                        pagination-position="top"
+                        pagination-rounded
+                        @page-change="onPageChange"
+                        narrowed
+                        :loading="loading"
+                        bordered
+                        sticky-header
+                        scrollable
+                        :row-class="
+                            (row, index) =>
+                                isTheme ? 'bg-black text-white' : ''
+                        "
+                        :header-class="isTheme ? 'bg-black text-white' : ''"
+                        height="420"
+                    >
+
+                        <b-table-column
+                            field="mrf_emb_funded"
+                            label="EMB Funded"
+                            centered
+                        >
+                            <template #searchable="props">
+                                <b-input
+                                    placeholder="Search..."
+                                    icon="magnify"
+                                    size="is-small"
+                                />
+                            </template>
+                            <template v-slot="props">
+                            &#8369 {{props.row.mrf_emb_funded.toLocaleString('en-US')}}
+                            </template>
+                        </b-table-column>
+
+                        <b-table-column
+                            field="mrf_status_operation"
+                            label="Status Operation"
+                        >
+                            <template #searchable="props">
+                                <b-input
+                                    placeholder="Search..."
+                                    icon="magnify"
+                                    size="is-small"
+                                />
+                            </template>
+                            <template v-slot="props">
+                                {{ props.row.mrf_status_operation }}
+                            </template>
+                        </b-table-column>
+
+                        <b-table-column
+                            field="mrf_service_area"
+                            label="Service Area"
+                        >
+                            <template #searchable="props">
+                                <b-input
+                                    placeholder="Search..."
+                                    icon="magnify"
+                                    size="is-small"
+                                />
+                            </template>
+                            <template v-slot="props">
+                                {{ props.row.mrf_service_area }}
+                            </template>
+                        </b-table-column>
+
+                        <b-table-column
+                            field="action"
+                            label=""
+                            v-slot="props"
+                        >
+                            <a
+                                :href="`/app/swm/mrf_edit/${props.row.id}?form_type=rca`"
                                 target="_blank"
                             >
                                 <box-icon

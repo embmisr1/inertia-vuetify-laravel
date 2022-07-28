@@ -10,7 +10,8 @@ export default {
         slf_edit: Array,
         query_mrf: Array, // mrf table
         mrf_edit: Array,
-        cd_edit:Array
+        cd_edit:Array,
+        query_rca:Array
     },
     data() {
         return {
