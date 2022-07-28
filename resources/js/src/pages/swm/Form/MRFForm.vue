@@ -261,34 +261,93 @@
                                             color="dark"
                                         ></v-text-field>
                                     </ValidationProvider>
-                                    <ValidationProvider
-                                        vid="file"
-                                        name="File"
-                                        rules=""
-                                        v-slot="{ errors }"
-                                    >
-                                        <!-- <v-text-field
-                                            label="File"
-                                            :error-messages="errors[0]"
-                                            v-model="slf.slf_file"
-                                            outlined
-                                            clearable
-                                            dense
-                                            color="dark"
-                                        ></v-text-field> -->
-                                        <v-file-input
-                                            label="File"
-                                            :error-messages="errors[0]"
-                                            v-model="mrf.mrf_file"
-                                            outlined
-                                            clearable
-                                            dense
-                                            color="dark"
-                                            truncate-length="15"
-                                            multiple
-                                            accept="image/png, image/jpeg, application/pdf"
-                                        ></v-file-input>
-                                    </ValidationProvider>
+                                    <div>
+                                        <ValidationProvider
+                                            vid="file"
+                                            name="File"
+                                            rules=""
+                                            v-slot="{ errors }"
+                                        >
+                                            <!-- <v-text-field
+                                                label="File"
+                                                :error-messages="errors[0]"
+                                                v-model="slf.slf_file"
+                                                outlined
+                                                clearable
+                                                dense
+                                                color="dark"
+                                            ></v-text-field> -->
+                                            <v-file-input
+                                                label="File"
+                                                :error-messages="errors[0]"
+                                                v-model="mrf.mrf_file"
+                                                outlined
+                                                clearable
+                                                dense
+                                                color="dark"
+                                                truncate-length="15"
+                                                multiple
+                                                accept="image/png, image/jpeg, application/pdf"
+                                            ></v-file-input>
+                                        </ValidationProvider>
+                                        <v-list v-if="attachments" two-line subheader class="h-40 overflow-y-auto">
+                                                <v-subheader
+                                                    >Attachments
+                                                </v-subheader>
+                                                <v-list-item-group
+                                                    active-class="black--text"
+                                                >
+                                                    <template>
+                                                        <div
+                                                            v-for="(
+                                                                item, index
+                                                            ) in attachments.data"
+                                                            :key="index"
+                                                        >
+                                                            <v-list-item>
+                                                                <template
+                                                                    v-slot:default="{
+                                                                        active,
+                                                                    }"
+                                                                >
+                                                                    <v-list-item-content>
+                                                                        <v-list-item-title
+                                                                        >
+                                                                            Attachment {{index + 1}}
+                                                                        </v-list-item-title>
+
+                                                                        <v-list-item-subtitle
+                                                                            class="text--primary"
+                                                                            v-text="
+                                                                                item.size
+                                                                            "
+                                                                        ></v-list-item-subtitle>
+                                                                    </v-list-item-content>
+
+                                                                    <v-list-item-action>
+                                                                        <b-tooltip
+                                                                            label="View Attachement"
+                                                                            type="is-dark"
+                                                                            position="is-left"
+                                                                        >
+                                                                            <box-icon
+                                                                                name="link"
+                                                                                animation="tada-hover"
+                                                                                @click="
+                                                                                    goTo(
+                                                                                        item.url
+                                                                                    )
+                                                                                "
+                                                                            ></box-icon>
+                                                                        </b-tooltip>
+                                                                    </v-list-item-action>
+                                                                </template>
+                                                            </v-list-item>
+                                                        </div>
+                                                    </template>
+                                                </v-list-item-group>
+                                            </v-list>
+                                    </div>
                                 </v-card-text>
                             </v-card>
                         </div>
@@ -377,8 +436,8 @@ export default {
         },
         async updateMRFForm() {
             try {
-                const data = { ...this.mrf };
-                await this.$inertia.patch("/app/swm/mrf_update_process", data);
+                const data = { ...this.mrf }
+                await this.$inertia.post("/app/swm/mrf_update_process", data);
             } catch (error) {
                 console.error(error.message);
                 this.error(error.data.response.messsage);

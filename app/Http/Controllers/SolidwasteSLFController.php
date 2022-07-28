@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\AttachmentResource;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\DB;
@@ -37,8 +38,10 @@ class SolidwasteSLFController extends Controller
             ->leftjoin('ref_citymun as d', 'b.lce_municipality_FK', '=', 'd.PK_citymun_ID')
             ->leftjoin('ref_brgy as e', 'b.lce_barangay_FK', '=', 'e.PK_brgy_ID')
             ->where('a.id', $id)->get();
+        $attachements = SolidwasteSLF::where("id", $id)->get();
         return Inertia::render("pages/swm/Form/SLFForm", [
             'slf_edit' => $slf_edit,
+            "attachments" => AttachmentResource::collection($attachements[0]->getMedia("slf")),
         ]);
     }
 

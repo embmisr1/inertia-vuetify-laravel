@@ -11,7 +11,8 @@ export default {
         query_mrf: Array, // mrf table
         mrf_edit: Array,
         cd_edit:Array,
-        query_rca:Array
+        query_rca:Array,
+        attachments:Object
     },
     data() {
         return {

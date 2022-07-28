@@ -43,6 +43,9 @@ export default {
         },
     },
     methods: {
+        goTo(url) {
+            window.open(url, "_blank");
+        },
         search_query_params(key) {
             const query_params = _.filter(this.route_params, (param) => {
                 return param.key === key;

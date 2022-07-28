@@ -119,19 +119,19 @@ Route::group([
         Route::get('/slf_register/{id}', [SolidwasteSLFController::class, 'create'])->name("slf_register_form");
         Route::get('/slf_edit/{id}', [SolidwasteSLFController::class, 'slf_edit'])->name("slf_edit");
         Route::post('/slf_register_process', [SolidwasteSLFController::class, 'slf_register_process'])->name("slf_register_process");
-        Route::patch('/slf_update_process', [SolidwasteSLFController::class, 'slf_update_process'])->name("slf_update_process");
+        Route::post('/slf_update_process', [SolidwasteSLFController::class, 'slf_update_process'])->name("slf_update_process");
         Route::delete('/slf_delete/{id}', [SolidwasteSLFController::class, 'slf_delete'])->name("slf_delete");
         // MRF
         Route::get('/mrf_register/{id}', [SolidwasteMRFController::class, 'create'])->name("mrf_register_form");
         Route::get('/mrf_edit/{id}', [SolidwasteMRFController::class, 'mrf_edit'])->name("mrf_edit");
         Route::post('/mrf_register_process', [SolidwasteMRFController::class, 'mrf_register_process'])->name("mrf_register_process");
-        Route::patch('/mrf_update_process', [SolidwasteMRFController::class, 'mrf_update_process'])->name("mrf_update_process");
+        Route::post('/mrf_update_process', [SolidwasteMRFController::class, 'mrf_update_process'])->name("mrf_update_process");
         Route::delete('/mrf_delete/{id}', [SolidwasteMRFController::class, 'mrf_delete'])->name("mrf_delete");
         // CLOSED DUMPSITE
         Route::get('/cd_register/{id}', [SolidwasteClosedDumpsiteController::class, 'create'])->name("cd_register_form");
         Route::get('/cd_edit/{id}', [SolidwasteClosedDumpsiteController::class, 'cd_edit'])->name("cd_edit");
         Route::post('/cd_register_process', [SolidwasteClosedDumpsiteController::class, 'cd_register_process'])->name("cd_register_process");
-        Route::patch('/cd_update_process', [SolidwasteClosedDumpsiteController::class, 'cd_update_process'])->name("cd_update_process");
+        Route::post('/cd_update_process', [SolidwasteClosedDumpsiteController::class, 'cd_update_process'])->name("cd_update_process");
         Route::delete('/cd_delete/{id}', [SolidwasteClosedDumpsiteController::class, 'cd_delete'])->name("cd_delete");
     });
 
