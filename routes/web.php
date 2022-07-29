@@ -13,6 +13,7 @@ use App\Http\Controllers\ProjectTypeController;
 use App\Http\Controllers\PsicClassController;
 use App\Http\Controllers\PsicGroupController;
 use App\Http\Controllers\PSICSubClassController;
+use App\Http\Controllers\RemoveAttachementController;
 use App\Http\Controllers\SolidwasteClosedDumpsiteController;
 use App\Http\Controllers\SolidwasteLCEController;
 use App\Http\Controllers\SolidwasteSLFController;
@@ -110,7 +111,7 @@ Route::group([
         // LCE
         Route::get('/lce_list', [SolidwasteLCEController::class, 'lce_list'])->name("lce_list");
         Route::get('/lce_register', [SolidwasteLCEController::class, 'create'])->name("lce_register_form");
-        Route::get('/lce_show/{id}', [SolidwasteLCEController::class, 'lce_show'])->name("lce_edit");
+        Route::get('/lce_show/{id}', [SolidwasteLCEController::class, 'lce_show'])->name("lce_show");
         Route::get('/lce_edit/{id}', [SolidwasteLCEController::class, 'lce_edit'])->name("lce_edit");
         Route::post('/lce_register_process', [SolidwasteLCEController::class, 'lce_register_process'])->name("lce_register_process");
         Route::patch('/lce_update_process', [SolidwasteLCEController::class, 'lce_update_process'])->name("lce_update_process");
@@ -134,6 +135,8 @@ Route::group([
         Route::post('/cd_update_process', [SolidwasteClosedDumpsiteController::class, 'cd_update_process'])->name("cd_update_process");
         Route::delete('/cd_delete/{id}', [SolidwasteClosedDumpsiteController::class, 'cd_delete'])->name("cd_delete");
     });
+
+    Route::delete('/delete_attachements/{media}', RemoveAttachementController::class)->name("slf_delete_attachements");
 
 
 
