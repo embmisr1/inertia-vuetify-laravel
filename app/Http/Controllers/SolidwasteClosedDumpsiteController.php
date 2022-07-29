@@ -57,7 +57,7 @@ class SolidwasteClosedDumpsiteController extends Controller
         $query->cd_date_closure = $request->cd_date_closure;
         $query->lce_FK = $request->lce_FK;
         $query->save();
-        return back()->with("message","Closed Dumpsite Created");
+        return redirect()->route("lce_show",["id"=>$request->lce_FK])->with("message","Closed Dumpsite Created");
     }
 
     public function cd_update_process(request $request){
@@ -78,7 +78,7 @@ class SolidwasteClosedDumpsiteController extends Controller
         $query->cd_date_closure = $request->cd_date_closure;
         $query->lce_FK = $request->lce_FK;
         $query->save();
-        return back()->with("message","Closed Dumpsite Updated");
+        return redirect()->route("lce_show",["id"=>$request->lce_FK])->with("message","Closed Dumpsite Updated");
     }
     public function cd_delete(request $request){
         $cd_delete = SolidwasteClosedDumpsite::find($request->id);

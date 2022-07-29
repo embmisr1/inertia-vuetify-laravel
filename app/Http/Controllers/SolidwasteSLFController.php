@@ -10,6 +10,7 @@ use App\Models\SWM\SLF;
 use App\Models\SolidwasteLCE;
 use App\Models\SolidwasteSLF;
 
+
 class SolidwasteSLFController extends Controller
 {
 
@@ -79,13 +80,15 @@ class SolidwasteSLFController extends Controller
             // $query->slf_file = $request->slf_file;
             $query->lce_FK = $request->lce_FK;
             $query->save();
-            foreach ($request->slf_file as $file) {
-                $query
-                    ->addMedia($file)
-                    ->preservingOriginal()
-                    ->toMediaCollection("slf");
+            if($request->slf_file){
+                foreach ($request->slf_file as $file) {
+                    $query
+                        ->addMedia($file)
+                        ->preservingOriginal()
+                        ->toMediaCollection("slf");
+                }
             }
-            return back()->with("message", "SLF Created");
+            return redirect()->route("lce_show",["id"=>$request->lce_FK])->with("message", "SLF Created");
         } catch (\Throwable $th) {
             return $th->getMessage();
         }
@@ -93,7 +96,6 @@ class SolidwasteSLFController extends Controller
 
     public function slf_update_process(request $request)
     {
-        dd($request->slf_file);
         $query = SolidwasteSLF::find($request->id);
         $query->slf_complete_address = $request->slf_complete_address;
         $query->slf_latitude = $request->slf_latitude;
@@ -123,13 +125,15 @@ class SolidwasteSLFController extends Controller
         // $query->slf_file = $request->slf_file;
         $query->lce_FK = $request->lce_FK;
         $query->save();
-        foreach ($request->slf_file as $file) {
-            $query
-                ->addMedia($file)
-                ->preservingOriginal()
-                ->toMediaCollection("slf");
+        if($request->slf_file){
+            foreach ($request->slf_file as $file) {
+                $query
+                    ->addMedia($file)
+                    ->preservingOriginal()
+                    ->toMediaCollection("slf");
+            }
         }
-        return back()->with("message", "SLF Updated");
+        return redirect()->route("lce_show",["id"=>$request->lce_FK])->with("message", "SLF Updated");
     }
     public function slf_delete(request $request)
     {

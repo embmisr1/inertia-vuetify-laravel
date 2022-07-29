@@ -61,13 +61,15 @@ class SolidwasteMRFController extends Controller
         $query->mrf_or_rca = $request->mrf_or_rca;
         $query->lce_FK = $request->lce_FK;
         $query->save();
-        foreach ($request->mrf_file as $file) {
-            $query
-                ->addMedia($file)
-                ->preservingOriginal()
-                ->toMediaCollection($request->mrf_or_rca);
+        if($request->mrf_file){
+            foreach ($request->mrf_file as $file) {
+                $query
+                    ->addMedia($file)
+                    ->preservingOriginal()
+                    ->toMediaCollection($request->mrf_or_rca);
+            }
         }
-        return back()->with("message", strtoupper($request->mrf_or_rca)  . " Created");
+        return redirect()->route("lce_show",["id"=>$request->lce_FK])->with("message", strtoupper($request->mrf_or_rca)  . " Created");
     }
 
     public function mrf_update_process(request $request)
@@ -88,13 +90,15 @@ class SolidwasteMRFController extends Controller
         $query->mrf_or_rca = $request->mrf_or_rca;
         $query->lce_FK = $request->lce_FK;
         $query->save();
-        foreach ($request->mrf_file as $file) {
-            $query
-                ->addMedia($file)
-                ->preservingOriginal()
-                ->toMediaCollection("mrf");
+        if($request->mrf_file){
+            foreach ($request->mrf_file as $file) {
+                $query
+                    ->addMedia($file)
+                    ->preservingOriginal()
+                    ->toMediaCollection("mrf");
+            }
         }
-        return back()->with("message",  strtoupper($request->mrf_or_rca)  . " Updated");
+        return redirect()->route("lce_show",["id"=>$request->lce_FK])->with("message",  strtoupper($request->mrf_or_rca)  . " Updated");
     }
     public function mrf_delete(request $request)
     {

@@ -21,7 +21,7 @@ class AttachmentResource extends JsonResource
             'uuid' => $this->uuid,
             'url' => $this->getUrl(),
             'mime_type' => $this->mime_type,
-            'size' => $this->size
+            'size' => $this->human_readable_size
         ];
     }
 }
