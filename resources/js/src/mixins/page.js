@@ -70,6 +70,25 @@ export default {
                 // this.setSort(newSort)
             } catch (error) {}
         },
+        async removeAttachment(file_id) {
+            try {
+                this.loading = true;
+                await this.confirmDelete(
+                    "This action  cannot be undone",
+                    async () => {
+                        await this.$inertia.delete(
+                            `/app/delete_attachements/${file_id}`
+                        );
+                        console.log(this.slf.lce_FK);
+                    }
+                );
+                this.loading = false;
+            } catch (error) {
+                this.loading = false;
+                console.log(error);
+                this.error(error.response.data.message);
+            }
+        },
     },
     watch: {
         filtersObject() {

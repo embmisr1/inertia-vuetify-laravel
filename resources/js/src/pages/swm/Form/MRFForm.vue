@@ -1,6 +1,18 @@
 <template>
     <DefaultLayout>
-        <div class="font-bold text-2xl text-center py-6"><span>{{form_type.toUpperCase()}}</span> Form</div>
+        <div class="">
+            <div class="font-bold text-2xl">
+                <b-tooltip label="Back" type="is-dark" :delay="2000">
+                    <Link @click="goBack"
+                        class="px-3" >
+                    <box-icon
+                        name="arrow-back"
+                        animation="tada-hover"
+                    ></box-icon> </Link
+                >
+                </b-tooltip><span>{{form_type.toUpperCase()}}</span> Form
+            </div>
+        </div>
         <div v-if="loading">Loading..</div>
         <div v-else>
             <ValidationObserver
@@ -261,7 +273,6 @@
                                             color="dark"
                                         ></v-text-field>
                                     </ValidationProvider>
-                                    <div>
                                         <ValidationProvider
                                             vid="file"
                                             name="File"
@@ -290,63 +301,18 @@
                                                 accept="image/png, image/jpeg, application/pdf"
                                             ></v-file-input>
                                         </ValidationProvider>
-                                        <v-list v-if="attachments" two-line subheader class="h-40 overflow-y-auto">
-                                                <v-subheader
-                                                    >Attachments
-                                                </v-subheader>
-                                                <v-list-item-group
-                                                    active-class="black--text"
-                                                >
-                                                    <template>
-                                                        <div
-                                                            v-for="(
-                                                                item, index
-                                                            ) in attachments.data"
-                                                            :key="index"
-                                                        >
-                                                            <v-list-item>
-                                                                <template
-                                                                    v-slot:default="{
-                                                                        active,
-                                                                    }"
-                                                                >
-                                                                    <v-list-item-content>
-                                                                        <v-list-item-title
-                                                                        >
-                                                                            Attachment {{index + 1}}
-                                                                        </v-list-item-title>
-
-                                                                        <v-list-item-subtitle
-                                                                            class="text--primary"
-                                                                            v-text="
-                                                                                item.size
-                                                                            "
-                                                                        ></v-list-item-subtitle>
-                                                                    </v-list-item-content>
-
-                                                                    <v-list-item-action>
-                                                                        <b-tooltip
-                                                                            label="View Attachement"
-                                                                            type="is-dark"
-                                                                            position="is-left"
-                                                                        >
-                                                                            <box-icon
-                                                                                name="link"
-                                                                                animation="tada-hover"
-                                                                                @click="
-                                                                                    goTo(
-                                                                                        item.url
-                                                                                    )
-                                                                                "
-                                                                            ></box-icon>
-                                                                        </b-tooltip>
-                                                                    </v-list-item-action>
-                                                                </template>
-                                                            </v-list-item>
-                                                        </div>
-                                                    </template>
-                                                </v-list-item-group>
-                                            </v-list>
+                                </v-card-text>
+                                <v-card-text class="grid grid-cols-2 gap-x-2 ">
+                                    <div v-if="withAttachment" class="">
+                                        <ViewAttachements
+                                            :attachments="attachments.data"
+                                            :goTo="
+                                                (url) => {
+                                                    goTo(url);
+                                                }
+                                            "
+                                            :removeFile="removeAttachment"
+                                        />
                                     </div>
                                 </v-card-text>
                             </v-card>
@@ -375,11 +341,13 @@ import DefaultLayout from "../../../layouts/default.vue";
 import { Link } from "@inertiajs/inertia-vue";
 import _ from "lodash";
 import { page, toasts, swm, dialogs } from "../../../mixins";
+import ViewAttachements from "../../../components/ViewAttachements.vue";
 export default {
     components: {
-        DefaultLayout,
-        Link,
-    },
+    DefaultLayout,
+    Link,
+    ViewAttachements
+},
     mixins: [page, toasts, swm, dialogs],
     data() {
         return {

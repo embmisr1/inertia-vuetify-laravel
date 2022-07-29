@@ -93,29 +93,28 @@
                         <v-card-actions>
                             <v-spacer></v-spacer>
                             <div class="space-x-4">
-                                <a
+                                <Link
                                 v-if="!query_closed_dumpsite_id"
                                 :href="`/app/swm/cd_register/${lce_id}`"
-                                target="_blank"
+
                                 ><v-btn border outlined color="red lighten-2"
                                     >Close Dumpsite</v-btn
-                                ></a
+                                ></Link
                             >
-                            <a
+                            <Link
                                 v-else
                                 :href="`/app/swm/cd_edit/${query_closed_dumpsite_id}`"
-                                target="_blank"
+
                                 ><v-btn border outlined color="red lighten-2"
                                     >Close Dumpsite</v-btn
-                                ></a
+                                ></Link
                             >
-                            <a
+                            <Link
                                 :href="`/app/swm/lce_edit/${lce_id}`"
-                                target="_blank"
+
                                 ><v-btn color="orange lighten-2"
                                     >Update LCE</v-btn
-                                ></a
-                            >
+                                ></Link>
                             </div>
                         </v-card-actions>
                     </v-card>
@@ -125,7 +124,7 @@
                 <v-container>
                     <a
                         :href="`/app/swm/slf_register/${lce_id}`"
-                        target="_blank"
+
                     >
                         <v-btn dark>Add SLF</v-btn>
                     </a>
@@ -270,16 +269,16 @@
                             label=""
                             v-slot="props"
                         >
-                            <a
+                            <Link
                                 :href="`/app/swm/slf_edit/${props.row.id}`"
-                                target="_blank"
+
                             >
                                 <box-icon
                                     name="edit"
                                     color="orange"
                                     animation="tada-hover"
                                 ></box-icon
-                            ></a>
+                            ></Link>
                             <v-btn icon small @click="removeSLF(props.row.id)"
                                 ><box-icon
                                     name="trash"
@@ -302,7 +301,7 @@
                 ><v-container>
                     <a
                         :href="`/app/swm/mrf_register/${lce_id}?form_type=mrf`"
-                        target="_blank"
+
                     >
                         <v-btn dark>Add MRF</v-btn>
                     </a>
@@ -386,16 +385,16 @@
                             label=""
                             v-slot="props"
                         >
-                            <a
+                            <Link
                                 :href="`/app/swm/mrf_edit/${props.row.id}?form_type=mrf`"
-                                target="_blank"
+
                             >
                                 <box-icon
                                     name="edit"
                                     color="orange"
                                     animation="tada-hover"
                                 ></box-icon
-                            ></a>
+                            ></Link>
                             <v-btn icon small @click="removeMRF(props.row.id)"
                                 ><box-icon
                                     name="trash"
@@ -418,7 +417,7 @@
                 ><v-container>
                     <a
                         :href="`/app/swm/mrf_register/${lce_id}?form_type=rca`"
-                        target="_blank"
+
                     >
                         <v-btn dark>Add RCA</v-btn>
                     </a>
@@ -502,16 +501,16 @@
                             label=""
                             v-slot="props"
                         >
-                            <a
+                            <Link
                                 :href="`/app/swm/mrf_edit/${props.row.id}?form_type=rca`"
-                                target="_blank"
+
                             >
                                 <box-icon
                                     name="edit"
                                     color="orange"
                                     animation="tada-hover"
                                 ></box-icon
-                            ></a>
+                            ></Link>
                             <v-btn icon small @click="removeMRF(props.row.id)"
                                 ><box-icon
                                     name="trash"
