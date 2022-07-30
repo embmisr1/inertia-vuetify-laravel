@@ -27,10 +27,11 @@ class SolidwasteTenYearMonitoringController extends Controller
         $id = $request->id;
         $ten_year_monitoring_edit = DB::table('tbl_solidwaste_ten_year_monitoring as a')
         ->select('a.*', 'c.provDesc', 'd.citymunDesc', 'e.brgyDesc', 'd.districtCode')
-        ->leftjoin('tbl_solidwaste_lce as b','a.lce_FK','=','b.id')
-        ->leftjoin('ref_province as c','b.lce_province_FK','=','c.PK_province_ID')
-        ->leftjoin('ref_citymun as d','b.lce_municipality_FK','=','d.PK_citymun_ID')
-        ->leftjoin('ref_brgy as e','b.lce_barangay_FK','=','e.PK_brgy_ID')
+        ->leftjoin('tbl_solidwaste_ten_year as b','a.ten_year_FK','=','b.id')
+        ->leftjoin('tbl_solidwaste_lce as c','b.lce_FK','=','c.id')
+        ->leftjoin('ref_province as d','c.lce_province_FK','=','d.PK_province_ID')
+        ->leftjoin('ref_citymun as e','c.lce_municipality_FK','=','e.PK_citymun_ID')
+        ->leftjoin('ref_brgy as f','c.lce_barangay_FK','=','f.PK_brgy_ID')
         ->where('a.id',$id)->get();
         return Inertia::render("pages/swm/Form/TenYearMonitoringForm",[
             'ten_year_monitoring_edit'=>$ten_year_monitoring_edit,
