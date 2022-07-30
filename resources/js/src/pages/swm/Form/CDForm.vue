@@ -1,7 +1,17 @@
 <template>
     <DefaultLayout>
-        <div class="font-bold text-2xl text-center py-6">
-            Closed Dumpsite Form
+        <div class="">
+            <div class="font-bold text-2xl flex items-center">
+                <b-tooltip label="Back" type="is-dark" :delay="2000">
+                    <Link @click="goBack" class="px-3">
+                        <box-icon
+                            name="arrow-back"
+                            animation="tada-hover"
+                        ></box-icon>
+                    </Link>
+                </b-tooltip>
+                Closed Dumpsite Form
+            </div>
         </div>
         <div v-if="loading">Loading..</div>
         <div v-else>
