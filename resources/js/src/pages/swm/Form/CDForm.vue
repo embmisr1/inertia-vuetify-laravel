@@ -328,7 +328,7 @@ export default {
         async updateCDForm() {
             try {
                 const data = { ...this.cd };
-                await this.$inertia.patch("/app/swm/cd_update_process", data);
+                await this.$inertia.post("/app/swm/cd_update_process", data);
             } catch (error) {
                 console.error(error.message);
                 this.error(error.data.response.messsage);

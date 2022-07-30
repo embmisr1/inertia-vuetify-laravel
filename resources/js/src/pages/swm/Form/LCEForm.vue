@@ -1,7 +1,18 @@
 <template>
     <DefaultLayout>
         <!-- <Link href="/app/swm/lce_list"> <v-btn color="dark">Back</v-btn></Link> -->
-        <div class="font-bold text-2xl text-center py-6">LCE Form</div>
+        <div class="">
+            <div class="font-bold text-2xl">
+                <b-tooltip label="Back" type="is-dark" :delay="2000">
+                    <Link :href="`/app/swm/lce_show/${lce.id}`" class="px-3">
+                        <box-icon
+                            name="arrow-back"
+                            animation="tada-hover"
+                        ></box-icon>
+                    </Link> </b-tooltip
+                >LCE Form
+            </div>
+        </div>
         <ValidationObserver
             v-slot="{ handleSubmit, invalid }"
             ref="psic_group_class_observer"

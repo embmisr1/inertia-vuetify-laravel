@@ -81,16 +81,15 @@
             </b-table-column>
 
             <b-table-column field="action" label="" sortable v-slot="props">
-                <a
+                <Link
                     :href="`/app/swm/lce_show/${props.row.id}`"
-                    target="_blank"
                 >
                     <box-icon
                         name="edit"
                         color="orange"
                         animation="tada-hover"
                     ></box-icon
-                ></a>
+                ></Link>
                 <v-btn icon small @click="deleteLCEForm(props.row.id)"
                     ><box-icon
                         name="trash"

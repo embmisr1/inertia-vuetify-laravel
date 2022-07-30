@@ -1,7 +1,9 @@
+import _ from "lodash";
+
 export default {
     props: {
         errors: Object,
-        filters:Object,
+        filters: Object,
         flash: Object,
         route: Object,
     },
@@ -12,6 +14,18 @@ export default {
         };
     },
     computed: {
+        route_params() {
+            const urlParams = new URLSearchParams(location.search);
+            let routes = [];
+            for (const [key, value] of urlParams) {
+                let route_key = {
+                    key,
+                    value,
+                };
+                routes.push(route_key);
+            }
+            return routes;
+        },
         route_back() {
             return this.route.back_at_one;
         },
@@ -29,6 +43,15 @@ export default {
         },
     },
     methods: {
+        goTo(url) {
+            window.open(url, "_blank");
+        },
+        search_query_params(key) {
+            const query_params = _.filter(this.route_params, (param) => {
+                return param.key === key;
+            });
+            return query_params[0]
+        },
         async onPageChange(page) {
             this.loading = true;
             await this.get({ page });
@@ -46,6 +69,25 @@ export default {
                 newSort[sort] = order;
                 // this.setSort(newSort)
             } catch (error) {}
+        },
+        async removeAttachment(file_id) {
+            try {
+                this.loading = true;
+                await this.confirmDelete(
+                    "This action  cannot be undone",
+                    async () => {
+                        await this.$inertia.delete(
+                            `/app/delete_attachements/${file_id}`
+                        );
+                        console.log(this.slf.lce_FK);
+                    }
+                );
+                this.loading = false;
+            } catch (error) {
+                this.loading = false;
+                console.log(error);
+                this.error(error.response.data.message);
+            }
         },
     },
     watch: {

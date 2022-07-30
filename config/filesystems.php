@@ -65,6 +65,12 @@ return [
             'url' => env('APP_URL') . '/storage/mrf',
             'visibility' => 'public',
         ],
+        'rca' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/rca'),
+            'url' => env('APP_URL') . '/storage/rca',
+            'visibility' => 'public',
+        ],
         'lce' => [
             'driver' => 'local',
             'root' => storage_path('app/public/lce'),

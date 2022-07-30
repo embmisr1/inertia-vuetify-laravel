@@ -1,6 +1,18 @@
 <template>
     <DefaultLayout>
-        <div class="font-bold text-2xl text-center py-6">MRF Form</div>
+        <div class="">
+            <div class="font-bold text-2xl">
+                <b-tooltip label="Back" type="is-dark" :delay="2000">
+                    <Link @click="goBack"
+                        class="px-3" >
+                    <box-icon
+                        name="arrow-back"
+                        animation="tada-hover"
+                    ></box-icon> </Link
+                >
+                </b-tooltip><span>{{form_type.toUpperCase()}}</span> Form
+            </div>
+        </div>
         <div v-if="loading">Loading..</div>
         <div v-else>
             <ValidationObserver
@@ -261,34 +273,47 @@
                                             color="dark"
                                         ></v-text-field>
                                     </ValidationProvider>
-                                    <ValidationProvider
-                                        vid="file"
-                                        name="File"
-                                        rules=""
-                                        v-slot="{ errors }"
-                                    >
-                                        <!-- <v-text-field
-                                            label="File"
-                                            :error-messages="errors[0]"
-                                            v-model="slf.slf_file"
-                                            outlined
-                                            clearable
-                                            dense
-                                            color="dark"
-                                        ></v-text-field> -->
-                                        <v-file-input
-                                            label="File"
-                                            :error-messages="errors[0]"
-                                            v-model="mrf.mrf_file"
-                                            outlined
-                                            clearable
-                                            dense
-                                            color="dark"
-                                            truncate-length="15"
-                                            multiple
-                                            accept="image/png, image/jpeg, application/pdf"
-                                        ></v-file-input>
-                                    </ValidationProvider>
+                                        <ValidationProvider
+                                            vid="file"
+                                            name="File"
+                                            rules=""
+                                            v-slot="{ errors }"
+                                        >
+                                            <!-- <v-text-field
+                                                label="File"
+                                                :error-messages="errors[0]"
+                                                v-model="slf.slf_file"
+                                                outlined
+                                                clearable
+                                                dense
+                                                color="dark"
+                                            ></v-text-field> -->
+                                            <v-file-input
+                                                label="File"
+                                                :error-messages="errors[0]"
+                                                v-model="mrf.mrf_file"
+                                                outlined
+                                                clearable
+                                                dense
+                                                color="dark"
+                                                truncate-length="15"
+                                                multiple
+                                                accept="image/png, image/jpeg, application/pdf"
+                                            ></v-file-input>
+                                        </ValidationProvider>
+                                </v-card-text>
+                                <v-card-text class="grid grid-cols-2 gap-x-2 ">
+                                    <div v-if="withAttachment" class="">
+                                        <ViewAttachements
+                                            :attachments="attachments.data"
+                                            :goTo="
+                                                (url) => {
+                                                    goTo(url);
+                                                }
+                                            "
+                                            :removeFile="removeAttachment"
+                                        />
+                                    </div>
                                 </v-card-text>
                             </v-card>
                         </div>
@@ -316,11 +341,13 @@ import DefaultLayout from "../../../layouts/default.vue";
 import { Link } from "@inertiajs/inertia-vue";
 import _ from "lodash";
 import { page, toasts, swm, dialogs } from "../../../mixins";
+import ViewAttachements from "../../../components/ViewAttachements.vue";
 export default {
     components: {
-        DefaultLayout,
-        Link,
-    },
+    DefaultLayout,
+    Link,
+    ViewAttachements
+},
     mixins: [page, toasts, swm, dialogs],
     data() {
         return {
@@ -354,6 +381,9 @@ export default {
                 formdata;
             return `${citymunDesc}, District No ${districtCode}, ${provDesc}, ${lce_zip_code} `;
         },
+        form_type(){
+            return this.search_query_params("form_type").value
+        },
     },
     methods: {
         saveForm() {
@@ -365,7 +395,7 @@ export default {
         },
         async saveMRFForm() {
             try {
-                const data = { ...this.mrf, lce_FK: this.mrf.id };
+                const data = { ...this.mrf, lce_FK: this.mrf.id, mrf_or_rca:this.form_type };
                 await this.$inertia.post("/app/swm/mrf_register_process", data);
             } catch (error) {
                 console.error(error.message);
@@ -374,8 +404,8 @@ export default {
         },
         async updateMRFForm() {
             try {
-                const data = { ...this.mrf };
-                await this.$inertia.patch("/app/swm/mrf_update_process", data);
+                const data = { ...this.mrf }
+                await this.$inertia.post("/app/swm/mrf_update_process", data);
             } catch (error) {
                 console.error(error.message);
                 this.error(error.data.response.messsage);

@@ -2,7 +2,7 @@ import axios from "axios";
 
 export default {
     props: {
-        query_closed_dumpsite_id:String,
+        query_closed_dumpsite_id: Number,
         lce_edit: Array,
         province_dropdown: Array,
         lce_info: Array,
@@ -10,7 +10,9 @@ export default {
         slf_edit: Array,
         query_mrf: Array, // mrf table
         mrf_edit: Array,
-        cd_edit:Array
+        cd_edit: Array,
+        query_rca: Array,
+        attachments: Object,
     },
     data() {
         return {
@@ -110,6 +112,16 @@ export default {
         };
     },
     computed: {
+        withAttachment() {
+            let toReturn = true;
+            if (this.attachments === undefined) {
+                return (toReturn = false);
+            } else if (this.attachments.data.length === 0) {
+                return (toReturn = false);
+            }
+
+            return toReturn;
+        },
         date_now() {
             return new Date(Date.now() - new Date().getTimezoneOffset() * 60000)
                 .toISOString()
@@ -201,5 +213,9 @@ export default {
                 this.error(error.response.data.message);
             }
         },
+        goBack(){
+            window.history.back();
+        },
+
     },
 };
