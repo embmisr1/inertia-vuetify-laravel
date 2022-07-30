@@ -41,6 +41,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
+    query_closed_dumpsite_id: Number,
     lce_edit: Array,
     province_dropdown: Array,
     lce_info: Array,
@@ -49,7 +50,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     slf_edit: Array,
     query_mrf: Array,
     // mrf table
-    mrf_edit: Array
+    mrf_edit: Array,
+    cd_edit: Array,
+    query_rca: Array,
+    attachments: Object
   },
   data: function data() {
     return {
@@ -115,7 +119,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       },
       cd: {
         cd_total_land_area: null,
-        cd_date_monitored: null,
+        cd_date_monitored: new Date(Date.now() - new Date().getTimezoneOffset() * 60000).toISOString().substr(0, 10),
         cd_site_clearing: null,
         cd_site_grading: null,
         cd_application_maintenance: null,
@@ -139,11 +143,26 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       category: ["Category 1", "Category 2", "Category 3", "Category 4"],
       leachment_type: ["Recirculaation", "Chemical", "Biological"],
       status_of_operation: ["Operational", "Not Operational"],
+      cd_status: ["Closed", "Rehabilitation", "Ongoing"],
       cityMun: [],
       brgy: []
     };
   },
   computed: {
+    withAttachment: function withAttachment() {
+      var toReturn = true;
+
+      if (this.attachments === undefined) {
+        return toReturn = false;
+      } else if (this.attachments.data.length === 0) {
+        return toReturn = false;
+      }
+
+      return toReturn;
+    },
+    date_now: function date_now() {
+      return new Date(Date.now() - new Date().getTimezoneOffset() * 60000).toISOString().substr(0, 10);
+    },
     lce_id: function lce_id() {
       return this.lce_details.id;
     },
@@ -284,6 +303,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           }
         }, _callee2, null, [[0, 10]]);
       }))();
+    },
+    goBack: function goBack() {
+      window.history.back();
     }
   }
 });

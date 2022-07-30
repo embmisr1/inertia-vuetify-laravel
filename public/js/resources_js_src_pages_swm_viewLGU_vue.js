@@ -930,6 +930,130 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -1148,6 +1272,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_1__);
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -1159,6 +1285,21 @@ function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (O
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e2) { throw _e2; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e3) { didErr = true; err = _e3; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
@@ -1174,6 +1315,33 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     };
   },
   computed: {
+    route_params: function route_params() {
+      var urlParams = new URLSearchParams(location.search);
+      var routes = [];
+
+      var _iterator = _createForOfIteratorHelper(urlParams),
+          _step;
+
+      try {
+        for (_iterator.s(); !(_step = _iterator.n()).done;) {
+          var _step$value = _slicedToArray(_step.value, 2),
+              key = _step$value[0],
+              value = _step$value[1];
+
+          var route_key = {
+            key: key,
+            value: value
+          };
+          routes.push(route_key);
+        }
+      } catch (err) {
+        _iterator.e(err);
+      } finally {
+        _iterator.f();
+      }
+
+      return routes;
+    },
     route_back: function route_back() {
       return this.route.back_at_one;
     },
@@ -1191,6 +1359,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }
   },
   methods: {
+    goTo: function goTo(url) {
+      window.open(url, "_blank");
+    },
+    search_query_params: function search_query_params(key) {
+      var query_params = lodash__WEBPACK_IMPORTED_MODULE_1___default().filter(this.route_params, function (param) {
+        return param.key === key;
+      });
+
+      return query_params[0];
+    },
     onPageChange: function onPageChange(page) {
       var _this = this;
 
@@ -1252,6 +1430,57 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             }
           }
         }, _callee2, null, [[0, 8]]);
+      }))();
+    },
+    removeAttachment: function removeAttachment(file_id) {
+      var _this3 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee4() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee4$(_context4) {
+          while (1) {
+            switch (_context4.prev = _context4.next) {
+              case 0:
+                _context4.prev = 0;
+                _this3.loading = true;
+                _context4.next = 4;
+                return _this3.confirmDelete("This action  cannot be undone", /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3() {
+                  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
+                    while (1) {
+                      switch (_context3.prev = _context3.next) {
+                        case 0:
+                          _context3.next = 2;
+                          return _this3.$inertia["delete"]("/app/delete_attachements/".concat(file_id));
+
+                        case 2:
+                          console.log(_this3.slf.lce_FK);
+
+                        case 3:
+                        case "end":
+                          return _context3.stop();
+                      }
+                    }
+                  }, _callee3);
+                })));
+
+              case 4:
+                _this3.loading = false;
+                _context4.next = 12;
+                break;
+
+              case 7:
+                _context4.prev = 7;
+                _context4.t0 = _context4["catch"](0);
+                _this3.loading = false;
+                console.log(_context4.t0);
+
+                _this3.error(_context4.t0.response.data.message);
+
+              case 12:
+              case "end":
+                return _context4.stop();
+            }
+          }
+        }, _callee4, null, [[0, 7]]);
       }))();
     }
   },
@@ -2650,6 +2879,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
+    query_closed_dumpsite_id: Number,
     lce_edit: Array,
     province_dropdown: Array,
     lce_info: Array,
@@ -2658,7 +2888,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     slf_edit: Array,
     query_mrf: Array,
     // mrf table
-    mrf_edit: Array
+    mrf_edit: Array,
+    cd_edit: Array,
+    query_rca: Array,
+    attachments: Object
   },
   data: function data() {
     return {
@@ -2724,7 +2957,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       },
       cd: {
         cd_total_land_area: null,
-        cd_date_monitored: null,
+        cd_date_monitored: new Date(Date.now() - new Date().getTimezoneOffset() * 60000).toISOString().substr(0, 10),
         cd_site_clearing: null,
         cd_site_grading: null,
         cd_application_maintenance: null,
@@ -2748,11 +2981,26 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       category: ["Category 1", "Category 2", "Category 3", "Category 4"],
       leachment_type: ["Recirculaation", "Chemical", "Biological"],
       status_of_operation: ["Operational", "Not Operational"],
+      cd_status: ["Closed", "Rehabilitation", "Ongoing"],
       cityMun: [],
       brgy: []
     };
   },
   computed: {
+    withAttachment: function withAttachment() {
+      var toReturn = true;
+
+      if (this.attachments === undefined) {
+        return toReturn = false;
+      } else if (this.attachments.data.length === 0) {
+        return toReturn = false;
+      }
+
+      return toReturn;
+    },
+    date_now: function date_now() {
+      return new Date(Date.now() - new Date().getTimezoneOffset() * 60000).toISOString().substr(0, 10);
+    },
     lce_id: function lce_id() {
       return this.lce_details.id;
     },
@@ -2893,6 +3141,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           }
         }, _callee2, null, [[0, 10]]);
       }))();
+    },
+    goBack: function goBack() {
+      window.history.back();
     }
   }
 });
@@ -21602,14 +21853,14 @@ var render = function () {
       _c(
         "v-toolbar",
         { attrs: { flat: "", dark: "" } },
-        [_c("v-toolbar-title", [_vm._v("User Profile")])],
+        [_c("v-toolbar-title", [_vm._v("User Profile ")])],
         1
       ),
       _vm._v(" "),
       _c(
         "v-tabs",
         {
-          staticClass: "h-fit",
+          staticClass: "h-96",
           attrs: {
             vertical: "",
             "show-arrows": "",
@@ -21793,49 +22044,78 @@ var render = function () {
                         [
                           _c("v-spacer"),
                           _vm._v(" "),
-                          _c("div", { staticClass: "space-x-4" }, [
-                            _c(
-                              "a",
-                              {
-                                attrs: {
-                                  href: "/app/swm/cd_register/" + _vm.lce_id,
-                                  target: "_blank",
-                                },
-                              },
-                              [
-                                _c(
-                                  "v-btn",
-                                  {
-                                    attrs: {
-                                      border: "",
-                                      outlined: "",
-                                      color: "red lighten-2",
+                          _c(
+                            "div",
+                            { staticClass: "space-x-4" },
+                            [
+                              !_vm.query_closed_dumpsite_id
+                                ? _c(
+                                    "Link",
+                                    {
+                                      attrs: {
+                                        href:
+                                          "/app/swm/cd_register/" + _vm.lce_id,
+                                      },
                                     },
+                                    [
+                                      _c(
+                                        "v-btn",
+                                        {
+                                          attrs: {
+                                            border: "",
+                                            outlined: "",
+                                            color: "red lighten-2",
+                                          },
+                                        },
+                                        [_vm._v("Close Dumpsite")]
+                                      ),
+                                    ],
+                                    1
+                                  )
+                                : _c(
+                                    "Link",
+                                    {
+                                      attrs: {
+                                        href:
+                                          "/app/swm/cd_edit/" +
+                                          _vm.query_closed_dumpsite_id,
+                                      },
+                                    },
+                                    [
+                                      _c(
+                                        "v-btn",
+                                        {
+                                          attrs: {
+                                            border: "",
+                                            outlined: "",
+                                            color: "red lighten-2",
+                                          },
+                                        },
+                                        [_vm._v("Close Dumpsite")]
+                                      ),
+                                    ],
+                                    1
+                                  ),
+                              _vm._v(" "),
+                              _c(
+                                "Link",
+                                {
+                                  attrs: {
+                                    href: "/app/swm/lce_edit/" + _vm.lce_id,
                                   },
-                                  [_vm._v("Close Dumpsite")]
-                                ),
-                              ],
-                              1
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "a",
-                              {
-                                attrs: {
-                                  href: "/app/swm/lce_edit/" + _vm.lce_id,
-                                  target: "_blank",
                                 },
-                              },
-                              [
-                                _c(
-                                  "v-btn",
-                                  { attrs: { color: "orange lighten-2" } },
-                                  [_vm._v("Update LCE")]
-                                ),
-                              ],
-                              1
-                            ),
-                          ]),
+                                [
+                                  _c(
+                                    "v-btn",
+                                    { attrs: { color: "orange lighten-2" } },
+                                    [_vm._v("Update LCE")]
+                                  ),
+                                ],
+                                1
+                              ),
+                            ],
+                            1
+                          ),
                         ],
                         1
                       ),
@@ -21857,12 +22137,7 @@ var render = function () {
                 [
                   _c(
                     "a",
-                    {
-                      attrs: {
-                        href: "/app/swm/slf_register/" + _vm.lce_id,
-                        target: "_blank",
-                      },
-                    },
+                    { attrs: { href: "/app/swm/slf_register/" + _vm.lce_id } },
                     [_c("v-btn", { attrs: { dark: "" } }, [_vm._v("Add SLF")])],
                     1
                   ),
@@ -22175,11 +22450,10 @@ var render = function () {
                             fn: function (props) {
                               return [
                                 _c(
-                                  "a",
+                                  "Link",
                                   {
                                     attrs: {
                                       href: "/app/swm/slf_edit/" + props.row.id,
-                                      target: "_blank",
                                     },
                                   },
                                   [
@@ -22240,8 +22514,10 @@ var render = function () {
                     "a",
                     {
                       attrs: {
-                        href: "/app/swm/mrf_register/" + _vm.lce_id,
-                        target: "_blank",
+                        href:
+                          "/app/swm/mrf_register/" +
+                          _vm.lce_id +
+                          "?form_type=mrf",
                       },
                     },
                     [_c("v-btn", { attrs: { dark: "" } }, [_vm._v("Add MRF")])],
@@ -22426,11 +22702,268 @@ var render = function () {
                             fn: function (props) {
                               return [
                                 _c(
-                                  "a",
+                                  "Link",
                                   {
                                     attrs: {
-                                      href: "/app/swm/mrf_edit/" + props.row.id,
-                                      target: "_blank",
+                                      href:
+                                        "/app/swm/mrf_edit/" +
+                                        props.row.id +
+                                        "?form_type=mrf",
+                                    },
+                                  },
+                                  [
+                                    _c("box-icon", {
+                                      attrs: {
+                                        name: "edit",
+                                        color: "orange",
+                                        animation: "tada-hover",
+                                      },
+                                    }),
+                                  ],
+                                  1
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "v-btn",
+                                  {
+                                    attrs: { icon: "", small: "" },
+                                    on: {
+                                      click: function ($event) {
+                                        return _vm.removeMRF(props.row.id)
+                                      },
+                                    },
+                                  },
+                                  [
+                                    _c("box-icon", {
+                                      attrs: {
+                                        name: "trash",
+                                        color: "red",
+                                        animation: "tada-hover",
+                                      },
+                                    }),
+                                  ],
+                                  1
+                                ),
+                              ]
+                            },
+                          },
+                        ]),
+                      }),
+                    ],
+                    1
+                  ),
+                ],
+                1
+              ),
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "v-tab-item",
+            [
+              _c(
+                "v-container",
+                [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        href:
+                          "/app/swm/mrf_register/" +
+                          _vm.lce_id +
+                          "?form_type=rca",
+                      },
+                    },
+                    [_c("v-btn", { attrs: { dark: "" } }, [_vm._v("Add RCA")])],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "b-table",
+                    {
+                      attrs: {
+                        data: _vm.query_rca,
+                        "per-page": _vm.query_rca.per_page,
+                        "pagination-size": "is-small",
+                        "page-input": "",
+                        hoverable: "",
+                        "backend-pagination": "",
+                        total: _vm.query_rca.total,
+                        "current-page": _vm.query_rca.current_page,
+                        "pagination-position": "top",
+                        "pagination-rounded": "",
+                        narrowed: "",
+                        loading: _vm.loading,
+                        bordered: "",
+                        "sticky-header": "",
+                        scrollable: "",
+                        "row-class": function (row, index) {
+                          return _vm.isTheme ? "bg-black text-white" : ""
+                        },
+                        "header-class": _vm.isTheme
+                          ? "bg-black text-white"
+                          : "",
+                        height: "420",
+                      },
+                      on: {
+                        "update:currentPage": function ($event) {
+                          return _vm.$set(_vm.query_rca, "current_page", $event)
+                        },
+                        "update:current-page": function ($event) {
+                          return _vm.$set(_vm.query_rca, "current_page", $event)
+                        },
+                        "page-change": _vm.onPageChange,
+                      },
+                      scopedSlots: _vm._u([
+                        {
+                          key: "empty",
+                          fn: function () {
+                            return [
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "text-center text-3xl text-gray-500 font-extrabold",
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                            No lce_list Found\n                        "
+                                  ),
+                                ]
+                              ),
+                            ]
+                          },
+                          proxy: true,
+                        },
+                      ]),
+                    },
+                    [
+                      _c("b-table-column", {
+                        attrs: {
+                          field: "mrf_emb_funded",
+                          label: "EMB Funded",
+                          centered: "",
+                        },
+                        scopedSlots: _vm._u([
+                          {
+                            key: "searchable",
+                            fn: function (props) {
+                              return [
+                                _c("b-input", {
+                                  attrs: {
+                                    placeholder: "Search...",
+                                    icon: "magnify",
+                                    size: "is-small",
+                                  },
+                                }),
+                              ]
+                            },
+                          },
+                          {
+                            key: "default",
+                            fn: function (props) {
+                              return [
+                                _vm._v(
+                                  "\n                        ₱ " +
+                                    _vm._s(
+                                      props.row.mrf_emb_funded.toLocaleString(
+                                        "en-US"
+                                      )
+                                    ) +
+                                    "\n                        "
+                                ),
+                              ]
+                            },
+                          },
+                        ]),
+                      }),
+                      _vm._v(" "),
+                      _c("b-table-column", {
+                        attrs: {
+                          field: "mrf_status_operation",
+                          label: "Status Operation",
+                        },
+                        scopedSlots: _vm._u([
+                          {
+                            key: "searchable",
+                            fn: function (props) {
+                              return [
+                                _c("b-input", {
+                                  attrs: {
+                                    placeholder: "Search...",
+                                    icon: "magnify",
+                                    size: "is-small",
+                                  },
+                                }),
+                              ]
+                            },
+                          },
+                          {
+                            key: "default",
+                            fn: function (props) {
+                              return [
+                                _vm._v(
+                                  "\n                            " +
+                                    _vm._s(props.row.mrf_status_operation) +
+                                    "\n                        "
+                                ),
+                              ]
+                            },
+                          },
+                        ]),
+                      }),
+                      _vm._v(" "),
+                      _c("b-table-column", {
+                        attrs: {
+                          field: "mrf_service_area",
+                          label: "Service Area",
+                        },
+                        scopedSlots: _vm._u([
+                          {
+                            key: "searchable",
+                            fn: function (props) {
+                              return [
+                                _c("b-input", {
+                                  attrs: {
+                                    placeholder: "Search...",
+                                    icon: "magnify",
+                                    size: "is-small",
+                                  },
+                                }),
+                              ]
+                            },
+                          },
+                          {
+                            key: "default",
+                            fn: function (props) {
+                              return [
+                                _vm._v(
+                                  "\n                            " +
+                                    _vm._s(props.row.mrf_service_area) +
+                                    "\n                        "
+                                ),
+                              ]
+                            },
+                          },
+                        ]),
+                      }),
+                      _vm._v(" "),
+                      _c("b-table-column", {
+                        attrs: { field: "action", label: "" },
+                        scopedSlots: _vm._u([
+                          {
+                            key: "default",
+                            fn: function (props) {
+                              return [
+                                _c(
+                                  "Link",
+                                  {
+                                    attrs: {
+                                      href:
+                                        "/app/swm/mrf_edit/" +
+                                        props.row.id +
+                                        "?form_type=rca",
                                     },
                                   },
                                   [
@@ -22490,119 +23023,6 @@ var render = function () {
 var staticRenderFns = []
 render._withStripped = true
 
-
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js":
-/*!********************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/runtime/componentNormalizer.js ***!
-  \********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ normalizeComponent)
-/* harmony export */ });
-/* globals __VUE_SSR_CONTEXT__ */
-
-// IMPORTANT: Do NOT use ES2015 features in this file (except for modules).
-// This module is a runtime utility for cleaner component module output and will
-// be included in the final webpack user bundle.
-
-function normalizeComponent (
-  scriptExports,
-  render,
-  staticRenderFns,
-  functionalTemplate,
-  injectStyles,
-  scopeId,
-  moduleIdentifier, /* server only */
-  shadowMode /* vue-cli only */
-) {
-  // Vue.extend constructor export interop
-  var options = typeof scriptExports === 'function'
-    ? scriptExports.options
-    : scriptExports
-
-  // render functions
-  if (render) {
-    options.render = render
-    options.staticRenderFns = staticRenderFns
-    options._compiled = true
-  }
-
-  // functional template
-  if (functionalTemplate) {
-    options.functional = true
-  }
-
-  // scopedId
-  if (scopeId) {
-    options._scopeId = 'data-v-' + scopeId
-  }
-
-  var hook
-  if (moduleIdentifier) { // server build
-    hook = function (context) {
-      // 2.3 injection
-      context =
-        context || // cached call
-        (this.$vnode && this.$vnode.ssrContext) || // stateful
-        (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext) // functional
-      // 2.2 with runInNewContext: true
-      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
-        context = __VUE_SSR_CONTEXT__
-      }
-      // inject component styles
-      if (injectStyles) {
-        injectStyles.call(this, context)
-      }
-      // register component module identifier for async chunk inferrence
-      if (context && context._registeredComponents) {
-        context._registeredComponents.add(moduleIdentifier)
-      }
-    }
-    // used by ssr in case component is cached and beforeCreate
-    // never gets called
-    options._ssrRegister = hook
-  } else if (injectStyles) {
-    hook = shadowMode
-      ? function () {
-        injectStyles.call(
-          this,
-          (options.functional ? this.parent : this).$root.$options.shadowRoot
-        )
-      }
-      : injectStyles
-  }
-
-  if (hook) {
-    if (options.functional) {
-      // for template-only hot-reload because in that case the render fn doesn't
-      // go through the normalizer
-      options._injectStyles = hook
-      // register for functional component in vue file
-      var originalRender = options.render
-      options.render = function renderWithStyleInjection (h, context) {
-        hook.call(context)
-        return originalRender(h, context)
-      }
-    } else {
-      // inject component registration as beforeCreate hook
-      var existing = options.beforeCreate
-      options.beforeCreate = existing
-        ? [].concat(existing, hook)
-        : [hook]
-    }
-  }
-
-  return {
-    exports: scriptExports,
-    options: options
-  }
-}
 
 
 /***/ })
