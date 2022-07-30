@@ -939,6 +939,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+<<<<<<< HEAD
 //
 //
 //
@@ -1054,6 +1055,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+=======
+>>>>>>> e0704fdae89a66ac0ec9d793d7cd99318d39e20a
 
 
 
@@ -2879,7 +2882,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
+<<<<<<< HEAD
     query_closed_dumpsite_id: Number,
+=======
+    query_closed_dumpsite_id: String,
+>>>>>>> e0704fdae89a66ac0ec9d793d7cd99318d39e20a
     lce_edit: Array,
     province_dropdown: Array,
     lce_info: Array,
@@ -2889,9 +2896,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     query_mrf: Array,
     // mrf table
     mrf_edit: Array,
+<<<<<<< HEAD
     cd_edit: Array,
     query_rca: Array,
     attachments: Object
+=======
+    cd_edit: Array
+>>>>>>> e0704fdae89a66ac0ec9d793d7cd99318d39e20a
   },
   data: function data() {
     return {
@@ -2987,6 +2998,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     };
   },
   computed: {
+<<<<<<< HEAD
     withAttachment: function withAttachment() {
       var toReturn = true;
 
@@ -2998,6 +3010,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
       return toReturn;
     },
+=======
+>>>>>>> e0704fdae89a66ac0ec9d793d7cd99318d39e20a
     date_now: function date_now() {
       return new Date(Date.now() - new Date().getTimezoneOffset() * 60000).toISOString().substr(0, 10);
     },
@@ -22044,6 +22058,7 @@ var render = function () {
                         [
                           _c("v-spacer"),
                           _vm._v(" "),
+<<<<<<< HEAD
                           _c(
                             "div",
                             { staticClass: "space-x-4" },
@@ -22056,6 +22071,17 @@ var render = function () {
                                         href:
                                           "/app/swm/cd_register/" + _vm.lce_id,
                                       },
+=======
+                          _c("div", { staticClass: "space-x-4" }, [
+                            !_vm.query_closed_dumpsite_id
+                              ? _c(
+                                  "a",
+                                  {
+                                    attrs: {
+                                      href:
+                                        "/app/swm/cd_register/" + _vm.lce_id,
+                                      target: "_blank",
+>>>>>>> e0704fdae89a66ac0ec9d793d7cd99318d39e20a
                                     },
                                     [
                                       _c(
@@ -22103,6 +22129,56 @@ var render = function () {
                                   attrs: {
                                     href: "/app/swm/lce_edit/" + _vm.lce_id,
                                   },
+<<<<<<< HEAD
+=======
+                                  [
+                                    _c(
+                                      "v-btn",
+                                      {
+                                        attrs: {
+                                          border: "",
+                                          outlined: "",
+                                          color: "red lighten-2",
+                                        },
+                                      },
+                                      [_vm._v("Close Dumpsite")]
+                                    ),
+                                  ],
+                                  1
+                                )
+                              : _c(
+                                  "a",
+                                  {
+                                    attrs: {
+                                      href:
+                                        "/app/swm/cd_edit/" +
+                                        _vm.query_closed_dumpsite_id,
+                                      target: "_blank",
+                                    },
+                                  },
+                                  [
+                                    _c(
+                                      "v-btn",
+                                      {
+                                        attrs: {
+                                          border: "",
+                                          outlined: "",
+                                          color: "red lighten-2",
+                                        },
+                                      },
+                                      [_vm._v("Close Dumpsite")]
+                                    ),
+                                  ],
+                                  1
+                                ),
+                            _vm._v(" "),
+                            _c(
+                              "a",
+                              {
+                                attrs: {
+                                  href: "/app/swm/lce_edit/" + _vm.lce_id,
+                                  target: "_blank",
+>>>>>>> e0704fdae89a66ac0ec9d793d7cd99318d39e20a
                                 },
                                 [
                                   _c(

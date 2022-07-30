@@ -1716,7 +1716,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
+<<<<<<< HEAD
     query_closed_dumpsite_id: Number,
+=======
+    query_closed_dumpsite_id: String,
+>>>>>>> e0704fdae89a66ac0ec9d793d7cd99318d39e20a
     lce_edit: Array,
     province_dropdown: Array,
     lce_info: Array,
@@ -1726,9 +1730,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     query_mrf: Array,
     // mrf table
     mrf_edit: Array,
+<<<<<<< HEAD
     cd_edit: Array,
     query_rca: Array,
     attachments: Object
+=======
+    cd_edit: Array
+>>>>>>> e0704fdae89a66ac0ec9d793d7cd99318d39e20a
   },
   data: function data() {
     return {
@@ -1824,6 +1832,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     };
   },
   computed: {
+<<<<<<< HEAD
     withAttachment: function withAttachment() {
       var toReturn = true;
 
@@ -1835,6 +1844,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
       return toReturn;
     },
+=======
+>>>>>>> e0704fdae89a66ac0ec9d793d7cd99318d39e20a
     date_now: function date_now() {
       return new Date(Date.now() - new Date().getTimezoneOffset() * 60000).toISOString().substr(0, 10);
     },
