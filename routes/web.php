@@ -134,6 +134,18 @@ Route::group([
         Route::post('/cd_register_process', [SolidwasteClosedDumpsiteController::class, 'cd_register_process'])->name("cd_register_process");
         Route::post('/cd_update_process', [SolidwasteClosedDumpsiteController::class, 'cd_update_process'])->name("cd_update_process");
         Route::delete('/cd_delete/{id}', [SolidwasteClosedDumpsiteController::class, 'cd_delete'])->name("cd_delete");
+        // TEN YEAR
+        Route::get('/ten_year_register/{id}', [SolidwasteTenYearController::class, 'create'])->name("ten_year_register_form");
+        Route::get('/ten_year_edit/{id}', [SolidwasteTenYearController::class, 'ten_year_edit'])->name("ten_year_edit");
+        Route::post('/ten_year_register_process', [SolidwasteTenYearController::class, 'ten_year_register_process'])->name("ten_year_register_process");
+        Route::post('/ten_year_update_process', [SolidwasteTenYearController::class, 'ten_year_update_process'])->name("ten_year_update_process");
+        Route::delete('/ten_year_delete/{id}', [SolidwasteTenYearController::class, 'ten_year_delete'])->name("ten_year_delete");
+        // TEN YEAR MONITORING
+        Route::get('/ten_year_monitoring_register/{id}', [SolidwasteTenYearController::class, 'create'])->name("ten_year_monitoring_register_form");
+        Route::get('/ten_year_monitoring_edit/{id}', [SolidwasteTenYearController::class, 'ten_year_monitoring_edit'])->name("ten_year_monitoring_edit");
+        Route::post('/ten_year_monitoring_register_process', [SolidwasteTenYearController::class, 'ten_year_monitoring_register_process'])->name("ten_year_monitoring_register_process");
+        Route::post('/ten_year_monitoring_update_process', [SolidwasteTenYearController::class, 'ten_year_monitoring_update_process'])->name("ten_year_monitoring_update_process");
+        Route::delete('/ten_year_monitoring_delete/{id}', [SolidwasteTenYearController::class, 'ten_year_monitoring_delete'])->name("ten_year_monitoring_delete");
     });
 
     Route::delete('/delete_attachements/{media}', RemoveAttachementController::class)->name("slf_delete_attachements");
