@@ -788,55 +788,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -849,7 +800,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   mixins: [_mixins__WEBPACK_IMPORTED_MODULE_4__.page, _mixins__WEBPACK_IMPORTED_MODULE_4__.toasts, _mixins__WEBPACK_IMPORTED_MODULE_4__.swm, _mixins__WEBPACK_IMPORTED_MODULE_4__.dialogs],
   data: function data() {
     return {
-      mrf_form_type: "create"
+      cd_form_type: "create",
+      closure_calendar: false,
+      monitored_calendar: false
     };
   },
   created: function created() {
@@ -857,13 +810,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
     if (this.lce_info !== undefined) {
       if (this.lce_info.length > 0) {
-        this.mrf = _objectSpread({}, this.lce_info[0]);
-        this.mrf_form_type = "create";
+        this.cd = _objectSpread({}, this.lce_info[0]);
+        this.cd_form_type = "create";
       }
-    } else if (this.mrf_edit !== undefined) {
-      if (this.mrf_edit.length > 0) {
-        this.mrf_form_type = "patch";
-        this.mrf = _objectSpread({}, this.mrf_edit[0]);
+    } else if (this.cd_edit !== undefined) {
+      if (this.cd_edit.length > 0) {
+        this.cd_form_type = "patch";
+        this.cd = _objectSpread({}, this.cd_edit[0]);
       }
     }
 
@@ -873,10 +826,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     address: function address() {
       var formdata = null;
 
-      if (this.mrf_form_type === "create") {
+      if (this.cd_form_type === "create") {
         formdata = this.lce_info[0];
-      } else if (this.mrf_form_type === "patch") {
-        formdata = this.mrf_edit[0];
+      } else if (this.cd_form_type === "patch") {
+        formdata = this.cd_edit[0];
       }
 
       var _formdata = formdata,
@@ -889,13 +842,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   methods: {
     saveForm: function saveForm() {
-      if (this.mrf_form_type === "create") {
-        this.saveMRFForm();
-      } else if (this.mrf_form_type === "patch") {
-        this.updateMRFForm();
+      if (this.cd_form_type === "create") {
+        this.saveCDForm();
+      } else if (this.cd_form_type === "patch") {
+        this.updateCDForm();
       }
     },
-    saveMRFForm: function saveMRFForm() {
+    saveCDForm: function saveCDForm() {
       var _this = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
@@ -905,11 +858,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             switch (_context.prev = _context.next) {
               case 0:
                 _context.prev = 0;
-                data = _objectSpread(_objectSpread({}, _this.mrf), {}, {
-                  lce_FK: _this.mrf.id
+                data = _objectSpread(_objectSpread({}, _this.cd), {}, {
+                  lce_FK: _this.cd.id
                 });
                 _context.next = 4;
-                return _this.$inertia.post("/app/swm/mrf_register_process", data);
+                return _this.$inertia.post("/app/swm/cd_register_process", data);
 
               case 4:
                 _context.next = 10;
@@ -930,7 +883,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         }, _callee, null, [[0, 6]]);
       }))();
     },
-    updateMRFForm: function updateMRFForm() {
+    updateCDForm: function updateCDForm() {
       var _this2 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
@@ -940,9 +893,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             switch (_context2.prev = _context2.next) {
               case 0:
                 _context2.prev = 0;
-                data = _objectSpread({}, _this2.mrf);
+                data = _objectSpread({}, _this2.cd);
                 _context2.next = 4;
-                return _this2.$inertia.patch("/app/swm/mrf_update_process", data);
+                return _this2.$inertia.patch("/app/swm/cd_update_process", data);
 
               case 4:
                 _context2.next = 10;
@@ -2568,6 +2521,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
+    query_closed_dumpsite_id: String,
     lce_edit: Array,
     province_dropdown: Array,
     lce_info: Array,
@@ -2576,7 +2530,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     slf_edit: Array,
     query_mrf: Array,
     // mrf table
-    mrf_edit: Array
+    mrf_edit: Array,
+    cd_edit: Array
   },
   data: function data() {
     return {
@@ -2642,7 +2597,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       },
       cd: {
         cd_total_land_area: null,
-        cd_date_monitored: null,
+        cd_date_monitored: new Date(Date.now() - new Date().getTimezoneOffset() * 60000).toISOString().substr(0, 10),
         cd_site_clearing: null,
         cd_site_grading: null,
         cd_application_maintenance: null,
@@ -2666,11 +2621,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       category: ["Category 1", "Category 2", "Category 3", "Category 4"],
       leachment_type: ["Recirculaation", "Chemical", "Biological"],
       status_of_operation: ["Operational", "Not Operational"],
+      cd_status: ["Closed", "Rehabilitation", "Ongoing"],
       cityMun: [],
       brgy: []
     };
   },
   computed: {
+    date_now: function date_now() {
+      return new Date(Date.now() - new Date().getTimezoneOffset() * 60000).toISOString().substr(0, 10);
+    },
     lce_id: function lce_id() {
       return this.lce_details.id;
     },
@@ -21516,7 +21475,7 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c("DefaultLayout", [
     _c("div", { staticClass: "font-bold text-2xl text-center py-6" }, [
-      _vm._v("Closed Dumpsite Form"),
+      _vm._v("\n        Closed Dumpsite Form\n    "),
     ]),
     _vm._v(" "),
     _vm.loading
@@ -21562,113 +21521,7 @@ var render = function () {
                                       _vm._v(
                                         "\n                                " +
                                           _vm._s(_vm.address) +
-                                          "\n                                "
-                                      ),
-                                      _c(
-                                        "div",
-                                        {
-                                          staticClass: "grid grid-cols-2 gap-2",
-                                        },
-                                        [
-                                          _c("ValidationProvider", {
-                                            attrs: {
-                                              vid: "lat",
-                                              name: "Latitude",
-                                              rules: "required",
-                                            },
-                                            scopedSlots: _vm._u(
-                                              [
-                                                {
-                                                  key: "default",
-                                                  fn: function (ref) {
-                                                    var errors = ref.errors
-                                                    return [
-                                                      _c("v-text-field", {
-                                                        attrs: {
-                                                          label: "Latitude",
-                                                          "error-messages":
-                                                            errors[0],
-                                                          outlined: "",
-                                                          clearable: "",
-                                                          dense: "",
-                                                          color: "dark",
-                                                        },
-                                                        model: {
-                                                          value:
-                                                            _vm.mrf
-                                                              .mrf_latitude,
-                                                          callback: function (
-                                                            $$v
-                                                          ) {
-                                                            _vm.$set(
-                                                              _vm.mrf,
-                                                              "mrf_latitude",
-                                                              $$v
-                                                            )
-                                                          },
-                                                          expression:
-                                                            "mrf.mrf_latitude",
-                                                        },
-                                                      }),
-                                                    ]
-                                                  },
-                                                },
-                                              ],
-                                              null,
-                                              true
-                                            ),
-                                          }),
-                                          _vm._v(" "),
-                                          _c("ValidationProvider", {
-                                            attrs: {
-                                              vid: "long",
-                                              name: "Longitude",
-                                              rules: "required",
-                                            },
-                                            scopedSlots: _vm._u(
-                                              [
-                                                {
-                                                  key: "default",
-                                                  fn: function (ref) {
-                                                    var errors = ref.errors
-                                                    return [
-                                                      _c("v-text-field", {
-                                                        attrs: {
-                                                          label: "Longitude",
-                                                          "error-messages":
-                                                            errors[0],
-                                                          outlined: "",
-                                                          clearable: "",
-                                                          dense: "",
-                                                          color: "dark",
-                                                        },
-                                                        model: {
-                                                          value:
-                                                            _vm.mrf
-                                                              .mrf_longitude,
-                                                          callback: function (
-                                                            $$v
-                                                          ) {
-                                                            _vm.$set(
-                                                              _vm.mrf,
-                                                              "mrf_longitude",
-                                                              $$v
-                                                            )
-                                                          },
-                                                          expression:
-                                                            "mrf.mrf_longitude",
-                                                        },
-                                                      }),
-                                                    ]
-                                                  },
-                                                },
-                                              ],
-                                              null,
-                                              true
-                                            ),
-                                          }),
-                                        ],
-                                        1
+                                          "\n                            "
                                       ),
                                     ]),
                                   ],
@@ -21678,93 +21531,350 @@ var render = function () {
                                 _c(
                                   "v-card",
                                   [
-                                    _c("v-card-title", [
-                                      _vm._v(
-                                        "\n                                Funded Information\n                            "
-                                      ),
-                                    ]),
+                                    _c("v-card-title", [_vm._v(" Checklist ")]),
                                     _vm._v(" "),
                                     _c(
                                       "v-card-text",
                                       { staticClass: "grid grid-cols-2 gap-2" },
                                       [
-                                        _c("ValidationProvider", {
-                                          attrs: {
-                                            vid: "mrf_emb_funded",
-                                            name: "EMB FUNDED",
-                                            rules: "required",
-                                          },
-                                          scopedSlots: _vm._u(
-                                            [
-                                              {
-                                                key: "default",
-                                                fn: function (ref) {
-                                                  var errors = ref.errors
-                                                  return [
-                                                    _c("v-text-field", {
-                                                      attrs: {
-                                                        label: "EMB FUNDED",
-                                                        "error-messages":
-                                                          errors[0],
-                                                        outlined: "",
-                                                        clearable: "",
-                                                        dense: "",
-                                                        color: "dark",
-                                                        hint: "in Philippine PESO",
-                                                        "persistent-hint": "",
-                                                      },
-                                                      scopedSlots: _vm._u(
-                                                        [
-                                                          {
-                                                            key: "prepend-inner",
-                                                            fn: function () {
-                                                              return [
-                                                                _c(
-                                                                  "div",
-                                                                  {
-                                                                    staticClass:
-                                                                      " text-xl font-bold",
+                                        _c(
+                                          "v-dialog",
+                                          {
+                                            ref: "dialog",
+                                            attrs: {
+                                              "return-value":
+                                                _vm.cd.cd_date_monitored,
+                                              persistent: "",
+                                              width: "290px",
+                                              dark: "",
+                                            },
+                                            on: {
+                                              "update:returnValue": function (
+                                                $event
+                                              ) {
+                                                return _vm.$set(
+                                                  _vm.cd,
+                                                  "cd_date_monitored",
+                                                  $event
+                                                )
+                                              },
+                                              "update:return-value": function (
+                                                $event
+                                              ) {
+                                                return _vm.$set(
+                                                  _vm.cd,
+                                                  "cd_date_monitored",
+                                                  $event
+                                                )
+                                              },
+                                            },
+                                            scopedSlots: _vm._u(
+                                              [
+                                                {
+                                                  key: "activator",
+                                                  fn: function (ref) {
+                                                    var on = ref.on
+                                                    var attrs = ref.attrs
+                                                    return [
+                                                      _c(
+                                                        "v-text-field",
+                                                        _vm._g(
+                                                          _vm._b(
+                                                            {
+                                                              attrs: {
+                                                                label:
+                                                                  "Date Monitored",
+                                                                readonly: "",
+                                                                outlined: "",
+                                                                dense: "",
+                                                                color: "black",
+                                                              },
+                                                              model: {
+                                                                value:
+                                                                  _vm.cd
+                                                                    .cd_date_monitored,
+                                                                callback:
+                                                                  function (
+                                                                    $$v
+                                                                  ) {
+                                                                    _vm.$set(
+                                                                      _vm.cd,
+                                                                      "cd_date_monitored",
+                                                                      $$v
+                                                                    )
                                                                   },
-                                                                  [_vm._v("₱")]
-                                                                ),
-                                                              ]
+                                                                expression:
+                                                                  "cd.cd_date_monitored",
+                                                              },
                                                             },
-                                                            proxy: true,
-                                                          },
-                                                        ],
-                                                        null,
-                                                        true
+                                                            "v-text-field",
+                                                            attrs,
+                                                            false
+                                                          ),
+                                                          on
+                                                        )
                                                       ),
-                                                      model: {
-                                                        value:
-                                                          _vm.mrf
-                                                            .mrf_emb_funded,
-                                                        callback: function (
-                                                          $$v
-                                                        ) {
-                                                          _vm.$set(
-                                                            _vm.mrf,
-                                                            "mrf_emb_funded",
-                                                            $$v
-                                                          )
-                                                        },
-                                                        expression:
-                                                          "mrf.mrf_emb_funded",
-                                                      },
-                                                    }),
-                                                  ]
+                                                    ]
+                                                  },
+                                                },
+                                              ],
+                                              null,
+                                              true
+                                            ),
+                                            model: {
+                                              value: _vm.monitored_calendar,
+                                              callback: function ($$v) {
+                                                _vm.monitored_calendar = $$v
+                                              },
+                                              expression: "monitored_calendar",
+                                            },
+                                          },
+                                          [
+                                            _vm._v(" "),
+                                            _c(
+                                              "v-date-picker",
+                                              {
+                                                attrs: {
+                                                  scrollable: "",
+                                                  min: _vm.date_now,
+                                                  dark: "",
+                                                },
+                                                model: {
+                                                  value:
+                                                    _vm.cd.cd_date_monitored,
+                                                  callback: function ($$v) {
+                                                    _vm.$set(
+                                                      _vm.cd,
+                                                      "cd_date_monitored",
+                                                      $$v
+                                                    )
+                                                  },
+                                                  expression:
+                                                    "cd.cd_date_monitored",
                                                 },
                                               },
-                                            ],
-                                            null,
-                                            true
-                                          ),
-                                        }),
+                                              [
+                                                _c("v-spacer"),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "v-btn",
+                                                  {
+                                                    attrs: {
+                                                      text: "",
+                                                      dark: "",
+                                                    },
+                                                    on: {
+                                                      click: function ($event) {
+                                                        _vm.monitored_calendar = false
+                                                      },
+                                                    },
+                                                  },
+                                                  [
+                                                    _vm._v(
+                                                      "\n                                            Cancel\n                                        "
+                                                    ),
+                                                  ]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "v-btn",
+                                                  {
+                                                    attrs: {
+                                                      text: "",
+                                                      dark: "",
+                                                    },
+                                                    on: {
+                                                      click: function ($event) {
+                                                        return _vm.$refs.dialog.save(
+                                                          _vm.cd
+                                                            .cd_date_monitored
+                                                        )
+                                                      },
+                                                    },
+                                                  },
+                                                  [
+                                                    _vm._v(
+                                                      "\n                                            OK\n                                        "
+                                                    ),
+                                                  ]
+                                                ),
+                                              ],
+                                              1
+                                            ),
+                                          ],
+                                          1
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "v-dialog",
+                                          {
+                                            ref: "dialog",
+                                            attrs: {
+                                              "return-value":
+                                                _vm.cd.cd_date_closure,
+                                              persistent: "",
+                                              width: "290px",
+                                              dark: "",
+                                            },
+                                            on: {
+                                              "update:returnValue": function (
+                                                $event
+                                              ) {
+                                                return _vm.$set(
+                                                  _vm.cd,
+                                                  "cd_date_closure",
+                                                  $event
+                                                )
+                                              },
+                                              "update:return-value": function (
+                                                $event
+                                              ) {
+                                                return _vm.$set(
+                                                  _vm.cd,
+                                                  "cd_date_closure",
+                                                  $event
+                                                )
+                                              },
+                                            },
+                                            scopedSlots: _vm._u(
+                                              [
+                                                {
+                                                  key: "activator",
+                                                  fn: function (ref) {
+                                                    var on = ref.on
+                                                    var attrs = ref.attrs
+                                                    return [
+                                                      _c(
+                                                        "v-text-field",
+                                                        _vm._g(
+                                                          _vm._b(
+                                                            {
+                                                              attrs: {
+                                                                label:
+                                                                  "Date of Closure",
+                                                                readonly: "",
+                                                                outlined: "",
+                                                                dense: "",
+                                                                color: "black",
+                                                              },
+                                                              model: {
+                                                                value:
+                                                                  _vm.cd
+                                                                    .cd_date_closure,
+                                                                callback:
+                                                                  function (
+                                                                    $$v
+                                                                  ) {
+                                                                    _vm.$set(
+                                                                      _vm.cd,
+                                                                      "cd_date_closure",
+                                                                      $$v
+                                                                    )
+                                                                  },
+                                                                expression:
+                                                                  "cd.cd_date_closure",
+                                                              },
+                                                            },
+                                                            "v-text-field",
+                                                            attrs,
+                                                            false
+                                                          ),
+                                                          on
+                                                        )
+                                                      ),
+                                                    ]
+                                                  },
+                                                },
+                                              ],
+                                              null,
+                                              true
+                                            ),
+                                            model: {
+                                              value: _vm.closure_calendar,
+                                              callback: function ($$v) {
+                                                _vm.closure_calendar = $$v
+                                              },
+                                              expression: "closure_calendar",
+                                            },
+                                          },
+                                          [
+                                            _vm._v(" "),
+                                            _c(
+                                              "v-date-picker",
+                                              {
+                                                attrs: {
+                                                  scrollable: "",
+                                                  min: _vm.date_now,
+                                                  dark: "",
+                                                },
+                                                model: {
+                                                  value: _vm.cd.cd_date_closure,
+                                                  callback: function ($$v) {
+                                                    _vm.$set(
+                                                      _vm.cd,
+                                                      "cd_date_closure",
+                                                      $$v
+                                                    )
+                                                  },
+                                                  expression:
+                                                    "cd.cd_date_closure",
+                                                },
+                                              },
+                                              [
+                                                _c("v-spacer"),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "v-btn",
+                                                  {
+                                                    attrs: {
+                                                      text: "",
+                                                      dark: "",
+                                                    },
+                                                    on: {
+                                                      click: function ($event) {
+                                                        _vm.closure_calendar = false
+                                                      },
+                                                    },
+                                                  },
+                                                  [
+                                                    _vm._v(
+                                                      "\n                                            Cancel\n                                        "
+                                                    ),
+                                                  ]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "v-btn",
+                                                  {
+                                                    attrs: {
+                                                      text: "",
+                                                      dark: "",
+                                                    },
+                                                    on: {
+                                                      click: function ($event) {
+                                                        return _vm.$refs.dialog.save(
+                                                          _vm.cd.cd_date_closure
+                                                        )
+                                                      },
+                                                    },
+                                                  },
+                                                  [
+                                                    _vm._v(
+                                                      "\n                                            OK\n                                        "
+                                                    ),
+                                                  ]
+                                                ),
+                                              ],
+                                              1
+                                            ),
+                                          ],
+                                          1
+                                        ),
                                         _vm._v(" "),
                                         _c("ValidationProvider", {
                                           attrs: {
-                                            vid: "mrf_status_operation",
-                                            name: "Status of Operation",
+                                            vid: "cd_status",
+                                            name: "Status",
                                             rules: "required",
                                           },
                                           scopedSlots: _vm._u(
@@ -21776,32 +21886,26 @@ var render = function () {
                                                   return [
                                                     _c("v-select", {
                                                       attrs: {
-                                                        items:
-                                                          _vm.status_of_operation,
-                                                        label:
-                                                          "Status of Operation",
+                                                        items: _vm.cd_status,
                                                         "error-messages":
                                                           errors[0],
                                                         outlined: "",
-                                                        clearable: "",
                                                         dense: "",
-                                                        color: "dark",
+                                                        label: "Status",
                                                       },
                                                       model: {
-                                                        value:
-                                                          _vm.mrf
-                                                            .mrf_status_operation,
+                                                        value: _vm.cd.cd_status,
                                                         callback: function (
                                                           $$v
                                                         ) {
                                                           _vm.$set(
-                                                            _vm.mrf,
-                                                            "mrf_status_operation",
+                                                            _vm.cd,
+                                                            "cd_status",
                                                             $$v
                                                           )
                                                         },
                                                         expression:
-                                                          "mrf.mrf_status_operation",
+                                                          "cd.cd_status",
                                                       },
                                                     }),
                                                   ]
@@ -21812,79 +21916,11 @@ var render = function () {
                                             true
                                           ),
                                         }),
-                                      ],
-                                      1
-                                    ),
-                                  ],
-                                  1
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "div",
-                                  [
-                                    _c("ValidationProvider", {
-                                      attrs: {
-                                        vid: "mrf_service_area",
-                                        name: "Area/s",
-                                        rules: "required",
-                                      },
-                                      scopedSlots: _vm._u(
-                                        [
-                                          {
-                                            key: "default",
-                                            fn: function (ref) {
-                                              var errors = ref.errors
-                                              return [
-                                                _c("v-text-field", {
-                                                  attrs: {
-                                                    label: "Service Area/s",
-                                                    "error-messages": errors[0],
-                                                    outlined: "",
-                                                    clearable: "",
-                                                    dense: "",
-                                                    color: "dark",
-                                                  },
-                                                  model: {
-                                                    value:
-                                                      _vm.mrf.mrf_service_area,
-                                                    callback: function ($$v) {
-                                                      _vm.$set(
-                                                        _vm.mrf,
-                                                        "mrf_service_area",
-                                                        $$v
-                                                      )
-                                                    },
-                                                    expression:
-                                                      "mrf.mrf_service_area",
-                                                  },
-                                                }),
-                                              ]
-                                            },
-                                          },
-                                        ],
-                                        null,
-                                        true
-                                      ),
-                                    }),
-                                  ],
-                                  1
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "v-card",
-                                  [
-                                    _c("v-card-title", [
-                                      _vm._v(" Waste Information "),
-                                    ]),
-                                    _vm._v(" "),
-                                    _c(
-                                      "v-card-text",
-                                      { staticClass: "grid grid-cols-2 gap-2" },
-                                      [
+                                        _vm._v(" "),
                                         _c("ValidationProvider", {
                                           attrs: {
-                                            vid: "mrf_total_waste_generation",
-                                            name: "Total Waste Generation",
+                                            vid: "cd_total_land_area",
+                                            name: "Total Land Area",
                                             rules: "required",
                                           },
                                           scopedSlots: _vm._u(
@@ -21897,7 +21933,7 @@ var render = function () {
                                                     _c("v-text-field", {
                                                       attrs: {
                                                         label:
-                                                          "Total Waste Generation",
+                                                          "Total Land Area",
                                                         "error-messages":
                                                           errors[0],
                                                         outlined: "",
@@ -21907,19 +21943,19 @@ var render = function () {
                                                       },
                                                       model: {
                                                         value:
-                                                          _vm.mrf
-                                                            .mrf_total_waste_generation,
+                                                          _vm.cd
+                                                            .cd_total_land_area,
                                                         callback: function (
                                                           $$v
                                                         ) {
                                                           _vm.$set(
-                                                            _vm.mrf,
-                                                            "mrf_total_waste_generation",
+                                                            _vm.cd,
+                                                            "cd_total_land_area",
                                                             $$v
                                                           )
                                                         },
                                                         expression:
-                                                          "\n                                            mrf.mrf_total_waste_generation\n                                        ",
+                                                          "cd.cd_total_land_area",
                                                       },
                                                     }),
                                                   ]
@@ -21933,262 +21969,8 @@ var render = function () {
                                         _vm._v(" "),
                                         _c("ValidationProvider", {
                                           attrs: {
-                                            vid: "mrf_biodegradable",
-                                            name: "Biodegradable",
-                                            rules: "required",
-                                          },
-                                          scopedSlots: _vm._u(
-                                            [
-                                              {
-                                                key: "default",
-                                                fn: function (ref) {
-                                                  var errors = ref.errors
-                                                  return [
-                                                    _c("v-text-field", {
-                                                      attrs: {
-                                                        label: "Biodegradable ",
-                                                        "error-messages":
-                                                          errors[0],
-                                                        outlined: "",
-                                                        clearable: "",
-                                                        dense: "",
-                                                        color: "dark",
-                                                        hint: "kg/day",
-                                                        "persistent-hint": "",
-                                                      },
-                                                      model: {
-                                                        value:
-                                                          _vm.mrf
-                                                            .mrf_biodegradable,
-                                                        callback: function (
-                                                          $$v
-                                                        ) {
-                                                          _vm.$set(
-                                                            _vm.mrf,
-                                                            "mrf_biodegradable",
-                                                            $$v
-                                                          )
-                                                        },
-                                                        expression:
-                                                          "mrf.mrf_biodegradable",
-                                                      },
-                                                    }),
-                                                  ]
-                                                },
-                                              },
-                                            ],
-                                            null,
-                                            true
-                                          ),
-                                        }),
-                                        _vm._v(" "),
-                                        _c("ValidationProvider", {
-                                          attrs: {
-                                            vid: "mrf_recyclable",
-                                            name: "Recyclable",
-                                            rules: "required",
-                                          },
-                                          scopedSlots: _vm._u(
-                                            [
-                                              {
-                                                key: "default",
-                                                fn: function (ref) {
-                                                  var errors = ref.errors
-                                                  return [
-                                                    _c("v-text-field", {
-                                                      attrs: {
-                                                        label: "Recyclable",
-                                                        "error-messages":
-                                                          errors[0],
-                                                        outlined: "",
-                                                        clearable: "",
-                                                        dense: "",
-                                                        color: "dark",
-                                                        hint: "kg/day",
-                                                        "persistent-hint": "",
-                                                      },
-                                                      model: {
-                                                        value:
-                                                          _vm.mrf
-                                                            .mrf_recyclable,
-                                                        callback: function (
-                                                          $$v
-                                                        ) {
-                                                          _vm.$set(
-                                                            _vm.mrf,
-                                                            "mrf_recyclable",
-                                                            $$v
-                                                          )
-                                                        },
-                                                        expression:
-                                                          "mrf.mrf_recyclable",
-                                                      },
-                                                    }),
-                                                  ]
-                                                },
-                                              },
-                                            ],
-                                            null,
-                                            true
-                                          ),
-                                        }),
-                                        _vm._v(" "),
-                                        _c("ValidationProvider", {
-                                          attrs: {
-                                            vid: "mrf_special_waste",
-                                            name: "Special Waste",
-                                            rules: "required",
-                                          },
-                                          scopedSlots: _vm._u(
-                                            [
-                                              {
-                                                key: "default",
-                                                fn: function (ref) {
-                                                  var errors = ref.errors
-                                                  return [
-                                                    _c("v-text-field", {
-                                                      attrs: {
-                                                        label: "Special Waste",
-                                                        "error-messages":
-                                                          errors[0],
-                                                        outlined: "",
-                                                        clearable: "",
-                                                        dense: "",
-                                                        color: "dark",
-                                                        hint: "kg/day",
-                                                        "persistent-hint": "",
-                                                      },
-                                                      model: {
-                                                        value:
-                                                          _vm.mrf
-                                                            .mrf_special_waste,
-                                                        callback: function (
-                                                          $$v
-                                                        ) {
-                                                          _vm.$set(
-                                                            _vm.mrf,
-                                                            "mrf_special_waste",
-                                                            $$v
-                                                          )
-                                                        },
-                                                        expression:
-                                                          "mrf.mrf_special_waste",
-                                                      },
-                                                    }),
-                                                  ]
-                                                },
-                                              },
-                                            ],
-                                            null,
-                                            true
-                                          ),
-                                        }),
-                                        _vm._v(" "),
-                                        _c("ValidationProvider", {
-                                          attrs: {
-                                            vid: "mrf_total_waste_diverted",
-                                            name: "Waste Diverted",
-                                            rules: "required",
-                                          },
-                                          scopedSlots: _vm._u(
-                                            [
-                                              {
-                                                key: "default",
-                                                fn: function (ref) {
-                                                  var errors = ref.errors
-                                                  return [
-                                                    _c("v-text-field", {
-                                                      attrs: {
-                                                        label: "Waste Diverted",
-                                                        "error-messages":
-                                                          errors[0],
-                                                        outlined: "",
-                                                        clearable: "",
-                                                        dense: "",
-                                                        color: "dark",
-                                                        hint: "kg/day",
-                                                        "persistent-hint": "",
-                                                      },
-                                                      model: {
-                                                        value:
-                                                          _vm.mrf
-                                                            .mrf_total_waste_diverted,
-                                                        callback: function (
-                                                          $$v
-                                                        ) {
-                                                          _vm.$set(
-                                                            _vm.mrf,
-                                                            "mrf_total_waste_diverted",
-                                                            $$v
-                                                          )
-                                                        },
-                                                        expression:
-                                                          "\n                                            mrf.mrf_total_waste_diverted\n                                        ",
-                                                      },
-                                                    }),
-                                                  ]
-                                                },
-                                              },
-                                            ],
-                                            null,
-                                            true
-                                          ),
-                                        }),
-                                        _vm._v(" "),
-                                        _c("ValidationProvider", {
-                                          attrs: {
-                                            vid: "mrf_number_of_waste_diverted",
-                                            name: "% of Waster Diverted",
-                                            rules: "required",
-                                          },
-                                          scopedSlots: _vm._u(
-                                            [
-                                              {
-                                                key: "default",
-                                                fn: function (ref) {
-                                                  var errors = ref.errors
-                                                  return [
-                                                    _c("v-text-field", {
-                                                      attrs: {
-                                                        label:
-                                                          "% of Waster Diverted",
-                                                        "error-messages":
-                                                          errors[0],
-                                                        outlined: "",
-                                                        clearable: "",
-                                                        dense: "",
-                                                        color: "dark",
-                                                      },
-                                                      model: {
-                                                        value:
-                                                          _vm.mrf
-                                                            .mrf_number_of_waste_diverted,
-                                                        callback: function (
-                                                          $$v
-                                                        ) {
-                                                          _vm.$set(
-                                                            _vm.mrf,
-                                                            "mrf_number_of_waste_diverted",
-                                                            $$v
-                                                          )
-                                                        },
-                                                        expression:
-                                                          "\n                                            mrf.mrf_number_of_waste_diverted\n                                        ",
-                                                      },
-                                                    }),
-                                                  ]
-                                                },
-                                              },
-                                            ],
-                                            null,
-                                            true
-                                          ),
-                                        }),
-                                        _vm._v(" "),
-                                        _c("ValidationProvider", {
-                                          attrs: {
-                                            vid: "file",
-                                            name: "File",
+                                            vid: "remarks",
+                                            name: "Remarks",
                                             rules: "",
                                           },
                                           scopedSlots: _vm._u(
@@ -22198,33 +21980,31 @@ var render = function () {
                                                 fn: function (ref) {
                                                   var errors = ref.errors
                                                   return [
-                                                    _c("v-file-input", {
+                                                    _c("v-textarea", {
                                                       attrs: {
-                                                        label: "File",
+                                                        label: "Remarks",
                                                         "error-messages":
                                                           errors[0],
                                                         outlined: "",
                                                         clearable: "",
                                                         dense: "",
                                                         color: "dark",
-                                                        "truncate-length": "15",
-                                                        multiple: "",
-                                                        accept:
-                                                          "image/png, image/jpeg, application/pdf",
+                                                        rows: "2",
                                                       },
                                                       model: {
-                                                        value: _vm.mrf.mrf_file,
+                                                        value:
+                                                          _vm.cd.cd_remarks,
                                                         callback: function (
                                                           $$v
                                                         ) {
                                                           _vm.$set(
-                                                            _vm.mrf,
-                                                            "mrf_file",
+                                                            _vm.cd,
+                                                            "cd_remarks",
                                                             $$v
                                                           )
                                                         },
                                                         expression:
-                                                          "mrf.mrf_file",
+                                                          "cd.cd_remarks",
                                                       },
                                                     }),
                                                   ]
@@ -22234,6 +22014,192 @@ var render = function () {
                                             null,
                                             true
                                           ),
+                                        }),
+                                        _vm._v(" "),
+                                        _c("v-checkbox", {
+                                          attrs: {
+                                            label: "Site Clearing",
+                                            value: "true",
+                                            "hide-details": "",
+                                            color: "dark",
+                                          },
+                                          model: {
+                                            value: _vm.cd.cd_site_clearing,
+                                            callback: function ($$v) {
+                                              _vm.$set(
+                                                _vm.cd,
+                                                "cd_site_clearing",
+                                                $$v
+                                              )
+                                            },
+                                            expression: "cd.cd_site_clearing",
+                                          },
+                                        }),
+                                        _vm._v(" "),
+                                        _c("v-checkbox", {
+                                          attrs: {
+                                            label: "Grading",
+                                            value: "true",
+                                            "hide-details": "",
+                                            color: "dark",
+                                          },
+                                          model: {
+                                            value: _vm.cd.cd_grading,
+                                            callback: function ($$v) {
+                                              _vm.$set(
+                                                _vm.cd,
+                                                "cd_grading",
+                                                $$v
+                                              )
+                                            },
+                                            expression: "cd.cd_grading",
+                                          },
+                                        }),
+                                        _vm._v(" "),
+                                        _c("v-checkbox", {
+                                          attrs: {
+                                            label: "Application Maintenance",
+                                            value: "true",
+                                            "hide-details": "",
+                                            color: "dark",
+                                          },
+                                          model: {
+                                            value:
+                                              _vm.cd.cd_application_maintenance,
+                                            callback: function ($$v) {
+                                              _vm.$set(
+                                                _vm.cd,
+                                                "cd_application_maintenance",
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "cd.cd_application_maintenance",
+                                          },
+                                        }),
+                                        _vm._v(" "),
+                                        _c("v-checkbox", {
+                                          attrs: {
+                                            label: "Provision Drainange",
+                                            value: "true",
+                                            "hide-details": "",
+                                            color: "dark",
+                                          },
+                                          model: {
+                                            value: _vm.cd.cd_provision_drainage,
+                                            callback: function ($$v) {
+                                              _vm.$set(
+                                                _vm.cd,
+                                                "cd_provision_drainage",
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "cd.cd_provision_drainage",
+                                          },
+                                        }),
+                                        _vm._v(" "),
+                                        _c("v-checkbox", {
+                                          attrs: {
+                                            label: "Leachate Management",
+                                            value: "true",
+                                            "hide-details": "",
+                                            color: "dark",
+                                          },
+                                          model: {
+                                            value:
+                                              _vm.cd.cd_leachate_management,
+                                            callback: function ($$v) {
+                                              _vm.$set(
+                                                _vm.cd,
+                                                "cd_leachate_management",
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "cd.cd_leachate_management",
+                                          },
+                                        }),
+                                        _vm._v(" "),
+                                        _c("v-checkbox", {
+                                          attrs: {
+                                            label: "Gas Management",
+                                            value: "true",
+                                            "hide-details": "",
+                                            color: "dark",
+                                          },
+                                          model: {
+                                            value: _vm.cd.cd_gas_management,
+                                            callback: function ($$v) {
+                                              _vm.$set(
+                                                _vm.cd,
+                                                "cd_gas_management",
+                                                $$v
+                                              )
+                                            },
+                                            expression: "cd.cd_gas_management",
+                                          },
+                                        }),
+                                        _vm._v(" "),
+                                        _c("v-checkbox", {
+                                          attrs: {
+                                            label: "Fencing Security",
+                                            value: "true",
+                                            "hide-details": "",
+                                            color: "dark",
+                                          },
+                                          model: {
+                                            value: _vm.cd.cd_fencing_security,
+                                            callback: function ($$v) {
+                                              _vm.$set(
+                                                _vm.cd,
+                                                "cd_fencing_security",
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "cd.cd_fencing_security",
+                                          },
+                                        }),
+                                        _vm._v(" "),
+                                        _c("v-checkbox", {
+                                          attrs: {
+                                            label: "Putting Signages",
+                                            value: "true",
+                                            "hide-details": "",
+                                            color: "dark",
+                                          },
+                                          model: {
+                                            value: _vm.cd.cd_putting_sinages,
+                                            callback: function ($$v) {
+                                              _vm.$set(
+                                                _vm.cd,
+                                                "cd_putting_sinages",
+                                                $$v
+                                              )
+                                            },
+                                            expression: "cd.cd_putting_sinages",
+                                          },
+                                        }),
+                                        _vm._v(" "),
+                                        _c("v-checkbox", {
+                                          attrs: {
+                                            label: "Prohibition",
+                                            value: "true",
+                                            "hide-details": "",
+                                            color: "dark",
+                                          },
+                                          model: {
+                                            value: _vm.cd.cd_prohibition,
+                                            callback: function ($$v) {
+                                              _vm.$set(
+                                                _vm.cd,
+                                                "cd_prohibition",
+                                                $$v
+                                              )
+                                            },
+                                            expression: "cd.cd_prohibition",
+                                          },
                                         }),
                                       ],
                                       1

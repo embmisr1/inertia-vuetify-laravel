@@ -930,6 +930,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -2650,6 +2659,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
+    query_closed_dumpsite_id: String,
     lce_edit: Array,
     province_dropdown: Array,
     lce_info: Array,
@@ -2658,7 +2668,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     slf_edit: Array,
     query_mrf: Array,
     // mrf table
-    mrf_edit: Array
+    mrf_edit: Array,
+    cd_edit: Array
   },
   data: function data() {
     return {
@@ -2724,7 +2735,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       },
       cd: {
         cd_total_land_area: null,
-        cd_date_monitored: null,
+        cd_date_monitored: new Date(Date.now() - new Date().getTimezoneOffset() * 60000).toISOString().substr(0, 10),
         cd_site_clearing: null,
         cd_site_grading: null,
         cd_application_maintenance: null,
@@ -2748,11 +2759,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       category: ["Category 1", "Category 2", "Category 3", "Category 4"],
       leachment_type: ["Recirculaation", "Chemical", "Biological"],
       status_of_operation: ["Operational", "Not Operational"],
+      cd_status: ["Closed", "Rehabilitation", "Ongoing"],
       cityMun: [],
       brgy: []
     };
   },
   computed: {
+    date_now: function date_now() {
+      return new Date(Date.now() - new Date().getTimezoneOffset() * 60000).toISOString().substr(0, 10);
+    },
     lce_id: function lce_id() {
       return this.lce_details.id;
     },
@@ -21602,14 +21617,14 @@ var render = function () {
       _c(
         "v-toolbar",
         { attrs: { flat: "", dark: "" } },
-        [_c("v-toolbar-title", [_vm._v("User Profile")])],
+        [_c("v-toolbar-title", [_vm._v("User Profile ")])],
         1
       ),
       _vm._v(" "),
       _c(
         "v-tabs",
         {
-          staticClass: "h-fit",
+          staticClass: "h-96",
           attrs: {
             vertical: "",
             "show-arrows": "",
@@ -21794,29 +21809,56 @@ var render = function () {
                           _c("v-spacer"),
                           _vm._v(" "),
                           _c("div", { staticClass: "space-x-4" }, [
-                            _c(
-                              "a",
-                              {
-                                attrs: {
-                                  href: "/app/swm/cd_register/" + _vm.lce_id,
-                                  target: "_blank",
-                                },
-                              },
-                              [
-                                _c(
-                                  "v-btn",
+                            !_vm.query_closed_dumpsite_id
+                              ? _c(
+                                  "a",
                                   {
                                     attrs: {
-                                      border: "",
-                                      outlined: "",
-                                      color: "red lighten-2",
+                                      href:
+                                        "/app/swm/cd_register/" + _vm.lce_id,
+                                      target: "_blank",
                                     },
                                   },
-                                  [_vm._v("Close Dumpsite")]
+                                  [
+                                    _c(
+                                      "v-btn",
+                                      {
+                                        attrs: {
+                                          border: "",
+                                          outlined: "",
+                                          color: "red lighten-2",
+                                        },
+                                      },
+                                      [_vm._v("Close Dumpsite")]
+                                    ),
+                                  ],
+                                  1
+                                )
+                              : _c(
+                                  "a",
+                                  {
+                                    attrs: {
+                                      href:
+                                        "/app/swm/cd_edit/" +
+                                        _vm.query_closed_dumpsite_id,
+                                      target: "_blank",
+                                    },
+                                  },
+                                  [
+                                    _c(
+                                      "v-btn",
+                                      {
+                                        attrs: {
+                                          border: "",
+                                          outlined: "",
+                                          color: "red lighten-2",
+                                        },
+                                      },
+                                      [_vm._v("Close Dumpsite")]
+                                    ),
+                                  ],
+                                  1
                                 ),
-                              ],
-                              1
-                            ),
                             _vm._v(" "),
                             _c(
                               "a",
