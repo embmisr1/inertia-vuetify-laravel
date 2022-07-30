@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\DB;
 use App\Models\SolidwasteTenYear;
+use App\Models\SolidwasteTenYearMonitoring;
 
 class SolidwasteTenYearController extends Controller
 {
@@ -33,8 +34,10 @@ class SolidwasteTenYearController extends Controller
         ->leftjoin('ref_citymun as d','b.lce_municipality_FK','=','d.PK_citymun_ID')
         ->leftjoin('ref_brgy as e','b.lce_barangay_FK','=','e.PK_brgy_ID')
         ->where('a.id',$id)->get();
+        $ten_year_monitoring_list = SolidwasteTenYearMonitoring::where('ten_year_FK',$id)->get();
         return Inertia::render("pages/swm/Form/TenYearForm",[
             'ten_year_edit'=>$ten_year_edit,
+            'ten_year_monitoring_list'=>$ten_year_monitoring_list,
         ]);
     }
 

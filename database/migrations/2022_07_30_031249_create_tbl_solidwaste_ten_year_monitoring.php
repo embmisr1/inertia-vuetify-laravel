@@ -21,8 +21,8 @@ class CreateTblSolidwasteTenYearMonitoring extends Migration
             $table->string('ten_year_mon_iis_number')->nullable();
             $table->string('ten_year_mon_copy_report')->nullable();
             $table->string('ten_year_mon_by')->nullable();
-            $table->unsignedBigInteger('lce_FK')->nullable();
-            $table->foreign('lce_FK')->references('id')->on('tbl_solidwaste_lce')->onUpdate('cascade')->nullOnDelete();
+            $table->unsignedBigInteger('ten_year_FK')->nullable();
+            $table->foreign('ten_year_FK')->references('id')->on('tbl_solidwaste_ten_year')->onUpdate('cascade')->nullOnDelete();
             $table->timestamps();
         });
     }
