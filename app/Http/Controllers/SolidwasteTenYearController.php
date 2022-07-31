@@ -8,6 +8,7 @@ use Inertia\Inertia;
 use Illuminate\Support\Facades\DB;
 use App\Models\SolidwasteTenYear;
 use App\Models\SolidwasteTenYearMonitoring;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class SolidwasteTenYearController extends Controller
 {
@@ -16,14 +17,14 @@ class SolidwasteTenYearController extends Controller
     {
         $id = $request->id;
         $lce_info = DB::table('tbl_solidwaste_lce as a')
-        ->select('a.*', 'b.provDesc', 'c.citymunDesc', 'd.brgyDesc', 'c.districtCode')
-        ->leftjoin('ref_province as b', 'a.lce_province_FK', '=', 'b.PK_province_ID')
-        ->leftjoin('ref_citymun as c', 'a.lce_municipality_FK', '=', 'c.PK_citymun_ID')
-        ->leftjoin('ref_brgy as d', 'a.lce_barangay_FK', '=', 'd.PK_brgy_ID')
-        ->where('id', $id)
-        ->get();
-        return Inertia::render("pages/swm/Form/TenYrForm",[
-            'lce_info'=>$lce_info,
+            ->select('a.*', 'b.provDesc', 'c.citymunDesc', 'd.brgyDesc', 'c.districtCode')
+            ->leftjoin('ref_province as b', 'a.lce_province_FK', '=', 'b.PK_province_ID')
+            ->leftjoin('ref_citymun as c', 'a.lce_municipality_FK', '=', 'c.PK_citymun_ID')
+            ->leftjoin('ref_brgy as d', 'a.lce_barangay_FK', '=', 'd.PK_brgy_ID')
+            ->where('id', $id)
+            ->get();
+        return Inertia::render("pages/swm/Form/TenYrForm", [
+            'lce_info' => $lce_info,
         ]);
     }
 
@@ -31,7 +32,7 @@ class SolidwasteTenYearController extends Controller
     {
         $id = $request->id;
         $ten_year_edit = DB::table('tbl_solidwaste_ten_year as a')
-            ->select("a.id","a.lce_FK",'a.ten_year_planning_period', 'a.ten_year_year_approved', 'a.ten_year_number', 'c.provDesc', 'd.citymunDesc', 'e.brgyDesc', 'd.districtCode')
+            ->select("a.id", "a.lce_FK", 'a.ten_year_planning_period', 'a.ten_year_year_approved', 'a.ten_year_number', 'c.provDesc', 'd.citymunDesc', 'e.brgyDesc', 'd.districtCode')
             // ->select('a.*', 'c.provDesc', 'd.citymunDesc', 'e.brgyDesc', 'd.districtCode')
             ->leftjoin('tbl_solidwaste_lce as b', 'a.lce_FK', '=', 'b.id')
             ->leftjoin('ref_province as c', 'b.lce_province_FK', '=', 'c.PK_province_ID')
@@ -101,7 +102,7 @@ class SolidwasteTenYearController extends Controller
                         ->toMediaCollection("copy_resolution", "copy_resolution");
                 }
             }
-            return redirect()->route("lce_show",["id"=>$request->lce_FK])->with("message", "10 Year Created");
+            return redirect()->route("lce_show", ["id" => $request->lce_FK])->with("message", "10 Year Created");
         } catch (\Throwable $th) {
             return $th->getMessage();
         }
@@ -111,51 +112,55 @@ class SolidwasteTenYearController extends Controller
     {
         try {
             $query = SolidwasteTenYear::find($request->id);
-        $query->ten_year_planning_period = $request->ten_year_planning_period;
-        $query->ten_year_year_approved = $request->ten_year_year_approved;
-        $query->ten_year_number = $request->ten_year_number;
-        // $query->ten_year_file = $request->ten_year_file;
-        // $query->ten_year_copy_plan = $request->ten_year_copy_plan;
-        // $query->ten_year_copy_resolution = $request->ten_year_copy_resolution;
-        // $query->ten_year_copy_form = $request->ten_year_copy_form;
-        $query->lce_FK = $request->lce_FK;
-        $query->save();
-        if ($request->ten_year_file) {
-            foreach ($request->ten_year_file as $file) {
-                $query
-                    ->addMedia($file)
-                    ->preservingOriginal()
-                    ->toMediaCollection("ten_yr_file", "ten_yr_file");
-            }
-        }
+            $query->ten_year_planning_period = $request->ten_year_planning_period;
+            $query->ten_year_year_approved = $request->ten_year_year_approved;
+            $query->ten_year_number = $request->ten_year_number;
 
-        if ($request->ten_year_copy_plan) {
-            foreach ($request->ten_year_copy_plan as $file) {
-                $query
-                    ->addMedia($file)
-                    ->preservingOriginal()
-                    ->toMediaCollection("copy_plan", "copy_plan");
-            }
-        }
 
-        if ($request->ten_year_copy_form) {
-            foreach ($request->ten_year_copy_form as $file) {
-                $query
-                    ->addMedia($file)
-                    ->preservingOriginal()
-                    ->toMediaCollection("copy_form", "copy_form");
-            }
-        }
 
-        if ($request->ten_year_copy_resolution) {
-            foreach ($request->ten_year_copy_resolution as $file) {
-                $query
-                    ->addMedia($file)
-                    ->preservingOriginal()
-                    ->toMediaCollection("copy_resolution", "copy_resolution");
+            $query->lce_FK = $request->lce_FK;
+
+            if ($request->ten_year_file) {
+                $query->ten_year_file = true;
+                foreach ($request->ten_year_file as $file) {
+                    $query
+                        ->addMedia($file)
+                        ->preservingOriginal()
+                        ->toMediaCollection("ten_yr_file", "ten_yr_file");
+                }
             }
-        }
-        return redirect()->route("lce_show",["id"=>$request->lce_FK])->with("message", "10 Year Updated");
+
+            if ($request->ten_year_copy_plan) {
+                $query->ten_year_copy_plan = true;
+                foreach ($request->ten_year_copy_plan as $file) {
+                    $query
+                        ->addMedia($file)
+                        ->preservingOriginal()
+                        ->toMediaCollection("copy_plan", "copy_plan");
+                }
+            }
+
+            if ($request->ten_year_copy_form) {
+                $query->ten_year_copy_form = true;
+                foreach ($request->ten_year_copy_form as $file) {
+                    $query
+                        ->addMedia($file)
+                        ->preservingOriginal()
+                        ->toMediaCollection("copy_form", "copy_form");
+                }
+            }
+
+            if ($request->ten_year_copy_resolution) {
+                $query->ten_year_copy_resolution = true;
+                foreach ($request->ten_year_copy_resolution as $file) {
+                    $query
+                        ->addMedia($file)
+                        ->preservingOriginal()
+                        ->toMediaCollection("copy_resolution", "copy_resolution");
+                }
+            }
+            $query->save();
+            return redirect()->route("lce_show", ["id" => $request->lce_FK])->with("message", "10 Year Updated");
         } catch (\Throwable $th) {
             return $th->getMessage();
         }
@@ -165,5 +170,40 @@ class SolidwasteTenYearController extends Controller
         $ten_year_delete = SolidwasteTenYear::find($request->id);
         $ten_year_delete->delete();
         return back()->with("message", "10 Year Deleted");
+    }
+
+    public function removeFIle(request $request, Media $media)
+    {
+        $ten_yr = SolidwasteTenYear::findOrFail($media->model_id);
+
+        if ($ten_yr->getMedia($media->collection_name)->count() === 1) {
+
+
+            switch ($media->collection_name) {
+                case 'copy_resolution':
+                    $ten_yr->ten_year_copy_resolution = false;
+                    break;
+                case 'copy_form':
+                    $ten_yr->ten_year_copy_form = false;
+                    break;
+                case 'copy_plan':
+                    $ten_yr->ten_year_copy_plan = false;
+
+                    break;
+                case 'ten_yr_file':
+                    $ten_yr->ten_year_file = false;
+                    break;
+
+                default:
+                    $ten_yr->update();
+                    break;
+            }
+
+            $ten_yr->save();
+        }
+
+        $media->delete();
+
+        return back()->with("message", "Attachement Deleted");
     }
 }

@@ -141,6 +141,7 @@ Route::group([
         Route::post('/ten_year_register_process', [SolidwasteTenYearController::class, 'ten_year_register_process'])->name("ten_year_register_process");
         Route::post('/ten_year_update_process', [SolidwasteTenYearController::class, 'ten_year_update_process'])->name("ten_year_update_process");
         Route::delete('/ten_year_delete/{id}', [SolidwasteTenYearController::class, 'ten_year_delete'])->name("ten_year_delete");
+        Route::delete('/ten_year_remove_fIle/{media}', [SolidwasteTenYearController::class, 'removeFIle'])->name("removeFIle");
         // TEN YEAR MONITORING
         Route::get('/ten_year_monitoring_register/{id}', [SolidwasteTenYearMonitoringController::class, 'create'])->name("ten_year_monitoring_register_form");
         Route::get('/ten_year_monitoring_edit/{id}', [SolidwasteTenYearMonitoringController::class, 'ten_year_monitoring_edit'])->name("ten_year_monitoring_edit");

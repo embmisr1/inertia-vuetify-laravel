@@ -3,7 +3,13 @@
         <div class="">
             <div class="font-bold text-2xl flex items-center">
                 <b-tooltip label="Back" type="is-dark" :delay="2000">
-                    <Link @click="goBack" class="px-3">
+                    <Link v-if="ten_yr.lce_FK" :href="`/app/swm/lce_show/${ten_yr.lce_FK}`" class="px-3">
+                        <box-icon
+                            name="arrow-back"
+                            animation="tada-hover"
+                        ></box-icon>
+                    </Link>
+                    <Link v-else :href="`/app/swm/lce_show/${ten_yr.id}`" class="px-3">
                         <box-icon
                             name="arrow-back"
                             animation="tada-hover"
@@ -313,7 +319,7 @@
                                                 goTo(url);
                                             }
                                         "
-                                        :removeFile="removeAttachment"
+                                        :removeFile="removeFIle"
                                     />
                                     <ViewAttachements
                                         v-if="attachments.copy_plan.data.length"
@@ -326,7 +332,7 @@
                                                 goTo(url);
                                             }
                                         "
-                                        :removeFile="removeAttachment"
+                                        :removeFile="removeFIle"
                                     />
                                     <ViewAttachements
                                         v-if="attachments.copy_form.data.length"
@@ -339,7 +345,7 @@
                                                 goTo(url);
                                             }
                                         "
-                                        :removeFile="removeAttachment"
+                                        :removeFile="removeFIle"
                                     />
                                     <ViewAttachements
                                         v-if="
@@ -355,7 +361,7 @@
                                                 goTo(url);
                                             }
                                         "
-                                        :removeFile="removeAttachment"
+                                        :removeFile="removeFIle"
                                     />
                                 </v-card-text>
                             </v-card>
@@ -462,6 +468,24 @@ export default {
               await this.$inertia.delete(`/app/swm/ten_year_monitoring_delete/${mon_id}`)
             } catch (error) {
 
+            }
+        },
+        async removeFIle(media_id){
+            try {
+                this.loading = true;
+                 await this.confirmDelete(
+                    "This action  cannot be undone",
+                    async () => {
+                        await this.$inertia.delete(
+                            `/app/swm/ten_year_remove_fIle/${media_id}`
+                        );
+                    }
+                );
+                this.loading = false;
+            } catch (error) {
+                this.loading = false;
+                console.log(error)
+                this.error(error.response.data.message)
             }
         },
     },
