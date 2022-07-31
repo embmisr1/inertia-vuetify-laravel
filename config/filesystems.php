@@ -38,7 +38,7 @@ return [
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),
-            'url' => env('APP_URL').'/storage',
+            'url' => env('APP_URL') . '/storage',
             'visibility' => 'public',
         ],
 
@@ -77,7 +77,45 @@ return [
             'url' => env('APP_URL') . '/storage/lce',
             'visibility' => 'public',
         ],
+        'dump_site' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/dump_site'),
+            'url' => env('APP_URL') . '/storage/dump_site',
+            'visibility' => 'public',
+        ],
+        'copy_plan' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/copy_plan'),
+            'url' => env('APP_URL') . '/storage/copy_plan',
+            'visibility' => 'public',
+        ],
+        'copy_form' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/copy_form'),
+            'url' => env('APP_URL') . '/storage/copy_form',
+            'visibility' => 'public',
+        ],
+        'copy_resolution' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/copy_resolution'),
+            'url' => env('APP_URL') . '/storage/copy_resolution',
+            'visibility' => 'public',
+        ],
+        'ten_yr_file' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/ten_yr_file'),
+            'url' => env('APP_URL') . '/storage/ten_yr_file',
+            'visibility' => 'public',
+        ],
+        'copy_report' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/copy_report'),
+            'url' => env('APP_URL') . '/storage/copy_report',
+            'visibility' => 'public',
+        ],
     ],
+
+
 
     /*
     |--------------------------------------------------------------------------
