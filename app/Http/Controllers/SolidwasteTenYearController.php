@@ -22,7 +22,7 @@ class SolidwasteTenYearController extends Controller
         ->leftjoin('ref_brgy as d', 'a.lce_barangay_FK', '=', 'd.PK_brgy_ID')
         ->where('id', $id)
         ->get();
-        return Inertia::render("pages/swm/Form/TenYearForm",[
+        return Inertia::render("pages/swm/Form/TenYrForm",[
             'lce_info'=>$lce_info,
         ]);
     }
