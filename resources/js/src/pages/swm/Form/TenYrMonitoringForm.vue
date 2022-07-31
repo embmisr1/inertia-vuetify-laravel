@@ -15,11 +15,6 @@
         </div>
         <div v-if="loading">Loading..</div>
         <div v-else>
-            {{ten_yr_mon_form_type}}
-            <br/>
-            <br/>
-            <br/>
-            {{ten_yr_mon}}
             <ValidationObserver
                 v-slot="{ handleSubmit, invalid }"
                 ref="psic_group_class_observer"
@@ -372,17 +367,17 @@ export default {
         this.loading = false;
     },
     computed: {
-        // address() {
-        //     let formdata = null;
-        //     if (this.ten_yr_mon_form_type === "create") {
-        //         formdata = this.lce_info[0];
-        //     } else if (this.ten_yr_mon_form_type === "patch") {
-        //         formdata = this.ten_yr_mon;
-        //     }
-        //     const { provDesc, citymunDesc, lce_zip_code, districtCode } =
-        //         formdata;
-        //     return `${citymunDesc}, District No ${districtCode}, ${provDesc}, ${lce_zip_code} `;
-        // },
+        address() {
+            let formdata = null;
+            if (this.ten_yr_mon_form_type === "create") {
+                formdata = this.lce_info[0];
+            } else if (this.ten_yr_mon_form_type === "patch") {
+                formdata = this.ten_yr_mon;
+            }
+            const { provDesc, citymunDesc, lce_zip_code, districtCode } =
+                formdata;
+            return `${citymunDesc}, District No ${districtCode}, ${provDesc}, ${lce_zip_code} `;
+        },
     },
     methods: {
         saveForm() {
