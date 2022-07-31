@@ -16,14 +16,14 @@ class SolidwasteTenYearController extends Controller
     {
         $id = $request->id;
         $lce_info = DB::table('tbl_solidwaste_lce as a')
-            ->select('a.*', 'b.provDesc', 'c.citymunDesc', 'd.brgyDesc', 'c.districtCode')
-            ->leftjoin('ref_province as b', 'a.lce_province_FK', '=', 'b.PK_province_ID')
-            ->leftjoin('ref_citymun as c', 'a.lce_municipality_FK', '=', 'c.PK_citymun_ID')
-            ->leftjoin('ref_brgy as d', 'a.lce_barangay_FK', '=', 'd.PK_brgy_ID')
-            ->where('id', $id)
-            ->get();
-        return Inertia::render("pages/swm/Form/TenYrMonitoringForm", [
-            'lce_info' => $lce_info,
+        ->select('a.*', 'b.provDesc', 'c.citymunDesc', 'd.brgyDesc', 'c.districtCode')
+        ->leftjoin('ref_province as b', 'a.lce_province_FK', '=', 'b.PK_province_ID')
+        ->leftjoin('ref_citymun as c', 'a.lce_municipality_FK', '=', 'c.PK_citymun_ID')
+        ->leftjoin('ref_brgy as d', 'a.lce_barangay_FK', '=', 'd.PK_brgy_ID')
+        ->where('id', $id)
+        ->get();
+        return Inertia::render("pages/swm/Form/TenYearForm",[
+            'lce_info'=>$lce_info,
         ]);
     }
 

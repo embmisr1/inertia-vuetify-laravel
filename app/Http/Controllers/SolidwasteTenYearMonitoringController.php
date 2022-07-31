@@ -20,8 +20,8 @@ class SolidwasteTenYearMonitoringController extends Controller
         ->leftjoin('ref_brgy as e','b.lce_barangay_FK','=','e.PK_brgy_ID')
         ->where('id',$id)
         ->get();
-        return Inertia::render("pages/swm/Form/TenYearForm",[
-            'lce_info'=>$lce_info,
+        return Inertia::render("pages/swm/Form/TenYrMonitoringForm", [
+            'lce_info' => $lce_info,
         ]);
     }
 
