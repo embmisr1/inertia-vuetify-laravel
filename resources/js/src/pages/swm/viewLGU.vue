@@ -529,6 +529,154 @@
                     </b-table>
                 </v-container></v-tab-item
             >
+            <v-tab-item
+                ><v-container>
+                    <a
+                        :href="`/app/swm/ten_year_register/${lce_id}`"
+
+                    >
+                        <v-btn dark>Add 10 YEAR</v-btn>
+                    </a>
+                    <b-table
+                        :data="query_ten_year"
+
+                        :per-page="query_ten_year.per_page"
+                        pagination-size="is-small"
+                        page-input
+                        hoverable
+                        backend-pagination
+                        :total="query_ten_year.total"
+                        :current-page.sync="query_ten_year.current_page"
+                        pagination-position="top"
+                        pagination-rounded
+                        @page-change="onPageChange"
+                        narrowed
+                        :loading="loading"
+                        bordered
+                        sticky-header
+                        scrollable
+                        :row-class="
+                            (row, index) =>
+                                isTheme ? 'bg-black text-white' : ''
+                        "
+                        :header-class="isTheme ? 'bg-black text-white' : ''"
+                        height="420"
+                    >
+
+                        <b-table-column
+                            field="ten_year_year_approved"
+                            label="10 year approved"
+                            centered
+                        >
+                            <template #searchable="props">
+                                <b-input
+                                    placeholder="Search..."
+                                    icon="magnify"
+                                    size="is-small"
+                                />
+                            </template>
+                            <template v-slot="props">
+                             {{props.row.ten_year_year_approved}}
+                            </template>
+                        </b-table-column>
+
+                        <b-table-column
+                            field="ten_year_number"
+                            label="10 year number"
+                            centered
+                        >
+                            <template #searchable="props">
+                                <b-input
+                                    placeholder="Search..."
+                                    icon="magnify"
+                                    size="is-small"
+                                />
+                            </template>
+                            <template v-slot="props">
+                                {{ props.row.ten_year_number }}
+                            </template>
+                        </b-table-column>
+
+                        <b-table-column
+                            field="ten_year_file"
+                            label="File"
+                            centered
+                        >
+                            <template v-slot="props">
+                                <box-icon v-if="props.row.ten_year_file =='1'" type='solid' name='check-circle' color="green"></box-icon>
+                                <box-icon v-else type='solid' name='x-circle' color="red"></box-icon>
+                            </template>
+                        </b-table-column>
+
+                        <b-table-column
+                            field="ten_year_copy_plan"
+                            label="Copy Plan"
+                            centered
+                        >
+                            <template v-slot="props">
+                                <box-icon v-if="props.row.ten_year_copy_plan =='1'" type='solid' name='check-circle' color="green"></box-icon>
+                                <box-icon v-else type='solid' name='x-circle' color="red"></box-icon>
+                            </template>
+                        </b-table-column>
+
+
+<b-table-column
+                            field="ten_year_copy_resolution"
+                            label="Copy Resolution"
+                            centered
+                        >
+                            <template v-slot="props">
+                                <box-icon v-if="props.row.ten_year_copy_resolution =='1'" type='solid' name='check-circle' color="green"></box-icon>
+                                <box-icon v-else type='solid' name='x-circle' color="red"></box-icon>
+                            </template>
+                        </b-table-column>
+
+
+<b-table-column
+                            field="ten_year_copy_form"
+                            label="Copy Form"
+                            centered
+                        >
+                            <template v-slot="props">
+                                <box-icon v-if="props.row.ten_year_copy_form==='1'" type='solid' name='check-circle' color="green"></box-icon>
+                                <box-icon v-else type='solid' name='x-circle' color="red"></box-icon>
+                            </template>
+                        </b-table-column>
+
+
+                        <b-table-column
+                            field="action"
+                            label=""
+                            v-slot="props"
+                        >
+                            <Link
+                                :href="`/app/swm/ten_year_edit/${props.row.id}`"
+
+                            >
+                                <box-icon
+                                    name="edit"
+                                    color="orange"
+                                    animation="tada-hover"
+                                ></box-icon
+                            ></Link>
+                            <v-btn icon small @click="remove10Yr(props.row.id)"
+                                ><box-icon
+                                    name="trash"
+                                    color="red"
+                                    animation="tada-hover"
+                                ></box-icon
+                            ></v-btn>
+                        </b-table-column>
+                        <template #empty>
+                            <div
+                                class="text-center text-3xl text-gray-500 font-extrabold"
+                            >
+                                No lce_list Found
+                            </div>
+                        </template>
+                    </b-table>
+                </v-container></v-tab-item
+            >
         </v-tabs>
     </DefaultLayout>
 </template>
@@ -550,7 +698,7 @@ export default {
     mixins: [page, toasts, swm, dialogs],
     data() {
         return {
-            tabs: ["LCE", "SLF", "MRF","RCA"],
+            tabs: ["LCE", "SLF", "MRF","RCA", "10 YR"],
         };
     },
     methods: {
@@ -580,6 +728,25 @@ export default {
                     async () => {
                         await this.$inertia.delete(
                             `/app/swm/mrf_delete/${mrf_id}`
+                        );
+                    }
+                );
+                this.loading = false;
+            } catch (error) {
+                this.loading = false;
+                console.log(error);
+                this.error(error.response.data.message);
+            }
+        },
+        async remove10Yr(ten_yr_id){
+
+            try {
+                this.loading = true;
+                await this.confirmDelete(
+                    "This action  cannot be undone",
+                    async () => {
+                        await this.$inertia.delete(
+                            `/app/swm/ten_year_delete/${ten_yr_id}`
                         );
                     }
                 );
