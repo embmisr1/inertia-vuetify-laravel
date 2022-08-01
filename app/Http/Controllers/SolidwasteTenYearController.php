@@ -48,7 +48,8 @@ class SolidwasteTenYearController extends Controller
                 "copy_plan" => AttachmentResource::collection($attachements[0]->getMedia("copy_plan")),
                 "copy_form" => AttachmentResource::collection($attachements[0]->getMedia("copy_form")),
                 "copy_resolution" => AttachmentResource::collection($attachements[0]->getMedia("copy_resolution")),
-            ]
+            ],
+            'ten_year_findings_array'=> json_decode($ten_year_edit[0]->ten_year_findings),
         ]);
     }
 
@@ -63,6 +64,7 @@ class SolidwasteTenYearController extends Controller
             $query->ten_year_copy_plan = !empty($request->ten_year_copy_plan) ? true : false;
             $query->ten_year_copy_resolution = !empty($request->ten_year_copy_resolution) ? true : false;
             $query->ten_year_copy_form = !empty($request->ten_year_copy_form) ? true : false;
+            $query->ten_year_findings = json_encode($request->ten_year_findings);
             $query->lce_FK = $request->lce_FK;
             $query->save();
 
@@ -118,6 +120,7 @@ class SolidwasteTenYearController extends Controller
         // $query->ten_year_copy_plan = $request->ten_year_copy_plan;
         // $query->ten_year_copy_resolution = $request->ten_year_copy_resolution;
         // $query->ten_year_copy_form = $request->ten_year_copy_form;
+        $query->ten_year_findings = json_encode($request->ten_year_findings);
         $query->lce_FK = $request->lce_FK;
         $query->save();
         if ($request->ten_year_file) {
