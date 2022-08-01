@@ -49,7 +49,8 @@ class SolidwasteTenYearController extends Controller
                 "copy_plan" => AttachmentResource::collection($attachements[0]->getMedia("copy_plan")),
                 "copy_form" => AttachmentResource::collection($attachements[0]->getMedia("copy_form")),
                 "copy_resolution" => AttachmentResource::collection($attachements[0]->getMedia("copy_resolution")),
-            ]
+            ],
+            'ten_year_findings_array'=> json_decode($ten_year_edit[0]->ten_year_findings),
         ]);
     }
 
@@ -64,6 +65,7 @@ class SolidwasteTenYearController extends Controller
             $query->ten_year_copy_plan = !empty($request->ten_year_copy_plan) ? true : false;
             $query->ten_year_copy_resolution = !empty($request->ten_year_copy_resolution) ? true : false;
             $query->ten_year_copy_form = !empty($request->ten_year_copy_form) ? true : false;
+            $query->ten_year_findings = json_encode($request->ten_year_findings);
             $query->lce_FK = $request->lce_FK;
             $query->save();
 
@@ -112,9 +114,24 @@ class SolidwasteTenYearController extends Controller
     {
         try {
             $query = SolidwasteTenYear::find($request->id);
-            $query->ten_year_planning_period = $request->ten_year_planning_period;
-            $query->ten_year_year_approved = $request->ten_year_year_approved;
-            $query->ten_year_number = $request->ten_year_number;
+        $query->ten_year_planning_period = $request->ten_year_planning_period;
+        $query->ten_year_year_approved = $request->ten_year_year_approved;
+        $query->ten_year_number = $request->ten_year_number;
+        // $query->ten_year_file = $request->ten_year_file;
+        // $query->ten_year_copy_plan = $request->ten_year_copy_plan;
+        // $query->ten_year_copy_resolution = $request->ten_year_copy_resolution;
+        // $query->ten_year_copy_form = $request->ten_year_copy_form;
+        $query->ten_year_findings = json_encode($request->ten_year_findings);
+        $query->lce_FK = $request->lce_FK;
+        $query->save();
+        if ($request->ten_year_file) {
+            foreach ($request->ten_year_file as $file) {
+                $query
+                    ->addMedia($file)
+                    ->preservingOriginal()
+                    ->toMediaCollection("ten_yr_file", "ten_yr_file");
+            }
+        }
 
 
 
