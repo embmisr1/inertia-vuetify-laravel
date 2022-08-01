@@ -18,7 +18,8 @@ use App\Http\Controllers\SolidwasteClosedDumpsiteController;
 use App\Http\Controllers\SolidwasteLCEController;
 use App\Http\Controllers\SolidwasteSLFController;
 use App\Http\Controllers\SolidwasteMRFController;
-
+use App\Http\Controllers\SolidwasteTenYearController;
+use App\Http\Controllers\SolidwasteTenYearMonitoringController;
 use App\Http\Controllers\UnitSectionController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\UniverseController;
@@ -140,12 +141,13 @@ Route::group([
         Route::post('/ten_year_register_process', [SolidwasteTenYearController::class, 'ten_year_register_process'])->name("ten_year_register_process");
         Route::post('/ten_year_update_process', [SolidwasteTenYearController::class, 'ten_year_update_process'])->name("ten_year_update_process");
         Route::delete('/ten_year_delete/{id}', [SolidwasteTenYearController::class, 'ten_year_delete'])->name("ten_year_delete");
+        Route::delete('/ten_year_remove_fIle/{media}', [SolidwasteTenYearController::class, 'removeFIle'])->name("removeFIle");
         // TEN YEAR MONITORING
-        Route::get('/ten_year_monitoring_register/{id}', [SolidwasteTenYearController::class, 'create'])->name("ten_year_monitoring_register_form");
-        Route::get('/ten_year_monitoring_edit/{id}', [SolidwasteTenYearController::class, 'ten_year_monitoring_edit'])->name("ten_year_monitoring_edit");
-        Route::post('/ten_year_monitoring_register_process', [SolidwasteTenYearController::class, 'ten_year_monitoring_register_process'])->name("ten_year_monitoring_register_process");
-        Route::post('/ten_year_monitoring_update_process', [SolidwasteTenYearController::class, 'ten_year_monitoring_update_process'])->name("ten_year_monitoring_update_process");
-        Route::delete('/ten_year_monitoring_delete/{id}', [SolidwasteTenYearController::class, 'ten_year_monitoring_delete'])->name("ten_year_monitoring_delete");
+        Route::get('/ten_year_monitoring_register/{id}', [SolidwasteTenYearMonitoringController::class, 'create'])->name("ten_year_monitoring_register_form");
+        Route::get('/ten_year_monitoring_edit/{id}', [SolidwasteTenYearMonitoringController::class, 'ten_year_monitoring_edit'])->name("ten_year_monitoring_edit");
+        Route::post('/ten_year_monitoring_register_process', [SolidwasteTenYearMonitoringController::class, 'ten_year_monitoring_register_process'])->name("ten_year_monitoring_register_process");
+        Route::post('/ten_year_monitoring_update_process', [SolidwasteTenYearMonitoringController::class, 'ten_year_monitoring_update_process'])->name("ten_year_monitoring_update_process");
+        Route::delete('/ten_year_monitoring_delete/{id}', [SolidwasteTenYearMonitoringController::class, 'ten_year_monitoring_delete'])->name("ten_year_monitoring_delete");
     });
 
     Route::delete('/delete_attachements/{media}', RemoveAttachementController::class)->name("slf_delete_attachements");

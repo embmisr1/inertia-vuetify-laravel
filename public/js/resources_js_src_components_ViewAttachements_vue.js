@@ -67,6 +67,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
+    title: {
+      type: String,
+      "default": "Attachments"
+    },
     attachments: Array,
     goTo: Function,
     removeFile: Function
@@ -166,7 +170,7 @@ var render = function () {
       attrs: { "two-line": "", subheader: "" },
     },
     [
-      _c("v-subheader", [_vm._v("Attachments ")]),
+      _c("v-subheader", [_vm._v(_vm._s(_vm.title) + " ")]),
       _vm._v(" "),
       _c(
         "v-list-item-group",

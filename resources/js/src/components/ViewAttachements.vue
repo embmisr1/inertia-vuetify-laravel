@@ -1,6 +1,6 @@
 <template>
     <v-list two-line subheader class="h-40 overflow-y-auto">
-        <v-subheader>Attachments </v-subheader>
+        <v-subheader>{{ title }} </v-subheader>
         <v-list-item-group active-class="black--text">
             <template>
                 <div v-for="(item, index) in attachments" :key="index">
@@ -55,6 +55,10 @@
 <script>
 export default {
     props: {
+        title: {
+            type: String,
+            default: "Attachments",
+        },
         attachments: Array,
         goTo: Function,
         removeFile: Function,

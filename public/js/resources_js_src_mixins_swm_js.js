@@ -53,7 +53,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     mrf_edit: Array,
     cd_edit: Array,
     query_rca: Array,
-    attachments: Object
+    attachments: Object,
+    query_ten_year: Array,
+    ten_year_edit: Array,
+    ten_year_monitoring_list: Array,
+    ten_year_monitoring_edit: Array
   },
   data: function data() {
     return {
@@ -133,6 +137,25 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         cd_remarks: null,
         cd_date_closure: null,
         lce_FK: null
+      },
+      ten_yr: {
+        ten_year_planning_period: null,
+        ten_year_year_approved: null,
+        ten_year_number: null,
+        ten_year_file: null,
+        ten_year_copy_plan: null,
+        ten_year_copy_resolution: null,
+        ten_year_copy_form: null,
+        lce_FK: null
+      },
+      ten_yr_mon: {
+        ten_year_mon_status: null,
+        ten_year_mon_date_monitored: null,
+        ten_year_mon_date_submitted: null,
+        ten_year_mon_iis_number: null,
+        ten_year_mon_copy_report: null,
+        ten_year_mon_by: null,
+        ten_year_FK: null
       },
       complete_address: null,
       complete_address_setter: {

@@ -102,7 +102,7 @@
                                     <ValidationProvider
                                         vid="mrf_emb_funded"
                                         name="EMB FUNDED"
-                                        rules="required"
+                                        rules=""
                                         v-slot="{ errors }"
                                     >
                                         <v-text-field
