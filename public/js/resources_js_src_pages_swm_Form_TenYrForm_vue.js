@@ -1,4 +1,4 @@
-(self["webpackChunk"] = self["webpackChunk"] || []).push([["resources_js_src_pages_swm_Form_CDForm_vue"],{
+(self["webpackChunk"] = self["webpackChunk"] || []).push([["resources_js_src_pages_swm_Form_TenYrForm_vue"],{
 
 /***/ "./node_modules/@babel/runtime/regenerator/index.js":
 /*!**********************************************************!*\
@@ -152,6 +152,85 @@ __webpack_require__.r(__webpack_exports__);
       admins: [["Management", "mdi-account-multiple-outline"], ["Settings", "mdi-cog-outline"]],
       cruds: [["Create", "mdi-plus-outline"], ["Read", "mdi-file-outline"], ["Update", "mdi-update"], ["Delete", "mdi-delete"]]
     };
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/components/ViewAttachements.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/components/ViewAttachements.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: {
+    title: {
+      type: String,
+      "default": "Attachments"
+    },
+    attachments: Array,
+    goTo: Function,
+    removeFile: Function
   }
 });
 
@@ -495,10 +574,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/pages/swm/Form/CDForm.vue?vue&type=script&lang=js&":
-/*!*********************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/pages/swm/Form/CDForm.vue?vue&type=script&lang=js& ***!
-  \*********************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/pages/swm/Form/TenYrForm.vue?vue&type=script&lang=js&":
+/*!************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/pages/swm/Form/TenYrForm.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -513,6 +592,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _mixins__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../mixins */ "./resources/js/src/mixins/index.js");
+/* harmony import */ var _components_ViewAttachements_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../components/ViewAttachements.vue */ "./resources/js/src/components/ViewAttachements.vue");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -798,6 +878,165 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 
 
@@ -805,14 +1044,45 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
     DefaultLayout: _layouts_default_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
-    Link: _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_2__.Link
+    Link: _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_2__.Link,
+    ViewAttachements: _components_ViewAttachements_vue__WEBPACK_IMPORTED_MODULE_5__["default"]
   },
   mixins: [_mixins__WEBPACK_IMPORTED_MODULE_4__.page, _mixins__WEBPACK_IMPORTED_MODULE_4__.toasts, _mixins__WEBPACK_IMPORTED_MODULE_4__.swm, _mixins__WEBPACK_IMPORTED_MODULE_4__.dialogs],
   data: function data() {
     return {
-      cd_form_type: "create",
-      closure_calendar: false,
-      monitored_calendar: false
+      ten_yr_form_type: "create",
+      overview_of_finding: [{
+        id: 1,
+        name: "Source Reduction Activited at Source are Present"
+      }, {
+        id: 2,
+        name: "Segregated Collection"
+      }, {
+        id: 3,
+        name: "Increased Collection Average"
+      }, {
+        id: 4,
+        name: "Segregation, Recycling and Composting"
+      }, {
+        id: 5,
+        name: "Marketing & Market Development"
+      }, {
+        id: 6,
+        name: "Alternative Technologies for Residual Wastes"
+      }, {
+        id: 7,
+        name: "Solid Waste Disposal & Health Care Wastes"
+      }, {
+        id: 8,
+        name: "Monitoring Program"
+      }, {
+        id: 9,
+        name: "Financial Aspects"
+      }, {
+        id: 10,
+        name: "Waste Diversion"
+      }],
+      ten_year_findings: []
     };
   },
   created: function created() {
@@ -820,13 +1090,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
     if (this.lce_info !== undefined) {
       if (this.lce_info.length > 0) {
-        this.cd = _objectSpread({}, this.lce_info[0]);
-        this.cd_form_type = "create";
+        this.ten_yr = _objectSpread({}, this.lce_info[0]);
+        this.ten_yr_form_type = "create";
       }
-    } else if (this.cd_edit !== undefined) {
-      if (this.cd_edit.length > 0) {
-        this.cd_form_type = "patch";
-        this.cd = _objectSpread({}, this.cd_edit[0]);
+    } else if (this.ten_year_edit !== undefined) {
+      if (this.ten_year_edit.length > 0) {
+        this.ten_yr_form_type = "patch";
+        this.ten_yr = _objectSpread({}, this.ten_year_edit[0]);
       }
     }
 
@@ -836,10 +1106,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     address: function address() {
       var formdata = null;
 
-      if (this.cd_form_type === "create") {
+      if (this.ten_yr_form_type === "create") {
         formdata = this.lce_info[0];
-      } else if (this.cd_form_type === "patch") {
-        formdata = this.cd_edit[0];
+      } else if (this.ten_yr_form_type === "patch") {
+        formdata = this.ten_yr;
       }
 
       var _formdata = formdata,
@@ -852,13 +1122,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   methods: {
     saveForm: function saveForm() {
-      if (this.cd_form_type === "create") {
-        this.saveCDForm();
-      } else if (this.cd_form_type === "patch") {
-        this.updateCDForm();
+      if (this.ten_yr_form_type === "create") {
+        this.saveTenYrForm();
+      } else if (this.ten_yr_form_type === "patch") {
+        this.updateTenYrForm();
       }
     },
-    saveCDForm: function saveCDForm() {
+    saveTenYrForm: function saveTenYrForm() {
       var _this = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
@@ -868,11 +1138,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             switch (_context.prev = _context.next) {
               case 0:
                 _context.prev = 0;
-                data = _objectSpread(_objectSpread({}, _this.cd), {}, {
-                  lce_FK: _this.cd.id
+                data = _objectSpread(_objectSpread({}, _this.ten_yr), {}, {
+                  lce_FK: _this.ten_yr.id,
+                  ten_year_findings: _this.ten_year_findings
                 });
                 _context.next = 4;
-                return _this.$inertia.post("/app/swm/cd_register_process", data);
+                return _this.$inertia.post("/app/swm/ten_year_register_process", data);
 
               case 4:
                 _context.next = 10;
@@ -883,7 +1154,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                 _context.t0 = _context["catch"](0);
                 console.error(_context.t0.message);
 
-                _this.error(_context.t0.data.response.messsage);
+                _this.error(_context.t0.da.aresponse.messsage);
 
               case 10:
               case "end":
@@ -893,7 +1164,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         }, _callee, null, [[0, 6]]);
       }))();
     },
-    updateCDForm: function updateCDForm() {
+    updateTenYrForm: function updateTenYrForm() {
       var _this2 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
@@ -903,9 +1174,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             switch (_context2.prev = _context2.next) {
               case 0:
                 _context2.prev = 0;
-                data = _objectSpread({}, _this2.cd);
+                data = _objectSpread(_objectSpread({}, _this2.ten_yr), {}, {
+                  ten_year_findings: _this2.ten_year_findings
+                });
                 _context2.next = 4;
-                return _this2.$inertia.post("/app/swm/cd_update_process", data);
+                return _this2.$inertia.post("/app/swm/ten_year_update_process", data);
 
               case 4:
                 _context2.next = 10;
@@ -924,6 +1197,82 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             }
           }
         }, _callee2, null, [[0, 6]]);
+      }))();
+    },
+    removeMonitoring: function removeMonitoring(mon_id) {
+      var _this3 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                _context3.prev = 0;
+                _context3.next = 3;
+                return _this3.$inertia["delete"]("/app/swm/ten_year_monitoring_delete/".concat(mon_id));
+
+              case 3:
+                _context3.next = 7;
+                break;
+
+              case 5:
+                _context3.prev = 5;
+                _context3.t0 = _context3["catch"](0);
+
+              case 7:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3, null, [[0, 5]]);
+      }))();
+    },
+    removeFIle: function removeFIle(media_id) {
+      var _this4 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee5() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee5$(_context5) {
+          while (1) {
+            switch (_context5.prev = _context5.next) {
+              case 0:
+                _context5.prev = 0;
+                _this4.loading = true;
+                _context5.next = 4;
+                return _this4.confirmDelete("This action  cannot be undone", /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee4() {
+                  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee4$(_context4) {
+                    while (1) {
+                      switch (_context4.prev = _context4.next) {
+                        case 0:
+                          _context4.next = 2;
+                          return _this4.$inertia["delete"]("/app/swm/ten_year_remove_fIle/".concat(media_id));
+
+                        case 2:
+                        case "end":
+                          return _context4.stop();
+                      }
+                    }
+                  }, _callee4);
+                })));
+
+              case 4:
+                _this4.loading = false;
+                _context5.next = 12;
+                break;
+
+              case 7:
+                _context5.prev = 7;
+                _context5.t0 = _context5["catch"](0);
+                _this4.loading = false;
+                console.log(_context5.t0);
+
+                _this4.error(_context5.t0.response.data.message);
+
+              case 12:
+              case "end":
+                return _context5.stop();
+            }
+          }
+        }, _callee5, null, [[0, 7]]);
       }))();
     }
   }
@@ -21028,6 +21377,45 @@ component.options.__file = "resources/js/src/components/SideNavItems.vue"
 
 /***/ }),
 
+/***/ "./resources/js/src/components/ViewAttachements.vue":
+/*!**********************************************************!*\
+  !*** ./resources/js/src/components/ViewAttachements.vue ***!
+  \**********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _ViewAttachements_vue_vue_type_template_id_cc1c98cc___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ViewAttachements.vue?vue&type=template&id=cc1c98cc& */ "./resources/js/src/components/ViewAttachements.vue?vue&type=template&id=cc1c98cc&");
+/* harmony import */ var _ViewAttachements_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ViewAttachements.vue?vue&type=script&lang=js& */ "./resources/js/src/components/ViewAttachements.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _ViewAttachements_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _ViewAttachements_vue_vue_type_template_id_cc1c98cc___WEBPACK_IMPORTED_MODULE_0__.render,
+  _ViewAttachements_vue_vue_type_template_id_cc1c98cc___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/src/components/ViewAttachements.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/src/layouts/default.vue":
 /*!**********************************************!*\
   !*** ./resources/js/src/layouts/default.vue ***!
@@ -21067,10 +21455,10 @@ component.options.__file = "resources/js/src/layouts/default.vue"
 
 /***/ }),
 
-/***/ "./resources/js/src/pages/swm/Form/CDForm.vue":
-/*!****************************************************!*\
-  !*** ./resources/js/src/pages/swm/Form/CDForm.vue ***!
-  \****************************************************/
+/***/ "./resources/js/src/pages/swm/Form/TenYrForm.vue":
+/*!*******************************************************!*\
+  !*** ./resources/js/src/pages/swm/Form/TenYrForm.vue ***!
+  \*******************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -21078,8 +21466,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _CDForm_vue_vue_type_template_id_1c10edf4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CDForm.vue?vue&type=template&id=1c10edf4& */ "./resources/js/src/pages/swm/Form/CDForm.vue?vue&type=template&id=1c10edf4&");
-/* harmony import */ var _CDForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CDForm.vue?vue&type=script&lang=js& */ "./resources/js/src/pages/swm/Form/CDForm.vue?vue&type=script&lang=js&");
+/* harmony import */ var _TenYrForm_vue_vue_type_template_id_ba7732ae___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./TenYrForm.vue?vue&type=template&id=ba7732ae& */ "./resources/js/src/pages/swm/Form/TenYrForm.vue?vue&type=template&id=ba7732ae&");
+/* harmony import */ var _TenYrForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./TenYrForm.vue?vue&type=script&lang=js& */ "./resources/js/src/pages/swm/Form/TenYrForm.vue?vue&type=script&lang=js&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -21089,9 +21477,9 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 ;
 var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _CDForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _CDForm_vue_vue_type_template_id_1c10edf4___WEBPACK_IMPORTED_MODULE_0__.render,
-  _CDForm_vue_vue_type_template_id_1c10edf4___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  _TenYrForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _TenYrForm_vue_vue_type_template_id_ba7732ae___WEBPACK_IMPORTED_MODULE_0__.render,
+  _TenYrForm_vue_vue_type_template_id_ba7732ae___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
   false,
   null,
   null,
@@ -21101,7 +21489,7 @@ var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/src/pages/swm/Form/CDForm.vue"
+component.options.__file = "resources/js/src/pages/swm/Form/TenYrForm.vue"
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
 
 /***/ }),
@@ -21138,6 +21526,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/src/components/ViewAttachements.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************!*\
+  !*** ./resources/js/src/components/ViewAttachements.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ViewAttachements_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ViewAttachements.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/components/ViewAttachements.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ViewAttachements_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/src/layouts/default.vue?vue&type=script&lang=js&":
 /*!***********************************************************************!*\
   !*** ./resources/js/src/layouts/default.vue?vue&type=script&lang=js& ***!
@@ -21154,10 +21558,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/src/pages/swm/Form/CDForm.vue?vue&type=script&lang=js&":
-/*!*****************************************************************************!*\
-  !*** ./resources/js/src/pages/swm/Form/CDForm.vue?vue&type=script&lang=js& ***!
-  \*****************************************************************************/
+/***/ "./resources/js/src/pages/swm/Form/TenYrForm.vue?vue&type=script&lang=js&":
+/*!********************************************************************************!*\
+  !*** ./resources/js/src/pages/swm/Form/TenYrForm.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -21165,8 +21569,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CDForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./CDForm.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/pages/swm/Form/CDForm.vue?vue&type=script&lang=js&");
- /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CDForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TenYrForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./TenYrForm.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/pages/swm/Form/TenYrForm.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TenYrForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -21204,6 +21608,23 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/src/components/ViewAttachements.vue?vue&type=template&id=cc1c98cc&":
+/*!*****************************************************************************************!*\
+  !*** ./resources/js/src/components/ViewAttachements.vue?vue&type=template&id=cc1c98cc& ***!
+  \*****************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ViewAttachements_vue_vue_type_template_id_cc1c98cc___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ViewAttachements_vue_vue_type_template_id_cc1c98cc___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ViewAttachements_vue_vue_type_template_id_cc1c98cc___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ViewAttachements.vue?vue&type=template&id=cc1c98cc& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/components/ViewAttachements.vue?vue&type=template&id=cc1c98cc&");
+
+
+/***/ }),
+
 /***/ "./resources/js/src/layouts/default.vue?vue&type=template&id=acf3a4fc&":
 /*!*****************************************************************************!*\
   !*** ./resources/js/src/layouts/default.vue?vue&type=template&id=acf3a4fc& ***!
@@ -21221,19 +21642,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/src/pages/swm/Form/CDForm.vue?vue&type=template&id=1c10edf4&":
-/*!***********************************************************************************!*\
-  !*** ./resources/js/src/pages/swm/Form/CDForm.vue?vue&type=template&id=1c10edf4& ***!
-  \***********************************************************************************/
+/***/ "./resources/js/src/pages/swm/Form/TenYrForm.vue?vue&type=template&id=ba7732ae&":
+/*!**************************************************************************************!*\
+  !*** ./resources/js/src/pages/swm/Form/TenYrForm.vue?vue&type=template&id=ba7732ae& ***!
+  \**************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CDForm_vue_vue_type_template_id_1c10edf4___WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CDForm_vue_vue_type_template_id_1c10edf4___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TenYrForm_vue_vue_type_template_id_ba7732ae___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TenYrForm_vue_vue_type_template_id_ba7732ae___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CDForm_vue_vue_type_template_id_1c10edf4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./CDForm.vue?vue&type=template&id=1c10edf4& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/pages/swm/Form/CDForm.vue?vue&type=template&id=1c10edf4&");
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TenYrForm_vue_vue_type_template_id_ba7732ae___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./TenYrForm.vue?vue&type=template&id=ba7732ae& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/pages/swm/Form/TenYrForm.vue?vue&type=template&id=ba7732ae&");
 
 
 /***/ }),
@@ -21463,6 +21884,151 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/components/ViewAttachements.vue?vue&type=template&id=cc1c98cc&":
+/*!********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/components/ViewAttachements.vue?vue&type=template&id=cc1c98cc& ***!
+  \********************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "v-list",
+    {
+      staticClass: "h-40 overflow-y-auto",
+      attrs: { "two-line": "", subheader: "" },
+    },
+    [
+      _c("v-subheader", [_vm._v(_vm._s(_vm.title) + " ")]),
+      _vm._v(" "),
+      _c(
+        "v-list-item-group",
+        { attrs: { "active-class": "black--text" } },
+        [
+          _vm._l(_vm.attachments, function (item, index) {
+            return _c(
+              "div",
+              { key: index },
+              [
+                _c("v-list-item", {
+                  scopedSlots: _vm._u(
+                    [
+                      {
+                        key: "default",
+                        fn: function (ref) {
+                          var active = ref.active
+                          return [
+                            _c(
+                              "v-list-item-content",
+                              [
+                                _c("v-list-item-title", [
+                                  _vm._v(
+                                    "\n                                Attachment\n                                " +
+                                      _vm._s(index + 1) +
+                                      "\n                            "
+                                  ),
+                                ]),
+                                _vm._v(" "),
+                                _c("v-list-item-subtitle", {
+                                  staticClass: "text--primary",
+                                  domProps: { textContent: _vm._s(item.size) },
+                                }),
+                              ],
+                              1
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "v-list-item-action",
+                              { staticClass: "flex flex-col" },
+                              [
+                                _c(
+                                  "b-tooltip",
+                                  {
+                                    attrs: {
+                                      label: "View Attachement",
+                                      type: "is-dark",
+                                      position: "is-left",
+                                    },
+                                  },
+                                  [
+                                    _c("box-icon", {
+                                      attrs: {
+                                        name: "link",
+                                        animation: "tada-hover",
+                                      },
+                                      on: {
+                                        click: function ($event) {
+                                          return _vm.goTo(item.url)
+                                        },
+                                      },
+                                    }),
+                                  ],
+                                  1
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "b-tooltip",
+                                  {
+                                    attrs: {
+                                      label: "Remove Attachement",
+                                      type: "is-dark",
+                                      position: "is-left",
+                                    },
+                                  },
+                                  [
+                                    _c("box-icon", {
+                                      attrs: {
+                                        color: "red ",
+                                        type: "solid",
+                                        name: "trash",
+                                        animation: "tada-hover",
+                                      },
+                                      on: {
+                                        click: function ($event) {
+                                          return _vm.removeFile(item.id)
+                                        },
+                                      },
+                                    }),
+                                  ],
+                                  1
+                                ),
+                              ],
+                              1
+                            ),
+                          ]
+                        },
+                      },
+                    ],
+                    null,
+                    true
+                  ),
+                }),
+              ],
+              1
+            )
+          }),
+        ],
+        2
+      ),
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/layouts/default.vue?vue&type=template&id=acf3a4fc&":
 /*!********************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/layouts/default.vue?vue&type=template&id=acf3a4fc& ***!
@@ -21611,10 +22177,10 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/pages/swm/Form/CDForm.vue?vue&type=template&id=1c10edf4&":
-/*!**************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/pages/swm/Form/CDForm.vue?vue&type=template&id=1c10edf4& ***!
-  \**************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/pages/swm/Form/TenYrForm.vue?vue&type=template&id=ba7732ae&":
+/*!*****************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/pages/swm/Form/TenYrForm.vue?vue&type=template&id=ba7732ae& ***!
+  \*****************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -21637,20 +22203,37 @@ var render = function () {
             "b-tooltip",
             { attrs: { label: "Back", type: "is-dark", delay: 2000 } },
             [
-              _c(
-                "Link",
-                { staticClass: "px-3", on: { click: _vm.goBack } },
-                [
-                  _c("box-icon", {
-                    attrs: { name: "arrow-back", animation: "tada-hover" },
-                  }),
-                ],
-                1
-              ),
+              _vm.ten_yr.lce_FK
+                ? _c(
+                    "Link",
+                    {
+                      staticClass: "px-3",
+                      attrs: { href: "/app/swm/lce_show/" + _vm.ten_yr.lce_FK },
+                    },
+                    [
+                      _c("box-icon", {
+                        attrs: { name: "arrow-back", animation: "tada-hover" },
+                      }),
+                    ],
+                    1
+                  )
+                : _c(
+                    "Link",
+                    {
+                      staticClass: "px-3",
+                      attrs: { href: "/app/swm/lce_show/" + _vm.ten_yr.id },
+                    },
+                    [
+                      _c("box-icon", {
+                        attrs: { name: "arrow-back", animation: "tada-hover" },
+                      }),
+                    ],
+                    1
+                  ),
             ],
             1
           ),
-          _vm._v("\n            Closed Dumpsite Form\n        "),
+          _vm._v("\n            10 Year Form\n        "),
         ],
         1
       ),
@@ -21709,397 +22292,21 @@ var render = function () {
                                 _c(
                                   "v-card",
                                   [
-                                    _c("v-card-title", [_vm._v(" Checklist ")]),
+                                    _c("v-card-title", [
+                                      _vm._v(
+                                        "\n                                10 Year Information\n                            "
+                                      ),
+                                    ]),
                                     _vm._v(" "),
                                     _c(
                                       "v-card-text",
                                       { staticClass: "grid grid-cols-2 gap-2" },
                                       [
-                                        _c(
-                                          "v-dialog",
-                                          {
-                                            ref: "dialog",
-                                            attrs: {
-                                              "return-value":
-                                                _vm.cd.cd_date_monitored,
-                                              persistent: "",
-                                              width: "290px",
-                                              dark: "",
-                                            },
-                                            on: {
-                                              "update:returnValue": function (
-                                                $event
-                                              ) {
-                                                return _vm.$set(
-                                                  _vm.cd,
-                                                  "cd_date_monitored",
-                                                  $event
-                                                )
-                                              },
-                                              "update:return-value": function (
-                                                $event
-                                              ) {
-                                                return _vm.$set(
-                                                  _vm.cd,
-                                                  "cd_date_monitored",
-                                                  $event
-                                                )
-                                              },
-                                            },
-                                            scopedSlots: _vm._u(
-                                              [
-                                                {
-                                                  key: "activator",
-                                                  fn: function (ref) {
-                                                    var on = ref.on
-                                                    var attrs = ref.attrs
-                                                    return [
-                                                      _c(
-                                                        "v-text-field",
-                                                        _vm._g(
-                                                          _vm._b(
-                                                            {
-                                                              attrs: {
-                                                                label:
-                                                                  "Date Monitored",
-                                                                readonly: "",
-                                                                outlined: "",
-                                                                dense: "",
-                                                                color: "black",
-                                                              },
-                                                              model: {
-                                                                value:
-                                                                  _vm.cd
-                                                                    .cd_date_monitored,
-                                                                callback:
-                                                                  function (
-                                                                    $$v
-                                                                  ) {
-                                                                    _vm.$set(
-                                                                      _vm.cd,
-                                                                      "cd_date_monitored",
-                                                                      $$v
-                                                                    )
-                                                                  },
-                                                                expression:
-                                                                  "cd.cd_date_monitored",
-                                                              },
-                                                            },
-                                                            "v-text-field",
-                                                            attrs,
-                                                            false
-                                                          ),
-                                                          on
-                                                        )
-                                                      ),
-                                                    ]
-                                                  },
-                                                },
-                                              ],
-                                              null,
-                                              true
-                                            ),
-                                            model: {
-                                              value: _vm.monitored_calendar,
-                                              callback: function ($$v) {
-                                                _vm.monitored_calendar = $$v
-                                              },
-                                              expression: "monitored_calendar",
-                                            },
-                                          },
-                                          [
-                                            _vm._v(" "),
-                                            _c(
-                                              "v-date-picker",
-                                              {
-                                                attrs: {
-                                                  scrollable: "",
-                                                  min: _vm.date_now,
-                                                  dark: "",
-                                                },
-                                                model: {
-                                                  value:
-                                                    _vm.cd.cd_date_monitored,
-                                                  callback: function ($$v) {
-                                                    _vm.$set(
-                                                      _vm.cd,
-                                                      "cd_date_monitored",
-                                                      $$v
-                                                    )
-                                                  },
-                                                  expression:
-                                                    "cd.cd_date_monitored",
-                                                },
-                                              },
-                                              [
-                                                _c("v-spacer"),
-                                                _vm._v(" "),
-                                                _c(
-                                                  "v-btn",
-                                                  {
-                                                    attrs: {
-                                                      text: "",
-                                                      dark: "",
-                                                    },
-                                                    on: {
-                                                      click: function ($event) {
-                                                        _vm.monitored_calendar = false
-                                                      },
-                                                    },
-                                                  },
-                                                  [
-                                                    _vm._v(
-                                                      "\n                                            Cancel\n                                        "
-                                                    ),
-                                                  ]
-                                                ),
-                                                _vm._v(" "),
-                                                _c(
-                                                  "v-btn",
-                                                  {
-                                                    attrs: {
-                                                      text: "",
-                                                      dark: "",
-                                                    },
-                                                    on: {
-                                                      click: function ($event) {
-                                                        return _vm.$refs.dialog.save(
-                                                          _vm.cd
-                                                            .cd_date_monitored
-                                                        )
-                                                      },
-                                                    },
-                                                  },
-                                                  [
-                                                    _vm._v(
-                                                      "\n                                            OK\n                                        "
-                                                    ),
-                                                  ]
-                                                ),
-                                              ],
-                                              1
-                                            ),
-                                          ],
-                                          1
-                                        ),
-                                        _vm._v(" "),
-                                        _c(
-                                          "v-dialog",
-                                          {
-                                            ref: "dialog",
-                                            attrs: {
-                                              "return-value":
-                                                _vm.cd.cd_date_closure,
-                                              persistent: "",
-                                              width: "290px",
-                                              dark: "",
-                                            },
-                                            on: {
-                                              "update:returnValue": function (
-                                                $event
-                                              ) {
-                                                return _vm.$set(
-                                                  _vm.cd,
-                                                  "cd_date_closure",
-                                                  $event
-                                                )
-                                              },
-                                              "update:return-value": function (
-                                                $event
-                                              ) {
-                                                return _vm.$set(
-                                                  _vm.cd,
-                                                  "cd_date_closure",
-                                                  $event
-                                                )
-                                              },
-                                            },
-                                            scopedSlots: _vm._u(
-                                              [
-                                                {
-                                                  key: "activator",
-                                                  fn: function (ref) {
-                                                    var on = ref.on
-                                                    var attrs = ref.attrs
-                                                    return [
-                                                      _c(
-                                                        "v-text-field",
-                                                        _vm._g(
-                                                          _vm._b(
-                                                            {
-                                                              attrs: {
-                                                                label:
-                                                                  "Date of Closure",
-                                                                readonly: "",
-                                                                outlined: "",
-                                                                dense: "",
-                                                                color: "black",
-                                                              },
-                                                              model: {
-                                                                value:
-                                                                  _vm.cd
-                                                                    .cd_date_closure,
-                                                                callback:
-                                                                  function (
-                                                                    $$v
-                                                                  ) {
-                                                                    _vm.$set(
-                                                                      _vm.cd,
-                                                                      "cd_date_closure",
-                                                                      $$v
-                                                                    )
-                                                                  },
-                                                                expression:
-                                                                  "cd.cd_date_closure",
-                                                              },
-                                                            },
-                                                            "v-text-field",
-                                                            attrs,
-                                                            false
-                                                          ),
-                                                          on
-                                                        )
-                                                      ),
-                                                    ]
-                                                  },
-                                                },
-                                              ],
-                                              null,
-                                              true
-                                            ),
-                                            model: {
-                                              value: _vm.closure_calendar,
-                                              callback: function ($$v) {
-                                                _vm.closure_calendar = $$v
-                                              },
-                                              expression: "closure_calendar",
-                                            },
-                                          },
-                                          [
-                                            _vm._v(" "),
-                                            _c(
-                                              "v-date-picker",
-                                              {
-                                                attrs: {
-                                                  scrollable: "",
-                                                  min: _vm.date_now,
-                                                  dark: "",
-                                                },
-                                                model: {
-                                                  value: _vm.cd.cd_date_closure,
-                                                  callback: function ($$v) {
-                                                    _vm.$set(
-                                                      _vm.cd,
-                                                      "cd_date_closure",
-                                                      $$v
-                                                    )
-                                                  },
-                                                  expression:
-                                                    "cd.cd_date_closure",
-                                                },
-                                              },
-                                              [
-                                                _c("v-spacer"),
-                                                _vm._v(" "),
-                                                _c(
-                                                  "v-btn",
-                                                  {
-                                                    attrs: {
-                                                      text: "",
-                                                      dark: "",
-                                                    },
-                                                    on: {
-                                                      click: function ($event) {
-                                                        _vm.closure_calendar = false
-                                                      },
-                                                    },
-                                                  },
-                                                  [
-                                                    _vm._v(
-                                                      "\n                                            Cancel\n                                        "
-                                                    ),
-                                                  ]
-                                                ),
-                                                _vm._v(" "),
-                                                _c(
-                                                  "v-btn",
-                                                  {
-                                                    attrs: {
-                                                      text: "",
-                                                      dark: "",
-                                                    },
-                                                    on: {
-                                                      click: function ($event) {
-                                                        return _vm.$refs.dialog.save(
-                                                          _vm.cd.cd_date_closure
-                                                        )
-                                                      },
-                                                    },
-                                                  },
-                                                  [
-                                                    _vm._v(
-                                                      "\n                                            OK\n                                        "
-                                                    ),
-                                                  ]
-                                                ),
-                                              ],
-                                              1
-                                            ),
-                                          ],
-                                          1
-                                        ),
-                                        _vm._v(" "),
                                         _c("ValidationProvider", {
                                           attrs: {
-                                            vid: "cd_status",
-                                            name: "Status",
-                                            rules: "required",
-                                          },
-                                          scopedSlots: _vm._u(
-                                            [
-                                              {
-                                                key: "default",
-                                                fn: function (ref) {
-                                                  var errors = ref.errors
-                                                  return [
-                                                    _c("v-select", {
-                                                      attrs: {
-                                                        items: _vm.cd_status,
-                                                        "error-messages":
-                                                          errors[0],
-                                                        outlined: "",
-                                                        dense: "",
-                                                        label: "Status",
-                                                      },
-                                                      model: {
-                                                        value: _vm.cd.cd_status,
-                                                        callback: function (
-                                                          $$v
-                                                        ) {
-                                                          _vm.$set(
-                                                            _vm.cd,
-                                                            "cd_status",
-                                                            $$v
-                                                          )
-                                                        },
-                                                        expression:
-                                                          "cd.cd_status",
-                                                      },
-                                                    }),
-                                                  ]
-                                                },
-                                              },
-                                            ],
-                                            null,
-                                            true
-                                          ),
-                                        }),
-                                        _vm._v(" "),
-                                        _c("ValidationProvider", {
-                                          attrs: {
-                                            vid: "cd_total_land_area",
-                                            name: "Total Land Area",
-                                            rules: "required",
+                                            vid: "ten_year_planning_period",
+                                            name: "10 YEAR Planning Period",
+                                            rules: "",
                                           },
                                           scopedSlots: _vm._u(
                                             [
@@ -22111,7 +22318,7 @@ var render = function () {
                                                     _c("v-text-field", {
                                                       attrs: {
                                                         label:
-                                                          "Total Land Area",
+                                                          "10 YEAR Planning Period",
                                                         "error-messages":
                                                           errors[0],
                                                         outlined: "",
@@ -22121,19 +22328,19 @@ var render = function () {
                                                       },
                                                       model: {
                                                         value:
-                                                          _vm.cd
-                                                            .cd_total_land_area,
+                                                          _vm.ten_yr
+                                                            .ten_year_planning_period,
                                                         callback: function (
                                                           $$v
                                                         ) {
                                                           _vm.$set(
-                                                            _vm.cd,
-                                                            "cd_total_land_area",
+                                                            _vm.ten_yr,
+                                                            "ten_year_planning_period",
                                                             $$v
                                                           )
                                                         },
                                                         expression:
-                                                          "cd.cd_total_land_area",
+                                                          "\n                                            ten_yr.ten_year_planning_period\n                                        ",
                                                       },
                                                     }),
                                                   ]
@@ -22147,8 +22354,8 @@ var render = function () {
                                         _vm._v(" "),
                                         _c("ValidationProvider", {
                                           attrs: {
-                                            vid: "remarks",
-                                            name: "Remarks",
+                                            vid: "ten_year_year_approved",
+                                            name: "10 YEAR APPROVED",
                                             rules: "",
                                           },
                                           scopedSlots: _vm._u(
@@ -22158,31 +22365,32 @@ var render = function () {
                                                 fn: function (ref) {
                                                   var errors = ref.errors
                                                   return [
-                                                    _c("v-textarea", {
+                                                    _c("v-text-field", {
                                                       attrs: {
-                                                        label: "Remarks",
+                                                        label:
+                                                          "10 YEAR APPROVED",
                                                         "error-messages":
                                                           errors[0],
                                                         outlined: "",
                                                         clearable: "",
                                                         dense: "",
                                                         color: "dark",
-                                                        rows: "2",
                                                       },
                                                       model: {
                                                         value:
-                                                          _vm.cd.cd_remarks,
+                                                          _vm.ten_yr
+                                                            .ten_year_year_approved,
                                                         callback: function (
                                                           $$v
                                                         ) {
                                                           _vm.$set(
-                                                            _vm.cd,
-                                                            "cd_remarks",
+                                                            _vm.ten_yr,
+                                                            "ten_year_year_approved",
                                                             $$v
                                                           )
                                                         },
                                                         expression:
-                                                          "cd.cd_remarks",
+                                                          "\n                                            ten_yr.ten_year_year_approved\n                                        ",
                                                       },
                                                     }),
                                                   ]
@@ -22194,190 +22402,53 @@ var render = function () {
                                           ),
                                         }),
                                         _vm._v(" "),
-                                        _c("v-checkbox", {
+                                        _c("ValidationProvider", {
                                           attrs: {
-                                            label: "Site Clearing",
-                                            value: "true",
-                                            "hide-details": "",
-                                            color: "dark",
+                                            vid: "ten_year_number",
+                                            name: "Number",
+                                            rules: "",
                                           },
-                                          model: {
-                                            value: _vm.cd.cd_site_clearing,
-                                            callback: function ($$v) {
-                                              _vm.$set(
-                                                _vm.cd,
-                                                "cd_site_clearing",
-                                                $$v
-                                              )
-                                            },
-                                            expression: "cd.cd_site_clearing",
-                                          },
-                                        }),
-                                        _vm._v(" "),
-                                        _c("v-checkbox", {
-                                          attrs: {
-                                            label: "Grading",
-                                            value: "true",
-                                            "hide-details": "",
-                                            color: "dark",
-                                          },
-                                          model: {
-                                            value: _vm.cd.cd_grading,
-                                            callback: function ($$v) {
-                                              _vm.$set(
-                                                _vm.cd,
-                                                "cd_grading",
-                                                $$v
-                                              )
-                                            },
-                                            expression: "cd.cd_grading",
-                                          },
-                                        }),
-                                        _vm._v(" "),
-                                        _c("v-checkbox", {
-                                          attrs: {
-                                            label: "Application Maintenance",
-                                            value: "true",
-                                            "hide-details": "",
-                                            color: "dark",
-                                          },
-                                          model: {
-                                            value:
-                                              _vm.cd.cd_application_maintenance,
-                                            callback: function ($$v) {
-                                              _vm.$set(
-                                                _vm.cd,
-                                                "cd_application_maintenance",
-                                                $$v
-                                              )
-                                            },
-                                            expression:
-                                              "cd.cd_application_maintenance",
-                                          },
-                                        }),
-                                        _vm._v(" "),
-                                        _c("v-checkbox", {
-                                          attrs: {
-                                            label: "Provision Drainange",
-                                            value: "true",
-                                            "hide-details": "",
-                                            color: "dark",
-                                          },
-                                          model: {
-                                            value: _vm.cd.cd_provision_drainage,
-                                            callback: function ($$v) {
-                                              _vm.$set(
-                                                _vm.cd,
-                                                "cd_provision_drainage",
-                                                $$v
-                                              )
-                                            },
-                                            expression:
-                                              "cd.cd_provision_drainage",
-                                          },
-                                        }),
-                                        _vm._v(" "),
-                                        _c("v-checkbox", {
-                                          attrs: {
-                                            label: "Leachate Management",
-                                            value: "true",
-                                            "hide-details": "",
-                                            color: "dark",
-                                          },
-                                          model: {
-                                            value:
-                                              _vm.cd.cd_leachate_management,
-                                            callback: function ($$v) {
-                                              _vm.$set(
-                                                _vm.cd,
-                                                "cd_leachate_management",
-                                                $$v
-                                              )
-                                            },
-                                            expression:
-                                              "cd.cd_leachate_management",
-                                          },
-                                        }),
-                                        _vm._v(" "),
-                                        _c("v-checkbox", {
-                                          attrs: {
-                                            label: "Gas Management",
-                                            value: "true",
-                                            "hide-details": "",
-                                            color: "dark",
-                                          },
-                                          model: {
-                                            value: _vm.cd.cd_gas_management,
-                                            callback: function ($$v) {
-                                              _vm.$set(
-                                                _vm.cd,
-                                                "cd_gas_management",
-                                                $$v
-                                              )
-                                            },
-                                            expression: "cd.cd_gas_management",
-                                          },
-                                        }),
-                                        _vm._v(" "),
-                                        _c("v-checkbox", {
-                                          attrs: {
-                                            label: "Fencing Security",
-                                            value: "true",
-                                            "hide-details": "",
-                                            color: "dark",
-                                          },
-                                          model: {
-                                            value: _vm.cd.cd_fencing_security,
-                                            callback: function ($$v) {
-                                              _vm.$set(
-                                                _vm.cd,
-                                                "cd_fencing_security",
-                                                $$v
-                                              )
-                                            },
-                                            expression:
-                                              "cd.cd_fencing_security",
-                                          },
-                                        }),
-                                        _vm._v(" "),
-                                        _c("v-checkbox", {
-                                          attrs: {
-                                            label: "Putting Signages",
-                                            value: "true",
-                                            "hide-details": "",
-                                            color: "dark",
-                                          },
-                                          model: {
-                                            value: _vm.cd.cd_putting_sinages,
-                                            callback: function ($$v) {
-                                              _vm.$set(
-                                                _vm.cd,
-                                                "cd_putting_sinages",
-                                                $$v
-                                              )
-                                            },
-                                            expression: "cd.cd_putting_sinages",
-                                          },
-                                        }),
-                                        _vm._v(" "),
-                                        _c("v-checkbox", {
-                                          attrs: {
-                                            label: "Prohibition",
-                                            value: "true",
-                                            "hide-details": "",
-                                            color: "dark",
-                                          },
-                                          model: {
-                                            value: _vm.cd.cd_prohibition,
-                                            callback: function ($$v) {
-                                              _vm.$set(
-                                                _vm.cd,
-                                                "cd_prohibition",
-                                                $$v
-                                              )
-                                            },
-                                            expression: "cd.cd_prohibition",
-                                          },
+                                          scopedSlots: _vm._u(
+                                            [
+                                              {
+                                                key: "default",
+                                                fn: function (ref) {
+                                                  var errors = ref.errors
+                                                  return [
+                                                    _c("v-text-field", {
+                                                      attrs: {
+                                                        label: "Number",
+                                                        "error-messages":
+                                                          errors[0],
+                                                        outlined: "",
+                                                        clearable: "",
+                                                        dense: "",
+                                                        color: "dark",
+                                                      },
+                                                      model: {
+                                                        value:
+                                                          _vm.ten_yr
+                                                            .ten_year_number,
+                                                        callback: function (
+                                                          $$v
+                                                        ) {
+                                                          _vm.$set(
+                                                            _vm.ten_yr,
+                                                            "ten_year_number",
+                                                            $$v
+                                                          )
+                                                        },
+                                                        expression:
+                                                          "ten_yr.ten_year_number",
+                                                      },
+                                                    }),
+                                                  ]
+                                                },
+                                              },
+                                            ],
+                                            null,
+                                            true
+                                          ),
                                         }),
                                       ],
                                       1
@@ -22385,6 +22456,746 @@ var render = function () {
                                   ],
                                   1
                                 ),
+                                _vm._v(" "),
+                                _c(
+                                  "v-card",
+                                  [
+                                    _c("v-card-title", [
+                                      _vm._v(
+                                        "\n                                FIndings Overview\n                            "
+                                      ),
+                                    ]),
+                                    _vm._v(" "),
+                                    _c(
+                                      "v-card-text",
+                                      { staticClass: "grid grid-cols-2 gap-2" },
+                                      _vm._l(
+                                        _vm.overview_of_finding,
+                                        function (overview) {
+                                          return _c(
+                                            "div",
+                                            { key: overview.id },
+                                            [
+                                              _c("v-checkbox", {
+                                                attrs: {
+                                                  label: overview.name,
+                                                  value: overview.id,
+                                                  "hide-details": "",
+                                                  color: "dark",
+                                                },
+                                                model: {
+                                                  value: _vm.ten_year_findings,
+                                                  callback: function ($$v) {
+                                                    _vm.ten_year_findings = $$v
+                                                  },
+                                                  expression:
+                                                    "ten_year_findings",
+                                                },
+                                              }),
+                                            ],
+                                            1
+                                          )
+                                        }
+                                      ),
+                                      0
+                                    ),
+                                  ],
+                                  1
+                                ),
+                                _vm._v(" "),
+                                _vm.ten_year_monitoring_list
+                                  ? _c(
+                                      "v-card",
+                                      { attrs: { "max-height": "300" } },
+                                      [
+                                        _c(
+                                          "v-card-title",
+                                          { attrs: { "primary-title": "" } },
+                                          [
+                                            _c(
+                                              "Link",
+                                              {
+                                                attrs: {
+                                                  href:
+                                                    "/app/swm/ten_year_monitoring_register/" +
+                                                    _vm.ten_yr.id,
+                                                },
+                                              },
+                                              [
+                                                _c(
+                                                  "v-btn",
+                                                  {
+                                                    attrs: {
+                                                      dark: "",
+                                                      small: "",
+                                                    },
+                                                  },
+                                                  [
+                                                    _vm._v(
+                                                      "\n                                        Add Monitoring List\n                                    "
+                                                    ),
+                                                  ]
+                                                ),
+                                              ],
+                                              1
+                                            ),
+                                          ],
+                                          1
+                                        ),
+                                        _vm._v(" "),
+                                        _vm.ten_year_monitoring_list.length
+                                          ? _c(
+                                              "v-card-text",
+                                              [
+                                                _c(
+                                                  "b-table",
+                                                  {
+                                                    attrs: {
+                                                      data: _vm.ten_year_monitoring_list,
+                                                      "per-page":
+                                                        _vm
+                                                          .ten_year_monitoring_list
+                                                          .per_page,
+                                                      "pagination-size":
+                                                        "is-small",
+                                                      "page-input": "",
+                                                      hoverable: "",
+                                                      "backend-pagination": "",
+                                                      total:
+                                                        _vm
+                                                          .ten_year_monitoring_list
+                                                          .total,
+                                                      "current-page":
+                                                        _vm
+                                                          .ten_year_monitoring_list
+                                                          .current_page,
+                                                      "pagination-position":
+                                                        "top",
+                                                      "pagination-rounded": "",
+                                                      narrowed: "",
+                                                      loading: _vm.loading,
+                                                      bordered: "",
+                                                      "sticky-header": "",
+                                                      scrollable: "",
+                                                      "row-class": function (
+                                                        row,
+                                                        index
+                                                      ) {
+                                                        return _vm.isTheme
+                                                          ? "bg-black text-white"
+                                                          : ""
+                                                      },
+                                                      "header-class":
+                                                        _vm.isTheme
+                                                          ? "bg-black text-white"
+                                                          : "",
+                                                      height: "420",
+                                                    },
+                                                    on: {
+                                                      "update:currentPage":
+                                                        function ($event) {
+                                                          return _vm.$set(
+                                                            _vm.ten_year_monitoring_list,
+                                                            "current_page",
+                                                            $event
+                                                          )
+                                                        },
+                                                      "update:current-page":
+                                                        function ($event) {
+                                                          return _vm.$set(
+                                                            _vm.ten_year_monitoring_list,
+                                                            "current_page",
+                                                            $event
+                                                          )
+                                                        },
+                                                      "page-change":
+                                                        _vm.onPageChange,
+                                                    },
+                                                    scopedSlots: _vm._u(
+                                                      [
+                                                        {
+                                                          key: "empty",
+                                                          fn: function () {
+                                                            return [
+                                                              _c(
+                                                                "div",
+                                                                {
+                                                                  staticClass:
+                                                                    "text-center text-3xl text-gray-500 font-extrabold",
+                                                                },
+                                                                [
+                                                                  _vm._v(
+                                                                    "\n                                            No lce_list Found\n                                        "
+                                                                  ),
+                                                                ]
+                                                              ),
+                                                            ]
+                                                          },
+                                                          proxy: true,
+                                                        },
+                                                      ],
+                                                      null,
+                                                      true
+                                                    ),
+                                                  },
+                                                  [
+                                                    _c("b-table-column", {
+                                                      attrs: {
+                                                        field:
+                                                          "ten_year_mon_date_monitored",
+                                                        label: "Date Monitored",
+                                                        centered: "",
+                                                      },
+                                                      scopedSlots: _vm._u(
+                                                        [
+                                                          {
+                                                            key: "searchable",
+                                                            fn: function (
+                                                              props
+                                                            ) {
+                                                              return [
+                                                                _c("b-input", {
+                                                                  attrs: {
+                                                                    placeholder:
+                                                                      "Search...",
+                                                                    icon: "magnify",
+                                                                    size: "is-small",
+                                                                  },
+                                                                }),
+                                                              ]
+                                                            },
+                                                          },
+                                                          {
+                                                            key: "default",
+                                                            fn: function (
+                                                              props
+                                                            ) {
+                                                              return [
+                                                                _vm._v(
+                                                                  "\n                                            " +
+                                                                    _vm._s(
+                                                                      props.row
+                                                                        .ten_year_mon_date_monitored
+                                                                    ) +
+                                                                    "\n                                        "
+                                                                ),
+                                                              ]
+                                                            },
+                                                          },
+                                                        ],
+                                                        null,
+                                                        true
+                                                      ),
+                                                    }),
+                                                    _vm._v(" "),
+                                                    _c("b-table-column", {
+                                                      attrs: {
+                                                        field:
+                                                          "ten_year_mon_date_submitted",
+                                                        label: "Date Submitted",
+                                                        centered: "",
+                                                      },
+                                                      scopedSlots: _vm._u(
+                                                        [
+                                                          {
+                                                            key: "searchable",
+                                                            fn: function (
+                                                              props
+                                                            ) {
+                                                              return [
+                                                                _c("b-input", {
+                                                                  attrs: {
+                                                                    placeholder:
+                                                                      "Search...",
+                                                                    icon: "magnify",
+                                                                    size: "is-small",
+                                                                  },
+                                                                }),
+                                                              ]
+                                                            },
+                                                          },
+                                                          {
+                                                            key: "default",
+                                                            fn: function (
+                                                              props
+                                                            ) {
+                                                              return [
+                                                                _vm._v(
+                                                                  "\n                                            " +
+                                                                    _vm._s(
+                                                                      props.row
+                                                                        .ten_year_mon_date_submitted
+                                                                    ) +
+                                                                    "\n                                        "
+                                                                ),
+                                                              ]
+                                                            },
+                                                          },
+                                                        ],
+                                                        null,
+                                                        true
+                                                      ),
+                                                    }),
+                                                    _vm._v(" "),
+                                                    _c("b-table-column", {
+                                                      attrs: {
+                                                        field:
+                                                          "ten_year_mon_by",
+                                                        label: "Monitored By",
+                                                        centered: "",
+                                                      },
+                                                      scopedSlots: _vm._u(
+                                                        [
+                                                          {
+                                                            key: "default",
+                                                            fn: function (
+                                                              props
+                                                            ) {
+                                                              return [
+                                                                _vm._v(
+                                                                  "\n                                            " +
+                                                                    _vm._s(
+                                                                      props.row
+                                                                        .ten_year_mon_by
+                                                                    ) +
+                                                                    "\n                                        "
+                                                                ),
+                                                              ]
+                                                            },
+                                                          },
+                                                        ],
+                                                        null,
+                                                        true
+                                                      ),
+                                                    }),
+                                                    _vm._v(" "),
+                                                    _c("b-table-column", {
+                                                      attrs: {
+                                                        field: "action",
+                                                        label: "",
+                                                      },
+                                                      scopedSlots: _vm._u(
+                                                        [
+                                                          {
+                                                            key: "default",
+                                                            fn: function (
+                                                              props
+                                                            ) {
+                                                              return [
+                                                                _c(
+                                                                  "Link",
+                                                                  {
+                                                                    attrs: {
+                                                                      href:
+                                                                        "/app/swm/ten_year_monitoring_edit/" +
+                                                                        props
+                                                                          .row
+                                                                          .id,
+                                                                    },
+                                                                  },
+                                                                  [
+                                                                    _c(
+                                                                      "box-icon",
+                                                                      {
+                                                                        attrs: {
+                                                                          name: "edit",
+                                                                          color:
+                                                                            "orange",
+                                                                          animation:
+                                                                            "tada-hover",
+                                                                        },
+                                                                      }
+                                                                    ),
+                                                                  ],
+                                                                  1
+                                                                ),
+                                                                _vm._v(" "),
+                                                                _c(
+                                                                  "v-btn",
+                                                                  {
+                                                                    attrs: {
+                                                                      icon: "",
+                                                                      small: "",
+                                                                    },
+                                                                    on: {
+                                                                      click:
+                                                                        function (
+                                                                          $event
+                                                                        ) {
+                                                                          return _vm.removeMonitoring(
+                                                                            props
+                                                                              .row
+                                                                              .id
+                                                                          )
+                                                                        },
+                                                                    },
+                                                                  },
+                                                                  [
+                                                                    _c(
+                                                                      "box-icon",
+                                                                      {
+                                                                        attrs: {
+                                                                          name: "trash",
+                                                                          color:
+                                                                            "red",
+                                                                          animation:
+                                                                            "tada-hover",
+                                                                        },
+                                                                      }
+                                                                    ),
+                                                                  ],
+                                                                  1
+                                                                ),
+                                                              ]
+                                                            },
+                                                          },
+                                                        ],
+                                                        null,
+                                                        true
+                                                      ),
+                                                    }),
+                                                  ],
+                                                  1
+                                                ),
+                                              ],
+                                              1
+                                            )
+                                          : _vm._e(),
+                                      ],
+                                      1
+                                    )
+                                  : _vm._e(),
+                                _vm._v(" "),
+                                _c(
+                                  "v-card",
+                                  [
+                                    _c("v-card-title", [
+                                      _vm._v(
+                                        "\n                                Upload Attachments\n                            "
+                                      ),
+                                    ]),
+                                    _vm._v(" "),
+                                    _c(
+                                      "v-card-text",
+                                      { staticClass: "grid grid-cols-2 gap-2" },
+                                      [
+                                        _c("ValidationProvider", {
+                                          attrs: {
+                                            vid: "ten_year_file",
+                                            name: "10 YEAY File",
+                                            rules: "",
+                                          },
+                                          scopedSlots: _vm._u(
+                                            [
+                                              {
+                                                key: "default",
+                                                fn: function (ref) {
+                                                  var errors = ref.errors
+                                                  return [
+                                                    _c("v-file-input", {
+                                                      attrs: {
+                                                        label:
+                                                          "10 YEAY COPY File",
+                                                        "error-messages":
+                                                          errors[0],
+                                                        outlined: "",
+                                                        clearable: "",
+                                                        dense: "",
+                                                        color: "dark",
+                                                        "truncate-length": "15",
+                                                        multiple: "",
+                                                        accept:
+                                                          "image/png, image/jpeg, application/pdf",
+                                                      },
+                                                      model: {
+                                                        value:
+                                                          _vm.ten_yr
+                                                            .ten_year_file,
+                                                        callback: function (
+                                                          $$v
+                                                        ) {
+                                                          _vm.$set(
+                                                            _vm.ten_yr,
+                                                            "ten_year_file",
+                                                            $$v
+                                                          )
+                                                        },
+                                                        expression:
+                                                          "ten_yr.ten_year_file",
+                                                      },
+                                                    }),
+                                                  ]
+                                                },
+                                              },
+                                            ],
+                                            null,
+                                            true
+                                          ),
+                                        }),
+                                        _vm._v(" "),
+                                        _c("ValidationProvider", {
+                                          attrs: {
+                                            vid: "ten_year_copy_plan",
+                                            name: "10 YEAY COPY PLAN",
+                                            rules: "",
+                                          },
+                                          scopedSlots: _vm._u(
+                                            [
+                                              {
+                                                key: "default",
+                                                fn: function (ref) {
+                                                  var errors = ref.errors
+                                                  return [
+                                                    _c("v-file-input", {
+                                                      attrs: {
+                                                        label:
+                                                          "10 YEAY COPY PLAN",
+                                                        "error-messages":
+                                                          errors[0],
+                                                        outlined: "",
+                                                        clearable: "",
+                                                        dense: "",
+                                                        color: "dark",
+                                                        "truncate-length": "15",
+                                                        multiple: "",
+                                                        accept:
+                                                          "image/png, image/jpeg, application/pdf",
+                                                      },
+                                                      model: {
+                                                        value:
+                                                          _vm.ten_yr
+                                                            .ten_year_copy_plan,
+                                                        callback: function (
+                                                          $$v
+                                                        ) {
+                                                          _vm.$set(
+                                                            _vm.ten_yr,
+                                                            "ten_year_copy_plan",
+                                                            $$v
+                                                          )
+                                                        },
+                                                        expression:
+                                                          "ten_yr.ten_year_copy_plan",
+                                                      },
+                                                    }),
+                                                  ]
+                                                },
+                                              },
+                                            ],
+                                            null,
+                                            true
+                                          ),
+                                        }),
+                                        _vm._v(" "),
+                                        _c("ValidationProvider", {
+                                          attrs: {
+                                            vid: "ten_year_copy_resolution",
+                                            name: "10 YEAY COPY RESOLUTION",
+                                            rules: "",
+                                          },
+                                          scopedSlots: _vm._u(
+                                            [
+                                              {
+                                                key: "default",
+                                                fn: function (ref) {
+                                                  var errors = ref.errors
+                                                  return [
+                                                    _c("v-file-input", {
+                                                      attrs: {
+                                                        label:
+                                                          "10 YEAY COPY RESOLUTION",
+                                                        "error-messages":
+                                                          errors[0],
+                                                        outlined: "",
+                                                        clearable: "",
+                                                        dense: "",
+                                                        color: "dark",
+                                                        "truncate-length": "15",
+                                                        multiple: "",
+                                                        accept:
+                                                          "image/png, image/jpeg, application/pdf",
+                                                      },
+                                                      model: {
+                                                        value:
+                                                          _vm.ten_yr
+                                                            .ten_year_copy_resolution,
+                                                        callback: function (
+                                                          $$v
+                                                        ) {
+                                                          _vm.$set(
+                                                            _vm.ten_yr,
+                                                            "ten_year_copy_resolution",
+                                                            $$v
+                                                          )
+                                                        },
+                                                        expression:
+                                                          "\n                                            ten_yr.ten_year_copy_resolution\n                                        ",
+                                                      },
+                                                    }),
+                                                  ]
+                                                },
+                                              },
+                                            ],
+                                            null,
+                                            true
+                                          ),
+                                        }),
+                                        _vm._v(" "),
+                                        _c("ValidationProvider", {
+                                          attrs: {
+                                            vid: "ten_year_copy_form",
+                                            name: "10 YEAY COPY FORM",
+                                            rules: "",
+                                          },
+                                          scopedSlots: _vm._u(
+                                            [
+                                              {
+                                                key: "default",
+                                                fn: function (ref) {
+                                                  var errors = ref.errors
+                                                  return [
+                                                    _c("v-file-input", {
+                                                      attrs: {
+                                                        label:
+                                                          "10 YEAY COPY FORM",
+                                                        "error-messages":
+                                                          errors[0],
+                                                        outlined: "",
+                                                        clearable: "",
+                                                        dense: "",
+                                                        color: "dark",
+                                                        "truncate-length": "15",
+                                                        multiple: "",
+                                                        accept:
+                                                          "image/png, image/jpeg, application/pdf",
+                                                      },
+                                                      model: {
+                                                        value:
+                                                          _vm.ten_yr
+                                                            .ten_year_copy_form,
+                                                        callback: function (
+                                                          $$v
+                                                        ) {
+                                                          _vm.$set(
+                                                            _vm.ten_yr,
+                                                            "ten_year_copy_form",
+                                                            $$v
+                                                          )
+                                                        },
+                                                        expression:
+                                                          "ten_yr.ten_year_copy_form",
+                                                      },
+                                                    }),
+                                                  ]
+                                                },
+                                              },
+                                            ],
+                                            null,
+                                            true
+                                          ),
+                                        }),
+                                      ],
+                                      1
+                                    ),
+                                  ],
+                                  1
+                                ),
+                                _vm._v(" "),
+                                _vm.attachments
+                                  ? _c(
+                                      "v-card",
+                                      [
+                                        _c(
+                                          "v-card-title",
+                                          { attrs: { "primary-title": "" } },
+                                          [
+                                            _vm._v(
+                                              "\n                                Attachments\n                            "
+                                            ),
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "v-card-text",
+                                          {
+                                            staticClass:
+                                              "grid grid-cols-2 gap-2",
+                                          },
+                                          [
+                                            _vm.attachments.ten_yr_file.data
+                                              .length
+                                              ? _c("ViewAttachements", {
+                                                  attrs: {
+                                                    title:
+                                                      "10 YEAR FILE Attachments",
+                                                    attachments:
+                                                      _vm.attachments
+                                                        .ten_yr_file.data,
+                                                    goTo: function (url) {
+                                                      _vm.goTo(url)
+                                                    },
+                                                    removeFile: _vm.removeFIle,
+                                                  },
+                                                })
+                                              : _vm._e(),
+                                            _vm._v(" "),
+                                            _vm.attachments.copy_plan.data
+                                              .length
+                                              ? _c("ViewAttachements", {
+                                                  attrs: {
+                                                    title:
+                                                      "10 YEAR COPY PLAN Attachments",
+                                                    attachments:
+                                                      _vm.attachments.copy_plan
+                                                        .data,
+                                                    goTo: function (url) {
+                                                      _vm.goTo(url)
+                                                    },
+                                                    removeFile: _vm.removeFIle,
+                                                  },
+                                                })
+                                              : _vm._e(),
+                                            _vm._v(" "),
+                                            _vm.attachments.copy_form.data
+                                              .length
+                                              ? _c("ViewAttachements", {
+                                                  attrs: {
+                                                    title:
+                                                      "10 YEAR COPY FORM Attachments",
+                                                    attachments:
+                                                      _vm.attachments.copy_form
+                                                        .data,
+                                                    goTo: function (url) {
+                                                      _vm.goTo(url)
+                                                    },
+                                                    removeFile: _vm.removeFIle,
+                                                  },
+                                                })
+                                              : _vm._e(),
+                                            _vm._v(" "),
+                                            _vm.attachments.copy_resolution.data
+                                              .length
+                                              ? _c("ViewAttachements", {
+                                                  attrs: {
+                                                    title:
+                                                      "10 YEAR COPY RESOLUTION Attachments",
+                                                    attachments:
+                                                      _vm.attachments
+                                                        .copy_resolution.data,
+                                                    goTo: function (url) {
+                                                      _vm.goTo(url)
+                                                    },
+                                                    removeFile: _vm.removeFIle,
+                                                  },
+                                                })
+                                              : _vm._e(),
+                                          ],
+                                          1
+                                        ),
+                                      ],
+                                      1
+                                    )
+                                  : _vm._e(),
                               ],
                               1
                             ),

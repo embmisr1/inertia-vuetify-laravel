@@ -2821,11 +2821,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
-<<<<<<< HEAD
     query_closed_dumpsite_id: Number,
-=======
-    query_closed_dumpsite_id: String,
->>>>>>> e0704fdae89a66ac0ec9d793d7cd99318d39e20a
     lce_edit: Array,
     province_dropdown: Array,
     lce_info: Array,
@@ -2835,13 +2831,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     query_mrf: Array,
     // mrf table
     mrf_edit: Array,
-<<<<<<< HEAD
     cd_edit: Array,
     query_rca: Array,
-    attachments: Object
-=======
-    cd_edit: Array
->>>>>>> e0704fdae89a66ac0ec9d793d7cd99318d39e20a
+    attachments: Object,
+    query_ten_year: Array,
+    ten_year_edit: Array,
+    ten_year_monitoring_list: Array,
+    ten_year_monitoring_edit: Array
   },
   data: function data() {
     return {
@@ -2922,6 +2918,25 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         cd_date_closure: null,
         lce_FK: null
       },
+      ten_yr: {
+        ten_year_planning_period: null,
+        ten_year_year_approved: null,
+        ten_year_number: null,
+        ten_year_file: null,
+        ten_year_copy_plan: null,
+        ten_year_copy_resolution: null,
+        ten_year_copy_form: null,
+        lce_FK: null
+      },
+      ten_yr_mon: {
+        ten_year_mon_status: null,
+        ten_year_mon_date_monitored: null,
+        ten_year_mon_date_submitted: null,
+        ten_year_mon_iis_number: null,
+        ten_year_mon_copy_report: null,
+        ten_year_mon_by: null,
+        ten_year_FK: null
+      },
       complete_address: null,
       complete_address_setter: {
         prov: {},
@@ -2937,7 +2952,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     };
   },
   computed: {
-<<<<<<< HEAD
     withAttachment: function withAttachment() {
       var toReturn = true;
 
@@ -2949,8 +2963,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
       return toReturn;
     },
-=======
->>>>>>> e0704fdae89a66ac0ec9d793d7cd99318d39e20a
     date_now: function date_now() {
       return new Date(Date.now() - new Date().getTimezoneOffset() * 60000).toISOString().substr(0, 10);
     },

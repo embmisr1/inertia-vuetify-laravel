@@ -939,7 +939,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-<<<<<<< HEAD
 //
 //
 //
@@ -1055,8 +1054,154 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-=======
->>>>>>> e0704fdae89a66ac0ec9d793d7cd99318d39e20a
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -1072,7 +1217,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   mixins: [_mixins___WEBPACK_IMPORTED_MODULE_4__.page, _mixins___WEBPACK_IMPORTED_MODULE_4__.toasts, _mixins___WEBPACK_IMPORTED_MODULE_4__.swm, _mixins___WEBPACK_IMPORTED_MODULE_4__.dialogs],
   data: function data() {
     return {
-      tabs: ["LCE", "SLF", "MRF", "RCA"]
+      tabs: ["LCE", "SLF", "MRF", "RCA", "10 YR"]
     };
   },
   methods: {
@@ -1170,6 +1315,54 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             }
           }
         }, _callee4, null, [[0, 7]]);
+      }))();
+    },
+    remove10Yr: function remove10Yr(ten_yr_id) {
+      var _this3 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee6() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee6$(_context6) {
+          while (1) {
+            switch (_context6.prev = _context6.next) {
+              case 0:
+                _context6.prev = 0;
+                _this3.loading = true;
+                _context6.next = 4;
+                return _this3.confirmDelete("This action  cannot be undone", /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee5() {
+                  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee5$(_context5) {
+                    while (1) {
+                      switch (_context5.prev = _context5.next) {
+                        case 0:
+                          _context5.next = 2;
+                          return _this3.$inertia["delete"]("/app/swm/ten_year_delete/".concat(ten_yr_id));
+
+                        case 2:
+                        case "end":
+                          return _context5.stop();
+                      }
+                    }
+                  }, _callee5);
+                })));
+
+              case 4:
+                _this3.loading = false;
+                _context6.next = 12;
+                break;
+
+              case 7:
+                _context6.prev = 7;
+                _context6.t0 = _context6["catch"](0);
+                _this3.loading = false;
+                console.log(_context6.t0);
+
+                _this3.error(_context6.t0.response.data.message);
+
+              case 12:
+              case "end":
+                return _context6.stop();
+            }
+          }
+        }, _callee6, null, [[0, 7]]);
       }))();
     }
   }
@@ -2882,11 +3075,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
-<<<<<<< HEAD
     query_closed_dumpsite_id: Number,
-=======
-    query_closed_dumpsite_id: String,
->>>>>>> e0704fdae89a66ac0ec9d793d7cd99318d39e20a
     lce_edit: Array,
     province_dropdown: Array,
     lce_info: Array,
@@ -2896,13 +3085,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     query_mrf: Array,
     // mrf table
     mrf_edit: Array,
-<<<<<<< HEAD
     cd_edit: Array,
     query_rca: Array,
-    attachments: Object
-=======
-    cd_edit: Array
->>>>>>> e0704fdae89a66ac0ec9d793d7cd99318d39e20a
+    attachments: Object,
+    query_ten_year: Array,
+    ten_year_edit: Array,
+    ten_year_monitoring_list: Array,
+    ten_year_monitoring_edit: Array
   },
   data: function data() {
     return {
@@ -2983,6 +3172,25 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         cd_date_closure: null,
         lce_FK: null
       },
+      ten_yr: {
+        ten_year_planning_period: null,
+        ten_year_year_approved: null,
+        ten_year_number: null,
+        ten_year_file: null,
+        ten_year_copy_plan: null,
+        ten_year_copy_resolution: null,
+        ten_year_copy_form: null,
+        lce_FK: null
+      },
+      ten_yr_mon: {
+        ten_year_mon_status: null,
+        ten_year_mon_date_monitored: null,
+        ten_year_mon_date_submitted: null,
+        ten_year_mon_iis_number: null,
+        ten_year_mon_copy_report: null,
+        ten_year_mon_by: null,
+        ten_year_FK: null
+      },
       complete_address: null,
       complete_address_setter: {
         prov: {},
@@ -2998,7 +3206,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     };
   },
   computed: {
-<<<<<<< HEAD
     withAttachment: function withAttachment() {
       var toReturn = true;
 
@@ -3010,8 +3217,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
       return toReturn;
     },
-=======
->>>>>>> e0704fdae89a66ac0ec9d793d7cd99318d39e20a
     date_now: function date_now() {
       return new Date(Date.now() - new Date().getTimezoneOffset() * 60000).toISOString().substr(0, 10);
     },
@@ -21932,7 +22137,7 @@ var render = function () {
                                     [
                                       _vm._v(
                                         _vm._s(this.lce_details.lce_title) +
-                                          ".\n                                    "
+                                          ".\n                                        "
                                       ),
                                     ]
                                   ),
@@ -21949,14 +22154,14 @@ var render = function () {
                                 _c("span", { staticClass: "text-sm italic" }, [
                                   _vm._v(
                                     _vm._s(this.lce_details.lce_salutation) +
-                                      ".\n                                "
+                                      ".\n                                    "
                                   ),
                                 ]),
                                 _vm._v(" "),
                                 _c("span", { staticClass: "text-sm italic" }, [
                                   _vm._v(
                                     _vm._s(this.lce_details.lce_position) +
-                                      ".\n                                "
+                                      ".\n                                    "
                                   ),
                                 ]),
                               ]),
@@ -21975,7 +22180,7 @@ var render = function () {
                                   [
                                     _vm._v(
                                       _vm._s(_vm.lce_address) +
-                                        "\n                                "
+                                        "\n                                    "
                                     ),
                                   ]
                                 ),
@@ -21989,7 +22194,7 @@ var render = function () {
                                 _c("div", [
                                   _c("div", [
                                     _vm._v(
-                                      "\n                                        Name:\n                                        "
+                                      "\n                                            Name:\n                                            "
                                     ),
                                     _c(
                                       "span",
@@ -22009,7 +22214,7 @@ var render = function () {
                                   _vm._v(" "),
                                   _c("div", [
                                     _vm._v(
-                                      "\n                                        Contact No.:\n                                        "
+                                      "\n                                            Contact No.:\n                                            "
                                     ),
                                     _c(
                                       "span",
@@ -22029,7 +22234,7 @@ var render = function () {
                                   _vm._v(" "),
                                   _c("div", [
                                     _vm._v(
-                                      "\n                                        Email:\n                                        "
+                                      "\n                                            Email:\n                                            "
                                     ),
                                     _c(
                                       "span",
@@ -22058,7 +22263,6 @@ var render = function () {
                         [
                           _c("v-spacer"),
                           _vm._v(" "),
-<<<<<<< HEAD
                           _c(
                             "div",
                             { staticClass: "space-x-4" },
@@ -22071,17 +22275,6 @@ var render = function () {
                                         href:
                                           "/app/swm/cd_register/" + _vm.lce_id,
                                       },
-=======
-                          _c("div", { staticClass: "space-x-4" }, [
-                            !_vm.query_closed_dumpsite_id
-                              ? _c(
-                                  "a",
-                                  {
-                                    attrs: {
-                                      href:
-                                        "/app/swm/cd_register/" + _vm.lce_id,
-                                      target: "_blank",
->>>>>>> e0704fdae89a66ac0ec9d793d7cd99318d39e20a
                                     },
                                     [
                                       _c(
@@ -22129,56 +22322,6 @@ var render = function () {
                                   attrs: {
                                     href: "/app/swm/lce_edit/" + _vm.lce_id,
                                   },
-<<<<<<< HEAD
-=======
-                                  [
-                                    _c(
-                                      "v-btn",
-                                      {
-                                        attrs: {
-                                          border: "",
-                                          outlined: "",
-                                          color: "red lighten-2",
-                                        },
-                                      },
-                                      [_vm._v("Close Dumpsite")]
-                                    ),
-                                  ],
-                                  1
-                                )
-                              : _c(
-                                  "a",
-                                  {
-                                    attrs: {
-                                      href:
-                                        "/app/swm/cd_edit/" +
-                                        _vm.query_closed_dumpsite_id,
-                                      target: "_blank",
-                                    },
-                                  },
-                                  [
-                                    _c(
-                                      "v-btn",
-                                      {
-                                        attrs: {
-                                          border: "",
-                                          outlined: "",
-                                          color: "red lighten-2",
-                                        },
-                                      },
-                                      [_vm._v("Close Dumpsite")]
-                                    ),
-                                  ],
-                                  1
-                                ),
-                            _vm._v(" "),
-                            _c(
-                              "a",
-                              {
-                                attrs: {
-                                  href: "/app/swm/lce_edit/" + _vm.lce_id,
-                                  target: "_blank",
->>>>>>> e0704fdae89a66ac0ec9d793d7cd99318d39e20a
                                 },
                                 [
                                   _c(
@@ -22243,7 +22386,7 @@ var render = function () {
                         "header-class": _vm.isTheme
                           ? "bg-black text-white"
                           : "",
-                        height: "420",
+                        height: "10",
                       },
                       on: {
                         "update:currentPage": function ($event) {
@@ -22267,7 +22410,7 @@ var render = function () {
                                 },
                                 [
                                   _vm._v(
-                                    "\n                            No lce_list Found\n                        "
+                                    "\n                                No lce_list Found\n                            "
                                   ),
                                 ]
                               ),
@@ -22300,9 +22443,9 @@ var render = function () {
                             fn: function (props) {
                               return [
                                 _vm._v(
-                                  "\n                            " +
+                                  "\n                                " +
                                     _vm._s(props.row.slf_ecc_number) +
-                                    "\n                        "
+                                    "\n                            "
                                 ),
                               ]
                             },
@@ -22335,9 +22478,9 @@ var render = function () {
                             fn: function (props) {
                               return [
                                 _vm._v(
-                                  "\n                            " +
+                                  "\n                                " +
                                     _vm._s(props.row.slf_project_operator) +
-                                    "\n                        "
+                                    "\n                            "
                                 ),
                               ]
                             },
@@ -22370,9 +22513,9 @@ var render = function () {
                             fn: function (props) {
                               return [
                                 _vm._v(
-                                  "\n                            " +
+                                  "\n                                " +
                                     _vm._s(props.row.slf_contact_person) +
-                                    "\n                        "
+                                    "\n                            "
                                 ),
                               ]
                             },
@@ -22405,9 +22548,9 @@ var render = function () {
                             fn: function (props) {
                               return [
                                 _vm._v(
-                                  "\n                            " +
+                                  "\n                                " +
                                     _vm._s(props.row.slf_contact_number) +
-                                    "\n                        "
+                                    "\n                            "
                                 ),
                               ]
                             },
@@ -22437,9 +22580,9 @@ var render = function () {
                             fn: function (props) {
                               return [
                                 _vm._v(
-                                  "\n                            " +
+                                  "\n                                " +
                                     _vm._s(props.row.slf_category) +
-                                    "\n                        "
+                                    "\n                            "
                                 ),
                               ]
                             },
@@ -22473,9 +22616,9 @@ var render = function () {
                             fn: function (props) {
                               return [
                                 _vm._v(
-                                  "\n                            " +
+                                  "\n                                " +
                                     _vm._s(props.row.slf_site_hectares) +
-                                    "\n                        "
+                                    "\n                            "
                                 ),
                               ]
                             },
@@ -22508,9 +22651,9 @@ var render = function () {
                             fn: function (props) {
                               return [
                                 _vm._v(
-                                  "\n                            " +
+                                  "\n                                " +
                                     _vm._s(props.row.slf_total_capacity) +
-                                    "\n                        "
+                                    "\n                            "
                                 ),
                               ]
                             },
@@ -22649,7 +22792,7 @@ var render = function () {
                                 },
                                 [
                                   _vm._v(
-                                    "\n                            No lce_list Found\n                        "
+                                    "\n                                No lce_list Found\n                            "
                                   ),
                                 ]
                               ),
@@ -22686,13 +22829,13 @@ var render = function () {
                             fn: function (props) {
                               return [
                                 _vm._v(
-                                  "\n                        ₱ " +
+                                  "\n                            ₱ " +
                                     _vm._s(
                                       props.row.mrf_emb_funded.toLocaleString(
                                         "en-US"
                                       )
                                     ) +
-                                    "\n                        "
+                                    "\n                            "
                                 ),
                               ]
                             },
@@ -22725,9 +22868,9 @@ var render = function () {
                             fn: function (props) {
                               return [
                                 _vm._v(
-                                  "\n                            " +
+                                  "\n                                " +
                                     _vm._s(props.row.mrf_status_operation) +
-                                    "\n                        "
+                                    "\n                            "
                                 ),
                               ]
                             },
@@ -22760,9 +22903,9 @@ var render = function () {
                             fn: function (props) {
                               return [
                                 _vm._v(
-                                  "\n                            " +
+                                  "\n                                " +
                                     _vm._s(props.row.mrf_service_area) +
-                                    "\n                        "
+                                    "\n                            "
                                 ),
                               ]
                             },
@@ -22904,7 +23047,7 @@ var render = function () {
                                 },
                                 [
                                   _vm._v(
-                                    "\n                            No lce_list Found\n                        "
+                                    "\n                                No lce_list Found\n                            "
                                   ),
                                 ]
                               ),
@@ -22941,13 +23084,13 @@ var render = function () {
                             fn: function (props) {
                               return [
                                 _vm._v(
-                                  "\n                        ₱ " +
+                                  "\n                            ₱ " +
                                     _vm._s(
                                       props.row.mrf_emb_funded.toLocaleString(
                                         "en-US"
                                       )
                                     ) +
-                                    "\n                        "
+                                    "\n                            "
                                 ),
                               ]
                             },
@@ -22980,9 +23123,9 @@ var render = function () {
                             fn: function (props) {
                               return [
                                 _vm._v(
-                                  "\n                            " +
+                                  "\n                                " +
                                     _vm._s(props.row.mrf_status_operation) +
-                                    "\n                        "
+                                    "\n                            "
                                 ),
                               ]
                             },
@@ -23015,9 +23158,9 @@ var render = function () {
                             fn: function (props) {
                               return [
                                 _vm._v(
-                                  "\n                            " +
+                                  "\n                                " +
                                     _vm._s(props.row.mrf_service_area) +
-                                    "\n                        "
+                                    "\n                            "
                                 ),
                               ]
                             },
@@ -23061,6 +23204,359 @@ var render = function () {
                                     on: {
                                       click: function ($event) {
                                         return _vm.removeMRF(props.row.id)
+                                      },
+                                    },
+                                  },
+                                  [
+                                    _c("box-icon", {
+                                      attrs: {
+                                        name: "trash",
+                                        color: "red",
+                                        animation: "tada-hover",
+                                      },
+                                    }),
+                                  ],
+                                  1
+                                ),
+                              ]
+                            },
+                          },
+                        ]),
+                      }),
+                    ],
+                    1
+                  ),
+                ],
+                1
+              ),
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "v-tab-item",
+            [
+              _c(
+                "v-container",
+                [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        href: "/app/swm/ten_year_register/" + _vm.lce_id,
+                      },
+                    },
+                    [
+                      _c("v-btn", { attrs: { dark: "" } }, [
+                        _vm._v("Add 10 YEAR"),
+                      ]),
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "b-table",
+                    {
+                      attrs: {
+                        data: _vm.query_ten_year,
+                        "per-page": _vm.query_ten_year.per_page,
+                        "pagination-size": "is-small",
+                        "page-input": "",
+                        hoverable: "",
+                        "backend-pagination": "",
+                        total: _vm.query_ten_year.total,
+                        "current-page": _vm.query_ten_year.current_page,
+                        "pagination-position": "top",
+                        "pagination-rounded": "",
+                        narrowed: "",
+                        loading: _vm.loading,
+                        bordered: "",
+                        "sticky-header": "",
+                        scrollable: "",
+                        "row-class": function (row, index) {
+                          return _vm.isTheme ? "bg-black text-white" : ""
+                        },
+                        "header-class": _vm.isTheme
+                          ? "bg-black text-white"
+                          : "",
+                        height: "420",
+                      },
+                      on: {
+                        "update:currentPage": function ($event) {
+                          return _vm.$set(
+                            _vm.query_ten_year,
+                            "current_page",
+                            $event
+                          )
+                        },
+                        "update:current-page": function ($event) {
+                          return _vm.$set(
+                            _vm.query_ten_year,
+                            "current_page",
+                            $event
+                          )
+                        },
+                        "page-change": _vm.onPageChange,
+                      },
+                      scopedSlots: _vm._u([
+                        {
+                          key: "empty",
+                          fn: function () {
+                            return [
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "text-center text-3xl text-gray-500 font-extrabold",
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                                No lce_list Found\n                            "
+                                  ),
+                                ]
+                              ),
+                            ]
+                          },
+                          proxy: true,
+                        },
+                      ]),
+                    },
+                    [
+                      _c("b-table-column", {
+                        attrs: {
+                          field: "ten_year_year_approved",
+                          label: "10 year approved",
+                          centered: "",
+                        },
+                        scopedSlots: _vm._u([
+                          {
+                            key: "searchable",
+                            fn: function (props) {
+                              return [
+                                _c("b-input", {
+                                  attrs: {
+                                    placeholder: "Search...",
+                                    icon: "magnify",
+                                    size: "is-small",
+                                  },
+                                }),
+                              ]
+                            },
+                          },
+                          {
+                            key: "default",
+                            fn: function (props) {
+                              return [
+                                _vm._v(
+                                  "\n                             " +
+                                    _vm._s(props.row.ten_year_year_approved) +
+                                    "\n                            "
+                                ),
+                              ]
+                            },
+                          },
+                        ]),
+                      }),
+                      _vm._v(" "),
+                      _c("b-table-column", {
+                        attrs: {
+                          field: "ten_year_number",
+                          label: "10 year number",
+                          centered: "",
+                        },
+                        scopedSlots: _vm._u([
+                          {
+                            key: "searchable",
+                            fn: function (props) {
+                              return [
+                                _c("b-input", {
+                                  attrs: {
+                                    placeholder: "Search...",
+                                    icon: "magnify",
+                                    size: "is-small",
+                                  },
+                                }),
+                              ]
+                            },
+                          },
+                          {
+                            key: "default",
+                            fn: function (props) {
+                              return [
+                                _vm._v(
+                                  "\n                                " +
+                                    _vm._s(props.row.ten_year_number) +
+                                    "\n                            "
+                                ),
+                              ]
+                            },
+                          },
+                        ]),
+                      }),
+                      _vm._v(" "),
+                      _c("b-table-column", {
+                        attrs: {
+                          field: "ten_year_file",
+                          label: "File",
+                          centered: "",
+                        },
+                        scopedSlots: _vm._u([
+                          {
+                            key: "default",
+                            fn: function (props) {
+                              return [
+                                props.row.ten_year_file == "1"
+                                  ? _c("box-icon", {
+                                      attrs: {
+                                        type: "solid",
+                                        name: "check-circle",
+                                        color: "green",
+                                      },
+                                    })
+                                  : _c("box-icon", {
+                                      attrs: {
+                                        type: "solid",
+                                        name: "x-circle",
+                                        color: "red",
+                                      },
+                                    }),
+                              ]
+                            },
+                          },
+                        ]),
+                      }),
+                      _vm._v(" "),
+                      _c("b-table-column", {
+                        attrs: {
+                          field: "ten_year_copy_plan",
+                          label: "Copy Plan",
+                          centered: "",
+                        },
+                        scopedSlots: _vm._u([
+                          {
+                            key: "default",
+                            fn: function (props) {
+                              return [
+                                props.row.ten_year_copy_plan == "1"
+                                  ? _c("box-icon", {
+                                      attrs: {
+                                        type: "solid",
+                                        name: "check-circle",
+                                        color: "green",
+                                      },
+                                    })
+                                  : _c("box-icon", {
+                                      attrs: {
+                                        type: "solid",
+                                        name: "x-circle",
+                                        color: "red",
+                                      },
+                                    }),
+                              ]
+                            },
+                          },
+                        ]),
+                      }),
+                      _vm._v(" "),
+                      _c("b-table-column", {
+                        attrs: {
+                          field: "ten_year_copy_resolution",
+                          label: "Copy Resolution",
+                          centered: "",
+                        },
+                        scopedSlots: _vm._u([
+                          {
+                            key: "default",
+                            fn: function (props) {
+                              return [
+                                props.row.ten_year_copy_resolution == "1"
+                                  ? _c("box-icon", {
+                                      attrs: {
+                                        type: "solid",
+                                        name: "check-circle",
+                                        color: "green",
+                                      },
+                                    })
+                                  : _c("box-icon", {
+                                      attrs: {
+                                        type: "solid",
+                                        name: "x-circle",
+                                        color: "red",
+                                      },
+                                    }),
+                              ]
+                            },
+                          },
+                        ]),
+                      }),
+                      _vm._v(" "),
+                      _c("b-table-column", {
+                        attrs: {
+                          field: "ten_year_copy_form",
+                          label: "Copy Form",
+                          centered: "",
+                        },
+                        scopedSlots: _vm._u([
+                          {
+                            key: "default",
+                            fn: function (props) {
+                              return [
+                                props.row.ten_year_copy_form === "1"
+                                  ? _c("box-icon", {
+                                      attrs: {
+                                        type: "solid",
+                                        name: "check-circle",
+                                        color: "green",
+                                      },
+                                    })
+                                  : _c("box-icon", {
+                                      attrs: {
+                                        type: "solid",
+                                        name: "x-circle",
+                                        color: "red",
+                                      },
+                                    }),
+                              ]
+                            },
+                          },
+                        ]),
+                      }),
+                      _vm._v(" "),
+                      _c("b-table-column", {
+                        attrs: { field: "action", label: "" },
+                        scopedSlots: _vm._u([
+                          {
+                            key: "default",
+                            fn: function (props) {
+                              return [
+                                _c(
+                                  "Link",
+                                  {
+                                    attrs: {
+                                      href:
+                                        "/app/swm/ten_year_edit/" +
+                                        props.row.id,
+                                    },
+                                  },
+                                  [
+                                    _c("box-icon", {
+                                      attrs: {
+                                        name: "edit",
+                                        color: "orange",
+                                        animation: "tada-hover",
+                                      },
+                                    }),
+                                  ],
+                                  1
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "v-btn",
+                                  {
+                                    attrs: { icon: "", small: "" },
+                                    on: {
+                                      click: function ($event) {
+                                        return _vm.remove10Yr(props.row.id)
                                       },
                                     },
                                   },
