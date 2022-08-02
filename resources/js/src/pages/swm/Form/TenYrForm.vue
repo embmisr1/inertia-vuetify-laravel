@@ -106,7 +106,7 @@
                             <v-card>
                                 <v-card-title> FIndings Overview </v-card-title>
                                 <v-card-text class="grid grid-cols-2 gap-2">
-                                    <div
+                                    <!-- <div
                                         v-for="overview in overview_of_finding"
                                         :key="overview.id"
                                     >
@@ -117,7 +117,77 @@
                                             hide-details
                                             color="dark"
                                         ></v-checkbox>
-                                    </div>
+                                    </div> -->
+                                    <v-checkbox
+                                        v-model="ten_yr.finding_a"
+                                        label="Source Reduction Activited at Source are Present"
+                                        value="Source Reduction Activited at Source are Present"
+                                        hide-details
+                                        color="dark"
+                                    ></v-checkbox>
+                                    <v-checkbox
+                                        v-model="ten_yr.finding_b"
+                                        label="Segregated Collection"
+                                        value="Segregated Collection"
+                                        hide-details
+                                        color="dark"
+                                    ></v-checkbox>
+                                    <v-checkbox
+                                        v-model="ten_yr.finding_c"
+                                        label="Increased Collection Average"
+                                        value="Increased Collection Average"
+                                        hide-details
+                                        color="dark"
+                                    ></v-checkbox>
+                                    <v-checkbox
+                                        v-model="ten_yr.finding_d"
+                                        label="Segregation, Recycling and Composting"
+                                        value="Segregation, Recycling and Composting"
+                                        hide-details
+                                        color="dark"
+                                    ></v-checkbox>
+                                    <v-checkbox
+                                        v-model="ten_yr.finding_e"
+                                        label="Marketing & Market Development"
+                                        value="Marketing & Market Development"
+                                        hide-details
+                                        color="dark"
+                                    ></v-checkbox>
+                                    <v-checkbox
+                                        v-model="ten_yr.finding_f"
+                                        label="Alternative Technologies for Residual Wastes"
+                                        value="Alternative Technologies for Residual Wastes"
+                                        hide-details
+                                        color="dark"
+                                    ></v-checkbox>
+                                    <v-checkbox
+                                        v-model="ten_yr.finding_g"
+                                        label="Solid Waste Disposal & Health Care Wastes"
+                                        value="Solid Waste Disposal & Health Care Wastes"
+                                        hide-details
+                                        color="dark"
+                                    ></v-checkbox>
+                                    <v-checkbox
+                                        v-model="ten_yr.finding_h"
+                                        label="Monitoring Program"
+                                        value="Monitoring Program"
+                                        hide-details
+                                        color="dark"
+                                    ></v-checkbox>
+                                    <v-checkbox
+                                        v-model="ten_yr.finding_i"
+                                        label="Financial Aspects"
+                                        value="Financial Aspects"
+                                        hide-details
+                                        color="dark"
+                                    ></v-checkbox>
+                                    <v-checkbox
+                                        v-model="ten_yr.finding_j"
+                                        label="Waste Diversion"
+                                        value="Waste Diversion"
+                                        hide-details
+                                        color="dark"
+                                    ></v-checkbox>
                                 </v-card-text>
                             </v-card>
                             <v-card
@@ -443,50 +513,6 @@ export default {
     data() {
         return {
             ten_yr_form_type: "create",
-            overview_of_finding: [
-                {
-                    id: 1,
-                    name: "Source Reduction Activited at Source are Present",
-                },
-                {
-                    id: 2,
-                    name: "Segregated Collection",
-                },
-                {
-                    id: 3,
-                    name: "Increased Collection Average",
-                },
-                {
-                    id: 4,
-                    name: "Segregation, Recycling and Composting",
-                },
-                {
-                    id: 5,
-                    name: "Marketing & Market Development",
-                },
-                {
-                    id: 6,
-                    name: "Alternative Technologies for Residual Wastes",
-                },
-
-                {
-                    id: 7,
-                    name: "Solid Waste Disposal & Health Care Wastes",
-                },
-                {
-                    id: 8,
-                    name: "Monitoring Program",
-                },
-                {
-                    id: 9,
-                    name: "Financial Aspects",
-                },
-                {
-                    id: 10,
-                    name: "Waste Diversion",
-                },
-            ],
-            ten_year_findings: [],
         };
     },
     created() {
@@ -500,9 +526,9 @@ export default {
             if (this.ten_year_edit.length > 0) {
                 this.ten_yr_form_type = "patch";
                 this.ten_yr = {
-                    ...this.ten_year_edit[0]
+                    ...this.ten_year_edit[0],
                 };
-                this.ten_year_findings = this.ten_year_findings_array
+                // this.ten_year_findings = this.ten_year_findings_array
             }
         }
         this.loading = false;
@@ -533,7 +559,6 @@ export default {
                 const data = {
                     ...this.ten_yr,
                     lce_FK: this.ten_yr.id,
-                    ten_year_findings: this.ten_year_findings,
                 };
                 await this.$inertia.post(
                     "/app/swm/ten_year_register_process",
@@ -548,7 +573,6 @@ export default {
             try {
                 const data = {
                     ...this.ten_yr,
-                    ten_year_findings: this.ten_year_findings,
                 };
                 await this.$inertia.post(
                     "/app/swm/ten_year_update_process",
