@@ -9,11 +9,12 @@
             show-arrows
             active-class="black"
             background-color="primary"
-            class="h-96"
+            class="overflow-y-auto"
+            height="100%"
         >
             <v-tab v-for="n in tabs" :key="n">{{ n }} </v-tab>
 
-            <v-tab-item href="#lce" active-class="bg-#F4F5FA">
+            <v-tab-item active-class="bg-#F4F5FA" class="overflow-y-auto">
                 <v-container>
                     <v-card>
                         <v-card-text class="grid grid-cols-5 gap-x-2">
@@ -120,7 +121,7 @@
                     </v-card>
                 </v-container>
             </v-tab-item>
-            <v-tab-item href="#slf">
+            <v-tab-item class="overflow-y-auto">
                 <v-container>
                     <a
                         :href="`/app/swm/slf_register/${lce_id}`"
@@ -297,7 +298,7 @@
                     </b-table>
                 </v-container>
             </v-tab-item>
-            <v-tab-item href="#mrf"
+            <v-tab-item class="overflow-y-auto"
                 ><v-container>
                     <a
                         :href="`/app/swm/mrf_register/${lce_id}?form_type=mrf`"
@@ -413,7 +414,7 @@
                     </b-table>
                 </v-container></v-tab-item
             >
-            <v-tab-item href="#rca"
+            <v-tab-item class="overflow-y-auto"
                 ><v-container>
                     <a
                         :href="`/app/swm/mrf_register/${lce_id}?form_type=rca`"
@@ -529,7 +530,7 @@
                     </b-table>
                 </v-container></v-tab-item
             >
-            <v-tab-item href="#10yr"
+            <v-tab-item class="overflow-y-auto"
                 ><v-container>
                     <a
                         :href="`/app/swm/ten_year_register/${lce_id}`"
@@ -677,7 +678,90 @@
                     </b-table>
                 </v-container></v-tab-item
             >
+                <v-tab-item class="overflow-y-auto"
+                ><v-container>
+                        <v-btn dark @click="setEquipmentModal(true,'create')">Add Equipment</v-btn>
+                    <b-table
+                        :data="query_equipment"
+
+                        :per-page="query_equipment.per_page"
+                        pagination-size="is-small"
+                        page-input
+                        hoverable
+                        backend-pagination
+                        :total="query_equipment.total"
+                        :current-page.sync="query_equipment.current_page"
+                        pagination-position="top"
+                        pagination-rounded
+                        @page-change="onPageChange"
+                        narrowed
+                        :loading="loading"
+                        bordered
+                        sticky-header
+                        scrollable
+                        :row-class="
+                            (row, index) =>
+                                isTheme ? 'bg-black text-white' : ''
+                        "
+                        :header-class="isTheme ? 'bg-black text-white' : ''"
+                        height="420"
+                    >
+
+                        <b-table-column
+                            field="equipment_description"
+                            label="Equipment Description"
+                        >
+                            <template #searchable="props">
+                                <b-input
+                                    placeholder="Search..."
+                                    icon="magnify"
+                                    size="is-small"
+                                />
+                            </template>
+                            <template v-slot="props">
+                             {{props.row.equipment_description}}
+                            </template>
+                        </b-table-column>
+
+                        <b-table-column
+                            field="action"
+                            label=""
+                            v-slot="props"
+                        >
+                                 <!-- @click="setEquipmentModal(true,'update')" -->
+                                <box-icon
+                                @click="setUpdateEquipment(props.row)"
+                                    name="edit"
+                                    color="orange"
+                                    animation="tada-hover"
+                                ></box-icon
+                            >
+                            <v-btn icon small @click="removeEquipment(props.row.id)"
+                                ><box-icon
+                                    name="trash"
+                                    color="red"
+                                    animation="tada-hover"
+                                ></box-icon
+                            ></v-btn>
+                        </b-table-column>
+                        <template #empty>
+                            <div
+                                class="text-center text-3xl text-gray-500 font-extrabold"
+                            >
+                                No lce_list Found
+                            </div>
+                        </template>
+                    </b-table>
+                </v-container></v-tab-item
+            >
         </v-tabs>
+        <!-- equiment modal -->
+        <ManageEquipment
+            :modal="equipment_modal"
+            :form_field="equipment"
+            :close="()=>equipment_modal=false"
+            :submitForm="submitEquimentForm"
+        />
     </DefaultLayout>
 </template>
 
@@ -687,18 +771,20 @@ import DefaultLayout from "../../layouts/default.vue";
 import { Link } from "@inertiajs/inertia-vue";
 import _ from "lodash";
 import { page, toasts, swm, dialogs } from "../../mixins/";
+import ManageEquipment from "../../components/Swm/ManageEquipment.vue";
 export default {
     props: {
         lce_edit: Array,
     },
     components: {
-        DefaultLayout,
-        Link,
-    },
+    DefaultLayout,
+    Link,
+    ManageEquipment
+},
     mixins: [page, toasts, swm, dialogs],
     data() {
         return {
-            tabs: ["LCE", "SLF", "MRF","RCA", "10 YR"],
+            tabs: ["LCE", "SLF", "MRF","RCA", "10 YR","Equipment"],
         };
     },
     methods: {
@@ -757,6 +843,25 @@ export default {
                 this.error(error.response.data.message);
             }
         },
+        async removeEquipment(equip_id){
+             try {
+                this.loading = true;
+                await this.confirmDelete(
+                    "This action  cannot be undone",
+                    async () => {
+                        await this.$inertia.delete(
+                            `/app/swm/equipment_delete/${equip_id}`
+                        );
+                    }
+                );
+                this.loading = false;
+            } catch (error) {
+                this.loading = false;
+                console.log(error);
+                this.error(error.response.data.message);
+            }
+        }
+
     },
 };
 </script>

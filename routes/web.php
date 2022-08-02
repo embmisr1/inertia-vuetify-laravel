@@ -15,6 +15,7 @@ use App\Http\Controllers\PsicGroupController;
 use App\Http\Controllers\PSICSubClassController;
 use App\Http\Controllers\RemoveAttachementController;
 use App\Http\Controllers\SolidwasteClosedDumpsiteController;
+use App\Http\Controllers\SolidwasteEquipmentsController;
 use App\Http\Controllers\SolidwasteLCEController;
 use App\Http\Controllers\SolidwasteSLFController;
 use App\Http\Controllers\SolidwasteMRFController;
