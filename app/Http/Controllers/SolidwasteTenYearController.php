@@ -77,10 +77,6 @@ class SolidwasteTenYearController extends Controller
                 "copy_form" => AttachmentResource::collection($attachements[0]->getMedia("copy_form")),
                 "copy_resolution" => AttachmentResource::collection($attachements[0]->getMedia("copy_resolution")),
             ],
-<<<<<<< HEAD
-            'ten_year_findings_array'=> $ten_yr_findings
-=======
->>>>>>> fc93751ca80343b74bde066afdda09922d447175
         ]);
     }
 
