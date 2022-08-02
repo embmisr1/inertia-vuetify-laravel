@@ -22386,7 +22386,7 @@ var render = function () {
                         "header-class": _vm.isTheme
                           ? "bg-black text-white"
                           : "",
-                        height: "420",
+                        height: "10",
                       },
                       on: {
                         "update:currentPage": function ($event) {

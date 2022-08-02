@@ -1,4 +1,4 @@
-(self["webpackChunk"] = self["webpackChunk"] || []).push([["resources_js_src_pages_swm_Form_TenYrForm_vue"],{
+(self["webpackChunk"] = self["webpackChunk"] || []).push([["resources_js_src_pages_swm_Form_TenYr_vue"],{
 
 /***/ "./node_modules/@babel/runtime/regenerator/index.js":
 /*!**********************************************************!*\
@@ -224,10 +224,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
-    title: {
-      type: String,
-      "default": "Attachments"
-    },
     attachments: Array,
     goTo: Function,
     removeFile: Function
@@ -574,10 +570,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/pages/swm/Form/TenYrForm.vue?vue&type=script&lang=js&":
-/*!************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/pages/swm/Form/TenYrForm.vue?vue&type=script&lang=js& ***!
-  \************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/pages/swm/Form/TenYr.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/pages/swm/Form/TenYr.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -767,275 +763,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -1050,39 +777,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   mixins: [_mixins__WEBPACK_IMPORTED_MODULE_4__.page, _mixins__WEBPACK_IMPORTED_MODULE_4__.toasts, _mixins__WEBPACK_IMPORTED_MODULE_4__.swm, _mixins__WEBPACK_IMPORTED_MODULE_4__.dialogs],
   data: function data() {
     return {
-      ten_yr_form_type: "create",
-      overview_of_finding: [{
-        id: 1,
-        name: "Source Reduction Activited at Source are Present"
-      }, {
-        id: 2,
-        name: "Segregated Collection"
-      }, {
-        id: 3,
-        name: "Increased Collection Average"
-      }, {
-        id: 4,
-        name: "Segregation, Recycling and Composting"
-      }, {
-        id: 5,
-        name: "Marketing & Market Development"
-      }, {
-        id: 6,
-        name: "Alternative Technologies for Residual Wastes"
-      }, {
-        id: 7,
-        name: "Solid Waste Disposal & Health Care Wastes"
-      }, {
-        id: 8,
-        name: "Monitoring Program"
-      }, {
-        id: 9,
-        name: "Financial Aspects"
-      }, {
-        id: 10,
-        name: "Waste Diversion"
-      }],
-      ten_year_findings: []
+      slf_form_type: "create"
     };
   },
   created: function created() {
@@ -1090,26 +785,26 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
     if (this.lce_info !== undefined) {
       if (this.lce_info.length > 0) {
-        this.ten_yr = _objectSpread({}, this.lce_info[0]);
-        this.ten_yr_form_type = "create";
+        this.slf = _objectSpread({}, this.lce_info[0]);
+        this.slf_form_type = "create";
       }
-    } else if (this.ten_year_edit !== undefined) {
-      if (this.ten_year_edit.length > 0) {
-        this.ten_yr_form_type = "patch";
-        this.ten_yr = _objectSpread({}, this.ten_year_edit[0]);
+    } else if (this.slf_edit !== undefined) {
+      if (this.slf_edit.length > 0) {
+        this.slf_form_type = "patch";
+        this.slf = _objectSpread({}, this.slf_edit[0]);
       }
     }
 
     this.loading = false;
   },
   computed: {
-    address: function address() {
+    slf_address: function slf_address() {
       var formdata = null;
 
-      if (this.ten_yr_form_type === "create") {
+      if (this.slf_form_type === "create") {
         formdata = this.lce_info[0];
-      } else if (this.ten_yr_form_type === "patch") {
-        formdata = this.ten_yr;
+      } else if (this.slf_form_type === "patch") {
+        formdata = this.slf_edit[0];
       }
 
       var _formdata = formdata,
@@ -1122,13 +817,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   methods: {
     saveForm: function saveForm() {
-      if (this.ten_yr_form_type === "create") {
-        this.saveTenYrForm();
-      } else if (this.ten_yr_form_type === "patch") {
-        this.updateTenYrForm();
+      if (this.slf_form_type === "create") {
+        this.saveSLFForm();
+      } else if (this.slf_form_type === "patch") {
+        this.updateSLFForm();
       }
     },
-    saveTenYrForm: function saveTenYrForm() {
+    saveSLFForm: function saveSLFForm() {
       var _this = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
@@ -1138,12 +833,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             switch (_context.prev = _context.next) {
               case 0:
                 _context.prev = 0;
-                data = _objectSpread(_objectSpread({}, _this.ten_yr), {}, {
-                  lce_FK: _this.ten_yr.id,
-                  ten_year_findings: _this.ten_year_findings
+                data = _objectSpread(_objectSpread({}, _this.slf), {}, {
+                  lce_FK: _this.slf.id
                 });
                 _context.next = 4;
-                return _this.$inertia.post("/app/swm/ten_year_register_process", data);
+                return _this.$inertia.post("/app/swm/slf_register_process", data);
 
               case 4:
                 _context.next = 10;
@@ -1164,7 +858,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         }, _callee, null, [[0, 6]]);
       }))();
     },
-    updateTenYrForm: function updateTenYrForm() {
+    updateSLFForm: function updateSLFForm() {
       var _this2 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
@@ -1174,11 +868,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             switch (_context2.prev = _context2.next) {
               case 0:
                 _context2.prev = 0;
-                data = _objectSpread(_objectSpread({}, _this2.ten_yr), {}, {
-                  ten_year_findings: _this2.ten_year_findings
-                });
+                data = _objectSpread({}, _this2.slf);
                 _context2.next = 4;
-                return _this2.$inertia.post("/app/swm/ten_year_update_process", data);
+                return _this2.$inertia.post("/app/swm/slf_update_process", data);
 
               case 4:
                 _context2.next = 10;
@@ -1197,82 +889,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             }
           }
         }, _callee2, null, [[0, 6]]);
-      }))();
-    },
-    removeMonitoring: function removeMonitoring(mon_id) {
-      var _this3 = this;
-
-      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3() {
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
-          while (1) {
-            switch (_context3.prev = _context3.next) {
-              case 0:
-                _context3.prev = 0;
-                _context3.next = 3;
-                return _this3.$inertia["delete"]("/app/swm/ten_year_monitoring_delete/".concat(mon_id));
-
-              case 3:
-                _context3.next = 7;
-                break;
-
-              case 5:
-                _context3.prev = 5;
-                _context3.t0 = _context3["catch"](0);
-
-              case 7:
-              case "end":
-                return _context3.stop();
-            }
-          }
-        }, _callee3, null, [[0, 5]]);
-      }))();
-    },
-    removeFIle: function removeFIle(media_id) {
-      var _this4 = this;
-
-      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee5() {
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee5$(_context5) {
-          while (1) {
-            switch (_context5.prev = _context5.next) {
-              case 0:
-                _context5.prev = 0;
-                _this4.loading = true;
-                _context5.next = 4;
-                return _this4.confirmDelete("This action  cannot be undone", /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee4() {
-                  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee4$(_context4) {
-                    while (1) {
-                      switch (_context4.prev = _context4.next) {
-                        case 0:
-                          _context4.next = 2;
-                          return _this4.$inertia["delete"]("/app/swm/ten_year_remove_fIle/".concat(media_id));
-
-                        case 2:
-                        case "end":
-                          return _context4.stop();
-                      }
-                    }
-                  }, _callee4);
-                })));
-
-              case 4:
-                _this4.loading = false;
-                _context5.next = 12;
-                break;
-
-              case 7:
-                _context5.prev = 7;
-                _context5.t0 = _context5["catch"](0);
-                _this4.loading = false;
-                console.log(_context5.t0);
-
-                _this4.error(_context5.t0.response.data.message);
-
-              case 12:
-              case "end":
-                return _context5.stop();
-            }
-          }
-        }, _callee5, null, [[0, 7]]);
       }))();
     }
   }
@@ -2997,11 +2613,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     mrf_edit: Array,
     cd_edit: Array,
     query_rca: Array,
-    attachments: Object,
-    query_ten_year: Array,
-    ten_year_edit: Array,
-    ten_year_monitoring_list: Array,
-    ten_year_monitoring_edit: Array
+    attachments: Object
   },
   data: function data() {
     return {
@@ -3091,15 +2703,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         ten_year_copy_resolution: null,
         ten_year_copy_form: null,
         lce_FK: null
-      },
-      ten_yr_mon: {
-        ten_year_mon_status: null,
-        ten_year_mon_date_monitored: null,
-        ten_year_mon_date_submitted: null,
-        ten_year_mon_iis_number: null,
-        ten_year_mon_copy_report: null,
-        ten_year_mon_by: null,
-        ten_year_FK: null
       },
       complete_address: null,
       complete_address_setter: {
@@ -21455,10 +21058,10 @@ component.options.__file = "resources/js/src/layouts/default.vue"
 
 /***/ }),
 
-/***/ "./resources/js/src/pages/swm/Form/TenYrForm.vue":
-/*!*******************************************************!*\
-  !*** ./resources/js/src/pages/swm/Form/TenYrForm.vue ***!
-  \*******************************************************/
+/***/ "./resources/js/src/pages/swm/Form/TenYr.vue":
+/*!***************************************************!*\
+  !*** ./resources/js/src/pages/swm/Form/TenYr.vue ***!
+  \***************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -21466,8 +21069,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _TenYrForm_vue_vue_type_template_id_ba7732ae___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./TenYrForm.vue?vue&type=template&id=ba7732ae& */ "./resources/js/src/pages/swm/Form/TenYrForm.vue?vue&type=template&id=ba7732ae&");
-/* harmony import */ var _TenYrForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./TenYrForm.vue?vue&type=script&lang=js& */ "./resources/js/src/pages/swm/Form/TenYrForm.vue?vue&type=script&lang=js&");
+/* harmony import */ var _TenYr_vue_vue_type_template_id_7b799645___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./TenYr.vue?vue&type=template&id=7b799645& */ "./resources/js/src/pages/swm/Form/TenYr.vue?vue&type=template&id=7b799645&");
+/* harmony import */ var _TenYr_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./TenYr.vue?vue&type=script&lang=js& */ "./resources/js/src/pages/swm/Form/TenYr.vue?vue&type=script&lang=js&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -21477,9 +21080,9 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 ;
 var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _TenYrForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _TenYrForm_vue_vue_type_template_id_ba7732ae___WEBPACK_IMPORTED_MODULE_0__.render,
-  _TenYrForm_vue_vue_type_template_id_ba7732ae___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  _TenYr_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _TenYr_vue_vue_type_template_id_7b799645___WEBPACK_IMPORTED_MODULE_0__.render,
+  _TenYr_vue_vue_type_template_id_7b799645___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
   false,
   null,
   null,
@@ -21489,7 +21092,7 @@ var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/src/pages/swm/Form/TenYrForm.vue"
+component.options.__file = "resources/js/src/pages/swm/Form/TenYr.vue"
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
 
 /***/ }),
@@ -21558,10 +21161,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/src/pages/swm/Form/TenYrForm.vue?vue&type=script&lang=js&":
-/*!********************************************************************************!*\
-  !*** ./resources/js/src/pages/swm/Form/TenYrForm.vue?vue&type=script&lang=js& ***!
-  \********************************************************************************/
+/***/ "./resources/js/src/pages/swm/Form/TenYr.vue?vue&type=script&lang=js&":
+/*!****************************************************************************!*\
+  !*** ./resources/js/src/pages/swm/Form/TenYr.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -21569,8 +21172,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TenYrForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./TenYrForm.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/pages/swm/Form/TenYrForm.vue?vue&type=script&lang=js&");
- /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TenYrForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TenYr_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./TenYr.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/pages/swm/Form/TenYr.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TenYr_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -21642,19 +21245,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/src/pages/swm/Form/TenYrForm.vue?vue&type=template&id=ba7732ae&":
-/*!**************************************************************************************!*\
-  !*** ./resources/js/src/pages/swm/Form/TenYrForm.vue?vue&type=template&id=ba7732ae& ***!
-  \**************************************************************************************/
+/***/ "./resources/js/src/pages/swm/Form/TenYr.vue?vue&type=template&id=7b799645&":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/src/pages/swm/Form/TenYr.vue?vue&type=template&id=7b799645& ***!
+  \**********************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TenYrForm_vue_vue_type_template_id_ba7732ae___WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TenYrForm_vue_vue_type_template_id_ba7732ae___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TenYr_vue_vue_type_template_id_7b799645___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TenYr_vue_vue_type_template_id_7b799645___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TenYrForm_vue_vue_type_template_id_ba7732ae___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./TenYrForm.vue?vue&type=template&id=ba7732ae& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/pages/swm/Form/TenYrForm.vue?vue&type=template&id=ba7732ae&");
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TenYr_vue_vue_type_template_id_7b799645___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./TenYr.vue?vue&type=template&id=7b799645& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/pages/swm/Form/TenYr.vue?vue&type=template&id=7b799645&");
 
 
 /***/ }),
@@ -21907,7 +21510,7 @@ var render = function () {
       attrs: { "two-line": "", subheader: "" },
     },
     [
-      _c("v-subheader", [_vm._v(_vm._s(_vm.title) + " ")]),
+      _c("v-subheader", [_vm._v("Attachments ")]),
       _vm._v(" "),
       _c(
         "v-list-item-group",
@@ -22177,10 +21780,10 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/pages/swm/Form/TenYrForm.vue?vue&type=template&id=ba7732ae&":
-/*!*****************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/pages/swm/Form/TenYrForm.vue?vue&type=template&id=ba7732ae& ***!
-  \*****************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/pages/swm/Form/TenYr.vue?vue&type=template&id=7b799645&":
+/*!*************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/pages/swm/Form/TenYr.vue?vue&type=template&id=7b799645& ***!
+  \*************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -22203,33 +21806,16 @@ var render = function () {
             "b-tooltip",
             { attrs: { label: "Back", type: "is-dark", delay: 2000 } },
             [
-              _vm.ten_yr.lce_FK
-                ? _c(
-                    "Link",
-                    {
-                      staticClass: "px-3",
-                      attrs: { href: "/app/swm/lce_show/" + _vm.ten_yr.lce_FK },
-                    },
-                    [
-                      _c("box-icon", {
-                        attrs: { name: "arrow-back", animation: "tada-hover" },
-                      }),
-                    ],
-                    1
-                  )
-                : _c(
-                    "Link",
-                    {
-                      staticClass: "px-3",
-                      attrs: { href: "/app/swm/lce_show/" + _vm.ten_yr.id },
-                    },
-                    [
-                      _c("box-icon", {
-                        attrs: { name: "arrow-back", animation: "tada-hover" },
-                      }),
-                    ],
-                    1
-                  ),
+              _c(
+                "Link",
+                { staticClass: "px-3", on: { click: _vm.goBack } },
+                [
+                  _c("box-icon", {
+                    attrs: { name: "arrow-back", animation: "tada-hover" },
+                  }),
+                ],
+                1
+              ),
             ],
             1
           ),
@@ -22244,6 +21830,7 @@ var render = function () {
       : _c(
           "div",
           [
+            _vm._v("\n        " + _vm._s(_vm.lce_info) + "\n        "),
             _c("ValidationObserver", {
               ref: "psic_group_class_observer",
               scopedSlots: _vm._u([
@@ -22272,32 +21859,6 @@ var render = function () {
                                 _c(
                                   "v-card",
                                   [
-                                    _c("v-card-title", [
-                                      _vm._v(
-                                        "\n                                Address Information\n                            "
-                                      ),
-                                    ]),
-                                    _vm._v(" "),
-                                    _c("v-card-text", {}, [
-                                      _vm._v(
-                                        "\n                                " +
-                                          _vm._s(_vm.address) +
-                                          "\n                            "
-                                      ),
-                                    ]),
-                                  ],
-                                  1
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "v-card",
-                                  [
-                                    _c("v-card-title", [
-                                      _vm._v(
-                                        "\n                                10 Year Information\n                            "
-                                      ),
-                                    ]),
-                                    _vm._v(" "),
                                     _c(
                                       "v-card-text",
                                       { staticClass: "grid grid-cols-2 gap-2" },
@@ -22427,19 +21988,19 @@ var render = function () {
                                                       },
                                                       model: {
                                                         value:
-                                                          _vm.ten_yr
+                                                          _vm.slf
                                                             .ten_year_number,
                                                         callback: function (
                                                           $$v
                                                         ) {
                                                           _vm.$set(
-                                                            _vm.ten_yr,
+                                                            _vm.slf,
                                                             "ten_year_number",
                                                             $$v
                                                           )
                                                         },
                                                         expression:
-                                                          "ten_yr.ten_year_number",
+                                                          "slf.ten_year_number",
                                                       },
                                                     }),
                                                   ]
@@ -22460,479 +22021,10 @@ var render = function () {
                                 _c(
                                   "v-card",
                                   [
-                                    _c("v-card-title", [
-                                      _vm._v(
-                                        "\n                                FIndings Overview\n                            "
-                                      ),
-                                    ]),
-                                    _vm._v(" "),
-                                    _c(
-                                      "v-card-text",
-                                      { staticClass: "grid grid-cols-2 gap-2" },
-                                      _vm._l(
-                                        _vm.overview_of_finding,
-                                        function (overview) {
-                                          return _c(
-                                            "div",
-                                            { key: overview.id },
-                                            [
-                                              _c("v-checkbox", {
-                                                attrs: {
-                                                  label: overview.name,
-                                                  value: overview.id,
-                                                  "hide-details": "",
-                                                  color: "dark",
-                                                },
-                                                model: {
-                                                  value: _vm.ten_year_findings,
-                                                  callback: function ($$v) {
-                                                    _vm.ten_year_findings = $$v
-                                                  },
-                                                  expression:
-                                                    "ten_year_findings",
-                                                },
-                                              }),
-                                            ],
-                                            1
-                                          )
-                                        }
-                                      ),
-                                      0
-                                    ),
-                                  ],
-                                  1
-                                ),
-                                _vm._v(" "),
-                                _vm.ten_year_monitoring_list
-                                  ? _c(
-                                      "v-card",
-                                      { attrs: { "max-height": "300" } },
-                                      [
-                                        _c(
-                                          "v-card-title",
-                                          { attrs: { "primary-title": "" } },
-                                          [
-                                            _c(
-                                              "Link",
-                                              {
-                                                attrs: {
-                                                  href:
-                                                    "/app/swm/ten_year_monitoring_register/" +
-                                                    _vm.ten_yr.id,
-                                                },
-                                              },
-                                              [
-                                                _c(
-                                                  "v-btn",
-                                                  {
-                                                    attrs: {
-                                                      dark: "",
-                                                      small: "",
-                                                    },
-                                                  },
-                                                  [
-                                                    _vm._v(
-                                                      "\n                                        Add Monitoring List\n                                    "
-                                                    ),
-                                                  ]
-                                                ),
-                                              ],
-                                              1
-                                            ),
-                                          ],
-                                          1
-                                        ),
-                                        _vm._v(" "),
-                                        _vm.ten_year_monitoring_list.length
-                                          ? _c(
-                                              "v-card-text",
-                                              [
-                                                _c(
-                                                  "b-table",
-                                                  {
-                                                    attrs: {
-                                                      data: _vm.ten_year_monitoring_list,
-                                                      "per-page":
-                                                        _vm
-                                                          .ten_year_monitoring_list
-                                                          .per_page,
-                                                      "pagination-size":
-                                                        "is-small",
-                                                      "page-input": "",
-                                                      hoverable: "",
-                                                      "backend-pagination": "",
-                                                      total:
-                                                        _vm
-                                                          .ten_year_monitoring_list
-                                                          .total,
-                                                      "current-page":
-                                                        _vm
-                                                          .ten_year_monitoring_list
-                                                          .current_page,
-                                                      "pagination-position":
-                                                        "top",
-                                                      "pagination-rounded": "",
-                                                      narrowed: "",
-                                                      loading: _vm.loading,
-                                                      bordered: "",
-                                                      "sticky-header": "",
-                                                      scrollable: "",
-                                                      "row-class": function (
-                                                        row,
-                                                        index
-                                                      ) {
-                                                        return _vm.isTheme
-                                                          ? "bg-black text-white"
-                                                          : ""
-                                                      },
-                                                      "header-class":
-                                                        _vm.isTheme
-                                                          ? "bg-black text-white"
-                                                          : "",
-                                                      height: "420",
-                                                    },
-                                                    on: {
-                                                      "update:currentPage":
-                                                        function ($event) {
-                                                          return _vm.$set(
-                                                            _vm.ten_year_monitoring_list,
-                                                            "current_page",
-                                                            $event
-                                                          )
-                                                        },
-                                                      "update:current-page":
-                                                        function ($event) {
-                                                          return _vm.$set(
-                                                            _vm.ten_year_monitoring_list,
-                                                            "current_page",
-                                                            $event
-                                                          )
-                                                        },
-                                                      "page-change":
-                                                        _vm.onPageChange,
-                                                    },
-                                                    scopedSlots: _vm._u(
-                                                      [
-                                                        {
-                                                          key: "empty",
-                                                          fn: function () {
-                                                            return [
-                                                              _c(
-                                                                "div",
-                                                                {
-                                                                  staticClass:
-                                                                    "text-center text-3xl text-gray-500 font-extrabold",
-                                                                },
-                                                                [
-                                                                  _vm._v(
-                                                                    "\n                                            No lce_list Found\n                                        "
-                                                                  ),
-                                                                ]
-                                                              ),
-                                                            ]
-                                                          },
-                                                          proxy: true,
-                                                        },
-                                                      ],
-                                                      null,
-                                                      true
-                                                    ),
-                                                  },
-                                                  [
-                                                    _c("b-table-column", {
-                                                      attrs: {
-                                                        field:
-                                                          "ten_year_mon_date_monitored",
-                                                        label: "Date Monitored",
-                                                        centered: "",
-                                                      },
-                                                      scopedSlots: _vm._u(
-                                                        [
-                                                          {
-                                                            key: "searchable",
-                                                            fn: function (
-                                                              props
-                                                            ) {
-                                                              return [
-                                                                _c("b-input", {
-                                                                  attrs: {
-                                                                    placeholder:
-                                                                      "Search...",
-                                                                    icon: "magnify",
-                                                                    size: "is-small",
-                                                                  },
-                                                                }),
-                                                              ]
-                                                            },
-                                                          },
-                                                          {
-                                                            key: "default",
-                                                            fn: function (
-                                                              props
-                                                            ) {
-                                                              return [
-                                                                _vm._v(
-                                                                  "\n                                            " +
-                                                                    _vm._s(
-                                                                      props.row
-                                                                        .ten_year_mon_date_monitored
-                                                                    ) +
-                                                                    "\n                                        "
-                                                                ),
-                                                              ]
-                                                            },
-                                                          },
-                                                        ],
-                                                        null,
-                                                        true
-                                                      ),
-                                                    }),
-                                                    _vm._v(" "),
-                                                    _c("b-table-column", {
-                                                      attrs: {
-                                                        field:
-                                                          "ten_year_mon_date_submitted",
-                                                        label: "Date Submitted",
-                                                        centered: "",
-                                                      },
-                                                      scopedSlots: _vm._u(
-                                                        [
-                                                          {
-                                                            key: "searchable",
-                                                            fn: function (
-                                                              props
-                                                            ) {
-                                                              return [
-                                                                _c("b-input", {
-                                                                  attrs: {
-                                                                    placeholder:
-                                                                      "Search...",
-                                                                    icon: "magnify",
-                                                                    size: "is-small",
-                                                                  },
-                                                                }),
-                                                              ]
-                                                            },
-                                                          },
-                                                          {
-                                                            key: "default",
-                                                            fn: function (
-                                                              props
-                                                            ) {
-                                                              return [
-                                                                _vm._v(
-                                                                  "\n                                            " +
-                                                                    _vm._s(
-                                                                      props.row
-                                                                        .ten_year_mon_date_submitted
-                                                                    ) +
-                                                                    "\n                                        "
-                                                                ),
-                                                              ]
-                                                            },
-                                                          },
-                                                        ],
-                                                        null,
-                                                        true
-                                                      ),
-                                                    }),
-                                                    _vm._v(" "),
-                                                    _c("b-table-column", {
-                                                      attrs: {
-                                                        field:
-                                                          "ten_year_mon_by",
-                                                        label: "Monitored By",
-                                                        centered: "",
-                                                      },
-                                                      scopedSlots: _vm._u(
-                                                        [
-                                                          {
-                                                            key: "default",
-                                                            fn: function (
-                                                              props
-                                                            ) {
-                                                              return [
-                                                                _vm._v(
-                                                                  "\n                                            " +
-                                                                    _vm._s(
-                                                                      props.row
-                                                                        .ten_year_mon_by
-                                                                    ) +
-                                                                    "\n                                        "
-                                                                ),
-                                                              ]
-                                                            },
-                                                          },
-                                                        ],
-                                                        null,
-                                                        true
-                                                      ),
-                                                    }),
-                                                    _vm._v(" "),
-                                                    _c("b-table-column", {
-                                                      attrs: {
-                                                        field: "action",
-                                                        label: "",
-                                                      },
-                                                      scopedSlots: _vm._u(
-                                                        [
-                                                          {
-                                                            key: "default",
-                                                            fn: function (
-                                                              props
-                                                            ) {
-                                                              return [
-                                                                _c(
-                                                                  "Link",
-                                                                  {
-                                                                    attrs: {
-                                                                      href:
-                                                                        "/app/swm/ten_year_monitoring_edit/" +
-                                                                        props
-                                                                          .row
-                                                                          .id,
-                                                                    },
-                                                                  },
-                                                                  [
-                                                                    _c(
-                                                                      "box-icon",
-                                                                      {
-                                                                        attrs: {
-                                                                          name: "edit",
-                                                                          color:
-                                                                            "orange",
-                                                                          animation:
-                                                                            "tada-hover",
-                                                                        },
-                                                                      }
-                                                                    ),
-                                                                  ],
-                                                                  1
-                                                                ),
-                                                                _vm._v(" "),
-                                                                _c(
-                                                                  "v-btn",
-                                                                  {
-                                                                    attrs: {
-                                                                      icon: "",
-                                                                      small: "",
-                                                                    },
-                                                                    on: {
-                                                                      click:
-                                                                        function (
-                                                                          $event
-                                                                        ) {
-                                                                          return _vm.removeMonitoring(
-                                                                            props
-                                                                              .row
-                                                                              .id
-                                                                          )
-                                                                        },
-                                                                    },
-                                                                  },
-                                                                  [
-                                                                    _c(
-                                                                      "box-icon",
-                                                                      {
-                                                                        attrs: {
-                                                                          name: "trash",
-                                                                          color:
-                                                                            "red",
-                                                                          animation:
-                                                                            "tada-hover",
-                                                                        },
-                                                                      }
-                                                                    ),
-                                                                  ],
-                                                                  1
-                                                                ),
-                                                              ]
-                                                            },
-                                                          },
-                                                        ],
-                                                        null,
-                                                        true
-                                                      ),
-                                                    }),
-                                                  ],
-                                                  1
-                                                ),
-                                              ],
-                                              1
-                                            )
-                                          : _vm._e(),
-                                      ],
-                                      1
-                                    )
-                                  : _vm._e(),
-                                _vm._v(" "),
-                                _c(
-                                  "v-card",
-                                  [
-                                    _c("v-card-title", [
-                                      _vm._v(
-                                        "\n                                Upload Attachments\n                            "
-                                      ),
-                                    ]),
-                                    _vm._v(" "),
                                     _c(
                                       "v-card-text",
                                       { staticClass: "grid grid-cols-2 gap-2" },
                                       [
-                                        _c("ValidationProvider", {
-                                          attrs: {
-                                            vid: "ten_year_file",
-                                            name: "10 YEAY File",
-                                            rules: "",
-                                          },
-                                          scopedSlots: _vm._u(
-                                            [
-                                              {
-                                                key: "default",
-                                                fn: function (ref) {
-                                                  var errors = ref.errors
-                                                  return [
-                                                    _c("v-file-input", {
-                                                      attrs: {
-                                                        label:
-                                                          "10 YEAY COPY File",
-                                                        "error-messages":
-                                                          errors[0],
-                                                        outlined: "",
-                                                        clearable: "",
-                                                        dense: "",
-                                                        color: "dark",
-                                                        "truncate-length": "15",
-                                                        multiple: "",
-                                                        accept:
-                                                          "image/png, image/jpeg, application/pdf",
-                                                      },
-                                                      model: {
-                                                        value:
-                                                          _vm.ten_yr
-                                                            .ten_year_file,
-                                                        callback: function (
-                                                          $$v
-                                                        ) {
-                                                          _vm.$set(
-                                                            _vm.ten_yr,
-                                                            "ten_year_file",
-                                                            $$v
-                                                          )
-                                                        },
-                                                        expression:
-                                                          "ten_yr.ten_year_file",
-                                                      },
-                                                    }),
-                                                  ]
-                                                },
-                                              },
-                                            ],
-                                            null,
-                                            true
-                                          ),
-                                        }),
-                                        _vm._v(" "),
                                         _c("ValidationProvider", {
                                           attrs: {
                                             vid: "ten_year_copy_plan",
@@ -23029,7 +22121,7 @@ var render = function () {
                                                           )
                                                         },
                                                         expression:
-                                                          "\n                                            ten_yr.ten_year_copy_resolution\n                                        ",
+                                                          "ten_yr.ten_year_copy_resolution",
                                                       },
                                                     }),
                                                   ]
@@ -23100,102 +22192,6 @@ var render = function () {
                                   ],
                                   1
                                 ),
-                                _vm._v(" "),
-                                _vm.attachments
-                                  ? _c(
-                                      "v-card",
-                                      [
-                                        _c(
-                                          "v-card-title",
-                                          { attrs: { "primary-title": "" } },
-                                          [
-                                            _vm._v(
-                                              "\n                                Attachments\n                            "
-                                            ),
-                                          ]
-                                        ),
-                                        _vm._v(" "),
-                                        _c(
-                                          "v-card-text",
-                                          {
-                                            staticClass:
-                                              "grid grid-cols-2 gap-2",
-                                          },
-                                          [
-                                            _vm.attachments.ten_yr_file.data
-                                              .length
-                                              ? _c("ViewAttachements", {
-                                                  attrs: {
-                                                    title:
-                                                      "10 YEAR FILE Attachments",
-                                                    attachments:
-                                                      _vm.attachments
-                                                        .ten_yr_file.data,
-                                                    goTo: function (url) {
-                                                      _vm.goTo(url)
-                                                    },
-                                                    removeFile: _vm.removeFIle,
-                                                  },
-                                                })
-                                              : _vm._e(),
-                                            _vm._v(" "),
-                                            _vm.attachments.copy_plan.data
-                                              .length
-                                              ? _c("ViewAttachements", {
-                                                  attrs: {
-                                                    title:
-                                                      "10 YEAR COPY PLAN Attachments",
-                                                    attachments:
-                                                      _vm.attachments.copy_plan
-                                                        .data,
-                                                    goTo: function (url) {
-                                                      _vm.goTo(url)
-                                                    },
-                                                    removeFile: _vm.removeFIle,
-                                                  },
-                                                })
-                                              : _vm._e(),
-                                            _vm._v(" "),
-                                            _vm.attachments.copy_form.data
-                                              .length
-                                              ? _c("ViewAttachements", {
-                                                  attrs: {
-                                                    title:
-                                                      "10 YEAR COPY FORM Attachments",
-                                                    attachments:
-                                                      _vm.attachments.copy_form
-                                                        .data,
-                                                    goTo: function (url) {
-                                                      _vm.goTo(url)
-                                                    },
-                                                    removeFile: _vm.removeFIle,
-                                                  },
-                                                })
-                                              : _vm._e(),
-                                            _vm._v(" "),
-                                            _vm.attachments.copy_resolution.data
-                                              .length
-                                              ? _c("ViewAttachements", {
-                                                  attrs: {
-                                                    title:
-                                                      "10 YEAR COPY RESOLUTION Attachments",
-                                                    attachments:
-                                                      _vm.attachments
-                                                        .copy_resolution.data,
-                                                    goTo: function (url) {
-                                                      _vm.goTo(url)
-                                                    },
-                                                    removeFile: _vm.removeFIle,
-                                                  },
-                                                })
-                                              : _vm._e(),
-                                          ],
-                                          1
-                                        ),
-                                      ],
-                                      1
-                                    )
-                                  : _vm._e(),
                               ],
                               1
                             ),
@@ -23249,122 +22245,6 @@ render._withStripped = true
 
 
 
-<<<<<<< HEAD
-=======
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js":
-/*!********************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/runtime/componentNormalizer.js ***!
-  \********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ normalizeComponent)
-/* harmony export */ });
-/* globals __VUE_SSR_CONTEXT__ */
-
-// IMPORTANT: Do NOT use ES2015 features in this file (except for modules).
-// This module is a runtime utility for cleaner component module output and will
-// be included in the final webpack user bundle.
-
-function normalizeComponent (
-  scriptExports,
-  render,
-  staticRenderFns,
-  functionalTemplate,
-  injectStyles,
-  scopeId,
-  moduleIdentifier, /* server only */
-  shadowMode /* vue-cli only */
-) {
-  // Vue.extend constructor export interop
-  var options = typeof scriptExports === 'function'
-    ? scriptExports.options
-    : scriptExports
-
-  // render functions
-  if (render) {
-    options.render = render
-    options.staticRenderFns = staticRenderFns
-    options._compiled = true
-  }
-
-  // functional template
-  if (functionalTemplate) {
-    options.functional = true
-  }
-
-  // scopedId
-  if (scopeId) {
-    options._scopeId = 'data-v-' + scopeId
-  }
-
-  var hook
-  if (moduleIdentifier) { // server build
-    hook = function (context) {
-      // 2.3 injection
-      context =
-        context || // cached call
-        (this.$vnode && this.$vnode.ssrContext) || // stateful
-        (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext) // functional
-      // 2.2 with runInNewContext: true
-      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
-        context = __VUE_SSR_CONTEXT__
-      }
-      // inject component styles
-      if (injectStyles) {
-        injectStyles.call(this, context)
-      }
-      // register component module identifier for async chunk inferrence
-      if (context && context._registeredComponents) {
-        context._registeredComponents.add(moduleIdentifier)
-      }
-    }
-    // used by ssr in case component is cached and beforeCreate
-    // never gets called
-    options._ssrRegister = hook
-  } else if (injectStyles) {
-    hook = shadowMode
-      ? function () {
-        injectStyles.call(
-          this,
-          (options.functional ? this.parent : this).$root.$options.shadowRoot
-        )
-      }
-      : injectStyles
-  }
-
-  if (hook) {
-    if (options.functional) {
-      // for template-only hot-reload because in that case the render fn doesn't
-      // go through the normalizer
-      options._injectStyles = hook
-      // register for functional component in vue file
-      var originalRender = options.render
-      options.render = function renderWithStyleInjection (h, context) {
-        hook.call(context)
-        return originalRender(h, context)
-      }
-    } else {
-      // inject component registration as beforeCreate hook
-      var existing = options.beforeCreate
-      options.beforeCreate = existing
-        ? [].concat(existing, hook)
-        : [hook]
-    }
-  }
-
-  return {
-    exports: scriptExports,
-    options: options
-  }
-}
-
-
->>>>>>> 393932efa37a325225577a04b6a6a5674707ade9
 /***/ })
 
 }]);
