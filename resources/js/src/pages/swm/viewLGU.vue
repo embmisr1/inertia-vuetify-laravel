@@ -13,7 +13,7 @@
         >
             <v-tab v-for="n in tabs" :key="n">{{ n }} </v-tab>
 
-            <v-tab-item active-class="bg-#F4F5FA">
+            <v-tab-item href="#lce" active-class="bg-#F4F5FA">
                 <v-container>
                     <v-card>
                         <v-card-text class="grid grid-cols-5 gap-x-2">
@@ -120,7 +120,7 @@
                     </v-card>
                 </v-container>
             </v-tab-item>
-            <v-tab-item>
+            <v-tab-item href="#slf">
                 <v-container>
                     <a
                         :href="`/app/swm/slf_register/${lce_id}`"
@@ -151,7 +151,7 @@
                                 isTheme ? 'bg-black text-white' : ''
                         "
                         :header-class="isTheme ? 'bg-black text-white' : ''"
-                        height="420"
+                        height="10"
                     >
                         <b-table-column
                             field="slf_ecc_number"
@@ -297,7 +297,7 @@
                     </b-table>
                 </v-container>
             </v-tab-item>
-            <v-tab-item
+            <v-tab-item href="#mrf"
                 ><v-container>
                     <a
                         :href="`/app/swm/mrf_register/${lce_id}?form_type=mrf`"
@@ -413,7 +413,7 @@
                     </b-table>
                 </v-container></v-tab-item
             >
-            <v-tab-item
+            <v-tab-item href="#rca"
                 ><v-container>
                     <a
                         :href="`/app/swm/mrf_register/${lce_id}?form_type=rca`"
@@ -529,7 +529,7 @@
                     </b-table>
                 </v-container></v-tab-item
             >
-            <v-tab-item
+            <v-tab-item href="#10yr"
                 ><v-container>
                     <a
                         :href="`/app/swm/ten_year_register/${lce_id}`"
