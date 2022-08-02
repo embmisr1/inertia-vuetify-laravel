@@ -105,6 +105,7 @@ class SolidwasteTenYearController extends Controller
             $query_findings->finding_h = $request->finding_h;
             $query_findings->finding_i = $request->finding_i;
             $query_findings->finding_j = $request->finding_j;
+            $query_findings->ten_year_FK = $query->id;
             $query_findings->save();
 
             if ($request->ten_year_file) {
@@ -160,8 +161,7 @@ class SolidwasteTenYearController extends Controller
         // $query->ten_year_copy_resolution = $request->ten_year_copy_resolution;
         // $query->ten_year_copy_form = $request->ten_year_copy_form;
         $query->lce_FK = $request->lce_FK;
-        $query->save();
-
+        // $query->save();
         $query_findings = SolidwasteTenYearFindings::where('ten_year_FK',$request->id)
         ->update([
             'finding_a' => $request->finding_a,
@@ -174,8 +174,9 @@ class SolidwasteTenYearController extends Controller
             'finding_h' => $request->finding_h,
             'finding_i' => $request->finding_i,
             'finding_j' => $request->finding_j,
+            'ten_year_FK' => $request->id,
         ]);
-        $query_findings->save();
+        // $query_findings->save();
 
         if ($request->ten_year_file) {
             foreach ($request->ten_year_file as $file) {
