@@ -148,6 +148,12 @@ Route::group([
         Route::post('/ten_year_monitoring_register_process', [SolidwasteTenYearMonitoringController::class, 'ten_year_monitoring_register_process'])->name("ten_year_monitoring_register_process");
         Route::post('/ten_year_monitoring_update_process', [SolidwasteTenYearMonitoringController::class, 'ten_year_monitoring_update_process'])->name("ten_year_monitoring_update_process");
         Route::delete('/ten_year_monitoring_delete/{id}', [SolidwasteTenYearMonitoringController::class, 'ten_year_monitoring_delete'])->name("ten_year_monitoring_delete");
+        // SLF
+        Route::get('/equipment_register/{id}', [SolidwasteEquipmentsController::class, 'create'])->name("equipment_register_form");
+        Route::get('/equipment_edit/{id}', [SolidwasteEquipmentsController::class, 'equipment_edit'])->name("equipment_edit");
+        Route::post('/equipment_register_process', [SolidwasteEquipmentsController::class, 'equipment_register_process'])->name("equipment_register_process");
+        Route::post('/equipment_update_process', [SolidwasteEquipmentsController::class, 'equipment_update_process'])->name("equipment_update_process");
+        Route::delete('/equipment_delete/{id}', [SolidwasteEquipmentsController::class, 'equipment_delete'])->name("equipment_delete");
     });
 
     Route::delete('/delete_attachements/{media}', RemoveAttachementController::class)->name("slf_delete_attachements");
