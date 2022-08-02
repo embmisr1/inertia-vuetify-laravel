@@ -104,9 +104,7 @@
                                 </v-card-text>
                             </v-card>
                             <v-card>
-                                <v-card-title>
-                                    FIndings Overview
-                                </v-card-title>
+                                <v-card-title> FIndings Overview </v-card-title>
                                 <v-card-text class="grid grid-cols-2 gap-2">
                                     <div
                                         v-for="overview in overview_of_finding"
@@ -115,14 +113,13 @@
                                         <v-checkbox
                                             v-model="ten_year_findings"
                                             :label="overview.name"
-                                            :value="overview.id"
+                                            :value="overview.name"
                                             hide-details
                                             color="dark"
                                         ></v-checkbox>
                                     </div>
                                 </v-card-text>
                             </v-card>
-
                             <v-card
                                 v-if="ten_year_monitoring_list"
                                 max-height="300"
@@ -502,7 +499,10 @@ export default {
         } else if (this.ten_year_edit !== undefined) {
             if (this.ten_year_edit.length > 0) {
                 this.ten_yr_form_type = "patch";
-                this.ten_yr = { ...this.ten_year_edit[0] };
+                this.ten_yr = {
+                    ...this.ten_year_edit[0]
+                };
+                this.ten_year_findings = this.ten_year_findings_array
             }
         }
         this.loading = false;

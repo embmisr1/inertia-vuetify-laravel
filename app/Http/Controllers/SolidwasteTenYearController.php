@@ -34,14 +34,14 @@ class SolidwasteTenYearController extends Controller
         $id = $request->id;
         $ten_year_edit = DB::table('tbl_solidwaste_ten_year as a')
             ->select(
-                "a.id", 
-                "a.lce_FK", 
-                "a.ten_year_planning_period", 
-                "a.ten_year_year_approved", 
-                "a.ten_year_number", 
-                "c.provDesc", 
-                "d.citymunDesc", 
-                "e.brgyDesc", 
+                "a.id",
+                "a.lce_FK",
+                "a.ten_year_planning_period",
+                "a.ten_year_year_approved",
+                "a.ten_year_number",
+                "c.provDesc",
+                "d.citymunDesc",
+                "e.brgyDesc",
                 "d.districtCode",
                 "f.finding_a",
                 "f.finding_b",
@@ -63,6 +63,11 @@ class SolidwasteTenYearController extends Controller
             ->where('a.id', $id)->get();
         $ten_year_monitoring_list = SolidwasteTenYearMonitoring::where('ten_year_FK', $id)->get();
         $attachements = SolidwasteTenYear::where("id", $id)->get();
+        if (isset($ten_year_edit[0]->ten_year_findings)){
+            $ten_yr_findings = json_decode($ten_year_edit[0]->ten_year_findings);
+        }else{
+            $ten_yr_findings = [];
+        }
         return Inertia::render("pages/swm/Form/TenYrForm", [
             'ten_year_edit' => $ten_year_edit,
             'ten_year_monitoring_list' => $ten_year_monitoring_list,
@@ -72,6 +77,10 @@ class SolidwasteTenYearController extends Controller
                 "copy_form" => AttachmentResource::collection($attachements[0]->getMedia("copy_form")),
                 "copy_resolution" => AttachmentResource::collection($attachements[0]->getMedia("copy_resolution")),
             ],
+<<<<<<< HEAD
+            'ten_year_findings_array'=> $ten_yr_findings
+=======
+>>>>>>> fc93751ca80343b74bde066afdda09922d447175
         ]);
     }
 
