@@ -89,22 +89,18 @@ class SolidwasteTenYearController extends Controller
             $query->lce_FK = $request->lce_FK;
             $query->save();
 
-            if(isset($request->ten_year_findings)){
-                foreach($request->ten_year_findings as $findings){
-                    $query = new SolidwasteTenYearFindings();
-                    $query->finding_a = $findings[0];
-                    $query->finding_b = $findings[1];
-                    $query->finding_c = $findings[2];
-                    $query->finding_d = $findings[3];
-                    $query->finding_e = $findings[4];
-                    $query->finding_f = $findings[5];
-                    $query->finding_g = $findings[6];
-                    $query->finding_h = $findings[7];
-                    $query->finding_i = $findings[8];
-                    $query->finding_j = $findings[9];
-                    $query->save();
-                }
-            }
+            $query_findings = new SolidwasteTenYearFindings();
+            $query_findings->finding_a = $request->finding_a;
+            $query_findings->finding_b = $request->finding_b;
+            $query_findings->finding_c = $request->finding_c;
+            $query_findings->finding_d = $request->finding_d;
+            $query_findings->finding_e = $request->finding_e;
+            $query_findings->finding_f = $request->finding_f;
+            $query_findings->finding_g = $request->finding_g;
+            $query_findings->finding_h = $request->finding_h;
+            $query_findings->finding_i = $request->finding_i;
+            $query_findings->finding_j = $request->finding_j;
+            $query_findings->save();
 
             if ($request->ten_year_file) {
                 foreach ($request->ten_year_file as $file) {
@@ -161,24 +157,20 @@ class SolidwasteTenYearController extends Controller
         $query->lce_FK = $request->lce_FK;
         $query->save();
 
-        if(isset($request->ten_year_findings)){
-            foreach($request->ten_year_findings as $findings){
-                $query = SolidwasteTenYearFindings::where('ten_year_FK',$request->id)
-                ->update([
-                    'finding_a'=>$findings[0],
-                    'finding_b'=>$findings[0],
-                    'finding_c'=>$findings[0],
-                    'finding_d'=>$findings[0],
-                    'finding_e'=>$findings[0],
-                    'finding_f'=>$findings[0],
-                    'finding_g'=>$findings[0],
-                    'finding_h'=>$findings[0],
-                    'finding_i'=>$findings[0],
-                    'finding_j'=>$findings[0],
-                ]);
-                $query->save();
-            }
-        }
+        $query_findings = SolidwasteTenYearFindings::where('ten_year_FK',$request->id)
+        ->update([
+            'finding_a' => $request->finding_a,
+            'finding_b' => $request->finding_b,
+            'finding_c' => $request->finding_c,
+            'finding_d' => $request->finding_d,
+            'finding_e' => $request->finding_e,
+            'finding_f' => $request->finding_f,
+            'finding_g' => $request->finding_g,
+            'finding_h' => $request->finding_h,
+            'finding_i' => $request->finding_i,
+            'finding_j' => $request->finding_j,
+        ]);
+        $query_findings->save();
 
         if ($request->ten_year_file) {
             foreach ($request->ten_year_file as $file) {
