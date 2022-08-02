@@ -39,6 +39,7 @@ class SolidwasteTenYearController extends Controller
                 "a.ten_year_planning_period",
                 "a.ten_year_year_approved",
                 "a.ten_year_number",
+                "b.lce_zip_code",
                 "c.provDesc",
                 "d.citymunDesc",
                 "e.brgyDesc",

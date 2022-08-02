@@ -16,7 +16,8 @@ export default {
         query_ten_year: Array,
         ten_year_edit: Array,
         ten_year_monitoring_list: Array,
-        ten_year_monitoring_edit:Array
+        ten_year_monitoring_edit: Array,
+        ten_year_findings_array: Array,
     },
     data() {
         return {
@@ -110,6 +111,16 @@ export default {
                 ten_year_copy_resolution: null,
                 ten_year_copy_form: null,
                 lce_FK: null,
+                finding_a: false,
+                finding_b: false,
+                finding_c: false,
+                finding_d: false,
+                finding_e: false,
+                finding_f: false,
+                finding_g: false,
+                finding_h: false,
+                finding_i: false,
+                finding_j: false,
             },
             ten_yr_mon: {
                 ten_year_mon_status: null,
