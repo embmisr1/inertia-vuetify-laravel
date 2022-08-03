@@ -20,6 +20,8 @@ use App\Http\Controllers\SolidwasteSLFController;
 use App\Http\Controllers\SolidwasteMRFController;
 use App\Http\Controllers\SolidwasteTenYearController;
 use App\Http\Controllers\SolidwasteTenYearMonitoringController;
+use App\Http\Controllers\SolidwasteEquipmentController;
+use App\Http\Controllers\SolidwasteDuesController;
 use App\Http\Controllers\UnitSectionController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\UniverseController;
@@ -148,12 +150,18 @@ Route::group([
         Route::post('/ten_year_monitoring_register_process', [SolidwasteTenYearMonitoringController::class, 'ten_year_monitoring_register_process'])->name("ten_year_monitoring_register_process");
         Route::post('/ten_year_monitoring_update_process', [SolidwasteTenYearMonitoringController::class, 'ten_year_monitoring_update_process'])->name("ten_year_monitoring_update_process");
         Route::delete('/ten_year_monitoring_delete/{id}', [SolidwasteTenYearMonitoringController::class, 'ten_year_monitoring_delete'])->name("ten_year_monitoring_delete");
-        // SLF
+        // EQUIPMENTS
         Route::get('/equipment_register/{id}', [SolidwasteEquipmentsController::class, 'create'])->name("equipment_register_form");
         Route::get('/equipment_edit/{id}', [SolidwasteEquipmentsController::class, 'equipment_edit'])->name("equipment_edit");
         Route::post('/equipment_register_process', [SolidwasteEquipmentsController::class, 'equipment_register_process'])->name("equipment_register_process");
         Route::post('/equipment_update_process', [SolidwasteEquipmentsController::class, 'equipment_update_process'])->name("equipment_update_process");
         Route::delete('/equipment_delete/{id}', [SolidwasteEquipmentsController::class, 'equipment_delete'])->name("equipment_delete");
+        // DUES
+        Route::get('/dues_register/{id}', [SolidwasteDuesController::class, 'create'])->name("dues_register_form");
+        Route::get('/dues_edit/{id}', [SolidwasteDuesController::class, 'dues_edit'])->name("dues_edit");
+        Route::post('/dues_register_process', [SolidwasteDuesController::class, 'dues_register_process'])->name("dues_register_process");
+        Route::post('/dues_update_process', [SolidwasteDuesController::class, 'dues_update_process'])->name("dues_update_process");
+        Route::delete('/dues_delete/{id}', [SolidwasteDuesController::class, 'dues_delete'])->name("dues_delete");
     });
 
     Route::delete('/delete_attachements/{media}', RemoveAttachementController::class)->name("slf_delete_attachements");
