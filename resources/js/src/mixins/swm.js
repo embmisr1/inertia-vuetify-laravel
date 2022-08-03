@@ -18,6 +18,7 @@ export default {
         ten_year_monitoring_list: Array,
         ten_year_monitoring_edit: Array,
         ten_year_findings_array: Array,
+        query_equipment: Array,
     },
     data() {
         return {
@@ -137,12 +138,19 @@ export default {
                 cityMun: {},
                 brgy: {},
             },
+            equipment: {
+                equipment_description: "",
+            },
             category: ["Category 1", "Category 2", "Category 3", "Category 4"],
             leachment_type: ["Recirculaation", "Chemical", "Biological"],
             status_of_operation: ["Operational", "Not Operational"],
             cd_status: ["Closed", "Rehabilitation", "Ongoing"],
             cityMun: [],
             brgy: [],
+            equipment_modal: {
+                active: false,
+                type: "create",
+            },
         };
     },
     computed: {
@@ -249,6 +257,47 @@ export default {
         },
         goBack() {
             window.history.back();
+        },
+        setEquipmentModal(active, type) {
+            this.equipment_modal = {
+                active,
+                type,
+            };
+        },
+        setUpdateEquipment(equip) {
+            this.equipment = { ...equip };
+            this.setEquipmentModal(true, "update");
+        },
+        async submitEquimentForm() {
+            try {
+                const data = {
+                    ...this.equipment,
+                    lce_FK: this.lce_id,
+                };
+                const { type } = this.equipment_modal;
+                this.loading = true;
+                if (type === "create") {
+                    await this.$inertia.post(
+                        "/app/swm/equipment_register_process",
+                        data
+                    );
+                } else if (type === "update") {
+                    await this.$inertia.post(
+                        "/app/swm/equipment_update_process",
+                        data
+                    );
+                }
+                // this.submitEquimentForm(false,"create")
+                this.equipment_modal = {
+                    active: false,
+                    type: "create",
+                };
+                this.loading = false;
+            } catch (error) {
+                this.loading = false;
+                this.error(error.response.data.message);
+                console.log(error);
+            }
         },
     },
 };
