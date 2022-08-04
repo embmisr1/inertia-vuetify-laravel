@@ -8,6 +8,7 @@ use Inertia\Inertia;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
 use App\Models\USER_ACCESS\UsersAccess;
+use App\Models\USER_ACCESS\UsersAccessRole;
 use App\Models\USER_ACCESS\UsersAccessTemplate;
 
 class UsersAccessController extends Controller
@@ -16,9 +17,11 @@ class UsersAccessController extends Controller
     {
         $id = $request->id;
         $users_info = User::where('id', $id)->get();
+        $query_access_role =  UsersAccessRole::all();
         $query_access_template =  UsersAccessTemplate::all();
         return Inertia::render("pages/users/Form/UsersForm", [
             'users_info' => $users_info,
+            'query_access_role' => $query_access_role,
             'query_access_template' => $query_access_template,
         ]);
     }
@@ -33,10 +36,12 @@ class UsersAccessController extends Controller
     public function edit(request $request)
     {
         $id = $request->id;
+        $query_access_role =  UsersAccessRole::all();
         $users_info = DB::table('users')->select('*')->where('id', $id)->get();
         $query_access_template =  UsersAccessTemplate::all();
         return Inertia::render("pages/user/Form/UserForm", [
             'users_info' => $users_info,
+            'query_access_role' => $query_access_role,
             'query_access_template' => $query_access_template,
         ]);
     }
@@ -45,7 +50,7 @@ class UsersAccessController extends Controller
     {
         try {
             $query = new UsersAccess();
-            $query->access_role_assigned = $request->access_role_assigned;
+            $query->access_role_assigned = json_encode($request->access_role_assigned);
             $query->user_FK = $request->user_FK;
             $query->save();
             return back()->with("message", "Users Access Created");
@@ -58,6 +63,7 @@ class UsersAccessController extends Controller
     {
         try {
             $query = UsersAccess::find($request->id);
+            $query->access_role_assigned = json_encode($request->access_role_assigned);
             $query->access_role_assigned = $request->access_role_assigned;
             $query->user_FK = $request->user_FK;
             $query->save();

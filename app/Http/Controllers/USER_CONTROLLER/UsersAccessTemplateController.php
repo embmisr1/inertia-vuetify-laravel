@@ -41,7 +41,8 @@ class UsersAccessTemplateController extends Controller
     {
         try {
             $query = new UsersAccessTemplate();
-            $query->access_role = $request->access_role;
+            $query->access_template = $request->access_template;
+            $query->access_role = json_encode($request->access_role);
             $query->save();
             return back()->with("message", "Users Access Role Created");
         } catch (\Throwable $th) {
@@ -53,7 +54,8 @@ class UsersAccessTemplateController extends Controller
     {
         try {
             $query = UsersAccessTemplate::find($request->id);
-            $query->access_role = $request->access_role;
+            $query->access_template = $request->access_template;
+            $query->access_role = json_encode($request->access_role);
             $query->save();
             return back()->with("message", "Users Access Role Updated");
         } catch (\Throwable $th) {
