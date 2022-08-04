@@ -23,10 +23,15 @@ use App\Http\Controllers\SolidwasteTenYearController;
 use App\Http\Controllers\SolidwasteTenYearMonitoringController;
 use App\Http\Controllers\SolidwasteEquipmentController;
 use App\Http\Controllers\SolidwasteDuesController;
+use App\Http\Controllers\SolidwasteGadController;
 use App\Http\Controllers\UnitSectionController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\UniverseController;
 use App\Http\Controllers\TestingController;
+use App\Http\Controllers\USER_CONTROLLER\UsersAccessController;
+use App\Http\Controllers\USER_CONTROLLER\UsersAccessRoleController;
+use App\Http\Controllers\USER_CONTROLLER\UsersAccessTemplateController;
+use App\Models\USER_ACCESS\UsersAccessRole;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -163,6 +168,39 @@ Route::group([
         Route::post('/dues_register_process', [SolidwasteDuesController::class, 'dues_register_process'])->name("dues_register_process");
         Route::post('/dues_update_process', [SolidwasteDuesController::class, 'dues_update_process'])->name("dues_update_process");
         Route::delete('/dues_delete/{id}', [SolidwasteDuesController::class, 'dues_delete'])->name("dues_delete");
+        // GAD
+        Route::get('/gad_register/{id}', [SolidwasteGadController::class, 'create'])->name("gad_register_form");
+        Route::get('/gad_edit/{id}', [SolidwasteGadController::class, 'edit'])->name("gad_edit");
+        Route::post('/gad_register_process', [SolidwasteGadController::class, 'register'])->name("gad_register_process");
+        Route::post('/gad_update_process', [SolidwasteGadController::class, 'update'])->name("gad_update_process");
+        Route::delete('/gad_delete/{id}', [SolidwasteGadController::class, 'delete'])->name("gad_delete");
+    });
+
+    //USER ACCESS ROUTE
+    Route::group([
+        'prefix' => "/users_access",
+    ], function () {
+        // ACCESS ROLE
+        Route::get('/users_access_role_list', [UsersAccessRoleController::class, 'list'])->name("users_access_role_list");
+        Route::get('/users_access_role_register/{id}', [UsersAccessRoleController::class, 'create'])->name("users_access_role_register");
+        Route::get('/users_access_role_edit/{id}', [UsersAccessRoleController::class, 'edit'])->name("users_access_role_edit");
+        Route::post('/users_access_role_register_process', [UsersAccessRoleController::class, 'register'])->name("users_access_role_register_process");
+        Route::post('/users_access_role_update_process', [UsersAccessRoleController::class, 'update'])->name("users_access_role_update_process");
+        Route::delete('/users_access_role_delete/{id}', [UsersAccessRoleController::class, 'delete'])->name("users_access_role_delete");
+        // ACCESS TEMPLATE
+        Route::get('/users_access_template_list', [UsersAccessTemplateController::class, 'list'])->name("users_access_template_list");
+        Route::get('/users_access_template_register/{id}', [UsersAccessTemplateController::class, 'create'])->name("users_access_template_register");
+        Route::get('/users_access_template_edit/{id}', [UsersAccessTemplateController::class, 'edit'])->name("users_access_template_edit");
+        Route::post('/users_access_template_register_process', [UsersAccessTemplateController::class, 'register'])->name("users_access_template_register_process");
+        Route::post('/users_access_template_update_process', [UsersAccessTemplateController::class, 'update'])->name("users_access_template_update_process");
+        Route::delete('/users_access_template_delete/{id}', [UsersAccessTemplateController::class, 'delete'])->name("users_access_template_delete");
+        // ACCESS
+        Route::get('/users_access_list', [UsersAccessController::class, 'list'])->name("users_access_list");
+        Route::get('/users_access_register/{id}', [UsersAccessController::class, 'create'])->name("users_access_register");
+        Route::get('/users_access_edit/{id}', [UsersAccessController::class, 'edit'])->name("users_access_edit");
+        Route::post('/users_access_register_process', [UsersAccessController::class, 'register'])->name("users_access_register_process");
+        Route::post('/users_access_update_process', [UsersAccessController::class, 'update'])->name("users_access_update_process");
+        Route::delete('/users_access_delete/{id}', [UsersAccessController::class, 'delete'])->name("users_access_delete");
     });
 
     Route::delete('/delete_attachements/{media}', RemoveAttachementController::class)->name("slf_delete_attachements");

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTblUserPermission extends Migration
+class CreateTblUsersAccessRole extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,9 @@ class CreateTblUserPermission extends Migration
      */
     public function up()
     {
-        Schema::create('tbl_user_permission', function (Blueprint $table) {
+        Schema::create('tbl_users_access_role', function (Blueprint $table) {
             $table->id();
-            $table->longText('permission_access')->nullable();
-            $table->unsignedBigInteger('userFK')->nullable();
-            $table->foreign('userFK')->references('id')->on('users')->onUpdate('cascade')->nullOnDelete();
+            $table->longText('access_role')->nullable();
             $table->timestamps();
         });
     }
@@ -29,6 +27,6 @@ class CreateTblUserPermission extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tbl_user_permission');
+        Schema::dropIfExists('tbl_users_access_role');
     }
 }

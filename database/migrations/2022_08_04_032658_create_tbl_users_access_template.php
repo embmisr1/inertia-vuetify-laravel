@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTblUserPermissionTemplate extends Migration
+class CreateTblUsersAccessTemplate extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateTblUserPermissionTemplate extends Migration
      */
     public function up()
     {
-        Schema::create('tbl_user_permission_template', function (Blueprint $table) {
+        Schema::create('tbl_users_access_template', function (Blueprint $table) {
             $table->id();
-            $table->string('template_description')->nullable();
-            $table->longText('template_permission')->nullable();
+            $table->string('access_template')->nullable();
+            $table->longText('access_role_assigned')->nullable();
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ class CreateTblUserPermissionTemplate extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tbl_user_permission_template');
+        Schema::dropIfExists('tbl_users_access_template');
     }
 }

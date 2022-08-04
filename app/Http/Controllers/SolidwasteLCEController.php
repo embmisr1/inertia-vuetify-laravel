@@ -12,6 +12,7 @@ use App\Models\SolidwasteTenYear;
 use App\Models\SolidwasteClosedDumpsite;
 use App\Models\SolidwasteEquipments;
 use App\Models\SolidwasteDues;
+use App\Models\SolidwasteGad;
 use App\Models\Barangay;
 use App\Models\Municipality;
 use App\Models\Province;
@@ -67,6 +68,7 @@ class SolidwasteLCEController extends Controller
         $query_rca = SolidwasteMRF::where('lce_FK', $id)->where('mrf_or_rca', 'rca')->orderBy('created_at', 'desc')->get();
         $query_equipment = SolidwasteEquipments::where('lce_FK', $id)->orderBy('created_at', 'desc')->get();
         $query_dues = SolidwasteDues::where('lce_FK', $id)->orderBy('created_at', 'desc')->get();
+        $query_gad = SolidwasteGad::where('lce_FK', $id)->orderBy('created_at', 'desc')->get();
         $query_ten_year = SolidwasteTenYear::where('lce_FK', $id)->orderBy('created_at', 'desc')->get();
         $query_closed_dumpsite = SolidwasteClosedDumpsite::select('id')->where('lce_FK', $id)->limit(1)->get();
         $province_dropdown = Province::whereIn('PK_province_ID', [128, 129, 133, 155])->get();
