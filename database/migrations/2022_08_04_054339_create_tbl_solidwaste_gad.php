@@ -15,6 +15,7 @@ class CreateTblSolidwasteGad extends Migration
     {
         Schema::create('tbl_solidwaste_gad', function (Blueprint $table) {
             $table->id();
+            $table->string('gad_category')->nullable();
             $table->integer('gad_male')->nullable();
             $table->integer('gad_female')->nullable();
             $table->unsignedBigInteger('lce_FK')->nullable();
