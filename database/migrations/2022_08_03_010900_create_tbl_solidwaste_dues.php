@@ -18,8 +18,8 @@ class CreateTblSolidwasteDues extends Migration
             $table->string('dues_purpose')->nullable();
             $table->float('dues_amount_granted', 11, 2)->nullable();
             $table->string('dues_date_granted')->nullable();
-            $table->string('dues_unliquidated')->nullable();
-            $table->string('dues_remarks')->nullable();
+            $table->float('dues_unliquidated',  11, 2)->nullable();
+            $table->longtext('dues_remarks')->nullable();
             $table->string('dues_accountant')->nullable();
             $table->string('dues_contact_email')->nullable();
             $table->unsignedBigInteger('lce_FK')->nullable();

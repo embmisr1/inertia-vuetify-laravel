@@ -3,7 +3,6 @@
         <v-toolbar flat dark>
             <v-toolbar-title>User Profile </v-toolbar-title>
         </v-toolbar>
-
         <v-tabs
             vertical
             show-arrows
@@ -292,7 +291,7 @@
                             <div
                                 class="text-center text-3xl text-gray-500 font-extrabold"
                             >
-                                No lce_list Found
+                                No Data Found
                             </div>
                         </template>
                     </b-table>
@@ -408,7 +407,7 @@
                             <div
                                 class="text-center text-3xl text-gray-500 font-extrabold"
                             >
-                                No lce_list Found
+                                No Data Found
                             </div>
                         </template>
                     </b-table>
@@ -524,7 +523,7 @@
                             <div
                                 class="text-center text-3xl text-gray-500 font-extrabold"
                             >
-                                No lce_list Found
+                                No Data Found
                             </div>
                         </template>
                     </b-table>
@@ -672,25 +671,103 @@
                             <div
                                 class="text-center text-3xl text-gray-500 font-extrabold"
                             >
-                                No lce_list Found
+                                No Data Found
                             </div>
                         </template>
                     </b-table>
                 </v-container></v-tab-item
             >
-                <v-tab-item class="overflow-y-auto"
-                ><v-container>
-                        <v-btn dark @click="setEquipmentModal(true,'create')">Add Equipment</v-btn>
-                    <b-table
-                        :data="query_equipment"
+            <v-tab-item class="overflow-y-auto"
+            ><v-container>
+                    <v-btn dark @click="setEquipmentModal(true,'create')">Add Equipment</v-btn>
+                <b-table
+                    :data="query_equipment"
 
-                        :per-page="query_equipment.per_page"
+                    :per-page="query_equipment.per_page"
+                    pagination-size="is-small"
+                    page-input
+                    hoverable
+                    backend-pagination
+                    :total="query_equipment.total"
+                    :current-page.sync="query_equipment.current_page"
+                    pagination-position="top"
+                    pagination-rounded
+                    @page-change="onPageChange"
+                    narrowed
+                    :loading="loading"
+                    bordered
+                    sticky-header
+                    scrollable
+                    :row-class="
+                        (row, index) =>
+                            isTheme ? 'bg-black text-white' : ''
+                    "
+                    :header-class="isTheme ? 'bg-black text-white' : ''"
+                    height="420"
+                >
+
+                    <b-table-column
+                        field="equipment_description"
+                        label="Equipment Description"
+                    >
+                        <template #searchable="props">
+                            <b-input
+                                placeholder="Search..."
+                                icon="magnify"
+                                size="is-small"
+                            />
+                        </template>
+                        <template v-slot="props">
+                            {{props.row.equipment_description}}
+                        </template>
+                    </b-table-column>
+
+                    <b-table-column
+                        field="action"
+                        label=""
+                        v-slot="props"
+                    >
+                                <!-- @click="setEquipmentModal(true,'update')" -->
+                            <box-icon
+                            @click="setUpdateEquipment(props.row)"
+                                name="edit"
+                                color="orange"
+                                animation="tada-hover"
+                            ></box-icon
+                        >
+                        <v-btn icon small @click="removeEquipment(props.row.id)"
+                            ><box-icon
+                                name="trash"
+                                color="red"
+                                animation="tada-hover"
+                            ></box-icon
+                        ></v-btn>
+                    </b-table-column>
+                    <template #empty>
+                        <div
+                            class="text-center text-3xl text-gray-500 font-extrabold"
+                        >
+                            No Ice_list Found
+                        </div>
+                    </template>
+                </b-table>
+            </v-container></v-tab-item
+            >
+            <v-tab-item class="overflow-y-auto"
+                ><v-container>
+                    <Link :href="`/app/swm/dues_register/${lce_id}`">
+                        <v-btn dark >Add Dues</v-btn>
+                    </Link>
+                    <b-table
+                        :data="query_dues"
+
+                        :per-page="query_dues.per_page"
                         pagination-size="is-small"
                         page-input
                         hoverable
                         backend-pagination
-                        :total="query_equipment.total"
-                        :current-page.sync="query_equipment.current_page"
+                        :total="query_dues.total"
+                        :current-page.sync="query_dues.current_page"
                         pagination-position="top"
                         pagination-rounded
                         @page-change="onPageChange"
@@ -708,8 +785,8 @@
                     >
 
                         <b-table-column
-                            field="equipment_description"
-                            label="Equipment Description"
+                            field="dues_amount_granted"
+                            label="Amount Granted"
                         >
                             <template #searchable="props">
                                 <b-input
@@ -719,7 +796,56 @@
                                 />
                             </template>
                             <template v-slot="props">
-                             {{props.row.equipment_description}}
+                            &#8369 {{props.row.dues_amount_granted.toLocaleString('en-US')}}
+                            </template>
+                        </b-table-column>
+
+                        <b-table-column
+                            field="dues_date_granted"
+                            label="Date Granted"
+                        >
+                            <template #searchable="props">
+                                <b-input
+                                    placeholder="Search..."
+                                    icon="magnify"
+                                    size="is-small"
+                                />
+                            </template>
+                            <template v-slot="props">
+                            {{props.row.dues_date_granted}}
+                            </template>
+                        </b-table-column>
+
+                        <b-table-column
+                            field="dues_unliquidated"
+                            label="Unliquidated"
+                        >
+                            <template #searchable="props">
+                                <b-input
+                                    placeholder="Search..."
+                                    icon="magnify"
+                                    size="is-small"
+                                />
+                            </template>
+                            <template v-slot="props">
+                            &#8369 {{props.row.dues_unliquidated.toLocaleString('en-US')}}
+                            </template>
+                        </b-table-column>
+
+                        <b-table-column
+                            field=""
+                            label="Liquidated"
+                        >
+                            <template #searchable="props">
+                                <b-input
+                                    placeholder="Search..."
+                                    icon="magnify"
+                                    size="is-small"
+                                />
+                            </template>
+                            <template v-slot="props">
+
+                            &#8369 {{minus(props.row.dues_amount_granted, props.row.dues_unliquidated).toLocaleString('en-US')}}
                             </template>
                         </b-table-column>
 
@@ -729,14 +855,15 @@
                             v-slot="props"
                         >
                                  <!-- @click="setEquipmentModal(true,'update')" -->
+                                 <Link :href="`/app/swm/dues_edit/${props.row.id}`">
                                 <box-icon
-                                @click="setUpdateEquipment(props.row)"
                                     name="edit"
                                     color="orange"
                                     animation="tada-hover"
                                 ></box-icon
                             >
-                            <v-btn icon small @click="removeEquipment(props.row.id)"
+                            </Link>
+                            <v-btn icon small @click="removeDues(props.row.id)"
                                 ><box-icon
                                     name="trash"
                                     color="red"
@@ -748,12 +875,13 @@
                             <div
                                 class="text-center text-3xl text-gray-500 font-extrabold"
                             >
-                                No lce_list Found
+                                No Data Found
                             </div>
                         </template>
                     </b-table>
                 </v-container></v-tab-item
             >
+
         </v-tabs>
         <!-- equiment modal -->
         <ManageEquipment
@@ -773,96 +901,100 @@ import _ from "lodash";
 import { page, toasts, swm, dialogs } from "../../mixins/";
 import ManageEquipment from "../../components/Swm/ManageEquipment.vue";
 export default {
-    props: {
-        lce_edit: Array,
-    },
-    components: {
+  props: {
+    lce_edit: Array,
+  },
+  components: {
     DefaultLayout,
     Link,
-    ManageEquipment
-},
-    mixins: [page, toasts, swm, dialogs],
-    data() {
-        return {
-            tabs: ["LCE", "SLF", "MRF","RCA", "10 YR","Equipment"],
-        };
+    ManageEquipment,
+  },
+  mixins: [page, toasts, swm, dialogs],
+  data() {
+    return {
+      tabs: ["LCE", "SLF", "MRF", "RCA", "10 YR", "Equipment", "DUES"],
+    };
+  },
+  methods: {
+    async removeSLF(slf_id) {
+      try {
+        this.loading = true;
+        await this.confirmDelete("This action  cannot be undone", async () => {
+          this.loading = true;
+          await this.$inertia.delete(`/app/swm/slf_delete/${slf_id}`);
+          this.loading = false;
+        });
+        this.loading = false;
+      } catch (error) {
+        this.loading = false;
+        console.log(error);
+        this.error(error.response.data.message);
+      }
     },
-    methods: {
-        async removeSLF(slf_id) {
-            try {
-                this.loading = true;
-                await this.confirmDelete(
-                    "This action  cannot be undone",
-                    async () => {
-                        await this.$inertia.delete(
-                            `/app/swm/slf_delete/${slf_id}`
-                        );
-                    }
-                );
-                this.loading = false;
-            } catch (error) {
-                this.loading = false;
-                console.log(error);
-                this.error(error.response.data.message);
-            }
-        },
-        async removeMRF(mrf_id) {
-            try {
-                this.loading = true;
-                await this.confirmDelete(
-                    "This action  cannot be undone",
-                    async () => {
-                        await this.$inertia.delete(
-                            `/app/swm/mrf_delete/${mrf_id}`
-                        );
-                    }
-                );
-                this.loading = false;
-            } catch (error) {
-                this.loading = false;
-                console.log(error);
-                this.error(error.response.data.message);
-            }
-        },
-        async remove10Yr(ten_yr_id){
-
-            try {
-                this.loading = true;
-                await this.confirmDelete(
-                    "This action  cannot be undone",
-                    async () => {
-                        await this.$inertia.delete(
-                            `/app/swm/ten_year_delete/${ten_yr_id}`
-                        );
-                    }
-                );
-                this.loading = false;
-            } catch (error) {
-                this.loading = false;
-                console.log(error);
-                this.error(error.response.data.message);
-            }
-        },
-        async removeEquipment(equip_id){
-             try {
-                this.loading = true;
-                await this.confirmDelete(
-                    "This action  cannot be undone",
-                    async () => {
-                        await this.$inertia.delete(
-                            `/app/swm/equipment_delete/${equip_id}`
-                        );
-                    }
-                );
-                this.loading = false;
-            } catch (error) {
-                this.loading = false;
-                console.log(error);
-                this.error(error.response.data.message);
-            }
-        }
-
+    async removeMRF(mrf_id) {
+      try {
+        this.loading = true;
+        await this.confirmDelete("This action  cannot be undone", async () => {
+          this.loading = true;
+          await this.$inertia.delete(`/app/swm/mrf_delete/${mrf_id}`);
+          this.loading = false;
+        });
+        this.loading = false;
+      } catch (error) {
+        this.loading = false;
+        console.log(error);
+        this.error(error.response.data.message);
+      }
     },
+    async remove10Yr(ten_yr_id) {
+      try {
+        this.loading = true;
+        await this.confirmDelete("This action  cannot be undone", async () => {
+          this.loading = true;
+          await this.$inertia.delete(`/app/swm/ten_year_delete/${ten_yr_id}`);
+          this.loading = false;
+        });
+        this.loading = false;
+      } catch (error) {
+        this.loading = false;
+        console.log(error);
+        this.error(error.response.data.message);
+      }
+    },
+    async removeEquipment(equip_id) {
+      try {
+        this.loading = true;
+        await this.confirmDelete("This action  cannot be undone", async () => {
+          this.loading = true;
+          await this.$inertia.delete(`/app/swm/equipment_delete/${equip_id}`);
+          this.loading = false;
+        });
+        this.loading = false;
+      } catch (error) {
+        this.loading = false;
+        console.log(error);
+        this.error(error.response.data.message);
+      }
+    },
+    async removeDues(dues_id) {
+      try {
+        this.loading = true;
+        await this.confirmDelete("This action  cannot be undone", async () => {
+          this.loading = true;
+          await this.$inertia.delete(`/app/swm/dues_delete/${dues_id}`);
+          this.loading = false;
+        });
+        this.loading = false;
+      } catch (error) {
+        this.loading = false;
+        console.log(error);
+        this.error(error.response.data.message);
+      }
+    },
+    minus(item, item1) {
+      return item - item1;
+    },
+  },
 };
 </script>
 

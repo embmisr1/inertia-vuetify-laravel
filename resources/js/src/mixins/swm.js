@@ -19,6 +19,8 @@ export default {
         ten_year_monitoring_edit: Array,
         ten_year_findings_array: Array,
         query_equipment: Array,
+        query_dues: Array,
+        dues_edit: Array,
     },
     data() {
         return {
@@ -131,6 +133,16 @@ export default {
                 ten_year_mon_copy_report: null,
                 ten_year_mon_by: null,
                 ten_year_FK: null,
+            },
+            dues: {
+                dues_purpose: null,
+                dues_amount_granted: null,
+                dues_date_granted: null,
+                dues_unliquidated: null,
+                dues_remarks: null,
+                dues_accountant: null,
+                dues_contact_email: null,
+                lce_FK: null,
             },
             complete_address: null,
             complete_address_setter: {
