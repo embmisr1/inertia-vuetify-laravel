@@ -66,12 +66,12 @@
         </v-main>
 
         <v-footer app rounded>
-            <v-switch
+            <!-- <v-switch
                 v-model="$vuetify.theme.dark"
                 inset
                 label="Vuetify Theme Dark"
                 persistent-hint
-            ></v-switch>
+            ></v-switch> -->
             <v-spacer></v-spacer>
             &copy; DENR - EMB REGION 1 - UNISYS
         </v-footer>
