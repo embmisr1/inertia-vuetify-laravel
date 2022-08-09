@@ -14,7 +14,7 @@
 
                         <v-spacer></v-spacer>
                         <b-tooltip
-                            label="Toogle FullScreen"
+                            label="Toggle FullScreen"
                             position="is-left"
                             type="is-dark"
                         >
@@ -52,7 +52,6 @@
                                 ></v-checkbox>
                             </div>
                         </div>
-                        {{ modal.data.users_info }}
                     </v-card-text>
 
                     <v-card-actions>
@@ -60,7 +59,7 @@
                         <v-btn color="red lighten-1" @click="close"
                             >Close</v-btn
                         >
-                        <v-btn color="success" type="submit">Save</v-btn>
+                        <v-btn color="success" type="submit" :disabled="!selected_roles">Save</v-btn>
                     </v-card-actions>
                 </v-card>
             </form>
@@ -69,6 +68,8 @@
 </template>
 
 <script>
+import { thisExpression } from "@babel/types";
+
 export default {
     props: {
         modal: Object,
@@ -83,6 +84,9 @@ export default {
         };
     },
     computed: {
+        active_modal() {
+            return this.modal.active;
+        },
         templates() {
             return this.modal.data.query_access_template;
         },
@@ -92,10 +96,15 @@ export default {
         user_FK() {
             return this.modal.data.users_info.id;
         },
+        user_access() {
+            return this.modal.data.user_access
+                ? this.modal.data.user_access
+                : null;
+        },
     },
     methods: {
         async submitForm() {
-            const data = {
+            let data = {
                 users_FK: this.user_FK,
                 access_role_assigned: this.selected_roles,
             };
@@ -105,12 +114,32 @@ export default {
                     data
                 );
             }
+            if (this.form_type === "patch") {
+                const { id } = this.user_access[0];
+                data.id = id;
+                await this.$inertia.post(
+                    "/app/users_access/users_access_update_process",
+                    data
+                );
+            }
             this.close();
         },
     },
     watch: {
         selected_template(value) {
             this.selected_roles = JSON.parse(value.access_role_assigned);
+        },
+        active_modal(value) {
+            if (!value) {
+                this.selected_roles = [];
+                return;
+            }
+            if (!this.user_access.length) return;
+            else {
+                this.form_type = "patch"
+                const { access_role_assigned } = this.user_access[0];
+                this.selected_roles = JSON.parse(access_role_assigned);
+            }
         },
     },
 };

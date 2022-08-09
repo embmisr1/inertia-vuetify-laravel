@@ -206,6 +206,7 @@ export default {
                     active: true,
                     data,
                 };
+                // console.log(data)
                 this.loading = false;
             } catch (error) {
                 this.loading = false;

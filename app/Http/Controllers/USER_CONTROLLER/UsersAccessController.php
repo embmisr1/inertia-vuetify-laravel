@@ -15,23 +15,30 @@ class UsersAccessController extends Controller
 {
     public function create(request $request)
     {
-        $id = $request->id;
-        $users_info = User::where('id', $id)->get();
-        $query_access_role =  UsersAccessRole::all();
-        $query_access_template =  UsersAccessTemplate::all();
-        // return Inertia::render("pages/users/Form/UsersForm", [
-        //     'users_info' => $users_info,
-        //     'query_access_role' => $query_access_role,
-        //     'query_access_template' => $query_access_template,
-        // ]);
-        return [
-            'users_info' => $users_info[0],
-            'query_access_role' => $query_access_role,
-            'query_access_template' => $query_access_template,
-        ];
+        try {
+            $id = $request->id;
+            $users_info = User::where('id', $id)->get();
+            $query_access_role =  UsersAccessRole::all();
+            $query_access_template =  UsersAccessTemplate::all();
+            $user_access = UsersAccess::where("users_FK",$id)->get();
+            // return Inertia::render("pages/users/Form/UsersForm", [
+            //     'users_info' => $users_info,
+            //     'query_access_role' => $query_access_role,
+            //     'query_access_template' => $query_access_template,
+            // ]);
+            return [
+                'users_info' => $users_info[0],
+                'query_access_role' => $query_access_role,
+                'query_access_template' => $query_access_template,
+                "user_access" => $user_access
+            ];
+        } catch (\Throwable $th) {
+            return $th->getMessage();
+        }
     }
 
-    public function list(){
+    public function list()
+    {
         $users_info = User::all();
         return Inertia::render("pages/users/Form/UserAccessRoleList", [
             'users_info' => $users_info,
@@ -70,7 +77,7 @@ class UsersAccessController extends Controller
             $query = UsersAccess::find($request->id);
             $query->access_role_assigned = json_encode($request->access_role_assigned);
             $query->access_role_assigned = $request->access_role_assigned;
-            $query->user_FK = $request->user_FK;
+            $query->users_FK = $request->users_FK;
             $query->save();
             return back()->with("message", "Users Access Updated");
         } catch (\Throwable $th) {
