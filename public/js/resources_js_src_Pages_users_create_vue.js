@@ -364,7 +364,7 @@ __webpack_require__.r(__webpack_exports__);
             icon: "mdi-link"
           }]
         }, {
-          name: "TECHNICAL CONFIRENCE",
+          name: "TECHNICAL CONFERENCE",
           link: null,
           icon: "mdi-account-group",
           child: [{
@@ -409,6 +409,19 @@ __webpack_require__.r(__webpack_exports__);
           link: '/app/unit_section',
           icon: "mdi-account-supervisor",
           child: []
+        }, {
+          name: "User Access",
+          link: null,
+          icon: "mdi-account-group",
+          child: [{
+            name: "User Roles",
+            link: "/app/users_access/users_access_role_list",
+            icon: "mdi-link"
+          }, {
+            name: "User Role Template",
+            link: "/app/users_access/users_access_template_list",
+            icon: "mdi-link"
+          }]
         }]
       }, {
         header: "INDUSTRY CONFIGURATION",
@@ -522,6 +535,30 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2157,21 +2194,6 @@ var render = function () {
         "v-footer",
         { attrs: { app: "", rounded: "" } },
         [
-          _c("v-switch", {
-            attrs: {
-              inset: "",
-              label: "Vuetify Theme Dark",
-              "persistent-hint": "",
-            },
-            model: {
-              value: _vm.$vuetify.theme.dark,
-              callback: function ($$v) {
-                _vm.$set(_vm.$vuetify.theme, "dark", $$v)
-              },
-              expression: "$vuetify.theme.dark",
-            },
-          }),
-          _vm._v(" "),
           _c("v-spacer"),
           _vm._v("\n        © DENR - EMB REGION 1 - UNISYS\n    "),
         ],
@@ -2209,6 +2231,34 @@ var render = function () {
       "div",
       {},
       [
+        _c("div", {}, [
+          _c(
+            "div",
+            { staticClass: "font-bold text-2xl flex items-center" },
+            [
+              _c(
+                "b-tooltip",
+                { attrs: { label: "Back", type: "is-dark", delay: 2000 } },
+                [
+                  _c(
+                    "Link",
+                    { staticClass: "px-3", on: { click: _vm.goBack } },
+                    [
+                      _c("box-icon", {
+                        attrs: { name: "arrow-back", animation: "tada-hover" },
+                      }),
+                    ],
+                    1
+                  ),
+                ],
+                1
+              ),
+              _vm._v("\n                Users Form\n            "),
+            ],
+            1
+          ),
+        ]),
+        _vm._v(" "),
         _c("ValidationObserver", {
           ref: "validation_observer",
           scopedSlots: _vm._u([
@@ -2230,242 +2280,288 @@ var render = function () {
                     },
                     [
                       _c(
-                        "v-card",
+                        "v-container",
                         [
-                          _c("v-card-text", [
-                            _c(
-                              "div",
-                              { staticClass: "grid grid-cols-2 gap-x-10" },
-                              [
-                                _c(
-                                  "div",
-                                  {},
-                                  [
-                                    _c("ValidationProvider", {
-                                      attrs: {
-                                        vid: "username",
-                                        name: "Username",
-                                        rules: "required|min:6",
-                                      },
-                                      scopedSlots: _vm._u(
-                                        [
-                                          {
-                                            key: "default",
-                                            fn: function (ref) {
-                                              var errors = ref.errors
-                                              return [
-                                                _c("v-text-field", {
-                                                  attrs: {
-                                                    label: "Username",
-                                                    filled: "",
-                                                    clearable: "",
-                                                    "prepend-icon":
-                                                      "mdi-account-box",
-                                                    outlined: "",
-                                                    "error-messages": errors[0],
-                                                  },
-                                                  model: {
-                                                    value: _vm.form.username,
-                                                    callback: function ($$v) {
-                                                      _vm.$set(
-                                                        _vm.form,
-                                                        "username",
-                                                        $$v
-                                                      )
-                                                    },
-                                                    expression: "form.username",
-                                                  },
-                                                }),
-                                              ]
-                                            },
-                                          },
-                                        ],
-                                        null,
-                                        true
-                                      ),
-                                    }),
-                                    _vm._v(" "),
-                                    _c("ValidationProvider", {
-                                      attrs: {
-                                        vid: "position",
-                                        name: "Position",
-                                        rules: "required",
-                                      },
-                                      scopedSlots: _vm._u(
-                                        [
-                                          {
-                                            key: "default",
-                                            fn: function (ref) {
-                                              var errors = ref.errors
-                                              return [
-                                                _c("v-select", {
-                                                  attrs: {
-                                                    items: _vm.position_data,
-                                                    "item-text": function (
-                                                      item
-                                                    ) {
-                                                      return item.name
-                                                    },
-                                                    "item-value": function (
-                                                      item
-                                                    ) {
-                                                      return item.id
-                                                    },
-                                                    outlined: "",
-                                                    filled: "",
-                                                    "prepend-icon":
-                                                      "mdi-account-details",
-                                                    label: "Select Position",
-                                                    "error-messages": errors[0],
-                                                    clearable: "",
-                                                  },
-                                                  model: {
-                                                    value: _vm.form.position_id,
-                                                    callback: function ($$v) {
-                                                      _vm.$set(
-                                                        _vm.form,
-                                                        "position_id",
-                                                        $$v
-                                                      )
-                                                    },
-                                                    expression:
-                                                      "form.position_id",
-                                                  },
-                                                }),
-                                              ]
-                                            },
-                                          },
-                                        ],
-                                        null,
-                                        true
-                                      ),
-                                    }),
-                                  ],
-                                  1
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "div",
-                                  [
-                                    _c("ValidationProvider", {
-                                      attrs: {
-                                        vid: "Email",
-                                        name: "Email",
-                                        rules: "required|email",
-                                      },
-                                      scopedSlots: _vm._u(
-                                        [
-                                          {
-                                            key: "default",
-                                            fn: function (ref) {
-                                              var errors = ref.errors
-                                              return [
-                                                _c("v-text-field", {
-                                                  attrs: {
-                                                    label: "Email",
-                                                    type: "email",
-                                                    filled: "",
-                                                    outlined: "",
-                                                    clearable: "",
-                                                    "prepend-icon": "mdi-at",
-                                                    "error-messages": errors[0],
-                                                  },
-                                                  model: {
-                                                    value: _vm.form.email,
-                                                    callback: function ($$v) {
-                                                      _vm.$set(
-                                                        _vm.form,
-                                                        "email",
-                                                        $$v
-                                                      )
-                                                    },
-                                                    expression: "form.email",
-                                                  },
-                                                }),
-                                              ]
-                                            },
-                                          },
-                                        ],
-                                        null,
-                                        true
-                                      ),
-                                    }),
-                                    _vm._v(" "),
-                                    _c("ValidationProvider", {
-                                      attrs: {
-                                        vid: "unit_section",
-                                        name: "Unit Section",
-                                        rules: "required",
-                                      },
-                                      scopedSlots: _vm._u(
-                                        [
-                                          {
-                                            key: "default",
-                                            fn: function (ref) {
-                                              var errors = ref.errors
-                                              return [
-                                                _c("v-select", {
-                                                  attrs: {
-                                                    items:
-                                                      _vm.unit_section_data,
-                                                    "item-text": function (
-                                                      item
-                                                    ) {
-                                                      return item.name
-                                                    },
-                                                    "item-value": function (
-                                                      item
-                                                    ) {
-                                                      return item.id
-                                                    },
-                                                    "prepend-icon":
-                                                      "mdi-clipboard-account",
-                                                    outlined: "",
-                                                    filled: "",
-                                                    label:
-                                                      "Select Unit Section",
-                                                    "error-messages": errors[0],
-                                                    clearable: "",
-                                                  },
-                                                  model: {
-                                                    value:
-                                                      _vm.form.unit_section_id,
-                                                    callback: function ($$v) {
-                                                      _vm.$set(
-                                                        _vm.form,
-                                                        "unit_section_id",
-                                                        $$v
-                                                      )
-                                                    },
-                                                    expression:
-                                                      "form.unit_section_id",
-                                                  },
-                                                }),
-                                              ]
-                                            },
-                                          },
-                                        ],
-                                        null,
-                                        true
-                                      ),
-                                    }),
-                                  ],
-                                  1
-                                ),
-                              ]
-                            ),
-                          ]),
-                          _vm._v(" "),
                           _c(
-                            "v-card-actions",
+                            "v-card",
                             [
-                              _c("v-spacer"),
+                              _c(
+                                "v-card-title",
+                                { attrs: { "primary-title": "" } },
+                                [
+                                  _vm._v(
+                                    "\n                        Information\n                    "
+                                  ),
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c("v-card-text", [
+                                _c(
+                                  "div",
+                                  { staticClass: "grid grid-cols-2 gap-x-10" },
+                                  [
+                                    _c(
+                                      "div",
+                                      {},
+                                      [
+                                        _c("ValidationProvider", {
+                                          attrs: {
+                                            vid: "username",
+                                            name: "Username",
+                                            rules: "required|min:6",
+                                          },
+                                          scopedSlots: _vm._u(
+                                            [
+                                              {
+                                                key: "default",
+                                                fn: function (ref) {
+                                                  var errors = ref.errors
+                                                  return [
+                                                    _c("v-text-field", {
+                                                      attrs: {
+                                                        label: "Username",
+                                                        filled: "",
+                                                        clearable: "",
+                                                        "prepend-icon":
+                                                          "mdi-account-box",
+                                                        outlined: "",
+                                                        "error-messages":
+                                                          errors[0],
+                                                      },
+                                                      model: {
+                                                        value:
+                                                          _vm.form.username,
+                                                        callback: function (
+                                                          $$v
+                                                        ) {
+                                                          _vm.$set(
+                                                            _vm.form,
+                                                            "username",
+                                                            $$v
+                                                          )
+                                                        },
+                                                        expression:
+                                                          "form.username",
+                                                      },
+                                                    }),
+                                                  ]
+                                                },
+                                              },
+                                            ],
+                                            null,
+                                            true
+                                          ),
+                                        }),
+                                        _vm._v(" "),
+                                        _c("ValidationProvider", {
+                                          attrs: {
+                                            vid: "position",
+                                            name: "Position",
+                                            rules: "required",
+                                          },
+                                          scopedSlots: _vm._u(
+                                            [
+                                              {
+                                                key: "default",
+                                                fn: function (ref) {
+                                                  var errors = ref.errors
+                                                  return [
+                                                    _c("v-select", {
+                                                      attrs: {
+                                                        items:
+                                                          _vm.position_data,
+                                                        "item-text": function (
+                                                          item
+                                                        ) {
+                                                          return item.name
+                                                        },
+                                                        "item-value": function (
+                                                          item
+                                                        ) {
+                                                          return item.id
+                                                        },
+                                                        outlined: "",
+                                                        filled: "",
+                                                        "prepend-icon":
+                                                          "mdi-account-details",
+                                                        label:
+                                                          "Select Position",
+                                                        "error-messages":
+                                                          errors[0],
+                                                        clearable: "",
+                                                      },
+                                                      model: {
+                                                        value:
+                                                          _vm.form.position_id,
+                                                        callback: function (
+                                                          $$v
+                                                        ) {
+                                                          _vm.$set(
+                                                            _vm.form,
+                                                            "position_id",
+                                                            $$v
+                                                          )
+                                                        },
+                                                        expression:
+                                                          "form.position_id",
+                                                      },
+                                                    }),
+                                                  ]
+                                                },
+                                              },
+                                            ],
+                                            null,
+                                            true
+                                          ),
+                                        }),
+                                      ],
+                                      1
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "div",
+                                      [
+                                        _c("ValidationProvider", {
+                                          attrs: {
+                                            vid: "Email",
+                                            name: "Email",
+                                            rules: "required|email",
+                                          },
+                                          scopedSlots: _vm._u(
+                                            [
+                                              {
+                                                key: "default",
+                                                fn: function (ref) {
+                                                  var errors = ref.errors
+                                                  return [
+                                                    _c("v-text-field", {
+                                                      attrs: {
+                                                        label: "Email",
+                                                        type: "email",
+                                                        filled: "",
+                                                        outlined: "",
+                                                        clearable: "",
+                                                        "prepend-icon":
+                                                          "mdi-at",
+                                                        "error-messages":
+                                                          errors[0],
+                                                      },
+                                                      model: {
+                                                        value: _vm.form.email,
+                                                        callback: function (
+                                                          $$v
+                                                        ) {
+                                                          _vm.$set(
+                                                            _vm.form,
+                                                            "email",
+                                                            $$v
+                                                          )
+                                                        },
+                                                        expression:
+                                                          "form.email",
+                                                      },
+                                                    }),
+                                                  ]
+                                                },
+                                              },
+                                            ],
+                                            null,
+                                            true
+                                          ),
+                                        }),
+                                        _vm._v(" "),
+                                        _c("ValidationProvider", {
+                                          attrs: {
+                                            vid: "unit_section",
+                                            name: "Unit Section",
+                                            rules: "required",
+                                          },
+                                          scopedSlots: _vm._u(
+                                            [
+                                              {
+                                                key: "default",
+                                                fn: function (ref) {
+                                                  var errors = ref.errors
+                                                  return [
+                                                    _c("v-select", {
+                                                      attrs: {
+                                                        items:
+                                                          _vm.unit_section_data,
+                                                        "item-text": function (
+                                                          item
+                                                        ) {
+                                                          return item.name
+                                                        },
+                                                        "item-value": function (
+                                                          item
+                                                        ) {
+                                                          return item.id
+                                                        },
+                                                        "prepend-icon":
+                                                          "mdi-clipboard-account",
+                                                        outlined: "",
+                                                        filled: "",
+                                                        label:
+                                                          "Select Unit Section",
+                                                        "error-messages":
+                                                          errors[0],
+                                                        clearable: "",
+                                                      },
+                                                      model: {
+                                                        value:
+                                                          _vm.form
+                                                            .unit_section_id,
+                                                        callback: function (
+                                                          $$v
+                                                        ) {
+                                                          _vm.$set(
+                                                            _vm.form,
+                                                            "unit_section_id",
+                                                            $$v
+                                                          )
+                                                        },
+                                                        expression:
+                                                          "form.unit_section_id",
+                                                      },
+                                                    }),
+                                                  ]
+                                                },
+                                              },
+                                            ],
+                                            null,
+                                            true
+                                          ),
+                                        }),
+                                      ],
+                                      1
+                                    ),
+                                  ]
+                                ),
+                              ]),
                               _vm._v(" "),
                               _c(
-                                "v-btn",
-                                { attrs: { text: "", type: "submit" } },
-                                [_vm._v("Submit")]
+                                "v-card-actions",
+                                [
+                                  _c("v-spacer"),
+                                  _vm._v(" "),
+                                  _c(
+                                    "v-btn",
+                                    { attrs: { text: "", type: "submit" } },
+                                    [_vm._v("Submit")]
+                                  ),
+                                ],
+                                1
                               ),
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "v-card",
+                            [
+                              _c("v-card-title", [_vm._v("User Roles ")]),
+                              _vm._v(" "),
+                              _c("v-card-text"),
                             ],
                             1
                           ),
@@ -2488,119 +2584,6 @@ var render = function () {
 var staticRenderFns = []
 render._withStripped = true
 
-
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js":
-/*!********************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/runtime/componentNormalizer.js ***!
-  \********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ normalizeComponent)
-/* harmony export */ });
-/* globals __VUE_SSR_CONTEXT__ */
-
-// IMPORTANT: Do NOT use ES2015 features in this file (except for modules).
-// This module is a runtime utility for cleaner component module output and will
-// be included in the final webpack user bundle.
-
-function normalizeComponent (
-  scriptExports,
-  render,
-  staticRenderFns,
-  functionalTemplate,
-  injectStyles,
-  scopeId,
-  moduleIdentifier, /* server only */
-  shadowMode /* vue-cli only */
-) {
-  // Vue.extend constructor export interop
-  var options = typeof scriptExports === 'function'
-    ? scriptExports.options
-    : scriptExports
-
-  // render functions
-  if (render) {
-    options.render = render
-    options.staticRenderFns = staticRenderFns
-    options._compiled = true
-  }
-
-  // functional template
-  if (functionalTemplate) {
-    options.functional = true
-  }
-
-  // scopedId
-  if (scopeId) {
-    options._scopeId = 'data-v-' + scopeId
-  }
-
-  var hook
-  if (moduleIdentifier) { // server build
-    hook = function (context) {
-      // 2.3 injection
-      context =
-        context || // cached call
-        (this.$vnode && this.$vnode.ssrContext) || // stateful
-        (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext) // functional
-      // 2.2 with runInNewContext: true
-      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
-        context = __VUE_SSR_CONTEXT__
-      }
-      // inject component styles
-      if (injectStyles) {
-        injectStyles.call(this, context)
-      }
-      // register component module identifier for async chunk inferrence
-      if (context && context._registeredComponents) {
-        context._registeredComponents.add(moduleIdentifier)
-      }
-    }
-    // used by ssr in case component is cached and beforeCreate
-    // never gets called
-    options._ssrRegister = hook
-  } else if (injectStyles) {
-    hook = shadowMode
-      ? function () {
-        injectStyles.call(
-          this,
-          (options.functional ? this.parent : this).$root.$options.shadowRoot
-        )
-      }
-      : injectStyles
-  }
-
-  if (hook) {
-    if (options.functional) {
-      // for template-only hot-reload because in that case the render fn doesn't
-      // go through the normalizer
-      options._injectStyles = hook
-      // register for functional component in vue file
-      var originalRender = options.render
-      options.render = function renderWithStyleInjection (h, context) {
-        hook.call(context)
-        return originalRender(h, context)
-      }
-    } else {
-      // inject component registration as beforeCreate hook
-      var existing = options.beforeCreate
-      options.beforeCreate = existing
-        ? [].concat(existing, hook)
-        : [hook]
-    }
-  }
-
-  return {
-    exports: scriptExports,
-    options: options
-  }
-}
 
 
 /***/ })

@@ -1,31 +1,32 @@
-
-import Vue from 'vue'
-import { createInertiaApp } from '@inertiajs/inertia-vue'
+import Vue from "vue";
+import { createInertiaApp } from "@inertiajs/inertia-vue";
 // import Vuex from 'vuex'
-import vuetify from './src/plugins/vuetify'
-import buefy from './src/plugins/buefy'
-import VueMeta from './src/plugins/vue-meta'
-import { InertiaProgress } from '@inertiajs/progress'
-import  './src/plugins/vee-validate'
-import vue2Dropzone from 'vue2-dropzone'
-import 'vue2-dropzone/dist/vue2Dropzone.min.css';
+import vuetify from "./src/plugins/vuetify";
+import buefy from "./src/plugins/buefy";
+import VueMeta from "./src/plugins/vue-meta";
+import { InertiaProgress } from "@inertiajs/progress";
+import PrimeVue from "primevue/config";
+import "./src/plugins/vee-validate";
+import "./src/plugins/primevue";
+import vue2Dropzone from "vue2-dropzone";
+import "vue2-dropzone/dist/vue2Dropzone.min.css";
 
 InertiaProgress.init({
-  showSpinner: true,
-})
+    showSpinner: true,
+});
 
 createInertiaApp({
-  resolve: name => import(`./src/${name}`),
-  setup({ el, App, props, plugin }) {
-    Vue.use(plugin)
-    Vue.use(vue2Dropzone)
-    // Vue.use(Vuex);
+    resolve: (name) => import(`./src/${name}`),
+    setup({ el, App, props, plugin }) {
+        Vue.use(plugin);
+        Vue.use(vue2Dropzone);
+        // Vue.use(Vuex);
 
-    new Vue({
-      vuetify,
-      buefy,
-      VueMeta,
-      render: h => h(App, props),
-    }).$mount(el)
-  },
-})
+        new Vue({
+            vuetify,
+            buefy,
+            VueMeta,
+            render: (h) => h(App, props),
+        }).$mount(el);
+    },
+});
