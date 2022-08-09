@@ -189,7 +189,7 @@ Route::group([
         Route::delete('/users_access_role_delete/{id}', [UsersAccessRoleController::class, 'delete'])->name("users_access_role_delete");
         // ACCESS TEMPLATE
         Route::get('/users_access_template_list', [UsersAccessTemplateController::class, 'list'])->name("users_access_template_list");
-        Route::get('/users_access_template_register/{id}', [UsersAccessTemplateController::class, 'create'])->name("users_access_template_register");
+        Route::get('/users_access_template_register', [UsersAccessTemplateController::class, 'create'])->name("users_access_template_register");
         Route::get('/users_access_template_edit/{id}', [UsersAccessTemplateController::class, 'edit'])->name("users_access_template_edit");
         Route::post('/users_access_template_register_process', [UsersAccessTemplateController::class, 'register'])->name("users_access_template_register_process");
         Route::post('/users_access_template_update_process', [UsersAccessTemplateController::class, 'update'])->name("users_access_template_update_process");

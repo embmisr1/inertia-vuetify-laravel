@@ -10,7 +10,7 @@
                 Add User
             </v-btn>
         </Link>
-        
+
         <b-table
             :data="users.data"
             paginated
@@ -33,27 +33,6 @@
             :header-class="isTheme ? 'bg-black text-white' : ''"
             height="420"
         >
-            <b-table-column
-                field="id"
-                label="ID"
-                width="70"
-                sortable
-                numeric
-                searchable
-            >
-                <template #searchable="props">
-                    <b-input
-                        v-model="filters.id"
-                        placeholder="Search..."
-                        icon="magnify"
-                        size="is-small"
-                    />
-                </template>
-                <template v-slot="props">
-                    {{ props.row.id }}
-                </template>
-            </b-table-column>
-
             <b-table-column field="username" label="UserName" searchable>
                 <template #searchable="props">
                     <b-input
@@ -125,6 +104,13 @@
                 </Link>
                 <v-btn
                     icon
+                    small
+                    color="success"
+                    @click="setRoleModal(props.row.id)"
+                    ><box-icon name="id-card"></box-icon
+                ></v-btn>
+                <v-btn
+                    icon
                     @click="
                         setChangePassModal(
                             change_pass_fields,
@@ -157,6 +143,10 @@
             :modal="change_pass_modal"
             :close="resetChangePassModal"
         />
+        <UserRole
+            :modal="role_modal"
+            :close="() => (role_modal.active = false)"
+        />
     </DefaultLayout>
 </template>
 
@@ -165,19 +155,23 @@ import DefaultLayout from "../../layouts/default.vue";
 import CUDUser from "../../components/Users/CUD.vue";
 import ChangePassword from "../../components/Users/ChangePassword.vue";
 import PageMixins from "../../mixins/page";
+import { page, toasts } from "../../mixins/";
 import user_modal from "../../mixins/user_modal";
+import axios from "axios";
 import { Link } from "@inertiajs/inertia-vue";
 import _ from "lodash";
+import UserRole from "../../components/Users/UserRole.vue";
 export default {
     metaInfo: {
         title: "Users",
     },
-    mixins: [PageMixins, user_modal],
+    mixins: [page, toasts, user_modal],
     components: {
         DefaultLayout,
         CUDUser,
         ChangePassword,
         Link,
+        UserRole,
     },
     props: {
         users: Object,
@@ -195,9 +189,30 @@ export default {
                 password: "",
                 confirm_password: "",
             },
+            role_modal: {
+                active: false,
+            },
         };
     },
     methods: {
+        async setRoleModal(user_id) {
+            try {
+                // this.role_modal = true;
+                this.loading = true;
+                const { data } = await axios.get(
+                    `/app/users_access/users_access_register/${user_id}`
+                );
+                this.role_modal = {
+                    active: true,
+                    data,
+                };
+                this.loading = false;
+            } catch (error) {
+                this.loading = false;
+                console.log(error);
+                this.error(error.response.data.message);
+            }
+        },
         get: _.debounce(async function (params) {
             try {
                 await this.$inertia.get("/app/users", { ...params });

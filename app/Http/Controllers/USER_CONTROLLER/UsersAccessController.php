@@ -19,11 +19,16 @@ class UsersAccessController extends Controller
         $users_info = User::where('id', $id)->get();
         $query_access_role =  UsersAccessRole::all();
         $query_access_template =  UsersAccessTemplate::all();
-        return Inertia::render("pages/users/Form/UsersForm", [
-            'users_info' => $users_info,
+        // return Inertia::render("pages/users/Form/UsersForm", [
+        //     'users_info' => $users_info,
+        //     'query_access_role' => $query_access_role,
+        //     'query_access_template' => $query_access_template,
+        // ]);
+        return [
+            'users_info' => $users_info[0],
             'query_access_role' => $query_access_role,
             'query_access_template' => $query_access_template,
-        ]);
+        ];
     }
 
     public function list(){
@@ -51,7 +56,7 @@ class UsersAccessController extends Controller
         try {
             $query = new UsersAccess();
             $query->access_role_assigned = json_encode($request->access_role_assigned);
-            $query->user_FK = $request->user_FK;
+            $query->users_FK = $request->users_FK;
             $query->save();
             return back()->with("message", "Users Access Created");
         } catch (\Throwable $th) {

@@ -881,6 +881,99 @@
                     </b-table>
                 </v-container></v-tab-item
             >
+            <v-tab-item class="overflow-y-auto"
+                ><v-container>
+                    <!-- <Link :href="`/app/swm/dues_register/${lce_id}`">
+                    </Link> -->
+                        <v-btn dark >Add GAD</v-btn>
+                    <b-table
+                        :data="query_dues"
+
+                        :per-page="query_dues.per_page"
+                        pagination-size="is-small"
+                        page-input
+                        hoverable
+                        backend-pagination
+                        :total="query_dues.total"
+                        :current-page.sync="query_dues.current_page"
+                        pagination-position="top"
+                        pagination-rounded
+                        @page-change="onPageChange"
+                        narrowed
+                        :loading="loading"
+                        bordered
+                        sticky-header
+                        scrollable
+                        :row-class="
+                            (row, index) =>
+                                isTheme ? 'bg-black text-white' : ''
+                        "
+                        :header-class="isTheme ? 'bg-black text-white' : ''"
+                        height="420"
+                    >
+                    <b-table-column
+                            field="gad_male"
+                            label="Male"
+                        >
+                            <template #searchable="props">
+                                <b-input
+                                    placeholder="Search..."
+                                    icon="magnify"
+                                    size="is-small"
+                                />
+                            </template>
+                            <template v-slot="props">
+                            {{props.row.gad_male}}
+                            </template>
+                        </b-table-column>
+
+                        <b-table-column
+                            field="gad_female"
+                            label="Femaie"
+                        >
+                            <template #searchable="props">
+                                <b-input
+                                    placeholder="Search..."
+                                    icon="magnify"
+                                    size="is-small"
+                                />
+                            </template>
+                            <template v-slot="props">
+                             {{props.row.gad_female}}
+                            </template>
+                        </b-table-column>
+
+                        <b-table-column
+                            field="action"
+                            label=""
+                            v-slot="props"
+                        >
+                                 <Link >
+                                <box-icon
+                                    name="edit"
+                                    color="orange"
+                                    animation="tada-hover"
+                                ></box-icon
+                            >
+                            </Link>
+                            <v-btn icon small
+                                ><box-icon
+                                    name="trash"
+                                    color="red"
+                                    animation="tada-hover"
+                                ></box-icon
+                            ></v-btn>
+                        </b-table-column>
+                        <template #empty>
+                            <div
+                                class="text-center text-3xl text-gray-500 font-extrabold"
+                            >
+                                No Data Found
+                            </div>
+                        </template>
+                    </b-table>
+                </v-container></v-tab-item
+            >
 
         </v-tabs>
         <!-- equiment modal -->
@@ -912,7 +1005,7 @@ export default {
   mixins: [page, toasts, swm, dialogs],
   data() {
     return {
-      tabs: ["LCE", "SLF", "MRF", "RCA", "10 YR", "Equipment", "DUES"],
+      tabs: ["LCE", "SLF", "MRF", "RCA", "10 YR", "Equipment", "DUES","GAD"],
     };
   },
   methods: {

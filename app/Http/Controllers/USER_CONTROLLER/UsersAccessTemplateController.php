@@ -21,7 +21,7 @@ class UsersAccessTemplateController extends Controller
 
     public function list(){
         $query_access_template =  UsersAccessTemplate::all();
-        return Inertia::render("pages/users/Form/UserAccessTemplateList", [
+        return Inertia::render("pages/users/UserAccessTemplateList", [
             'query_access_template' => $query_access_template,
         ]);
     }
@@ -31,7 +31,7 @@ class UsersAccessTemplateController extends Controller
         $id = $request->id;
         $users_access_template_info = UsersAccessTemplate::where('id',$id)->get();
         $query_access_role =  UsersAccessRole::all();
-        return Inertia::render("pages/user/Form/UserAccessTemplateForm", [
+        return Inertia::render("pages/users/Form/UserAccessTemplateForm", [
             'users_access_template_info' => $users_access_template_info,
             'query_access_role' => $query_access_role,
         ]);
@@ -42,11 +42,11 @@ class UsersAccessTemplateController extends Controller
         try {
             $query = new UsersAccessTemplate();
             $query->access_template = $request->access_template;
-            $query->access_role = json_encode($request->access_role);
+            $query->access_role_assigned = empty($request->access_role_assigned) ? "[]": json_encode($request->access_role_assigned);
             $query->save();
             return back()->with("message", "Users Access Role Created");
         } catch (\Throwable $th) {
-            return $th->getMessage();
+            return back()->withErrors(["error_message" => $th->getMessage()]);
         }
     }
 
@@ -55,7 +55,7 @@ class UsersAccessTemplateController extends Controller
         try {
             $query = UsersAccessTemplate::find($request->id);
             $query->access_template = $request->access_template;
-            $query->access_role = json_encode($request->access_role);
+            $query->access_role_assigned = json_encode($request->access_role_assigned);
             $query->save();
             return back()->with("message", "Users Access Role Updated");
         } catch (\Throwable $th) {

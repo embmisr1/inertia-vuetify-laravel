@@ -93,7 +93,8 @@ class SolidwasteLCEController extends Controller
             'query_equipment' => $query_equipment,
             'query_dues' => $query_dues,
             'query_ten_year' => $query_ten_year,
-            'query_closed_dumpsite_id' => $query_closed_dumpsite
+            'query_closed_dumpsite_id' => $query_closed_dumpsite,
+            "query_gad"=>$query_gad
         ]);
     }
 
