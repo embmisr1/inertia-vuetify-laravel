@@ -109,11 +109,14 @@
                             ></v-text-field>
                         </div>
                         <div>
-                            <v-text-field
-                                v-model="form_monitoring_info.mon_file"
-                                label="Monitoring File"
-                                clearable
-                            ></v-text-field>
+                            <v-file-input
+                            accept="application/pdf"
+                            show-size
+                            counter
+                            multiple
+                            v-model="form_monitoring_info.mon_file"
+                            label="Monitoring File"
+                        ></v-file-input>
                         </div>
                 </div>
                 <div class="text-center">
@@ -196,13 +199,13 @@
           sortable: false,
           value: 'mon_file',
         },
-        { 
+        {
           width: '100px',
-          text: 'Actions', 
-          value: 'actions', 
+          text: 'Actions',
+          value: 'actions',
           sortable: false,
         },
-        
+
       ],
       date_monitoring_menu: '',
       addFileForm: false,

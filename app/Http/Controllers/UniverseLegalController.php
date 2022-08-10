@@ -20,6 +20,16 @@ class UniverseLegalController extends Controller
                 $query->nov_compliance_status = 'Not Complied';
             }
             $query->save();
+            $file = $request->legal['nov_file'];
+
+            if($file){
+                foreach ($file as $pdf) {
+
+                    $query->addMedia($pdf)
+                        ->preservingOriginal()
+                        ->toMediaCollection("legal");
+                }
+            }
             return $query->id;
         }
     }
@@ -40,10 +50,20 @@ class UniverseLegalController extends Controller
                 $query->nov_compliance_status = 'Not Complied';
             }
             $query->save();
+            $file = $request->legal['nov_file'];
+
+            if($file){
+                foreach ($file as $pdf) {
+
+                    $query->addMedia($pdf)
+                        ->preservingOriginal()
+                        ->toMediaCollection("legal");
+                }
+            }
             return $request->legal['nov_id'];
         }
     }
-    
+
     public function delete_legal($request){
         $query = Legal::find($request);
         $query->delete();
@@ -54,7 +74,7 @@ class UniverseLegalController extends Controller
         $columns_controller = new ColumnsController;
         return $columns_controller->legal_columns();
     }
-    
+
     public function industry_laws($request, $law, $column){
         $industry_laws = '';
         foreach($request->$law[$column] as $industry_law){

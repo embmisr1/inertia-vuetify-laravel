@@ -5,8 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Complaint extends Model
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
+
+class Complaint extends Model implements HasMedia
 {
     protected $table = 'tbl_complaint';
-    use HasFactory;
+    use HasFactory, InteractsWithMedia;
 }

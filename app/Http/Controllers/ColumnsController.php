@@ -45,7 +45,7 @@ class ColumnsController extends Controller
             'perm_number',
             'perm_date_issuance',
             'perm_date_expiry',
-            'perm_file',
+            // 'perm_file',
             'perm_description',
             'perm_status',
         ];
@@ -58,7 +58,7 @@ class ColumnsController extends Controller
             'mon_date_monitored',
             'mon_or_survey',
             'mon_type',
-            'mon_file',
+            // 'mon_file',
         ];
         return $array;
     }
@@ -70,7 +70,7 @@ class ColumnsController extends Controller
             'nov_date',
             'nov_tc_date',
             'nov_tc_status',
-            'nov_file',
+            // 'nov_file',
             'nov_order_number',
             'nov_order_amt',
             'nov_order_date_issuance',
@@ -89,7 +89,7 @@ class ColumnsController extends Controller
             'haz_date_acceptance',
             'haz_date_issuance',
             'haz_date_expiry',
-            'haz_file',
+            // 'haz_file',
         ];
         return $array;
     }
@@ -110,8 +110,8 @@ class ColumnsController extends Controller
         $array = [
             'comp_name',
             'comp_nature',
-            'comp_attached_file',
-            'comp_action_file',
+            // 'comp_attached_file',
+            // 'comp_action_file',
             'comp_remarks',
         ];
         return $array;

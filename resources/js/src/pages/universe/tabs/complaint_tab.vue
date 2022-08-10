@@ -26,18 +26,24 @@
                 </div>
                 <div class="grid grid-cols-2 gap-y-0 gap-x-4 ml-8">
                         <div>
-                            <v-text-field
-                                v-model="form_complaint_info.comp_attached_file"
-                                label="Attached File"
-                                clearable
-                            ></v-text-field>
+                            <v-file-input
+                            accept="application/pdf"
+                            show-size
+                            counter
+                            multiple
+                            v-model="form_complaint_info.comp_attached_file"
+                            label="Attached File"
+                        ></v-file-input>
                         </div>
                         <div>
-                            <v-text-field
-                                v-model="form_complaint_info.comp_action_file"
-                                label="Action File"
-                                clearable
-                            ></v-text-field>
+                            <v-file-input
+                            accept="application/pdf"
+                            show-size
+                            counter
+                            multiple
+                            v-model="form_complaint_info.comp_action_file"
+                            label="Action File"
+                        ></v-file-input>
                         </div>
                 </div>
                 <div class="grid grid-cols-1 gap-y-0 gap-x-4 ml-8">
@@ -135,13 +141,13 @@
           sortable: false,
           value: 'comp_remarks',
         },
-        { 
+        {
           width: '100px',
-          text: 'Actions', 
-          value: 'actions', 
+          text: 'Actions',
+          value: 'actions',
           sortable: false,
         },
-        
+
       ],
       addFileForm: false,
     }),

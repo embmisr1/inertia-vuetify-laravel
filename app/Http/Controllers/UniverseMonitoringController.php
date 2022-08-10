@@ -17,6 +17,17 @@ class UniverseMonitoringController extends Controller
             $query->mon_law = $this->industry_laws($request, 'monitoring', 'mon_law');
             $query->universe_FK = $universe_id;
             $query->save();
+
+            $file = $request->monitoring['mon_file'];
+
+            if($file){
+                foreach ($file as $pdf) {
+
+                    $query->addMedia($pdf)
+                        ->preservingOriginal()
+                        ->toMediaCollection("monitoring");
+                }
+            }
             return $query->id;
         }
     }
@@ -34,10 +45,21 @@ class UniverseMonitoringController extends Controller
             $query->mon_law = $this->industry_laws($request, 'monitoring', 'mon_law');
             $query->universe_FK = $universe_id;
             $query->save();
+
+            $file = $request->monitoring['mon_file'];
+
+            if($file){
+                foreach ($file as $pdf) {
+
+                    $query->addMedia($pdf)
+                        ->preservingOriginal()
+                        ->toMediaCollection("monitoring");
+                }
+            }
             return $request->monitoring['mon_id'];
         }
     }
-    
+
     public function delete_monitoring($request){
         $query = Monitoring::find($request);
         $query->delete();

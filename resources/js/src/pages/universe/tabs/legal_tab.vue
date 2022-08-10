@@ -275,11 +275,14 @@
                 </div>
                 <div class="grid grid-cols-1 gap-y-0 gap-x-4 ml-8">
                         <div>
-                            <v-text-field
-                                v-model="form_legal_info.nov_file"
-                                label="Attachments"
-                                clearable
-                            ></v-text-field>
+                            <v-file-input
+                            accept="application/pdf"
+                            show-size
+                            counter
+                            multiple
+                            v-model="form_legal_info.nov_file"
+                            label="Attachments"
+                        ></v-file-input>
                         </div>
                 </div>
                 <div class="text-center">
@@ -380,13 +383,13 @@
           sortable: false,
           value: 'nov_desc',
         },
-        { 
+        {
           width: '100px',
-          text: 'Actions', 
-          value: 'actions', 
+          text: 'Actions',
+          value: 'actions',
           sortable: false,
         },
-        
+
       ],
       legal_tc_status_selection:[
         { 'tc_status_selection': 'Attended'  },

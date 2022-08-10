@@ -46,7 +46,7 @@ export default {
                 mon_date_monitored: "",
                 mon_or_survey: "",
                 mon_type: "",
-                mon_file: "",
+                mon_file: [],
             },
             form_legal_info: {
                 nov_id: "",
@@ -55,7 +55,7 @@ export default {
                 nov_date: "",
                 nov_tc_date: "",
                 nov_tc_status: "",
-                nov_file: "",
+                nov_file:[],
                 nov_order_number: "",
                 nov_order_amt: "",
                 nov_order_date_issuance: "",
@@ -86,8 +86,8 @@ export default {
                 comp_id: "",
                 comp_name: "",
                 comp_nature: "",
-                comp_attached_file: "",
-                comp_action_file: "",
+                comp_attached_file: [],
+                comp_action_file: [],
                 comp_remarks: "",
             },
         };
@@ -107,15 +107,15 @@ export default {
                 await this.$inertia.post("/app/universe_process", {
                     ...data,
                 });
-                if(!data.basic.id){
-                    this.reset_basic_info();
-                }
-                this.reset_permit_info();
-                this.reset_monitoring_info();
-                this.reset_legal_info();
-                this.reset_hazwaste_info();
-                this.reset_pco_info();
-                this.reset_complaint_info();
+                // if(!data.basic.id){
+                //     this.reset_basic_info();
+                // }
+                // this.reset_permit_info();
+                // this.reset_monitoring_info();
+                // this.reset_legal_info();
+                // this.reset_hazwaste_info();
+                // this.reset_pco_info();
+                // this.reset_complaint_info();
             }
         },
         reset_basic_info() {
@@ -155,7 +155,7 @@ export default {
                 perm_number: "",
                 perm_date_issuance: "",
                 perm_date_expiry: "",
-                perm_file: "",
+                perm_file: [],
                 perm_description: "",
                 perm_status: "",
             };
@@ -167,7 +167,7 @@ export default {
                 mon_date_monitored: "",
                 mon_or_survey: "",
                 mon_type: "",
-                mon_file: "",
+                mon_file: [],
             };
         },
         reset_legal_info() {
@@ -178,7 +178,7 @@ export default {
                 nov_date: "",
                 nov_tc_date: "",
                 nov_tc_status: "",
-                nov_file: "",
+                nov_file: [],
                 nov_order_number: "",
                 nov_order_amt: "",
                 nov_order_date_issuance: "",
@@ -196,7 +196,7 @@ export default {
                 haz_date_acceptance: "",
                 haz_date_issuance: "",
                 haz_date_expiry: "",
-                haz_file: "",
+                haz_file: [],
             };
         },
         reset_pco_info() {
@@ -216,7 +216,7 @@ export default {
                 comp_name: "",
                 comp_nature: "",
                 comp_attached_file: "",
-                comp_action_file: "",
+                comp_action_file: [],
                 comp_remarks: "",
             };
         },

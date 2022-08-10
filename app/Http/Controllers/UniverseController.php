@@ -178,7 +178,7 @@ class UniverseController extends Controller
             'province_list' => $province_list,
         ]);
     }
-    
+
     public function universe_dashboard(request $request){
         $firm_type = $request->firm_type;
         $query_registered_industries = DB::table('tbl_universe')->select('*')->where('un_type', $firm_type);
@@ -348,7 +348,8 @@ class UniverseController extends Controller
 
     public function universe_process_create($request)
     {
-        $universe_id = $this->basic_process_create($request);
+        try {
+            $universe_id = $this->basic_process_create($request);
         $this->permit_process_create($request, $universe_id);
         $this->monitoring_process_create($request, $universe_id);
         $this->legal_process_create($request, $universe_id);
@@ -356,6 +357,10 @@ class UniverseController extends Controller
         $this->pco_process_create($request, $universe_id);
         $this->complaint_process_create($request, $universe_id);
         return $universe_id;
+        } catch (\Throwable $th) {
+            // dd($th->getMessage());
+            return back()->withErrors(["error_message" => $th->getMessage()]);
+        }
     }
 
     public function universe_process_update($request)
@@ -514,7 +519,7 @@ class UniverseController extends Controller
 
     // =============================================== EXPORT EXCEL ===============================================
 
-    public function export() 
+    public function export()
     {
         return Excel::download(new UniverseExport, 'universe.xlsx');
     }

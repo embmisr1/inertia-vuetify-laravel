@@ -38,7 +38,7 @@ return [
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),
-            'url' => env('APP_URL').'/storage',
+            'url' => env('APP_URL') . '/storage',
             'visibility' => 'public',
         ],
 
@@ -51,6 +51,38 @@ return [
             'url' => env('AWS_URL'),
             'endpoint' => env('AWS_ENDPOINT'),
             'use_path_style_endpoint' => env('AWS_USE_PATH_STYLE_ENDPOINT', false),
+        ],
+
+
+        'permits' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/permits'),
+            'url' => env('APP_URL') . '/storage',
+            'visibility' => 'public',
+        ],
+        'monitoring' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/monitoring'),
+            'url' => env('APP_URL') . '/storage',
+            'visibility' => 'public',
+        ],
+        'legal' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/legal'),
+            'url' => env('APP_URL') . '/storage',
+            'visibility' => 'public',
+        ],
+        'complaint' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/complaint'),
+            'url' => env('APP_URL') . '/storage',
+            'visibility' => 'public',
+        ],
+        'complaint_action' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/complaint_action'),
+            'url' => env('APP_URL') . '/storage',
+            'visibility' => 'public',
         ],
 
     ],
