@@ -17,23 +17,20 @@ class UniverseComplaintController extends Controller
             }
             $query->universe_FK = $universe_id;
             $query->save();
-            $file = $request->legal['comp_attached_file'];
-            $action_file = $request->legal['comp_action_file'];
-
-            if ($file) {
-                foreach ($file as $pdf) {
+        if (isset($request->complaint['comp_attached_file'])) {
+                foreach ($request->complaint['comp_attached_file'] as $pdf) {
 
                     $query->addMedia($pdf)
                         ->preservingOriginal()
                         ->toMediaCollection("complaint");
                 }
             }
-            if ($action_file) {
-                foreach ($file as $pdf) {
+            if (isset($request->complaint['comp_action_file'])) {
+                foreach ($request->complaint['comp_action_file'] as $pdf) {
 
                     $query->addMedia($pdf)
                         ->preservingOriginal()
-                        ->toMediaCollection("complaint_action");
+                        ->toMediaCollection("complaintaction","complaintaction");
                 }
             }
             return $query->id;
@@ -53,24 +50,22 @@ class UniverseComplaintController extends Controller
             }
             $query->universe_FK = $universe_id;
             $query->save();
-            $file = $request->complaint['comp_attached_file'];
 
-            $action_file = $request->legal['comp_action_file'];
-
-            if ($file) {
-                foreach ($file as $pdf) {
+            if (isset($request->complaint['comp_attached_file'])) {
+                foreach ($request->complaint['comp_attached_file'] as $pdf) {
 
                     $query->addMedia($pdf)
                         ->preservingOriginal()
                         ->toMediaCollection("complaint");
                 }
             }
-            if ($action_file) {
-                foreach ($file as $pdf) {
+            if (isset($request->complaint['comp_action_file'])) {
+                // dd($request->complaint['comp_action_file']);
+                foreach ($request->complaint['comp_action_file'] as $pdf) {
 
                     $query->addMedia($pdf)
                         ->preservingOriginal()
-                        ->toMediaCollection("complaint_action");
+                        ->toMediaCollection("complaintaction","complaintaction");
                 }
             }
             return $request->complaint['comp_id'];

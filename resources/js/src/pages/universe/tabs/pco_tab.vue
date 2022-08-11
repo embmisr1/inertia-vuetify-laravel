@@ -55,6 +55,7 @@
                                         v-bind="attrs"
                                         v-on="on"
                                         clearable
+                                        required
                                     ></v-text-field>
                                 </template>
                                 <v-date-picker
@@ -98,6 +99,7 @@
                                         v-bind="attrs"
                                         v-on="on"
                                         clearable
+                                        required
                                     ></v-text-field>
                                 </template>
                                 <v-date-picker
@@ -216,13 +218,13 @@
           sortable: false,
           value: 'pco_end_date',
         },
-        { 
+        {
           width: '100px',
-          text: 'Actions', 
-          value: 'actions', 
+          text: 'Actions',
+          value: 'actions',
           sortable: false,
         },
-        
+
       ],
       date_pco_start_menu: '',
       date_pco_end_menu: '',

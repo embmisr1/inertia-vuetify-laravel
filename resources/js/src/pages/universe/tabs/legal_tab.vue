@@ -59,6 +59,7 @@
                                         v-bind="attrs"
                                         v-on="on"
                                         clearable
+                                        required
                                     ></v-text-field>
                                 </template>
                                 <v-date-picker
@@ -180,6 +181,7 @@
                                         v-bind="attrs"
                                         v-on="on"
                                         clearable
+                                        required
                                     ></v-text-field>
                                 </template>
                                 <v-date-picker
@@ -223,6 +225,7 @@
                                         v-bind="attrs"
                                         v-on="on"
                                         clearable
+                                        required
                                     ></v-text-field>
                                 </template>
                                 <v-date-picker
@@ -436,7 +439,7 @@
             this.form_legal_info.nov_date = null;
             this.form_legal_info.nov_tc_date = null;
             this.form_legal_info.nov_tc_status = null;
-            this.form_legal_info.nov_file = null;
+            this.form_legal_info.nov_file = [];
             this.form_legal_info.nov_order_number = null;
             this.form_legal_info.nov_order_amt = null;
             this.form_legal_info.nov_order_date_issuance = null;

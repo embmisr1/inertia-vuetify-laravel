@@ -78,9 +78,9 @@ return [
             'url' => env('APP_URL') . '/storage',
             'visibility' => 'public',
         ],
-        'complaint_action' => [
+        'complaintaction' => [
             'driver' => 'local',
-            'root' => storage_path('app/public/complaint_action'),
+            'root' => storage_path('app/public/complaintaction'),
             'url' => env('APP_URL') . '/storage',
             'visibility' => 'public',
         ],

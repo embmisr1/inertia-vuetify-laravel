@@ -60,6 +60,7 @@
                                     v-bind="attrs"
                                     v-on="on"
                                     clearable
+                                    required
                                 ></v-text-field>
                             </template>
                             <v-date-picker
@@ -374,7 +375,7 @@ export default {
             this.form_permit_info.perm_date_expiry = null;
             this.form_permit_info.perm_date_issuance = null;
             this.form_permit_info.perm_description = null;
-            this.form_permit_info.perm_file = null;
+            this.form_permit_info.perm_file = [];;
             this.form_permit_info.perm_id = null;
             this.form_permit_info.perm_law = null;
             this.form_permit_info.perm_number = null;

@@ -18,10 +18,9 @@ class UniverseMonitoringController extends Controller
             $query->universe_FK = $universe_id;
             $query->save();
 
-            $file = $request->monitoring['mon_file'];
 
-            if($file){
-                foreach ($file as $pdf) {
+            if(isset($request->monitoring['mon_file'])){
+                foreach ($request->monitoring['mon_file'] as $pdf) {
 
                     $query->addMedia($pdf)
                         ->preservingOriginal()
@@ -33,6 +32,7 @@ class UniverseMonitoringController extends Controller
     }
 
     public function monitoring_process_update($request, $universe_id){
+        if(!isset($request->monitoring['mon_law'])) return;
         if($request->monitoring['mon_law'] && $request->monitoring['mon_date_monitored']){
             if($request->monitoring['mon_id']){
                 $query = Monitoring::find($request->monitoring['mon_id']);
@@ -46,10 +46,8 @@ class UniverseMonitoringController extends Controller
             $query->universe_FK = $universe_id;
             $query->save();
 
-            $file = $request->monitoring['mon_file'];
-
-            if($file){
-                foreach ($file as $pdf) {
+            if(isset($request->monitoring['mon_file'])){
+                foreach ($request->monitoring['mon_file'] as $pdf) {
 
                     $query->addMedia($pdf)
                         ->preservingOriginal()

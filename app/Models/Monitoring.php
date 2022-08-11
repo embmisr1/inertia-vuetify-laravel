@@ -12,4 +12,12 @@ class Monitoring extends Model implements HasMedia
 {
     protected $table = 'tbl_monitoring';
     use HasFactory, InteractsWithMedia;
+
+    public function registerMediaCollections(): void
+    {
+        $this
+            ->addMediaCollection('monitoring')
+            ->acceptsMimeTypes(['application/pdf'])
+            ->useDisk('monitoring');
+    }
 }

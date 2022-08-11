@@ -68,6 +68,7 @@
                                         v-bind="attrs"
                                         v-on="on"
                                         clearable
+                                        required
                                     ></v-text-field>
                                 </template>
                                 <v-date-picker
@@ -235,7 +236,7 @@
             this.form_monitoring_info.mon_date_monitored = null;
             this.form_monitoring_info.mon_or_survey = null;
             this.form_monitoring_info.mon_type = null;
-            this.form_monitoring_info.mon_file = null;
+            this.form_monitoring_info.mon_file = [];
         },
         addFile(){
             this.addFileForm = true;

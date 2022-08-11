@@ -3,30 +3,30 @@ export default {
         return {
             form_basic_info: {
                 id: "",
-                un_crs_number : "",
-                un_psic_group : "",
-                un_psic_class : "",
-                un_psic_subclass : "",
-                un_firmname : "",
-                un_proponent : "",
-                un_project_type : "",
-                un_project_subtype : "",
-                un_project_specific_type : "",
-                un_project_specific_subtype : "",
-                un_detailed_description : "",
-                un_specific_address : "",
-                un_region : "",
-                un_brgy : "",
-                un_municipality : "",
-                un_province : "",
-                un_lat : "",
-                un_long : "",
-                un_representative_name : "",
-                un_representative_designation : "",
-                un_representative_gender : "",
-                un_remarks : "",
-                un_status : "",
-                un_type : "",
+                un_crs_number: "",
+                un_psic_group: "",
+                un_psic_class: "",
+                un_psic_subclass: "",
+                un_firmname: "",
+                un_proponent: "",
+                un_project_type: "",
+                un_project_subtype: "",
+                un_project_specific_type: "",
+                un_project_specific_subtype: "",
+                un_detailed_description: "",
+                un_specific_address: "",
+                un_region: "",
+                un_brgy: "",
+                un_municipality: "",
+                un_province: "",
+                un_lat: "",
+                un_long: "",
+                un_representative_name: "",
+                un_representative_designation: "",
+                un_representative_gender: "",
+                un_remarks: "",
+                un_status: "",
+                un_type: "",
                 ...this.query,
             },
             form_permit_info: {
@@ -55,7 +55,7 @@ export default {
                 nov_date: "",
                 nov_tc_date: "",
                 nov_tc_status: "",
-                nov_file:[],
+                nov_file: [],
                 nov_order_number: "",
                 nov_order_amt: "",
                 nov_order_date_issuance: "",
@@ -94,18 +94,32 @@ export default {
     },
     methods: {
         async submit_basic_info() {
-            if(confirm('Do you want to proceed?')){
+            if (confirm("Do you want to proceed?")) {
                 const data = {
-                    'basic': this.form_basic_info,
-                    'permit': this.form_permit_info,
-                    'monitoring': this.form_monitoring_info,
-                    'legal': this.form_legal_info,
-                    'hazwaste': this.form_hazwaste_info,
-                    'pco': this.form_pco_info,
-                    'complaint': this.form_complaint_info,
+                    basic: { ...this.form_basic_info },
+                    permit: { ...this.form_permit_info },
+                    monitoring: {
+                        ...this.form_monitoring_info,
+                    },
+                    legal: { ...this.form_legal_info,
+                     },
+                    hazwaste: { ...this.form_hazwaste_info },
+                    pco: { ...this.form_pco_info },
+                    complaint: { ...this.form_complaint_info },
                 };
+                // console.log(data);
+                // return;
+                // let form_data = new FormData();
+                // form_data.append("basic", this.form_basic_info);
+                // form_data.append("permit", this.form_permit_info);
+                // form_data.append("monitoring", this.form_monitoring_info);
+                // form_data.append("legal", this.form_legal_info);
+                // form_data.append("hazwaste", this.form_hazwaste_info);
+                // form_data.append("pco", this.form_pco_info);
+                // form_data.append("complaint", this.form_complaint_info);
                 await this.$inertia.post("/app/universe_process", {
                     ...data,
+                    // form_data,
                 });
                 // if(!data.basic.id){
                 //     this.reset_basic_info();
@@ -121,30 +135,30 @@ export default {
         reset_basic_info() {
             this.form_basic_info = {
                 id: "",
-                un_crs_number : "",
-                un_psic_group : "",
-                un_psic_class : "",
-                un_psic_subclass : "",
-                un_firmname : "",
-                un_proponent : "",
-                un_project_type : "",
-                un_project_subtype : "",
-                un_project_specific_type : "",
-                un_project_specific_subtype : "",
-                un_detailed_description : "",
-                un_specific_address : "",
-                un_region : "",
-                un_brgy : "",
-                un_municipality : "",
-                un_province : "",
-                un_lat : "",
-                un_long : "",
-                un_representative_name : "",
-                un_representative_designation : "",
-                un_representative_gender : "",
-                un_remarks : "",
-                un_status : "",
-                un_type : "",
+                un_crs_number: "",
+                un_psic_group: "",
+                un_psic_class: "",
+                un_psic_subclass: "",
+                un_firmname: "",
+                un_proponent: "",
+                un_project_type: "",
+                un_project_subtype: "",
+                un_project_specific_type: "",
+                un_project_specific_subtype: "",
+                un_detailed_description: "",
+                un_specific_address: "",
+                un_region: "",
+                un_brgy: "",
+                un_municipality: "",
+                un_province: "",
+                un_lat: "",
+                un_long: "",
+                un_representative_name: "",
+                un_representative_designation: "",
+                un_representative_gender: "",
+                un_remarks: "",
+                un_status: "",
+                un_type: "",
             };
         },
         reset_permit_info() {

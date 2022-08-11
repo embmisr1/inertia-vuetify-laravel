@@ -19,10 +19,8 @@ class UniversePermitController extends Controller
             $query->is_priority = 1;
             $query->save();
 
-            $file = $request->permit['perm_file'];
-
-            if($file){
-                foreach ($file as $pdf) {
+            if(isset($request->permit['perm_file'])){
+                foreach ($request->permit['perm_file'] as $pdf) {
 
                     $query->addMedia($pdf)
                         ->preservingOriginal()
@@ -57,10 +55,9 @@ class UniversePermitController extends Controller
             $query->is_priority = 1;
             $query->save();
 
-            $file = $request->permit['perm_file'];
 
-            if($file){
-                foreach ($file as $pdf) {
+            if(isset($request->permit['perm_file'])){
+                foreach ($request->permit['perm_file'] as $pdf) {
 
                     $query->addMedia($pdf)
                         ->preservingOriginal()

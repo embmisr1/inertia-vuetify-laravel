@@ -20,10 +20,8 @@ class UniverseLegalController extends Controller
                 $query->nov_compliance_status = 'Not Complied';
             }
             $query->save();
-            $file = $request->legal['nov_file'];
-
-            if($file){
-                foreach ($file as $pdf) {
+            if(isset($request->legal['nov_file'])){
+                foreach ($request->legal['nov_file'] as $pdf) {
 
                     $query->addMedia($pdf)
                         ->preservingOriginal()
@@ -35,6 +33,7 @@ class UniverseLegalController extends Controller
     }
 
     public function legal_process_update($request, $universe_id){
+        if(!isset($request->legal['nov_law'])) return;
         if($request->legal['nov_law'] && $request->legal['nov_date']){
             if($request->legal['nov_id']){
                 $query = Legal::find($request->legal['nov_id']);
@@ -50,10 +49,9 @@ class UniverseLegalController extends Controller
                 $query->nov_compliance_status = 'Not Complied';
             }
             $query->save();
-            $file = $request->legal['nov_file'];
 
-            if($file){
-                foreach ($file as $pdf) {
+            if(isset($request->legal['nov_file'])){
+                foreach ($request->legal['nov_file'] as $pdf) {
 
                     $query->addMedia($pdf)
                         ->preservingOriginal()
