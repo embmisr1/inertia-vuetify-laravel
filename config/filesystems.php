@@ -57,31 +57,31 @@ return [
         'permits' => [
             'driver' => 'local',
             'root' => storage_path('app/public/permits'),
-            'url' => env('APP_URL') . '/storage',
+            'url' => env('APP_URL') . '/storage/permits',
             'visibility' => 'public',
         ],
         'monitoring' => [
             'driver' => 'local',
             'root' => storage_path('app/public/monitoring'),
-            'url' => env('APP_URL') . '/storage',
+            'url' => env('APP_URL') . '/storage/monitoring',
             'visibility' => 'public',
         ],
         'legal' => [
             'driver' => 'local',
             'root' => storage_path('app/public/legal'),
-            'url' => env('APP_URL') . '/storage',
+            'url' => env('APP_URL') . '/storage/legal',
             'visibility' => 'public',
         ],
         'complaint' => [
             'driver' => 'local',
             'root' => storage_path('app/public/complaint'),
-            'url' => env('APP_URL') . '/storage',
+            'url' => env('APP_URL') . '/storage/complaint',
             'visibility' => 'public',
         ],
         'complaintaction' => [
             'driver' => 'local',
             'root' => storage_path('app/public/complaintaction'),
-            'url' => env('APP_URL') . '/storage',
+            'url' => env('APP_URL') . '/storage/complaintaction',
             'visibility' => 'public',
         ],
 

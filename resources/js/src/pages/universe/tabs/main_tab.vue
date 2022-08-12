@@ -120,9 +120,9 @@
                     :psic_group_list="psic_group_list"
                     :psic_class_list="psic_class_list"
                     :psic_subclass_list="psic_subclass_list"
-                    :project_type_list="project_type_list" 
-                    :project_subtype_list="project_subtype_list" 
-                    :project_specific_type_list="project_specific_type_list" 
+                    :project_type_list="project_type_list"
+                    :project_subtype_list="project_subtype_list"
+                    :project_specific_type_list="project_specific_type_list"
                     :project_specific_subtype_list="project_specific_subtype_list" >
                   </BasicTab>
               </v-tab-item>
@@ -130,10 +130,10 @@
                   <PermitTab :form_permit_info="form_permit_info" :permit_table="permit_table"></PermitTab>
               </v-tab-item>
               <v-tab-item>
-                  <MonitoringTab :form_monitoring_info="form_monitoring_info" :monitoring_table="monitoring_table"></MonitoringTab>
+                  <MonitoringTab :laws="laws" :form_monitoring_info="form_monitoring_info" :monitoring_table="monitoring_table"></MonitoringTab>
               </v-tab-item>
               <v-tab-item>
-                  <LegalTab :form_legal_info="form_legal_info" :legal_table="legal_table"></LegalTab>
+                  <LegalTab :laws="laws" :form_legal_info="form_legal_info" :legal_table="legal_table"></LegalTab>
               </v-tab-item>
               <!--
               <v-tab-item>
@@ -193,6 +193,7 @@
       project_subtype_list: Array,
       project_specific_type_list: Array,
       project_specific_subtype_list: Array,
+      laws:Array
     },
     components:{
         BasicTab,

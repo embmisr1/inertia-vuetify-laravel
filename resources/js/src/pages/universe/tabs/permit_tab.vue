@@ -11,34 +11,66 @@
                         ></v-text-field>
                     </div>
                     <div>
-                        <v-autocomplete
-                            :items="permit_law_selection"
-                            v-model="form_permit_info.perm_law"
-                            label="Law"
-                            item-text="law_selection"
-                            item-value="law_selection"
-                            clearable
-                        ></v-autocomplete>
+                        <ValidationProvider
+                            vid="law"
+                            name="Law"
+                            rules="required"
+                            v-slot="{ errors }"
+                        >
+                            <v-autocomplete
+                                :items="permit_law_selection"
+                                v-model="form_permit_info.perm_law"
+                                label="Law"
+                                item-text="law_selection"
+                                item-value="law_selection"
+                                clearable
+                                :error-messages="errors[0]"
+                            ></v-autocomplete>
+                        </ValidationProvider>
                     </div>
                     <div>
-                        <v-text-field
-                            v-model="form_permit_info.perm_number"
-                            label="Permit No."
-                            clearable
-                        ></v-text-field>
+                        <ValidationProvider
+                            vid="permit_no"
+                            name="Permit No"
+                            rules="required"
+                            v-slot="{ errors }"
+                        >
+                            <v-text-field
+                                :error-messages="errors[0]"
+                                v-model="form_permit_info.perm_number"
+                                label="Permit No."
+                                clearable
+                            ></v-text-field>
+                        </ValidationProvider>
                     </div>
                     <div>
-                        <v-autocomplete
-                            :items="permit_status_selection"
-                            v-model="form_permit_info.perm_status"
-                            label="Permit Status"
-                            item-text="status_selection"
-                            item-value="status_selection"
-                            clearable
-                        ></v-autocomplete>
+                        <ValidationProvider
+                            vid="permit_status"
+                            name="Permit status"
+                            rules="required"
+                            v-slot="{ errors }"
+                        >
+                            <v-autocomplete
+                                :error-messages="errors[0]"
+                                :items="permit_status_selection"
+                                v-model="form_permit_info.perm_status"
+                                label="Permit Status"
+                                item-text="status_selection"
+                                item-value="status_selection"
+                                clearable
+                            ></v-autocomplete>
+                        </ValidationProvider>
                     </div>
                     <!--date start-->
                     <div>
+                        <ValidationProvider
+                            vid="date_issuance"
+                            name="Date Issuance"
+                            rules="required"
+                            v-slot="{ errors }"
+                        >
+
+
                         <v-menu
                             ref="date_permit_issuance_menu"
                             v-model="date_permit_issuance_menu"
@@ -52,6 +84,7 @@
                         >
                             <template v-slot:activator="{ on, attrs }">
                                 <v-text-field
+                                :error-messages="errors[0]"
                                     v-model="
                                         form_permit_info.perm_date_issuance
                                     "
@@ -89,6 +122,7 @@
                                 </v-btn>
                             </v-date-picker>
                         </v-menu>
+                        </ValidationProvider>
                     </div>
                     <div>
                         <v-menu
@@ -226,6 +260,14 @@
                         item-key="permit_tables"
                         class="elevation-1"
                     >
+                        <template v-slot:item.perm_file="{ item }">
+                            <a
+                                :href="`/app/attachments?type=permits&id=${item.id}`"
+                                target="_blank"
+                            >
+                                <v-btn small dark>Download File</v-btn>
+                            </a>
+                        </template>
                         <template v-slot:item.actions="{ item }">
                             <v-icon
                                 small
@@ -257,6 +299,7 @@
 import vue2Dropzone from "vue2-dropzone";
 import "vue2-dropzone/dist/vue2Dropzone.min.css";
 import UploadDialog from "../../../components/UploadDialog.vue";
+import { Link } from "@inertiajs/inertia-vue";
 export default {
     props: {
         form_permit_info: Object,
@@ -265,6 +308,7 @@ export default {
     components: {
         vueDropzone: vue2Dropzone,
         UploadDialog,
+        Link,
     },
     data: () => ({
         uploadDialog: false,
@@ -375,7 +419,7 @@ export default {
             this.form_permit_info.perm_date_expiry = null;
             this.form_permit_info.perm_date_issuance = null;
             this.form_permit_info.perm_description = null;
-            this.form_permit_info.perm_file = [];;
+            this.form_permit_info.perm_file = [];
             this.form_permit_info.perm_id = null;
             this.form_permit_info.perm_law = null;
             this.form_permit_info.perm_number = null;
