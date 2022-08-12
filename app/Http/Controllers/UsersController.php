@@ -14,7 +14,9 @@ use App\Http\Requests\UpdateUsersRequest;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
 use App\Filters\UsersFilter;
+use App\Http\Controllers\USER_CONTROLLER\UsersAccessController;
 use App\Http\Resources\UsersResource;
+use App\Models\USER_ACCESS\UsersAccessTemplate;
 use Illuminate\Support\Facades\Cache;
 
 class UsersController extends Controller
@@ -45,6 +47,11 @@ class UsersController extends Controller
      */
     public function create()
     {
+        // $access_controller = new UsersAccessController(request());
+
+        // $access_controller->create();
+
+        $query_access_template =  UsersAccessTemplate::all();
         return Inertia::render("pages/users/create", [
             'data' => array(
                 "position" =>  Cache::remember('position_all', 60, function () {
@@ -53,7 +60,8 @@ class UsersController extends Controller
                 "unit_section" =>  Cache::remember('unit_section_all', 60, function () {
                     return  UnitSection::select('id', 'name')->get();
                 }),
-                "user"=>array("data"=>null)
+                "user"=>array("data"=>null),
+                "query_access_template"=>$query_access_template
             )
         ]);
     }

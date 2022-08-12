@@ -47,29 +47,31 @@
                         v-on="on"
                     />
                 </template>
-                <RightMenu :items="items" :themeColor="isDark" />
+                <!-- <RightMenu :items="items" :themeColor="isDark" /> -->
             </v-menu>
         </v-app-bar>
 
         <!-- Sizes your content based upon application components -->
         <v-main
             class=""
-            style="background-color: #f4f5fa !important; overflow-y: hidden"
+            style=" background-color: #f4f5fa !important; overflow-y: hidden"
         >
             <!-- Provides the application the proper gutter -->
-            <v-container fluid class="scrollbar-thin overflow-y-scroll">
+            <!-- <v-container class="w-screen scrollbar-thin overflow-y-scroll"> -->
+                <div class="p-4">
+                    <slot />
+                </div>
                 <!-- If using vue-router -->
-                <slot />
-            </v-container>
+            <!-- </v-container> -->
         </v-main>
 
         <v-footer app rounded>
-            <v-switch
+            <!-- <v-switch
                 v-model="$vuetify.theme.dark"
                 inset
                 label="Vuetify Theme Dark"
                 persistent-hint
-            ></v-switch>
+            ></v-switch> -->
             <v-spacer></v-spacer>
             &copy; DENR - EMB REGION 1 - UNISYS
         </v-footer>
@@ -186,7 +188,7 @@ export default {
                         },
                         {
                             name: "SOLID WASTE",
-                            link: null,
+                            link: '/app/swm/lce_list',
                             icon: "mdi-trash-can",
                             child: [],
                         },
@@ -220,7 +222,7 @@ export default {
                             ],
                         },
                         {
-                            name: "TECHNICAL CONFIRENCE",
+                            name: "TECHNICAL CONFERENCE",
                             link: null,
                             icon: "mdi-account-group",
                             child: [
@@ -277,6 +279,23 @@ export default {
                             link: '/app/unit_section',
                             icon: "mdi-account-supervisor",
                             child: [],
+                        },
+                        {
+                            name: "User Access",
+                            link: null,
+                            icon: "mdi-account-group",
+                            child: [
+                                {
+                                    name: "User Roles",
+                                    link: "/app/users_access/users_access_role_list",
+                                    icon: "mdi-link",
+                                },
+                                {
+                                    name: "User Role Template",
+                                    link: "/app/users_access/users_access_template_list",
+                                    icon: "mdi-link",
+                                },
+                            ],
                         },
                     ],
                 },

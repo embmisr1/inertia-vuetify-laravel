@@ -249,6 +249,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 
@@ -337,7 +339,7 @@ __webpack_require__.r(__webpack_exports__);
           child: []
         }, {
           name: "SOLID WASTE",
-          link: null,
+          link: '/app/swm/lce_list',
           icon: "mdi-trash-can",
           child: []
         }, {
@@ -1156,6 +1158,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "page": () => (/* reexport safe */ _page__WEBPACK_IMPORTED_MODULE_0__["default"]),
 /* harmony export */   "project": () => (/* reexport safe */ _project__WEBPACK_IMPORTED_MODULE_3__["default"]),
 /* harmony export */   "psic": () => (/* reexport safe */ _psic__WEBPACK_IMPORTED_MODULE_2__["default"]),
+/* harmony export */   "swm": () => (/* reexport safe */ _swm__WEBPACK_IMPORTED_MODULE_5__["default"]),
 /* harmony export */   "toasts": () => (/* reexport safe */ _toasts__WEBPACK_IMPORTED_MODULE_1__["default"])
 /* harmony export */ });
 /* harmony import */ var _page__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./page */ "./resources/js/src/mixins/page.js");
@@ -1163,6 +1166,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _psic__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./psic */ "./resources/js/src/mixins/psic.js");
 /* harmony import */ var _project__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./project */ "./resources/js/src/mixins/project.js");
 /* harmony import */ var _dialogs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./dialogs */ "./resources/js/src/mixins/dialogs.js");
+/* harmony import */ var _swm__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./swm */ "./resources/js/src/mixins/swm.js");
+
 
 
 
@@ -1185,6 +1190,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_1__);
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -1196,6 +1203,21 @@ function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (O
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e2) { throw _e2; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e3) { didErr = true; err = _e3; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
@@ -1211,6 +1233,33 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     };
   },
   computed: {
+    route_params: function route_params() {
+      var urlParams = new URLSearchParams(location.search);
+      var routes = [];
+
+      var _iterator = _createForOfIteratorHelper(urlParams),
+          _step;
+
+      try {
+        for (_iterator.s(); !(_step = _iterator.n()).done;) {
+          var _step$value = _slicedToArray(_step.value, 2),
+              key = _step$value[0],
+              value = _step$value[1];
+
+          var route_key = {
+            key: key,
+            value: value
+          };
+          routes.push(route_key);
+        }
+      } catch (err) {
+        _iterator.e(err);
+      } finally {
+        _iterator.f();
+      }
+
+      return routes;
+    },
     route_back: function route_back() {
       return this.route.back_at_one;
     },
@@ -1228,6 +1277,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }
   },
   methods: {
+    goTo: function goTo(url) {
+      window.open(url, "_blank");
+    },
+    search_query_params: function search_query_params(key) {
+      var query_params = lodash__WEBPACK_IMPORTED_MODULE_1___default().filter(this.route_params, function (param) {
+        return param.key === key;
+      });
+
+      return query_params[0];
+    },
     onPageChange: function onPageChange(page) {
       var _this = this;
 
@@ -1289,6 +1348,57 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             }
           }
         }, _callee2, null, [[0, 8]]);
+      }))();
+    },
+    removeAttachment: function removeAttachment(file_id) {
+      var _this3 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee4() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee4$(_context4) {
+          while (1) {
+            switch (_context4.prev = _context4.next) {
+              case 0:
+                _context4.prev = 0;
+                _this3.loading = true;
+                _context4.next = 4;
+                return _this3.confirmDelete("This action  cannot be undone", /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3() {
+                  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
+                    while (1) {
+                      switch (_context3.prev = _context3.next) {
+                        case 0:
+                          _context3.next = 2;
+                          return _this3.$inertia["delete"]("/app/delete_attachements/".concat(file_id));
+
+                        case 2:
+                          console.log(_this3.slf.lce_FK);
+
+                        case 3:
+                        case "end":
+                          return _context3.stop();
+                      }
+                    }
+                  }, _callee3);
+                })));
+
+              case 4:
+                _this3.loading = false;
+                _context4.next = 12;
+                break;
+
+              case 7:
+                _context4.prev = 7;
+                _context4.t0 = _context4["catch"](0);
+                _this3.loading = false;
+                console.log(_context4.t0);
+
+                _this3.error(_context4.t0.response.data.message);
+
+              case 12:
+              case "end":
+                return _context4.stop();
+            }
+          }
+        }, _callee4, null, [[0, 7]]);
       }))();
     }
   },
@@ -2650,6 +2760,435 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             }
           }
         }, _callee10, null, [[0, 21]]);
+      }))();
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/src/mixins/swm.js":
+/*!****************************************!*\
+  !*** ./resources/js/src/mixins/swm.js ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: {
+    query_closed_dumpsite_id: Number,
+    lce_edit: Array,
+    province_dropdown: Array,
+    lce_info: Array,
+    query_slf: Array,
+    // slf table
+    slf_edit: Array,
+    query_mrf: Array,
+    // mrf table
+    mrf_edit: Array,
+    cd_edit: Array,
+    query_rca: Array,
+    attachments: Object,
+    query_ten_year: Array,
+    ten_year_edit: Array,
+    ten_year_monitoring_list: Array,
+    ten_year_monitoring_edit: Array,
+    ten_year_findings_array: Array,
+    query_equipment: Array,
+    query_dues: Array,
+    dues_edit: Array
+  },
+  data: function data() {
+    return {
+      lce: {
+        lce_title: "",
+        lce_first_name: "",
+        lce_middle_name: "",
+        lce_last_name: "",
+        lce_salutation: "",
+        lce_position: "",
+        lce_municipality_FK: "",
+        lce_province_FK: "",
+        lce_barangay_FK: "",
+        lce_disctrict: "",
+        lce_zip_code: "",
+        lce_focal_person: "",
+        lce_contact_number: "",
+        lce_email_address: ""
+      },
+      slf: {
+        slf_complete_address: null,
+        slf_latitude: null,
+        slf_longitude: null,
+        slf_project_operator: null,
+        slf_ecc_number: null,
+        slf_contact_person: null,
+        slf_contact_number: null,
+        slf_category: null,
+        slf_site_hectares: null,
+        slf_total_capacity: null,
+        slf_tons_per_day: null,
+        slf_service_life: null,
+        slf_remaining_service_life: null,
+        slf_exceeded_capacity: null,
+        slf_with_planned_extension: null,
+        slf_lgu_served: null,
+        slf_leachate_treatment: null,
+        slf_daily_soil_cover: null,
+        slf_presence_of_mrf: null,
+        slf_separate_cells_for_hazwaste: null,
+        slf_methane_recovery: null,
+        slf_discharge_permit: null,
+        slf_1586_compliance: null,
+        slf_9275_compliance: null,
+        slf_6969_compliance: null,
+        slf_file: null,
+        lce_FK: null
+      },
+      mrf: {
+        mrf_emb_funded: null,
+        mrf_latitude: null,
+        mrf_longitude: null,
+        mrf_status_operation: null,
+        mrf_service_area: null,
+        mrf_total_waste_generation: null,
+        mrf_biodegradable: null,
+        mrf_recyclable: null,
+        mrf_special_waste: null,
+        mrf_total_waste_diverted: null,
+        mrf_number_of_waste_diverted: null,
+        mrf_file: null,
+        lce_FK: null
+      },
+      cd: {
+        cd_total_land_area: null,
+        cd_date_monitored: new Date(Date.now() - new Date().getTimezoneOffset() * 60000).toISOString().substr(0, 10),
+        cd_site_clearing: null,
+        cd_site_grading: null,
+        cd_application_maintenance: null,
+        cd_provision_drainage: null,
+        cd_leachate_management: null,
+        cd_gas_management: null,
+        cd_fencing_security: null,
+        cd_putting_sinages: null,
+        cd_prohibition: null,
+        cd_status: null,
+        cd_remarks: null,
+        cd_date_closure: null,
+        lce_FK: null
+      },
+      ten_yr: {
+        ten_year_planning_period: null,
+        ten_year_year_approved: null,
+        ten_year_number: null,
+        ten_year_file: null,
+        ten_year_copy_plan: null,
+        ten_year_copy_resolution: null,
+        ten_year_copy_form: null,
+        lce_FK: null,
+        finding_a: false,
+        finding_b: false,
+        finding_c: false,
+        finding_d: false,
+        finding_e: false,
+        finding_f: false,
+        finding_g: false,
+        finding_h: false,
+        finding_i: false,
+        finding_j: false
+      },
+      ten_yr_mon: {
+        ten_year_mon_status: null,
+        ten_year_mon_date_monitored: null,
+        ten_year_mon_date_submitted: null,
+        ten_year_mon_iis_number: null,
+        ten_year_mon_copy_report: null,
+        ten_year_mon_by: null,
+        ten_year_FK: null
+      },
+      dues: {
+        dues_purpose: null,
+        dues_amount_granted: null,
+        dues_date_granted: null,
+        dues_unliquidated: null,
+        dues_remarks: null,
+        dues_accountant: null,
+        dues_contact_email: null,
+        lce_FK: null
+      },
+      complete_address: null,
+      complete_address_setter: {
+        prov: {},
+        cityMun: {},
+        brgy: {}
+      },
+      equipment: {
+        equipment_description: ""
+      },
+      category: ["Category 1", "Category 2", "Category 3", "Category 4"],
+      leachment_type: ["Recirculaation", "Chemical", "Biological"],
+      status_of_operation: ["Operational", "Not Operational"],
+      cd_status: ["Closed", "Rehabilitation", "Ongoing"],
+      cityMun: [],
+      brgy: [],
+      equipment_modal: {
+        active: false,
+        type: "create"
+      }
+    };
+  },
+  computed: {
+    withAttachment: function withAttachment() {
+      var toReturn = true;
+
+      if (this.attachments === undefined) {
+        return toReturn = false;
+      } else if (this.attachments.data.length === 0) {
+        return toReturn = false;
+      }
+
+      return toReturn;
+    },
+    date_now: function date_now() {
+      return new Date(Date.now() - new Date().getTimezoneOffset() * 60000).toISOString().substr(0, 10);
+    },
+    lce_id: function lce_id() {
+      return this.lce_details.id;
+    },
+    lce_details: function lce_details() {
+      return this.lce_edit[0];
+    },
+    lce_complete_name: function lce_complete_name() {
+      var _this$lce_details = this.lce_details,
+          lce_first_name = _this$lce_details.lce_first_name,
+          lce_middle_name = _this$lce_details.lce_middle_name,
+          lce_last_name = _this$lce_details.lce_last_name;
+      return "".concat(lce_first_name, " ").concat(lce_middle_name, " ").concat(lce_last_name);
+    },
+    lce_address: function lce_address() {
+      var _this$lce_details2 = this.lce_details,
+          provDesc = _this$lce_details2.provDesc,
+          citymunDesc = _this$lce_details2.citymunDesc,
+          lce_zip_code = _this$lce_details2.lce_zip_code,
+          districtCode = _this$lce_details2.districtCode;
+      return "".concat(citymunDesc, ", District No ").concat(districtCode, ", ").concat(provDesc, ", ").concat(lce_zip_code, " ");
+    },
+    lce_prov_id: function lce_prov_id() {
+      return this.lce.lce_province_FK;
+    },
+    lce_cityMun_id: function lce_cityMun_id() {
+      return this.lce.lce_municipality_FK;
+    },
+    address_setter: function address_setter() {
+      return _objectSpread({}, this.complete_address_setter);
+    },
+    prov_id: function prov_id() {
+      return this.complete_address_setter.prov.PK_province_ID;
+    },
+    cityMun_id: function cityMun_id() {
+      return this.complete_address_setter.cityMun.PK_citymun_ID;
+    },
+    slf_details: function slf_details() {
+      return this.slf_info[0];
+    }
+  },
+  watch: {
+    lce_prov_id: function lce_prov_id(value) {
+      if (value !== "" || value !== null) return this.search_cityMun(value);
+    },
+    lce_cityMun_id: function lce_cityMun_id(value) {
+      if (value !== "" || value !== null) return this.search_brgy(value);
+    },
+    prov_id: function prov_id(value) {
+      if (value !== "" || value !== null) return this.search_cityMun(value);
+    },
+    cityMun_id: function cityMun_id(value) {
+      if (value !== "" || value !== null) return this.search_brgy(value);
+    },
+    address_setter: function address_setter(data) {
+      var _prov$provDesc, _cityMun$citymunDesc, _brgy$brgyDesc;
+
+      var prov = data.prov,
+          cityMun = data.cityMun,
+          brgy = data.brgy;
+      this.complete_address = "".concat((_prov$provDesc = prov.provDesc) !== null && _prov$provDesc !== void 0 ? _prov$provDesc : "", ", ").concat((_cityMun$citymunDesc = cityMun.citymunDesc) !== null && _cityMun$citymunDesc !== void 0 ? _cityMun$citymunDesc : "", ", ").concat((_brgy$brgyDesc = brgy.brgyDesc) !== null && _brgy$brgyDesc !== void 0 ? _brgy$brgyDesc : "");
+    }
+  },
+  methods: {
+    search_cityMun: function search_cityMun(prov_id) {
+      var _this = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+        var _yield$axios$get, data;
+
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.prev = 0;
+                _this.loading = true;
+                _context.next = 4;
+                return axios__WEBPACK_IMPORTED_MODULE_1___default().get("http://127.0.0.1:8000/api/app/province_dropdown/".concat(prov_id));
+
+              case 4:
+                _yield$axios$get = _context.sent;
+                data = _yield$axios$get.data;
+                _this.cityMun = data;
+                _this.loading = false;
+                _context.next = 15;
+                break;
+
+              case 10:
+                _context.prev = 10;
+                _context.t0 = _context["catch"](0);
+                _this.loading = false;
+                console.log("search_cityMun - error");
+
+                _this.error(_context.t0.response.data.message);
+
+              case 15:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, null, [[0, 10]]);
+      }))();
+    },
+    search_brgy: function search_brgy(cityMun_id) {
+      var _this2 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
+        var _yield$axios$get2, data;
+
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.prev = 0;
+                _this2.loading = true;
+                _context2.next = 4;
+                return axios__WEBPACK_IMPORTED_MODULE_1___default().get("http://127.0.0.1:8000/api/app/municipality_dropdown/".concat(cityMun_id));
+
+              case 4:
+                _yield$axios$get2 = _context2.sent;
+                data = _yield$axios$get2.data;
+                _this2.brgy = data;
+                _this2.loading = false;
+                _context2.next = 15;
+                break;
+
+              case 10:
+                _context2.prev = 10;
+                _context2.t0 = _context2["catch"](0);
+                _this2.loading = false;
+                console.log("search_brgy - error");
+
+                _this2.error(_context2.t0.response.data.message);
+
+              case 15:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, null, [[0, 10]]);
+      }))();
+    },
+    goBack: function goBack() {
+      window.history.back();
+    },
+    setEquipmentModal: function setEquipmentModal(active, type) {
+      this.equipment_modal = {
+        active: active,
+        type: type
+      };
+    },
+    setUpdateEquipment: function setUpdateEquipment(equip) {
+      this.equipment = _objectSpread({}, equip);
+      this.setEquipmentModal(true, "update");
+    },
+    submitEquimentForm: function submitEquimentForm() {
+      var _this3 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3() {
+        var data, type;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                _context3.prev = 0;
+                data = _objectSpread(_objectSpread({}, _this3.equipment), {}, {
+                  lce_FK: _this3.lce_id
+                });
+                type = _this3.equipment_modal.type;
+                _this3.loading = true;
+
+                if (!(type === "create")) {
+                  _context3.next = 9;
+                  break;
+                }
+
+                _context3.next = 7;
+                return _this3.$inertia.post("/app/swm/equipment_register_process", data);
+
+              case 7:
+                _context3.next = 12;
+                break;
+
+              case 9:
+                if (!(type === "update")) {
+                  _context3.next = 12;
+                  break;
+                }
+
+                _context3.next = 12;
+                return _this3.$inertia.post("/app/swm/equipment_update_process", data);
+
+              case 12:
+                // this.submitEquimentForm(false,"create")
+                _this3.equipment_modal = {
+                  active: false,
+                  type: "create"
+                };
+                _this3.loading = false;
+                _context3.next = 21;
+                break;
+
+              case 16:
+                _context3.prev = 16;
+                _context3.t0 = _context3["catch"](0);
+                _this3.loading = false;
+
+                _this3.error(_context3.t0.response.data.message);
+
+                console.log(_context3.t0);
+
+              case 21:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3, null, [[0, 16]]);
       }))();
     }
   }
@@ -21250,54 +21789,44 @@ var render = function () {
           _vm._v(" "),
           _c("v-spacer"),
           _vm._v(" "),
-          _c(
-            "v-menu",
-            {
-              attrs: {
-                "offset-x": "",
-                left: "",
-                "z-index": "50",
-                origin: "center center",
-                transition: "scale-transition",
-              },
-              scopedSlots: _vm._u([
-                {
-                  key: "activator",
-                  fn: function (ref) {
-                    var on = ref.on
-                    var attrs = ref.attrs
-                    return [
-                      _c(
-                        "img",
-                        _vm._g(
-                          _vm._b(
-                            {
-                              staticClass: "max-h-12 object-cover",
-                              attrs: {
-                                src: "http://r1.emb.gov.ph/wp-content/uploads/2022/03/cropped-DENR-LOGO.png",
-                                alt: "DENR - EMB Region 1",
-                              },
-                            },
-                            "img",
-                            attrs,
-                            false
-                          ),
-                          on
-                        )
-                      ),
-                    ]
-                  },
-                },
-              ]),
+          _c("v-menu", {
+            attrs: {
+              "offset-x": "",
+              left: "",
+              "z-index": "50",
+              origin: "center center",
+              transition: "scale-transition",
             },
-            [
-              _vm._v(" "),
-              _c("RightMenu", {
-                attrs: { items: _vm.items, themeColor: _vm.isDark },
-              }),
-            ],
-            1
-          ),
+            scopedSlots: _vm._u([
+              {
+                key: "activator",
+                fn: function (ref) {
+                  var on = ref.on
+                  var attrs = ref.attrs
+                  return [
+                    _c(
+                      "img",
+                      _vm._g(
+                        _vm._b(
+                          {
+                            staticClass: "max-h-12 object-cover",
+                            attrs: {
+                              src: "http://r1.emb.gov.ph/wp-content/uploads/2022/03/cropped-DENR-LOGO.png",
+                              alt: "DENR - EMB Region 1",
+                            },
+                          },
+                          "img",
+                          attrs,
+                          false
+                        ),
+                        on
+                      )
+                    ),
+                  ]
+                },
+              },
+            ]),
+          }),
         ],
         1
       ),
@@ -21310,39 +21839,13 @@ var render = function () {
             "overflow-y": "hidden",
           },
         },
-        [
-          _c(
-            "v-container",
-            {
-              staticClass: "scrollbar-thin overflow-y-scroll",
-              attrs: { fluid: "" },
-            },
-            [_vm._t("default")],
-            2
-          ),
-        ],
-        1
+        [_c("div", { staticClass: "p-4" }, [_vm._t("default")], 2)]
       ),
       _vm._v(" "),
       _c(
         "v-footer",
         { attrs: { app: "", rounded: "" } },
         [
-          _c("v-switch", {
-            attrs: {
-              inset: "",
-              label: "Vuetify Theme Dark",
-              "persistent-hint": "",
-            },
-            model: {
-              value: _vm.$vuetify.theme.dark,
-              callback: function ($$v) {
-                _vm.$set(_vm.$vuetify.theme, "dark", $$v)
-              },
-              expression: "$vuetify.theme.dark",
-            },
-          }),
-          _vm._v(" "),
           _c("v-spacer"),
           _vm._v("\n        © DENR - EMB REGION 1 - UNISYS\n    "),
         ],

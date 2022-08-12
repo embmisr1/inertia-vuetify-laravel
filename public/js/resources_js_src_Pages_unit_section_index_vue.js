@@ -406,6 +406,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 
@@ -494,7 +496,7 @@ __webpack_require__.r(__webpack_exports__);
           child: []
         }, {
           name: "SOLID WASTE",
-          link: null,
+          link: '/app/swm/lce_list',
           icon: "mdi-trash-can",
           child: []
         }, {
@@ -825,6 +827,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_1__);
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -836,6 +840,21 @@ function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (O
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e2) { throw _e2; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e3) { didErr = true; err = _e3; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
@@ -851,6 +870,33 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     };
   },
   computed: {
+    route_params: function route_params() {
+      var urlParams = new URLSearchParams(location.search);
+      var routes = [];
+
+      var _iterator = _createForOfIteratorHelper(urlParams),
+          _step;
+
+      try {
+        for (_iterator.s(); !(_step = _iterator.n()).done;) {
+          var _step$value = _slicedToArray(_step.value, 2),
+              key = _step$value[0],
+              value = _step$value[1];
+
+          var route_key = {
+            key: key,
+            value: value
+          };
+          routes.push(route_key);
+        }
+      } catch (err) {
+        _iterator.e(err);
+      } finally {
+        _iterator.f();
+      }
+
+      return routes;
+    },
     route_back: function route_back() {
       return this.route.back_at_one;
     },
@@ -868,6 +914,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }
   },
   methods: {
+    goTo: function goTo(url) {
+      window.open(url, "_blank");
+    },
+    search_query_params: function search_query_params(key) {
+      var query_params = lodash__WEBPACK_IMPORTED_MODULE_1___default().filter(this.route_params, function (param) {
+        return param.key === key;
+      });
+
+      return query_params[0];
+    },
     onPageChange: function onPageChange(page) {
       var _this = this;
 
@@ -929,6 +985,57 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             }
           }
         }, _callee2, null, [[0, 8]]);
+      }))();
+    },
+    removeAttachment: function removeAttachment(file_id) {
+      var _this3 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee4() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee4$(_context4) {
+          while (1) {
+            switch (_context4.prev = _context4.next) {
+              case 0:
+                _context4.prev = 0;
+                _this3.loading = true;
+                _context4.next = 4;
+                return _this3.confirmDelete("This action  cannot be undone", /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3() {
+                  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
+                    while (1) {
+                      switch (_context3.prev = _context3.next) {
+                        case 0:
+                          _context3.next = 2;
+                          return _this3.$inertia["delete"]("/app/delete_attachements/".concat(file_id));
+
+                        case 2:
+                          console.log(_this3.slf.lce_FK);
+
+                        case 3:
+                        case "end":
+                          return _context3.stop();
+                      }
+                    }
+                  }, _callee3);
+                })));
+
+              case 4:
+                _this3.loading = false;
+                _context4.next = 12;
+                break;
+
+              case 7:
+                _context4.prev = 7;
+                _context4.t0 = _context4["catch"](0);
+                _this3.loading = false;
+                console.log(_context4.t0);
+
+                _this3.error(_context4.t0.response.data.message);
+
+              case 12:
+              case "end":
+                return _context4.stop();
+            }
+          }
+        }, _callee4, null, [[0, 7]]);
       }))();
     }
   },
@@ -19847,54 +19954,44 @@ var render = function () {
           _vm._v(" "),
           _c("v-spacer"),
           _vm._v(" "),
-          _c(
-            "v-menu",
-            {
-              attrs: {
-                "offset-x": "",
-                left: "",
-                "z-index": "50",
-                origin: "center center",
-                transition: "scale-transition",
-              },
-              scopedSlots: _vm._u([
-                {
-                  key: "activator",
-                  fn: function (ref) {
-                    var on = ref.on
-                    var attrs = ref.attrs
-                    return [
-                      _c(
-                        "img",
-                        _vm._g(
-                          _vm._b(
-                            {
-                              staticClass: "max-h-12 object-cover",
-                              attrs: {
-                                src: "http://r1.emb.gov.ph/wp-content/uploads/2022/03/cropped-DENR-LOGO.png",
-                                alt: "DENR - EMB Region 1",
-                              },
-                            },
-                            "img",
-                            attrs,
-                            false
-                          ),
-                          on
-                        )
-                      ),
-                    ]
-                  },
-                },
-              ]),
+          _c("v-menu", {
+            attrs: {
+              "offset-x": "",
+              left: "",
+              "z-index": "50",
+              origin: "center center",
+              transition: "scale-transition",
             },
-            [
-              _vm._v(" "),
-              _c("RightMenu", {
-                attrs: { items: _vm.items, themeColor: _vm.isDark },
-              }),
-            ],
-            1
-          ),
+            scopedSlots: _vm._u([
+              {
+                key: "activator",
+                fn: function (ref) {
+                  var on = ref.on
+                  var attrs = ref.attrs
+                  return [
+                    _c(
+                      "img",
+                      _vm._g(
+                        _vm._b(
+                          {
+                            staticClass: "max-h-12 object-cover",
+                            attrs: {
+                              src: "http://r1.emb.gov.ph/wp-content/uploads/2022/03/cropped-DENR-LOGO.png",
+                              alt: "DENR - EMB Region 1",
+                            },
+                          },
+                          "img",
+                          attrs,
+                          false
+                        ),
+                        on
+                      )
+                    ),
+                  ]
+                },
+              },
+            ]),
+          }),
         ],
         1
       ),
@@ -19907,39 +20004,13 @@ var render = function () {
             "overflow-y": "hidden",
           },
         },
-        [
-          _c(
-            "v-container",
-            {
-              staticClass: "scrollbar-thin overflow-y-scroll",
-              attrs: { fluid: "" },
-            },
-            [_vm._t("default")],
-            2
-          ),
-        ],
-        1
+        [_c("div", { staticClass: "p-4" }, [_vm._t("default")], 2)]
       ),
       _vm._v(" "),
       _c(
         "v-footer",
         { attrs: { app: "", rounded: "" } },
         [
-          _c("v-switch", {
-            attrs: {
-              inset: "",
-              label: "Vuetify Theme Dark",
-              "persistent-hint": "",
-            },
-            model: {
-              value: _vm.$vuetify.theme.dark,
-              callback: function ($$v) {
-                _vm.$set(_vm.$vuetify.theme, "dark", $$v)
-              },
-              expression: "$vuetify.theme.dark",
-            },
-          }),
-          _vm._v(" "),
           _c("v-spacer"),
           _vm._v("\n        © DENR - EMB REGION 1 - UNISYS\n    "),
         ],
