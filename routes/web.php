@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Dashboard;
 use App\Http\Controllers\DivisionController;
+use App\Http\Controllers\DownloadAttachmentController;
 use App\Http\Controllers\ImportDataController;
 use App\Http\Controllers\PositionController;
 use App\Http\Controllers\Profile;
@@ -49,6 +50,9 @@ Route::group([
     'prefix' => "/app",
 ], function () {
     Route::delete('/', [AuthController::class, 'destroy'])->name("authLogout");
+    // Route::post('attachments', DownloadAttachmentController::class)->name("dl");
+    Route::get('attachments', [DownloadAttachmentController::class,'index'])->name("dl");
+
 
     Route::get('/', [Dashboard::class, 'index'])->name("dashboard.index");
     Route::get('/profile', [Profile::class, 'index'])->name("profile.index");
