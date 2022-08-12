@@ -18,7 +18,7 @@ class UsersAccessRoleController extends Controller
 
     public function list(){
         $query_access_role =  UsersAccessRole::all();
-        return Inertia::render("pages/users/Form/UserAccessRoleList", [
+        return Inertia::render("pages/users/UserAccessRoleList", [
             'query_access_role' => $query_access_role,
         ]);
     }

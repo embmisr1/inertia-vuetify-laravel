@@ -21,6 +21,7 @@ export default {
         query_equipment: Array,
         query_dues: Array,
         dues_edit: Array,
+        query_gad:Array,
     },
     data() {
         return {
@@ -143,6 +144,10 @@ export default {
                 dues_accountant: null,
                 dues_contact_email: null,
                 lce_FK: null,
+            },
+            gad: {
+                gad_male: null,
+                gad_female: null,
             },
             complete_address: null,
             complete_address_setter: {

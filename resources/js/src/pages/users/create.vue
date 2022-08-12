@@ -1,12 +1,29 @@
 <template>
     <DefaultLayout>
         <div class="">
+            <div class="">
+                <div class="font-bold text-2xl flex items-center">
+                    <b-tooltip label="Back" type="is-dark" :delay="2000">
+                        <Link @click="goBack" class="px-3">
+                            <box-icon
+                                name="arrow-back"
+                                animation="tada-hover"
+                            ></box-icon>
+                        </Link>
+                    </b-tooltip>
+                    Users Form
+                </div>
+            </div>
             <ValidationObserver
                 v-slot="{ handleSubmit, pristine }"
                 ref="validation_observer"
             >
                 <form @submit.prevent="submitForm">
+                    <v-container>
                     <v-card>
+                        <v-card-title primary-title>
+                            Information
+                        </v-card-title>
                         <v-card-text>
                             <div class="grid grid-cols-2 gap-x-10">
                                 <div class="">
@@ -101,6 +118,13 @@
                             <v-btn text type="submit">Submit</v-btn>
                         </v-card-actions>
                     </v-card>
+                    <v-card>
+                        <v-card-title>User Roles </v-card-title>
+                        <v-card-text>
+
+                        </v-card-text>
+                    </v-card>
+                    </v-container>
                 </form>
             </ValidationObserver>
         </div>
@@ -109,13 +133,13 @@
 
 <script>
 import DefaultLayout from "../../layouts/default.vue";
-import ToastMixins from '../../mixins/toasts'
+import ToastMixins from "../../mixins/toasts";
 export default {
     components: {
         DefaultLayout,
     },
     props: ["data"],
-    mixins:[ToastMixins],
+    mixins: [ToastMixins],
     data() {
         return {
             dropFiles: null,
@@ -154,7 +178,7 @@ export default {
                     case "update":
                         this.form.patch(`/app/users/${this.form.id}`);
                         this.success("User Updated Successfully");
-                        
+
                         break;
                     default:
                         this.form.post("/app/users/");
