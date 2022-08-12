@@ -78,7 +78,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "project": () => (/* reexport safe */ _project__WEBPACK_IMPORTED_MODULE_3__["default"]),
 /* harmony export */   "psic": () => (/* reexport safe */ _psic__WEBPACK_IMPORTED_MODULE_2__["default"]),
 /* harmony export */   "swm": () => (/* reexport safe */ _swm__WEBPACK_IMPORTED_MODULE_5__["default"]),
-/* harmony export */   "toasts": () => (/* reexport safe */ _toasts__WEBPACK_IMPORTED_MODULE_1__["default"])
+/* harmony export */   "toasts": () => (/* reexport safe */ _toasts__WEBPACK_IMPORTED_MODULE_1__["default"]),
+/* harmony export */   "users": () => (/* reexport safe */ _users__WEBPACK_IMPORTED_MODULE_6__["default"])
 /* harmony export */ });
 /* harmony import */ var _page__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./page */ "./resources/js/src/mixins/page.js");
 /* harmony import */ var _toasts__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./toasts */ "./resources/js/src/mixins/toasts.js");
@@ -86,6 +87,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _project__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./project */ "./resources/js/src/mixins/project.js");
 /* harmony import */ var _dialogs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./dialogs */ "./resources/js/src/mixins/dialogs.js");
 /* harmony import */ var _swm__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./swm */ "./resources/js/src/mixins/swm.js");
+/* harmony import */ var _users__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./users */ "./resources/js/src/mixins/users.js");
+
 
 
 
@@ -1736,7 +1739,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     ten_year_findings_array: Array,
     query_equipment: Array,
     query_dues: Array,
-    dues_edit: Array
+    dues_edit: Array,
+    query_gad: Array
   },
   data: function data() {
     return {
@@ -1855,6 +1859,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         dues_accountant: null,
         dues_contact_email: null,
         lce_FK: null
+      },
+      gad: {
+        gad_male: null,
+        gad_female: null
       },
       complete_address: null,
       complete_address_setter: {
@@ -2153,6 +2161,167 @@ __webpack_require__.r(__webpack_exports__);
         position: "is-top-right",
         queue: false
       });
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/src/mixins/users.js":
+/*!******************************************!*\
+  !*** ./resources/js/src/mixins/users.js ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      role_form: {
+        access_role: ""
+      },
+      roles_modal: {
+        active: false,
+        type: "create"
+      }
+    };
+  },
+  methods: {
+    setRoleModal: function setRoleModal(role) {
+      this.role_form = _objectSpread({}, role);
+      this.roles_modal = {
+        active: true,
+        type: "update"
+      };
+    },
+    removeRole: function removeRole(role_id) {
+      var _this = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.prev = 0;
+                _this.loading = true;
+                _context2.next = 4;
+                return _this.confirmDelete("This action  cannot be undone", /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+                  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+                    while (1) {
+                      switch (_context.prev = _context.next) {
+                        case 0:
+                          _this.loading = true;
+                          _context.next = 3;
+                          return _this.$inertia["delete"]("/app/users_access/users_access_role_delete/".concat(role_id));
+
+                        case 3:
+                          _this.loading = false;
+
+                        case 4:
+                        case "end":
+                          return _context.stop();
+                      }
+                    }
+                  }, _callee);
+                })));
+
+              case 4:
+                _this.loading = false;
+                _context2.next = 12;
+                break;
+
+              case 7:
+                _context2.prev = 7;
+                _context2.t0 = _context2["catch"](0);
+                _this.loading = false;
+                console.log(_context2.t0);
+
+                _this.error(_context2.t0.data.response.messag);
+
+              case 12:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, null, [[0, 7]]);
+      }))();
+    },
+    submitRole: function submitRole() {
+      var _this2 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3() {
+        var type;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                _context3.prev = 0;
+                type = _this2.roles_modal.type;
+                _this2.loading = true;
+
+                if (!(type === "create")) {
+                  _context3.next = 8;
+                  break;
+                }
+
+                _context3.next = 6;
+                return _this2.$inertia.post("/app/users_access/users_access_role_register_process", _this2.role_form);
+
+              case 6:
+                _context3.next = 11;
+                break;
+
+              case 8:
+                if (!(type === "update")) {
+                  _context3.next = 11;
+                  break;
+                }
+
+                _context3.next = 11;
+                return _this2.$inertia.post("/app/users_access/users_access_role_update_process", _this2.role_form);
+
+              case 11:
+                _this2.roles_modal = {
+                  active: false,
+                  type: "create"
+                };
+                _this2.loading = false;
+                _context3.next = 20;
+                break;
+
+              case 15:
+                _context3.prev = 15;
+                _context3.t0 = _context3["catch"](0);
+                _this2.loading = false;
+                console.log(_context3.t0);
+
+                _this2.error(_context3.t0.data.response.messag);
+
+              case 20:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3, null, [[0, 15]]);
+      }))();
     }
   }
 });

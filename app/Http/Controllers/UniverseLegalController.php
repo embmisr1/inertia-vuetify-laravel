@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Legal;
-use DB;
+use Illuminate\Support\Facades\DB;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class UniverseLegalController extends Controller
 {
@@ -28,6 +29,12 @@ class UniverseLegalController extends Controller
                         ->toMediaCollection("legal");
                 }
             }
+
+            $media_counter = Media::where('model_id',$query->id)->count();
+            $query_media_counter = Legal::find($query->id);
+            $query_media_counter->nov_file = $media_counter;
+            $query_media_counter->save();
+
             return $query->id;
         }
     }
@@ -58,6 +65,12 @@ class UniverseLegalController extends Controller
                         ->toMediaCollection("legal");
                 }
             }
+
+            $media_counter = Media::where('model_id',$query->id)->count();
+            $query_media_counter = Legal::find($query->id);
+            $query_media_counter->nov_file = $media_counter;
+            $query_media_counter->save();
+
             return $request->legal['nov_id'];
         }
     }

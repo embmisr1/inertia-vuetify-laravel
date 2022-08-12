@@ -196,6 +196,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     form_monitoring_info: Object,
@@ -273,7 +277,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.form_monitoring_info.mon_date_monitored = null;
       this.form_monitoring_info.mon_or_survey = null;
       this.form_monitoring_info.mon_type = null;
-      this.form_monitoring_info.mon_file = null;
+      this.form_monitoring_info.mon_file = [];
     },
     addFile: function addFile() {
       this.addFileForm = true;
@@ -1281,6 +1285,7 @@ var render = function () {
                                             label: "Date Monitored",
                                             readonly: "",
                                             clearable: "",
+                                            required: "",
                                           },
                                           model: {
                                             value:
@@ -1310,7 +1315,7 @@ var render = function () {
                           ],
                           null,
                           false,
-                          3233197894
+                          2469776185
                         ),
                         model: {
                           value: _vm.date_monitoring_menu,
@@ -1434,8 +1439,14 @@ var render = function () {
                 _c(
                   "div",
                   [
-                    _c("v-text-field", {
-                      attrs: { label: "Monitoring File", clearable: "" },
+                    _c("v-file-input", {
+                      attrs: {
+                        accept: "application/pdf",
+                        "show-size": "",
+                        counter: "",
+                        multiple: "",
+                        label: "Monitoring File",
+                      },
                       model: {
                         value: _vm.form_monitoring_info.mon_file,
                         callback: function ($$v) {

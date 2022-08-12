@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Permit;
 use Illuminate\Support\Facades\DB;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class UniversePermitController extends Controller
 {
@@ -27,6 +28,11 @@ class UniversePermitController extends Controller
                         ->toMediaCollection("permits");
                 }
             }
+
+            $media_counter = Media::where('model_id',$query->id)->count();
+            $query_media_counter = Permit::find($query->id);
+            $query_media_counter->perm_file = $media_counter;
+            $query_media_counter->save();
 
             return $query->id;
         }
@@ -64,6 +70,11 @@ class UniversePermitController extends Controller
                         ->toMediaCollection("permits");
                 }
             }
+
+            $media_counter = Media::where('model_id',$query->id)->count();
+            $query_media_counter = Permit::find($query->id);
+            $query_media_counter->perm_file = $media_counter;
+            $query_media_counter->save();
 
             return $request->permit['perm_id'];
         }

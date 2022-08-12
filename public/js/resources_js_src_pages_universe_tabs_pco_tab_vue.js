@@ -204,6 +204,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     form_pco_info: Object,
@@ -1309,6 +1311,7 @@ var render = function () {
                                             label: "Date Start",
                                             readonly: "",
                                             clearable: "",
+                                            required: "",
                                           },
                                           model: {
                                             value:
@@ -1337,7 +1340,7 @@ var render = function () {
                           ],
                           null,
                           false,
-                          1714504838
+                          411606457
                         ),
                         model: {
                           value: _vm.date_pco_start_menu,
@@ -1460,6 +1463,7 @@ var render = function () {
                                             label: "Date End",
                                             readonly: "",
                                             clearable: "",
+                                            required: "",
                                           },
                                           model: {
                                             value:
@@ -1488,7 +1492,7 @@ var render = function () {
                           ],
                           null,
                           false,
-                          1055767558
+                          2342881657
                         ),
                         model: {
                           value: _vm.date_pco_end_menu,

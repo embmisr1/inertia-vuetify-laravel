@@ -383,6 +383,45 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -528,7 +567,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.form_permit_info.perm_date_expiry = null;
       this.form_permit_info.perm_date_issuance = null;
       this.form_permit_info.perm_description = null;
-      this.form_permit_info.perm_file = null;
+      this.form_permit_info.perm_file = [];
+      ;
       this.form_permit_info.perm_id = null;
       this.form_permit_info.perm_law = null;
       this.form_permit_info.perm_number = null;
@@ -1830,6 +1870,7 @@ var render = function () {
                                                 label: "Date Issuance",
                                                 readonly: "",
                                                 clearable: "",
+                                                required: "",
                                               },
                                               model: {
                                                 value:
@@ -1843,7 +1884,7 @@ var render = function () {
                                                   )
                                                 },
                                                 expression:
-                                                  "form_permit_info.perm_date_issuance",
+                                                  "\n                                    form_permit_info.perm_date_issuance\n                                ",
                                               },
                                             },
                                             "v-text-field",
@@ -1859,7 +1900,7 @@ var render = function () {
                               ],
                               null,
                               false,
-                              4210549243
+                              885673060
                             ),
                             model: {
                               value: _vm.date_permit_issuance_menu,
@@ -1904,7 +1945,7 @@ var render = function () {
                                   },
                                   [
                                     _vm._v(
-                                      "\r\n                                Cancel\r\n                            "
+                                      "\n                                Cancel\n                            "
                                     ),
                                   ]
                                 ),
@@ -1924,7 +1965,7 @@ var render = function () {
                                   },
                                   [
                                     _vm._v(
-                                      "\r\n                                OK\r\n                            "
+                                      "\n                                OK\n                            "
                                     ),
                                   ]
                                 ),
@@ -2059,7 +2100,7 @@ var render = function () {
                                   },
                                   [
                                     _vm._v(
-                                      "\r\n                                Cancel\r\n                            "
+                                      "\n                                Cancel\n                            "
                                     ),
                                   ]
                                 ),
@@ -2078,7 +2119,7 @@ var render = function () {
                                   },
                                   [
                                     _vm._v(
-                                      "\r\n                                OK\r\n                            "
+                                      "\n                                OK\n                            "
                                     ),
                                   ]
                                 ),
@@ -2153,21 +2194,14 @@ var render = function () {
                       "div",
                       { staticClass: "pt-2" },
                       [
-                        _c(
-                          "v-btn",
-                          {
-                            attrs: { dark: "", block: "" },
-                            on: {
-                              click: function ($event) {
-                                _vm.uploadDialog = true
-                              },
-                            },
+                        _c("v-file-input", {
+                          attrs: {
+                            accept: "application/pdf",
+                            "show-size": "",
+                            counter: "",
+                            multiple: "",
+                            label: "Permit File Upload",
                           },
-                          [_vm._v("Upload A File")]
-                        ),
-                        _vm._v(" "),
-                        _c("v-text-field", {
-                          attrs: { label: "Permit File Upload", clearable: "" },
                           model: {
                             value: _vm.form_permit_info.perm_file,
                             callback: function ($$v) {
@@ -2202,7 +2236,7 @@ var render = function () {
                           [_vm._v(" mdi-content-save ")]
                         ),
                         _vm._v(
-                          "\r\n                    Submit\r\n                "
+                          "\n                    Submit\n                "
                         ),
                       ],
                       1
@@ -2224,9 +2258,7 @@ var render = function () {
                           { staticClass: "mr-2", attrs: { small: "" } },
                           [_vm._v(" mdi-autorenew ")]
                         ),
-                        _vm._v(
-                          "\r\n                    Reset\r\n                "
-                        ),
+                        _vm._v("\n                    Reset\n                "),
                       ],
                       1
                     ),
@@ -2247,9 +2279,7 @@ var render = function () {
                           { staticClass: "mr-2", attrs: { small: "" } },
                           [_vm._v(" mdi-plus-circle ")]
                         ),
-                        _vm._v(
-                          "\r\n                    Close\r\n                "
-                        ),
+                        _vm._v("\n                    Close\n                "),
                       ],
                       1
                     ),
@@ -2270,7 +2300,7 @@ var render = function () {
                   _c("v-icon", { staticClass: "mr-2", attrs: { small: "" } }, [
                     _vm._v(" mdi-plus-circle "),
                   ]),
-                  _vm._v("\r\n            Add File\r\n        "),
+                  _vm._v("\n            Add File\n        "),
                 ],
                 1
               )
@@ -2308,7 +2338,7 @@ var render = function () {
                             },
                             [
                               _vm._v(
-                                "\r\n                            mdi-pencil\r\n                        "
+                                "\n                            mdi-pencil\n                        "
                               ),
                             ]
                           ),
@@ -2325,7 +2355,7 @@ var render = function () {
                             },
                             [
                               _vm._v(
-                                "\r\n                            mdi-delete\r\n                        "
+                                "\n                            mdi-delete\n                        "
                               ),
                             ]
                           ),
@@ -2346,7 +2376,7 @@ var render = function () {
         attrs: {
           modal: _vm.uploadDialog,
           close: function () {
-            return (_vm.uploadDialog = false)
+            _vm.uploadDialog = false
           },
           submit: function () {},
         },

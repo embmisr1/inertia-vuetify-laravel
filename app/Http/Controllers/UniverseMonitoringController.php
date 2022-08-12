@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Monitoring;
-use DB;
+use Illuminate\Support\Facades\DB;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class UniverseMonitoringController extends Controller
 {
@@ -27,6 +28,12 @@ class UniverseMonitoringController extends Controller
                         ->toMediaCollection("monitoring");
                 }
             }
+
+            $media_counter = Media::where('model_id',$query->id)->count();
+            $query_media_counter = Monitoring::find($query->id);
+            $query_media_counter->mon_file = $media_counter;
+            $query_media_counter->save();
+
             return $query->id;
         }
     }
@@ -54,6 +61,12 @@ class UniverseMonitoringController extends Controller
                         ->toMediaCollection("monitoring");
                 }
             }
+
+            $media_counter = Media::where('model_id',$query->id)->count();
+            $query_media_counter = Monitoring::find($query->id);
+            $query_media_counter->mon_file = $media_counter;
+            $query_media_counter->save();
+
             return $request->monitoring['mon_id'];
         }
     }

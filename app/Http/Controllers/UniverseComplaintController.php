@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Complaint;
-use DB;
+use Illuminate\Support\Facades\DB;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class UniverseComplaintController extends Controller
 {
@@ -25,6 +26,12 @@ class UniverseComplaintController extends Controller
                         ->toMediaCollection("complaint");
                 }
             }
+
+            $media_counter = Media::where('model_id',$query->id)->where('collection_name','complaint')->count();
+            $query_media_counter = Complaint::find($query->id);
+            $query_media_counter->comp_attached_file = $media_counter;
+            $query_media_counter->save();
+
             if (isset($request->complaint['comp_action_file'])) {
                 foreach ($request->complaint['comp_action_file'] as $pdf) {
 
@@ -33,6 +40,12 @@ class UniverseComplaintController extends Controller
                         ->toMediaCollection("complaintaction","complaintaction");
                 }
             }
+
+            $media_counter = Media::where('model_id',$query->id)->where('collection_name','complaintaction')->count();
+            $query_media_counter = Complaint::find($query->id);
+            $query_media_counter->comp_action_file = $media_counter;
+            $query_media_counter->save();
+
             return $query->id;
         }
     }

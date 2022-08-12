@@ -362,6 +362,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     form_legal_info: Object,
@@ -477,7 +483,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.form_legal_info.nov_date = null;
       this.form_legal_info.nov_tc_date = null;
       this.form_legal_info.nov_tc_status = null;
-      this.form_legal_info.nov_file = null;
+      this.form_legal_info.nov_file = [];
       this.form_legal_info.nov_order_number = null;
       this.form_legal_info.nov_order_amt = null;
       this.form_legal_info.nov_order_date_issuance = null;
@@ -1491,6 +1497,7 @@ var render = function () {
                                             label: "NOV Date",
                                             readonly: "",
                                             clearable: "",
+                                            required: "",
                                           },
                                           model: {
                                             value: _vm.form_legal_info.nov_date,
@@ -1518,7 +1525,7 @@ var render = function () {
                           ],
                           null,
                           false,
-                          4011722074
+                          4186902949
                         ),
                         model: {
                           value: _vm.date_legal_nov_menu,
@@ -1875,6 +1882,7 @@ var render = function () {
                                             label: "Order Date Issuance",
                                             readonly: "",
                                             clearable: "",
+                                            required: "",
                                           },
                                           model: {
                                             value:
@@ -1904,7 +1912,7 @@ var render = function () {
                           ],
                           null,
                           false,
-                          939271437
+                          4057512850
                         ),
                         model: {
                           value: _vm.date_legal_order_issuance_menu,
@@ -2031,6 +2039,7 @@ var render = function () {
                                             label: "Order Date Settlement",
                                             readonly: "",
                                             clearable: "",
+                                            required: "",
                                           },
                                           model: {
                                             value:
@@ -2060,7 +2069,7 @@ var render = function () {
                           ],
                           null,
                           false,
-                          179317517
+                          626822930
                         ),
                         model: {
                           value: _vm.date_legal_order_settlement_menu,
@@ -2219,8 +2228,14 @@ var render = function () {
                 _c(
                   "div",
                   [
-                    _c("v-text-field", {
-                      attrs: { label: "Attachments", clearable: "" },
+                    _c("v-file-input", {
+                      attrs: {
+                        accept: "application/pdf",
+                        "show-size": "",
+                        counter: "",
+                        multiple: "",
+                        label: "Attachments",
+                      },
                       model: {
                         value: _vm.form_legal_info.nov_file,
                         callback: function ($$v) {

@@ -351,7 +351,7 @@ __webpack_require__.r(__webpack_exports__);
             icon: "mdi-link"
           }]
         }, {
-          name: "TECHNICAL CONFIRENCE",
+          name: "TECHNICAL CONFERENCE",
           link: null,
           icon: "mdi-account-group",
           child: [{
@@ -396,6 +396,19 @@ __webpack_require__.r(__webpack_exports__);
           link: '/app/unit_section',
           icon: "mdi-account-supervisor",
           child: []
+        }, {
+          name: "User Access",
+          link: null,
+          icon: "mdi-account-group",
+          child: [{
+            name: "User Roles",
+            link: "/app/users_access/users_access_role_list",
+            icon: "mdi-link"
+          }, {
+            name: "User Role Template",
+            link: "/app/users_access/users_access_template_list",
+            icon: "mdi-link"
+          }]
         }]
       }, {
         header: "INDUSTRY CONFIGURATION",

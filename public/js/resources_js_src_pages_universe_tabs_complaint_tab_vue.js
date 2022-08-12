@@ -129,6 +129,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     form_complaint_info: Object,
@@ -206,8 +212,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.form_complaint_info.comp_id = null;
       this.form_complaint_info.comp_name = null;
       this.form_complaint_info.comp_nature = null;
-      this.form_complaint_info.comp_attached_file = null;
-      this.form_complaint_info.comp_action_file = null;
+      this.form_complaint_info.comp_attached_file = [];
+      ;
+      this.form_complaint_info.comp_action_file = [];
+      ;
       this.form_complaint_info.comp_remarks = null;
     },
     addFile: function addFile() {
@@ -1145,8 +1153,14 @@ var render = function () {
                 _c(
                   "div",
                   [
-                    _c("v-text-field", {
-                      attrs: { label: "Attached File", clearable: "" },
+                    _c("v-file-input", {
+                      attrs: {
+                        accept: "application/pdf",
+                        "show-size": "",
+                        counter: "",
+                        multiple: "",
+                        label: "Attached File",
+                      },
                       model: {
                         value: _vm.form_complaint_info.comp_attached_file,
                         callback: function ($$v) {
@@ -1166,8 +1180,14 @@ var render = function () {
                 _c(
                   "div",
                   [
-                    _c("v-text-field", {
-                      attrs: { label: "Action File", clearable: "" },
+                    _c("v-file-input", {
+                      attrs: {
+                        accept: "application/pdf",
+                        "show-size": "",
+                        counter: "",
+                        multiple: "",
+                        label: "Action File",
+                      },
                       model: {
                         value: _vm.form_complaint_info.comp_action_file,
                         callback: function ($$v) {

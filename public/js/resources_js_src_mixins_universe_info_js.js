@@ -83,7 +83,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         mon_date_monitored: "",
         mon_or_survey: "",
         mon_type: "",
-        mon_file: ""
+        mon_file: []
       },
       form_legal_info: {
         nov_id: "",
@@ -92,7 +92,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         nov_date: "",
         nov_tc_date: "",
         nov_tc_status: "",
-        nov_file: "",
+        nov_file: [],
         nov_order_number: "",
         nov_order_amt: "",
         nov_order_date_issuance: "",
@@ -123,8 +123,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         comp_id: "",
         comp_name: "",
         comp_nature: "",
-        comp_attached_file: "",
-        comp_action_file: "",
+        comp_attached_file: [],
+        comp_action_file: [],
         comp_remarks: ""
       }
     };
@@ -139,41 +139,34 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                if (!confirm('Do you want to proceed?')) {
-                  _context.next = 11;
+                if (!confirm("Do you want to proceed?")) {
+                  _context.next = 4;
                   break;
                 }
 
                 data = {
-                  'basic': _this.form_basic_info,
-                  'permit': _this.form_permit_info,
-                  'monitoring': _this.form_monitoring_info,
-                  'legal': _this.form_legal_info,
-                  'hazwaste': _this.form_hazwaste_info,
-                  'pco': _this.form_pco_info,
-                  'complaint': _this.form_complaint_info
-                };
+                  basic: _objectSpread({}, _this.form_basic_info),
+                  permit: _objectSpread({}, _this.form_permit_info),
+                  monitoring: _objectSpread({}, _this.form_monitoring_info),
+                  legal: _objectSpread({}, _this.form_legal_info),
+                  hazwaste: _objectSpread({}, _this.form_hazwaste_info),
+                  pco: _objectSpread({}, _this.form_pco_info),
+                  complaint: _objectSpread({}, _this.form_complaint_info)
+                }; // console.log(data);
+                // return;
+                // let form_data = new FormData();
+                // form_data.append("basic", this.form_basic_info);
+                // form_data.append("permit", this.form_permit_info);
+                // form_data.append("monitoring", this.form_monitoring_info);
+                // form_data.append("legal", this.form_legal_info);
+                // form_data.append("hazwaste", this.form_hazwaste_info);
+                // form_data.append("pco", this.form_pco_info);
+                // form_data.append("complaint", this.form_complaint_info);
+
                 _context.next = 4;
                 return _this.$inertia.post("/app/universe_process", _objectSpread({}, data));
 
               case 4:
-                if (!data.basic.id) {
-                  _this.reset_basic_info();
-                }
-
-                _this.reset_permit_info();
-
-                _this.reset_monitoring_info();
-
-                _this.reset_legal_info();
-
-                _this.reset_hazwaste_info();
-
-                _this.reset_pco_info();
-
-                _this.reset_complaint_info();
-
-              case 11:
               case "end":
                 return _context.stop();
             }
@@ -218,7 +211,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         perm_number: "",
         perm_date_issuance: "",
         perm_date_expiry: "",
-        perm_file: "",
+        perm_file: [],
         perm_description: "",
         perm_status: ""
       };
@@ -230,7 +223,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         mon_date_monitored: "",
         mon_or_survey: "",
         mon_type: "",
-        mon_file: ""
+        mon_file: []
       };
     },
     reset_legal_info: function reset_legal_info() {
@@ -241,7 +234,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         nov_date: "",
         nov_tc_date: "",
         nov_tc_status: "",
-        nov_file: "",
+        nov_file: [],
         nov_order_number: "",
         nov_order_amt: "",
         nov_order_date_issuance: "",
@@ -259,7 +252,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         haz_date_acceptance: "",
         haz_date_issuance: "",
         haz_date_expiry: "",
-        haz_file: ""
+        haz_file: []
       };
     },
     reset_pco_info: function reset_pco_info() {
@@ -279,7 +272,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         comp_name: "",
         comp_nature: "",
         comp_attached_file: "",
-        comp_action_file: "",
+        comp_action_file: [],
         comp_remarks: ""
       };
     }

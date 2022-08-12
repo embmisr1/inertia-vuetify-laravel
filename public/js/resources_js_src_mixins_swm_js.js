@@ -61,7 +61,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     ten_year_findings_array: Array,
     query_equipment: Array,
     query_dues: Array,
-    dues_edit: Array
+    dues_edit: Array,
+    query_gad: Array
   },
   data: function data() {
     return {
@@ -180,6 +181,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         dues_accountant: null,
         dues_contact_email: null,
         lce_FK: null
+      },
+      gad: {
+        gad_male: null,
+        gad_female: null
       },
       complete_address: null,
       complete_address_setter: {

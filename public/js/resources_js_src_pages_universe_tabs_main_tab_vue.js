@@ -776,6 +776,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     form_complaint_info: Object,
@@ -853,8 +859,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.form_complaint_info.comp_id = null;
       this.form_complaint_info.comp_name = null;
       this.form_complaint_info.comp_nature = null;
-      this.form_complaint_info.comp_attached_file = null;
-      this.form_complaint_info.comp_action_file = null;
+      this.form_complaint_info.comp_attached_file = [];
+      ;
+      this.form_complaint_info.comp_action_file = [];
+      ;
       this.form_complaint_info.comp_remarks = null;
     },
     addFile: function addFile() {
@@ -1407,6 +1415,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     form_legal_info: Object,
@@ -1522,7 +1536,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.form_legal_info.nov_date = null;
       this.form_legal_info.nov_tc_date = null;
       this.form_legal_info.nov_tc_status = null;
-      this.form_legal_info.nov_file = null;
+      this.form_legal_info.nov_file = [];
       this.form_legal_info.nov_order_number = null;
       this.form_legal_info.nov_order_amt = null;
       this.form_legal_info.nov_order_date_issuance = null;
@@ -2009,6 +2023,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     form_monitoring_info: Object,
@@ -2086,7 +2104,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.form_monitoring_info.mon_date_monitored = null;
       this.form_monitoring_info.mon_or_survey = null;
       this.form_monitoring_info.mon_type = null;
-      this.form_monitoring_info.mon_file = null;
+      this.form_monitoring_info.mon_file = [];
     },
     addFile: function addFile() {
       this.addFileForm = true;
@@ -2119,6 +2137,8 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+//
+//
 //
 //
 //
@@ -2642,6 +2662,45 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -2787,7 +2846,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.form_permit_info.perm_date_expiry = null;
       this.form_permit_info.perm_date_issuance = null;
       this.form_permit_info.perm_description = null;
-      this.form_permit_info.perm_file = null;
+      this.form_permit_info.perm_file = [];
+      ;
       this.form_permit_info.perm_id = null;
       this.form_permit_info.perm_law = null;
       this.form_permit_info.perm_number = null;
@@ -5227,8 +5287,14 @@ var render = function () {
                 _c(
                   "div",
                   [
-                    _c("v-text-field", {
-                      attrs: { label: "Attached File", clearable: "" },
+                    _c("v-file-input", {
+                      attrs: {
+                        accept: "application/pdf",
+                        "show-size": "",
+                        counter: "",
+                        multiple: "",
+                        label: "Attached File",
+                      },
                       model: {
                         value: _vm.form_complaint_info.comp_attached_file,
                         callback: function ($$v) {
@@ -5248,8 +5314,14 @@ var render = function () {
                 _c(
                   "div",
                   [
-                    _c("v-text-field", {
-                      attrs: { label: "Action File", clearable: "" },
+                    _c("v-file-input", {
+                      attrs: {
+                        accept: "application/pdf",
+                        "show-size": "",
+                        counter: "",
+                        multiple: "",
+                        label: "Action File",
+                      },
                       model: {
                         value: _vm.form_complaint_info.comp_action_file,
                         callback: function ($$v) {
@@ -5827,6 +5899,7 @@ var render = function () {
                                             label: "NOV Date",
                                             readonly: "",
                                             clearable: "",
+                                            required: "",
                                           },
                                           model: {
                                             value: _vm.form_legal_info.nov_date,
@@ -5854,7 +5927,7 @@ var render = function () {
                           ],
                           null,
                           false,
-                          4011722074
+                          4186902949
                         ),
                         model: {
                           value: _vm.date_legal_nov_menu,
@@ -6211,6 +6284,7 @@ var render = function () {
                                             label: "Order Date Issuance",
                                             readonly: "",
                                             clearable: "",
+                                            required: "",
                                           },
                                           model: {
                                             value:
@@ -6240,7 +6314,7 @@ var render = function () {
                           ],
                           null,
                           false,
-                          939271437
+                          4057512850
                         ),
                         model: {
                           value: _vm.date_legal_order_issuance_menu,
@@ -6367,6 +6441,7 @@ var render = function () {
                                             label: "Order Date Settlement",
                                             readonly: "",
                                             clearable: "",
+                                            required: "",
                                           },
                                           model: {
                                             value:
@@ -6396,7 +6471,7 @@ var render = function () {
                           ],
                           null,
                           false,
-                          179317517
+                          626822930
                         ),
                         model: {
                           value: _vm.date_legal_order_settlement_menu,
@@ -6555,8 +6630,14 @@ var render = function () {
                 _c(
                   "div",
                   [
-                    _c("v-text-field", {
-                      attrs: { label: "Attachments", clearable: "" },
+                    _c("v-file-input", {
+                      attrs: {
+                        accept: "application/pdf",
+                        "show-size": "",
+                        counter: "",
+                        multiple: "",
+                        label: "Attachments",
+                      },
                       model: {
                         value: _vm.form_legal_info.nov_file,
                         callback: function ($$v) {
@@ -7311,6 +7392,7 @@ var render = function () {
                                             label: "Date Monitored",
                                             readonly: "",
                                             clearable: "",
+                                            required: "",
                                           },
                                           model: {
                                             value:
@@ -7340,7 +7422,7 @@ var render = function () {
                           ],
                           null,
                           false,
-                          3233197894
+                          2469776185
                         ),
                         model: {
                           value: _vm.date_monitoring_menu,
@@ -7464,8 +7546,14 @@ var render = function () {
                 _c(
                   "div",
                   [
-                    _c("v-text-field", {
-                      attrs: { label: "Monitoring File", clearable: "" },
+                    _c("v-file-input", {
+                      attrs: {
+                        accept: "application/pdf",
+                        "show-size": "",
+                        counter: "",
+                        multiple: "",
+                        label: "Monitoring File",
+                      },
                       model: {
                         value: _vm.form_monitoring_info.mon_file,
                         callback: function ($$v) {
@@ -7788,6 +7876,7 @@ var render = function () {
                                             label: "Date Start",
                                             readonly: "",
                                             clearable: "",
+                                            required: "",
                                           },
                                           model: {
                                             value:
@@ -7816,7 +7905,7 @@ var render = function () {
                           ],
                           null,
                           false,
-                          1714504838
+                          411606457
                         ),
                         model: {
                           value: _vm.date_pco_start_menu,
@@ -7939,6 +8028,7 @@ var render = function () {
                                             label: "Date End",
                                             readonly: "",
                                             clearable: "",
+                                            required: "",
                                           },
                                           model: {
                                             value:
@@ -7967,7 +8057,7 @@ var render = function () {
                           ],
                           null,
                           false,
-                          1055767558
+                          2342881657
                         ),
                         model: {
                           value: _vm.date_pco_end_menu,
@@ -8348,6 +8438,7 @@ var render = function () {
                                                 label: "Date Issuance",
                                                 readonly: "",
                                                 clearable: "",
+                                                required: "",
                                               },
                                               model: {
                                                 value:
@@ -8361,7 +8452,7 @@ var render = function () {
                                                   )
                                                 },
                                                 expression:
-                                                  "form_permit_info.perm_date_issuance",
+                                                  "\n                                    form_permit_info.perm_date_issuance\n                                ",
                                               },
                                             },
                                             "v-text-field",
@@ -8377,7 +8468,7 @@ var render = function () {
                               ],
                               null,
                               false,
-                              4210549243
+                              885673060
                             ),
                             model: {
                               value: _vm.date_permit_issuance_menu,
@@ -8422,7 +8513,7 @@ var render = function () {
                                   },
                                   [
                                     _vm._v(
-                                      "\r\n                                Cancel\r\n                            "
+                                      "\n                                Cancel\n                            "
                                     ),
                                   ]
                                 ),
@@ -8442,7 +8533,7 @@ var render = function () {
                                   },
                                   [
                                     _vm._v(
-                                      "\r\n                                OK\r\n                            "
+                                      "\n                                OK\n                            "
                                     ),
                                   ]
                                 ),
@@ -8577,7 +8668,7 @@ var render = function () {
                                   },
                                   [
                                     _vm._v(
-                                      "\r\n                                Cancel\r\n                            "
+                                      "\n                                Cancel\n                            "
                                     ),
                                   ]
                                 ),
@@ -8596,7 +8687,7 @@ var render = function () {
                                   },
                                   [
                                     _vm._v(
-                                      "\r\n                                OK\r\n                            "
+                                      "\n                                OK\n                            "
                                     ),
                                   ]
                                 ),
@@ -8671,21 +8762,14 @@ var render = function () {
                       "div",
                       { staticClass: "pt-2" },
                       [
-                        _c(
-                          "v-btn",
-                          {
-                            attrs: { dark: "", block: "" },
-                            on: {
-                              click: function ($event) {
-                                _vm.uploadDialog = true
-                              },
-                            },
+                        _c("v-file-input", {
+                          attrs: {
+                            accept: "application/pdf",
+                            "show-size": "",
+                            counter: "",
+                            multiple: "",
+                            label: "Permit File Upload",
                           },
-                          [_vm._v("Upload A File")]
-                        ),
-                        _vm._v(" "),
-                        _c("v-text-field", {
-                          attrs: { label: "Permit File Upload", clearable: "" },
                           model: {
                             value: _vm.form_permit_info.perm_file,
                             callback: function ($$v) {
@@ -8720,7 +8804,7 @@ var render = function () {
                           [_vm._v(" mdi-content-save ")]
                         ),
                         _vm._v(
-                          "\r\n                    Submit\r\n                "
+                          "\n                    Submit\n                "
                         ),
                       ],
                       1
@@ -8742,9 +8826,7 @@ var render = function () {
                           { staticClass: "mr-2", attrs: { small: "" } },
                           [_vm._v(" mdi-autorenew ")]
                         ),
-                        _vm._v(
-                          "\r\n                    Reset\r\n                "
-                        ),
+                        _vm._v("\n                    Reset\n                "),
                       ],
                       1
                     ),
@@ -8765,9 +8847,7 @@ var render = function () {
                           { staticClass: "mr-2", attrs: { small: "" } },
                           [_vm._v(" mdi-plus-circle ")]
                         ),
-                        _vm._v(
-                          "\r\n                    Close\r\n                "
-                        ),
+                        _vm._v("\n                    Close\n                "),
                       ],
                       1
                     ),
@@ -8788,7 +8868,7 @@ var render = function () {
                   _c("v-icon", { staticClass: "mr-2", attrs: { small: "" } }, [
                     _vm._v(" mdi-plus-circle "),
                   ]),
-                  _vm._v("\r\n            Add File\r\n        "),
+                  _vm._v("\n            Add File\n        "),
                 ],
                 1
               )
@@ -8826,7 +8906,7 @@ var render = function () {
                             },
                             [
                               _vm._v(
-                                "\r\n                            mdi-pencil\r\n                        "
+                                "\n                            mdi-pencil\n                        "
                               ),
                             ]
                           ),
@@ -8843,7 +8923,7 @@ var render = function () {
                             },
                             [
                               _vm._v(
-                                "\r\n                            mdi-delete\r\n                        "
+                                "\n                            mdi-delete\n                        "
                               ),
                             ]
                           ),
@@ -8864,7 +8944,7 @@ var render = function () {
         attrs: {
           modal: _vm.uploadDialog,
           close: function () {
-            return (_vm.uploadDialog = false)
+            _vm.uploadDialog = false
           },
           submit: function () {},
         },
