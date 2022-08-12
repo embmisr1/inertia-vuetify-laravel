@@ -157,6 +157,88 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/components/Swm/ManageEquipment.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/components/Swm/ManageEquipment.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: {
+    modal: Object,
+    close: Function,
+    form_field: Object,
+    submitForm: Function
+  },
+  computed: {
+    modalType: function modalType() {
+      return this.modal.type;
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/layouts/default.vue?vue&type=script&lang=js&":
 /*!***************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/layouts/default.vue?vue&type=script&lang=js& ***!
@@ -513,6 +595,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _mixins___WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../mixins/ */ "./resources/js/src/mixins/index.js");
+/* harmony import */ var _components_Swm_ManageEquipment_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../components/Swm/ManageEquipment.vue */ "./resources/js/src/components/Swm/ManageEquipment.vue");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -1202,6 +1285,219 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 
 
@@ -1212,12 +1508,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
   components: {
     DefaultLayout: _layouts_default_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
-    Link: _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_2__.Link
+    Link: _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_2__.Link,
+    ManageEquipment: _components_Swm_ManageEquipment_vue__WEBPACK_IMPORTED_MODULE_5__["default"]
   },
   mixins: [_mixins___WEBPACK_IMPORTED_MODULE_4__.page, _mixins___WEBPACK_IMPORTED_MODULE_4__.toasts, _mixins___WEBPACK_IMPORTED_MODULE_4__.swm, _mixins___WEBPACK_IMPORTED_MODULE_4__.dialogs],
   data: function data() {
     return {
-      tabs: ["LCE", "SLF", "MRF", "RCA", "10 YR"]
+      tabs: ["LCE", "SLF", "MRF", "RCA", "10 YR", "Equipment", "DUES"]
     };
   },
   methods: {
@@ -1237,10 +1534,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                     while (1) {
                       switch (_context.prev = _context.next) {
                         case 0:
-                          _context.next = 2;
+                          _this.loading = true;
+                          _context.next = 3;
                           return _this.$inertia["delete"]("/app/swm/slf_delete/".concat(slf_id));
 
-                        case 2:
+                        case 3:
+                          _this.loading = false;
+
+                        case 4:
                         case "end":
                           return _context.stop();
                       }
@@ -1285,10 +1586,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                     while (1) {
                       switch (_context3.prev = _context3.next) {
                         case 0:
-                          _context3.next = 2;
+                          _this2.loading = true;
+                          _context3.next = 3;
                           return _this2.$inertia["delete"]("/app/swm/mrf_delete/".concat(mrf_id));
 
-                        case 2:
+                        case 3:
+                          _this2.loading = false;
+
+                        case 4:
                         case "end":
                           return _context3.stop();
                       }
@@ -1333,10 +1638,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                     while (1) {
                       switch (_context5.prev = _context5.next) {
                         case 0:
-                          _context5.next = 2;
+                          _this3.loading = true;
+                          _context5.next = 3;
                           return _this3.$inertia["delete"]("/app/swm/ten_year_delete/".concat(ten_yr_id));
 
-                        case 2:
+                        case 3:
+                          _this3.loading = false;
+
+                        case 4:
                         case "end":
                           return _context5.stop();
                       }
@@ -1364,6 +1673,113 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           }
         }, _callee6, null, [[0, 7]]);
       }))();
+    },
+    removeEquipment: function removeEquipment(equip_id) {
+      var _this4 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee8() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee8$(_context8) {
+          while (1) {
+            switch (_context8.prev = _context8.next) {
+              case 0:
+                _context8.prev = 0;
+                _this4.loading = true;
+                _context8.next = 4;
+                return _this4.confirmDelete("This action  cannot be undone", /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee7() {
+                  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee7$(_context7) {
+                    while (1) {
+                      switch (_context7.prev = _context7.next) {
+                        case 0:
+                          _this4.loading = true;
+                          _context7.next = 3;
+                          return _this4.$inertia["delete"]("/app/swm/equipment_delete/".concat(equip_id));
+
+                        case 3:
+                          _this4.loading = false;
+
+                        case 4:
+                        case "end":
+                          return _context7.stop();
+                      }
+                    }
+                  }, _callee7);
+                })));
+
+              case 4:
+                _this4.loading = false;
+                _context8.next = 12;
+                break;
+
+              case 7:
+                _context8.prev = 7;
+                _context8.t0 = _context8["catch"](0);
+                _this4.loading = false;
+                console.log(_context8.t0);
+
+                _this4.error(_context8.t0.response.data.message);
+
+              case 12:
+              case "end":
+                return _context8.stop();
+            }
+          }
+        }, _callee8, null, [[0, 7]]);
+      }))();
+    },
+    removeDues: function removeDues(dues_id) {
+      var _this5 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee10() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee10$(_context10) {
+          while (1) {
+            switch (_context10.prev = _context10.next) {
+              case 0:
+                _context10.prev = 0;
+                _this5.loading = true;
+                _context10.next = 4;
+                return _this5.confirmDelete("This action  cannot be undone", /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee9() {
+                  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee9$(_context9) {
+                    while (1) {
+                      switch (_context9.prev = _context9.next) {
+                        case 0:
+                          _this5.loading = true;
+                          _context9.next = 3;
+                          return _this5.$inertia["delete"]("/app/swm/dues_delete/".concat(dues_id));
+
+                        case 3:
+                          _this5.loading = false;
+
+                        case 4:
+                        case "end":
+                          return _context9.stop();
+                      }
+                    }
+                  }, _callee9);
+                })));
+
+              case 4:
+                _this5.loading = false;
+                _context10.next = 12;
+                break;
+
+              case 7:
+                _context10.prev = 7;
+                _context10.t0 = _context10["catch"](0);
+                _this5.loading = false;
+                console.log(_context10.t0);
+
+                _this5.error(_context10.t0.response.data.message);
+
+              case 12:
+              case "end":
+                return _context10.stop();
+            }
+          }
+        }, _callee10, null, [[0, 7]]);
+      }))();
+    },
+    minus: function minus(item, item1) {
+      return item - item1;
     }
   }
 });
@@ -3091,7 +3507,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     query_ten_year: Array,
     ten_year_edit: Array,
     ten_year_monitoring_list: Array,
-    ten_year_monitoring_edit: Array
+    ten_year_monitoring_edit: Array,
+    ten_year_findings_array: Array,
+    query_equipment: Array,
+    query_dues: Array,
+    dues_edit: Array
   },
   data: function data() {
     return {
@@ -3180,7 +3600,17 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         ten_year_copy_plan: null,
         ten_year_copy_resolution: null,
         ten_year_copy_form: null,
-        lce_FK: null
+        lce_FK: null,
+        finding_a: false,
+        finding_b: false,
+        finding_c: false,
+        finding_d: false,
+        finding_e: false,
+        finding_f: false,
+        finding_g: false,
+        finding_h: false,
+        finding_i: false,
+        finding_j: false
       },
       ten_yr_mon: {
         ten_year_mon_status: null,
@@ -3191,18 +3621,35 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         ten_year_mon_by: null,
         ten_year_FK: null
       },
+      dues: {
+        dues_purpose: null,
+        dues_amount_granted: null,
+        dues_date_granted: null,
+        dues_unliquidated: null,
+        dues_remarks: null,
+        dues_accountant: null,
+        dues_contact_email: null,
+        lce_FK: null
+      },
       complete_address: null,
       complete_address_setter: {
         prov: {},
         cityMun: {},
         brgy: {}
       },
+      equipment: {
+        equipment_description: ""
+      },
       category: ["Category 1", "Category 2", "Category 3", "Category 4"],
       leachment_type: ["Recirculaation", "Chemical", "Biological"],
       status_of_operation: ["Operational", "Not Operational"],
       cd_status: ["Closed", "Rehabilitation", "Ongoing"],
       cityMun: [],
-      brgy: []
+      brgy: [],
+      equipment_modal: {
+        active: false,
+        type: "create"
+      }
     };
   },
   computed: {
@@ -3363,6 +3810,80 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     goBack: function goBack() {
       window.history.back();
+    },
+    setEquipmentModal: function setEquipmentModal(active, type) {
+      this.equipment_modal = {
+        active: active,
+        type: type
+      };
+    },
+    setUpdateEquipment: function setUpdateEquipment(equip) {
+      this.equipment = _objectSpread({}, equip);
+      this.setEquipmentModal(true, "update");
+    },
+    submitEquimentForm: function submitEquimentForm() {
+      var _this3 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3() {
+        var data, type;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                _context3.prev = 0;
+                data = _objectSpread(_objectSpread({}, _this3.equipment), {}, {
+                  lce_FK: _this3.lce_id
+                });
+                type = _this3.equipment_modal.type;
+                _this3.loading = true;
+
+                if (!(type === "create")) {
+                  _context3.next = 9;
+                  break;
+                }
+
+                _context3.next = 7;
+                return _this3.$inertia.post("/app/swm/equipment_register_process", data);
+
+              case 7:
+                _context3.next = 12;
+                break;
+
+              case 9:
+                if (!(type === "update")) {
+                  _context3.next = 12;
+                  break;
+                }
+
+                _context3.next = 12;
+                return _this3.$inertia.post("/app/swm/equipment_update_process", data);
+
+              case 12:
+                // this.submitEquimentForm(false,"create")
+                _this3.equipment_modal = {
+                  active: false,
+                  type: "create"
+                };
+                _this3.loading = false;
+                _context3.next = 21;
+                break;
+
+              case 16:
+                _context3.prev = 16;
+                _context3.t0 = _context3["catch"](0);
+                _this3.loading = false;
+
+                _this3.error(_context3.t0.response.data.message);
+
+                console.log(_context3.t0);
+
+              case 21:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3, null, [[0, 16]]);
+      }))();
     }
   }
 });
@@ -21467,6 +21988,45 @@ component.options.__file = "resources/js/src/components/SideNavItems.vue"
 
 /***/ }),
 
+/***/ "./resources/js/src/components/Swm/ManageEquipment.vue":
+/*!*************************************************************!*\
+  !*** ./resources/js/src/components/Swm/ManageEquipment.vue ***!
+  \*************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _ManageEquipment_vue_vue_type_template_id_98b0911a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ManageEquipment.vue?vue&type=template&id=98b0911a& */ "./resources/js/src/components/Swm/ManageEquipment.vue?vue&type=template&id=98b0911a&");
+/* harmony import */ var _ManageEquipment_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ManageEquipment.vue?vue&type=script&lang=js& */ "./resources/js/src/components/Swm/ManageEquipment.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _ManageEquipment_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _ManageEquipment_vue_vue_type_template_id_98b0911a___WEBPACK_IMPORTED_MODULE_0__.render,
+  _ManageEquipment_vue_vue_type_template_id_98b0911a___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/src/components/Swm/ManageEquipment.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/src/layouts/default.vue":
 /*!**********************************************!*\
   !*** ./resources/js/src/layouts/default.vue ***!
@@ -21577,6 +22137,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/src/components/Swm/ManageEquipment.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************!*\
+  !*** ./resources/js/src/components/Swm/ManageEquipment.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ManageEquipment_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ManageEquipment.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/components/Swm/ManageEquipment.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ManageEquipment_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/src/layouts/default.vue?vue&type=script&lang=js&":
 /*!***********************************************************************!*\
   !*** ./resources/js/src/layouts/default.vue?vue&type=script&lang=js& ***!
@@ -21639,6 +22215,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SideNavItems_vue_vue_type_template_id_40864e14___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SideNavItems_vue_vue_type_template_id_40864e14___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./SideNavItems.vue?vue&type=template&id=40864e14& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/components/SideNavItems.vue?vue&type=template&id=40864e14&");
+
+
+/***/ }),
+
+/***/ "./resources/js/src/components/Swm/ManageEquipment.vue?vue&type=template&id=98b0911a&":
+/*!********************************************************************************************!*\
+  !*** ./resources/js/src/components/Swm/ManageEquipment.vue?vue&type=template&id=98b0911a& ***!
+  \********************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ManageEquipment_vue_vue_type_template_id_98b0911a___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ManageEquipment_vue_vue_type_template_id_98b0911a___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ManageEquipment_vue_vue_type_template_id_98b0911a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ManageEquipment.vue?vue&type=template&id=98b0911a& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/components/Swm/ManageEquipment.vue?vue&type=template&id=98b0911a&");
 
 
 /***/ }),
@@ -21902,6 +22495,190 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/components/Swm/ManageEquipment.vue?vue&type=template&id=98b0911a&":
+/*!***********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/components/Swm/ManageEquipment.vue?vue&type=template&id=98b0911a& ***!
+  \***********************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("v-dialog", {
+    attrs: {
+      transition: "dialog-bottom-transition",
+      "max-width": "600",
+      persistent: "",
+    },
+    scopedSlots: _vm._u([
+      {
+        key: "default",
+        fn: function (dialog) {
+          return [
+            _c(
+              "v-card",
+              [
+                _c("v-toolbar", [_vm._v("Equipment Form")]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "p-4" },
+                  [
+                    _c("ValidationObserver", {
+                      ref: "psic_group_class_observer",
+                      scopedSlots: _vm._u(
+                        [
+                          {
+                            key: "default",
+                            fn: function (ref) {
+                              var handleSubmit = ref.handleSubmit
+                              var invalid = ref.invalid
+                              return [
+                                _c(
+                                  "form",
+                                  {
+                                    on: {
+                                      submit: function ($event) {
+                                        $event.preventDefault()
+                                        return handleSubmit(_vm.submitForm)
+                                      },
+                                    },
+                                  },
+                                  [
+                                    _c("ValidationProvider", {
+                                      attrs: {
+                                        vid: "equipment_description",
+                                        name: "Equipment Description",
+                                        rules: "required",
+                                      },
+                                      scopedSlots: _vm._u(
+                                        [
+                                          {
+                                            key: "default",
+                                            fn: function (ref) {
+                                              var errors = ref.errors
+                                              return [
+                                                _c("v-text-field", {
+                                                  attrs: {
+                                                    label:
+                                                      "Equipment Description",
+                                                    filled: "",
+                                                    outlined: "",
+                                                    "error-messages": errors[0],
+                                                    disabled:
+                                                      _vm.modalType === "Delete"
+                                                        ? true
+                                                        : false,
+                                                  },
+                                                  model: {
+                                                    value:
+                                                      _vm.form_field
+                                                        .equipment_description,
+                                                    callback: function ($$v) {
+                                                      _vm.$set(
+                                                        _vm.form_field,
+                                                        "equipment_description",
+                                                        $$v
+                                                      )
+                                                    },
+                                                    expression:
+                                                      "form_field.equipment_description",
+                                                  },
+                                                }),
+                                              ]
+                                            },
+                                          },
+                                        ],
+                                        null,
+                                        true
+                                      ),
+                                    }),
+                                    _vm._v(" "),
+                                    _c(
+                                      "v-card-actions",
+                                      { staticClass: "justify-end" },
+                                      [
+                                        _vm.modalType !== "Delete"
+                                          ? _c(
+                                              "v-btn",
+                                              {
+                                                attrs: {
+                                                  type: "submit",
+                                                  disabled: invalid,
+                                                  dark: "",
+                                                },
+                                              },
+                                              [_vm._v("Submt")]
+                                            )
+                                          : _c(
+                                              "v-btn",
+                                              {
+                                                attrs: {
+                                                  type: "submit",
+                                                  color: "error",
+                                                },
+                                              },
+                                              [_vm._v("Delete")]
+                                            ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "v-btn",
+                                          {
+                                            attrs: {
+                                              text: "",
+                                              color: "red darken-2",
+                                            },
+                                            on: { click: _vm.close },
+                                          },
+                                          [_vm._v("Close")]
+                                        ),
+                                      ],
+                                      1
+                                    ),
+                                  ],
+                                  1
+                                ),
+                              ]
+                            },
+                          },
+                        ],
+                        null,
+                        true
+                      ),
+                    }),
+                  ],
+                  1
+                ),
+              ],
+              1
+            ),
+          ]
+        },
+      },
+    ]),
+    model: {
+      value: _vm.modal.active,
+      callback: function ($$v) {
+        _vm.$set(_vm.modal, "active", $$v)
+      },
+      expression: "modal.active",
+    },
+  })
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/layouts/default.vue?vue&type=template&id=acf3a4fc&":
 /*!********************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/layouts/default.vue?vue&type=template&id=acf3a4fc& ***!
@@ -22019,21 +22796,6 @@ var render = function () {
         "v-footer",
         { attrs: { app: "", rounded: "" } },
         [
-          _c("v-switch", {
-            attrs: {
-              inset: "",
-              label: "Vuetify Theme Dark",
-              "persistent-hint": "",
-            },
-            model: {
-              value: _vm.$vuetify.theme.dark,
-              callback: function ($$v) {
-                _vm.$set(_vm.$vuetify.theme, "dark", $$v)
-              },
-              expression: "$vuetify.theme.dark",
-            },
-          }),
-          _vm._v(" "),
           _c("v-spacer"),
           _vm._v("\n        © DENR - EMB REGION 1 - UNISYS\n    "),
         ],
@@ -22079,12 +22841,13 @@ var render = function () {
       _c(
         "v-tabs",
         {
-          staticClass: "h-96",
+          staticClass: "overflow-y-auto",
           attrs: {
             vertical: "",
             "show-arrows": "",
             "active-class": "black",
             "background-color": "primary",
+            height: "100%",
           },
         },
         [
@@ -22094,7 +22857,10 @@ var render = function () {
           _vm._v(" "),
           _c(
             "v-tab-item",
-            { attrs: { "active-class": "bg-#F4F5FA" } },
+            {
+              staticClass: "overflow-y-auto",
+              attrs: { "active-class": "bg-#F4F5FA" },
+            },
             [
               _c(
                 "v-container",
@@ -22350,6 +23116,7 @@ var render = function () {
           _vm._v(" "),
           _c(
             "v-tab-item",
+            { staticClass: "overflow-y-auto" },
             [
               _c(
                 "v-container",
@@ -22410,7 +23177,7 @@ var render = function () {
                                 },
                                 [
                                   _vm._v(
-                                    "\n                                No lce_list Found\n                            "
+                                    "\n                                No Data Found\n                            "
                                   ),
                                 ]
                               ),
@@ -22725,6 +23492,7 @@ var render = function () {
           _vm._v(" "),
           _c(
             "v-tab-item",
+            { staticClass: "overflow-y-auto" },
             [
               _c(
                 "v-container",
@@ -22792,7 +23560,7 @@ var render = function () {
                                 },
                                 [
                                   _vm._v(
-                                    "\n                                No lce_list Found\n                            "
+                                    "\n                                No Data Found\n                            "
                                   ),
                                 ]
                               ),
@@ -22980,6 +23748,7 @@ var render = function () {
           _vm._v(" "),
           _c(
             "v-tab-item",
+            { staticClass: "overflow-y-auto" },
             [
               _c(
                 "v-container",
@@ -23047,7 +23816,7 @@ var render = function () {
                                 },
                                 [
                                   _vm._v(
-                                    "\n                                No lce_list Found\n                            "
+                                    "\n                                No Data Found\n                            "
                                   ),
                                 ]
                               ),
@@ -23235,6 +24004,7 @@ var render = function () {
           _vm._v(" "),
           _c(
             "v-tab-item",
+            { staticClass: "overflow-y-auto" },
             [
               _c(
                 "v-container",
@@ -23311,7 +24081,7 @@ var render = function () {
                                 },
                                 [
                                   _vm._v(
-                                    "\n                                No lce_list Found\n                            "
+                                    "\n                                No Data Found\n                            "
                                   ),
                                 ]
                               ),
@@ -23585,9 +24355,500 @@ var render = function () {
             ],
             1
           ),
+          _vm._v(" "),
+          _c(
+            "v-tab-item",
+            { staticClass: "overflow-y-auto" },
+            [
+              _c(
+                "v-container",
+                [
+                  _c(
+                    "v-btn",
+                    {
+                      attrs: { dark: "" },
+                      on: {
+                        click: function ($event) {
+                          return _vm.setEquipmentModal(true, "create")
+                        },
+                      },
+                    },
+                    [_vm._v("Add Equipment")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "b-table",
+                    {
+                      attrs: {
+                        data: _vm.query_equipment,
+                        "per-page": _vm.query_equipment.per_page,
+                        "pagination-size": "is-small",
+                        "page-input": "",
+                        hoverable: "",
+                        "backend-pagination": "",
+                        total: _vm.query_equipment.total,
+                        "current-page": _vm.query_equipment.current_page,
+                        "pagination-position": "top",
+                        "pagination-rounded": "",
+                        narrowed: "",
+                        loading: _vm.loading,
+                        bordered: "",
+                        "sticky-header": "",
+                        scrollable: "",
+                        "row-class": function (row, index) {
+                          return _vm.isTheme ? "bg-black text-white" : ""
+                        },
+                        "header-class": _vm.isTheme
+                          ? "bg-black text-white"
+                          : "",
+                        height: "420",
+                      },
+                      on: {
+                        "update:currentPage": function ($event) {
+                          return _vm.$set(
+                            _vm.query_equipment,
+                            "current_page",
+                            $event
+                          )
+                        },
+                        "update:current-page": function ($event) {
+                          return _vm.$set(
+                            _vm.query_equipment,
+                            "current_page",
+                            $event
+                          )
+                        },
+                        "page-change": _vm.onPageChange,
+                      },
+                      scopedSlots: _vm._u([
+                        {
+                          key: "empty",
+                          fn: function () {
+                            return [
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "text-center text-3xl text-gray-500 font-extrabold",
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                            No Ice_list Found\n                        "
+                                  ),
+                                ]
+                              ),
+                            ]
+                          },
+                          proxy: true,
+                        },
+                      ]),
+                    },
+                    [
+                      _c("b-table-column", {
+                        attrs: {
+                          field: "equipment_description",
+                          label: "Equipment Description",
+                        },
+                        scopedSlots: _vm._u([
+                          {
+                            key: "searchable",
+                            fn: function (props) {
+                              return [
+                                _c("b-input", {
+                                  attrs: {
+                                    placeholder: "Search...",
+                                    icon: "magnify",
+                                    size: "is-small",
+                                  },
+                                }),
+                              ]
+                            },
+                          },
+                          {
+                            key: "default",
+                            fn: function (props) {
+                              return [
+                                _vm._v(
+                                  "\n                            " +
+                                    _vm._s(props.row.equipment_description) +
+                                    "\n                        "
+                                ),
+                              ]
+                            },
+                          },
+                        ]),
+                      }),
+                      _vm._v(" "),
+                      _c("b-table-column", {
+                        attrs: { field: "action", label: "" },
+                        scopedSlots: _vm._u([
+                          {
+                            key: "default",
+                            fn: function (props) {
+                              return [
+                                _c("box-icon", {
+                                  attrs: {
+                                    name: "edit",
+                                    color: "orange",
+                                    animation: "tada-hover",
+                                  },
+                                  on: {
+                                    click: function ($event) {
+                                      return _vm.setUpdateEquipment(props.row)
+                                    },
+                                  },
+                                }),
+                                _vm._v(" "),
+                                _c(
+                                  "v-btn",
+                                  {
+                                    attrs: { icon: "", small: "" },
+                                    on: {
+                                      click: function ($event) {
+                                        return _vm.removeEquipment(props.row.id)
+                                      },
+                                    },
+                                  },
+                                  [
+                                    _c("box-icon", {
+                                      attrs: {
+                                        name: "trash",
+                                        color: "red",
+                                        animation: "tada-hover",
+                                      },
+                                    }),
+                                  ],
+                                  1
+                                ),
+                              ]
+                            },
+                          },
+                        ]),
+                      }),
+                    ],
+                    1
+                  ),
+                ],
+                1
+              ),
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "v-tab-item",
+            { staticClass: "overflow-y-auto" },
+            [
+              _c(
+                "v-container",
+                [
+                  _c(
+                    "Link",
+                    { attrs: { href: "/app/swm/dues_register/" + _vm.lce_id } },
+                    [
+                      _c("v-btn", { attrs: { dark: "" } }, [
+                        _vm._v("Add Dues"),
+                      ]),
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "b-table",
+                    {
+                      attrs: {
+                        data: _vm.query_dues,
+                        "per-page": _vm.query_dues.per_page,
+                        "pagination-size": "is-small",
+                        "page-input": "",
+                        hoverable: "",
+                        "backend-pagination": "",
+                        total: _vm.query_dues.total,
+                        "current-page": _vm.query_dues.current_page,
+                        "pagination-position": "top",
+                        "pagination-rounded": "",
+                        narrowed: "",
+                        loading: _vm.loading,
+                        bordered: "",
+                        "sticky-header": "",
+                        scrollable: "",
+                        "row-class": function (row, index) {
+                          return _vm.isTheme ? "bg-black text-white" : ""
+                        },
+                        "header-class": _vm.isTheme
+                          ? "bg-black text-white"
+                          : "",
+                        height: "420",
+                      },
+                      on: {
+                        "update:currentPage": function ($event) {
+                          return _vm.$set(
+                            _vm.query_dues,
+                            "current_page",
+                            $event
+                          )
+                        },
+                        "update:current-page": function ($event) {
+                          return _vm.$set(
+                            _vm.query_dues,
+                            "current_page",
+                            $event
+                          )
+                        },
+                        "page-change": _vm.onPageChange,
+                      },
+                      scopedSlots: _vm._u([
+                        {
+                          key: "empty",
+                          fn: function () {
+                            return [
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "text-center text-3xl text-gray-500 font-extrabold",
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                                No Data Found\n                            "
+                                  ),
+                                ]
+                              ),
+                            ]
+                          },
+                          proxy: true,
+                        },
+                      ]),
+                    },
+                    [
+                      _c("b-table-column", {
+                        attrs: {
+                          field: "dues_amount_granted",
+                          label: "Amount Granted",
+                        },
+                        scopedSlots: _vm._u([
+                          {
+                            key: "searchable",
+                            fn: function (props) {
+                              return [
+                                _c("b-input", {
+                                  attrs: {
+                                    placeholder: "Search...",
+                                    icon: "magnify",
+                                    size: "is-small",
+                                  },
+                                }),
+                              ]
+                            },
+                          },
+                          {
+                            key: "default",
+                            fn: function (props) {
+                              return [
+                                _vm._v(
+                                  "\n                            ₱ " +
+                                    _vm._s(
+                                      props.row.dues_amount_granted.toLocaleString(
+                                        "en-US"
+                                      )
+                                    ) +
+                                    "\n                            "
+                                ),
+                              ]
+                            },
+                          },
+                        ]),
+                      }),
+                      _vm._v(" "),
+                      _c("b-table-column", {
+                        attrs: {
+                          field: "dues_date_granted",
+                          label: "Date Granted",
+                        },
+                        scopedSlots: _vm._u([
+                          {
+                            key: "searchable",
+                            fn: function (props) {
+                              return [
+                                _c("b-input", {
+                                  attrs: {
+                                    placeholder: "Search...",
+                                    icon: "magnify",
+                                    size: "is-small",
+                                  },
+                                }),
+                              ]
+                            },
+                          },
+                          {
+                            key: "default",
+                            fn: function (props) {
+                              return [
+                                _vm._v(
+                                  "\n                            " +
+                                    _vm._s(props.row.dues_date_granted) +
+                                    "\n                            "
+                                ),
+                              ]
+                            },
+                          },
+                        ]),
+                      }),
+                      _vm._v(" "),
+                      _c("b-table-column", {
+                        attrs: {
+                          field: "dues_unliquidated",
+                          label: "Unliquidated",
+                        },
+                        scopedSlots: _vm._u([
+                          {
+                            key: "searchable",
+                            fn: function (props) {
+                              return [
+                                _c("b-input", {
+                                  attrs: {
+                                    placeholder: "Search...",
+                                    icon: "magnify",
+                                    size: "is-small",
+                                  },
+                                }),
+                              ]
+                            },
+                          },
+                          {
+                            key: "default",
+                            fn: function (props) {
+                              return [
+                                _vm._v(
+                                  "\n                            ₱ " +
+                                    _vm._s(
+                                      props.row.dues_unliquidated.toLocaleString(
+                                        "en-US"
+                                      )
+                                    ) +
+                                    "\n                            "
+                                ),
+                              ]
+                            },
+                          },
+                        ]),
+                      }),
+                      _vm._v(" "),
+                      _c("b-table-column", {
+                        attrs: { field: "", label: "Liquidated" },
+                        scopedSlots: _vm._u([
+                          {
+                            key: "searchable",
+                            fn: function (props) {
+                              return [
+                                _c("b-input", {
+                                  attrs: {
+                                    placeholder: "Search...",
+                                    icon: "magnify",
+                                    size: "is-small",
+                                  },
+                                }),
+                              ]
+                            },
+                          },
+                          {
+                            key: "default",
+                            fn: function (props) {
+                              return [
+                                _vm._v(
+                                  "\n\n                            ₱ " +
+                                    _vm._s(
+                                      _vm
+                                        .minus(
+                                          props.row.dues_amount_granted,
+                                          props.row.dues_unliquidated
+                                        )
+                                        .toLocaleString("en-US")
+                                    ) +
+                                    "\n                            "
+                                ),
+                              ]
+                            },
+                          },
+                        ]),
+                      }),
+                      _vm._v(" "),
+                      _c("b-table-column", {
+                        attrs: { field: "action", label: "" },
+                        scopedSlots: _vm._u([
+                          {
+                            key: "default",
+                            fn: function (props) {
+                              return [
+                                _c(
+                                  "Link",
+                                  {
+                                    attrs: {
+                                      href:
+                                        "/app/swm/dues_edit/" + props.row.id,
+                                    },
+                                  },
+                                  [
+                                    _c("box-icon", {
+                                      attrs: {
+                                        name: "edit",
+                                        color: "orange",
+                                        animation: "tada-hover",
+                                      },
+                                    }),
+                                  ],
+                                  1
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "v-btn",
+                                  {
+                                    attrs: { icon: "", small: "" },
+                                    on: {
+                                      click: function ($event) {
+                                        return _vm.removeDues(props.row.id)
+                                      },
+                                    },
+                                  },
+                                  [
+                                    _c("box-icon", {
+                                      attrs: {
+                                        name: "trash",
+                                        color: "red",
+                                        animation: "tada-hover",
+                                      },
+                                    }),
+                                  ],
+                                  1
+                                ),
+                              ]
+                            },
+                          },
+                        ]),
+                      }),
+                    ],
+                    1
+                  ),
+                ],
+                1
+              ),
+            ],
+            1
+          ),
         ],
         2
       ),
+      _vm._v(" "),
+      _c("ManageEquipment", {
+        attrs: {
+          modal: _vm.equipment_modal,
+          form_field: _vm.equipment,
+          close: function () {
+            return (_vm.equipment_modal = false)
+          },
+          submitForm: _vm.submitEquimentForm,
+        },
+      }),
     ],
     1
   )

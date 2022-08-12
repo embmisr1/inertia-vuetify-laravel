@@ -27,6 +27,7 @@ use App\Http\Controllers\SolidwasteGadController;
 use App\Http\Controllers\UnitSectionController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\UniverseController;
+use App\Http\Controllers\UniverseMapController;
 use App\Http\Controllers\TestingController;
 use App\Http\Controllers\USER_CONTROLLER\UsersAccessController;
 use App\Http\Controllers\USER_CONTROLLER\UsersAccessRoleController;
@@ -101,8 +102,10 @@ Route::group([
     Route::get('/universe_dashboard/{firm_type}', [UniverseController::class, 'universe_dashboard'])->name("universe_dashboard");
     Route::get('/universe_form', [UniverseController::class, 'universe_form'])->name("universe_form");
     Route::get('/universe_form/{id}', [UniverseController::class, 'universe_form'])->name("universe_form_id");
+    Route::get('/universe_map/{universe_FK}', [UniverseMapController::class, 'universe_map'])->name("universe_map");
     // POST REQUESTS
     Route::post('/universe_process', [UniverseController::class, 'universe_process'])->name("universe_process");
+    Route::post('/universe_polygon', [UniverseMapController::class, 'universe_polygon'])->name("universe_polygon");
     Route::delete('/delete_permit/{id}', [UniverseController::class, 'delete_permit'])->name("delete_permit");
     Route::delete('/delete_monitoring/{id}', [UniverseController::class, 'delete_monitoring'])->name("delete_monitoring");
     Route::delete('/delete_legal/{id}', [UniverseController::class, 'delete_legal'])->name("delete_legal");

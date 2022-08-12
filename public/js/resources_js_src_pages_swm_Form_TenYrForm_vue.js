@@ -1036,6 +1036,73 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -1050,39 +1117,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   mixins: [_mixins__WEBPACK_IMPORTED_MODULE_4__.page, _mixins__WEBPACK_IMPORTED_MODULE_4__.toasts, _mixins__WEBPACK_IMPORTED_MODULE_4__.swm, _mixins__WEBPACK_IMPORTED_MODULE_4__.dialogs],
   data: function data() {
     return {
-      ten_yr_form_type: "create",
-      overview_of_finding: [{
-        id: 1,
-        name: "Source Reduction Activited at Source are Present"
-      }, {
-        id: 2,
-        name: "Segregated Collection"
-      }, {
-        id: 3,
-        name: "Increased Collection Average"
-      }, {
-        id: 4,
-        name: "Segregation, Recycling and Composting"
-      }, {
-        id: 5,
-        name: "Marketing & Market Development"
-      }, {
-        id: 6,
-        name: "Alternative Technologies for Residual Wastes"
-      }, {
-        id: 7,
-        name: "Solid Waste Disposal & Health Care Wastes"
-      }, {
-        id: 8,
-        name: "Monitoring Program"
-      }, {
-        id: 9,
-        name: "Financial Aspects"
-      }, {
-        id: 10,
-        name: "Waste Diversion"
-      }],
-      ten_year_findings: []
+      ten_yr_form_type: "create"
     };
   },
   created: function created() {
@@ -1096,7 +1131,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     } else if (this.ten_year_edit !== undefined) {
       if (this.ten_year_edit.length > 0) {
         this.ten_yr_form_type = "patch";
-        this.ten_yr = _objectSpread({}, this.ten_year_edit[0]);
+        this.ten_yr = _objectSpread({}, this.ten_year_edit[0]); // this.ten_year_findings = this.ten_year_findings_array
       }
     }
 
@@ -1139,8 +1174,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
               case 0:
                 _context.prev = 0;
                 data = _objectSpread(_objectSpread({}, _this.ten_yr), {}, {
-                  lce_FK: _this.ten_yr.id,
-                  ten_year_findings: _this.ten_year_findings
+                  lce_FK: _this.ten_yr.id
                 });
                 _context.next = 4;
                 return _this.$inertia.post("/app/swm/ten_year_register_process", data);
@@ -1174,9 +1208,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             switch (_context2.prev = _context2.next) {
               case 0:
                 _context2.prev = 0;
-                data = _objectSpread(_objectSpread({}, _this2.ten_yr), {}, {
-                  ten_year_findings: _this2.ten_year_findings
-                });
+                data = _objectSpread({}, _this2.ten_yr);
                 _context2.next = 4;
                 return _this2.$inertia.post("/app/swm/ten_year_update_process", data);
 
@@ -3001,7 +3033,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     query_ten_year: Array,
     ten_year_edit: Array,
     ten_year_monitoring_list: Array,
-    ten_year_monitoring_edit: Array
+    ten_year_monitoring_edit: Array,
+    ten_year_findings_array: Array,
+    query_equipment: Array,
+    query_dues: Array,
+    dues_edit: Array
   },
   data: function data() {
     return {
@@ -3090,7 +3126,17 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         ten_year_copy_plan: null,
         ten_year_copy_resolution: null,
         ten_year_copy_form: null,
-        lce_FK: null
+        lce_FK: null,
+        finding_a: false,
+        finding_b: false,
+        finding_c: false,
+        finding_d: false,
+        finding_e: false,
+        finding_f: false,
+        finding_g: false,
+        finding_h: false,
+        finding_i: false,
+        finding_j: false
       },
       ten_yr_mon: {
         ten_year_mon_status: null,
@@ -3101,18 +3147,35 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         ten_year_mon_by: null,
         ten_year_FK: null
       },
+      dues: {
+        dues_purpose: null,
+        dues_amount_granted: null,
+        dues_date_granted: null,
+        dues_unliquidated: null,
+        dues_remarks: null,
+        dues_accountant: null,
+        dues_contact_email: null,
+        lce_FK: null
+      },
       complete_address: null,
       complete_address_setter: {
         prov: {},
         cityMun: {},
         brgy: {}
       },
+      equipment: {
+        equipment_description: ""
+      },
       category: ["Category 1", "Category 2", "Category 3", "Category 4"],
       leachment_type: ["Recirculaation", "Chemical", "Biological"],
       status_of_operation: ["Operational", "Not Operational"],
       cd_status: ["Closed", "Rehabilitation", "Ongoing"],
       cityMun: [],
-      brgy: []
+      brgy: [],
+      equipment_modal: {
+        active: false,
+        type: "create"
+      }
     };
   },
   computed: {
@@ -3273,6 +3336,80 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     goBack: function goBack() {
       window.history.back();
+    },
+    setEquipmentModal: function setEquipmentModal(active, type) {
+      this.equipment_modal = {
+        active: active,
+        type: type
+      };
+    },
+    setUpdateEquipment: function setUpdateEquipment(equip) {
+      this.equipment = _objectSpread({}, equip);
+      this.setEquipmentModal(true, "update");
+    },
+    submitEquimentForm: function submitEquimentForm() {
+      var _this3 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3() {
+        var data, type;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                _context3.prev = 0;
+                data = _objectSpread(_objectSpread({}, _this3.equipment), {}, {
+                  lce_FK: _this3.lce_id
+                });
+                type = _this3.equipment_modal.type;
+                _this3.loading = true;
+
+                if (!(type === "create")) {
+                  _context3.next = 9;
+                  break;
+                }
+
+                _context3.next = 7;
+                return _this3.$inertia.post("/app/swm/equipment_register_process", data);
+
+              case 7:
+                _context3.next = 12;
+                break;
+
+              case 9:
+                if (!(type === "update")) {
+                  _context3.next = 12;
+                  break;
+                }
+
+                _context3.next = 12;
+                return _this3.$inertia.post("/app/swm/equipment_update_process", data);
+
+              case 12:
+                // this.submitEquimentForm(false,"create")
+                _this3.equipment_modal = {
+                  active: false,
+                  type: "create"
+                };
+                _this3.loading = false;
+                _context3.next = 21;
+                break;
+
+              case 16:
+                _context3.prev = 16;
+                _context3.t0 = _context3["catch"](0);
+                _this3.loading = false;
+
+                _this3.error(_context3.t0.response.data.message);
+
+                console.log(_context3.t0);
+
+              case 21:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3, null, [[0, 16]]);
+      }))();
     }
   }
 });
@@ -22146,21 +22283,6 @@ var render = function () {
         "v-footer",
         { attrs: { app: "", rounded: "" } },
         [
-          _c("v-switch", {
-            attrs: {
-              inset: "",
-              label: "Vuetify Theme Dark",
-              "persistent-hint": "",
-            },
-            model: {
-              value: _vm.$vuetify.theme.dark,
-              callback: function ($$v) {
-                _vm.$set(_vm.$vuetify.theme, "dark", $$v)
-              },
-              expression: "$vuetify.theme.dark",
-            },
-          }),
-          _vm._v(" "),
           _c("v-spacer"),
           _vm._v("\n        © DENR - EMB REGION 1 - UNISYS\n    "),
         ],
@@ -22461,43 +22583,226 @@ var render = function () {
                                   "v-card",
                                   [
                                     _c("v-card-title", [
-                                      _vm._v(
-                                        "\n                                FIndings Overview\n                            "
-                                      ),
+                                      _vm._v(" FIndings Overview "),
                                     ]),
                                     _vm._v(" "),
                                     _c(
                                       "v-card-text",
                                       { staticClass: "grid grid-cols-2 gap-2" },
-                                      _vm._l(
-                                        _vm.overview_of_finding,
-                                        function (overview) {
-                                          return _c(
-                                            "div",
-                                            { key: overview.id },
-                                            [
-                                              _c("v-checkbox", {
-                                                attrs: {
-                                                  label: overview.name,
-                                                  value: overview.id,
-                                                  "hide-details": "",
-                                                  color: "dark",
-                                                },
-                                                model: {
-                                                  value: _vm.ten_year_findings,
-                                                  callback: function ($$v) {
-                                                    _vm.ten_year_findings = $$v
-                                                  },
-                                                  expression:
-                                                    "ten_year_findings",
-                                                },
-                                              }),
-                                            ],
-                                            1
-                                          )
-                                        }
-                                      ),
-                                      0
+                                      [
+                                        _c("v-checkbox", {
+                                          attrs: {
+                                            label:
+                                              "Source Reduction Activited at Source are Present",
+                                            value:
+                                              "Source Reduction Activited at Source are Present",
+                                            "hide-details": "",
+                                            color: "dark",
+                                          },
+                                          model: {
+                                            value: _vm.ten_yr.finding_a,
+                                            callback: function ($$v) {
+                                              _vm.$set(
+                                                _vm.ten_yr,
+                                                "finding_a",
+                                                $$v
+                                              )
+                                            },
+                                            expression: "ten_yr.finding_a",
+                                          },
+                                        }),
+                                        _vm._v(" "),
+                                        _c("v-checkbox", {
+                                          attrs: {
+                                            label: "Segregated Collection",
+                                            value: "Segregated Collection",
+                                            "hide-details": "",
+                                            color: "dark",
+                                          },
+                                          model: {
+                                            value: _vm.ten_yr.finding_b,
+                                            callback: function ($$v) {
+                                              _vm.$set(
+                                                _vm.ten_yr,
+                                                "finding_b",
+                                                $$v
+                                              )
+                                            },
+                                            expression: "ten_yr.finding_b",
+                                          },
+                                        }),
+                                        _vm._v(" "),
+                                        _c("v-checkbox", {
+                                          attrs: {
+                                            label:
+                                              "Increased Collection Average",
+                                            value:
+                                              "Increased Collection Average",
+                                            "hide-details": "",
+                                            color: "dark",
+                                          },
+                                          model: {
+                                            value: _vm.ten_yr.finding_c,
+                                            callback: function ($$v) {
+                                              _vm.$set(
+                                                _vm.ten_yr,
+                                                "finding_c",
+                                                $$v
+                                              )
+                                            },
+                                            expression: "ten_yr.finding_c",
+                                          },
+                                        }),
+                                        _vm._v(" "),
+                                        _c("v-checkbox", {
+                                          attrs: {
+                                            label:
+                                              "Segregation, Recycling and Composting",
+                                            value:
+                                              "Segregation, Recycling and Composting",
+                                            "hide-details": "",
+                                            color: "dark",
+                                          },
+                                          model: {
+                                            value: _vm.ten_yr.finding_d,
+                                            callback: function ($$v) {
+                                              _vm.$set(
+                                                _vm.ten_yr,
+                                                "finding_d",
+                                                $$v
+                                              )
+                                            },
+                                            expression: "ten_yr.finding_d",
+                                          },
+                                        }),
+                                        _vm._v(" "),
+                                        _c("v-checkbox", {
+                                          attrs: {
+                                            label:
+                                              "Marketing & Market Development",
+                                            value:
+                                              "Marketing & Market Development",
+                                            "hide-details": "",
+                                            color: "dark",
+                                          },
+                                          model: {
+                                            value: _vm.ten_yr.finding_e,
+                                            callback: function ($$v) {
+                                              _vm.$set(
+                                                _vm.ten_yr,
+                                                "finding_e",
+                                                $$v
+                                              )
+                                            },
+                                            expression: "ten_yr.finding_e",
+                                          },
+                                        }),
+                                        _vm._v(" "),
+                                        _c("v-checkbox", {
+                                          attrs: {
+                                            label:
+                                              "Alternative Technologies for Residual Wastes",
+                                            value:
+                                              "Alternative Technologies for Residual Wastes",
+                                            "hide-details": "",
+                                            color: "dark",
+                                          },
+                                          model: {
+                                            value: _vm.ten_yr.finding_f,
+                                            callback: function ($$v) {
+                                              _vm.$set(
+                                                _vm.ten_yr,
+                                                "finding_f",
+                                                $$v
+                                              )
+                                            },
+                                            expression: "ten_yr.finding_f",
+                                          },
+                                        }),
+                                        _vm._v(" "),
+                                        _c("v-checkbox", {
+                                          attrs: {
+                                            label:
+                                              "Solid Waste Disposal & Health Care Wastes",
+                                            value:
+                                              "Solid Waste Disposal & Health Care Wastes",
+                                            "hide-details": "",
+                                            color: "dark",
+                                          },
+                                          model: {
+                                            value: _vm.ten_yr.finding_g,
+                                            callback: function ($$v) {
+                                              _vm.$set(
+                                                _vm.ten_yr,
+                                                "finding_g",
+                                                $$v
+                                              )
+                                            },
+                                            expression: "ten_yr.finding_g",
+                                          },
+                                        }),
+                                        _vm._v(" "),
+                                        _c("v-checkbox", {
+                                          attrs: {
+                                            label: "Monitoring Program",
+                                            value: "Monitoring Program",
+                                            "hide-details": "",
+                                            color: "dark",
+                                          },
+                                          model: {
+                                            value: _vm.ten_yr.finding_h,
+                                            callback: function ($$v) {
+                                              _vm.$set(
+                                                _vm.ten_yr,
+                                                "finding_h",
+                                                $$v
+                                              )
+                                            },
+                                            expression: "ten_yr.finding_h",
+                                          },
+                                        }),
+                                        _vm._v(" "),
+                                        _c("v-checkbox", {
+                                          attrs: {
+                                            label: "Financial Aspects",
+                                            value: "Financial Aspects",
+                                            "hide-details": "",
+                                            color: "dark",
+                                          },
+                                          model: {
+                                            value: _vm.ten_yr.finding_i,
+                                            callback: function ($$v) {
+                                              _vm.$set(
+                                                _vm.ten_yr,
+                                                "finding_i",
+                                                $$v
+                                              )
+                                            },
+                                            expression: "ten_yr.finding_i",
+                                          },
+                                        }),
+                                        _vm._v(" "),
+                                        _c("v-checkbox", {
+                                          attrs: {
+                                            label: "Waste Diversion",
+                                            value: "Waste Diversion",
+                                            "hide-details": "",
+                                            color: "dark",
+                                          },
+                                          model: {
+                                            value: _vm.ten_yr.finding_j,
+                                            callback: function ($$v) {
+                                              _vm.$set(
+                                                _vm.ten_yr,
+                                                "finding_j",
+                                                $$v
+                                              )
+                                            },
+                                            expression: "ten_yr.finding_j",
+                                          },
+                                        }),
+                                      ],
+                                      1
                                     ),
                                   ],
                                   1
@@ -23249,8 +23554,6 @@ render._withStripped = true
 
 
 
-<<<<<<< HEAD
-=======
 /***/ }),
 
 /***/ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js":
@@ -23364,7 +23667,6 @@ function normalizeComponent (
 }
 
 
->>>>>>> 393932efa37a325225577a04b6a6a5674707ade9
 /***/ })
 
 }]);

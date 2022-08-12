@@ -15,7 +15,8 @@
         "laravel/tinker": "^2.5",
         "maatwebsite/excel": "^3.1",
         "pusher/pusher-php-server": "^7.0",
-        "spatie/laravel-medialibrary": "9.0.0"
+        "spatie/laravel-medialibrary": "9.0.0",
+        "cornford/googlmapper": "3.*"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.6",

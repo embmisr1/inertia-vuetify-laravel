@@ -2837,7 +2837,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     query_ten_year: Array,
     ten_year_edit: Array,
     ten_year_monitoring_list: Array,
-    ten_year_monitoring_edit: Array
+    ten_year_monitoring_edit: Array,
+    ten_year_findings_array: Array,
+    query_equipment: Array,
+    query_dues: Array,
+    dues_edit: Array
   },
   data: function data() {
     return {
@@ -2926,7 +2930,17 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         ten_year_copy_plan: null,
         ten_year_copy_resolution: null,
         ten_year_copy_form: null,
-        lce_FK: null
+        lce_FK: null,
+        finding_a: false,
+        finding_b: false,
+        finding_c: false,
+        finding_d: false,
+        finding_e: false,
+        finding_f: false,
+        finding_g: false,
+        finding_h: false,
+        finding_i: false,
+        finding_j: false
       },
       ten_yr_mon: {
         ten_year_mon_status: null,
@@ -2937,18 +2951,35 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         ten_year_mon_by: null,
         ten_year_FK: null
       },
+      dues: {
+        dues_purpose: null,
+        dues_amount_granted: null,
+        dues_date_granted: null,
+        dues_unliquidated: null,
+        dues_remarks: null,
+        dues_accountant: null,
+        dues_contact_email: null,
+        lce_FK: null
+      },
       complete_address: null,
       complete_address_setter: {
         prov: {},
         cityMun: {},
         brgy: {}
       },
+      equipment: {
+        equipment_description: ""
+      },
       category: ["Category 1", "Category 2", "Category 3", "Category 4"],
       leachment_type: ["Recirculaation", "Chemical", "Biological"],
       status_of_operation: ["Operational", "Not Operational"],
       cd_status: ["Closed", "Rehabilitation", "Ongoing"],
       cityMun: [],
-      brgy: []
+      brgy: [],
+      equipment_modal: {
+        active: false,
+        type: "create"
+      }
     };
   },
   computed: {
@@ -3109,6 +3140,80 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     goBack: function goBack() {
       window.history.back();
+    },
+    setEquipmentModal: function setEquipmentModal(active, type) {
+      this.equipment_modal = {
+        active: active,
+        type: type
+      };
+    },
+    setUpdateEquipment: function setUpdateEquipment(equip) {
+      this.equipment = _objectSpread({}, equip);
+      this.setEquipmentModal(true, "update");
+    },
+    submitEquimentForm: function submitEquimentForm() {
+      var _this3 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3() {
+        var data, type;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                _context3.prev = 0;
+                data = _objectSpread(_objectSpread({}, _this3.equipment), {}, {
+                  lce_FK: _this3.lce_id
+                });
+                type = _this3.equipment_modal.type;
+                _this3.loading = true;
+
+                if (!(type === "create")) {
+                  _context3.next = 9;
+                  break;
+                }
+
+                _context3.next = 7;
+                return _this3.$inertia.post("/app/swm/equipment_register_process", data);
+
+              case 7:
+                _context3.next = 12;
+                break;
+
+              case 9:
+                if (!(type === "update")) {
+                  _context3.next = 12;
+                  break;
+                }
+
+                _context3.next = 12;
+                return _this3.$inertia.post("/app/swm/equipment_update_process", data);
+
+              case 12:
+                // this.submitEquimentForm(false,"create")
+                _this3.equipment_modal = {
+                  active: false,
+                  type: "create"
+                };
+                _this3.loading = false;
+                _context3.next = 21;
+                break;
+
+              case 16:
+                _context3.prev = 16;
+                _context3.t0 = _context3["catch"](0);
+                _this3.loading = false;
+
+                _this3.error(_context3.t0.response.data.message);
+
+                console.log(_context3.t0);
+
+              case 21:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3, null, [[0, 16]]);
+      }))();
     }
   }
 });
@@ -22729,21 +22834,6 @@ var render = function () {
         "v-footer",
         { attrs: { app: "", rounded: "" } },
         [
-          _c("v-switch", {
-            attrs: {
-              inset: "",
-              label: "Vuetify Theme Dark",
-              "persistent-hint": "",
-            },
-            model: {
-              value: _vm.$vuetify.theme.dark,
-              callback: function ($$v) {
-                _vm.$set(_vm.$vuetify.theme, "dark", $$v)
-              },
-              expression: "$vuetify.theme.dark",
-            },
-          }),
-          _vm._v(" "),
           _c("v-spacer"),
           _vm._v("\n        © DENR - EMB REGION 1 - UNISYS\n    "),
         ],

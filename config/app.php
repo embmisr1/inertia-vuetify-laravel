@@ -177,6 +177,8 @@ return [
         App\Providers\RouteServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
 
+        Cornford\Googlmapper\MapperServiceProvider::class,
+
     ],
 
     /*
@@ -234,6 +236,7 @@ return [
 
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
+        'Mapper' => Cornford\Googlmapper\Facades\MapperFacade::class,
 
     ],
 
