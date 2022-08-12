@@ -226,6 +226,14 @@
                         item-key="permit_tables"
                         class="elevation-1"
                     >
+                        <template v-slot:item.perm_file="{ item }">
+                            <a
+                                :href="`/app/attachments?type=permits&id=${item.id}`"
+                                target="_blank"
+                            >
+                                <v-btn small dark>Download File</v-btn>
+                            </a>
+                        </template>
                         <template v-slot:item.actions="{ item }">
                             <v-icon
                                 small
@@ -257,6 +265,7 @@
 import vue2Dropzone from "vue2-dropzone";
 import "vue2-dropzone/dist/vue2Dropzone.min.css";
 import UploadDialog from "../../../components/UploadDialog.vue";
+import { Link } from "@inertiajs/inertia-vue";
 export default {
     props: {
         form_permit_info: Object,
@@ -265,6 +274,7 @@ export default {
     components: {
         vueDropzone: vue2Dropzone,
         UploadDialog,
+        Link,
     },
     data: () => ({
         uploadDialog: false,
@@ -375,7 +385,7 @@ export default {
             this.form_permit_info.perm_date_expiry = null;
             this.form_permit_info.perm_date_issuance = null;
             this.form_permit_info.perm_description = null;
-            this.form_permit_info.perm_file = [];;
+            this.form_permit_info.perm_file = [];
             this.form_permit_info.perm_id = null;
             this.form_permit_info.perm_law = null;
             this.form_permit_info.perm_number = null;
