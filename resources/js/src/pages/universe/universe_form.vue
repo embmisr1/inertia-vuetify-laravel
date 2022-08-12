@@ -1,24 +1,29 @@
 <template>
     <DefaultLayout>
+         <ValidationObserver
+                v-slot="{  }"
+                ref="validation_observer"
+            >
+            <form @submit.prevent="submit_basic_info">
         <MainTab
-            :province_list="province_list" 
-            :municipality_list="municipality_list" 
-            :barangay_list="barangay_list" 
-            :psic_group_list="psic_group_list" 
-            :psic_class_list="psic_class_list" 
-            :psic_subclass_list="psic_subclass_list" 
-            :project_type_list="project_type_list" 
-            :project_subtype_list="project_subtype_list" 
-            :project_specific_type_list="project_specific_type_list" 
-            :project_specific_subtype_list="project_specific_subtype_list" 
+            :province_list="province_list"
+            :municipality_list="municipality_list"
+            :barangay_list="barangay_list"
+            :psic_group_list="psic_group_list"
+            :psic_class_list="psic_class_list"
+            :psic_subclass_list="psic_subclass_list"
+            :project_type_list="project_type_list"
+            :project_subtype_list="project_subtype_list"
+            :project_specific_type_list="project_specific_type_list"
+            :project_specific_subtype_list="project_specific_subtype_list"
 
-            :form_basic_info="form_basic_info" 
-            :form_permit_info="form_permit_info" 
-            :form_monitoring_info="form_monitoring_info" 
-            :form_legal_info="form_legal_info" 
-            :form_hazwaste_info="form_hazwaste_info" 
-            :form_pco_info="form_pco_info" 
-            :form_complaint_info="form_complaint_info" 
+            :form_basic_info="form_basic_info"
+            :form_permit_info="form_permit_info"
+            :form_monitoring_info="form_monitoring_info"
+            :form_legal_info="form_legal_info"
+            :form_hazwaste_info="form_hazwaste_info"
+            :form_pco_info="form_pco_info"
+            :form_complaint_info="form_complaint_info"
 
             :permit_table="permit_table"
             :monitoring_table="monitoring_table"
@@ -26,11 +31,14 @@
             :hazwaste_table="hazwaste_table"
             :pco_table="pco_table"
             :complaint_table="complaint_table"
-            
+
             :submit_basic_info="submit_basic_info"
 
             :ctr_file="ctr_file"
+            :laws="laws"
         ></MainTab>
+        </form>
+        </ValidationObserver>
     </DefaultLayout>
 </template>
 
@@ -57,7 +65,7 @@ export default {
         pco_table: Array,
         complaint_table: Array,
         ctr_file: Object,
-        
+
         province_list: Array,
         municipality_list: Array,
         barangay_list: Array,

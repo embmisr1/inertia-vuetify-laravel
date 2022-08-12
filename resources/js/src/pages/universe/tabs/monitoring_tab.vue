@@ -10,7 +10,23 @@
                     ></v-text-field>
                 </div>
                 <div>
-                    <v-checkbox
+                    <ValidationProvider
+                        vid="select_mon_laws"
+                        name="Select Law/s"
+                        rules="required"
+                        v-slot="{ errors }"
+                    >
+                        <v-select
+                            :error-messages="errors[0]"
+                            v-model="form_monitoring_info.mon_law"
+                            :items="laws"
+                            label="Select Law/s"
+                            multiple
+                            hint="Select Law/s"
+                            persistent-hint
+                        ></v-select>
+                    </ValidationProvider>
+                    <!-- <v-checkbox
                         v-model="form_monitoring_info.mon_law"
                         label="PD 1586"
                         value="PD 1586"
@@ -39,7 +55,7 @@
                         label="RA 9003"
                         value="RA 9003"
                         class="p-0 m-0"
-                    ></v-checkbox>
+                    ></v-checkbox> -->
                 </div>
                 <!--
                         <div>
@@ -51,64 +67,82 @@
                         </div>
                         -->
                 <div>
-                    <v-menu
-                        ref="date_monitoring_menu"
-                        v-model="date_monitoring_menu"
-                        :close-on-content-click="false"
-                        :return-value.sync="
-                            form_monitoring_info.mon_date_monitored
-                        "
-                        transition="scale-transition"
-                        offset-y
-                        min-width="auto"
+                    <ValidationProvider
+                        vid="date_mon"
+                        name="Date Monitored"
+                        rules="required"
+                        v-slot="{ errors }"
                     >
-                        <template v-slot:activator="{ on, attrs }">
-                            <v-text-field
+                        <v-menu
+                            ref="date_monitoring_menu"
+                            v-model="date_monitoring_menu"
+                            :close-on-content-click="false"
+                            :return-value.sync="
+                                form_monitoring_info.mon_date_monitored
+                            "
+                            transition="scale-transition"
+                            offset-y
+                            min-width="auto"
+                        >
+                            <template v-slot:activator="{ on, attrs }">
+                                <v-text-field
+                                    :error-messages="errors[0]"
+                                    v-model="
+                                        form_monitoring_info.mon_date_monitored
+                                    "
+                                    label="Date Monitored"
+                                    readonly
+                                    v-bind="attrs"
+                                    v-on="on"
+                                    clearable
+                                    required
+                                ></v-text-field>
+                            </template>
+                            <v-date-picker
                                 v-model="
                                     form_monitoring_info.mon_date_monitored
                                 "
-                                label="Date Monitored"
-                                readonly
-                                v-bind="attrs"
-                                v-on="on"
-                                clearable
-                                required
-                            ></v-text-field>
-                        </template>
-                        <v-date-picker
-                            v-model="form_monitoring_info.mon_date_monitored"
-                            no-title
-                            scrollable
-                        >
-                            <v-spacer></v-spacer>
-                            <v-btn
-                                text
-                                color="primary"
-                                @click="date_monitoring_menu = false"
+                                no-title
+                                scrollable
                             >
-                                Cancel
-                            </v-btn>
-                            <v-btn
-                                text
-                                color="primary"
-                                @click="
-                                    $refs.date_monitoring_menu.save(
-                                        form_monitoring_info.mon_date_monitored
-                                    )
-                                "
-                            >
-                                OK
-                            </v-btn>
-                        </v-date-picker>
-                    </v-menu>
+                                <v-spacer></v-spacer>
+                                <v-btn
+                                    text
+                                    color="primary"
+                                    @click="date_monitoring_menu = false"
+                                >
+                                    Cancel
+                                </v-btn>
+                                <v-btn
+                                    text
+                                    color="primary"
+                                    @click="
+                                        $refs.date_monitoring_menu.save(
+                                            form_monitoring_info.mon_date_monitored
+                                        )
+                                    "
+                                >
+                                    OK
+                                </v-btn>
+                            </v-date-picker>
+                        </v-menu>
+                    </ValidationProvider>
                 </div>
                 <div>
-                    <v-autocomplete
-                        :items="mon_or_sur_selection"
-                        v-model="form_monitoring_info.mon_or_survey"
-                        label="Monitoring/Survey"
-                        clearable
-                    ></v-autocomplete>
+                    <ValidationProvider
+                        vid="mon_sur"
+                        name="Monitoring/Survey"
+                        rules="required"
+                        v-slot="{ errors }"
+                    >
+                        <v-autocomplete
+                            :error-messages="errors[0]"
+                            :items="mon_or_sur_selection"
+                            v-model="form_monitoring_info.mon_or_survey"
+                            label="Monitoring/Survey"
+                            clearable
+                        ></v-autocomplete>
+                    </ValidationProvider>
                 </div>
                 <div>
                     <v-text-field
@@ -197,6 +231,7 @@ export default {
     props: {
         form_monitoring_info: Object,
         monitoring_table: Array,
+        laws: Array,
     },
     data: () => ({
         headers: [
