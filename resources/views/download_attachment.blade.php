@@ -46,23 +46,23 @@
     <div class="p-4 ">
         {{-- permits --}}
         @if (isset($permits) && count($permits) > 0 )
-            <x-attachment-list name="Permits" :files="$permits" type="permits" />
+            <x-attachment-list name="Permits" :counter="$permits['counter']" :files="$permits['attachment']" type="permits" />
         @endif
         {{-- monitoring --}}
         @if (isset($monitoring))
-            <x-attachment-list name="Monitoring" :files="$monitoring" type="monitoring" />
+            <x-attachment-list name="Monitoring" :counter="$monitoring['counter']" :files="$monitoring['attachment']" type="monitoring" />
         @endif
         {{-- legal --}}
         @if (isset($legal))
-            <x-attachment-list name="Legal" :files="$legal" type="Legal" />
+            <x-attachment-list name="Legal" :counter="$legal['counter']" :files="$legal['attachment']" type="Legal" />
         @endif
         {{-- Complaint --}}
         @if (isset($complaint))
-            <x-attachment-list name="Complaint" :files="$complaint" type="complaint" />
+            <x-attachment-list name="Complaint" :counter="$complaint['counter']" :files="$complaint['attachment']" type="complaint" />
         @endif
         {{-- ComplaintAction --}}
         @if (isset($complaintaction))
-            <x-attachment-list name="Complaint Action" :files="$complaintaction" type="complaintaction" />
+            <x-attachment-list name="Complaint Action" :counter="$complaintaction['counter']" :files="$complaintaction['attachment']" type="complaintaction" />
         @endif
 
 

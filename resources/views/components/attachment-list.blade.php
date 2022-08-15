@@ -16,8 +16,8 @@
         </iframe>
     @endforeach
 </div>
-{{-- <script>
-    <?php if($request['counter'] < 1 ){ ?>
+@if($counter < 1)
+    <script>
         window.close();
-    <?php } ?>
-</script> --}}
+    </script>
+@endif
