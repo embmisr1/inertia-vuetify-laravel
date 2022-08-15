@@ -47,58 +47,45 @@ class DownloadAttachmentController extends Controller
                 break;
         };
         // return $data;
-        return view('download_attachment', $data);
+        return view('download_attachment', $data)->with('counter', 1);
     }
     public function delete_media($id, $category)
     {
         $media = Media::find($id);
-<<<<<<< HEAD
-        $media->delete();
-
-        if($category == 'permits'){
-            $media_counter = Media::where('model_id',$media->model_id)->count();
-            $query_media_counter = Permit::find($media->model_id);
-=======
         $media_id = $media->model_id;
         $media->delete();
 
-        if($category == 'permit'){
-            $media_counter = Media::where('model_id',$media_id)->count();
+        if ($category == 'permits') {
+            $media_counter = Media::where('model_id', $media_id)->count();
             $query_media_counter = Permit::find($media_id);
->>>>>>> e9ec072b820a87c42d1ea0c1fb7556d424085023
             $query_media_counter->perm_file = $media_counter;
             $query_media_counter->save();
         }
-        if($category == 'monitoring'){
-            $media_counter = Media::where('model_id',$media_id)->count();
+        if ($category == 'monitoring') {
+            $media_counter = Media::where('model_id', $media_id)->count();
             $query_media_counter = Monitoring::find($media_id);
             $query_media_counter->mon_file = $media_counter;
             $query_media_counter->save();
         }
-        if($category == 'legal'){
-            $media_counter = Media::where('model_id',$media_id)->count();
+        if ($category == 'legal') {
+            $media_counter = Media::where('model_id', $media_id)->count();
             $query_media_counter = Legal::find($media_id);
             $query_media_counter->nov_file = $media_counter;
             $query_media_counter->save();
         }
-        if($category == 'complaint'){
-            $media_counter = Media::where('model_id',$media_id)->where('collection_name','complaint')->count();
+        if ($category == 'complaint') {
+            $media_counter = Media::where('model_id', $media_id)->where('collection_name', 'complaint')->count();
             $query_media_counter = Complaint::find($media_id);
             $query_media_counter->comp_attached_file = $media_counter;
             $query_media_counter->save();
 
-            $media_counter = Media::where('model_id',$media_id)->where('collection_name','complaintaction')->count();
+            $media_counter = Media::where('model_id', $media_id)->where('collection_name', 'complaintaction')->count();
             $query_media_counter = Complaint::find($media_id);
             $query_media_counter->comp_action_file = $media_counter;
             $query_media_counter->save();
         }
-<<<<<<< HEAD
 
-=======
-        
->>>>>>> e9ec072b820a87c42d1ea0c1fb7556d424085023
-
-        return back()->with('success','Media Successfully Deleted!');
+        return back()->with('counter', $query_media_counter);
     }
 
     private function permit($id)

@@ -45,7 +45,7 @@
 
     <div class="p-4 ">
         {{-- permits --}}
-        @if (isset($permits))
+        @if (isset($permits) && count($permits) > 0 )
             <x-attachment-list name="Permits" :files="$permits" type="permits" />
         @endif
         {{-- monitoring --}}
