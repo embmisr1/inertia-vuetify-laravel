@@ -49,6 +49,12 @@ class DownloadAttachmentController extends Controller
         // return $data;
         return view('download_attachment', $data);
     }
+    public function delete_media($id)
+    {
+        $media = Media::find($id);
+        $media->delete();
+        return back()->with('success','Media Successfully Deleted!');
+    }
 
     private function permit($id)
     {
