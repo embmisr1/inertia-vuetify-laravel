@@ -161,6 +161,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue2_dropzone__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue2_dropzone__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var vue2_dropzone_dist_vue2Dropzone_min_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue2-dropzone/dist/vue2Dropzone.min.css */ "./node_modules/vue2-dropzone/dist/vue2Dropzone.min.css");
 /* harmony import */ var _components_UploadDialog_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../components/UploadDialog.vue */ "./resources/js/src/components/UploadDialog.vue");
+/* harmony import */ var _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @inertiajs/inertia-vue */ "./node_modules/@inertiajs/inertia-vue/dist/index.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -422,6 +423,49 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 
 
@@ -432,7 +476,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
   components: {
     vueDropzone: (vue2_dropzone__WEBPACK_IMPORTED_MODULE_1___default()),
-    UploadDialog: _components_UploadDialog_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
+    UploadDialog: _components_UploadDialog_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
+    Link: _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_4__.Link
   },
   data: function data() {
     return {
@@ -568,7 +613,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.form_permit_info.perm_date_issuance = null;
       this.form_permit_info.perm_description = null;
       this.form_permit_info.perm_file = [];
-      ;
       this.form_permit_info.perm_id = null;
       this.form_permit_info.perm_law = null;
       this.form_permit_info.perm_number = null;
@@ -1762,219 +1806,344 @@ var render = function () {
                     _c(
                       "div",
                       [
-                        _c("v-autocomplete", {
-                          attrs: {
-                            items: _vm.permit_law_selection,
-                            label: "Law",
-                            "item-text": "law_selection",
-                            "item-value": "law_selection",
-                            clearable: "",
-                          },
-                          model: {
-                            value: _vm.form_permit_info.perm_law,
-                            callback: function ($$v) {
-                              _vm.$set(_vm.form_permit_info, "perm_law", $$v)
-                            },
-                            expression: "form_permit_info.perm_law",
-                          },
-                        }),
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      [
-                        _c("v-text-field", {
-                          attrs: { label: "Permit No.", clearable: "" },
-                          model: {
-                            value: _vm.form_permit_info.perm_number,
-                            callback: function ($$v) {
-                              _vm.$set(_vm.form_permit_info, "perm_number", $$v)
-                            },
-                            expression: "form_permit_info.perm_number",
-                          },
-                        }),
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      [
-                        _c("v-autocomplete", {
-                          attrs: {
-                            items: _vm.permit_status_selection,
-                            label: "Permit Status",
-                            "item-text": "status_selection",
-                            "item-value": "status_selection",
-                            clearable: "",
-                          },
-                          model: {
-                            value: _vm.form_permit_info.perm_status,
-                            callback: function ($$v) {
-                              _vm.$set(_vm.form_permit_info, "perm_status", $$v)
-                            },
-                            expression: "form_permit_info.perm_status",
-                          },
-                        }),
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      [
-                        _c(
-                          "v-menu",
-                          {
-                            ref: "date_permit_issuance_menu",
-                            attrs: {
-                              "close-on-content-click": false,
-                              "return-value":
-                                _vm.form_permit_info.perm_date_issuance,
-                              transition: "scale-transition",
-                              "offset-y": "",
-                              "min-width": "auto",
-                            },
-                            on: {
-                              "update:returnValue": function ($event) {
-                                return _vm.$set(
-                                  _vm.form_permit_info,
-                                  "perm_date_issuance",
-                                  $event
-                                )
+                        _c("ValidationProvider", {
+                          attrs: { vid: "law", name: "Law", rules: "required" },
+                          scopedSlots: _vm._u(
+                            [
+                              {
+                                key: "default",
+                                fn: function (ref) {
+                                  var errors = ref.errors
+                                  return [
+                                    _c("v-autocomplete", {
+                                      attrs: {
+                                        items: _vm.permit_law_selection,
+                                        label: "Law",
+                                        "item-text": "law_selection",
+                                        "item-value": "law_selection",
+                                        clearable: "",
+                                        "error-messages": errors[0],
+                                      },
+                                      model: {
+                                        value: _vm.form_permit_info.perm_law,
+                                        callback: function ($$v) {
+                                          _vm.$set(
+                                            _vm.form_permit_info,
+                                            "perm_law",
+                                            $$v
+                                          )
+                                        },
+                                        expression: "form_permit_info.perm_law",
+                                      },
+                                    }),
+                                  ]
+                                },
                               },
-                              "update:return-value": function ($event) {
-                                return _vm.$set(
-                                  _vm.form_permit_info,
-                                  "perm_date_issuance",
-                                  $event
-                                )
+                            ],
+                            null,
+                            false,
+                            3601820785
+                          ),
+                        }),
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      [
+                        _c("ValidationProvider", {
+                          attrs: {
+                            vid: "permit_no",
+                            name: "Permit No",
+                            rules: "required",
+                          },
+                          scopedSlots: _vm._u(
+                            [
+                              {
+                                key: "default",
+                                fn: function (ref) {
+                                  var errors = ref.errors
+                                  return [
+                                    _c("v-text-field", {
+                                      attrs: {
+                                        "error-messages": errors[0],
+                                        label: "Permit No.",
+                                        clearable: "",
+                                      },
+                                      model: {
+                                        value: _vm.form_permit_info.perm_number,
+                                        callback: function ($$v) {
+                                          _vm.$set(
+                                            _vm.form_permit_info,
+                                            "perm_number",
+                                            $$v
+                                          )
+                                        },
+                                        expression:
+                                          "form_permit_info.perm_number",
+                                      },
+                                    }),
+                                  ]
+                                },
                               },
-                            },
-                            scopedSlots: _vm._u(
-                              [
-                                {
-                                  key: "activator",
-                                  fn: function (ref) {
-                                    var on = ref.on
-                                    var attrs = ref.attrs
-                                    return [
-                                      _c(
-                                        "v-text-field",
-                                        _vm._g(
-                                          _vm._b(
+                            ],
+                            null,
+                            false,
+                            2455095637
+                          ),
+                        }),
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      [
+                        _c("ValidationProvider", {
+                          attrs: {
+                            vid: "permit_status",
+                            name: "Permit status",
+                            rules: "required",
+                          },
+                          scopedSlots: _vm._u(
+                            [
+                              {
+                                key: "default",
+                                fn: function (ref) {
+                                  var errors = ref.errors
+                                  return [
+                                    _c("v-autocomplete", {
+                                      attrs: {
+                                        "error-messages": errors[0],
+                                        items: _vm.permit_status_selection,
+                                        label: "Permit Status",
+                                        "item-text": "status_selection",
+                                        "item-value": "status_selection",
+                                        clearable: "",
+                                      },
+                                      model: {
+                                        value: _vm.form_permit_info.perm_status,
+                                        callback: function ($$v) {
+                                          _vm.$set(
+                                            _vm.form_permit_info,
+                                            "perm_status",
+                                            $$v
+                                          )
+                                        },
+                                        expression:
+                                          "form_permit_info.perm_status",
+                                      },
+                                    }),
+                                  ]
+                                },
+                              },
+                            ],
+                            null,
+                            false,
+                            3946773928
+                          ),
+                        }),
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      [
+                        _c("ValidationProvider", {
+                          attrs: {
+                            vid: "date_issuance",
+                            name: "Date Issuance",
+                            rules: "required",
+                          },
+                          scopedSlots: _vm._u(
+                            [
+                              {
+                                key: "default",
+                                fn: function (ref) {
+                                  var errors = ref.errors
+                                  return [
+                                    _c(
+                                      "v-menu",
+                                      {
+                                        ref: "date_permit_issuance_menu",
+                                        attrs: {
+                                          "close-on-content-click": false,
+                                          "return-value":
+                                            _vm.form_permit_info
+                                              .perm_date_issuance,
+                                          transition: "scale-transition",
+                                          "offset-y": "",
+                                          "min-width": "auto",
+                                        },
+                                        on: {
+                                          "update:returnValue": function (
+                                            $event
+                                          ) {
+                                            return _vm.$set(
+                                              _vm.form_permit_info,
+                                              "perm_date_issuance",
+                                              $event
+                                            )
+                                          },
+                                          "update:return-value": function (
+                                            $event
+                                          ) {
+                                            return _vm.$set(
+                                              _vm.form_permit_info,
+                                              "perm_date_issuance",
+                                              $event
+                                            )
+                                          },
+                                        },
+                                        scopedSlots: _vm._u(
+                                          [
                                             {
-                                              attrs: {
-                                                label: "Date Issuance",
-                                                readonly: "",
-                                                clearable: "",
-                                                required: "",
-                                              },
-                                              model: {
-                                                value:
-                                                  _vm.form_permit_info
-                                                    .perm_date_issuance,
-                                                callback: function ($$v) {
-                                                  _vm.$set(
-                                                    _vm.form_permit_info,
-                                                    "perm_date_issuance",
-                                                    $$v
-                                                  )
-                                                },
-                                                expression:
-                                                  "\n                                    form_permit_info.perm_date_issuance\n                                ",
+                                              key: "activator",
+                                              fn: function (ref) {
+                                                var on = ref.on
+                                                var attrs = ref.attrs
+                                                return [
+                                                  _c(
+                                                    "v-text-field",
+                                                    _vm._g(
+                                                      _vm._b(
+                                                        {
+                                                          attrs: {
+                                                            "error-messages":
+                                                              errors[0],
+                                                            label:
+                                                              "Date Issuance",
+                                                            readonly: "",
+                                                            clearable: "",
+                                                            required: "",
+                                                          },
+                                                          model: {
+                                                            value:
+                                                              _vm
+                                                                .form_permit_info
+                                                                .perm_date_issuance,
+                                                            callback: function (
+                                                              $$v
+                                                            ) {
+                                                              _vm.$set(
+                                                                _vm.form_permit_info,
+                                                                "perm_date_issuance",
+                                                                $$v
+                                                              )
+                                                            },
+                                                            expression:
+                                                              "\n                                    form_permit_info.perm_date_issuance\n                                ",
+                                                          },
+                                                        },
+                                                        "v-text-field",
+                                                        attrs,
+                                                        false
+                                                      ),
+                                                      on
+                                                    )
+                                                  ),
+                                                ]
                                               },
                                             },
-                                            "v-text-field",
-                                            attrs,
-                                            false
-                                          ),
-                                          on
-                                        )
-                                      ),
-                                    ]
-                                  },
-                                },
-                              ],
-                              null,
-                              false,
-                              885673060
-                            ),
-                            model: {
-                              value: _vm.date_permit_issuance_menu,
-                              callback: function ($$v) {
-                                _vm.date_permit_issuance_menu = $$v
-                              },
-                              expression: "date_permit_issuance_menu",
-                            },
-                          },
-                          [
-                            _vm._v(" "),
-                            _c(
-                              "v-date-picker",
-                              {
-                                attrs: { "no-title": "", scrollable: "" },
-                                model: {
-                                  value:
-                                    _vm.form_permit_info.perm_date_issuance,
-                                  callback: function ($$v) {
-                                    _vm.$set(
-                                      _vm.form_permit_info,
-                                      "perm_date_issuance",
-                                      $$v
-                                    )
-                                  },
-                                  expression:
-                                    "form_permit_info.perm_date_issuance",
-                                },
-                              },
-                              [
-                                _c("v-spacer"),
-                                _vm._v(" "),
-                                _c(
-                                  "v-btn",
-                                  {
-                                    attrs: { text: "", color: "primary" },
-                                    on: {
-                                      click: function ($event) {
-                                        _vm.date_permit_issuance_menu = false
+                                          ],
+                                          null,
+                                          true
+                                        ),
+                                        model: {
+                                          value: _vm.date_permit_issuance_menu,
+                                          callback: function ($$v) {
+                                            _vm.date_permit_issuance_menu = $$v
+                                          },
+                                          expression:
+                                            "date_permit_issuance_menu",
+                                        },
                                       },
-                                    },
-                                  },
-                                  [
-                                    _vm._v(
-                                      "\n                                Cancel\n                            "
+                                      [
+                                        _vm._v(" "),
+                                        _c(
+                                          "v-date-picker",
+                                          {
+                                            attrs: {
+                                              "no-title": "",
+                                              scrollable: "",
+                                            },
+                                            model: {
+                                              value:
+                                                _vm.form_permit_info
+                                                  .perm_date_issuance,
+                                              callback: function ($$v) {
+                                                _vm.$set(
+                                                  _vm.form_permit_info,
+                                                  "perm_date_issuance",
+                                                  $$v
+                                                )
+                                              },
+                                              expression:
+                                                "form_permit_info.perm_date_issuance",
+                                            },
+                                          },
+                                          [
+                                            _c("v-spacer"),
+                                            _vm._v(" "),
+                                            _c(
+                                              "v-btn",
+                                              {
+                                                attrs: {
+                                                  text: "",
+                                                  color: "primary",
+                                                },
+                                                on: {
+                                                  click: function ($event) {
+                                                    _vm.date_permit_issuance_menu = false
+                                                  },
+                                                },
+                                              },
+                                              [
+                                                _vm._v(
+                                                  "\n                                Cancel\n                            "
+                                                ),
+                                              ]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "v-btn",
+                                              {
+                                                attrs: {
+                                                  text: "",
+                                                  color: "primary",
+                                                },
+                                                on: {
+                                                  click: function ($event) {
+                                                    return _vm.$refs.date_permit_issuance_menu.save(
+                                                      _vm.form_permit_info
+                                                        .perm_date_issuance
+                                                    )
+                                                  },
+                                                },
+                                              },
+                                              [
+                                                _vm._v(
+                                                  "\n                                OK\n                            "
+                                                ),
+                                              ]
+                                            ),
+                                          ],
+                                          1
+                                        ),
+                                      ],
+                                      1
                                     ),
                                   ]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "v-btn",
-                                  {
-                                    attrs: { text: "", color: "primary" },
-                                    on: {
-                                      click: function ($event) {
-                                        return _vm.$refs.date_permit_issuance_menu.save(
-                                          _vm.form_permit_info
-                                            .perm_date_issuance
-                                        )
-                                      },
-                                    },
-                                  },
-                                  [
-                                    _vm._v(
-                                      "\n                                OK\n                            "
-                                    ),
-                                  ]
-                                ),
-                              ],
-                              1
-                            ),
-                          ],
-                          1
-                        ),
+                                },
+                              },
+                            ],
+                            null,
+                            false,
+                            2825014843
+                          ),
+                        }),
                       ],
                       1
                     ),
@@ -2320,6 +2489,30 @@ var render = function () {
                     "item-key": "permit_tables",
                   },
                   scopedSlots: _vm._u([
+                    {
+                      key: "item.perm_file",
+                      fn: function (ref) {
+                        var item = ref.item
+                        return [
+                          _c(
+                            "a",
+                            {
+                              attrs: {
+                                href:
+                                  "/app/attachments?type=permits&id=" + item.id,
+                                target: "_blank",
+                              },
+                            },
+                            [
+                              _c("v-btn", { attrs: { small: "", dark: "" } }, [
+                                _vm._v("Download File"),
+                              ]),
+                            ],
+                            1
+                          ),
+                        ]
+                      },
+                    },
                     {
                       key: "item.actions",
                       fn: function (ref) {

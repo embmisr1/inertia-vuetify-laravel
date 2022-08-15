@@ -200,40 +200,99 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     form_monitoring_info: Object,
-    monitoring_table: Array
+    monitoring_table: Array,
+    laws: Array
   },
   data: function data() {
     return {
       headers: [{
-        text: 'Law',
-        align: 'start',
+        text: "Law",
+        align: "start",
         sortable: false,
-        value: 'mon_law'
+        value: "mon_law"
       }, {
-        text: 'Date Monitored',
-        align: 'start',
+        text: "Date Monitored",
+        align: "start",
         sortable: false,
-        value: 'mon_date_monitored'
+        value: "mon_date_monitored"
       }, {
-        text: 'Type',
-        align: 'start',
+        text: "Type",
+        align: "start",
         sortable: false,
-        value: 'mon_type'
+        value: "mon_type"
       }, {
-        text: 'Attachment',
-        align: 'start',
+        text: "Attachment",
+        align: "start",
         sortable: false,
-        value: 'mon_file'
+        value: "mon_file"
       }, {
-        width: '100px',
-        text: 'Actions',
-        value: 'actions',
+        width: "100px",
+        text: "Actions",
+        value: "actions",
         sortable: false
       }],
-      date_monitoring_menu: '',
+      date_monitoring_menu: "",
       addFileForm: false,
       mon_or_sur_selection: ["Monitoring", "Survey"]
     };
@@ -1174,64 +1233,48 @@ var render = function () {
                 _c(
                   "div",
                   [
-                    _c("v-checkbox", {
-                      staticClass: "p-0 m-0 mt-5",
-                      attrs: { label: "PD 1586", value: "PD 1586" },
-                      model: {
-                        value: _vm.form_monitoring_info.mon_law,
-                        callback: function ($$v) {
-                          _vm.$set(_vm.form_monitoring_info, "mon_law", $$v)
-                        },
-                        expression: "form_monitoring_info.mon_law",
+                    _c("ValidationProvider", {
+                      attrs: {
+                        vid: "select_mon_laws",
+                        name: "Select Law/s",
+                        rules: "required",
                       },
-                    }),
-                    _vm._v(" "),
-                    _c("v-checkbox", {
-                      staticClass: "p-0 m-0",
-                      attrs: { label: "RA 8749", value: "RA 8749" },
-                      model: {
-                        value: _vm.form_monitoring_info.mon_law,
-                        callback: function ($$v) {
-                          _vm.$set(_vm.form_monitoring_info, "mon_law", $$v)
-                        },
-                        expression: "form_monitoring_info.mon_law",
-                      },
-                    }),
-                    _vm._v(" "),
-                    _c("v-checkbox", {
-                      staticClass: "p-0 m-0",
-                      attrs: { label: "RA 9275", value: "RA 9275" },
-                      model: {
-                        value: _vm.form_monitoring_info.mon_law,
-                        callback: function ($$v) {
-                          _vm.$set(_vm.form_monitoring_info, "mon_law", $$v)
-                        },
-                        expression: "form_monitoring_info.mon_law",
-                      },
-                    }),
-                    _vm._v(" "),
-                    _c("v-checkbox", {
-                      staticClass: "p-0 m-0",
-                      attrs: { label: "RA 6969", value: "RA 6969" },
-                      model: {
-                        value: _vm.form_monitoring_info.mon_law,
-                        callback: function ($$v) {
-                          _vm.$set(_vm.form_monitoring_info, "mon_law", $$v)
-                        },
-                        expression: "form_monitoring_info.mon_law",
-                      },
-                    }),
-                    _vm._v(" "),
-                    _c("v-checkbox", {
-                      staticClass: "p-0 m-0",
-                      attrs: { label: "RA 9003", value: "RA 9003" },
-                      model: {
-                        value: _vm.form_monitoring_info.mon_law,
-                        callback: function ($$v) {
-                          _vm.$set(_vm.form_monitoring_info, "mon_law", $$v)
-                        },
-                        expression: "form_monitoring_info.mon_law",
-                      },
+                      scopedSlots: _vm._u(
+                        [
+                          {
+                            key: "default",
+                            fn: function (ref) {
+                              var errors = ref.errors
+                              return [
+                                _c("v-select", {
+                                  attrs: {
+                                    "error-messages": errors[0],
+                                    items: _vm.laws,
+                                    label: "Select Law/s",
+                                    multiple: "",
+                                    hint: "Select Law/s",
+                                    "persistent-hint": "",
+                                  },
+                                  model: {
+                                    value: _vm.form_monitoring_info.mon_law,
+                                    callback: function ($$v) {
+                                      _vm.$set(
+                                        _vm.form_monitoring_info,
+                                        "mon_law",
+                                        $$v
+                                      )
+                                    },
+                                    expression: "form_monitoring_info.mon_law",
+                                  },
+                                }),
+                              ]
+                            },
+                          },
+                        ],
+                        null,
+                        false,
+                        2770830561
+                      ),
                     }),
                   ],
                   1
@@ -1240,156 +1283,193 @@ var render = function () {
                 _c(
                   "div",
                   [
-                    _c(
-                      "v-menu",
-                      {
-                        ref: "date_monitoring_menu",
-                        attrs: {
-                          "close-on-content-click": false,
-                          "return-value":
-                            _vm.form_monitoring_info.mon_date_monitored,
-                          transition: "scale-transition",
-                          "offset-y": "",
-                          "min-width": "auto",
-                        },
-                        on: {
-                          "update:returnValue": function ($event) {
-                            return _vm.$set(
-                              _vm.form_monitoring_info,
-                              "mon_date_monitored",
-                              $event
-                            )
-                          },
-                          "update:return-value": function ($event) {
-                            return _vm.$set(
-                              _vm.form_monitoring_info,
-                              "mon_date_monitored",
-                              $event
-                            )
-                          },
-                        },
-                        scopedSlots: _vm._u(
-                          [
-                            {
-                              key: "activator",
-                              fn: function (ref) {
-                                var on = ref.on
-                                var attrs = ref.attrs
-                                return [
-                                  _c(
-                                    "v-text-field",
-                                    _vm._g(
-                                      _vm._b(
+                    _c("ValidationProvider", {
+                      attrs: {
+                        vid: "date_mon",
+                        name: "Date Monitored",
+                        rules: "required",
+                      },
+                      scopedSlots: _vm._u(
+                        [
+                          {
+                            key: "default",
+                            fn: function (ref) {
+                              var errors = ref.errors
+                              return [
+                                _c(
+                                  "v-menu",
+                                  {
+                                    ref: "date_monitoring_menu",
+                                    attrs: {
+                                      "close-on-content-click": false,
+                                      "return-value":
+                                        _vm.form_monitoring_info
+                                          .mon_date_monitored,
+                                      transition: "scale-transition",
+                                      "offset-y": "",
+                                      "min-width": "auto",
+                                    },
+                                    on: {
+                                      "update:returnValue": function ($event) {
+                                        return _vm.$set(
+                                          _vm.form_monitoring_info,
+                                          "mon_date_monitored",
+                                          $event
+                                        )
+                                      },
+                                      "update:return-value": function ($event) {
+                                        return _vm.$set(
+                                          _vm.form_monitoring_info,
+                                          "mon_date_monitored",
+                                          $event
+                                        )
+                                      },
+                                    },
+                                    scopedSlots: _vm._u(
+                                      [
                                         {
-                                          attrs: {
-                                            label: "Date Monitored",
-                                            readonly: "",
-                                            clearable: "",
-                                            required: "",
-                                          },
-                                          model: {
-                                            value:
-                                              _vm.form_monitoring_info
-                                                .mon_date_monitored,
-                                            callback: function ($$v) {
-                                              _vm.$set(
-                                                _vm.form_monitoring_info,
-                                                "mon_date_monitored",
-                                                $$v
-                                              )
-                                            },
-                                            expression:
-                                              "form_monitoring_info.mon_date_monitored",
+                                          key: "activator",
+                                          fn: function (ref) {
+                                            var on = ref.on
+                                            var attrs = ref.attrs
+                                            return [
+                                              _c(
+                                                "v-text-field",
+                                                _vm._g(
+                                                  _vm._b(
+                                                    {
+                                                      attrs: {
+                                                        "error-messages":
+                                                          errors[0],
+                                                        label: "Date Monitored",
+                                                        readonly: "",
+                                                        clearable: "",
+                                                        required: "",
+                                                      },
+                                                      model: {
+                                                        value:
+                                                          _vm
+                                                            .form_monitoring_info
+                                                            .mon_date_monitored,
+                                                        callback: function (
+                                                          $$v
+                                                        ) {
+                                                          _vm.$set(
+                                                            _vm.form_monitoring_info,
+                                                            "mon_date_monitored",
+                                                            $$v
+                                                          )
+                                                        },
+                                                        expression:
+                                                          "\n                                    form_monitoring_info.mon_date_monitored\n                                ",
+                                                      },
+                                                    },
+                                                    "v-text-field",
+                                                    attrs,
+                                                    false
+                                                  ),
+                                                  on
+                                                )
+                                              ),
+                                            ]
                                           },
                                         },
-                                        "v-text-field",
-                                        attrs,
-                                        false
-                                      ),
-                                      on
-                                    )
-                                  ),
-                                ]
-                              },
-                            },
-                          ],
-                          null,
-                          false,
-                          2469776185
-                        ),
-                        model: {
-                          value: _vm.date_monitoring_menu,
-                          callback: function ($$v) {
-                            _vm.date_monitoring_menu = $$v
-                          },
-                          expression: "date_monitoring_menu",
-                        },
-                      },
-                      [
-                        _vm._v(" "),
-                        _c(
-                          "v-date-picker",
-                          {
-                            attrs: { "no-title": "", scrollable: "" },
-                            model: {
-                              value:
-                                _vm.form_monitoring_info.mon_date_monitored,
-                              callback: function ($$v) {
-                                _vm.$set(
-                                  _vm.form_monitoring_info,
-                                  "mon_date_monitored",
-                                  $$v
-                                )
-                              },
-                              expression:
-                                "form_monitoring_info.mon_date_monitored",
-                            },
-                          },
-                          [
-                            _c("v-spacer"),
-                            _vm._v(" "),
-                            _c(
-                              "v-btn",
-                              {
-                                attrs: { text: "", color: "primary" },
-                                on: {
-                                  click: function ($event) {
-                                    _vm.date_monitoring_menu = false
+                                      ],
+                                      null,
+                                      true
+                                    ),
+                                    model: {
+                                      value: _vm.date_monitoring_menu,
+                                      callback: function ($$v) {
+                                        _vm.date_monitoring_menu = $$v
+                                      },
+                                      expression: "date_monitoring_menu",
+                                    },
                                   },
-                                },
-                              },
-                              [
-                                _vm._v(
-                                  "\n                            Cancel\n                        "
+                                  [
+                                    _vm._v(" "),
+                                    _c(
+                                      "v-date-picker",
+                                      {
+                                        attrs: {
+                                          "no-title": "",
+                                          scrollable: "",
+                                        },
+                                        model: {
+                                          value:
+                                            _vm.form_monitoring_info
+                                              .mon_date_monitored,
+                                          callback: function ($$v) {
+                                            _vm.$set(
+                                              _vm.form_monitoring_info,
+                                              "mon_date_monitored",
+                                              $$v
+                                            )
+                                          },
+                                          expression:
+                                            "\n                                form_monitoring_info.mon_date_monitored\n                            ",
+                                        },
+                                      },
+                                      [
+                                        _c("v-spacer"),
+                                        _vm._v(" "),
+                                        _c(
+                                          "v-btn",
+                                          {
+                                            attrs: {
+                                              text: "",
+                                              color: "primary",
+                                            },
+                                            on: {
+                                              click: function ($event) {
+                                                _vm.date_monitoring_menu = false
+                                              },
+                                            },
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n                                Cancel\n                            "
+                                            ),
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "v-btn",
+                                          {
+                                            attrs: {
+                                              text: "",
+                                              color: "primary",
+                                            },
+                                            on: {
+                                              click: function ($event) {
+                                                return _vm.$refs.date_monitoring_menu.save(
+                                                  _vm.form_monitoring_info
+                                                    .mon_date_monitored
+                                                )
+                                              },
+                                            },
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n                                OK\n                            "
+                                            ),
+                                          ]
+                                        ),
+                                      ],
+                                      1
+                                    ),
+                                  ],
+                                  1
                                 ),
                               ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "v-btn",
-                              {
-                                attrs: { text: "", color: "primary" },
-                                on: {
-                                  click: function ($event) {
-                                    return _vm.$refs.date_monitoring_menu.save(
-                                      _vm.form_monitoring_info
-                                        .mon_date_monitored
-                                    )
-                                  },
-                                },
-                              },
-                              [
-                                _vm._v(
-                                  "\n                            OK\n                        "
-                                ),
-                              ]
-                            ),
-                          ],
-                          1
-                        ),
-                      ],
-                      1
-                    ),
+                            },
+                          },
+                        ],
+                        null,
+                        false,
+                        3231336163
+                      ),
+                    }),
                   ],
                   1
                 ),
@@ -1397,23 +1477,48 @@ var render = function () {
                 _c(
                   "div",
                   [
-                    _c("v-autocomplete", {
+                    _c("ValidationProvider", {
                       attrs: {
-                        items: _vm.mon_or_sur_selection,
-                        label: "Monitoring/Survey",
-                        clearable: "",
+                        vid: "mon_sur",
+                        name: "Monitoring/Survey",
+                        rules: "required",
                       },
-                      model: {
-                        value: _vm.form_monitoring_info.mon_or_survey,
-                        callback: function ($$v) {
-                          _vm.$set(
-                            _vm.form_monitoring_info,
-                            "mon_or_survey",
-                            $$v
-                          )
-                        },
-                        expression: "form_monitoring_info.mon_or_survey",
-                      },
+                      scopedSlots: _vm._u(
+                        [
+                          {
+                            key: "default",
+                            fn: function (ref) {
+                              var errors = ref.errors
+                              return [
+                                _c("v-autocomplete", {
+                                  attrs: {
+                                    "error-messages": errors[0],
+                                    items: _vm.mon_or_sur_selection,
+                                    label: "Monitoring/Survey",
+                                    clearable: "",
+                                  },
+                                  model: {
+                                    value:
+                                      _vm.form_monitoring_info.mon_or_survey,
+                                    callback: function ($$v) {
+                                      _vm.$set(
+                                        _vm.form_monitoring_info,
+                                        "mon_or_survey",
+                                        $$v
+                                      )
+                                    },
+                                    expression:
+                                      "form_monitoring_info.mon_or_survey",
+                                  },
+                                }),
+                              ]
+                            },
+                          },
+                        ],
+                        null,
+                        false,
+                        1771508428
+                      ),
                     }),
                   ],
                   1
@@ -1551,6 +1656,30 @@ var render = function () {
                 "item-key": "monitoring_tables",
               },
               scopedSlots: _vm._u([
+                {
+                  key: "item.mon_file",
+                  fn: function (ref) {
+                    var item = ref.item
+                    return [
+                      _c(
+                        "a",
+                        {
+                          attrs: {
+                            href:
+                              "/app/attachments?type=monitoring&id=" + item.id,
+                            target: "_blank",
+                          },
+                        },
+                        [
+                          _c("v-btn", { attrs: { small: "", dark: "" } }, [
+                            _vm._v("Download File"),
+                          ]),
+                        ],
+                        1
+                      ),
+                    ]
+                  },
+                },
                 {
                   key: "item.actions",
                   fn: function (ref) {

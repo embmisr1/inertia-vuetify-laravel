@@ -1279,6 +1279,42 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     form_complaint_info: Object,
@@ -1287,34 +1323,34 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   data: function data() {
     return {
       headers: [{
-        text: 'Name of Complainant',
-        align: 'start',
+        text: "Name of Complainant",
+        align: "start",
         sortable: false,
-        value: 'comp_name'
+        value: "comp_name"
       }, {
-        text: 'Nature of Complaint',
-        align: 'start',
+        text: "Nature of Complaint",
+        align: "start",
         sortable: false,
-        value: 'comp_nature'
+        value: "comp_nature"
       }, {
-        text: 'Attachment',
-        align: 'start',
+        text: "Attachment",
+        align: "start",
         sortable: false,
-        value: 'comp_attached_file'
+        value: "comp_attached_file"
       }, {
-        text: 'Action Taken',
-        align: 'start',
+        text: "Action Taken",
+        align: "start",
         sortable: false,
-        value: 'comp_action_file'
+        value: "comp_action_file"
       }, {
-        text: 'Remarks',
-        align: 'start',
+        text: "Remarks",
+        align: "start",
         sortable: false,
-        value: 'comp_remarks'
+        value: "comp_remarks"
       }, {
-        width: '100px',
-        text: 'Actions',
-        value: 'actions',
+        width: "100px",
+        text: "Actions",
+        value: "actions",
         sortable: false
       }],
       addFileForm: false
@@ -1357,9 +1393,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.form_complaint_info.comp_name = null;
       this.form_complaint_info.comp_nature = null;
       this.form_complaint_info.comp_attached_file = [];
-      ;
       this.form_complaint_info.comp_action_file = [];
-      ;
       this.form_complaint_info.comp_remarks = null;
     },
     addFile: function addFile() {
@@ -1918,70 +1952,141 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     form_legal_info: Object,
-    legal_table: Array
+    legal_table: Array,
+    laws: Array
   },
   data: function data() {
     return {
       headers: [{
-        text: 'Law',
-        align: 'start',
+        text: "Law",
+        align: "start",
         sortable: false,
-        value: 'nov_law'
+        value: "nov_law"
       }, {
-        text: 'Description',
-        align: 'start',
+        text: "Description",
+        align: "start",
         sortable: false,
-        value: 'nov_desc'
+        value: "nov_desc"
       }, {
-        text: 'NOV Date',
-        align: 'start',
+        text: "NOV Date",
+        align: "start",
         sortable: false,
-        value: 'nov_date'
+        value: "nov_date"
       }, {
-        text: 'TC Date',
-        align: 'start',
+        text: "TC Date",
+        align: "start",
         sortable: false,
-        value: 'nov_tc_date'
+        value: "nov_tc_date"
       }, {
-        text: 'TC Status',
-        align: 'start',
+        text: "TC Status",
+        align: "start",
         sortable: false,
-        value: 'nov_tc_status'
+        value: "nov_tc_status"
       }, {
-        text: 'Compliance Status',
-        align: 'start',
+        text: "Compliance Status",
+        align: "start",
         sortable: false,
-        value: 'nov_compliance_status'
+        value: "nov_compliance_status"
       }, {
-        text: 'Attachments',
-        align: 'start',
+        text: "Attachments",
+        align: "start",
         sortable: false,
-        value: 'nov_desc'
+        value: "nov_desc"
       }, {
-        width: '100px',
-        text: 'Actions',
-        value: 'actions',
+        width: "100px",
+        text: "Actions",
+        value: "actions",
         sortable: false
       }],
       legal_tc_status_selection: [{
-        'tc_status_selection': 'Attended'
+        tc_status_selection: "Attended"
       }, {
-        'tc_status_selection': 'Not Attended'
+        tc_status_selection: "Not Attended"
       }],
       legal_compliance_status_selection: [{
-        'compliance_status_selection': 'Complied'
+        compliance_status_selection: "Complied"
       }, {
-        'compliance_status_selection': 'Not Complied'
+        compliance_status_selection: "Not Complied"
       }, {
-        'compliance_status_selection': 'Partially Complied'
+        compliance_status_selection: "Partially Complied"
       }],
-      date_legal_nov_menu: '',
-      date_legal_tc_menu: '',
-      date_legal_order_issuance_menu: '',
-      date_legal_order_settlement_menu: '',
+      date_legal_nov_menu: "",
+      date_legal_tc_menu: "",
+      date_legal_order_issuance_menu: "",
+      date_legal_order_settlement_menu: "",
       addFileForm: false
     };
   },
@@ -2263,7 +2368,8 @@ __webpack_require__.r(__webpack_exports__);
     project_type_list: Array,
     project_subtype_list: Array,
     project_specific_type_list: Array,
-    project_specific_subtype_list: Array
+    project_specific_subtype_list: Array,
+    laws: Array
   },
   components: {
     BasicTab: _basic_tab__WEBPACK_IMPORTED_MODULE_0__["default"],
@@ -2524,40 +2630,99 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     form_monitoring_info: Object,
-    monitoring_table: Array
+    monitoring_table: Array,
+    laws: Array
   },
   data: function data() {
     return {
       headers: [{
-        text: 'Law',
-        align: 'start',
+        text: "Law",
+        align: "start",
         sortable: false,
-        value: 'mon_law'
+        value: "mon_law"
       }, {
-        text: 'Date Monitored',
-        align: 'start',
+        text: "Date Monitored",
+        align: "start",
         sortable: false,
-        value: 'mon_date_monitored'
+        value: "mon_date_monitored"
       }, {
-        text: 'Type',
-        align: 'start',
+        text: "Type",
+        align: "start",
         sortable: false,
-        value: 'mon_type'
+        value: "mon_type"
       }, {
-        text: 'Attachment',
-        align: 'start',
+        text: "Attachment",
+        align: "start",
         sortable: false,
-        value: 'mon_file'
+        value: "mon_file"
       }, {
-        width: '100px',
-        text: 'Actions',
-        value: 'actions',
+        width: "100px",
+        text: "Actions",
+        value: "actions",
         sortable: false
       }],
-      date_monitoring_menu: '',
+      date_monitoring_menu: "",
       addFileForm: false,
       mon_or_sur_selection: ["Monitoring", "Survey"]
     };
@@ -2810,6 +2975,70 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     form_pco_info: Object,
@@ -2818,43 +3047,43 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   data: function data() {
     return {
       headers: [{
-        text: 'Name',
-        align: 'start',
+        text: "Name",
+        align: "start",
         sortable: false,
-        value: 'pco_name'
+        value: "pco_name"
       }, {
-        text: 'Pco no.',
-        align: 'start',
+        text: "Pco no.",
+        align: "start",
         sortable: false,
-        value: 'pco_number'
+        value: "pco_number"
       }, {
-        text: 'Email',
-        align: 'start',
+        text: "Email",
+        align: "start",
         sortable: false,
-        value: 'pco_email'
+        value: "pco_email"
       }, {
-        text: 'Contact no.',
-        align: 'start',
+        text: "Contact no.",
+        align: "start",
         sortable: false,
-        value: 'pco_contact'
+        value: "pco_contact"
       }, {
-        text: 'Start Date',
-        align: 'start',
+        text: "Start Date",
+        align: "start",
         sortable: false,
-        value: 'pco_start_date'
+        value: "pco_start_date"
       }, {
-        text: 'End Date',
-        align: 'start',
+        text: "End Date",
+        align: "start",
         sortable: false,
-        value: 'pco_end_date'
+        value: "pco_end_date"
       }, {
-        width: '100px',
-        text: 'Actions',
-        value: 'actions',
+        width: "100px",
+        text: "Actions",
+        value: "actions",
         sortable: false
       }],
-      date_pco_start_menu: '',
-      date_pco_end_menu: '',
+      date_pco_start_menu: "",
+      date_pco_end_menu: "",
       addFileForm: false
     };
   },
@@ -2937,6 +3166,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue2_dropzone__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue2_dropzone__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var vue2_dropzone_dist_vue2Dropzone_min_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue2-dropzone/dist/vue2Dropzone.min.css */ "./node_modules/vue2-dropzone/dist/vue2Dropzone.min.css");
 /* harmony import */ var _components_UploadDialog_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../components/UploadDialog.vue */ "./resources/js/src/components/UploadDialog.vue");
+/* harmony import */ var _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @inertiajs/inertia-vue */ "./node_modules/@inertiajs/inertia-vue/dist/index.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -3198,6 +3428,49 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 
 
@@ -3208,7 +3481,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
   components: {
     vueDropzone: (vue2_dropzone__WEBPACK_IMPORTED_MODULE_1___default()),
-    UploadDialog: _components_UploadDialog_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
+    UploadDialog: _components_UploadDialog_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
+    Link: _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_4__.Link
   },
   data: function data() {
     return {
@@ -3344,7 +3618,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.form_permit_info.perm_date_issuance = null;
       this.form_permit_info.perm_description = null;
       this.form_permit_info.perm_file = [];
-      ;
       this.form_permit_info.perm_id = null;
       this.form_permit_info.perm_law = null;
       this.form_permit_info.perm_number = null;
@@ -3377,6 +3650,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _tabs_main_tab__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./tabs/main_tab */ "./resources/js/src/pages/universe/tabs/main_tab.vue");
 /* harmony import */ var _mixins_universe_info__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../mixins/universe_info */ "./resources/js/src/mixins/universe_info.js");
 /* harmony import */ var _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @inertiajs/inertia-vue */ "./node_modules/@inertiajs/inertia-vue/dist/index.js");
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -6749,15 +7030,45 @@ var render = function () {
                 _c(
                   "div",
                   [
-                    _c("v-text-field", {
-                      attrs: { label: "Name of Complainant", clearable: "" },
-                      model: {
-                        value: _vm.form_complaint_info.comp_name,
-                        callback: function ($$v) {
-                          _vm.$set(_vm.form_complaint_info, "comp_name", $$v)
-                        },
-                        expression: "form_complaint_info.comp_name",
+                    _c("ValidationProvider", {
+                      attrs: {
+                        vid: "name_of_complaint",
+                        name: "Name of Complainant",
+                        rules: "required",
                       },
+                      scopedSlots: _vm._u(
+                        [
+                          {
+                            key: "default",
+                            fn: function (ref) {
+                              var errors = ref.errors
+                              return [
+                                _c("v-text-field", {
+                                  attrs: {
+                                    "error-messages": errors[0],
+                                    label: "Name of Complainant",
+                                    clearable: "",
+                                  },
+                                  model: {
+                                    value: _vm.form_complaint_info.comp_name,
+                                    callback: function ($$v) {
+                                      _vm.$set(
+                                        _vm.form_complaint_info,
+                                        "comp_name",
+                                        $$v
+                                      )
+                                    },
+                                    expression: "form_complaint_info.comp_name",
+                                  },
+                                }),
+                              ]
+                            },
+                          },
+                        ],
+                        null,
+                        false,
+                        2119726820
+                      ),
                     }),
                   ],
                   1
@@ -6766,15 +7077,46 @@ var render = function () {
                 _c(
                   "div",
                   [
-                    _c("v-text-field", {
-                      attrs: { label: "Nature of complaint", clearable: "" },
-                      model: {
-                        value: _vm.form_complaint_info.comp_nature,
-                        callback: function ($$v) {
-                          _vm.$set(_vm.form_complaint_info, "comp_nature", $$v)
-                        },
-                        expression: "form_complaint_info.comp_nature",
+                    _c("ValidationProvider", {
+                      attrs: {
+                        vid: "nature_of_complaint",
+                        name: "Nature of Complaint",
+                        rules: "required",
                       },
+                      scopedSlots: _vm._u(
+                        [
+                          {
+                            key: "default",
+                            fn: function (ref) {
+                              var errors = ref.errors
+                              return [
+                                _c("v-text-field", {
+                                  attrs: {
+                                    "error-messages": errors[0],
+                                    label: "Nature of complaint",
+                                    clearable: "",
+                                  },
+                                  model: {
+                                    value: _vm.form_complaint_info.comp_nature,
+                                    callback: function ($$v) {
+                                      _vm.$set(
+                                        _vm.form_complaint_info,
+                                        "comp_nature",
+                                        $$v
+                                      )
+                                    },
+                                    expression:
+                                      "form_complaint_info.comp_nature",
+                                  },
+                                }),
+                              ]
+                            },
+                          },
+                        ],
+                        null,
+                        false,
+                        3127160875
+                      ),
                     }),
                   ],
                   1
@@ -6955,6 +7297,55 @@ var render = function () {
                 "item-key": "complaint_tables",
               },
               scopedSlots: _vm._u([
+                {
+                  key: "item.comp_attached_file",
+                  fn: function (ref) {
+                    var item = ref.item
+                    return [
+                      _c(
+                        "a",
+                        {
+                          attrs: {
+                            href:
+                              "/app/attachments?type=complaint&id=" + item.id,
+                            target: "_blank",
+                          },
+                        },
+                        [
+                          _c("v-btn", { attrs: { small: "", dark: "" } }, [
+                            _vm._v("Download File"),
+                          ]),
+                        ],
+                        1
+                      ),
+                    ]
+                  },
+                },
+                {
+                  key: "item.comp_action_file",
+                  fn: function (ref) {
+                    var item = ref.item
+                    return [
+                      _c(
+                        "a",
+                        {
+                          attrs: {
+                            href:
+                              "/app/attachments?type=complaintaction&id=" +
+                              item.id,
+                            target: "_blank",
+                          },
+                        },
+                        [
+                          _c("v-btn", { attrs: { small: "", dark: "" } }, [
+                            _vm._v("Download File"),
+                          ]),
+                        ],
+                        1
+                      ),
+                    ]
+                  },
+                },
                 {
                   key: "item.actions",
                   fn: function (ref) {
@@ -7291,64 +7682,48 @@ var render = function () {
                 _c(
                   "div",
                   [
-                    _c("v-checkbox", {
-                      staticClass: "p-0 m-0 mt-5",
-                      attrs: { label: "PD 1586", value: "PD 1586" },
-                      model: {
-                        value: _vm.form_legal_info.nov_law,
-                        callback: function ($$v) {
-                          _vm.$set(_vm.form_legal_info, "nov_law", $$v)
-                        },
-                        expression: "form_legal_info.nov_law",
+                    _c("ValidationProvider", {
+                      attrs: {
+                        vid: "select_legal_laws",
+                        name: "Select Law/s",
+                        rules: "required",
                       },
-                    }),
-                    _vm._v(" "),
-                    _c("v-checkbox", {
-                      staticClass: "p-0 m-0",
-                      attrs: { label: "RA 8749", value: "RA 8749" },
-                      model: {
-                        value: _vm.form_legal_info.nov_law,
-                        callback: function ($$v) {
-                          _vm.$set(_vm.form_legal_info, "nov_law", $$v)
-                        },
-                        expression: "form_legal_info.nov_law",
-                      },
-                    }),
-                    _vm._v(" "),
-                    _c("v-checkbox", {
-                      staticClass: "p-0 m-0",
-                      attrs: { label: "RA 9275", value: "RA 9275" },
-                      model: {
-                        value: _vm.form_legal_info.nov_law,
-                        callback: function ($$v) {
-                          _vm.$set(_vm.form_legal_info, "nov_law", $$v)
-                        },
-                        expression: "form_legal_info.nov_law",
-                      },
-                    }),
-                    _vm._v(" "),
-                    _c("v-checkbox", {
-                      staticClass: "p-0 m-0",
-                      attrs: { label: "RA 6969", value: "RA 6969" },
-                      model: {
-                        value: _vm.form_legal_info.nov_law,
-                        callback: function ($$v) {
-                          _vm.$set(_vm.form_legal_info, "nov_law", $$v)
-                        },
-                        expression: "form_legal_info.nov_law",
-                      },
-                    }),
-                    _vm._v(" "),
-                    _c("v-checkbox", {
-                      staticClass: "p-0 m-0",
-                      attrs: { label: "RA 9003", value: "RA 9003" },
-                      model: {
-                        value: _vm.form_legal_info.nov_law,
-                        callback: function ($$v) {
-                          _vm.$set(_vm.form_legal_info, "nov_law", $$v)
-                        },
-                        expression: "form_legal_info.nov_law",
-                      },
+                      scopedSlots: _vm._u(
+                        [
+                          {
+                            key: "default",
+                            fn: function (ref) {
+                              var errors = ref.errors
+                              return [
+                                _c("v-select", {
+                                  attrs: {
+                                    "error-messages": errors[0],
+                                    items: _vm.laws,
+                                    label: "Select Law/s",
+                                    multiple: "",
+                                    hint: "Select Law/s",
+                                    "persistent-hint": "",
+                                  },
+                                  model: {
+                                    value: _vm.form_legal_info.nov_law,
+                                    callback: function ($$v) {
+                                      _vm.$set(
+                                        _vm.form_legal_info,
+                                        "nov_law",
+                                        $$v
+                                      )
+                                    },
+                                    expression: "form_legal_info.nov_law",
+                                  },
+                                }),
+                              ]
+                            },
+                          },
+                        ],
+                        null,
+                        false,
+                        1245338709
+                      ),
                     }),
                   ],
                   1
@@ -7357,146 +7732,188 @@ var render = function () {
                 _c(
                   "div",
                   [
-                    _c(
-                      "v-menu",
-                      {
-                        ref: "date_legal_nov_menu",
-                        attrs: {
-                          "close-on-content-click": false,
-                          "return-value": _vm.form_legal_info.nov_date,
-                          transition: "scale-transition",
-                          "offset-y": "",
-                          "min-width": "auto",
-                        },
-                        on: {
-                          "update:returnValue": function ($event) {
-                            return _vm.$set(
-                              _vm.form_legal_info,
-                              "nov_date",
-                              $event
-                            )
-                          },
-                          "update:return-value": function ($event) {
-                            return _vm.$set(
-                              _vm.form_legal_info,
-                              "nov_date",
-                              $event
-                            )
-                          },
-                        },
-                        scopedSlots: _vm._u(
-                          [
-                            {
-                              key: "activator",
-                              fn: function (ref) {
-                                var on = ref.on
-                                var attrs = ref.attrs
-                                return [
-                                  _c(
-                                    "v-text-field",
-                                    _vm._g(
-                                      _vm._b(
+                    _c("ValidationProvider", {
+                      attrs: {
+                        vid: "nov_date",
+                        name: "Nov Data",
+                        rules: "required",
+                      },
+                      scopedSlots: _vm._u(
+                        [
+                          {
+                            key: "default",
+                            fn: function (ref) {
+                              var errors = ref.errors
+                              return [
+                                _c(
+                                  "v-menu",
+                                  {
+                                    ref: "date_legal_nov_menu",
+                                    attrs: {
+                                      "close-on-content-click": false,
+                                      "return-value":
+                                        _vm.form_legal_info.nov_date,
+                                      transition: "scale-transition",
+                                      "offset-y": "",
+                                      "min-width": "auto",
+                                    },
+                                    on: {
+                                      "update:returnValue": function ($event) {
+                                        return _vm.$set(
+                                          _vm.form_legal_info,
+                                          "nov_date",
+                                          $event
+                                        )
+                                      },
+                                      "update:return-value": function ($event) {
+                                        return _vm.$set(
+                                          _vm.form_legal_info,
+                                          "nov_date",
+                                          $event
+                                        )
+                                      },
+                                    },
+                                    scopedSlots: _vm._u(
+                                      [
                                         {
-                                          attrs: {
-                                            label: "NOV Date",
-                                            readonly: "",
-                                            clearable: "",
-                                            required: "",
-                                          },
-                                          model: {
-                                            value: _vm.form_legal_info.nov_date,
-                                            callback: function ($$v) {
-                                              _vm.$set(
-                                                _vm.form_legal_info,
-                                                "nov_date",
-                                                $$v
-                                              )
-                                            },
-                                            expression:
-                                              "form_legal_info.nov_date",
+                                          key: "activator",
+                                          fn: function (ref) {
+                                            var on = ref.on
+                                            var attrs = ref.attrs
+                                            return [
+                                              _c(
+                                                "v-text-field",
+                                                _vm._g(
+                                                  _vm._b(
+                                                    {
+                                                      attrs: {
+                                                        "error-messages":
+                                                          errors[0],
+                                                        label: "NOV Date",
+                                                        readonly: "",
+                                                        clearable: "",
+                                                        required: "",
+                                                      },
+                                                      model: {
+                                                        value:
+                                                          _vm.form_legal_info
+                                                            .nov_date,
+                                                        callback: function (
+                                                          $$v
+                                                        ) {
+                                                          _vm.$set(
+                                                            _vm.form_legal_info,
+                                                            "nov_date",
+                                                            $$v
+                                                          )
+                                                        },
+                                                        expression:
+                                                          "form_legal_info.nov_date",
+                                                      },
+                                                    },
+                                                    "v-text-field",
+                                                    attrs,
+                                                    false
+                                                  ),
+                                                  on
+                                                )
+                                              ),
+                                            ]
                                           },
                                         },
-                                        "v-text-field",
-                                        attrs,
-                                        false
-                                      ),
-                                      on
-                                    )
-                                  ),
-                                ]
-                              },
-                            },
-                          ],
-                          null,
-                          false,
-                          4186902949
-                        ),
-                        model: {
-                          value: _vm.date_legal_nov_menu,
-                          callback: function ($$v) {
-                            _vm.date_legal_nov_menu = $$v
-                          },
-                          expression: "date_legal_nov_menu",
-                        },
-                      },
-                      [
-                        _vm._v(" "),
-                        _c(
-                          "v-date-picker",
-                          {
-                            attrs: { "no-title": "", scrollable: "" },
-                            model: {
-                              value: _vm.form_legal_info.nov_date,
-                              callback: function ($$v) {
-                                _vm.$set(_vm.form_legal_info, "nov_date", $$v)
-                              },
-                              expression: "form_legal_info.nov_date",
-                            },
-                          },
-                          [
-                            _c("v-spacer"),
-                            _vm._v(" "),
-                            _c(
-                              "v-btn",
-                              {
-                                attrs: { text: "", color: "primary" },
-                                on: {
-                                  click: function ($event) {
-                                    _vm.date_legal_nov_menu = false
+                                      ],
+                                      null,
+                                      true
+                                    ),
+                                    model: {
+                                      value: _vm.date_legal_nov_menu,
+                                      callback: function ($$v) {
+                                        _vm.date_legal_nov_menu = $$v
+                                      },
+                                      expression: "date_legal_nov_menu",
+                                    },
                                   },
-                                },
-                              },
-                              [
-                                _vm._v(
-                                  "\n                            Cancel\n                        "
+                                  [
+                                    _vm._v(" "),
+                                    _c(
+                                      "v-date-picker",
+                                      {
+                                        attrs: {
+                                          "no-title": "",
+                                          scrollable: "",
+                                        },
+                                        model: {
+                                          value: _vm.form_legal_info.nov_date,
+                                          callback: function ($$v) {
+                                            _vm.$set(
+                                              _vm.form_legal_info,
+                                              "nov_date",
+                                              $$v
+                                            )
+                                          },
+                                          expression:
+                                            "form_legal_info.nov_date",
+                                        },
+                                      },
+                                      [
+                                        _c("v-spacer"),
+                                        _vm._v(" "),
+                                        _c(
+                                          "v-btn",
+                                          {
+                                            attrs: {
+                                              text: "",
+                                              color: "primary",
+                                            },
+                                            on: {
+                                              click: function ($event) {
+                                                _vm.date_legal_nov_menu = false
+                                              },
+                                            },
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n                                Cancel\n                            "
+                                            ),
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "v-btn",
+                                          {
+                                            attrs: {
+                                              text: "",
+                                              color: "primary",
+                                            },
+                                            on: {
+                                              click: function ($event) {
+                                                return _vm.$refs.date_legal_nov_menu.save(
+                                                  _vm.form_legal_info.nov_date
+                                                )
+                                              },
+                                            },
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n                                OK\n                            "
+                                            ),
+                                          ]
+                                        ),
+                                      ],
+                                      1
+                                    ),
+                                  ],
+                                  1
                                 ),
                               ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "v-btn",
-                              {
-                                attrs: { text: "", color: "primary" },
-                                on: {
-                                  click: function ($event) {
-                                    return _vm.$refs.date_legal_nov_menu.save(
-                                      _vm.form_legal_info.nov_date
-                                    )
-                                  },
-                                },
-                              },
-                              [
-                                _vm._v(
-                                  "\n                            OK\n                        "
-                                ),
-                              ]
-                            ),
-                          ],
-                          1
-                        ),
-                      ],
-                      1
-                    ),
+                            },
+                          },
+                        ],
+                        null,
+                        false,
+                        3021291225
+                      ),
+                    }),
                   ],
                   1
                 ),
@@ -7800,7 +8217,7 @@ var render = function () {
                                               )
                                             },
                                             expression:
-                                              "form_legal_info.nov_order_date_issuance",
+                                              "\n                                form_legal_info.nov_order_date_issuance\n                            ",
                                           },
                                         },
                                         "v-text-field",
@@ -7816,7 +8233,7 @@ var render = function () {
                           ],
                           null,
                           false,
-                          4057512850
+                          2059304978
                         ),
                         model: {
                           value: _vm.date_legal_order_issuance_menu,
@@ -7957,7 +8374,7 @@ var render = function () {
                                               )
                                             },
                                             expression:
-                                              "form_legal_info.nov_order_date_settlement",
+                                              "\n                                form_legal_info.nov_order_date_settlement\n                            ",
                                           },
                                         },
                                         "v-text-field",
@@ -7973,7 +8390,7 @@ var render = function () {
                           ],
                           null,
                           false,
-                          626822930
+                          2025028242
                         ),
                         model: {
                           value: _vm.date_legal_order_settlement_menu,
@@ -8077,25 +8494,51 @@ var render = function () {
                 _c(
                   "div",
                   [
-                    _c("v-autocomplete", {
+                    _c("ValidationProvider", {
                       attrs: {
-                        items: _vm.legal_compliance_status_selection,
-                        label: "Compliance Status",
-                        "item-text": "compliance_status_selection",
-                        "item-value": "compliance_status_selection",
-                        clearable: "",
+                        vid: "compliance_status",
+                        name: "Compliance Status",
+                        rules: "required",
                       },
-                      model: {
-                        value: _vm.form_legal_info.nov_compliance_status,
-                        callback: function ($$v) {
-                          _vm.$set(
-                            _vm.form_legal_info,
-                            "nov_compliance_status",
-                            $$v
-                          )
-                        },
-                        expression: "form_legal_info.nov_compliance_status",
-                      },
+                      scopedSlots: _vm._u(
+                        [
+                          {
+                            key: "default",
+                            fn: function (ref) {
+                              var errors = ref.errors
+                              return [
+                                _c("v-autocomplete", {
+                                  attrs: {
+                                    "error-messages": errors[0],
+                                    items:
+                                      _vm.legal_compliance_status_selection,
+                                    label: "Compliance Status",
+                                    "item-text": "compliance_status_selection",
+                                    "item-value": "compliance_status_selection",
+                                    clearable: "",
+                                  },
+                                  model: {
+                                    value:
+                                      _vm.form_legal_info.nov_compliance_status,
+                                    callback: function ($$v) {
+                                      _vm.$set(
+                                        _vm.form_legal_info,
+                                        "nov_compliance_status",
+                                        $$v
+                                      )
+                                    },
+                                    expression:
+                                      "form_legal_info.nov_compliance_status",
+                                  },
+                                }),
+                              ]
+                            },
+                          },
+                        ],
+                        null,
+                        false,
+                        2886275615
+                      ),
                     }),
                   ],
                   1
@@ -8244,6 +8687,29 @@ var render = function () {
                 "item-key": "legal_tables",
               },
               scopedSlots: _vm._u([
+                {
+                  key: "item.nov_file",
+                  fn: function (ref) {
+                    var item = ref.item
+                    return [
+                      _c(
+                        "a",
+                        {
+                          attrs: {
+                            href: "/app/attachments?type=legal&id=" + item.id,
+                            target: "_blank",
+                          },
+                        },
+                        [
+                          _c("v-btn", { attrs: { small: "", dark: "" } }, [
+                            _vm._v("Download File"),
+                          ]),
+                        ],
+                        1
+                      ),
+                    ]
+                  },
+                },
                 {
                   key: "item.actions",
                   fn: function (ref) {
@@ -8553,6 +9019,7 @@ var render = function () {
                           [
                             _c("MonitoringTab", {
                               attrs: {
+                                laws: _vm.laws,
                                 form_monitoring_info: _vm.form_monitoring_info,
                                 monitoring_table: _vm.monitoring_table,
                               },
@@ -8566,6 +9033,7 @@ var render = function () {
                           [
                             _c("LegalTab", {
                               attrs: {
+                                laws: _vm.laws,
                                 form_legal_info: _vm.form_legal_info,
                                 legal_table: _vm.legal_table,
                               },
@@ -8783,64 +9251,48 @@ var render = function () {
                 _c(
                   "div",
                   [
-                    _c("v-checkbox", {
-                      staticClass: "p-0 m-0 mt-5",
-                      attrs: { label: "PD 1586", value: "PD 1586" },
-                      model: {
-                        value: _vm.form_monitoring_info.mon_law,
-                        callback: function ($$v) {
-                          _vm.$set(_vm.form_monitoring_info, "mon_law", $$v)
-                        },
-                        expression: "form_monitoring_info.mon_law",
+                    _c("ValidationProvider", {
+                      attrs: {
+                        vid: "select_mon_laws",
+                        name: "Select Law/s",
+                        rules: "required",
                       },
-                    }),
-                    _vm._v(" "),
-                    _c("v-checkbox", {
-                      staticClass: "p-0 m-0",
-                      attrs: { label: "RA 8749", value: "RA 8749" },
-                      model: {
-                        value: _vm.form_monitoring_info.mon_law,
-                        callback: function ($$v) {
-                          _vm.$set(_vm.form_monitoring_info, "mon_law", $$v)
-                        },
-                        expression: "form_monitoring_info.mon_law",
-                      },
-                    }),
-                    _vm._v(" "),
-                    _c("v-checkbox", {
-                      staticClass: "p-0 m-0",
-                      attrs: { label: "RA 9275", value: "RA 9275" },
-                      model: {
-                        value: _vm.form_monitoring_info.mon_law,
-                        callback: function ($$v) {
-                          _vm.$set(_vm.form_monitoring_info, "mon_law", $$v)
-                        },
-                        expression: "form_monitoring_info.mon_law",
-                      },
-                    }),
-                    _vm._v(" "),
-                    _c("v-checkbox", {
-                      staticClass: "p-0 m-0",
-                      attrs: { label: "RA 6969", value: "RA 6969" },
-                      model: {
-                        value: _vm.form_monitoring_info.mon_law,
-                        callback: function ($$v) {
-                          _vm.$set(_vm.form_monitoring_info, "mon_law", $$v)
-                        },
-                        expression: "form_monitoring_info.mon_law",
-                      },
-                    }),
-                    _vm._v(" "),
-                    _c("v-checkbox", {
-                      staticClass: "p-0 m-0",
-                      attrs: { label: "RA 9003", value: "RA 9003" },
-                      model: {
-                        value: _vm.form_monitoring_info.mon_law,
-                        callback: function ($$v) {
-                          _vm.$set(_vm.form_monitoring_info, "mon_law", $$v)
-                        },
-                        expression: "form_monitoring_info.mon_law",
-                      },
+                      scopedSlots: _vm._u(
+                        [
+                          {
+                            key: "default",
+                            fn: function (ref) {
+                              var errors = ref.errors
+                              return [
+                                _c("v-select", {
+                                  attrs: {
+                                    "error-messages": errors[0],
+                                    items: _vm.laws,
+                                    label: "Select Law/s",
+                                    multiple: "",
+                                    hint: "Select Law/s",
+                                    "persistent-hint": "",
+                                  },
+                                  model: {
+                                    value: _vm.form_monitoring_info.mon_law,
+                                    callback: function ($$v) {
+                                      _vm.$set(
+                                        _vm.form_monitoring_info,
+                                        "mon_law",
+                                        $$v
+                                      )
+                                    },
+                                    expression: "form_monitoring_info.mon_law",
+                                  },
+                                }),
+                              ]
+                            },
+                          },
+                        ],
+                        null,
+                        false,
+                        2770830561
+                      ),
                     }),
                   ],
                   1
@@ -8849,156 +9301,193 @@ var render = function () {
                 _c(
                   "div",
                   [
-                    _c(
-                      "v-menu",
-                      {
-                        ref: "date_monitoring_menu",
-                        attrs: {
-                          "close-on-content-click": false,
-                          "return-value":
-                            _vm.form_monitoring_info.mon_date_monitored,
-                          transition: "scale-transition",
-                          "offset-y": "",
-                          "min-width": "auto",
-                        },
-                        on: {
-                          "update:returnValue": function ($event) {
-                            return _vm.$set(
-                              _vm.form_monitoring_info,
-                              "mon_date_monitored",
-                              $event
-                            )
-                          },
-                          "update:return-value": function ($event) {
-                            return _vm.$set(
-                              _vm.form_monitoring_info,
-                              "mon_date_monitored",
-                              $event
-                            )
-                          },
-                        },
-                        scopedSlots: _vm._u(
-                          [
-                            {
-                              key: "activator",
-                              fn: function (ref) {
-                                var on = ref.on
-                                var attrs = ref.attrs
-                                return [
-                                  _c(
-                                    "v-text-field",
-                                    _vm._g(
-                                      _vm._b(
+                    _c("ValidationProvider", {
+                      attrs: {
+                        vid: "date_mon",
+                        name: "Date Monitored",
+                        rules: "required",
+                      },
+                      scopedSlots: _vm._u(
+                        [
+                          {
+                            key: "default",
+                            fn: function (ref) {
+                              var errors = ref.errors
+                              return [
+                                _c(
+                                  "v-menu",
+                                  {
+                                    ref: "date_monitoring_menu",
+                                    attrs: {
+                                      "close-on-content-click": false,
+                                      "return-value":
+                                        _vm.form_monitoring_info
+                                          .mon_date_monitored,
+                                      transition: "scale-transition",
+                                      "offset-y": "",
+                                      "min-width": "auto",
+                                    },
+                                    on: {
+                                      "update:returnValue": function ($event) {
+                                        return _vm.$set(
+                                          _vm.form_monitoring_info,
+                                          "mon_date_monitored",
+                                          $event
+                                        )
+                                      },
+                                      "update:return-value": function ($event) {
+                                        return _vm.$set(
+                                          _vm.form_monitoring_info,
+                                          "mon_date_monitored",
+                                          $event
+                                        )
+                                      },
+                                    },
+                                    scopedSlots: _vm._u(
+                                      [
                                         {
-                                          attrs: {
-                                            label: "Date Monitored",
-                                            readonly: "",
-                                            clearable: "",
-                                            required: "",
-                                          },
-                                          model: {
-                                            value:
-                                              _vm.form_monitoring_info
-                                                .mon_date_monitored,
-                                            callback: function ($$v) {
-                                              _vm.$set(
-                                                _vm.form_monitoring_info,
-                                                "mon_date_monitored",
-                                                $$v
-                                              )
-                                            },
-                                            expression:
-                                              "form_monitoring_info.mon_date_monitored",
+                                          key: "activator",
+                                          fn: function (ref) {
+                                            var on = ref.on
+                                            var attrs = ref.attrs
+                                            return [
+                                              _c(
+                                                "v-text-field",
+                                                _vm._g(
+                                                  _vm._b(
+                                                    {
+                                                      attrs: {
+                                                        "error-messages":
+                                                          errors[0],
+                                                        label: "Date Monitored",
+                                                        readonly: "",
+                                                        clearable: "",
+                                                        required: "",
+                                                      },
+                                                      model: {
+                                                        value:
+                                                          _vm
+                                                            .form_monitoring_info
+                                                            .mon_date_monitored,
+                                                        callback: function (
+                                                          $$v
+                                                        ) {
+                                                          _vm.$set(
+                                                            _vm.form_monitoring_info,
+                                                            "mon_date_monitored",
+                                                            $$v
+                                                          )
+                                                        },
+                                                        expression:
+                                                          "\n                                    form_monitoring_info.mon_date_monitored\n                                ",
+                                                      },
+                                                    },
+                                                    "v-text-field",
+                                                    attrs,
+                                                    false
+                                                  ),
+                                                  on
+                                                )
+                                              ),
+                                            ]
                                           },
                                         },
-                                        "v-text-field",
-                                        attrs,
-                                        false
-                                      ),
-                                      on
-                                    )
-                                  ),
-                                ]
-                              },
-                            },
-                          ],
-                          null,
-                          false,
-                          2469776185
-                        ),
-                        model: {
-                          value: _vm.date_monitoring_menu,
-                          callback: function ($$v) {
-                            _vm.date_monitoring_menu = $$v
-                          },
-                          expression: "date_monitoring_menu",
-                        },
-                      },
-                      [
-                        _vm._v(" "),
-                        _c(
-                          "v-date-picker",
-                          {
-                            attrs: { "no-title": "", scrollable: "" },
-                            model: {
-                              value:
-                                _vm.form_monitoring_info.mon_date_monitored,
-                              callback: function ($$v) {
-                                _vm.$set(
-                                  _vm.form_monitoring_info,
-                                  "mon_date_monitored",
-                                  $$v
-                                )
-                              },
-                              expression:
-                                "form_monitoring_info.mon_date_monitored",
-                            },
-                          },
-                          [
-                            _c("v-spacer"),
-                            _vm._v(" "),
-                            _c(
-                              "v-btn",
-                              {
-                                attrs: { text: "", color: "primary" },
-                                on: {
-                                  click: function ($event) {
-                                    _vm.date_monitoring_menu = false
+                                      ],
+                                      null,
+                                      true
+                                    ),
+                                    model: {
+                                      value: _vm.date_monitoring_menu,
+                                      callback: function ($$v) {
+                                        _vm.date_monitoring_menu = $$v
+                                      },
+                                      expression: "date_monitoring_menu",
+                                    },
                                   },
-                                },
-                              },
-                              [
-                                _vm._v(
-                                  "\n                            Cancel\n                        "
+                                  [
+                                    _vm._v(" "),
+                                    _c(
+                                      "v-date-picker",
+                                      {
+                                        attrs: {
+                                          "no-title": "",
+                                          scrollable: "",
+                                        },
+                                        model: {
+                                          value:
+                                            _vm.form_monitoring_info
+                                              .mon_date_monitored,
+                                          callback: function ($$v) {
+                                            _vm.$set(
+                                              _vm.form_monitoring_info,
+                                              "mon_date_monitored",
+                                              $$v
+                                            )
+                                          },
+                                          expression:
+                                            "\n                                form_monitoring_info.mon_date_monitored\n                            ",
+                                        },
+                                      },
+                                      [
+                                        _c("v-spacer"),
+                                        _vm._v(" "),
+                                        _c(
+                                          "v-btn",
+                                          {
+                                            attrs: {
+                                              text: "",
+                                              color: "primary",
+                                            },
+                                            on: {
+                                              click: function ($event) {
+                                                _vm.date_monitoring_menu = false
+                                              },
+                                            },
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n                                Cancel\n                            "
+                                            ),
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "v-btn",
+                                          {
+                                            attrs: {
+                                              text: "",
+                                              color: "primary",
+                                            },
+                                            on: {
+                                              click: function ($event) {
+                                                return _vm.$refs.date_monitoring_menu.save(
+                                                  _vm.form_monitoring_info
+                                                    .mon_date_monitored
+                                                )
+                                              },
+                                            },
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n                                OK\n                            "
+                                            ),
+                                          ]
+                                        ),
+                                      ],
+                                      1
+                                    ),
+                                  ],
+                                  1
                                 ),
                               ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "v-btn",
-                              {
-                                attrs: { text: "", color: "primary" },
-                                on: {
-                                  click: function ($event) {
-                                    return _vm.$refs.date_monitoring_menu.save(
-                                      _vm.form_monitoring_info
-                                        .mon_date_monitored
-                                    )
-                                  },
-                                },
-                              },
-                              [
-                                _vm._v(
-                                  "\n                            OK\n                        "
-                                ),
-                              ]
-                            ),
-                          ],
-                          1
-                        ),
-                      ],
-                      1
-                    ),
+                            },
+                          },
+                        ],
+                        null,
+                        false,
+                        3231336163
+                      ),
+                    }),
                   ],
                   1
                 ),
@@ -9006,23 +9495,48 @@ var render = function () {
                 _c(
                   "div",
                   [
-                    _c("v-autocomplete", {
+                    _c("ValidationProvider", {
                       attrs: {
-                        items: _vm.mon_or_sur_selection,
-                        label: "Monitoring/Survey",
-                        clearable: "",
+                        vid: "mon_sur",
+                        name: "Monitoring/Survey",
+                        rules: "required",
                       },
-                      model: {
-                        value: _vm.form_monitoring_info.mon_or_survey,
-                        callback: function ($$v) {
-                          _vm.$set(
-                            _vm.form_monitoring_info,
-                            "mon_or_survey",
-                            $$v
-                          )
-                        },
-                        expression: "form_monitoring_info.mon_or_survey",
-                      },
+                      scopedSlots: _vm._u(
+                        [
+                          {
+                            key: "default",
+                            fn: function (ref) {
+                              var errors = ref.errors
+                              return [
+                                _c("v-autocomplete", {
+                                  attrs: {
+                                    "error-messages": errors[0],
+                                    items: _vm.mon_or_sur_selection,
+                                    label: "Monitoring/Survey",
+                                    clearable: "",
+                                  },
+                                  model: {
+                                    value:
+                                      _vm.form_monitoring_info.mon_or_survey,
+                                    callback: function ($$v) {
+                                      _vm.$set(
+                                        _vm.form_monitoring_info,
+                                        "mon_or_survey",
+                                        $$v
+                                      )
+                                    },
+                                    expression:
+                                      "form_monitoring_info.mon_or_survey",
+                                  },
+                                }),
+                              ]
+                            },
+                          },
+                        ],
+                        null,
+                        false,
+                        1771508428
+                      ),
                     }),
                   ],
                   1
@@ -9161,6 +9675,30 @@ var render = function () {
               },
               scopedSlots: _vm._u([
                 {
+                  key: "item.mon_file",
+                  fn: function (ref) {
+                    var item = ref.item
+                    return [
+                      _c(
+                        "a",
+                        {
+                          attrs: {
+                            href:
+                              "/app/attachments?type=monitoring&id=" + item.id,
+                            target: "_blank",
+                          },
+                        },
+                        [
+                          _c("v-btn", { attrs: { small: "", dark: "" } }, [
+                            _vm._v("Download File"),
+                          ]),
+                        ],
+                        1
+                      ),
+                    ]
+                  },
+                },
+                {
                   key: "item.actions",
                   fn: function (ref) {
                     var item = ref.item
@@ -9266,219 +9804,379 @@ var render = function () {
                 _c(
                   "div",
                   [
-                    _c("v-text-field", {
-                      attrs: { label: "Name", clearable: "" },
-                      model: {
-                        value: _vm.form_pco_info.pco_name,
-                        callback: function ($$v) {
-                          _vm.$set(_vm.form_pco_info, "pco_name", $$v)
-                        },
-                        expression: "form_pco_info.pco_name",
+                    _c("ValidationProvider", {
+                      attrs: {
+                        vid: "pco_name",
+                        name: "PCO Name",
+                        rules: "required",
                       },
-                    }),
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  [
-                    _c("v-text-field", {
-                      attrs: { label: "Pco no.", clearable: "" },
-                      model: {
-                        value: _vm.form_pco_info.pco_number,
-                        callback: function ($$v) {
-                          _vm.$set(_vm.form_pco_info, "pco_number", $$v)
-                        },
-                        expression: "form_pco_info.pco_number",
-                      },
-                    }),
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  [
-                    _c("v-text-field", {
-                      attrs: { label: "Email", clearable: "" },
-                      model: {
-                        value: _vm.form_pco_info.pco_email,
-                        callback: function ($$v) {
-                          _vm.$set(_vm.form_pco_info, "pco_email", $$v)
-                        },
-                        expression: "form_pco_info.pco_email",
-                      },
-                    }),
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  [
-                    _c("v-text-field", {
-                      attrs: { label: "Contact no.", clearable: "" },
-                      model: {
-                        value: _vm.form_pco_info.pco_contact,
-                        callback: function ($$v) {
-                          _vm.$set(_vm.form_pco_info, "pco_contact", $$v)
-                        },
-                        expression: "form_pco_info.pco_contact",
-                      },
-                    }),
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  [
-                    _c(
-                      "v-menu",
-                      {
-                        ref: "date_pco_start_menu",
-                        attrs: {
-                          "close-on-content-click": false,
-                          "return-value": _vm.form_pco_info.pco_start_date,
-                          transition: "scale-transition",
-                          "offset-y": "",
-                          "min-width": "auto",
-                        },
-                        on: {
-                          "update:returnValue": function ($event) {
-                            return _vm.$set(
-                              _vm.form_pco_info,
-                              "pco_start_date",
-                              $event
-                            )
+                      scopedSlots: _vm._u(
+                        [
+                          {
+                            key: "default",
+                            fn: function (ref) {
+                              var errors = ref.errors
+                              return [
+                                _c("v-text-field", {
+                                  attrs: {
+                                    "error-messages": errors[0],
+                                    label: "Name",
+                                    clearable: "",
+                                  },
+                                  model: {
+                                    value: _vm.form_pco_info.pco_name,
+                                    callback: function ($$v) {
+                                      _vm.$set(
+                                        _vm.form_pco_info,
+                                        "pco_name",
+                                        $$v
+                                      )
+                                    },
+                                    expression: "form_pco_info.pco_name",
+                                  },
+                                }),
+                              ]
+                            },
                           },
-                          "update:return-value": function ($event) {
-                            return _vm.$set(
-                              _vm.form_pco_info,
-                              "pco_start_date",
-                              $event
-                            )
+                        ],
+                        null,
+                        false,
+                        2642792755
+                      ),
+                    }),
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  [
+                    _c("ValidationProvider", {
+                      attrs: {
+                        vid: "pco_no",
+                        name: "PCO No",
+                        rules: "required",
+                      },
+                      scopedSlots: _vm._u(
+                        [
+                          {
+                            key: "default",
+                            fn: function (ref) {
+                              var errors = ref.errors
+                              return [
+                                _c("v-text-field", {
+                                  attrs: {
+                                    "error-messages": errors[0],
+                                    label: "Pco no.",
+                                    clearable: "",
+                                  },
+                                  model: {
+                                    value: _vm.form_pco_info.pco_number,
+                                    callback: function ($$v) {
+                                      _vm.$set(
+                                        _vm.form_pco_info,
+                                        "pco_number",
+                                        $$v
+                                      )
+                                    },
+                                    expression: "form_pco_info.pco_number",
+                                  },
+                                }),
+                              ]
+                            },
                           },
-                        },
-                        scopedSlots: _vm._u(
-                          [
-                            {
-                              key: "activator",
-                              fn: function (ref) {
-                                var on = ref.on
-                                var attrs = ref.attrs
-                                return [
-                                  _c(
-                                    "v-text-field",
-                                    _vm._g(
-                                      _vm._b(
+                        ],
+                        null,
+                        false,
+                        1126792675
+                      ),
+                    }),
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  [
+                    _c("ValidationProvider", {
+                      attrs: {
+                        vid: "pco_email",
+                        name: "PCO Email",
+                        rules: "required",
+                      },
+                      scopedSlots: _vm._u(
+                        [
+                          {
+                            key: "default",
+                            fn: function (ref) {
+                              var errors = ref.errors
+                              return [
+                                _c("v-text-field", {
+                                  attrs: {
+                                    "error-messages": errors[0],
+                                    label: "Email",
+                                    clearable: "",
+                                    type: "email",
+                                  },
+                                  model: {
+                                    value: _vm.form_pco_info.pco_email,
+                                    callback: function ($$v) {
+                                      _vm.$set(
+                                        _vm.form_pco_info,
+                                        "pco_email",
+                                        $$v
+                                      )
+                                    },
+                                    expression: "form_pco_info.pco_email",
+                                  },
+                                }),
+                              ]
+                            },
+                          },
+                        ],
+                        null,
+                        false,
+                        3928290321
+                      ),
+                    }),
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  [
+                    _c("ValidationProvider", {
+                      attrs: {
+                        vid: "pco_contact",
+                        name: "PCO Contact No",
+                        rules: "required",
+                      },
+                      scopedSlots: _vm._u(
+                        [
+                          {
+                            key: "default",
+                            fn: function (ref) {
+                              var errors = ref.errors
+                              return [
+                                _c("v-text-field", {
+                                  attrs: {
+                                    "error-messages": errors[0],
+                                    label: "Contact no.",
+                                    clearable: "",
+                                  },
+                                  model: {
+                                    value: _vm.form_pco_info.pco_contact,
+                                    callback: function ($$v) {
+                                      _vm.$set(
+                                        _vm.form_pco_info,
+                                        "pco_contact",
+                                        $$v
+                                      )
+                                    },
+                                    expression: "form_pco_info.pco_contact",
+                                  },
+                                }),
+                              ]
+                            },
+                          },
+                        ],
+                        null,
+                        false,
+                        2854798332
+                      ),
+                    }),
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  [
+                    _c("ValidationProvider", {
+                      attrs: {
+                        vid: "pco_start",
+                        name: "Date Start",
+                        rules: "required",
+                      },
+                      scopedSlots: _vm._u(
+                        [
+                          {
+                            key: "default",
+                            fn: function (ref) {
+                              var errors = ref.errors
+                              return [
+                                _c(
+                                  "v-menu",
+                                  {
+                                    ref: "date_pco_start_menu",
+                                    attrs: {
+                                      "close-on-content-click": false,
+                                      "return-value":
+                                        _vm.form_pco_info.pco_start_date,
+                                      transition: "scale-transition",
+                                      "offset-y": "",
+                                      "min-width": "auto",
+                                    },
+                                    on: {
+                                      "update:returnValue": function ($event) {
+                                        return _vm.$set(
+                                          _vm.form_pco_info,
+                                          "pco_start_date",
+                                          $event
+                                        )
+                                      },
+                                      "update:return-value": function ($event) {
+                                        return _vm.$set(
+                                          _vm.form_pco_info,
+                                          "pco_start_date",
+                                          $event
+                                        )
+                                      },
+                                    },
+                                    scopedSlots: _vm._u(
+                                      [
                                         {
-                                          attrs: {
-                                            label: "Date Start",
-                                            readonly: "",
-                                            clearable: "",
-                                            required: "",
-                                          },
-                                          model: {
-                                            value:
-                                              _vm.form_pco_info.pco_start_date,
-                                            callback: function ($$v) {
-                                              _vm.$set(
-                                                _vm.form_pco_info,
-                                                "pco_start_date",
-                                                $$v
-                                              )
-                                            },
-                                            expression:
-                                              "form_pco_info.pco_start_date",
+                                          key: "activator",
+                                          fn: function (ref) {
+                                            var on = ref.on
+                                            var attrs = ref.attrs
+                                            return [
+                                              _c(
+                                                "v-text-field",
+                                                _vm._g(
+                                                  _vm._b(
+                                                    {
+                                                      attrs: {
+                                                        "error-messages":
+                                                          errors[0],
+                                                        label: "Date Start",
+                                                        readonly: "",
+                                                        clearable: "",
+                                                        required: "",
+                                                      },
+                                                      model: {
+                                                        value:
+                                                          _vm.form_pco_info
+                                                            .pco_start_date,
+                                                        callback: function (
+                                                          $$v
+                                                        ) {
+                                                          _vm.$set(
+                                                            _vm.form_pco_info,
+                                                            "pco_start_date",
+                                                            $$v
+                                                          )
+                                                        },
+                                                        expression:
+                                                          "form_pco_info.pco_start_date",
+                                                      },
+                                                    },
+                                                    "v-text-field",
+                                                    attrs,
+                                                    false
+                                                  ),
+                                                  on
+                                                )
+                                              ),
+                                            ]
                                           },
                                         },
-                                        "v-text-field",
-                                        attrs,
-                                        false
-                                      ),
-                                      on
-                                    )
-                                  ),
-                                ]
-                              },
-                            },
-                          ],
-                          null,
-                          false,
-                          411606457
-                        ),
-                        model: {
-                          value: _vm.date_pco_start_menu,
-                          callback: function ($$v) {
-                            _vm.date_pco_start_menu = $$v
-                          },
-                          expression: "date_pco_start_menu",
-                        },
-                      },
-                      [
-                        _vm._v(" "),
-                        _c(
-                          "v-date-picker",
-                          {
-                            attrs: { "no-title": "", scrollable: "" },
-                            model: {
-                              value: _vm.form_pco_info.pco_start_date,
-                              callback: function ($$v) {
-                                _vm.$set(
-                                  _vm.form_pco_info,
-                                  "pco_start_date",
-                                  $$v
-                                )
-                              },
-                              expression: "form_pco_info.pco_start_date",
-                            },
-                          },
-                          [
-                            _c("v-spacer"),
-                            _vm._v(" "),
-                            _c(
-                              "v-btn",
-                              {
-                                attrs: { text: "", color: "primary" },
-                                on: {
-                                  click: function ($event) {
-                                    _vm.date_pco_start_menu = false
+                                      ],
+                                      null,
+                                      true
+                                    ),
+                                    model: {
+                                      value: _vm.date_pco_start_menu,
+                                      callback: function ($$v) {
+                                        _vm.date_pco_start_menu = $$v
+                                      },
+                                      expression: "date_pco_start_menu",
+                                    },
                                   },
-                                },
-                              },
-                              [
-                                _vm._v(
-                                  "\n                            Cancel\n                        "
+                                  [
+                                    _vm._v(" "),
+                                    _c(
+                                      "v-date-picker",
+                                      {
+                                        attrs: {
+                                          "no-title": "",
+                                          scrollable: "",
+                                        },
+                                        model: {
+                                          value:
+                                            _vm.form_pco_info.pco_start_date,
+                                          callback: function ($$v) {
+                                            _vm.$set(
+                                              _vm.form_pco_info,
+                                              "pco_start_date",
+                                              $$v
+                                            )
+                                          },
+                                          expression:
+                                            "form_pco_info.pco_start_date",
+                                        },
+                                      },
+                                      [
+                                        _c("v-spacer"),
+                                        _vm._v(" "),
+                                        _c(
+                                          "v-btn",
+                                          {
+                                            attrs: {
+                                              text: "",
+                                              color: "primary",
+                                            },
+                                            on: {
+                                              click: function ($event) {
+                                                _vm.date_pco_start_menu = false
+                                              },
+                                            },
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n                                Cancel\n                            "
+                                            ),
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "v-btn",
+                                          {
+                                            attrs: {
+                                              text: "",
+                                              color: "primary",
+                                            },
+                                            on: {
+                                              click: function ($event) {
+                                                return _vm.$refs.date_pco_start_menu.save(
+                                                  _vm.form_pco_info
+                                                    .pco_start_date
+                                                )
+                                              },
+                                            },
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n                                OK\n                            "
+                                            ),
+                                          ]
+                                        ),
+                                      ],
+                                      1
+                                    ),
+                                  ],
+                                  1
                                 ),
                               ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "v-btn",
-                              {
-                                attrs: { text: "", color: "primary" },
-                                on: {
-                                  click: function ($event) {
-                                    return _vm.$refs.date_pco_start_menu.save(
-                                      _vm.form_pco_info.pco_start_date
-                                    )
-                                  },
-                                },
-                              },
-                              [
-                                _vm._v(
-                                  "\n                            OK\n                        "
-                                ),
-                              ]
-                            ),
-                          ],
-                          1
-                        ),
-                      ],
-                      1
-                    ),
+                            },
+                          },
+                        ],
+                        null,
+                        false,
+                        1666270862
+                      ),
+                    }),
                   ],
                   1
                 ),
@@ -9486,147 +10184,188 @@ var render = function () {
                 _c(
                   "div",
                   [
-                    _c(
-                      "v-menu",
-                      {
-                        ref: "date_pco_end_menu",
-                        attrs: {
-                          "close-on-content-click": false,
-                          "return-value": _vm.form_pco_info.pco_end_date,
-                          transition: "scale-transition",
-                          "offset-y": "",
-                          "min-width": "auto",
-                        },
-                        on: {
-                          "update:returnValue": function ($event) {
-                            return _vm.$set(
-                              _vm.form_pco_info,
-                              "pco_end_date",
-                              $event
-                            )
-                          },
-                          "update:return-value": function ($event) {
-                            return _vm.$set(
-                              _vm.form_pco_info,
-                              "pco_end_date",
-                              $event
-                            )
-                          },
-                        },
-                        scopedSlots: _vm._u(
-                          [
-                            {
-                              key: "activator",
-                              fn: function (ref) {
-                                var on = ref.on
-                                var attrs = ref.attrs
-                                return [
-                                  _c(
-                                    "v-text-field",
-                                    _vm._g(
-                                      _vm._b(
+                    _c("ValidationProvider", {
+                      attrs: {
+                        vid: "pco_end",
+                        name: "PCO Date End",
+                        rules: "required",
+                      },
+                      scopedSlots: _vm._u(
+                        [
+                          {
+                            key: "default",
+                            fn: function (ref) {
+                              var errors = ref.errors
+                              return [
+                                _c(
+                                  "v-menu",
+                                  {
+                                    ref: "date_pco_end_menu",
+                                    attrs: {
+                                      "close-on-content-click": false,
+                                      "return-value":
+                                        _vm.form_pco_info.pco_end_date,
+                                      transition: "scale-transition",
+                                      "offset-y": "",
+                                      "min-width": "auto",
+                                    },
+                                    on: {
+                                      "update:returnValue": function ($event) {
+                                        return _vm.$set(
+                                          _vm.form_pco_info,
+                                          "pco_end_date",
+                                          $event
+                                        )
+                                      },
+                                      "update:return-value": function ($event) {
+                                        return _vm.$set(
+                                          _vm.form_pco_info,
+                                          "pco_end_date",
+                                          $event
+                                        )
+                                      },
+                                    },
+                                    scopedSlots: _vm._u(
+                                      [
                                         {
-                                          attrs: {
-                                            label: "Date End",
-                                            readonly: "",
-                                            clearable: "",
-                                            required: "",
-                                          },
-                                          model: {
-                                            value:
-                                              _vm.form_pco_info.pco_end_date,
-                                            callback: function ($$v) {
-                                              _vm.$set(
-                                                _vm.form_pco_info,
-                                                "pco_end_date",
-                                                $$v
-                                              )
-                                            },
-                                            expression:
-                                              "form_pco_info.pco_end_date",
+                                          key: "activator",
+                                          fn: function (ref) {
+                                            var on = ref.on
+                                            var attrs = ref.attrs
+                                            return [
+                                              _c(
+                                                "v-text-field",
+                                                _vm._g(
+                                                  _vm._b(
+                                                    {
+                                                      attrs: {
+                                                        "error-messages":
+                                                          errors[0],
+                                                        label: "Date End",
+                                                        readonly: "",
+                                                        clearable: "",
+                                                        required: "",
+                                                      },
+                                                      model: {
+                                                        value:
+                                                          _vm.form_pco_info
+                                                            .pco_end_date,
+                                                        callback: function (
+                                                          $$v
+                                                        ) {
+                                                          _vm.$set(
+                                                            _vm.form_pco_info,
+                                                            "pco_end_date",
+                                                            $$v
+                                                          )
+                                                        },
+                                                        expression:
+                                                          "form_pco_info.pco_end_date",
+                                                      },
+                                                    },
+                                                    "v-text-field",
+                                                    attrs,
+                                                    false
+                                                  ),
+                                                  on
+                                                )
+                                              ),
+                                            ]
                                           },
                                         },
-                                        "v-text-field",
-                                        attrs,
-                                        false
-                                      ),
-                                      on
-                                    )
-                                  ),
-                                ]
-                              },
-                            },
-                          ],
-                          null,
-                          false,
-                          2342881657
-                        ),
-                        model: {
-                          value: _vm.date_pco_end_menu,
-                          callback: function ($$v) {
-                            _vm.date_pco_end_menu = $$v
-                          },
-                          expression: "date_pco_end_menu",
-                        },
-                      },
-                      [
-                        _vm._v(" "),
-                        _c(
-                          "v-date-picker",
-                          {
-                            attrs: { "no-title": "", scrollable: "" },
-                            model: {
-                              value: _vm.form_pco_info.pco_end_date,
-                              callback: function ($$v) {
-                                _vm.$set(_vm.form_pco_info, "pco_end_date", $$v)
-                              },
-                              expression: "form_pco_info.pco_end_date",
-                            },
-                          },
-                          [
-                            _c("v-spacer"),
-                            _vm._v(" "),
-                            _c(
-                              "v-btn",
-                              {
-                                attrs: { text: "", color: "primary" },
-                                on: {
-                                  click: function ($event) {
-                                    _vm.date_pco_end_menu = false
+                                      ],
+                                      null,
+                                      true
+                                    ),
+                                    model: {
+                                      value: _vm.date_pco_end_menu,
+                                      callback: function ($$v) {
+                                        _vm.date_pco_end_menu = $$v
+                                      },
+                                      expression: "date_pco_end_menu",
+                                    },
                                   },
-                                },
-                              },
-                              [
-                                _vm._v(
-                                  "\n                            Cancel\n                        "
+                                  [
+                                    _vm._v(" "),
+                                    _c(
+                                      "v-date-picker",
+                                      {
+                                        attrs: {
+                                          "no-title": "",
+                                          scrollable: "",
+                                        },
+                                        model: {
+                                          value: _vm.form_pco_info.pco_end_date,
+                                          callback: function ($$v) {
+                                            _vm.$set(
+                                              _vm.form_pco_info,
+                                              "pco_end_date",
+                                              $$v
+                                            )
+                                          },
+                                          expression:
+                                            "form_pco_info.pco_end_date",
+                                        },
+                                      },
+                                      [
+                                        _c("v-spacer"),
+                                        _vm._v(" "),
+                                        _c(
+                                          "v-btn",
+                                          {
+                                            attrs: {
+                                              text: "",
+                                              color: "primary",
+                                            },
+                                            on: {
+                                              click: function ($event) {
+                                                _vm.date_pco_end_menu = false
+                                              },
+                                            },
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n                            Cancel\n                        "
+                                            ),
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "v-btn",
+                                          {
+                                            attrs: {
+                                              text: "",
+                                              color: "primary",
+                                            },
+                                            on: {
+                                              click: function ($event) {
+                                                return _vm.$refs.date_pco_end_menu.save(
+                                                  _vm.form_pco_info.pco_end_date
+                                                )
+                                              },
+                                            },
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n                            OK\n                        "
+                                            ),
+                                          ]
+                                        ),
+                                      ],
+                                      1
+                                    ),
+                                  ],
+                                  1
                                 ),
                               ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "v-btn",
-                              {
-                                attrs: { text: "", color: "primary" },
-                                on: {
-                                  click: function ($event) {
-                                    return _vm.$refs.date_pco_end_menu.save(
-                                      _vm.form_pco_info.pco_end_date
-                                    )
-                                  },
-                                },
-                              },
-                              [
-                                _vm._v(
-                                  "\n                            OK\n                        "
-                                ),
-                              ]
-                            ),
-                          ],
-                          1
-                        ),
-                      ],
-                      1
-                    ),
+                            },
+                          },
+                        ],
+                        null,
+                        false,
+                        4144196289
+                      ),
+                    }),
                   ],
                   1
                 ),
@@ -9832,219 +10571,344 @@ var render = function () {
                     _c(
                       "div",
                       [
-                        _c("v-autocomplete", {
-                          attrs: {
-                            items: _vm.permit_law_selection,
-                            label: "Law",
-                            "item-text": "law_selection",
-                            "item-value": "law_selection",
-                            clearable: "",
-                          },
-                          model: {
-                            value: _vm.form_permit_info.perm_law,
-                            callback: function ($$v) {
-                              _vm.$set(_vm.form_permit_info, "perm_law", $$v)
-                            },
-                            expression: "form_permit_info.perm_law",
-                          },
-                        }),
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      [
-                        _c("v-text-field", {
-                          attrs: { label: "Permit No.", clearable: "" },
-                          model: {
-                            value: _vm.form_permit_info.perm_number,
-                            callback: function ($$v) {
-                              _vm.$set(_vm.form_permit_info, "perm_number", $$v)
-                            },
-                            expression: "form_permit_info.perm_number",
-                          },
-                        }),
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      [
-                        _c("v-autocomplete", {
-                          attrs: {
-                            items: _vm.permit_status_selection,
-                            label: "Permit Status",
-                            "item-text": "status_selection",
-                            "item-value": "status_selection",
-                            clearable: "",
-                          },
-                          model: {
-                            value: _vm.form_permit_info.perm_status,
-                            callback: function ($$v) {
-                              _vm.$set(_vm.form_permit_info, "perm_status", $$v)
-                            },
-                            expression: "form_permit_info.perm_status",
-                          },
-                        }),
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      [
-                        _c(
-                          "v-menu",
-                          {
-                            ref: "date_permit_issuance_menu",
-                            attrs: {
-                              "close-on-content-click": false,
-                              "return-value":
-                                _vm.form_permit_info.perm_date_issuance,
-                              transition: "scale-transition",
-                              "offset-y": "",
-                              "min-width": "auto",
-                            },
-                            on: {
-                              "update:returnValue": function ($event) {
-                                return _vm.$set(
-                                  _vm.form_permit_info,
-                                  "perm_date_issuance",
-                                  $event
-                                )
+                        _c("ValidationProvider", {
+                          attrs: { vid: "law", name: "Law", rules: "required" },
+                          scopedSlots: _vm._u(
+                            [
+                              {
+                                key: "default",
+                                fn: function (ref) {
+                                  var errors = ref.errors
+                                  return [
+                                    _c("v-autocomplete", {
+                                      attrs: {
+                                        items: _vm.permit_law_selection,
+                                        label: "Law",
+                                        "item-text": "law_selection",
+                                        "item-value": "law_selection",
+                                        clearable: "",
+                                        "error-messages": errors[0],
+                                      },
+                                      model: {
+                                        value: _vm.form_permit_info.perm_law,
+                                        callback: function ($$v) {
+                                          _vm.$set(
+                                            _vm.form_permit_info,
+                                            "perm_law",
+                                            $$v
+                                          )
+                                        },
+                                        expression: "form_permit_info.perm_law",
+                                      },
+                                    }),
+                                  ]
+                                },
                               },
-                              "update:return-value": function ($event) {
-                                return _vm.$set(
-                                  _vm.form_permit_info,
-                                  "perm_date_issuance",
-                                  $event
-                                )
+                            ],
+                            null,
+                            false,
+                            3601820785
+                          ),
+                        }),
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      [
+                        _c("ValidationProvider", {
+                          attrs: {
+                            vid: "permit_no",
+                            name: "Permit No",
+                            rules: "required",
+                          },
+                          scopedSlots: _vm._u(
+                            [
+                              {
+                                key: "default",
+                                fn: function (ref) {
+                                  var errors = ref.errors
+                                  return [
+                                    _c("v-text-field", {
+                                      attrs: {
+                                        "error-messages": errors[0],
+                                        label: "Permit No.",
+                                        clearable: "",
+                                      },
+                                      model: {
+                                        value: _vm.form_permit_info.perm_number,
+                                        callback: function ($$v) {
+                                          _vm.$set(
+                                            _vm.form_permit_info,
+                                            "perm_number",
+                                            $$v
+                                          )
+                                        },
+                                        expression:
+                                          "form_permit_info.perm_number",
+                                      },
+                                    }),
+                                  ]
+                                },
                               },
-                            },
-                            scopedSlots: _vm._u(
-                              [
-                                {
-                                  key: "activator",
-                                  fn: function (ref) {
-                                    var on = ref.on
-                                    var attrs = ref.attrs
-                                    return [
-                                      _c(
-                                        "v-text-field",
-                                        _vm._g(
-                                          _vm._b(
+                            ],
+                            null,
+                            false,
+                            2455095637
+                          ),
+                        }),
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      [
+                        _c("ValidationProvider", {
+                          attrs: {
+                            vid: "permit_status",
+                            name: "Permit status",
+                            rules: "required",
+                          },
+                          scopedSlots: _vm._u(
+                            [
+                              {
+                                key: "default",
+                                fn: function (ref) {
+                                  var errors = ref.errors
+                                  return [
+                                    _c("v-autocomplete", {
+                                      attrs: {
+                                        "error-messages": errors[0],
+                                        items: _vm.permit_status_selection,
+                                        label: "Permit Status",
+                                        "item-text": "status_selection",
+                                        "item-value": "status_selection",
+                                        clearable: "",
+                                      },
+                                      model: {
+                                        value: _vm.form_permit_info.perm_status,
+                                        callback: function ($$v) {
+                                          _vm.$set(
+                                            _vm.form_permit_info,
+                                            "perm_status",
+                                            $$v
+                                          )
+                                        },
+                                        expression:
+                                          "form_permit_info.perm_status",
+                                      },
+                                    }),
+                                  ]
+                                },
+                              },
+                            ],
+                            null,
+                            false,
+                            3946773928
+                          ),
+                        }),
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      [
+                        _c("ValidationProvider", {
+                          attrs: {
+                            vid: "date_issuance",
+                            name: "Date Issuance",
+                            rules: "required",
+                          },
+                          scopedSlots: _vm._u(
+                            [
+                              {
+                                key: "default",
+                                fn: function (ref) {
+                                  var errors = ref.errors
+                                  return [
+                                    _c(
+                                      "v-menu",
+                                      {
+                                        ref: "date_permit_issuance_menu",
+                                        attrs: {
+                                          "close-on-content-click": false,
+                                          "return-value":
+                                            _vm.form_permit_info
+                                              .perm_date_issuance,
+                                          transition: "scale-transition",
+                                          "offset-y": "",
+                                          "min-width": "auto",
+                                        },
+                                        on: {
+                                          "update:returnValue": function (
+                                            $event
+                                          ) {
+                                            return _vm.$set(
+                                              _vm.form_permit_info,
+                                              "perm_date_issuance",
+                                              $event
+                                            )
+                                          },
+                                          "update:return-value": function (
+                                            $event
+                                          ) {
+                                            return _vm.$set(
+                                              _vm.form_permit_info,
+                                              "perm_date_issuance",
+                                              $event
+                                            )
+                                          },
+                                        },
+                                        scopedSlots: _vm._u(
+                                          [
                                             {
-                                              attrs: {
-                                                label: "Date Issuance",
-                                                readonly: "",
-                                                clearable: "",
-                                                required: "",
-                                              },
-                                              model: {
-                                                value:
-                                                  _vm.form_permit_info
-                                                    .perm_date_issuance,
-                                                callback: function ($$v) {
-                                                  _vm.$set(
-                                                    _vm.form_permit_info,
-                                                    "perm_date_issuance",
-                                                    $$v
-                                                  )
-                                                },
-                                                expression:
-                                                  "\n                                    form_permit_info.perm_date_issuance\n                                ",
+                                              key: "activator",
+                                              fn: function (ref) {
+                                                var on = ref.on
+                                                var attrs = ref.attrs
+                                                return [
+                                                  _c(
+                                                    "v-text-field",
+                                                    _vm._g(
+                                                      _vm._b(
+                                                        {
+                                                          attrs: {
+                                                            "error-messages":
+                                                              errors[0],
+                                                            label:
+                                                              "Date Issuance",
+                                                            readonly: "",
+                                                            clearable: "",
+                                                            required: "",
+                                                          },
+                                                          model: {
+                                                            value:
+                                                              _vm
+                                                                .form_permit_info
+                                                                .perm_date_issuance,
+                                                            callback: function (
+                                                              $$v
+                                                            ) {
+                                                              _vm.$set(
+                                                                _vm.form_permit_info,
+                                                                "perm_date_issuance",
+                                                                $$v
+                                                              )
+                                                            },
+                                                            expression:
+                                                              "\n                                    form_permit_info.perm_date_issuance\n                                ",
+                                                          },
+                                                        },
+                                                        "v-text-field",
+                                                        attrs,
+                                                        false
+                                                      ),
+                                                      on
+                                                    )
+                                                  ),
+                                                ]
                                               },
                                             },
-                                            "v-text-field",
-                                            attrs,
-                                            false
-                                          ),
-                                          on
-                                        )
-                                      ),
-                                    ]
-                                  },
-                                },
-                              ],
-                              null,
-                              false,
-                              885673060
-                            ),
-                            model: {
-                              value: _vm.date_permit_issuance_menu,
-                              callback: function ($$v) {
-                                _vm.date_permit_issuance_menu = $$v
-                              },
-                              expression: "date_permit_issuance_menu",
-                            },
-                          },
-                          [
-                            _vm._v(" "),
-                            _c(
-                              "v-date-picker",
-                              {
-                                attrs: { "no-title": "", scrollable: "" },
-                                model: {
-                                  value:
-                                    _vm.form_permit_info.perm_date_issuance,
-                                  callback: function ($$v) {
-                                    _vm.$set(
-                                      _vm.form_permit_info,
-                                      "perm_date_issuance",
-                                      $$v
-                                    )
-                                  },
-                                  expression:
-                                    "form_permit_info.perm_date_issuance",
-                                },
-                              },
-                              [
-                                _c("v-spacer"),
-                                _vm._v(" "),
-                                _c(
-                                  "v-btn",
-                                  {
-                                    attrs: { text: "", color: "primary" },
-                                    on: {
-                                      click: function ($event) {
-                                        _vm.date_permit_issuance_menu = false
+                                          ],
+                                          null,
+                                          true
+                                        ),
+                                        model: {
+                                          value: _vm.date_permit_issuance_menu,
+                                          callback: function ($$v) {
+                                            _vm.date_permit_issuance_menu = $$v
+                                          },
+                                          expression:
+                                            "date_permit_issuance_menu",
+                                        },
                                       },
-                                    },
-                                  },
-                                  [
-                                    _vm._v(
-                                      "\n                                Cancel\n                            "
+                                      [
+                                        _vm._v(" "),
+                                        _c(
+                                          "v-date-picker",
+                                          {
+                                            attrs: {
+                                              "no-title": "",
+                                              scrollable: "",
+                                            },
+                                            model: {
+                                              value:
+                                                _vm.form_permit_info
+                                                  .perm_date_issuance,
+                                              callback: function ($$v) {
+                                                _vm.$set(
+                                                  _vm.form_permit_info,
+                                                  "perm_date_issuance",
+                                                  $$v
+                                                )
+                                              },
+                                              expression:
+                                                "form_permit_info.perm_date_issuance",
+                                            },
+                                          },
+                                          [
+                                            _c("v-spacer"),
+                                            _vm._v(" "),
+                                            _c(
+                                              "v-btn",
+                                              {
+                                                attrs: {
+                                                  text: "",
+                                                  color: "primary",
+                                                },
+                                                on: {
+                                                  click: function ($event) {
+                                                    _vm.date_permit_issuance_menu = false
+                                                  },
+                                                },
+                                              },
+                                              [
+                                                _vm._v(
+                                                  "\n                                Cancel\n                            "
+                                                ),
+                                              ]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "v-btn",
+                                              {
+                                                attrs: {
+                                                  text: "",
+                                                  color: "primary",
+                                                },
+                                                on: {
+                                                  click: function ($event) {
+                                                    return _vm.$refs.date_permit_issuance_menu.save(
+                                                      _vm.form_permit_info
+                                                        .perm_date_issuance
+                                                    )
+                                                  },
+                                                },
+                                              },
+                                              [
+                                                _vm._v(
+                                                  "\n                                OK\n                            "
+                                                ),
+                                              ]
+                                            ),
+                                          ],
+                                          1
+                                        ),
+                                      ],
+                                      1
                                     ),
                                   ]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "v-btn",
-                                  {
-                                    attrs: { text: "", color: "primary" },
-                                    on: {
-                                      click: function ($event) {
-                                        return _vm.$refs.date_permit_issuance_menu.save(
-                                          _vm.form_permit_info
-                                            .perm_date_issuance
-                                        )
-                                      },
-                                    },
-                                  },
-                                  [
-                                    _vm._v(
-                                      "\n                                OK\n                            "
-                                    ),
-                                  ]
-                                ),
-                              ],
-                              1
-                            ),
-                          ],
-                          1
-                        ),
+                                },
+                              },
+                            ],
+                            null,
+                            false,
+                            2825014843
+                          ),
+                        }),
                       ],
                       1
                     ),
@@ -10391,6 +11255,30 @@ var render = function () {
                   },
                   scopedSlots: _vm._u([
                     {
+                      key: "item.perm_file",
+                      fn: function (ref) {
+                        var item = ref.item
+                        return [
+                          _c(
+                            "a",
+                            {
+                              attrs: {
+                                href:
+                                  "/app/attachments?type=permits&id=" + item.id,
+                                target: "_blank",
+                              },
+                            },
+                            [
+                              _c("v-btn", { attrs: { small: "", dark: "" } }, [
+                                _vm._v("Download File"),
+                              ]),
+                            ],
+                            1
+                          ),
+                        ]
+                      },
+                    },
+                    {
                       key: "item.actions",
                       fn: function (ref) {
                         var item = ref.item
@@ -10481,34 +11369,63 @@ var render = function () {
   return _c(
     "DefaultLayout",
     [
-      _c("MainTab", {
-        attrs: {
-          province_list: _vm.province_list,
-          municipality_list: _vm.municipality_list,
-          barangay_list: _vm.barangay_list,
-          psic_group_list: _vm.psic_group_list,
-          psic_class_list: _vm.psic_class_list,
-          psic_subclass_list: _vm.psic_subclass_list,
-          project_type_list: _vm.project_type_list,
-          project_subtype_list: _vm.project_subtype_list,
-          project_specific_type_list: _vm.project_specific_type_list,
-          project_specific_subtype_list: _vm.project_specific_subtype_list,
-          form_basic_info: _vm.form_basic_info,
-          form_permit_info: _vm.form_permit_info,
-          form_monitoring_info: _vm.form_monitoring_info,
-          form_legal_info: _vm.form_legal_info,
-          form_hazwaste_info: _vm.form_hazwaste_info,
-          form_pco_info: _vm.form_pco_info,
-          form_complaint_info: _vm.form_complaint_info,
-          permit_table: _vm.permit_table,
-          monitoring_table: _vm.monitoring_table,
-          legal_table: _vm.legal_table,
-          hazwaste_table: _vm.hazwaste_table,
-          pco_table: _vm.pco_table,
-          complaint_table: _vm.complaint_table,
-          submit_basic_info: _vm.submit_basic_info,
-          ctr_file: _vm.ctr_file,
-        },
+      _c("ValidationObserver", {
+        ref: "validation_observer",
+        scopedSlots: _vm._u([
+          {
+            key: "default",
+            fn: function (ref) {
+              return [
+                _c(
+                  "form",
+                  {
+                    on: {
+                      submit: function ($event) {
+                        $event.preventDefault()
+                        return _vm.submit_basic_info.apply(null, arguments)
+                      },
+                    },
+                  },
+                  [
+                    _c("MainTab", {
+                      attrs: {
+                        province_list: _vm.province_list,
+                        municipality_list: _vm.municipality_list,
+                        barangay_list: _vm.barangay_list,
+                        psic_group_list: _vm.psic_group_list,
+                        psic_class_list: _vm.psic_class_list,
+                        psic_subclass_list: _vm.psic_subclass_list,
+                        project_type_list: _vm.project_type_list,
+                        project_subtype_list: _vm.project_subtype_list,
+                        project_specific_type_list:
+                          _vm.project_specific_type_list,
+                        project_specific_subtype_list:
+                          _vm.project_specific_subtype_list,
+                        form_basic_info: _vm.form_basic_info,
+                        form_permit_info: _vm.form_permit_info,
+                        form_monitoring_info: _vm.form_monitoring_info,
+                        form_legal_info: _vm.form_legal_info,
+                        form_hazwaste_info: _vm.form_hazwaste_info,
+                        form_pco_info: _vm.form_pco_info,
+                        form_complaint_info: _vm.form_complaint_info,
+                        permit_table: _vm.permit_table,
+                        monitoring_table: _vm.monitoring_table,
+                        legal_table: _vm.legal_table,
+                        hazwaste_table: _vm.hazwaste_table,
+                        pco_table: _vm.pco_table,
+                        complaint_table: _vm.complaint_table,
+                        submit_basic_info: _vm.submit_basic_info,
+                        ctr_file: _vm.ctr_file,
+                        laws: _vm.laws,
+                      },
+                    }),
+                  ],
+                  1
+                ),
+              ]
+            },
+          },
+        ]),
       }),
     ],
     1

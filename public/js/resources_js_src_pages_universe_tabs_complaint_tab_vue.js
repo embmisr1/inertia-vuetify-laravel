@@ -135,6 +135,42 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     form_complaint_info: Object,
@@ -143,34 +179,34 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   data: function data() {
     return {
       headers: [{
-        text: 'Name of Complainant',
-        align: 'start',
+        text: "Name of Complainant",
+        align: "start",
         sortable: false,
-        value: 'comp_name'
+        value: "comp_name"
       }, {
-        text: 'Nature of Complaint',
-        align: 'start',
+        text: "Nature of Complaint",
+        align: "start",
         sortable: false,
-        value: 'comp_nature'
+        value: "comp_nature"
       }, {
-        text: 'Attachment',
-        align: 'start',
+        text: "Attachment",
+        align: "start",
         sortable: false,
-        value: 'comp_attached_file'
+        value: "comp_attached_file"
       }, {
-        text: 'Action Taken',
-        align: 'start',
+        text: "Action Taken",
+        align: "start",
         sortable: false,
-        value: 'comp_action_file'
+        value: "comp_action_file"
       }, {
-        text: 'Remarks',
-        align: 'start',
+        text: "Remarks",
+        align: "start",
         sortable: false,
-        value: 'comp_remarks'
+        value: "comp_remarks"
       }, {
-        width: '100px',
-        text: 'Actions',
-        value: 'actions',
+        width: "100px",
+        text: "Actions",
+        value: "actions",
         sortable: false
       }],
       addFileForm: false
@@ -213,9 +249,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.form_complaint_info.comp_name = null;
       this.form_complaint_info.comp_nature = null;
       this.form_complaint_info.comp_attached_file = [];
-      ;
       this.form_complaint_info.comp_action_file = [];
-      ;
       this.form_complaint_info.comp_remarks = null;
     },
     addFile: function addFile() {
@@ -1113,15 +1147,45 @@ var render = function () {
                 _c(
                   "div",
                   [
-                    _c("v-text-field", {
-                      attrs: { label: "Name of Complainant", clearable: "" },
-                      model: {
-                        value: _vm.form_complaint_info.comp_name,
-                        callback: function ($$v) {
-                          _vm.$set(_vm.form_complaint_info, "comp_name", $$v)
-                        },
-                        expression: "form_complaint_info.comp_name",
+                    _c("ValidationProvider", {
+                      attrs: {
+                        vid: "name_of_complaint",
+                        name: "Name of Complainant",
+                        rules: "required",
                       },
+                      scopedSlots: _vm._u(
+                        [
+                          {
+                            key: "default",
+                            fn: function (ref) {
+                              var errors = ref.errors
+                              return [
+                                _c("v-text-field", {
+                                  attrs: {
+                                    "error-messages": errors[0],
+                                    label: "Name of Complainant",
+                                    clearable: "",
+                                  },
+                                  model: {
+                                    value: _vm.form_complaint_info.comp_name,
+                                    callback: function ($$v) {
+                                      _vm.$set(
+                                        _vm.form_complaint_info,
+                                        "comp_name",
+                                        $$v
+                                      )
+                                    },
+                                    expression: "form_complaint_info.comp_name",
+                                  },
+                                }),
+                              ]
+                            },
+                          },
+                        ],
+                        null,
+                        false,
+                        2119726820
+                      ),
                     }),
                   ],
                   1
@@ -1130,15 +1194,46 @@ var render = function () {
                 _c(
                   "div",
                   [
-                    _c("v-text-field", {
-                      attrs: { label: "Nature of complaint", clearable: "" },
-                      model: {
-                        value: _vm.form_complaint_info.comp_nature,
-                        callback: function ($$v) {
-                          _vm.$set(_vm.form_complaint_info, "comp_nature", $$v)
-                        },
-                        expression: "form_complaint_info.comp_nature",
+                    _c("ValidationProvider", {
+                      attrs: {
+                        vid: "nature_of_complaint",
+                        name: "Nature of Complaint",
+                        rules: "required",
                       },
+                      scopedSlots: _vm._u(
+                        [
+                          {
+                            key: "default",
+                            fn: function (ref) {
+                              var errors = ref.errors
+                              return [
+                                _c("v-text-field", {
+                                  attrs: {
+                                    "error-messages": errors[0],
+                                    label: "Nature of complaint",
+                                    clearable: "",
+                                  },
+                                  model: {
+                                    value: _vm.form_complaint_info.comp_nature,
+                                    callback: function ($$v) {
+                                      _vm.$set(
+                                        _vm.form_complaint_info,
+                                        "comp_nature",
+                                        $$v
+                                      )
+                                    },
+                                    expression:
+                                      "form_complaint_info.comp_nature",
+                                  },
+                                }),
+                              ]
+                            },
+                          },
+                        ],
+                        null,
+                        false,
+                        3127160875
+                      ),
                     }),
                   ],
                   1
@@ -1319,6 +1414,55 @@ var render = function () {
                 "item-key": "complaint_tables",
               },
               scopedSlots: _vm._u([
+                {
+                  key: "item.comp_attached_file",
+                  fn: function (ref) {
+                    var item = ref.item
+                    return [
+                      _c(
+                        "a",
+                        {
+                          attrs: {
+                            href:
+                              "/app/attachments?type=complaint&id=" + item.id,
+                            target: "_blank",
+                          },
+                        },
+                        [
+                          _c("v-btn", { attrs: { small: "", dark: "" } }, [
+                            _vm._v("Download File"),
+                          ]),
+                        ],
+                        1
+                      ),
+                    ]
+                  },
+                },
+                {
+                  key: "item.comp_action_file",
+                  fn: function (ref) {
+                    var item = ref.item
+                    return [
+                      _c(
+                        "a",
+                        {
+                          attrs: {
+                            href:
+                              "/app/attachments?type=complaintaction&id=" +
+                              item.id,
+                            target: "_blank",
+                          },
+                        },
+                        [
+                          _c("v-btn", { attrs: { small: "", dark: "" } }, [
+                            _vm._v("Download File"),
+                          ]),
+                        ],
+                        1
+                      ),
+                    ]
+                  },
+                },
                 {
                   key: "item.actions",
                   fn: function (ref) {
