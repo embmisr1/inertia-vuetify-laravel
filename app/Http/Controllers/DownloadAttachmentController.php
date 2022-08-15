@@ -49,30 +49,85 @@ class DownloadAttachmentController extends Controller
         // return $data;
         return view('download_attachment', $data);
     }
+    public function delete_media($id, $category)
+    {
+        $media = Media::find($id);
+        $media_id = $media->model_id;
+        $media->delete();
+        $media_counter = 0;
+
+        if ($category == 'permits') {
+            $media_counter = Media::where('model_id', $media_id)->count();
+            $query_media_counter = Permit::find($media_id);
+            $query_media_counter->perm_file = $media_counter;
+            $query_media_counter->save();
+        }
+        if ($category == 'monitoring') {
+            $media_counter = Media::where('model_id', $media_id)->count();
+            $query_media_counter = Monitoring::find($media_id);
+            $query_media_counter->mon_file = $media_counter;
+            $query_media_counter->save();
+        }
+        if ($category == 'legal') {
+            $media_counter = Media::where('model_id', $media_id)->count();
+            $query_media_counter = Legal::find($media_id);
+            $query_media_counter->nov_file = $media_counter;
+            $query_media_counter->save();
+        }
+        if ($category == 'complaint') {
+            $media_counter = Media::where('model_id', $media_id)->where('collection_name', 'complaint')->count();
+            $query_media_counter = Complaint::find($media_id);
+            $query_media_counter->comp_attached_file = $media_counter;
+            $query_media_counter->save();
+
+            $media_counter = Media::where('model_id', $media_id)->where('collection_name', 'complaintaction')->count();
+            $query_media_counter = Complaint::find($media_id);
+            $query_media_counter->comp_action_file = $media_counter;
+            $query_media_counter->save();
+        }
+
+        return back()->with('counter', $media_counter);
+    }
 
     private function permit($id)
     {
         $permit = Permit::find($id);
-        return AttachmentResource::collection($permit->getMedia('permits'));
+        // dd(count($permit->getMedia('permits')));
+        return [
+            'counter'=>count($permit->getMedia('permits')),
+            'attachment'=>AttachmentResource::collection($permit->getMedia('permits'))
+        ];
     }
     private function monitoring($id)
     {
         $monitoring = Monitoring::find($id);
-        return AttachmentResource::collection($monitoring->getMedia('monitoring'));
+        return [
+            'counter'=>count($monitoring->getMedia('monitoring')),
+            'attachment'=>AttachmentResource::collection($monitoring->getMedia('monitoring'))
+        ];
     }
     private function legal($id)
     {
         $legal = Legal::find($id);
-        return AttachmentResource::collection($legal->getMedia('legal'));
+        return [
+            'counter'=>count($legal->getMedia('legal')),
+            'attachment'=>AttachmentResource::collection($legal->getMedia('legal'))
+        ];
     }
     private function complaint($id)
     {
         $complaint = Complaint::find($id);
-        return AttachmentResource::collection($complaint->getMedia('complaint'));
+        return [
+            'counter'=>count($complaint->getMedia('complaint')),
+            'attachment'=>AttachmentResource::collection($complaint->getMedia('complaint'))
+        ];
     }
     private function complaintaction($id)
     {
         $complaint = Complaint::find($id);
-        return AttachmentResource::collection($complaint->getMedia('complaintaction'));
+        return [
+            'counter'=>count($complaint->getMedia('complaintaction')),
+            'attachment'=>AttachmentResource::collection($complaint->getMedia('complaintaction'))
+        ];
     }
 }

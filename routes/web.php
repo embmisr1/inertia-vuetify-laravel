@@ -107,6 +107,7 @@ Route::group([
     Route::get('/universe_form', [UniverseController::class, 'universe_form'])->name("universe_form");
     Route::get('/universe_form/{id}', [UniverseController::class, 'universe_form'])->name("universe_form_id");
     Route::get('/universe_map/{universe_FK}', [UniverseMapController::class, 'universe_map'])->name("universe_map");
+    Route::get('/delete_media/{id}/{category}', [DownloadAttachmentController::class, 'delete_media'])->name("delete_media");
     // POST REQUESTS
     Route::post('/universe_process', [UniverseController::class, 'universe_process'])->name("universe_process");
     Route::post('/universe_polygon', [UniverseMapController::class, 'universe_polygon'])->name("universe_polygon");
