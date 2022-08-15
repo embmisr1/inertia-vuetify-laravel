@@ -261,12 +261,15 @@
                         class="elevation-1"
                     >
                         <template v-slot:item.perm_file="{ item }">
-                            <a
+                            <a v-if="item.perm_file > 0"
                                 :href="`/app/attachments?type=permits&id=${item.id}`"
                                 target="_blank"
                             >
                                 <v-btn small dark>Download File</v-btn>
                             </a>
+                            <div v-else class="text-xs font-bold italic">
+                                No Attachment Found
+                            </div>
                         </template>
                         <template v-slot:item.actions="{ item }">
                             <v-icon
