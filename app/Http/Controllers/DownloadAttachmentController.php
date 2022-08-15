@@ -52,8 +52,9 @@ class DownloadAttachmentController extends Controller
     public function delete_media($id, $category)
     {
         $media = Media::find($id);
+        $media->delete();
 
-        if($category == 'permit'){
+        if($category == 'permits'){
             $media_counter = Media::where('model_id',$media->model_id)->count();
             $query_media_counter = Permit::find($media->model_id);
             $query_media_counter->perm_file = $media_counter;
@@ -82,8 +83,7 @@ class DownloadAttachmentController extends Controller
             $query_media_counter->comp_action_file = $media_counter;
             $query_media_counter->save();
         }
-        
-        $media->delete();
+
 
         return back()->with('success','Media Successfully Deleted!');
     }
