@@ -47,7 +47,7 @@
                         v-on="on"
                     />
                 </template>
-                <!-- <RightMenu :items="items" :themeColor="isDark" /> -->
+                <RightMenu :items="items" :themeColor="isDark" />
             </v-menu>
         </v-app-bar>
 
@@ -117,7 +117,7 @@ export default {
                     icon: "mdi-account",
                     link: "/app/profile/",
                 },
-                { title: "Log Out", icon: "mdi-logout", link: "/app/" },
+                { title: "Log Out", icon: "mdi-logout", link: "/app" },
             ],
             sidebarItems: [
                 {

@@ -47,13 +47,14 @@ class DownloadAttachmentController extends Controller
                 break;
         };
         // return $data;
-        return view('download_attachment', $data)->with('counter', 1);
+        return view('download_attachment', $data);
     }
     public function delete_media($id, $category)
     {
         $media = Media::find($id);
         $media_id = $media->model_id;
         $media->delete();
+        $media_counter = 0;
 
         if ($category == 'permits') {
             $media_counter = Media::where('model_id', $media_id)->count();
@@ -85,32 +86,48 @@ class DownloadAttachmentController extends Controller
             $query_media_counter->save();
         }
 
-        return back()->with('counter', $query_media_counter);
+        return back()->with('counter', $media_counter);
     }
 
     private function permit($id)
     {
         $permit = Permit::find($id);
-        return AttachmentResource::collection($permit->getMedia('permits'));
+        // dd(count($permit->getMedia('permits')));
+        return [
+            'counter'=>count($permit->getMedia('permits')),
+            'attachment'=>AttachmentResource::collection($permit->getMedia('permits'))
+        ];
     }
     private function monitoring($id)
     {
         $monitoring = Monitoring::find($id);
-        return AttachmentResource::collection($monitoring->getMedia('monitoring'));
+        return [
+            'counter'=>count($monitoring->getMedia('monitoring')),
+            'attachment'=>AttachmentResource::collection($monitoring->getMedia('monitoring'))
+        ];
     }
     private function legal($id)
     {
         $legal = Legal::find($id);
-        return AttachmentResource::collection($legal->getMedia('legal'));
+        return [
+            'counter'=>count($legal->getMedia('legal')),
+            'attachment'=>AttachmentResource::collection($legal->getMedia('legal'))
+        ];
     }
     private function complaint($id)
     {
         $complaint = Complaint::find($id);
-        return AttachmentResource::collection($complaint->getMedia('complaint'));
+        return [
+            'counter'=>count($complaint->getMedia('complaint')),
+            'attachment'=>AttachmentResource::collection($complaint->getMedia('complaint'))
+        ];
     }
     private function complaintaction($id)
     {
         $complaint = Complaint::find($id);
-        return AttachmentResource::collection($complaint->getMedia('complaintaction'));
+        return [
+            'counter'=>count($complaint->getMedia('complaintaction')),
+            'attachment'=>AttachmentResource::collection($complaint->getMedia('complaintaction'))
+        ];
     }
 }

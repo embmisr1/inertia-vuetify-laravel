@@ -15,11 +15,13 @@ class AttachmentList extends Component
     public $name;
     public $files;
     public $type;
-    public function __construct($name, $files, $type)
+    public $counter;
+    public function __construct($name, $files, $type, $counter)
     {
         $this->name = $name;
         $this->files = $files;
         $this->type = $type;
+        $this->counter = $counter;
     }
 
     /**
