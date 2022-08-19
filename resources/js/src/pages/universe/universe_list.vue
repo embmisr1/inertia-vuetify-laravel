@@ -15,7 +15,6 @@
                     default-sort-direction="asd"
                     sort-icon="arrow-up"
                     sort-icon-size="is-small"
-                    @page-change="onPageChange"
                     :loading="loading"
                     paginated
                     backend-pagination
@@ -23,68 +22,195 @@
                     <b-table-column
                         field="un_firmname"
                         label="Firmname"
-                        sortable
-                        v-slot="props"
+                        searchable
                     >
-                        {{ props.row.un_firmname }}
+                        <template #searchable="props">
+                            <b-input
+                                v-model="filter.un_firmname"
+                                placeholder="Search..."
+                                icon="magnify"
+                                size="is-small"
+                            />
+                        </template>
+                        <template v-slot="props">
+                            {{ props.row.un_firmname }}
+                        </template>
                     </b-table-column>
-
                     <b-table-column
                         field="un_crs_number"
                         label="CRS No."
-                        sortable
-                        v-slot="props"
+                        searchable
                     >
-                        {{ props.row.un_crs_number }}
+                        <template #searchable="props">
+                            <b-input
+                                v-model="filter.un_crs_number"
+                                placeholder="Search..."
+                                icon="magnify"
+                                size="is-small"
+                            />
+                        </template>
+                        <template v-slot="props">
+                            {{ props.row.un_crs_number }}
+                        </template>
                     </b-table-column>
-
                     <b-table-column
                         field="un_proponent"
                         label="Proponent"
-                        sortable
-                        v-slot="props"
+                        searchable
                     >
-                        {{ props.row.un_proponent }}
+                        <template #searchable="props">
+                            <b-input
+                                v-model="filter.un_proponent"
+                                placeholder="Search..."
+                                icon="magnify"
+                                size="is-small"
+                            />
+                        </template>
+                        <template v-slot="props">
+                            {{ props.row.un_proponent }}
+                        </template>
                     </b-table-column>
 
                     <b-table-column
                         field="un_status"
                         label="Firm Status"
-                        sortable
-                        centered
-                        v-slot="props"
+                        searchable
                     >
-                        <span class="tag is-default">
+                        <template #searchable="props">
+                            <b-input
+                                v-model="filter.un_status"
+                                placeholder="Search..."
+                                icon="magnify"
+                                size="is-small"
+                            />
+                        </template>
+                        <template v-slot="props">
                             {{ props.row.un_status }}
-                        </span>
+                        </template>
                     </b-table-column>
 
                     <b-table-column
+                        field="provDesc"
+                        label="Province"
+                        searchable
+                    >
+                        <template #searchable="props">
+                            <!-- <b-input
+                                v-model="filter.provDesc"
+                                placeholder="Search..."
+                                icon="magnify"
+                                size="is-small"
+                            /> -->
+                            <b-select
+                                v-model="filter.PK_province_ID"
+                                placeholder="Select a Province"
+                                size="is-small"
+                            >
+                                <option
+                                    v-for="option in province_list"
+                                    :value="option.PK_province_ID"
+                                    :key="option.PK_province_ID"
+                                >
+                                    {{ option.provDesc }}
+                                </option>
+                            </b-select>
+                        </template>
+                        <template v-slot="props">
+                            {{ props.row.provDesc }}
+                        </template>
+                    </b-table-column>
+                    <!-- <b-table-column
                         field="provDesc"
                         label="Province"
                         sortable
                         v-slot="props"
                     >
                         {{ props.row.provDesc }}
+                    </b-table-column> -->
+                    <b-table-column
+                        field="citymunDesc"
+                        label="City/Municipality"
+                        searchable
+                    >
+                        <template #searchable="props">
+                            <!-- <b-input
+                                v-model="filter.citymunDesc"
+                                placeholder="Search..."
+                                icon="magnify"
+                                size="is-small"
+                            /> -->
+                            <b-select
+                                v-model="filter.PK_citymun_ID"
+                                placeholder="Select a Municipality"
+                                expanded
+                                label-position="inside"
+                                size="is-small"
+                            >
+                                <option
+                                    v-for="option in municipality_list_alter"
+                                    :value="option.PK_citymun_ID"
+                                    :key="option.PK_citymun_ID"
+                                    size="is-small"
+                                >
+                                    {{ option.citymunDesc }}
+                                </option>
+                            </b-select>
+                        </template>
+                        <template v-slot="props">
+                            {{ props.row.citymunDesc }}
+                        </template>
                     </b-table-column>
 
-                    <b-table-column
+                    <!-- <b-table-column
                         field="provDesc"
                         label="City/Municipality"
                         sortable
                         v-slot="props"
                     >
                         {{ props.row.citymunDesc }}
-                    </b-table-column>
+                    </b-table-column> -->
 
                     <b-table-column
+                        field="brgyDesc"
+                        label="Barangay"
+                        searchable
+                    >
+                        <template #searchable="props">
+                            <!-- <b-input
+                                v-model="filter.brgyDesc"
+                                placeholder="Search..."
+                                icon="magnify"
+                                size="is-small"
+                            /> -->
+                            <b-select
+                                v-model="filter.PK_brgy_ID"
+                                placeholder="Select a Barangay"
+                                expanded
+                                label-position="inside"
+                                size="is-small"
+                            >
+                                <option
+                                    v-for="option in barangay_list_alter"
+                                    :value="option.PK_brgy_ID"
+                                    :key="option.PK_brgy_ID"
+                                >
+                                    {{ option.brgyDesc }}
+                                </option>
+                            </b-select>
+                        </template>
+                        <template v-slot="props">
+                            {{ props.row.brgyDesc }}
+                        </template>
+                    </b-table-column>
+
+                    <!-- <b-table-column
                         field="provDesc"
                         label="Barangay"
                         sortable
                         v-slot="props"
                     >
                         {{ props.row.brgyDesc }}
-                    </b-table-column>
+                    </b-table-column> -->
 
                     <b-table-column label="Action" v-slot="props">
                         <span>
@@ -211,7 +337,13 @@
                             clearable
                         ></v-autocomplete>
                     </div>
-                    <div v-if="selectedSearchCategory == 'PERMIT' || selectedSearchCategory == 'MONITORING' || selectedSearchCategory == 'NOV'">
+                    <div
+                        v-if="
+                            selectedSearchCategory == 'PERMIT' ||
+                            selectedSearchCategory == 'MONITORING' ||
+                            selectedSearchCategory == 'NOV'
+                        "
+                    >
                         <v-checkbox
                             v-model="filter.search1586"
                             label="PD 1586"
@@ -236,7 +368,11 @@
                             value="RA 6969"
                             class="p-0 m-0"
                         ></v-checkbox>
-                        <v-checkbox v-if="selectedSearchCategory == 'MONITORING' || selectedSearchCategory == 'NOV'"
+                        <v-checkbox
+                            v-if="
+                                selectedSearchCategory == 'MONITORING' ||
+                                selectedSearchCategory == 'NOV'
+                            "
                             v-model="filter.search9003"
                             label="RA 9003"
                             value="RA 9003"
@@ -254,28 +390,29 @@
                 </v-card-text>
                 <v-card-actions>
                     <v-spacer></v-spacer>
-                    <v-btn color="red darken-4" text @click="dialog = false"><v-icon> mdi-close-circle </v-icon>
+                    <v-btn color="red darken-4" text @click="dialog = false"
+                        ><v-icon> mdi-close-circle </v-icon>
                         Close
                     </v-btn>
                     <v-btn
                         color="red darken-1"
                         class="white--text"
                         @click="clearFilter"
-                    ><v-icon> mdi-autorenew </v-icon>
+                        ><v-icon> mdi-autorenew </v-icon>
                         Clear Filter
                     </v-btn>
                     <v-btn
                         color="blue darken-1"
                         class="white--text"
                         @click="filterUniverse"
-                    ><v-icon> mdi-filter </v-icon>
+                        ><v-icon> mdi-filter </v-icon>
                         Filter
                     </v-btn>
                     <v-btn
                         color="green darken-1"
                         class="white--text"
                         @click="exportUniverse"
-                    ><v-icon> mdi-microsoft-excel </v-icon>
+                        ><v-icon> mdi-microsoft-excel </v-icon>
                         Export
                     </v-btn>
                 </v-card-actions>
@@ -311,21 +448,37 @@ export default {
     },
     methods: {
         async clearFilter() {
+            let filter_object = this.filter;
             this.filter = {
-                PK_province_ID: "",
-                PK_citymun_ID: "",
-                PK_brgy_ID: "",
+                PK_province_ID: null,
+                PK_citymun_ID: null,
+                PK_brgy_ID: null,
+                PK_province_ID: null,
+                PK_citymun_ID: null,
+                PK_brgy_ID: null,
+                selectedSearchCategory: null,
+                searchStatus: null,
+                searchType: null,
+                search1586: null,
+                search8749: null,
+                search9275: null,
+                search6969: null,
+                search9003: null,
+                un_firmname: null,
+                un_crs_number: null,
+                un_proponent: null,
+                un_status: null,
             };
         },
         async filterUniverse() {
             // this.dialog = false;
             // this.onPageChange();
-            this.get(this.filtersObject);
+            this.get(this.filterObject);
         },
         async exportUniverse() {
             // this.dialog = false;
             // this.onPageChange();
-            this.get(this.filtersObject);
+            this.get(this.filterObject);
         },
         async provinceDropdown(val) {
             try {
@@ -362,8 +515,8 @@ export default {
         }, 1000),
     },
     computed: {
-        filtersObject() {
-            return this.filter;
+        filterObject() {
+            return { ...this.filter };
         },
         PK_province_ID() {
             return this.filter.PK_province_ID;
@@ -371,13 +524,13 @@ export default {
         PK_citymun_ID() {
             return this.filter.PK_citymun_ID;
         },
-        selectedSearchCategory(){
+        selectedSearchCategory() {
             return this.filter.selectedSearchCategory;
         },
-        computed_search8749(){
+        computed_search8749() {
             return this.filter.search8749;
         },
-        computed_search9275(){
+        computed_search9275() {
             return this.filter.search9275;
         },
     },
@@ -391,11 +544,27 @@ export default {
             searchProvince: null,
             searchCityMun: null,
             searchBrgy: null,
-            searchCategory: ['PERMIT', 'MONITORING', 'NOV', 'ORDER', 'PCO', 'COMPLAINT'],
-            searchStatus: ['Active-Operational', 'Active-Proposed', 'Cancelled', 'Ceased', 'Ceased Operation', 'Delisted', 'Inactive-', 'Inactive-CANCELLED'],
-            searchType: ['FIRM', 'LGU'],
-            searchValidity: ['VALID', 'EXPIRED', 'UNDEFINED'],
-            selectedCategory:null,
+            searchCategory: [
+                "PERMIT",
+                "MONITORING",
+                "NOV",
+                "ORDER",
+                "PCO",
+                "COMPLAINT",
+            ],
+            searchStatus: [
+                "Active-Operational",
+                "Active-Proposed",
+                "Cancelled",
+                "Ceased",
+                "Ceased Operation",
+                "Delisted",
+                "Inactive-",
+                "Inactive-CANCELLED",
+            ],
+            searchType: ["FIRM", "LGU"],
+            searchValidity: ["VALID", "EXPIRED", "UNDEFINED"],
+            selectedCategory: null,
             openFilter: false,
         };
     },
@@ -406,29 +575,35 @@ export default {
         PK_citymun_ID(value) {
             if (value) this.municipalityDropdown(value);
         },
-        selectedSearchCategory(data){
-            if( data == 'ORDER' || data == 'PCO' || data == 'COMPLAINT'){
+        selectedSearchCategory(data) {
+            if (data == "ORDER" || data == "PCO" || data == "COMPLAINT") {
                 this.filter.search1586 = null;
                 this.filter.search8749 = null;
                 this.filter.search9275 = null;
                 this.filter.search6969 = null;
                 this.filter.search9003 = null;
                 this.filter.searchValidity = null;
-            }else if( data == 'PERMIT'){
+            } else if (data == "PERMIT") {
                 this.filter.search9003 = null;
-            }else{
+            } else {
                 this.filter.searchValidity = null;
             }
         },
-        computed_search8749(data){
-            if(data == null && this.computed_search9275 == null){
+        computed_search8749(data) {
+            if (data == null && this.computed_search9275 == null) {
                 this.filter.searchValidity = null;
             }
         },
-        computed_search9275(data){
-            if(data == null && this.computed_search8749 == null){
+        computed_search9275(data) {
+            if (data == null && this.computed_search8749 == null) {
                 this.filter.searchValidity = null;
             }
+        },
+        filterObject(value) {
+            this.loading = true;
+            // this.filterUniverse({ ...this.filterObject });
+            this.filterUniverse();
+            this.loading = false;
         },
     },
 };
