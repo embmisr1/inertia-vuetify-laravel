@@ -1,6 +1,7 @@
 export default {
     data() {
         return {
+            laws: ["PD 1586", "RA 8749", "RA 9275", "RA 6969"],
             form_basic_info: {
                 id: "",
                 un_crs_number: "",
@@ -101,8 +102,7 @@ export default {
                     monitoring: {
                         ...this.form_monitoring_info,
                     },
-                    legal: { ...this.form_legal_info,
-                     },
+                    legal: { ...this.form_legal_info },
                     hazwaste: { ...this.form_hazwaste_info },
                     pco: { ...this.form_pco_info },
                     complaint: { ...this.form_complaint_info },

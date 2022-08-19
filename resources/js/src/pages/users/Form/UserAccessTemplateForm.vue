@@ -100,7 +100,6 @@
             :close="() => (roles_modal.active = false)"
             :submitForm="submitRole"
         />
-        {{template_form.access_role_assigned}}
     </DefaultLayout>
 </template>
 

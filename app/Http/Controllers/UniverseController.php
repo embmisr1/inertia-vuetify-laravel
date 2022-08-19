@@ -171,7 +171,10 @@ class UniverseController extends Controller
                 "search9275" => request("search9275"),
                 "search6969" => request("search6969"),
                 "search9003" => request("search9003"),
-                "searchValidity" => request("searchValidity"),
+                "un_firmname" => request("un_firmname"),
+                "un_crs_number" => request("un_crs_number"),
+                "un_proponent" => request("un_proponent"),
+                "un_status" => request("un_status"),
             ],
 
             'query' => $query,
