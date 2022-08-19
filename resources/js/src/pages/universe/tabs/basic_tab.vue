@@ -106,10 +106,21 @@
                         type="button"
                         color="success"
                         >
+                            <!--
                             <v-icon left>
-                                mdi-map-marker-radius-outline
+                                <Link :href="`/app/universe_map/${form_basic_info.id}`">
+                                    mdi-map-marker-radius-outline
+                                </Link>
                             </v-icon>
                             View Location
+                            -->
+                            <a
+                                :href="`/app/universe_map/${form_basic_info.id}`"
+                                target="_blank"
+                                class="text-white"
+                            >
+                                View Location
+                            </a>
                         </v-btn>
                     </div>
             </div>
@@ -261,6 +272,7 @@
         </v-card>
 </template>
 <script>
+import { Link } from "@inertiajs/inertia-vue";
 import axios from 'axios';
   export default {
     props:{
@@ -275,6 +287,9 @@ import axios from 'axios';
         project_subtype_list: Array,
         project_specific_type_list: Array,
         project_specific_subtype_list: Array,
+    },
+    components:{
+        Link,
     },
     methods:{
         async provinceDropdown(val){

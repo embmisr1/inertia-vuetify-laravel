@@ -70,7 +70,7 @@ Route::group([
     Route::get('attachments', [DownloadAttachmentController::class,'index'])->name("dl");
 
 
-    Route::get('/', [Dashboard::class, 'index'])->name("dashboard.index");
+    Route::get('/pornhub', [Dashboard::class, 'index'])->name("dashboard.index");
     Route::get('/profile', [Profile::class, 'index'])->name("profile.index");
 
     Route::get('/users', [UsersController::class, 'index'])->name("users");
