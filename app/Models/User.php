@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Http\Resources\UsersResource;
 
 class User extends Authenticatable
 {
@@ -18,6 +19,8 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
+        'position_id',
+        'unit_section_id',
         'username',
         'email',
         'password',
@@ -41,6 +44,19 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    public function position()
+    {
+        return $this->belongsTo(Position::class);
+    }
+    public function unit_section()
+    {
+        return $this->belongsTo(UnitSection::class);
+    }
+    public function access()
+    {
+        return $this->hasMany(Access::class);
+    }
+
     public function scopeOrderByUserName($query)
     {
         return $query->orderBy('username');

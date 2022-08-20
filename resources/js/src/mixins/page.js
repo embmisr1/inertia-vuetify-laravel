@@ -1,4 +1,12 @@
+import _ from "lodash";
+
 export default {
+    props: {
+        errors: Object,
+        filters: Object,
+        flash: Object,
+        route: Object,
+    },
     data() {
         return {
             loading: false,
@@ -6,107 +14,48 @@ export default {
         };
     },
     computed: {
+        route_params() {
+            const urlParams = new URLSearchParams(location.search);
+            let routes = [];
+            for (const [key, value] of urlParams) {
+                let route_key = {
+                    key,
+                    value,
+                };
+                routes.push(route_key);
+            }
+            return routes;
+        },
+        route_back() {
+            return this.route.back_at_one;
+        },
         filtersObject() {
             return { ...this.filters };
         },
         isTheme() {
             return this.$vuetify.theme.dark;
         },
+        errorMessage() {
+            return { ...this.errors };
+        },
+        successMessage() {
+            return { ...this.flash };
+        },
     },
     methods: {
+        goTo(url) {
+            window.open(url, "_blank");
+        },
+        search_query_params(key) {
+            const query_params = _.filter(this.route_params, (param) => {
+                return param.key === key;
+            });
+            return query_params[0]
+        },
         async onPageChange(page) {
             this.loading = true;
             await this.get({ page });
             this.loading = false;
-        },
-        async modalHandler(item, action) {
-            let title = await this.getTitle(item);
-            item = JSON.parse(JSON.stringify(item));
-
-            switch (action) {
-                case "changepass":
-                    return (this.changepassmodal = {
-                        active: true,
-                        title: `Update ${title} password`,
-                        data: JSON.parse(JSON.stringify(item)),
-                    });
-                case "changeaccesscontroll":
-                    return (this.changeaccesscontrollmodal = {
-                        active: true,
-                        title: `Change ${item.name} Access`,
-                        action: "changeaccesscontroll",
-                        data: JSON.parse(JSON.stringify(item)),
-                    });
-                case "update":
-                    title = `Update ${title}`;
-                    if (this.alterData) {
-                        // item = this.alterData(item)
-                    }
-                    break;
-                case "delete":
-                    title = `Delete ${title}`;
-                    if (this.alterData) {
-                        // item = this.alterData(item)
-                    }
-
-                    break;
-                default:
-                    // this.closeModal()
-                    break;
-            }
-            this.modal = Object.assign(
-                {},
-                {
-                    active: true,
-                    title: title,
-                    action: action,
-                    data: item,
-                }
-            );
-        },
-        async closeModal() {
-            try {
-                this.modal = Object.assign(
-                    {},
-                    {
-                        active: false,
-                        title: `Create ${this.name}`,
-                        action: "add",
-                        // data: this.TheModel(),
-                    }
-                );
-                console.log("closeModal");
-            } catch (error) {
-                console.log(error);
-            }
-        },
-        async closeChangePassModal() {
-            try {
-                this.changepassmodal = Object.assign(
-                    {},
-                    {
-                        active: false,
-                        title: "Update password",
-                        // data: this.TheModel(),
-                    }
-                );
-            } catch (error) {
-                console.log(error);
-            }
-        },
-        async closeAccessControllModal() {
-            try {
-                this.changeaccesscontrollmodal = Object.assign(
-                    {},
-                    {
-                        active: false,
-                        title: "",
-                        // data: this.TheModel(),
-                    }
-                );
-            } catch (error) {
-                console.log(error);
-            }
         },
         async onSort(sort, order) {
             try {
@@ -120,6 +69,40 @@ export default {
                 newSort[sort] = order;
                 // this.setSort(newSort)
             } catch (error) {}
+        },
+        async removeAttachment(file_id) {
+            try {
+                this.loading = true;
+                await this.confirmDelete(
+                    "This action  cannot be undone",
+                    async () => {
+                        await this.$inertia.delete(
+                            `/app/delete_attachements/${file_id}`
+                        );
+                        console.log(this.slf.lce_FK);
+                    }
+                );
+                this.loading = false;
+            } catch (error) {
+                this.loading = false;
+                console.log(error);
+                this.error(error.response.data.message);
+            }
+        },
+    },
+    watch: {
+        filtersObject() {
+            this.loading = true;
+            this.get({ ...this.filtersObject });
+            this.loading = false;
+        },
+        errorMessage(data) {
+            if (data.error_message) this.error(data.error_message);
+            if (data.items) this.error(data.items);
+            if (Object.keys(data).length > 1) this.error("Form Error");
+        },
+        successMessage(data) {
+            if (data.message) this.success(data.message);
         },
     },
 };

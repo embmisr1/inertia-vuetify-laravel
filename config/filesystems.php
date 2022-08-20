@@ -38,7 +38,7 @@ return [
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),
-            'url' => env('APP_URL').'/storage',
+            'url' => env('APP_URL') . '/storage',
             'visibility' => 'public',
         ],
 
@@ -53,7 +53,101 @@ return [
             'use_path_style_endpoint' => env('AWS_USE_PATH_STYLE_ENDPOINT', false),
         ],
 
+
+        'permits' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/permits'),
+            'url' => env('APP_URL') . '/storage/permits',
+            'visibility' => 'public',
+        ],
+        'monitoring' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/monitoring'),
+            'url' => env('APP_URL') . '/storage/monitoring',
+            'visibility' => 'public',
+        ],
+        'legal' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/legal'),
+            'url' => env('APP_URL') . '/storage/legal',
+            'visibility' => 'public',
+        ],
+        'complaint' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/complaint'),
+            'url' => env('APP_URL') . '/storage/complaint',
+            'visibility' => 'public',
+        ],
+        'complaintaction' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/complaintaction'),
+            'url' => env('APP_URL') . '/storage/complaintaction',
+            'visibility' => 'public',
+        ],
+
+        'slf' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/slf'),
+            'url' => env('APP_URL') . '/storage/slf',
+            'visibility' => 'public',
+        ],
+        'mrf' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/mrf'),
+            'url' => env('APP_URL') . '/storage/mrf',
+            'visibility' => 'public',
+        ],
+        'rca' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/rca'),
+            'url' => env('APP_URL') . '/storage/rca',
+            'visibility' => 'public',
+        ],
+        'lce' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/lce'),
+            'url' => env('APP_URL') . '/storage/lce',
+            'visibility' => 'public',
+        ],
+        'dump_site' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/dump_site'),
+            'url' => env('APP_URL') . '/storage/dump_site',
+            'visibility' => 'public',
+        ],
+        'copy_plan' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/copy_plan'),
+            'url' => env('APP_URL') . '/storage/copy_plan',
+            'visibility' => 'public',
+        ],
+        'copy_form' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/copy_form'),
+            'url' => env('APP_URL') . '/storage/copy_form',
+            'visibility' => 'public',
+        ],
+        'copy_resolution' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/copy_resolution'),
+            'url' => env('APP_URL') . '/storage/copy_resolution',
+            'visibility' => 'public',
+        ],
+        'ten_yr_file' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/ten_yr_file'),
+            'url' => env('APP_URL') . '/storage/ten_yr_file',
+            'visibility' => 'public',
+        ],
+        'copy_report' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/copy_report'),
+            'url' => env('APP_URL') . '/storage/copy_report',
+            'visibility' => 'public',
+        ],
     ],
+
+
 
     /*
     |--------------------------------------------------------------------------

@@ -2,6 +2,10 @@
 
 namespace App\Providers;
 
+use App\Models\Position;
+use App\Models\UnitSection;
+use App\Observers\PositionObserver;
+use App\Observers\UnitSectionObserver;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -23,6 +27,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        Position::observe(PositionObserver::class);
+        UnitSection::observe(UnitSectionObserver::class);
     }
 }

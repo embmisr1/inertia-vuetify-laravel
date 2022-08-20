@@ -115,6 +115,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
@@ -228,6 +236,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 
@@ -244,7 +254,7 @@ __webpack_require__.r(__webpack_exports__);
     titleTemplate: "%s | EMB - Region 1 - Unisys",
     link: [{
       rel: "icon",
-      href: "https://r1.emb.gov.ph/wp-content/uploads/2016/08/cropped-denr-logo2-32x32.png"
+      href: "http://r1.emb.gov.ph/wp-content/uploads/2022/03/DENR-LOGO.png"
     }],
     author: [{
       name: "Allan Daryl Ancheta",
@@ -262,7 +272,7 @@ __webpack_require__.r(__webpack_exports__);
       }, {
         title: "Log Out",
         icon: "mdi-logout",
-        link: "/app/"
+        link: "/app"
       }],
       sidebarItems: [{
         header: "Firm Management",
@@ -271,12 +281,20 @@ __webpack_require__.r(__webpack_exports__);
           link: null,
           icon: "mdi-view-dashboard",
           child: [{
-            name: "Universe Dashboard",
-            link: "",
+            name: "Universe Dashboard Firm",
+            link: "/app/universe_dashboard/firm",
+            icon: "mdi-link"
+          }, {
+            name: "Universe Dashboard LGU",
+            link: "/app/universe_dashboard/lgu",
             icon: "mdi-link"
           }, {
             name: "Universe",
-            link: "",
+            link: "/app/universe/",
+            icon: "mdi-link"
+          }, {
+            name: "Universe Registration",
+            link: "/app/universe_form/",
             icon: "mdi-link"
           }, {
             name: "Activity Log",
@@ -308,7 +326,7 @@ __webpack_require__.r(__webpack_exports__);
           child: []
         }, {
           name: "SOLID WASTE",
-          link: null,
+          link: '/app/swm/lce_list',
           icon: "mdi-trash-can",
           child: []
         }, {
@@ -333,7 +351,7 @@ __webpack_require__.r(__webpack_exports__);
             icon: "mdi-link"
           }]
         }, {
-          name: "TECHNICAL CONFIRENCE",
+          name: "TECHNICAL CONFERENCE",
           link: null,
           icon: "mdi-account-group",
           child: [{
@@ -363,6 +381,34 @@ __webpack_require__.r(__webpack_exports__);
           link: null,
           icon: "mdi-account-supervisor",
           child: []
+        }, {
+          name: "POSITION",
+          link: '/app/position',
+          icon: "mdi-account-supervisor",
+          child: []
+        }, {
+          name: "DIVISION",
+          link: '/app/division',
+          icon: "mdi-account-supervisor",
+          child: []
+        }, {
+          name: "UNIT SECTION",
+          link: '/app/unit_section',
+          icon: "mdi-account-supervisor",
+          child: []
+        }, {
+          name: "User Access",
+          link: null,
+          icon: "mdi-account-group",
+          child: [{
+            name: "User Roles",
+            link: "/app/users_access/users_access_role_list",
+            icon: "mdi-link"
+          }, {
+            name: "User Role Template",
+            link: "/app/users_access/users_access_template_list",
+            icon: "mdi-link"
+          }]
         }]
       }, {
         header: "INDUSTRY CONFIGURATION",
@@ -372,19 +418,19 @@ __webpack_require__.r(__webpack_exports__);
           icon: "mdi-file-document-multiple",
           child: [{
             name: "PROJECT TYPE",
-            link: "",
+            link: "/app/project/type",
             icon: "mdi-link"
           }, {
             name: "PROJECT SUB-TYPE",
-            link: "",
+            link: "/app/project/subtype",
             icon: "mdi-link"
           }, {
             name: "PROJECT SPECIFIC TYPE",
-            link: "",
+            link: "/app/project/specifictype",
             icon: "mdi-link"
           }, {
             name: "PROJECT SPECIFIC SUB-TYPE",
-            link: "",
+            link: "/app/project/specificsubtype",
             icon: "mdi-link"
           }, {
             name: "DETAILED DESCRIPTION",
@@ -397,15 +443,15 @@ __webpack_require__.r(__webpack_exports__);
           icon: "mdi-file-document-multiple",
           child: [{
             name: "PSIC GROUP",
-            link: "",
+            link: "/app/psic/group",
             icon: "mdi-link"
           }, {
             name: "PSIC CLASS",
-            link: "",
+            link: "/app/psic/class",
             icon: "mdi-link"
           }, {
             name: "PSIC SUB CLASS",
-            link: "",
+            link: "/app/psic/sub-class",
             icon: "mdi-link"
           }]
         }]
@@ -883,7 +929,11 @@ var render = function () {
     _vm._l(_vm.items, function (item, index) {
       return _c(
         "v-list",
-        { key: index, staticClass: "overflow-hidden  ", attrs: { dense: "" } },
+        {
+          key: index,
+          staticClass: "overflow-hidden  ",
+          attrs: { dense: "", nav: "" },
+        },
         [
           _c("v-subheader", [_vm._v(_vm._s(item.header))]),
           _vm._v(" "),
@@ -966,9 +1016,29 @@ var render = function () {
                       _c(
                         "v-list-item-content",
                         [
-                          _c("v-list-item-title", {
-                            domProps: { textContent: _vm._s(childItem.name) },
-                          }),
+                          !childItem.link
+                            ? _c("v-list-item-subtitle", {
+                                domProps: {
+                                  textContent: _vm._s(childItem.name),
+                                },
+                              })
+                            : _c(
+                                "v-list-item-subtitle",
+                                [
+                                  _c(
+                                    "Link",
+                                    {
+                                      attrs: {
+                                        href: childItem.link,
+                                        as: "button",
+                                        "preserve-scroll": "",
+                                      },
+                                    },
+                                    [_vm._v(_vm._s(childItem.name))]
+                                  ),
+                                ],
+                                1
+                              ),
                         ],
                         1
                       ),
@@ -1077,7 +1147,7 @@ var render = function () {
                             {
                               staticClass: "max-h-12 object-cover",
                               attrs: {
-                                src: "http://r1.emb.gov.ph/wp-content/uploads/2016/08/cropped-denr-logo2.png",
+                                src: "http://r1.emb.gov.ph/wp-content/uploads/2022/03/cropped-DENR-LOGO.png",
                                 alt: "DENR - EMB Region 1",
                               },
                             },
@@ -1113,39 +1183,13 @@ var render = function () {
             "overflow-y": "hidden",
           },
         },
-        [
-          _c(
-            "v-container",
-            {
-              staticClass: "scrollbar-thin overflow-y-scroll",
-              attrs: { fluid: "" },
-            },
-            [_vm._t("default")],
-            2
-          ),
-        ],
-        1
+        [_c("div", { staticClass: "p-4" }, [_vm._t("default")], 2)]
       ),
       _vm._v(" "),
       _c(
         "v-footer",
         { attrs: { app: "", rounded: "" } },
         [
-          _c("v-switch", {
-            attrs: {
-              inset: "",
-              label: "Vuetify Theme Dark",
-              "persistent-hint": "",
-            },
-            model: {
-              value: _vm.$vuetify.theme.dark,
-              callback: function ($$v) {
-                _vm.$set(_vm.$vuetify.theme, "dark", $$v)
-              },
-              expression: "$vuetify.theme.dark",
-            },
-          }),
-          _vm._v(" "),
           _c("v-spacer"),
           _vm._v("\n        © DENR - EMB REGION 1 - UNISYS\n    "),
         ],

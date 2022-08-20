@@ -8,7 +8,7 @@
                 shaped
             >
                 <!-- <img :src="require('../1assets/logo.png')" alt="EMB - LOGO" class="h-28 object-cover "> -->
-                <img src="http://r1.emb.gov.ph/wp-content/uploads/2016/07/logo.png" alt="EMB - LOGO" class="h-24 object-cover ">
+                <img src="http://r1.emb.gov.ph/wp-content/uploads/2022/03/WEBSITE-LOGO_final.png" alt="EMB - LOGO" class="h-24 object-cover ">
                 <v-card-title>
                     <div class="text-center">
                         <h3 class="mb-0">Login</h3>

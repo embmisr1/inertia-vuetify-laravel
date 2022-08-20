@@ -15,7 +15,7 @@ class Dashboard extends Controller
     public function index()
     {
         // return inertia("/Pages/dashboard/index");
-        return Inertia::render("Pages/dashboard/", [
+        return Inertia::render("pages/dashboard/", [
             // 'filters' => Request::all('search'),
             // 'users' => User::orderByUserName()
             //     ->filter(Request::only('search'))

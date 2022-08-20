@@ -14,7 +14,7 @@ class Profile extends Controller
      */
     public function index()
     {
-        return Inertia::render("Pages/profile/", [
+        return Inertia::render("pages/profile/", [
             // 'filters' => Request::all('search'),
             // 'users' => User::orderByUserName()
             //     ->filter(Request::only('search'))
