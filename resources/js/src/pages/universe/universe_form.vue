@@ -1,45 +1,38 @@
 <template>
     <DefaultLayout>
-         <ValidationObserver
-                v-slot="{  }"
-                ref="validation_observer"
-            >
+        <ValidationObserver v-slot="{}" ref="validation_observer">
             <form @submit.prevent="submit_basic_info">
-                <InputMask mask="99/99/9999" slotChar="mm/dd/yyyy" />
-                sdas
-        <MainTab
-            :province_list="province_list"
-            :municipality_list="municipality_list"
-            :barangay_list="barangay_list"
-            :psic_group_list="psic_group_list"
-            :psic_class_list="psic_class_list"
-            :psic_subclass_list="psic_subclass_list"
-            :project_type_list="project_type_list"
-            :project_subtype_list="project_subtype_list"
-            :project_specific_type_list="project_specific_type_list"
-            :project_specific_subtype_list="project_specific_subtype_list"
-
-            :form_basic_info="form_basic_info"
-            :form_permit_info="form_permit_info"
-            :form_monitoring_info="form_monitoring_info"
-            :form_legal_info="form_legal_info"
-            :form_hazwaste_info="form_hazwaste_info"
-            :form_pco_info="form_pco_info"
-            :form_complaint_info="form_complaint_info"
-
-            :permit_table="permit_table"
-            :monitoring_table="monitoring_table"
-            :legal_table="legal_table"
-            :hazwaste_table="hazwaste_table"
-            :pco_table="pco_table"
-            :complaint_table="complaint_table"
-
-            :submit_basic_info="submit_basic_info"
-
-            :ctr_file="ctr_file"
-            :laws="laws"
-        ></MainTab>
-        </form>
+                <MainTab
+                    :province_list="province_list"
+                    :municipality_list="municipality_list"
+                    :barangay_list="barangay_list"
+                    :psic_group_list="psic_group_list"
+                    :psic_class_list="psic_class_list"
+                    :psic_subclass_list="psic_subclass_list"
+                    :project_type_list="project_type_list"
+                    :project_subtype_list="project_subtype_list"
+                    :project_specific_type_list="project_specific_type_list"
+                    :project_specific_subtype_list="
+                        project_specific_subtype_list
+                    "
+                    :form_basic_info="form_basic_info"
+                    :form_permit_info="form_permit_info"
+                    :form_monitoring_info="form_monitoring_info"
+                    :form_legal_info="form_legal_info"
+                    :form_hazwaste_info="form_hazwaste_info"
+                    :form_pco_info="form_pco_info"
+                    :form_complaint_info="form_complaint_info"
+                    :permit_table="permit_table"
+                    :monitoring_table="monitoring_table"
+                    :legal_table="legal_table"
+                    :hazwaste_table="hazwaste_table"
+                    :pco_table="pco_table"
+                    :complaint_table="complaint_table"
+                    :submit_basic_info="submit_basic_info"
+                    :ctr_file="ctr_file"
+                    :laws="laws"
+                ></MainTab>
+            </form>
         </ValidationObserver>
     </DefaultLayout>
 </template>
@@ -50,9 +43,7 @@ import MainTab from "./tabs/main_tab";
 import UniverseInfo from "../../mixins/universe_info";
 import { Link } from "@inertiajs/inertia-vue";
 export default {
-    mixins: [
-        UniverseInfo,
-    ],
+    mixins: [UniverseInfo],
     components: {
         DefaultLayout,
         Link,
