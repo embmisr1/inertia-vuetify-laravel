@@ -156,6 +156,18 @@ class UniverseController extends Controller
                     $query->where('e.perm_date_expiry', null);
                 }
             })
+            ->when(request('un_firmname'), function ($query) {
+                $query->where('a.un_firmname', 'like', '%' . request("un_firmname") . '%');
+            })
+            ->when(request('un_crs_number'), function ($query) {
+                $query->where('a.un_crs_number', 'like', '%' . request("un_crs_number") . '%');
+            })
+            ->when(request('un_proponent'), function ($query) {
+                $query->where('a.un_proponent', 'like', '%' . request("un_proponent") . '%');
+            })
+            ->when(request('un_status'), function ($query) {
+                $query->where('a.un_status', 'like', '%' . request("un_status") . '%');
+            })
             ->paginate(10);
 
         return Inertia::render("pages/universe/universe_list", [

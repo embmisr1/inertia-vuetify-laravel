@@ -285,7 +285,7 @@ __webpack_require__.r(__webpack_exports__);
       }, {
         title: "Log Out",
         icon: "mdi-logout",
-        link: "/app/"
+        link: "/app"
       }],
       sidebarItems: [{
         header: "Firm Management",
@@ -21596,44 +21596,54 @@ var render = function () {
           _vm._v(" "),
           _c("v-spacer"),
           _vm._v(" "),
-          _c("v-menu", {
-            attrs: {
-              "offset-x": "",
-              left: "",
-              "z-index": "50",
-              origin: "center center",
-              transition: "scale-transition",
-            },
-            scopedSlots: _vm._u([
-              {
-                key: "activator",
-                fn: function (ref) {
-                  var on = ref.on
-                  var attrs = ref.attrs
-                  return [
-                    _c(
-                      "img",
-                      _vm._g(
-                        _vm._b(
-                          {
-                            staticClass: "max-h-12 object-cover",
-                            attrs: {
-                              src: "http://r1.emb.gov.ph/wp-content/uploads/2022/03/cropped-DENR-LOGO.png",
-                              alt: "DENR - EMB Region 1",
-                            },
-                          },
-                          "img",
-                          attrs,
-                          false
-                        ),
-                        on
-                      )
-                    ),
-                  ]
-                },
+          _c(
+            "v-menu",
+            {
+              attrs: {
+                "offset-x": "",
+                left: "",
+                "z-index": "50",
+                origin: "center center",
+                transition: "scale-transition",
               },
-            ]),
-          }),
+              scopedSlots: _vm._u([
+                {
+                  key: "activator",
+                  fn: function (ref) {
+                    var on = ref.on
+                    var attrs = ref.attrs
+                    return [
+                      _c(
+                        "img",
+                        _vm._g(
+                          _vm._b(
+                            {
+                              staticClass: "max-h-12 object-cover",
+                              attrs: {
+                                src: "http://r1.emb.gov.ph/wp-content/uploads/2022/03/cropped-DENR-LOGO.png",
+                                alt: "DENR - EMB Region 1",
+                              },
+                            },
+                            "img",
+                            attrs,
+                            false
+                          ),
+                          on
+                        )
+                      ),
+                    ]
+                  },
+                },
+              ]),
+            },
+            [
+              _vm._v(" "),
+              _c("RightMenu", {
+                attrs: { items: _vm.items, themeColor: _vm.isDark },
+              }),
+            ],
+            1
+          ),
         ],
         1
       ),
