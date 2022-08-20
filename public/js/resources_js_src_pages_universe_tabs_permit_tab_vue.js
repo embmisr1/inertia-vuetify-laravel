@@ -384,90 +384,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -1967,184 +1883,36 @@ var render = function () {
                                 fn: function (ref) {
                                   var errors = ref.errors
                                   return [
-                                    _c(
-                                      "v-menu",
-                                      {
-                                        ref: "date_permit_issuance_menu",
-                                        attrs: {
-                                          "close-on-content-click": false,
-                                          "return-value":
-                                            _vm.form_permit_info
-                                              .perm_date_issuance,
-                                          transition: "scale-transition",
-                                          "offset-y": "",
-                                          "min-width": "auto",
-                                        },
-                                        on: {
-                                          "update:returnValue": function (
-                                            $event
-                                          ) {
-                                            return _vm.$set(
-                                              _vm.form_permit_info,
-                                              "perm_date_issuance",
-                                              $event
-                                            )
-                                          },
-                                          "update:return-value": function (
-                                            $event
-                                          ) {
-                                            return _vm.$set(
-                                              _vm.form_permit_info,
-                                              "perm_date_issuance",
-                                              $event
-                                            )
-                                          },
-                                        },
-                                        scopedSlots: _vm._u(
-                                          [
-                                            {
-                                              key: "activator",
-                                              fn: function (ref) {
-                                                var on = ref.on
-                                                var attrs = ref.attrs
-                                                return [
-                                                  _c(
-                                                    "v-text-field",
-                                                    _vm._g(
-                                                      _vm._b(
-                                                        {
-                                                          attrs: {
-                                                            "error-messages":
-                                                              errors[0],
-                                                            label:
-                                                              "Date Issuance",
-                                                            readonly: "",
-                                                            clearable: "",
-                                                            required: "",
-                                                          },
-                                                          model: {
-                                                            value:
-                                                              _vm
-                                                                .form_permit_info
-                                                                .perm_date_issuance,
-                                                            callback: function (
-                                                              $$v
-                                                            ) {
-                                                              _vm.$set(
-                                                                _vm.form_permit_info,
-                                                                "perm_date_issuance",
-                                                                $$v
-                                                              )
-                                                            },
-                                                            expression:
-                                                              "\n                                    form_permit_info.perm_date_issuance\n                                ",
-                                                          },
-                                                        },
-                                                        "v-text-field",
-                                                        attrs,
-                                                        false
-                                                      ),
-                                                      on
-                                                    )
-                                                  ),
-                                                ]
-                                              },
-                                            },
-                                          ],
-                                          null,
-                                          true
-                                        ),
-                                        model: {
-                                          value: _vm.date_permit_issuance_menu,
-                                          callback: function ($$v) {
-                                            _vm.date_permit_issuance_menu = $$v
-                                          },
-                                          expression:
-                                            "date_permit_issuance_menu",
-                                        },
+                                    _c("v-text-field", {
+                                      attrs: {
+                                        "error-messages": errors[0],
+                                        type: "date",
+                                        color: "purple darken-2",
+                                        label: "Date Issuance",
+                                        required: "",
                                       },
-                                      [
-                                        _vm._v(" "),
-                                        _c(
-                                          "v-date-picker",
-                                          {
-                                            attrs: {
-                                              "no-title": "",
-                                              scrollable: "",
-                                            },
-                                            model: {
-                                              value:
-                                                _vm.form_permit_info
-                                                  .perm_date_issuance,
-                                              callback: function ($$v) {
-                                                _vm.$set(
-                                                  _vm.form_permit_info,
-                                                  "perm_date_issuance",
-                                                  $$v
-                                                )
-                                              },
-                                              expression:
-                                                "form_permit_info.perm_date_issuance",
-                                            },
-                                          },
-                                          [
-                                            _c("v-spacer"),
-                                            _vm._v(" "),
-                                            _c(
-                                              "v-btn",
-                                              {
-                                                attrs: {
-                                                  text: "",
-                                                  color: "primary",
-                                                },
-                                                on: {
-                                                  click: function ($event) {
-                                                    _vm.date_permit_issuance_menu = false
-                                                  },
-                                                },
-                                              },
-                                              [
-                                                _vm._v(
-                                                  "\n                                Cancel\n                            "
-                                                ),
-                                              ]
-                                            ),
-                                            _vm._v(" "),
-                                            _c(
-                                              "v-btn",
-                                              {
-                                                attrs: {
-                                                  text: "",
-                                                  color: "primary",
-                                                },
-                                                on: {
-                                                  click: function ($event) {
-                                                    return _vm.$refs.date_permit_issuance_menu.save(
-                                                      _vm.form_permit_info
-                                                        .perm_date_issuance
-                                                    )
-                                                  },
-                                                },
-                                              },
-                                              [
-                                                _vm._v(
-                                                  "\n                                OK\n                            "
-                                                ),
-                                              ]
-                                            ),
-                                          ],
-                                          1
-                                        ),
-                                      ],
-                                      1
-                                    ),
+                                      model: {
+                                        value:
+                                          _vm.form_permit_info
+                                            .perm_date_issuance,
+                                        callback: function ($$v) {
+                                          _vm.$set(
+                                            _vm.form_permit_info,
+                                            "perm_date_issuance",
+                                            $$v
+                                          )
+                                        },
+                                        expression:
+                                          "form_permit_info.perm_date_issuance",
+                                      },
+                                    }),
                                   ]
                                 },
                               },
                             ],
                             null,
                             false,
-                            2825014843
+                            795223868
                           ),
                         }),
                       ],
@@ -2154,153 +1922,25 @@ var render = function () {
                     _c(
                       "div",
                       [
-                        _c(
-                          "v-menu",
-                          {
-                            ref: "date_permit_expiry_menu",
-                            attrs: {
-                              "close-on-content-click": false,
-                              "return-value":
-                                _vm.form_permit_info.perm_date_expiry,
-                              transition: "scale-transition",
-                              "offset-y": "",
-                              "min-width": "auto",
-                            },
-                            on: {
-                              "update:returnValue": function ($event) {
-                                return _vm.$set(
-                                  _vm.form_permit_info,
-                                  "perm_date_expiry",
-                                  $event
-                                )
-                              },
-                              "update:return-value": function ($event) {
-                                return _vm.$set(
-                                  _vm.form_permit_info,
-                                  "perm_date_expiry",
-                                  $event
-                                )
-                              },
-                            },
-                            scopedSlots: _vm._u(
-                              [
-                                {
-                                  key: "activator",
-                                  fn: function (ref) {
-                                    var on = ref.on
-                                    var attrs = ref.attrs
-                                    return [
-                                      _c(
-                                        "v-text-field",
-                                        _vm._g(
-                                          _vm._b(
-                                            {
-                                              attrs: {
-                                                label: "Date Expiry",
-                                                readonly: "",
-                                                clearable: "",
-                                              },
-                                              model: {
-                                                value:
-                                                  _vm.form_permit_info
-                                                    .perm_date_expiry,
-                                                callback: function ($$v) {
-                                                  _vm.$set(
-                                                    _vm.form_permit_info,
-                                                    "perm_date_expiry",
-                                                    $$v
-                                                  )
-                                                },
-                                                expression:
-                                                  "form_permit_info.perm_date_expiry",
-                                              },
-                                            },
-                                            "v-text-field",
-                                            attrs,
-                                            false
-                                          ),
-                                          on
-                                        )
-                                      ),
-                                    ]
-                                  },
-                                },
-                              ],
-                              null,
-                              false,
-                              154308027
-                            ),
-                            model: {
-                              value: _vm.date_permit_expiry_menu,
-                              callback: function ($$v) {
-                                _vm.date_permit_expiry_menu = $$v
-                              },
-                              expression: "date_permit_expiry_menu",
-                            },
+                        _c("v-text-field", {
+                          attrs: {
+                            type: "date",
+                            color: "purple darken-2",
+                            label: "Date Expiry",
+                            required: "",
                           },
-                          [
-                            _vm._v(" "),
-                            _c(
-                              "v-date-picker",
-                              {
-                                attrs: { "no-title": "", scrollable: "" },
-                                model: {
-                                  value: _vm.form_permit_info.perm_date_expiry,
-                                  callback: function ($$v) {
-                                    _vm.$set(
-                                      _vm.form_permit_info,
-                                      "perm_date_expiry",
-                                      $$v
-                                    )
-                                  },
-                                  expression:
-                                    "form_permit_info.perm_date_expiry",
-                                },
-                              },
-                              [
-                                _c("v-spacer"),
-                                _vm._v(" "),
-                                _c(
-                                  "v-btn",
-                                  {
-                                    attrs: { text: "", color: "primary" },
-                                    on: {
-                                      click: function ($event) {
-                                        _vm.date_permit_expiry_menu = false
-                                      },
-                                    },
-                                  },
-                                  [
-                                    _vm._v(
-                                      "\n                                Cancel\n                            "
-                                    ),
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "v-btn",
-                                  {
-                                    attrs: { text: "", color: "primary" },
-                                    on: {
-                                      click: function ($event) {
-                                        return _vm.$refs.date_permit_expiry_menu.save(
-                                          _vm.form_permit_info.perm_date_expiry
-                                        )
-                                      },
-                                    },
-                                  },
-                                  [
-                                    _vm._v(
-                                      "\n                                OK\n                            "
-                                    ),
-                                  ]
-                                ),
-                              ],
-                              1
-                            ),
-                          ],
-                          1
-                        ),
+                          model: {
+                            value: _vm.form_permit_info.perm_date_expiry,
+                            callback: function ($$v) {
+                              _vm.$set(
+                                _vm.form_permit_info,
+                                "perm_date_expiry",
+                                $$v
+                              )
+                            },
+                            expression: "form_permit_info.perm_date_expiry",
+                          },
+                        }),
                       ],
                       1
                     ),

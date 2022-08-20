@@ -77,53 +77,13 @@
                         rules="required"
                         v-slot="{ errors }"
                     >
-                        <v-menu
-                            ref="date_pco_start_menu"
-                            v-model="date_pco_start_menu"
-                            :close-on-content-click="false"
-                            :return-value.sync="form_pco_info.pco_start_date"
-                            transition="scale-transition"
-                            offset-y
-                            min-width="auto"
-                        >
-                            <template v-slot:activator="{ on, attrs }">
-                                <v-text-field
-                                    :error-messages="errors[0]"
-                                    v-model="form_pco_info.pco_start_date"
-                                    label="Date Start"
-                                    readonly
-                                    v-bind="attrs"
-                                    v-on="on"
-                                    clearable
-                                    required
-                                ></v-text-field>
-                            </template>
-                            <v-date-picker
-                                v-model="form_pco_info.pco_start_date"
-                                no-title
-                                scrollable
-                            >
-                                <v-spacer></v-spacer>
-                                <v-btn
-                                    text
-                                    color="primary"
-                                    @click="date_pco_start_menu = false"
-                                >
-                                    Cancel
-                                </v-btn>
-                                <v-btn
-                                    text
-                                    color="primary"
-                                    @click="
-                                        $refs.date_pco_start_menu.save(
-                                            form_pco_info.pco_start_date
-                                        )
-                                    "
-                                >
-                                    OK
-                                </v-btn>
-                            </v-date-picker>
-                        </v-menu>
+                        <v-text-field
+                            v-model="form_pco_info.pco_start_date"
+                            type="date"
+                            label="Date Start"
+                            required
+                            :error-messages="errors[0]"
+                        ></v-text-field>
                     </ValidationProvider>
                 </div>
                 <div>
@@ -133,57 +93,14 @@
                         rules="required"
                         v-slot="{ errors }"
                     >
-
-
-                    <v-menu
-                        ref="date_pco_end_menu"
-                        v-model="date_pco_end_menu"
-                        :close-on-content-click="false"
-                        :return-value.sync="form_pco_info.pco_end_date"
-                        transition="scale-transition"
-                        offset-y
-                        min-width="auto"
-                    >
-                        <template v-slot:activator="{ on, attrs }">
-                            <v-text-field
-                            :error-messages="errors[0]"
-                                v-model="form_pco_info.pco_end_date"
-                                label="Date End"
-                                readonly
-                                v-bind="attrs"
-                                v-on="on"
-                                clearable
-                                required
-                            ></v-text-field>
-                        </template>
-                        <v-date-picker
+                    <v-text-field
                             v-model="form_pco_info.pco_end_date"
-                            no-title
-                            scrollable
-                        >
-                            <v-spacer></v-spacer>
-                            <v-btn
-                                text
-                                color="primary"
-                                @click="date_pco_end_menu = false"
-                            >
-                                Cancel
-                            </v-btn>
-                            <v-btn
-                                text
-                                color="primary"
-                                @click="
-                                    $refs.date_pco_end_menu.save(
-                                        form_pco_info.pco_end_date
-                                    )
-                                "
-                            >
-                                OK
-                            </v-btn>
-                        </v-date-picker>
-                    </v-menu>
+                            type="date"
+                            label="Date End"
+                            required
+                            :error-messages="errors[0]"
+                        ></v-text-field>
                     </ValidationProvider>
-
                 </div>
             </div>
             <div class="text-center">

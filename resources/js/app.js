@@ -7,6 +7,7 @@ import buefy from './src/plugins/buefy'
 import VueMeta from './src/plugins/vue-meta'
 import { InertiaProgress } from '@inertiajs/progress'
 import  './src/plugins/vee-validate'
+import  './src/plugins/primevue'
 import vue2Dropzone from 'vue2-dropzone'
 import 'vue2-dropzone/dist/vue2Dropzone.min.css';
 
