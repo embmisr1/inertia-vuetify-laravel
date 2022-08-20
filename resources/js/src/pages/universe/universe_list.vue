@@ -89,10 +89,7 @@
                         </template>
                     </b-table-column>
 
-                    <b-table-column
-                        field="provDesc"
-                        label="Province"
-                    >
+                    <b-table-column field="provDesc" label="Province">
                         <template #searchable="props">
                             <b-select
                                 v-model="filter.PK_province_ID"
@@ -139,10 +136,7 @@
                         </template>
                     </b-table-column>
 
-                    <b-table-column
-                        field="brgyDesc"
-                        label="Barangay"
-                    >
+                    <b-table-column field="brgyDesc" label="Barangay">
                         <template #searchable="props">
                             <b-select
                                 v-model="filter.PK_brgy_ID"
@@ -433,13 +427,9 @@ export default {
             };
         },
         async filterUniverse() {
-            // this.dialog = false;
-            // this.onPageChange();
             this.get(this.filterObject);
         },
         async exportUniverse() {
-            // this.dialog = false;
-            // this.onPageChange();
             this.get(this.filterObject);
         },
         async provinceDropdown(val) {
@@ -456,12 +446,17 @@ export default {
             }
         },
         async municipalityDropdown(val) {
-            this.loading = true;
-            const barangay = await axios.get(
-                `http://127.0.0.1:8000/api/app/municipality_dropdown/${val}`
-            );
-            this.barangay_list_alter = barangay.data;
-            this.loading = false;
+            try {
+                this.loading = true;
+                const barangay = await axios.get(
+                    `http://127.0.0.1:8000/api/app/municipality_dropdown/${val}`
+                );
+                this.barangay_list_alter = barangay.data;
+                this.loading = false;
+            } catch (error) {
+                this.loading = false;
+                this.error(error.response.data.message);
+            }
         },
         get: _.debounce(async function (params) {
             try {
@@ -564,6 +559,21 @@ export default {
         filterObject(value) {
             this.loading = true;
             // this.filterUniverse({ ...this.filterObject });
+            if (value.PK_province_ID) {
+                // console.log(value.PK_province_ID
+                this.loading = false;
+                return;
+            }
+            if (value.PK_citymun_ID) {
+                // console.log(value.PK_citymun_ID
+                this.loading = false;
+                return;
+            }
+            if (value.PK_brgy_ID) {
+                // console.log(value.PK_brgy_ID
+                this.loading = false;
+                return;
+            }
             this.filterUniverse();
             this.loading = false;
         },
