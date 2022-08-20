@@ -919,50 +919,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -1043,8 +999,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context3.prev = _context3.next) {
               case 0:
-                // this.dialog = false;
-                // this.onPageChange();
                 _this3.get(_this3.filterObject);
 
               case 1:
@@ -1063,8 +1017,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context4.prev = _context4.next) {
               case 0:
-                // this.dialog = false;
-                // this.onPageChange();
                 _this4.get(_this4.filterObject);
 
               case 1:
@@ -1119,21 +1071,31 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context6.prev = _context6.next) {
               case 0:
+                _context6.prev = 0;
                 _this6.loading = true;
-                _context6.next = 3;
+                _context6.next = 4;
                 return axios__WEBPACK_IMPORTED_MODULE_3___default().get("http://127.0.0.1:8000/api/app/municipality_dropdown/".concat(val));
 
-              case 3:
+              case 4:
                 barangay = _context6.sent;
                 _this6.barangay_list_alter = barangay.data;
                 _this6.loading = false;
+                _context6.next = 13;
+                break;
 
-              case 6:
+              case 9:
+                _context6.prev = 9;
+                _context6.t0 = _context6["catch"](0);
+                _this6.loading = false;
+
+                _this6.error(_context6.t0.response.data.message);
+
+              case 13:
               case "end":
                 return _context6.stop();
             }
           }
-        }, _callee6);
+        }, _callee6, null, [[0, 9]]);
       }))();
     },
     get: lodash__WEBPACK_IMPORTED_MODULE_4___default().debounce( /*#__PURE__*/function () {
@@ -1243,6 +1205,24 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     },
     filterObject: function filterObject(value) {
       this.loading = true; // this.filterUniverse({ ...this.filterObject });
+
+      if (value.PK_province_ID) {
+        // console.log(value.PK_province_ID
+        this.loading = false;
+        return;
+      }
+
+      if (value.PK_citymun_ID) {
+        // console.log(value.PK_citymun_ID
+        this.loading = false;
+        return;
+      }
+
+      if (value.PK_brgy_ID) {
+        // console.log(value.PK_brgy_ID
+        this.loading = false;
+        return;
+      }
 
       this.filterUniverse();
       this.loading = false;
@@ -22448,11 +22428,7 @@ var render = function () {
                   }),
                   _vm._v(" "),
                   _c("b-table-column", {
-                    attrs: {
-                      field: "provDesc",
-                      label: "Province",
-                      searchable: "",
-                    },
+                    attrs: { field: "provDesc", label: "Province" },
                     scopedSlots: _vm._u([
                       {
                         key: "searchable",
@@ -22510,11 +22486,7 @@ var render = function () {
                   }),
                   _vm._v(" "),
                   _c("b-table-column", {
-                    attrs: {
-                      field: "citymunDesc",
-                      label: "City/Municipality",
-                      searchable: "",
-                    },
+                    attrs: { field: "citymunDesc", label: "City/Municipality" },
                     scopedSlots: _vm._u([
                       {
                         key: "searchable",
@@ -22578,11 +22550,7 @@ var render = function () {
                   }),
                   _vm._v(" "),
                   _c("b-table-column", {
-                    attrs: {
-                      field: "brgyDesc",
-                      label: "Barangay",
-                      searchable: "",
-                    },
+                    attrs: { field: "brgyDesc", label: "Barangay" },
                     scopedSlots: _vm._u([
                       {
                         key: "searchable",
