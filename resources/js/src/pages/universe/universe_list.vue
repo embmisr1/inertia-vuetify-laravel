@@ -92,15 +92,8 @@
                     <b-table-column
                         field="provDesc"
                         label="Province"
-                        searchable
                     >
                         <template #searchable="props">
-                            <!-- <b-input
-                                v-model="filter.provDesc"
-                                placeholder="Search..."
-                                icon="magnify"
-                                size="is-small"
-                            /> -->
                             <b-select
                                 v-model="filter.PK_province_ID"
                                 placeholder="Select a Province"
@@ -119,26 +112,11 @@
                             {{ props.row.provDesc }}
                         </template>
                     </b-table-column>
-                    <!-- <b-table-column
-                        field="provDesc"
-                        label="Province"
-                        sortable
-                        v-slot="props"
-                    >
-                        {{ props.row.provDesc }}
-                    </b-table-column> -->
                     <b-table-column
                         field="citymunDesc"
                         label="City/Municipality"
-                        searchable
                     >
                         <template #searchable="props">
-                            <!-- <b-input
-                                v-model="filter.citymunDesc"
-                                placeholder="Search..."
-                                icon="magnify"
-                                size="is-small"
-                            /> -->
                             <b-select
                                 v-model="filter.PK_citymun_ID"
                                 placeholder="Select a Municipality"
@@ -161,27 +139,11 @@
                         </template>
                     </b-table-column>
 
-                    <!-- <b-table-column
-                        field="provDesc"
-                        label="City/Municipality"
-                        sortable
-                        v-slot="props"
-                    >
-                        {{ props.row.citymunDesc }}
-                    </b-table-column> -->
-
                     <b-table-column
                         field="brgyDesc"
                         label="Barangay"
-                        searchable
                     >
                         <template #searchable="props">
-                            <!-- <b-input
-                                v-model="filter.brgyDesc"
-                                placeholder="Search..."
-                                icon="magnify"
-                                size="is-small"
-                            /> -->
                             <b-select
                                 v-model="filter.PK_brgy_ID"
                                 placeholder="Select a Barangay"
