@@ -5,6 +5,8 @@
                 ref="validation_observer"
             >
             <form @submit.prevent="submit_basic_info">
+                <InputMask mask="99/99/9999" slotChar="mm/dd/yyyy" />
+                sdas
         <MainTab
             :province_list="province_list"
             :municipality_list="municipality_list"
