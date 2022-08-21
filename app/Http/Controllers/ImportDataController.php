@@ -37,9 +37,9 @@ class ImportDataController extends Controller
         //     $query_import->un_project_specific_subtype = $qry->project_specific_subtype;
         //     $query_import->un_detailed_description = $qry->detailed_description;
         //     $query_import->un_specific_address = $qry->specified_address;
-        //     $query_import->un_brgy = $qry->barangay;
-        //     $query_import->un_municipality = $qry->municipality;
-        //     $query_import->un_province = $qry->province;
+        //     $query_import->un_brgy = $qry->barangay == 'null' ? null : $qry->barangay;
+        //     $query_import->un_municipality = $qry->municipality == 'null' ? null : $qry->municipality;
+        //     $query_import->un_province = $qry->province == 'null' ? null : $qry->province;
         //     $query_import->un_lat = $qry->latitude;
         //     $query_import->un_long = $qry->longitude;
         //     $query_import->un_representative_name = $qry->representative_name;
@@ -91,8 +91,8 @@ class ImportDataController extends Controller
         // ->groupby('a.perm_law')
         // ->groupby('a.universe_FK')
         // ->orderby('a.universe_FK','desc')
-        // ->where('id','>',16000)
-        // ->where('id','<=',17000)
+        // ->where('id','>',15000)
+        // ->where('id','<=',16000)
         // ->where('a.perm_law','!=',null)
         // ->get();
         // foreach($query as $qry){
@@ -116,6 +116,7 @@ class ImportDataController extends Controller
         //     $query_import = new Monitoring();
         //     $query_import->id = $qry->id;
         //     $query_import->mon_law = $qry->law;
+        //     $query_import->mon_or_survey = $qry->monitoring_or_survey;
         //     $query_import->mon_date_monitored = $qry->date_monitored;
         //     $query_import->mon_file = $qry->filename;
         //     $query_import->universe_FK = $qry->FK_universe_id;
@@ -185,5 +186,6 @@ class ImportDataController extends Controller
         //     $query->save();
         //     echo $converted_string.'<br/>';
         // }
+        // return back();
     }
 }
