@@ -121,15 +121,15 @@ export default {
                     ...data,
                     // form_data,
                 });
-                // if(!data.basic.id){
-                //     this.reset_basic_info();
-                // }
-                // this.reset_permit_info();
-                // this.reset_monitoring_info();
-                // this.reset_legal_info();
-                // this.reset_hazwaste_info();
-                // this.reset_pco_info();
-                // this.reset_complaint_info();
+                if(!data.basic.id){
+                    this.reset_basic_info();
+                }
+                this.reset_permit_info();
+                this.reset_monitoring_info();
+                this.reset_legal_info();
+                this.reset_hazwaste_info();
+                this.reset_pco_info();
+                this.reset_complaint_info();
             }
         },
         reset_basic_info() {
