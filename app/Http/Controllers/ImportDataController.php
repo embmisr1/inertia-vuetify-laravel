@@ -11,6 +11,7 @@ use App\Models\Legal;
 use App\Models\Complaint;
 use App\Models\Pco;
 use Illuminate\Support\Facades\DB;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Carbon\Carbon;
 
 class ImportDataController extends Controller
@@ -187,5 +188,98 @@ class ImportDataController extends Controller
         //     echo $converted_string.'<br/>';
         // }
         // return back();
+        // =============================================== MEDIA INSERT MONITORING ===============================================
+        // $query = DB::table('tbl_monitoring')->select('*')->get();
+        // foreach($query as $qry){
+        //     $str = $qry->mon_file;
+        //     $str = str_replace(" ", "", $str);
+        //     $array = explode(",",$str);
+        //     foreach($array as $arr){
+        //         if($arr){
+        //             $query_insert_media = new Media();
+        //             $query_insert_media->model_type = 'App\Models\Monitoring';
+        //             $query_insert_media->model_id = $qry->id;
+        //             $query_insert_media->collection_name = 'monitoring';
+        //             $query_insert_media->name = $arr;
+        //             $query_insert_media->file_name = $arr;
+        //             $query_insert_media->mime_type = 'application/pdf';
+        //             $query_insert_media->disk = 'monitoring';
+        //             $query_insert_media->conversions_disk = 'monitoring';
+        //             $query_insert_media->size = 0;
+        //             $query_insert_media->manipulations = '[]';
+        //             $query_insert_media->custom_properties = '[]';
+        //             $query_insert_media->generated_conversions = '[]';
+        //             $query_insert_media->responsive_images = '[]';
+        //             $query_insert_media->order_column = 0;
+        //             $query_insert_media->save();
+        //             mkdir("../storage/app/public/monitoring/".$query_insert_media->id);
+        //             if(file_exists("../storage/app/old_storage/".$arr)){
+        //                 rename("../storage/app/old_storage/".$arr, "../storage/app/public/monitoring/".$query_insert_media->id."/".$arr);
+        //             }
+        //         }
+        //     }
+        // }
+        // =============================================== MEDIA INSERT PERMITS ===============================================
+        // $query = DB::table('tbl_permit')->select('*')->get();
+        // foreach($query as $qry){
+        //     $str = $qry->perm_file;
+        //     $str = str_replace(" ", "", $str);
+        //     $array = explode(",",$str);
+        //     foreach($array as $arr){
+        //         if($arr){
+        //             $query_insert_media = new Media();
+        //             $query_insert_media->model_type = 'App\Models\Permit';
+        //             $query_insert_media->model_id = $qry->id;
+        //             $query_insert_media->collection_name = 'permits';
+        //             $query_insert_media->name = $arr;
+        //             $query_insert_media->file_name = $arr;
+        //             $query_insert_media->mime_type = 'application/pdf';
+        //             $query_insert_media->disk = 'permits';
+        //             $query_insert_media->conversions_disk = 'permits';
+        //             $query_insert_media->size = 0;
+        //             $query_insert_media->manipulations = '[]';
+        //             $query_insert_media->custom_properties = '[]';
+        //             $query_insert_media->generated_conversions = '[]';
+        //             $query_insert_media->responsive_images = '[]';
+        //             $query_insert_media->order_column = 0;
+        //             $query_insert_media->save();
+        //             mkdir("../storage/app/public/permits/".$query_insert_media->id);
+        //             if(file_exists("../storage/app/old_storage/".$arr)){
+        //                 rename("../storage/app/old_storage/".$arr, "../storage/app/public/permits/".$query_insert_media->id."/".$arr);
+        //             }
+        //         }
+        //     }
+        // }
+        // =============================================== MEDIA INSERT LEGAL ===============================================
+        // $query = DB::table('tbl_legal')->select('*')->get();
+        // foreach($query as $qry){
+        //     $str = $qry->nov_file;
+        //     $str = str_replace(" ", "", $str);
+        //     $array = explode(",",$str);
+        //     foreach($array as $arr){
+        //         if($arr){
+        //             $query_insert_media = new Media();
+        //             $query_insert_media->model_type = 'App\Models\Legal';
+        //             $query_insert_media->model_id = $qry->id;
+        //             $query_insert_media->collection_name = 'legal';
+        //             $query_insert_media->name = $arr;
+        //             $query_insert_media->file_name = $arr;
+        //             $query_insert_media->mime_type = 'application/pdf';
+        //             $query_insert_media->disk = 'legal';
+        //             $query_insert_media->conversions_disk = 'legal';
+        //             $query_insert_media->size = 0;
+        //             $query_insert_media->manipulations = '[]';
+        //             $query_insert_media->custom_properties = '[]';
+        //             $query_insert_media->generated_conversions = '[]';
+        //             $query_insert_media->responsive_images = '[]';
+        //             $query_insert_media->order_column = 0;
+        //             $query_insert_media->save();
+        //             mkdir("../storage/app/public/legal/".$query_insert_media->id);
+        //             if(file_exists("../storage/app/old_storage/".$arr)){
+        //                 rename("../storage/app/old_storage/".$arr, "../storage/app/public/legal/".$query_insert_media->id."/".$arr);
+        //             }
+        //         }
+        //     }
+        // }
     }
 }
