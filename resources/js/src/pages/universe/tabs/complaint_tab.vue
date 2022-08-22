@@ -112,19 +112,27 @@
                 >
                     <template v-slot:item.comp_attached_file="{ item }">
                         <a
+                            v-if="item.comp_attached_file > 0"
                             :href="`/app/attachments?type=complaint&id=${item.id}`"
                             target="_blank"
                         >
                             <v-btn small dark>Download File</v-btn>
                         </a>
+                        <div v-else class="text-xs font-bold italic">
+                            No Attachment Found
+                        </div>
                     </template>
                     <template v-slot:item.comp_action_file="{ item }">
                         <a
+                            v-if="item.comp_action_file > 0"
                             :href="`/app/attachments?type=complaintaction&id=${item.id}`"
                             target="_blank"
                         >
                             <v-btn small dark>Download File</v-btn>
                         </a>
+                        <div v-else class="text-xs font-bold italic">
+                            No Attachment Found
+                        </div>
                     </template>
                     <template v-slot:item.actions="{ item }">
                         <v-icon small class="mr-2" @click="editComplaint(item)">

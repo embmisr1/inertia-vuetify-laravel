@@ -218,11 +218,15 @@
                 >
                     <template v-slot:item.nov_file="{ item }">
                         <a
+                        v-if="item.nov_file > 0"
                             :href="`/app/attachments?type=legal&id=${item.id}`"
                             target="_blank"
                         >
                             <v-btn small dark>Download File</v-btn>
                         </a>
+                        <div v-else class="text-xs font-bold italic">
+                            No Attachment Found
+                        </div>
                     </template>
                     <template v-slot:item.actions="{ item }">
                         <v-icon small class="mr-2" @click="editLegal(item)">

@@ -73,14 +73,13 @@
                         rules="required"
                         v-slot="{ errors }"
                     >
-                    <v-text-field
+                        <v-text-field
                             v-model="form_monitoring_info.mon_date_monitored"
                             type="date"
                             color="purple darken-2"
                             label="Date Monitored"
                             required
                         ></v-text-field>
-
                     </ValidationProvider>
                 </div>
                 <div>
@@ -158,11 +157,15 @@
                 >
                     <template v-slot:item.mon_file="{ item }">
                         <a
+                            v-if="item.mon_file > 0"
                             :href="`/app/attachments?type=monitoring&id=${item.id}`"
                             target="_blank"
                         >
                             <v-btn small dark>Download File</v-btn>
                         </a>
+                        <div v-else class="text-xs font-bold italic">
+                            No Attachment Found
+                        </div>
                     </template>
                     <template v-slot:item.actions="{ item }">
                         <v-icon
