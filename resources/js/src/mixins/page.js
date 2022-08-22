@@ -6,6 +6,7 @@ export default {
         filters: Object,
         flash: Object,
         route: Object,
+        access:Array,
     },
     data() {
         return {

@@ -55,7 +55,7 @@ class User extends Authenticatable
     }
     public function access()
     {
-        return $this->hasMany(UsersAccess::class);
+        return $this->hasOne(UsersAccess::class,"users_FK");
     }
 
     public function scopeOrderByUserName($query)
