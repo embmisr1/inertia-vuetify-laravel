@@ -62,7 +62,7 @@ Route::get('/getip', function (Request $request) {
 Route::post('/', [AuthController::class, 'login'])->name("auth")->middleware("guest");
 
 Route::group([
-    'middleware' => ['auth'],
+    'middleware' => ['auth','handle_user_role'],
     'prefix' => "/app",
 ], function () {
     Route::delete('/', [AuthController::class, 'destroy'])->name("authLogout");

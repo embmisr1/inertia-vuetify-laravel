@@ -51,9 +51,9 @@ class HandleInertiaRequests extends Middleware
                 "back_at_one" => $request->route()->action['prefix']
 
             ]),
-            // 'flash' => [
-            //     'message' => fn () => $request->session()->get('message')
-            // ],
+
+            // Inertia::share('access', fn (Request $request) => $request->user_access->pluck("access_role")),
+            'access' => fn () => $request->user_access->pluck("access_role")
             // 'route' => [
             //     'back_at_one' => fn () => $request->route()->action['prefix']
             // ],

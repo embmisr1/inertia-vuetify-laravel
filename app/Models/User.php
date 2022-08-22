@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use App\Http\Resources\UsersResource;
+use App\Models\USER_ACCESS\UsersAccess;
 
 class User extends Authenticatable
 {
@@ -54,7 +55,7 @@ class User extends Authenticatable
     }
     public function access()
     {
-        return $this->hasMany(Access::class);
+        return $this->hasOne(UsersAccess::class,"users_FK");
     }
 
     public function scopeOrderByUserName($query)
