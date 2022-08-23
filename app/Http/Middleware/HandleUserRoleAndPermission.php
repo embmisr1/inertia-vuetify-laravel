@@ -21,20 +21,18 @@ class HandleUserRoleAndPermission
      */
     public function handle(Request $request, Closure $next)
     {
-        $user = UsersAccess::select("access_role_assigned")->firstOrFail()->where('users_FK', auth()->id())->get();
-        // Cache::forget('useraccessrole');
-        // $useraccessrole_cache = cache("useraccessrole");
+        try {
 
-        // if (!$useraccessrole_cache) {
-        //     $useraccessrole_cache = Cache::rememberForever('useraccessrole', function () {
-        //         return UsersAccessRole::all();
-        //     });
-        //     Log::warning( now() ." UsersAccessRole now Caching from HandleUserRoleAndPermission Middleware");
-        // }
+            $user = UsersAccess::select("access_role_assigned")->firstOrFail()->where('users_FK', auth()->id())->get();
 
-        $access_role_assigned = UsersAccessRole::find(json_decode($user[0]->access_role_assigned, true));
-        $request->user_access = $access_role_assigned;
-        // dd($request->user_access);
-        return $next($request);
+            $access_role_assigned = UsersAccessRole::find(json_decode($user[0]->access_role_assigned, true));
+
+            $request->user_access = $access_role_assigned->pluck("access_role");
+
+            return $next($request);
+        } catch (\Throwable $th) {
+            dd($th);
+            return $th->getMessage();
+        }
     }
 }

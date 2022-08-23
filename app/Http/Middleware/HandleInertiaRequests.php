@@ -52,11 +52,8 @@ class HandleInertiaRequests extends Middleware
 
             ]),
 
-            // Inertia::share('access', fn (Request $request) => $request->user_access->pluck("access_role")),
-            'access' => fn () => $request->user_access->pluck("access_role")
-            // 'route' => [
-            //     'back_at_one' => fn () => $request->route()->action['prefix']
-            // ],
+            // Inertia::share('access', fn (Request $request) {$request->user_access ? $request->user_access->pluck("access_role")) : array()},
+            'access' => fn () => $request->user_access ? $request->user_access : array()
         ]);
     }
 }
