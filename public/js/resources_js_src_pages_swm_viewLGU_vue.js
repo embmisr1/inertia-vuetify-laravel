@@ -2027,7 +2027,8 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     errors: Object,
     filters: Object,
     flash: Object,
-    route: Object
+    route: Object,
+    access: Array
   },
   data: function data() {
     return {

@@ -213,6 +213,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     form_monitoring_info: Object,
@@ -1473,22 +1476,33 @@ var render = function () {
                   fn: function (ref) {
                     var item = ref.item
                     return [
-                      _c(
-                        "a",
-                        {
-                          attrs: {
-                            href:
-                              "/app/attachments?type=monitoring&id=" + item.id,
-                            target: "_blank",
-                          },
-                        },
-                        [
-                          _c("v-btn", { attrs: { small: "", dark: "" } }, [
-                            _vm._v("Download File"),
-                          ]),
-                        ],
-                        1
-                      ),
+                      item.mon_file > 0
+                        ? _c(
+                            "a",
+                            {
+                              attrs: {
+                                href:
+                                  "/app/attachments?type=monitoring&id=" +
+                                  item.id,
+                                target: "_blank",
+                              },
+                            },
+                            [
+                              _c("v-btn", { attrs: { small: "", dark: "" } }, [
+                                _vm._v("Download File"),
+                              ]),
+                            ],
+                            1
+                          )
+                        : _c(
+                            "div",
+                            { staticClass: "text-xs font-bold italic" },
+                            [
+                              _vm._v(
+                                "\n                        No Attachment Found\n                    "
+                              ),
+                            ]
+                          ),
                     ]
                   },
                 },

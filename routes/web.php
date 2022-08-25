@@ -63,6 +63,7 @@ Route::post('/', [AuthController::class, 'login'])->name("auth")->middleware("gu
 
 Route::group([
     'middleware' => ['auth','handle_user_role'],
+    // 'middleware' => ['auth'] ,
     'prefix' => "/app",
 ], function () {
     Route::delete('/', [AuthController::class, 'destroy'])->name("authLogout");

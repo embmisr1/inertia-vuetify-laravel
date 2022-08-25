@@ -1331,6 +1331,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     form_complaint_info: Object,
@@ -1630,6 +1638,10 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+//
+//
+//
+//
 //
 //
 //
@@ -2307,6 +2319,9 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+//
+//
+//
 //
 //
 //
@@ -6971,22 +6986,33 @@ var render = function () {
                   fn: function (ref) {
                     var item = ref.item
                     return [
-                      _c(
-                        "a",
-                        {
-                          attrs: {
-                            href:
-                              "/app/attachments?type=complaint&id=" + item.id,
-                            target: "_blank",
-                          },
-                        },
-                        [
-                          _c("v-btn", { attrs: { small: "", dark: "" } }, [
-                            _vm._v("Download File"),
-                          ]),
-                        ],
-                        1
-                      ),
+                      item.comp_attached_file > 0
+                        ? _c(
+                            "a",
+                            {
+                              attrs: {
+                                href:
+                                  "/app/attachments?type=complaint&id=" +
+                                  item.id,
+                                target: "_blank",
+                              },
+                            },
+                            [
+                              _c("v-btn", { attrs: { small: "", dark: "" } }, [
+                                _vm._v("Download File"),
+                              ]),
+                            ],
+                            1
+                          )
+                        : _c(
+                            "div",
+                            { staticClass: "text-xs font-bold italic" },
+                            [
+                              _vm._v(
+                                "\n                        No Attachment Found\n                    "
+                              ),
+                            ]
+                          ),
                     ]
                   },
                 },
@@ -6995,23 +7021,33 @@ var render = function () {
                   fn: function (ref) {
                     var item = ref.item
                     return [
-                      _c(
-                        "a",
-                        {
-                          attrs: {
-                            href:
-                              "/app/attachments?type=complaintaction&id=" +
-                              item.id,
-                            target: "_blank",
-                          },
-                        },
-                        [
-                          _c("v-btn", { attrs: { small: "", dark: "" } }, [
-                            _vm._v("Download File"),
-                          ]),
-                        ],
-                        1
-                      ),
+                      item.comp_action_file > 0
+                        ? _c(
+                            "a",
+                            {
+                              attrs: {
+                                href:
+                                  "/app/attachments?type=complaintaction&id=" +
+                                  item.id,
+                                target: "_blank",
+                              },
+                            },
+                            [
+                              _c("v-btn", { attrs: { small: "", dark: "" } }, [
+                                _vm._v("Download File"),
+                              ]),
+                            ],
+                            1
+                          )
+                        : _c(
+                            "div",
+                            { staticClass: "text-xs font-bold italic" },
+                            [
+                              _vm._v(
+                                "\n                        No Attachment Found\n                    "
+                              ),
+                            ]
+                          ),
                     ]
                   },
                 },
@@ -7821,21 +7857,32 @@ var render = function () {
                   fn: function (ref) {
                     var item = ref.item
                     return [
-                      _c(
-                        "a",
-                        {
-                          attrs: {
-                            href: "/app/attachments?type=legal&id=" + item.id,
-                            target: "_blank",
-                          },
-                        },
-                        [
-                          _c("v-btn", { attrs: { small: "", dark: "" } }, [
-                            _vm._v("Download File"),
-                          ]),
-                        ],
-                        1
-                      ),
+                      item.nov_file > 0
+                        ? _c(
+                            "a",
+                            {
+                              attrs: {
+                                href:
+                                  "/app/attachments?type=legal&id=" + item.id,
+                                target: "_blank",
+                              },
+                            },
+                            [
+                              _c("v-btn", { attrs: { small: "", dark: "" } }, [
+                                _vm._v("Download File"),
+                              ]),
+                            ],
+                            1
+                          )
+                        : _c(
+                            "div",
+                            { staticClass: "text-xs font-bold italic" },
+                            [
+                              _vm._v(
+                                "\n                        No Attachment Found\n                    "
+                              ),
+                            ]
+                          ),
                     ]
                   },
                 },
@@ -8665,22 +8712,33 @@ var render = function () {
                   fn: function (ref) {
                     var item = ref.item
                     return [
-                      _c(
-                        "a",
-                        {
-                          attrs: {
-                            href:
-                              "/app/attachments?type=monitoring&id=" + item.id,
-                            target: "_blank",
-                          },
-                        },
-                        [
-                          _c("v-btn", { attrs: { small: "", dark: "" } }, [
-                            _vm._v("Download File"),
-                          ]),
-                        ],
-                        1
-                      ),
+                      item.mon_file > 0
+                        ? _c(
+                            "a",
+                            {
+                              attrs: {
+                                href:
+                                  "/app/attachments?type=monitoring&id=" +
+                                  item.id,
+                                target: "_blank",
+                              },
+                            },
+                            [
+                              _c("v-btn", { attrs: { small: "", dark: "" } }, [
+                                _vm._v("Download File"),
+                              ]),
+                            ],
+                            1
+                          )
+                        : _c(
+                            "div",
+                            { staticClass: "text-xs font-bold italic" },
+                            [
+                              _vm._v(
+                                "\n                        No Attachment Found\n                    "
+                              ),
+                            ]
+                          ),
                     ]
                   },
                 },

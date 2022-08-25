@@ -21,7 +21,9 @@ class HandleUserRoleAndPermission
      */
     public function handle(Request $request, Closure $next)
     {
+    try {
         $user = UsersAccess::select("access_role_assigned")->firstOrFail()->where('users_FK', auth()->id())->get();
+        // dd(auth()->id());
         // Cache::forget('useraccessrole');
         // $useraccessrole_cache = cache("useraccessrole");
 
@@ -33,8 +35,12 @@ class HandleUserRoleAndPermission
         // }
 
         $access_role_assigned = UsersAccessRole::find(json_decode($user[0]->access_role_assigned, true));
-        $request->user_access = $access_role_assigned;
+        $request->user_access = $access_role_assigned->pluck("access_role");
+        // $request->user_access = array();
         // dd($request->user_access);
         return $next($request);
+    } catch (\Throwable $th) {
+        return $th->getMessage();
+    }
     }
 }

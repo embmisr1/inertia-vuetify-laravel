@@ -10,6 +10,7 @@ use App\Models\Hazwaste;
 use App\Models\Legal;
 use App\Models\Complaint;
 use App\Models\Pco;
+use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Carbon\Carbon;
@@ -280,6 +281,20 @@ class ImportDataController extends Controller
         //             }
         //         }
         //     }
+        // }
+        // =============================================== IMPORT USER ACCOUNTS ===============================================
+        // $query = DB::table('user_accounts as a')->select('a.*','b.FK_section_ID','b.PK_employee_ID')
+        // ->leftJoin('tbl_employees as b','b.PK_employee_ID','=','a.FK_employee_ID')
+        // ->get();
+        // foreach($query as $qry){
+        //     $query_insert = new User();
+        //     $query_insert->position_id = 1;
+        //     $query_insert->section_id = $qry->FK_section_ID;
+        //     $query_insert->employee_id = $qry->PK_employee_ID;
+        //     $query_insert->username = $qry->email;
+        //     $query_insert->email = $qry->email;
+        //     $query_insert->password = $qry->password;
+        //     $query_insert->save();
         // }
     }
 }
