@@ -282,6 +282,31 @@ class ImportDataController extends Controller
         //         }
         //     }
         // }
+        // =============================================== COUNT PERMITS ===============================================
+        // $query = DB::table('media as a')->select('a.model_id', DB::raw("COUNT(a.model_id) as counter"))
+        // ->where('a.collection_name','legal')
+        // ->groupBy("a.model_id")->get();
+        // foreach($query as $qry){
+        //     $query_count_media = Legal::find($qry->model_id);
+        //     $query_count_media->nov_file = $qry->counter;
+        //     $query_count_media->save();
+        // }
+        // $query = DB::table('media as a')->select('a.model_id', DB::raw("COUNT(a.model_id) as counter"))
+        // ->where('a.collection_name','monitoring')
+        // ->groupBy("a.model_id")->get();
+        // foreach($query as $qry){
+        //     $query_count_media = Monitoring::find($qry->model_id);
+        //     $query_count_media->mon_file = $qry->counter;
+        //     $query_count_media->save();
+        // }
+        // $query = DB::table('media as a')->select('a.model_id', DB::raw("COUNT(a.model_id) as counter"))
+        // ->where('a.collection_name','permits')
+        // ->groupBy("a.model_id")->get();
+        // foreach($query as $qry){
+        //     $query_count_media = Permit::find($qry->model_id);
+        //     $query_count_media->perm_file = $qry->counter;
+        //     $query_count_media->save();
+        // }
         // =============================================== IMPORT USER ACCOUNTS ===============================================
         // $query = DB::table('user_accounts as a')->select('a.*','b.FK_section_ID','b.PK_employee_ID')
         // ->leftJoin('tbl_employees as b','b.PK_employee_ID','=','a.FK_employee_ID')
