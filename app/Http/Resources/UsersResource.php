@@ -19,9 +19,10 @@ class UsersResource extends JsonResource
             "username" => $this->username,
             "email" => $this->email,
             "position" => $this->position->name,
-            "unit_section" => $this->unit_section->name ?? null, 
+            "unit_section" => $this->unit_section->name ?? null,
             "position_id" => $this->position_id,
-            "unit_section_id" => $this->unit_section_id ?? null, 
+            "unit_section_id" => $this->unit_section_id ?? null,
+            "selected_roles" => $this->access ? json_decode($this->access->access_role_assigned,true) : array(),
         ];
     }
 }

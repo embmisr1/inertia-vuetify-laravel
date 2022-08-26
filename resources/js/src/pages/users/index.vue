@@ -102,13 +102,13 @@
                         ></box-icon>
                     </v-btn>
                 </Link>
-                <v-btn
+                <!-- <v-btn
                     icon
                     small
                     color="success"
                     @click="setRoleModal(props.row.id)"
                     ><box-icon name="id-card"></box-icon
-                ></v-btn>
+                ></v-btn> -->
                 <v-btn
                     icon
                     @click="

@@ -16,6 +16,8 @@ use Illuminate\Support\Facades\Redirect;
 use App\Filters\UsersFilter;
 use App\Http\Controllers\USER_CONTROLLER\UsersAccessController;
 use App\Http\Resources\UsersResource;
+use App\Models\USER_ACCESS\UsersAccess;
+use App\Models\USER_ACCESS\UsersAccessRole;
 use App\Models\USER_ACCESS\UsersAccessTemplate;
 use Illuminate\Support\Facades\Cache;
 
@@ -52,6 +54,8 @@ class UsersController extends Controller
         // $access_controller->create();
 
         $query_access_template =  UsersAccessTemplate::all();
+        $query_access_role =  UsersAccessRole::all();
+
         return Inertia::render("pages/users/create", [
             'data' => array(
                 "position" =>  Cache::remember('position_all', 60, function () {
@@ -60,8 +64,9 @@ class UsersController extends Controller
                 "unit_section" =>  Cache::remember('unit_section_all', 60, function () {
                     return  UnitSection::select('id', 'name')->get();
                 }),
-                "user"=>array("data"=>null),
-                "query_access_template"=>$query_access_template
+                "user" => array("data" => null),
+                "query_access_template" => $query_access_template,
+                "query_access_role" => $query_access_role,
             )
         ]);
     }
@@ -74,12 +79,20 @@ class UsersController extends Controller
      */
     public function store(UsersRequest $request)
     {
-        $input = $request->validated();
-        $input['password'] = Hash::make($request->password);
+        try {
 
-        User::create($input);
-
-        return Redirect::route('users');
+            $input = $request->validated();
+            $input['password'] = Hash::make(env("DEFAULT_USER_PASSWORD"));
+            $user = User::create($input);
+            $assign_role = new UsersAccess();
+            $assign_role->access_role_assigned = json_encode($request->selected_roles);
+            $assign_role->users_FK = $user->id;
+            $assign_role->save();
+            return redirect()->route("users")->with("message", "User Created");
+        } catch (\Throwable $th) {
+            dd($th->getMessage());
+            return back()->withErrors(["error_message" => "Form Error"]);
+        }
     }
 
     /**
@@ -99,8 +112,11 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit( User $user)
+    public function edit(User $user)
     {
+
+        $query_access_template =  UsersAccessTemplate::all();
+        $query_access_role =  UsersAccessRole::all();
         return Inertia::render("pages/users/create", [
             'data' => array(
                 "position" =>  Cache::remember('position_all', 60, function () {
@@ -109,7 +125,9 @@ class UsersController extends Controller
                 "unit_section" =>  Cache::remember('unit_section_all', 60, function () {
                     return  UnitSection::select('id', 'name')->get();
                 }),
-                "user"=> new UsersResource($user)
+                "user" => new UsersResource($user),
+                "query_access_template" => $query_access_template,
+                "query_access_role" => $query_access_role,
             )
         ]);
     }
@@ -125,6 +143,10 @@ class UsersController extends Controller
     {
         $input = $request->validated();
         $user->update($input);
+        $assign_role = new UsersAccess();
+        $assign_role->access_role_assigned = json_encode($request->selected_roles);
+        $assign_role->users_FK = $user->id;
+        $assign_role->save();
         return Redirect::back()->with('success', 'User Updated Successfully.');
     }
 

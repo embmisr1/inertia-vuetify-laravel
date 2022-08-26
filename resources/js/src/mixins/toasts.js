@@ -4,7 +4,7 @@ export default {
             this.$buefy.toast.open({
                  message,
                 type: "is-success",
-                position:"is-top-right",
+                position:"is-bottom-right",
                 queue:false,
             });
         },
@@ -12,7 +12,7 @@ export default {
           this.$buefy.toast.open({
               message,
               type: "is-danger",
-              position:"is-top-right",
+              position:"is-top",
               queue:false,
           });
       },

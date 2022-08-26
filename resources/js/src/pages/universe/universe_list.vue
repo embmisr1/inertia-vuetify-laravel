@@ -18,6 +18,7 @@
                     :loading="loading"
                     paginated
                     backend-pagination
+                    @page-change="onPageChange"
                 >
                     <b-table-column
                         field="un_firmname"
