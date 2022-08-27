@@ -26,6 +26,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Request as FacadeRequest;
 use App\Exports\UniverseExport;
+use App\Exports\UniverseExport3;
 use Maatwebsite\Excel\Facades\Excel;
 use Carbon\Carbon;
 
@@ -169,7 +170,7 @@ class UniverseController extends Controller
                 $query->where('a.un_status', 'like', '%' . request("un_status") . '%');
             })
             ->paginate(10);
-// dd($request->user_access);
+        // dd($request->user_access);
         return Inertia::render("pages/universe/universe_list", [
             "filter" => [
                 'PK_province_ID' => request('PK_province_ID'),
@@ -366,18 +367,18 @@ class UniverseController extends Controller
     {
         try {
             $universe_id = $this->basic_process_create($request);
-            if( in_array('CPD EDIT', $request->user_access) ){
+            if (in_array('CPD EDIT', $request->user_access)) {
                 $this->permit_process_create($request, $universe_id);
                 $this->pco_process_create($request, $universe_id);
             }
-            if( in_array('EMED EDIT', $request->user_access) ){
+            if (in_array('EMED EDIT', $request->user_access)) {
                 $this->monitoring_process_create($request, $universe_id);
             }
-            if( in_array('LEGAL EDIT', $request->user_access) ){
+            if (in_array('LEGAL EDIT', $request->user_access)) {
                 $this->legal_process_create($request, $universe_id);
                 $this->complaint_process_create($request, $universe_id);
             }
-            if( in_array('CPD EDIT', $request->user_access) || in_array('EMED EDIT', $request->user_access) ){
+            if (in_array('CPD EDIT', $request->user_access) || in_array('EMED EDIT', $request->user_access)) {
                 $this->hazwaste_process_create($request, $universe_id);
             }
             return $universe_id;
@@ -548,6 +549,24 @@ class UniverseController extends Controller
 
     public function export()
     {
-        return Excel::download(new UniverseExport, 'universe.xlsx');
+        $filters = FacadeRequest::all(
+            'PK_province_ID',
+            'PK_citymun_ID',
+            'PK_brgy_ID',
+            "selectedSearchCategory",
+            "searchStatus",
+            "searchType",
+            "search1586",
+            "search8749",
+            "search9275",
+            "search6969",
+            "search9003",
+            "un_firmname",
+            "un_crs_number",
+            "un_proponent",
+            "un_status",
+        );
+        return (new UniverseExport3($filters))->download('universe.xlsx', \Maatwebsite\Excel\Excel::XLSX);
+        // return Excel::download(new UniverseExport, 'universe.xlsx');
     }
 }
