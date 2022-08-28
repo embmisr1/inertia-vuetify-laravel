@@ -24,12 +24,12 @@ class UnitSectionController extends Controller
     public function index()
     {
         return  Inertia::render("pages/unit_section/",[
-            'filters' => Request::all('name', 'id','division'),
+            'filters' => Request::all('name','division'),
             "unit_section_data"=> UnitSectionResource::collection((new UnitSectionFilter)->get()),
             "division_data"=>  Cache::remember('division_all', 60, function () {
                 return DivisionResource::collection((new  DivisionFilter )->get());
             }),
-            
+
         ]);
     }
 

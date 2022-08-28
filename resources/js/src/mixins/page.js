@@ -103,7 +103,6 @@ export default {
             if (Object.keys(data).length > 1) this.error("Form Error");
         },
         successMessage(data) {
-            console.log(data);
             if (data.message) this.success(data.message);
         },
     },

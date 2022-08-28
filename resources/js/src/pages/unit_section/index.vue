@@ -37,26 +37,6 @@
                     Add Unit Section
                 </v-btn>
             </template>
-            <b-table-column
-                field="id"
-                label="ID"
-                width="70"
-                sortable
-                numeric
-                searchable
-            >
-                <template #searchable="props">
-                    <b-input
-                        v-model="filters.id"
-                        placeholder="Search..."
-                        icon="magnify"
-                        size="is-small"
-                    />
-                </template>
-                <template v-slot="props">
-                    {{ props.row.id }}
-                </template>
-            </b-table-column>
 
             <b-table-column field="name" label="Name" searchable>
                 <template #searchable="props">
@@ -138,6 +118,15 @@ export default {
                 division_id: "",
             },
         };
+    },
+    methods: {
+        get: _.debounce(async function (params) {
+            try {
+                await this.$inertia.get("/app/unit_section", { ...params });
+            } catch (error) {
+                this.error(error.response.data.message)
+            }
+        }, 1500),
     },
 };
 </script>

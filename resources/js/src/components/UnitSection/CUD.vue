@@ -48,6 +48,8 @@
                                     prepend-icon="mdi-account-details"
                                     label="Select Division"
                                     :error-messages="errors[0]"
+                                    item-text="name"
+                                    item-value="id"
                                     clearable
                                 ></v-select>
                             </ValidationProvider>
