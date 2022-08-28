@@ -169,7 +169,6 @@ class UniverseController extends Controller
                 $query->where('a.un_status', 'like', '%' . request("un_status") . '%');
             })
             ->paginate(10);
-// dd($request->user_access);
         return Inertia::render("pages/universe/universe_list", [
             "filter" => [
                 'PK_province_ID' => request('PK_province_ID'),
@@ -366,18 +365,19 @@ class UniverseController extends Controller
     {
         try {
             $universe_id = $this->basic_process_create($request);
-            if( in_array('CPD EDIT', $request->user_access) ){
+            $user_access = $request->user_access->toArray();
+            if( in_array('CPD EDIT', $user_access) ){
                 $this->permit_process_create($request, $universe_id);
                 $this->pco_process_create($request, $universe_id);
             }
-            if( in_array('EMED EDIT', $request->user_access) ){
+            if( in_array('EMED EDIT', $user_access) ){
                 $this->monitoring_process_create($request, $universe_id);
             }
-            if( in_array('LEGAL EDIT', $request->user_access) ){
+            if( in_array('LEGAL EDIT', $user_access) ){
                 $this->legal_process_create($request, $universe_id);
                 $this->complaint_process_create($request, $universe_id);
             }
-            if( in_array('CPD EDIT', $request->user_access) || in_array('EMED EDIT', $request->user_access) ){
+            if( in_array('CPD EDIT', $user_access) || in_array('EMED EDIT', $user_access) ){
                 $this->hazwaste_process_create($request, $universe_id);
             }
             return $universe_id;
@@ -390,18 +390,19 @@ class UniverseController extends Controller
     {
         try {
             $universe_id = $this->basic_process_update($request);
-            if( in_array('CPD EDIT', $request->user_access) ){
+            $user_access = $request->user_access->toArray();
+            if( in_array('CPD EDIT', $user_access) ){
                 $this->permit_process_update($request, $universe_id);
                 $this->pco_process_update($request, $universe_id);
             }
-            if( in_array('EMED EDIT', $request->user_access) ){
+            if( in_array('EMED EDIT', $user_access) ){
                 $this->monitoring_process_update($request, $universe_id);
             }
-            if( in_array('LEGAL EDIT', $request->user_access) ){
+            if( in_array('LEGAL EDIT', $user_access) ){
                 $this->legal_process_update($request, $universe_id);
                 $this->complaint_process_update($request, $universe_id);
             }
-            if( in_array('CPD EDIT', $request->user_access) || in_array('EMED EDIT', $request->user_access) ){
+            if( in_array('CPD EDIT', $user_access) || in_array('EMED EDIT', $user_access) ){
                 $this->hazwaste_process_update($request, $universe_id);
             }
             return $universe_id;
