@@ -1065,6 +1065,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       if (Object.keys(data).length > 1) this.error("Form Error");
     },
     successMessage: function successMessage(data) {
+      console.log(data);
       if (data.message) this.success(data.message);
     }
   }
