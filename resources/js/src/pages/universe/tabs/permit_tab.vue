@@ -326,6 +326,7 @@ export default {
             this.form_permit_info.perm_law = item.perm_law;
             this.form_permit_info.perm_number = item.perm_number;
             this.form_permit_info.perm_status = item.perm_status;
+            this.form_permit_info.perm_file = [];
             this.addFileForm = true;
         },
         async deletePermit(item) {
@@ -343,6 +344,7 @@ export default {
             this.form_permit_info.perm_law = null;
             this.form_permit_info.perm_number = null;
             this.form_permit_info.perm_status = null;
+            this.form_permit_info.perm_file = [];
         },
         addFile() {
             this.addFileForm = true;

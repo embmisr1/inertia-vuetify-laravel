@@ -18,7 +18,7 @@ __webpack_require__.r(__webpack_exports__);
       this.$buefy.toast.open({
         message: message,
         type: "is-success",
-        position: "is-top-right",
+        position: "is-bottom-right",
         queue: false
       });
     },
@@ -27,7 +27,7 @@ __webpack_require__.r(__webpack_exports__);
       this.$buefy.toast.open({
         message: message,
         type: "is-danger",
-        position: "is-top-right",
+        position: "is-top",
         queue: false
       });
     },

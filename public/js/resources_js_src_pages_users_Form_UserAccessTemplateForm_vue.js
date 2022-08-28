@@ -1176,6 +1176,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       if (Object.keys(data).length > 1) this.error("Form Error");
     },
     successMessage: function successMessage(data) {
+      console.log(data);
       if (data.message) this.success(data.message);
     }
   }
@@ -2981,7 +2982,7 @@ __webpack_require__.r(__webpack_exports__);
       this.$buefy.toast.open({
         message: message,
         type: "is-success",
-        position: "is-top-right",
+        position: "is-bottom-right",
         queue: false
       });
     },
@@ -2990,7 +2991,7 @@ __webpack_require__.r(__webpack_exports__);
       this.$buefy.toast.open({
         message: message,
         type: "is-danger",
-        position: "is-top-right",
+        position: "is-top",
         queue: false
       });
     },

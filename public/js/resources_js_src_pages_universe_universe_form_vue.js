@@ -3240,6 +3240,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.form_permit_info.perm_law = item.perm_law;
       this.form_permit_info.perm_number = item.perm_number;
       this.form_permit_info.perm_status = item.perm_status;
+      this.form_permit_info.perm_file = [];
       this.addFileForm = true;
     },
     deletePermit: function deletePermit(item) {
@@ -3275,6 +3276,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.form_permit_info.perm_law = null;
       this.form_permit_info.perm_number = null;
       this.form_permit_info.perm_status = null;
+      this.form_permit_info.perm_file = [];
     },
     addFile: function addFile() {
       this.addFileForm = true;
