@@ -26,6 +26,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Request as FacadeRequest;
 use App\Exports\UniverseExport;
+use App\Exports\UniverseExport3;
 use Maatwebsite\Excel\Facades\Excel;
 use Carbon\Carbon;
 
@@ -557,6 +558,24 @@ class UniverseController extends Controller
 
     public function export()
     {
-        return Excel::download(new UniverseExport, 'universe.xlsx');
+        $filters = FacadeRequest::all(
+            'PK_province_ID',
+            'PK_citymun_ID',
+            'PK_brgy_ID',
+            "selectedSearchCategory",
+            "searchStatus",
+            "searchType",
+            "search1586",
+            "search8749",
+            "search9275",
+            "search6969",
+            "search9003",
+            "un_firmname",
+            "un_crs_number",
+            "un_proponent",
+            "un_status",
+        );
+        return (new UniverseExport3($filters))->download('universe.xlsx', \Maatwebsite\Excel\Excel::XLSX);
+        // return Excel::download(new UniverseExport, 'universe.xlsx');
     }
 }
