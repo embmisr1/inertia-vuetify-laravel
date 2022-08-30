@@ -3593,6 +3593,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -3767,9 +3778,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
   watch: {
     addFileForm: function addFileForm(value) {
-      if (!this.has_permit) {
-        if (this.has_hazwaste) {
-          this.form_permit_info.perm_law = "RA 6969";
+      if (!value) {
+        if (!this.has_permit) {
+          if (this.has_hazwaste) {
+            this.form_permit_info.perm_law = "RA 6969";
+          }
         }
       }
     }
@@ -30623,7 +30636,9 @@ var render = function () {
                   "div",
                   { staticClass: "text-center" },
                   [
-                    _vm.has_permit || _vm.has_hazwaste
+                    _vm.has_permit ||
+                    (_vm.has_hazwaste &&
+                      _vm.form_permit_info.perm_law === "RA 6969")
                       ? _c(
                           "v-btn",
                           {
@@ -30637,21 +30652,19 @@ var render = function () {
                             _c(
                               "v-icon",
                               { staticClass: "mr-2", attrs: { small: "" } },
-                              [
-                                _vm._v(
-                                  "\n                            mdi-content-save\n                        "
-                                ),
-                              ]
+                              [_vm._v(" mdi-content-save ")]
                             ),
                             _vm._v(
-                              "\n                        Submit\n                    "
+                              "\n                    Submit\n                "
                             ),
                           ],
                           1
                         )
                       : _vm._e(),
                     _vm._v(" "),
-                    _vm.has_permit || _vm.has_hazwaste
+                    _vm.has_permit ||
+                    (_vm.has_hazwaste &&
+                      _vm.form_permit_info.perm_law === "RA 6969")
                       ? _c(
                           "v-btn",
                           {
@@ -30669,7 +30682,7 @@ var render = function () {
                               [_vm._v(" mdi-autorenew ")]
                             ),
                             _vm._v(
-                              "\n                        Reset\n                    "
+                              "\n                    Reset\n                "
                             ),
                           ],
                           1
