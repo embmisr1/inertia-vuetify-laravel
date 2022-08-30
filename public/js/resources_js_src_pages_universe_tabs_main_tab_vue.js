@@ -1066,7 +1066,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     form_hazwaste_info: Object,
-    hazwaste_table: Array
+    hazwaste_table: Array,
+    has_permit: Boolean
   },
   data: function data() {
     return {
@@ -1161,7 +1162,6 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-//
 //
 //
 //
@@ -1763,7 +1763,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 
 
@@ -1943,7 +1942,6 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-//
 //
 //
 //
@@ -2420,7 +2418,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     form_pco_info: Object,
@@ -2556,7 +2553,6 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-//
 //
 //
 //
@@ -25103,52 +25099,46 @@ var render = function () {
               [
                 _vm.has_permit
                   ? _c(
-                      "div",
+                      "v-btn",
+                      {
+                        attrs: {
+                          depressed: "",
+                          color: "primary",
+                          type: "submit",
+                        },
+                      },
                       [
                         _c(
-                          "v-btn",
-                          {
-                            attrs: {
-                              depressed: "",
-                              color: "primary",
-                              type: "submit",
-                            },
-                          },
-                          [
-                            _c(
-                              "v-icon",
-                              { staticClass: "mr-2", attrs: { small: "" } },
-                              [_vm._v(" mdi-content-save ")]
-                            ),
-                            _vm._v(
-                              "\n                    Submit\n                "
-                            ),
-                          ],
-                          1
+                          "v-icon",
+                          { staticClass: "mr-2", attrs: { small: "" } },
+                          [_vm._v(" mdi-content-save ")]
                         ),
-                        _vm._v(" "),
+                        _vm._v(
+                          "\n                    Submit\n                "
+                        ),
+                      ],
+                      1
+                    )
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.has_permit
+                  ? _c(
+                      "v-btn",
+                      {
+                        attrs: {
+                          depressed: "",
+                          color: "warning",
+                          type: "button",
+                        },
+                        on: { click: _vm.resetComplaint },
+                      },
+                      [
                         _c(
-                          "v-btn",
-                          {
-                            attrs: {
-                              depressed: "",
-                              color: "warning",
-                              type: "button",
-                            },
-                            on: { click: _vm.resetComplaint },
-                          },
-                          [
-                            _c(
-                              "v-icon",
-                              { staticClass: "mr-2", attrs: { small: "" } },
-                              [_vm._v(" mdi-autorenew ")]
-                            ),
-                            _vm._v(
-                              "\n                    Reset\n                "
-                            ),
-                          ],
-                          1
+                          "v-icon",
+                          { staticClass: "mr-2", attrs: { small: "" } },
+                          [_vm._v(" mdi-autorenew ")]
                         ),
+                        _vm._v("\n                    Reset\n                "),
                       ],
                       1
                     )
@@ -25544,50 +25534,56 @@ var render = function () {
                 items: _vm.hazwaste_table,
                 "item-key": "hazwaste_tables",
               },
-              scopedSlots: _vm._u([
-                {
-                  key: "item.actions",
-                  fn: function (ref) {
-                    var item = ref.item
-                    return [
-                      _c(
-                        "v-icon",
-                        {
-                          staticClass: "mr-2",
-                          attrs: { small: "" },
-                          on: {
-                            click: function ($event) {
-                              return _vm.editHazwaste(item)
-                            },
-                          },
+              scopedSlots: _vm._u(
+                [
+                  _vm.has_permit
+                    ? {
+                        key: "item.actions",
+                        fn: function (ref) {
+                          var item = ref.item
+                          return [
+                            _c(
+                              "v-icon",
+                              {
+                                staticClass: "mr-2",
+                                attrs: { small: "" },
+                                on: {
+                                  click: function ($event) {
+                                    return _vm.editHazwaste(item)
+                                  },
+                                },
+                              },
+                              [
+                                _vm._v(
+                                  "\n                        mdi-pencil\n                    "
+                                ),
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "v-icon",
+                              {
+                                attrs: { small: "" },
+                                on: {
+                                  click: function ($event) {
+                                    return _vm.deleteHazwaste(item)
+                                  },
+                                },
+                              },
+                              [
+                                _vm._v(
+                                  "\n                        mdi-delete\n                    "
+                                ),
+                              ]
+                            ),
+                          ]
                         },
-                        [
-                          _vm._v(
-                            "\n                        mdi-pencil\n                    "
-                          ),
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "v-icon",
-                        {
-                          attrs: { small: "" },
-                          on: {
-                            click: function ($event) {
-                              return _vm.deleteHazwaste(item)
-                            },
-                          },
-                        },
-                        [
-                          _vm._v(
-                            "\n                        mdi-delete\n                    "
-                          ),
-                        ]
-                      ),
-                    ]
-                  },
-                },
-              ]),
+                      }
+                    : null,
+                ],
+                null,
+                true
+              ),
             }),
           ],
           1
@@ -26032,48 +26028,44 @@ var render = function () {
               [
                 _vm.has_permit
                   ? _c(
-                      "div",
+                      "v-btn",
+                      {
+                        attrs: {
+                          depressed: "",
+                          color: "primary",
+                          type: "submit",
+                        },
+                      },
                       [
                         _c(
-                          "v-btn",
-                          {
-                            attrs: {
-                              depressed: "",
-                              color: "primary",
-                              type: "submit",
-                            },
-                          },
-                          [
-                            _c(
-                              "v-icon",
-                              { staticClass: "mr-2", attrs: { small: "" } },
-                              [_vm._v(" mdi-content-save ")]
-                            ),
-                            _vm._v("\n                Submit\n            "),
-                          ],
-                          1
+                          "v-icon",
+                          { staticClass: "mr-2", attrs: { small: "" } },
+                          [_vm._v(" mdi-content-save ")]
                         ),
-                        _vm._v(" "),
+                        _vm._v("\n                Submit\n            "),
+                      ],
+                      1
+                    )
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.has_permit
+                  ? _c(
+                      "v-btn",
+                      {
+                        attrs: {
+                          depressed: "",
+                          color: "warning",
+                          type: "button",
+                        },
+                        on: { click: _vm.resetLegal },
+                      },
+                      [
                         _c(
-                          "v-btn",
-                          {
-                            attrs: {
-                              depressed: "",
-                              color: "warning",
-                              type: "button",
-                            },
-                            on: { click: _vm.resetLegal },
-                          },
-                          [
-                            _c(
-                              "v-icon",
-                              { staticClass: "mr-2", attrs: { small: "" } },
-                              [_vm._v(" mdi-autorenew ")]
-                            ),
-                            _vm._v("\n                Reset\n            "),
-                          ],
-                          1
+                          "v-icon",
+                          { staticClass: "mr-2", attrs: { small: "" } },
+                          [_vm._v(" mdi-autorenew ")]
                         ),
+                        _vm._v("\n                Reset\n            "),
                       ],
                       1
                     )
@@ -26298,7 +26290,6 @@ var render = function () {
       },
     },
     [
-      _vm._v("\n    " + _vm._s(_vm.access) + "\n    "),
       _c("div", { staticClass: "grid grid-cols-1 gap-4 mt-5 mb-5" }, [
         _vm.ctr_file
           ? _c(
@@ -26953,52 +26944,46 @@ var render = function () {
               [
                 _vm.has_permit
                   ? _c(
-                      "div",
+                      "v-btn",
+                      {
+                        attrs: {
+                          depressed: "",
+                          color: "primary",
+                          type: "submit",
+                        },
+                      },
                       [
                         _c(
-                          "v-btn",
-                          {
-                            attrs: {
-                              depressed: "",
-                              color: "primary",
-                              type: "submit",
-                            },
-                          },
-                          [
-                            _c(
-                              "v-icon",
-                              { staticClass: "mr-2", attrs: { small: "" } },
-                              [_vm._v(" mdi-content-save ")]
-                            ),
-                            _vm._v(
-                              "\n                    Submit\n                "
-                            ),
-                          ],
-                          1
+                          "v-icon",
+                          { staticClass: "mr-2", attrs: { small: "" } },
+                          [_vm._v(" mdi-content-save ")]
                         ),
-                        _vm._v(" "),
+                        _vm._v(
+                          "\n                    Submit\n                "
+                        ),
+                      ],
+                      1
+                    )
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.has_permit
+                  ? _c(
+                      "v-btn",
+                      {
+                        attrs: {
+                          depressed: "",
+                          color: "warning",
+                          type: "button",
+                        },
+                        on: { click: _vm.resetMonitoring },
+                      },
+                      [
                         _c(
-                          "v-btn",
-                          {
-                            attrs: {
-                              depressed: "",
-                              color: "warning",
-                              type: "button",
-                            },
-                            on: { click: _vm.resetMonitoring },
-                          },
-                          [
-                            _c(
-                              "v-icon",
-                              { staticClass: "mr-2", attrs: { small: "" } },
-                              [_vm._v(" mdi-autorenew ")]
-                            ),
-                            _vm._v(
-                              "\n                    Reset\n                "
-                            ),
-                          ],
-                          1
+                          "v-icon",
+                          { staticClass: "mr-2", attrs: { small: "" } },
+                          [_vm._v(" mdi-autorenew ")]
                         ),
+                        _vm._v("\n                    Reset\n                "),
                       ],
                       1
                     )
@@ -27526,48 +27511,44 @@ var render = function () {
               [
                 _vm.has_permit
                   ? _c(
-                      "div",
+                      "v-btn",
+                      {
+                        attrs: {
+                          depressed: "",
+                          color: "primary",
+                          type: "submit",
+                        },
+                      },
                       [
                         _c(
-                          "v-btn",
-                          {
-                            attrs: {
-                              depressed: "",
-                              color: "primary",
-                              type: "submit",
-                            },
-                          },
-                          [
-                            _c(
-                              "v-icon",
-                              { staticClass: "mr-2", attrs: { small: "" } },
-                              [_vm._v(" mdi-content-save ")]
-                            ),
-                            _vm._v("\n                Submit\n            "),
-                          ],
-                          1
+                          "v-icon",
+                          { staticClass: "mr-2", attrs: { small: "" } },
+                          [_vm._v(" mdi-content-save ")]
                         ),
-                        _vm._v(" "),
+                        _vm._v("\n                Submit\n            "),
+                      ],
+                      1
+                    )
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.has_permit
+                  ? _c(
+                      "v-btn",
+                      {
+                        attrs: {
+                          depressed: "",
+                          color: "warning",
+                          type: "button",
+                        },
+                        on: { click: _vm.resetPco },
+                      },
+                      [
                         _c(
-                          "v-btn",
-                          {
-                            attrs: {
-                              depressed: "",
-                              color: "warning",
-                              type: "button",
-                            },
-                            on: { click: _vm.resetPco },
-                          },
-                          [
-                            _c(
-                              "v-icon",
-                              { staticClass: "mr-2", attrs: { small: "" } },
-                              [_vm._v(" mdi-autorenew ")]
-                            ),
-                            _vm._v("\n                Reset\n            "),
-                          ],
-                          1
+                          "v-icon",
+                          { staticClass: "mr-2", attrs: { small: "" } },
+                          [_vm._v(" mdi-autorenew ")]
                         ),
+                        _vm._v("\n                Reset\n            "),
                       ],
                       1
                     )
@@ -28085,55 +28066,51 @@ var render = function () {
                   [
                     _vm.has_permit || _vm.has_hazwaste
                       ? _c(
-                          "div",
+                          "v-btn",
+                          {
+                            attrs: {
+                              depressed: "",
+                              color: "primary",
+                              type: "submit",
+                            },
+                          },
                           [
                             _c(
-                              "v-btn",
-                              {
-                                attrs: {
-                                  depressed: "",
-                                  color: "primary",
-                                  type: "submit",
-                                },
-                              },
+                              "v-icon",
+                              { staticClass: "mr-2", attrs: { small: "" } },
                               [
-                                _c(
-                                  "v-icon",
-                                  { staticClass: "mr-2", attrs: { small: "" } },
-                                  [
-                                    _vm._v(
-                                      "\n                            mdi-content-save\n                        "
-                                    ),
-                                  ]
-                                ),
                                 _vm._v(
-                                  "\n                        Submit\n                    "
+                                  "\n                            mdi-content-save\n                        "
                                 ),
-                              ],
-                              1
+                              ]
                             ),
-                            _vm._v(" "),
+                            _vm._v(
+                              "\n                        Submit\n                    "
+                            ),
+                          ],
+                          1
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.has_permit || _vm.has_hazwaste
+                      ? _c(
+                          "v-btn",
+                          {
+                            attrs: {
+                              depressed: "",
+                              color: "warning",
+                              type: "button",
+                            },
+                            on: { click: _vm.resetPermit },
+                          },
+                          [
                             _c(
-                              "v-btn",
-                              {
-                                attrs: {
-                                  depressed: "",
-                                  color: "warning",
-                                  type: "button",
-                                },
-                                on: { click: _vm.resetPermit },
-                              },
-                              [
-                                _c(
-                                  "v-icon",
-                                  { staticClass: "mr-2", attrs: { small: "" } },
-                                  [_vm._v(" mdi-autorenew ")]
-                                ),
-                                _vm._v(
-                                  "\n                        Reset\n                    "
-                                ),
-                              ],
-                              1
+                              "v-icon",
+                              { staticClass: "mr-2", attrs: { small: "" } },
+                              [_vm._v(" mdi-autorenew ")]
+                            ),
+                            _vm._v(
+                              "\n                        Reset\n                    "
                             ),
                           ],
                           1
