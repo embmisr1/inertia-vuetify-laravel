@@ -25,9 +25,9 @@ class UpdateUsersRequest extends FormRequest
     {
         return [
             "username"=>"required|string",
-            "email"=>"required|nullable|string|email",
-            "position_id"=>"required|numeric|exists:App\Models\Position,id",
-            "unit_section_id"=>"required|numeric|exists:App\Models\UnitSection,id",
+            // "email"=>"required|nullable|string|email",
+            // "position_id"=>"required|numeric|exists:App\Models\Position,id",
+            // "unit_section_id"=>"required|numeric|exists:App\Models\UnitSection,id",
             "selected_roles"=>"required|array"
         ];
     }
