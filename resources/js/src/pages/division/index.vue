@@ -1,5 +1,5 @@
 <template>
-    <DefaultLayout>
+    <DefaultLayout :access="access">
         <b-table
             :data="division_data.data"
             paginated

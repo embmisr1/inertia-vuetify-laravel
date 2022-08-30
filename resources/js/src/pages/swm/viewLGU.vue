@@ -1,5 +1,5 @@
 <template>
-    <DefaultLayout>
+    <DefaultLayout :access="access">
         <v-toolbar flat dark>
             <v-toolbar-title>User Profile </v-toolbar-title>
         </v-toolbar>

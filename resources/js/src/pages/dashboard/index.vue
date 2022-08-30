@@ -1,5 +1,5 @@
 <template>
-    <DefaultLayout>
+    <DefaultLayout :access="access">
         <b-table
             :data="data"
             paginated
@@ -42,7 +42,9 @@
 
 <script>
 import DefaultLayout from "../../layouts/default.vue";
+import {page} from '../../mixins'
 export default {
+    mixins:[page],
     components: {
         DefaultLayout,
     },

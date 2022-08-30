@@ -197,6 +197,7 @@
                 </v-btn>
             </div>
         </div>
+        <div v-if="has_permit">
         <v-btn
             v-if="!addFileForm"
             depressed
@@ -207,6 +208,7 @@
             <v-icon small class="mr-2"> mdi-plus-circle </v-icon>
             Add File
         </v-btn>
+        </div>
         <template>
             <v-card elevation="2" class="mt-5">
                 <v-data-table
@@ -228,7 +230,7 @@
                             No Attachment Found
                         </div>
                     </template>
-                    <template v-slot:item.actions="{ item }">
+                    <template v-slot:item.actions="{ item }" v-if="has_permit">
                         <v-icon small class="mr-2" @click="editLegal(item)">
                             mdi-pencil
                         </v-icon>
@@ -247,6 +249,8 @@ export default {
         form_legal_info: Object,
         legal_table: Array,
         laws: Array,
+
+        has_permit: Boolean,
     },
     data: () => ({
         headers: [

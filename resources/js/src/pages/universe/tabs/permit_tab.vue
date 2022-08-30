@@ -70,7 +70,7 @@
                             v-slot="{ errors }"
                         >
                             <v-text-field
-                            :error-messages="errors[0]"
+                                :error-messages="errors[0]"
                                 v-model="form_permit_info.perm_date_issuance"
                                 type="date"
                                 color="purple darken-2"
@@ -156,16 +156,18 @@
                     </v-btn>
                 </div>
             </div>
-            <v-btn
-                v-if="!addFileForm"
-                depressed
-                color="success"
-                type="button"
-                @click="addFile"
-            >
-                <v-icon small class="mr-2"> mdi-plus-circle </v-icon>
-                Add File
-            </v-btn>
+            <div v-if="has_permit">
+                <v-btn
+                    v-if="!addFileForm"
+                    depressed
+                    color="success"
+                    type="button"
+                    @click="addFile"
+                >
+                    <v-icon small class="mr-2"> mdi-plus-circle </v-icon>
+                    Add File
+                </v-btn>
+            </div>
             <template>
                 <v-card elevation="2" class="mt-5">
                     <v-data-table
@@ -187,7 +189,7 @@
                                 No Attachment Found
                             </div>
                         </template>
-                        <template v-slot:item.actions="{ item }">
+                        <template v-slot:item.actions="{ item }" v-if="has_permit">
                             <v-icon
                                 small
                                 class="mr-2"
@@ -223,6 +225,7 @@ export default {
     props: {
         form_permit_info: Object,
         permit_table: Array,
+        has_permit: Boolean,
     },
     components: {
         vueDropzone: vue2Dropzone,

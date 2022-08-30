@@ -1,5 +1,5 @@
 <template>
-    <DefaultLayout>
+    <DefaultLayout :access="access">
         <Link href="/app/users/create" as="button">
             <v-btn elevation="10" link small>
                 <box-icon

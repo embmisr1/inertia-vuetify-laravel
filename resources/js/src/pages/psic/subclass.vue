@@ -1,5 +1,5 @@
 <template>
-    <DefaultLayout>
+    <DefaultLayout :access="access">
         <v-btn elevation="10" small @click="subClassModal.active = true">
             <box-icon
                 name="plus"

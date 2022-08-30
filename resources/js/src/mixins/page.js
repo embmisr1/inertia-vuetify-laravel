@@ -6,7 +6,7 @@ export default {
         filters: Object,
         flash: Object,
         route: Object,
-        access:Array,
+        access: Array,
     },
     data() {
         return {
@@ -15,6 +15,24 @@ export default {
         };
     },
     computed: {
+        hasAdminRole() {
+            return _.includes(this.access, "ADMIN USER");
+        },
+        isBasicUserRole() {
+            return _.includes(this.access, "BASIC USER");
+        },
+        hasEMED() {
+            return _.includes(this.access, "EMED EDIT");
+        },
+        hasCPD() {
+            return _.includes(this.access, "CPD EDIT");
+        },
+        hasLEGAL() {
+            return _.includes(this.access, "LEGAL EDIT");
+        },
+        hasMAP() {
+            return _.includes(this.access, "MAP EDIT");
+        },
         route_params() {
             const urlParams = new URLSearchParams(location.search);
             let routes = [];
@@ -51,7 +69,7 @@ export default {
             const query_params = _.filter(this.route_params, (param) => {
                 return param.key === key;
             });
-            return query_params[0]
+            return query_params[0];
         },
         async onPageChange(page) {
             this.loading = true;

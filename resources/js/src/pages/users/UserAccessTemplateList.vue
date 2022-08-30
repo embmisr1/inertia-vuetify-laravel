@@ -1,5 +1,5 @@
 <template>
-    <DefaultLayout>
+    <DefaultLayout :access="access">
         <v-container>
             <div class="py-4">
                 <Link href="/app/users_access/users_access_template_register">

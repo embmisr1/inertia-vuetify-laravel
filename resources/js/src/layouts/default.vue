@@ -8,7 +8,7 @@
             clipped
             class="scrollbar-thin overflow-y-scroll"
         >
-            <SideNavItems :items="sidebarItems" />
+            <SideNavItems :items="sidebarItems" :access="access" />
         </v-navigation-drawer>
 
         <v-app-bar app clipped-left short rounded>
@@ -23,6 +23,7 @@
                 :color="isDark ? 'white' : 'black'"
                 @click="drawer = !drawer"
             ></box-icon>
+
             <v-spacer></v-spacer>
             <!-- <img
                 src="http://r1.emb.gov.ph/wp-content/uploads/2016/08/cropped-denr-logo2.png"
@@ -83,6 +84,9 @@ import { Link } from "@inertiajs/inertia-vue";
 import RightMenu from "../components/RightMenu.vue";
 import SideNavItems from "../components/SideNavItems.vue";
 export default {
+    props:{
+        access:Array
+    },
     components: {
         Link,
         RightMenu,
@@ -105,6 +109,11 @@ export default {
                 email: "allandaryl.dev@gmail.com",
                 github: "allandaryldev",
             },
+            {
+                name: "Russel Owens Miranda",
+                email: "",
+                github: "russelowens",
+            },
         ],
     },
     data() {
@@ -122,7 +131,7 @@ export default {
             sidebarItems: [
                 {
                     header: "Firm Management",
-
+                    access_role:["ADMIN USER","BASIC USER"],
                     child: [
                         {
                             name: "Firm Management",
@@ -160,7 +169,7 @@ export default {
                 },
                 {
                     header: "Monitoring",
-
+                    access_role:[],
                     child: [
                         {
                             name: "ECC/NCC",
@@ -404,6 +413,7 @@ export default {
             return this.$vuetify.theme.dark;
         },
     },
+
 };
 </script>
 

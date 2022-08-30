@@ -1,5 +1,5 @@
 <template>
-    <DefaultLayout>
+    <DefaultLayout :access="access">
         <v-container>
             <v-btn elevation="10" small @click="roles_modal.active = true">
                 <box-icon

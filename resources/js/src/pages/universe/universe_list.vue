@@ -1,5 +1,5 @@
 <template>
-    <DefaultLayout>
+    <DefaultLayout :access="access">
         <div id="app" class="container">
             <v-btn color="primary" dark class="mb-2" @click="dialog = !dialog">
                 <v-icon dark> mdi-filter </v-icon>

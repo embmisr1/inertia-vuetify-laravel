@@ -1,5 +1,5 @@
 <template>
-    <DefaultLayout>
+    <DefaultLayout :access="access">
         <!-- <Link href="/app/swm/lce_list"> <v-btn color="dark">Back</v-btn></Link> -->
         <div class="">
             <div class="font-bold text-2xl">

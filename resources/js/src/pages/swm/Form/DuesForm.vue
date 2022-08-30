@@ -1,5 +1,5 @@
 <template>
-    <DefaultLayout>
+    <DefaultLayout :access="access">
         <div class="">
             <div class="font-bold text-2xl flex items-center">
                 <b-tooltip label="Back" type="is-dark" :delay="2000">

@@ -123,6 +123,7 @@
                 </v-btn>
             </div>
         </div>
+        <div v-if="has_permit">
         <v-btn
             v-if="!addFileForm"
             depressed
@@ -133,6 +134,7 @@
             <v-icon small class="mr-2"> mdi-plus-circle </v-icon>
             Add File
         </v-btn>
+        </div>
         <template>
             <v-card elevation="2" class="mt-5">
                 <v-data-table
@@ -142,7 +144,7 @@
                     item-key="pco_tables"
                     class="elevation-1"
                 >
-                    <template v-slot:item.actions="{ item }">
+                    <template v-slot:item.actions="{ item }" v-if="has_permit">
                         <v-icon small class="mr-2" @click="editPco(item)">
                             mdi-pencil
                         </v-icon>
@@ -160,6 +162,8 @@ export default {
     props: {
         form_pco_info: Object,
         pco_table: Array,
+
+        has_permit: Boolean,
     },
     data: () => ({
         headers: [
