@@ -39,7 +39,7 @@
                                         <ValidationProvider
                                             vid="position"
                                             name="Position"
-                                            rules="required"
+                                            rules=""
                                             v-slot="{ errors }"
                                         >
                                             <v-select
@@ -60,13 +60,12 @@
                                         <ValidationProvider
                                             vid="Email"
                                             name="Email"
-                                            rules="required|email"
+                                            rules=""
                                             v-slot="{ errors }"
                                         >
                                             <v-text-field
                                                 v-model="form.email"
                                                 label="Email"
-                                                type="email"
                                                 filled
                                                 outlined
                                                 clearable
