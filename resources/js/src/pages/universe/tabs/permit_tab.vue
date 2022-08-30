@@ -133,7 +133,7 @@
                     </div>
                 </div>
                 <div class="text-center">
-                    <div v-if="has_permit || has_hazwaste ">
+                    <div v-if="has_permit || has_hazwaste">
                         <v-btn depressed color="primary" type="submit">
                             <v-icon small class="mr-2">
                                 mdi-content-save
@@ -195,7 +195,13 @@
                             </div>
                         </template>
                         <template v-slot:item.actions="{ item }">
-                            <div v-if="has_permit || has_hazwaste && item.perm_law ==='RA 6969'">
+                            <div
+                                v-if="
+                                    has_permit ||
+                                    (has_hazwaste &&
+                                        item.perm_law === 'RA 6969')
+                                "
+                            >
                                 <v-icon
                                     small
                                     class="mr-2"
@@ -379,6 +385,15 @@ export default {
                 this.form_permit_info.perm_law = "RA 6969";
             }
         }
+    },
+    watch: {
+        addFileForm(value) {
+            if (!this.has_permit) {
+                if (this.has_hazwaste) {
+                    this.form_permit_info.perm_law = "RA 6969";
+                }
+            }
+        },
     },
 };
 </script>
