@@ -40,7 +40,7 @@ class ColumnsController extends Controller
 
     public function permit_columns(){
         $array = [
-            'perm_law',
+            // 'perm_law',
             'perm_hazwaste_type',
             'perm_number',
             'perm_date_issuance',
