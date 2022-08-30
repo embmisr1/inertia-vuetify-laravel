@@ -104,11 +104,12 @@
                 </div>
             </div>
             <div class="text-center">
-                <v-btn depressed color="primary" type="submit">
+                <v-btn v-if="has_permit" depressed color="primary" type="submit">
                     <v-icon small class="mr-2"> mdi-content-save </v-icon>
                     Submit
                 </v-btn>
                 <v-btn
+                v-if="has_permit"
                     depressed
                     color="warning"
                     type="button"
@@ -144,12 +145,17 @@
                     item-key="pco_tables"
                     class="elevation-1"
                 >
-                    <template v-slot:item.actions="{ item }" v-if="has_permit">
+                    <template v-slot:item.actions="{ item }" >
+                        <div v-if="has_permit">
                         <v-icon small class="mr-2" @click="editPco(item)">
                             mdi-pencil
                         </v-icon>
                         <v-icon small @click="deletePco(item)">
                             mdi-delete
+                        </v-icon>
+                        </div>
+                        <v-icon v-else small class="mr-2" @click="editPco(item)">
+                            mdi-eye
                         </v-icon>
                     </template>
                 </v-data-table>

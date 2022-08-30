@@ -67,7 +67,7 @@
                         item-key="hazwaste_tables"
                         class="elevation-1"
                     >
-                        <template v-slot:item.actions="{ item }">
+                        <template v-slot:item.actions="{ item }" v-if="has_permit">
                             <v-icon
                                 small
                                 class="mr-2"
@@ -92,6 +92,8 @@
     props:{
         form_hazwaste_info: Object,
         hazwaste_table: Array,
+
+        has_permit: Boolean,
     },
     data: () => ({
       headers: [
@@ -131,13 +133,13 @@
           sortable: false,
           value: 'haz_file',
         },
-        { 
+        {
           width: '100px',
-          text: 'Actions', 
-          value: 'actions', 
+          text: 'Actions',
+          value: 'actions',
           sortable: false,
         },
-        
+
       ],
     }),
     methods:{

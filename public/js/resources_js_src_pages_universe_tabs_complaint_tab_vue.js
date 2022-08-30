@@ -181,6 +181,22 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     form_complaint_info: Object,
@@ -1339,38 +1355,58 @@ var render = function () {
               "div",
               { staticClass: "text-center" },
               [
-                _c(
-                  "v-btn",
-                  {
-                    attrs: { depressed: "", color: "primary", type: "submit" },
-                  },
-                  [
-                    _c(
-                      "v-icon",
-                      { staticClass: "mr-2", attrs: { small: "" } },
-                      [_vm._v(" mdi-content-save ")]
-                    ),
-                    _vm._v("\n                Submit\n            "),
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "v-btn",
-                  {
-                    attrs: { depressed: "", color: "warning", type: "button" },
-                    on: { click: _vm.resetComplaint },
-                  },
-                  [
-                    _c(
-                      "v-icon",
-                      { staticClass: "mr-2", attrs: { small: "" } },
-                      [_vm._v(" mdi-autorenew ")]
-                    ),
-                    _vm._v("\n                Reset\n            "),
-                  ],
-                  1
-                ),
+                _vm.has_permit
+                  ? _c(
+                      "div",
+                      [
+                        _c(
+                          "v-btn",
+                          {
+                            attrs: {
+                              depressed: "",
+                              color: "primary",
+                              type: "submit",
+                            },
+                          },
+                          [
+                            _c(
+                              "v-icon",
+                              { staticClass: "mr-2", attrs: { small: "" } },
+                              [_vm._v(" mdi-content-save ")]
+                            ),
+                            _vm._v(
+                              "\n                    Submit\n                "
+                            ),
+                          ],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "v-btn",
+                          {
+                            attrs: {
+                              depressed: "",
+                              color: "warning",
+                              type: "button",
+                            },
+                            on: { click: _vm.resetComplaint },
+                          },
+                          [
+                            _c(
+                              "v-icon",
+                              { staticClass: "mr-2", attrs: { small: "" } },
+                              [_vm._v(" mdi-autorenew ")]
+                            ),
+                            _vm._v(
+                              "\n                    Reset\n                "
+                            ),
+                          ],
+                          1
+                        ),
+                      ],
+                      1
+                    )
+                  : _vm._e(),
                 _vm._v(" "),
                 _c(
                   "v-btn",
@@ -1438,130 +1474,144 @@ var render = function () {
                 items: _vm.complaint_table,
                 "item-key": "complaint_tables",
               },
-              scopedSlots: _vm._u(
-                [
-                  {
-                    key: "item.comp_attached_file",
-                    fn: function (ref) {
-                      var item = ref.item
-                      return [
-                        item.comp_attached_file > 0
-                          ? _c(
-                              "a",
-                              {
-                                attrs: {
-                                  href:
-                                    "/app/attachments?type=complaint&id=" +
-                                    item.id,
-                                  target: "_blank",
-                                },
+              scopedSlots: _vm._u([
+                {
+                  key: "item.comp_attached_file",
+                  fn: function (ref) {
+                    var item = ref.item
+                    return [
+                      item.comp_attached_file > 0
+                        ? _c(
+                            "a",
+                            {
+                              attrs: {
+                                href:
+                                  "/app/attachments?type=complaint&id=" +
+                                  item.id,
+                                target: "_blank",
                               },
-                              [
-                                _c(
-                                  "v-btn",
-                                  { attrs: { small: "", dark: "" } },
-                                  [_vm._v("Download File")]
-                                ),
-                              ],
-                              1
-                            )
-                          : _c(
-                              "div",
-                              { staticClass: "text-xs font-bold italic" },
-                              [
-                                _vm._v(
-                                  "\n                        No Attachment Found\n                    "
-                                ),
-                              ]
-                            ),
-                      ]
-                    },
+                            },
+                            [
+                              _c("v-btn", { attrs: { small: "", dark: "" } }, [
+                                _vm._v("Download File"),
+                              ]),
+                            ],
+                            1
+                          )
+                        : _c(
+                            "div",
+                            { staticClass: "text-xs font-bold italic" },
+                            [
+                              _vm._v(
+                                "\n                        No Attachment Found\n                    "
+                              ),
+                            ]
+                          ),
+                    ]
                   },
-                  {
-                    key: "item.comp_action_file",
-                    fn: function (ref) {
-                      var item = ref.item
-                      return [
-                        item.comp_action_file > 0
-                          ? _c(
-                              "a",
-                              {
-                                attrs: {
-                                  href:
-                                    "/app/attachments?type=complaintaction&id=" +
-                                    item.id,
-                                  target: "_blank",
-                                },
+                },
+                {
+                  key: "item.comp_action_file",
+                  fn: function (ref) {
+                    var item = ref.item
+                    return [
+                      item.comp_action_file > 0
+                        ? _c(
+                            "a",
+                            {
+                              attrs: {
+                                href:
+                                  "/app/attachments?type=complaintaction&id=" +
+                                  item.id,
+                                target: "_blank",
                               },
-                              [
-                                _c(
-                                  "v-btn",
-                                  { attrs: { small: "", dark: "" } },
-                                  [_vm._v("Download File")]
-                                ),
-                              ],
-                              1
-                            )
-                          : _c(
-                              "div",
-                              { staticClass: "text-xs font-bold italic" },
-                              [
-                                _vm._v(
-                                  "\n                        No Attachment Found\n                    "
-                                ),
-                              ]
-                            ),
-                      ]
-                    },
+                            },
+                            [
+                              _c("v-btn", { attrs: { small: "", dark: "" } }, [
+                                _vm._v("Download File"),
+                              ]),
+                            ],
+                            1
+                          )
+                        : _c(
+                            "div",
+                            { staticClass: "text-xs font-bold italic" },
+                            [
+                              _vm._v(
+                                "\n                        No Attachment Found\n                    "
+                              ),
+                            ]
+                          ),
+                    ]
                   },
-                  _vm.has_permit
-                    ? {
-                        key: "item.actions",
-                        fn: function (ref) {
-                          var item = ref.item
-                          return [
-                            _c(
-                              "v-icon",
-                              {
-                                staticClass: "mr-2",
-                                attrs: { small: "" },
-                                on: {
-                                  click: function ($event) {
-                                    return _vm.editComplaint(item)
+                },
+                {
+                  key: "item.actions",
+                  fn: function (ref) {
+                    var item = ref.item
+                    return [
+                      _vm.has_permit
+                        ? _c(
+                            "div",
+                            [
+                              _c(
+                                "v-icon",
+                                {
+                                  staticClass: "mr-2",
+                                  attrs: { small: "" },
+                                  on: {
+                                    click: function ($event) {
+                                      return _vm.editComplaint(item)
+                                    },
                                   },
                                 },
-                              },
-                              [
-                                _vm._v(
-                                  "\n                        mdi-pencil\n                    "
-                                ),
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "v-icon",
-                              {
-                                attrs: { small: "" },
-                                on: {
-                                  click: function ($event) {
-                                    return _vm.deleteComplaint(item)
+                                [
+                                  _vm._v(
+                                    "\n                            mdi-pencil\n                        "
+                                  ),
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-icon",
+                                {
+                                  attrs: { small: "" },
+                                  on: {
+                                    click: function ($event) {
+                                      return _vm.deleteComplaint(item)
+                                    },
                                   },
                                 },
+                                [
+                                  _vm._v(
+                                    "\n                            mdi-delete\n                        "
+                                  ),
+                                ]
+                              ),
+                            ],
+                            1
+                          )
+                        : _c(
+                            "v-icon",
+                            {
+                              staticClass: "mr-2",
+                              attrs: { small: "" },
+                              on: {
+                                click: function ($event) {
+                                  return _vm.editComplaint(item)
+                                },
                               },
-                              [
-                                _vm._v(
-                                  "\n                        mdi-delete\n                    "
-                                ),
-                              ]
-                            ),
-                          ]
-                        },
-                      }
-                    : null,
-                ],
-                null,
-                true
-              ),
+                            },
+                            [
+                              _vm._v(
+                                "\n                        mdi-eye\n                    "
+                              ),
+                            ]
+                          ),
+                    ]
+                  },
+                },
+              ]),
             }),
           ],
           1

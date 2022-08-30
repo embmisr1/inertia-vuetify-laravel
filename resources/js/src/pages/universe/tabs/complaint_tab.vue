@@ -72,19 +72,21 @@
                 </div>
             </div>
             <div class="text-center">
-                <v-btn depressed color="primary" type="submit">
-                    <v-icon small class="mr-2"> mdi-content-save </v-icon>
-                    Submit
-                </v-btn>
-                <v-btn
-                    depressed
-                    color="warning"
-                    type="button"
-                    @click="resetComplaint"
-                >
-                    <v-icon small class="mr-2"> mdi-autorenew </v-icon>
-                    Reset
-                </v-btn>
+                    <v-btn v-if="has_permit" depressed color="primary" type="submit">
+                        <v-icon small class="mr-2"> mdi-content-save </v-icon>
+                        Submit
+                    </v-btn>
+                    <v-btn
+                    v-if="has_permit"
+                        depressed
+                        color="warning"
+                        type="button"
+                        @click="resetComplaint"
+                    >
+                        <v-icon small class="mr-2"> mdi-autorenew </v-icon>
+                        Reset
+                    </v-btn>
+
                 <v-btn depressed color="error" type="button" @click="closeFile">
                     <v-icon small class="mr-2"> mdi-plus-circle </v-icon>
                     Close
@@ -136,12 +138,26 @@
                             No Attachment Found
                         </div>
                     </template>
-                    <template v-slot:item.actions="{ item }" v-if="has_permit">
-                        <v-icon small class="mr-2" @click="editComplaint(item)">
-                            mdi-pencil
-                        </v-icon>
-                        <v-icon small @click="deleteComplaint(item)">
-                            mdi-delete
+                    <template v-slot:item.actions="{ item }">
+                        <div v-if="has_permit">
+                            <v-icon
+                                small
+                                class="mr-2"
+                                @click="editComplaint(item)"
+                            >
+                                mdi-pencil
+                            </v-icon>
+                            <v-icon small @click="deleteComplaint(item)">
+                                mdi-delete
+                            </v-icon>
+                        </div>
+                        <v-icon
+                            v-else
+                            small
+                            class="mr-2"
+                            @click="editComplaint(item)"
+                        >
+                            mdi-eye
                         </v-icon>
                     </template>
                 </v-data-table>
