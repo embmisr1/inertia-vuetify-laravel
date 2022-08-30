@@ -370,16 +370,16 @@ class UniverseController extends Controller
             if( in_array('CPD EDIT', $user_access) ){
                 $this->permit_process_create($request, $universe_id);
                 $this->pco_process_create($request, $universe_id);
+                $this->monitoring_process_create($request, $universe_id);
+                $this->hazwaste_process_create($request, $universe_id);
             }
             if( in_array('EMED EDIT', $user_access) ){
                 $this->monitoring_process_create($request, $universe_id);
+                $this->hazwaste_process_create($request, $universe_id);
             }
             if( in_array('LEGAL EDIT', $user_access) ){
                 $this->legal_process_create($request, $universe_id);
                 $this->complaint_process_create($request, $universe_id);
-            }
-            if( in_array('CPD EDIT', $user_access) || in_array('EMED EDIT', $user_access) ){
-                $this->hazwaste_process_create($request, $universe_id);
             }
             return $universe_id;
         } catch (\Throwable $th) {
@@ -395,16 +395,16 @@ class UniverseController extends Controller
             if( in_array('CPD EDIT', $user_access) ){
                 $this->permit_process_update($request, $universe_id);
                 $this->pco_process_update($request, $universe_id);
+                $this->monitoring_process_update($request, $universe_id);
+                $this->hazwaste_process_update($request, $universe_id);
             }
             if( in_array('EMED EDIT', $user_access) ){
                 $this->monitoring_process_update($request, $universe_id);
+                $this->hazwaste_process_update($request, $universe_id);
             }
             if( in_array('LEGAL EDIT', $user_access) ){
                 $this->legal_process_update($request, $universe_id);
                 $this->complaint_process_update($request, $universe_id);
-            }
-            if( in_array('CPD EDIT', $user_access) || in_array('EMED EDIT', $user_access) ){
-                $this->hazwaste_process_update($request, $universe_id);
             }
             return $universe_id;
         } catch (\Throwable $th) {

@@ -231,6 +231,277 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @inertiajs/inertia-vue */ "./node_modules/@inertiajs/inertia-vue/dist/index.js");
+/* harmony import */ var _mixins___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../mixins/ */ "./resources/js/src/mixins/index.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_2__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -289,11 +560,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
     Link: _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_0__.Link
   },
+  mixins: [_mixins___WEBPACK_IMPORTED_MODULE_1__.page],
   props: {
+    access: Array,
     items: {
       type: Array,
       require: true
@@ -305,6 +580,26 @@ __webpack_require__.r(__webpack_exports__);
       admins: [["Management", "mdi-account-multiple-outline"], ["Settings", "mdi-cog-outline"]],
       cruds: [["Create", "mdi-plus-outline"], ["Read", "mdi-file-outline"], ["Update", "mdi-update"], ["Delete", "mdi-delete"]]
     };
+  },
+  computed: {
+    hasAdminRole: function hasAdminRole() {
+      return lodash__WEBPACK_IMPORTED_MODULE_2___default().includes(this.access, "ADMIN USER");
+    },
+    isBasicUserRole: function isBasicUserRole() {
+      return lodash__WEBPACK_IMPORTED_MODULE_2___default().includes(this.access, "BASIC USER");
+    },
+    hasEMED: function hasEMED() {
+      return lodash__WEBPACK_IMPORTED_MODULE_2___default().includes(this.access, "EMED EDIT");
+    },
+    hasCPD: function hasCPD() {
+      return lodash__WEBPACK_IMPORTED_MODULE_2___default().includes(this.access, "CPD EDIT");
+    },
+    hasLEGAL: function hasLEGAL() {
+      return lodash__WEBPACK_IMPORTED_MODULE_2___default().includes(this.access, "LEGAL EDIT");
+    },
+    hasMAP: function hasMAP() {
+      return lodash__WEBPACK_IMPORTED_MODULE_2___default().includes(this.access, "MAP EDIT");
+    }
   }
 });
 
@@ -404,10 +699,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: {
+    access: Array
+  },
   components: {
     Link: _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_0__.Link,
     RightMenu: _components_RightMenu_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
@@ -426,6 +725,10 @@ __webpack_require__.r(__webpack_exports__);
       name: "Allan Daryl Ancheta",
       email: "allandaryl.dev@gmail.com",
       github: "allandaryldev"
+    }, {
+      name: "Russel Owens Miranda",
+      email: "",
+      github: "russelowens"
     }]
   },
   data: function data() {
@@ -442,6 +745,7 @@ __webpack_require__.r(__webpack_exports__);
       }],
       sidebarItems: [{
         header: "Firm Management",
+        access_role: ["ADMIN USER", "BASIC USER"],
         child: [{
           name: "Firm Management",
           link: null,
@@ -470,6 +774,7 @@ __webpack_require__.r(__webpack_exports__);
         }]
       }, {
         header: "Monitoring",
+        access_role: [],
         child: [{
           name: "ECC/NCC",
           link: null,
@@ -1015,6 +1320,24 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     };
   },
   computed: {
+    hasAdminRole: function hasAdminRole() {
+      return lodash__WEBPACK_IMPORTED_MODULE_1___default().includes(this.access, "ADMIN USER");
+    },
+    isBasicUserRole: function isBasicUserRole() {
+      return lodash__WEBPACK_IMPORTED_MODULE_1___default().includes(this.access, "BASIC USER");
+    },
+    hasEMED: function hasEMED() {
+      return lodash__WEBPACK_IMPORTED_MODULE_1___default().includes(this.access, "EMED EDIT");
+    },
+    hasCPD: function hasCPD() {
+      return lodash__WEBPACK_IMPORTED_MODULE_1___default().includes(this.access, "CPD EDIT");
+    },
+    hasLEGAL: function hasLEGAL() {
+      return lodash__WEBPACK_IMPORTED_MODULE_1___default().includes(this.access, "LEGAL EDIT");
+    },
+    hasMAP: function hasMAP() {
+      return lodash__WEBPACK_IMPORTED_MODULE_1___default().includes(this.access, "MAP EDIT");
+    },
     route_params: function route_params() {
       var urlParams = new URLSearchParams(location.search);
       var routes = [];
@@ -1196,7 +1519,6 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       if (Object.keys(data).length > 1) this.error("Form Error");
     },
     successMessage: function successMessage(data) {
-      console.log(data);
       if (data.message) this.success(data.message);
     }
   }
@@ -21898,134 +22220,847 @@ var render = function () {
   return _c(
     "div",
     { staticClass: "overflow-hidden" },
-    _vm._l(_vm.items, function (item, index) {
-      return _c(
-        "v-list",
-        {
-          key: index,
-          staticClass: "overflow-hidden  ",
-          attrs: { dense: "", nav: "" },
-        },
-        [
-          _c("v-subheader", [_vm._v(_vm._s(item.header))]),
-          _vm._v(" "),
-          _vm._l(item.child, function (child, i) {
-            return _c(
-              "v-list-group",
-              {
-                key: i,
-                attrs: {
-                  dark: "",
-                  "prepend-icon": child.icon,
-                  value: false,
-                  "append-icon": child.child.length ? "mdi-chevron-down" : null,
-                },
-                scopedSlots: _vm._u(
-                  [
-                    {
-                      key: "activator",
-                      fn: function () {
-                        return [
-                          _c(
-                            "v-list-item-content",
-                            [
-                              !child.link
-                                ? _c("v-list-item-subtitle", {
-                                    domProps: {
-                                      textContent: _vm._s(child.name),
-                                    },
-                                  })
-                                : _c(
-                                    "v-list-item-subtitle",
-                                    [
-                                      _c(
-                                        "Link",
-                                        {
-                                          attrs: {
-                                            href: child.link,
-                                            as: "button",
-                                            "preserve-scroll": "",
-                                          },
-                                        },
-                                        [_vm._v(_vm._s(child.name))]
-                                      ),
-                                    ],
-                                    1
-                                  ),
-                            ],
-                            1
-                          ),
-                        ]
-                      },
-                      proxy: true,
-                    },
-                  ],
-                  null,
-                  true
-                ),
-              },
+    [
+      _c("v-list", { attrs: { dense: "", nav: "" } }, [
+        _vm.hasAdminRole || _vm.isBasicUserRole
+          ? _c(
+              "div",
               [
+                _c("v-subheader", [_vm._v("Firm Management")]),
                 _vm._v(" "),
-                _vm._l(child.child, function (childItem) {
-                  return _c(
-                    "v-list-item",
-                    { key: childItem.name, attrs: { dense: "" } },
-                    [
-                      _c(
-                        "v-list-item-icon",
-                        [
-                          _c("v-icon", [
-                            _vm._v(
-                              "\n                        " +
-                                _vm._s(childItem.icon) +
-                                "\n                    "
-                            ),
-                          ]),
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "v-list-item-content",
-                        [
-                          !childItem.link
-                            ? _c("v-list-item-subtitle", {
-                                domProps: {
-                                  textContent: _vm._s(childItem.name),
-                                },
-                              })
-                            : _c(
-                                "v-list-item-subtitle",
+                _c(
+                  "v-list-group",
+                  {
+                    attrs: { "prepend-icon": "mdi-view-dashboard" },
+                    scopedSlots: _vm._u(
+                      [
+                        {
+                          key: "activator",
+                          fn: function () {
+                            return [
+                              _c(
+                                "v-list-item-content",
                                 [
-                                  _c(
-                                    "Link",
-                                    {
-                                      attrs: {
-                                        href: childItem.link,
-                                        as: "button",
-                                        "preserve-scroll": "",
-                                      },
-                                    },
-                                    [_vm._v(_vm._s(childItem.name))]
-                                  ),
+                                  _c("v-list-item-subtitle", [
+                                    _vm._v(
+                                      "\n                            Firm Management\n                        "
+                                    ),
+                                  ]),
                                 ],
                                 1
                               ),
-                        ],
-                        1
-                      ),
-                    ],
-                    1
-                  )
-                }),
+                            ]
+                          },
+                          proxy: true,
+                        },
+                      ],
+                      null,
+                      false,
+                      87131311
+                    ),
+                  },
+                  [
+                    _vm._v(" "),
+                    _c(
+                      "v-list-item",
+                      { attrs: { dense: "" } },
+                      [
+                        _c(
+                          "v-list-item-icon",
+                          [_c("v-icon", [_vm._v(" mdi-link ")])],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "v-list-item-content",
+                          [
+                            _c(
+                              "v-list-item-subtitle",
+                              [
+                                _c(
+                                  "Link",
+                                  {
+                                    attrs: {
+                                      href: "/app/universe_dashboard/firm",
+                                      as: "button",
+                                      "preserve-scroll": "",
+                                    },
+                                  },
+                                  [_vm._v("Universe Dashboard Firm")]
+                                ),
+                              ],
+                              1
+                            ),
+                          ],
+                          1
+                        ),
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "v-list-item",
+                      { attrs: { dense: "" } },
+                      [
+                        _c(
+                          "v-list-item-icon",
+                          [_c("v-icon", [_vm._v(" mdi-link ")])],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "v-list-item-content",
+                          [
+                            _c(
+                              "v-list-item-subtitle",
+                              [
+                                _c(
+                                  "Link",
+                                  {
+                                    attrs: {
+                                      href: "/app/universe_dashboard/lgu",
+                                      as: "button",
+                                      "preserve-scroll": "",
+                                    },
+                                  },
+                                  [_vm._v("Universe Dashboard LGU")]
+                                ),
+                              ],
+                              1
+                            ),
+                          ],
+                          1
+                        ),
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "v-list-item",
+                      { attrs: { dense: "" } },
+                      [
+                        _c(
+                          "v-list-item-icon",
+                          [_c("v-icon", [_vm._v(" mdi-link ")])],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "v-list-item-content",
+                          [
+                            _c(
+                              "v-list-item-subtitle",
+                              [
+                                _c(
+                                  "Link",
+                                  {
+                                    attrs: {
+                                      href: "/app/universe",
+                                      as: "button",
+                                      "preserve-scroll": "",
+                                    },
+                                  },
+                                  [
+                                    _vm._v(
+                                      "Universe\n                            "
+                                    ),
+                                  ]
+                                ),
+                              ],
+                              1
+                            ),
+                          ],
+                          1
+                        ),
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "v-list-item",
+                      { attrs: { dense: "" } },
+                      [
+                        _c(
+                          "v-list-item-icon",
+                          [_c("v-icon", [_vm._v(" mdi-link ")])],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "v-list-item-content",
+                          [
+                            _c(
+                              "v-list-item-subtitle",
+                              [
+                                _c(
+                                  "Link",
+                                  {
+                                    attrs: {
+                                      href: "/app/universe_form",
+                                      as: "button",
+                                      "preserve-scroll": "",
+                                    },
+                                  },
+                                  [_vm._v("Universe Registration")]
+                                ),
+                              ],
+                              1
+                            ),
+                          ],
+                          1
+                        ),
+                      ],
+                      1
+                    ),
+                  ],
+                  1
+                ),
               ],
-              2
+              1
             )
-          }),
-        ],
-        2
-      )
-    }),
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.hasAdminRole
+          ? _c(
+              "div",
+              [
+                _c("v-subheader", [_vm._v("Monitoring")]),
+                _vm._v(" "),
+                _c(
+                  "v-list-item",
+                  { attrs: { dense: "" } },
+                  [
+                    _c(
+                      "v-list-item-icon",
+                      [_c("v-icon", [_vm._v(" mdi-trash-can ")])],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "v-list-item-content",
+                      [
+                        _c(
+                          "v-list-item-subtitle",
+                          [
+                            _c(
+                              "Link",
+                              {
+                                attrs: {
+                                  href: "/app/swm/lce_list",
+                                  as: "button",
+                                  "preserve-scroll": "",
+                                },
+                              },
+                              [_vm._v("SOLID WASTE")]
+                            ),
+                          ],
+                          1
+                        ),
+                      ],
+                      1
+                    ),
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c("v-subheader", [_vm._v("USER MANAGEMENT")]),
+                _vm._v(" "),
+                _c(
+                  "v-list-item",
+                  { attrs: { dense: "" } },
+                  [
+                    _c(
+                      "v-list-item-icon",
+                      [_c("v-icon", [_vm._v(" mdi-account-group ")])],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "v-list-item-content",
+                      [
+                        _c(
+                          "v-list-item-subtitle",
+                          [
+                            _c(
+                              "Link",
+                              {
+                                attrs: {
+                                  href: "/app/users",
+                                  as: "button",
+                                  "preserve-scroll": "",
+                                },
+                              },
+                              [_vm._v("SYSTEM USERS")]
+                            ),
+                          ],
+                          1
+                        ),
+                      ],
+                      1
+                    ),
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "v-list-item",
+                  { attrs: { dense: "" } },
+                  [
+                    _c(
+                      "v-list-item-icon",
+                      [_c("v-icon", [_vm._v(" mdi-account-supervisor ")])],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "v-list-item-content",
+                      [
+                        _c(
+                          "v-list-item-subtitle",
+                          [
+                            _c(
+                              "Link",
+                              {
+                                attrs: {
+                                  href: "/app/position",
+                                  as: "button",
+                                  "preserve-scroll": "",
+                                },
+                              },
+                              [_vm._v("POSITION")]
+                            ),
+                          ],
+                          1
+                        ),
+                      ],
+                      1
+                    ),
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "v-list-item",
+                  { attrs: { dense: "" } },
+                  [
+                    _c(
+                      "v-list-item-icon",
+                      [_c("v-icon", [_vm._v(" mdi-account-supervisor ")])],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "v-list-item-content",
+                      [
+                        _c(
+                          "v-list-item-subtitle",
+                          [
+                            _c(
+                              "Link",
+                              {
+                                attrs: {
+                                  href: "/app/division",
+                                  as: "button",
+                                  "preserve-scroll": "",
+                                },
+                              },
+                              [_vm._v("DIVISION")]
+                            ),
+                          ],
+                          1
+                        ),
+                      ],
+                      1
+                    ),
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "v-list-item",
+                  { attrs: { dense: "" } },
+                  [
+                    _c(
+                      "v-list-item-icon",
+                      [_c("v-icon", [_vm._v(" mdi-account-supervisor ")])],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "v-list-item-content",
+                      [
+                        _c(
+                          "v-list-item-subtitle",
+                          [
+                            _c(
+                              "Link",
+                              {
+                                attrs: {
+                                  href: "/app/unit_section",
+                                  as: "button",
+                                  "preserve-scroll": "",
+                                },
+                              },
+                              [_vm._v("UNIT SECTION")]
+                            ),
+                          ],
+                          1
+                        ),
+                      ],
+                      1
+                    ),
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "v-list-group",
+                  {
+                    attrs: { "prepend-icon": "mdi-account-group" },
+                    scopedSlots: _vm._u(
+                      [
+                        {
+                          key: "activator",
+                          fn: function () {
+                            return [
+                              _c(
+                                "v-list-item-content",
+                                [
+                                  _c("v-list-item-subtitle", [
+                                    _vm._v(
+                                      "\n                            User Access\n                        "
+                                    ),
+                                  ]),
+                                ],
+                                1
+                              ),
+                            ]
+                          },
+                          proxy: true,
+                        },
+                      ],
+                      null,
+                      false,
+                      551348121
+                    ),
+                  },
+                  [
+                    _vm._v(" "),
+                    _c(
+                      "v-list-item",
+                      { attrs: { dense: "" } },
+                      [
+                        _c(
+                          "v-list-item-icon",
+                          [_c("v-icon", [_vm._v(" mdi-link ")])],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "v-list-item-content",
+                          [
+                            _c(
+                              "v-list-item-subtitle",
+                              [
+                                _c(
+                                  "Link",
+                                  {
+                                    attrs: {
+                                      href: "/app/users_access/users_access_role_list",
+                                      as: "button",
+                                      "preserve-scroll": "",
+                                    },
+                                  },
+                                  [_vm._v("User Roles")]
+                                ),
+                              ],
+                              1
+                            ),
+                          ],
+                          1
+                        ),
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "v-list-item",
+                      { attrs: { dense: "" } },
+                      [
+                        _c(
+                          "v-list-item-icon",
+                          [_c("v-icon", [_vm._v(" mdi-link ")])],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "v-list-item-content",
+                          [
+                            _c(
+                              "v-list-item-subtitle",
+                              [
+                                _c(
+                                  "Link",
+                                  {
+                                    attrs: {
+                                      href: "/app/users_access/users_access_template_list",
+                                      as: "button",
+                                      "preserve-scroll": "",
+                                    },
+                                  },
+                                  [_vm._v("User Role Template")]
+                                ),
+                              ],
+                              1
+                            ),
+                          ],
+                          1
+                        ),
+                      ],
+                      1
+                    ),
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c("v-subheader", [_vm._v("INDUSTRY CONFIGURATION")]),
+                _vm._v(" "),
+                _c(
+                  "v-list-group",
+                  {
+                    attrs: { "prepend-icon": "mdi-file-document-multiple" },
+                    scopedSlots: _vm._u(
+                      [
+                        {
+                          key: "activator",
+                          fn: function () {
+                            return [
+                              _c(
+                                "v-list-item-content",
+                                [
+                                  _c("v-list-item-subtitle", [
+                                    _vm._v(
+                                      "\n                            PROJECT TYPE\n                        "
+                                    ),
+                                  ]),
+                                ],
+                                1
+                              ),
+                            ]
+                          },
+                          proxy: true,
+                        },
+                      ],
+                      null,
+                      false,
+                      1881568801
+                    ),
+                  },
+                  [
+                    _vm._v(" "),
+                    _c(
+                      "v-list-item",
+                      { attrs: { dense: "" } },
+                      [
+                        _c(
+                          "v-list-item-icon",
+                          [_c("v-icon", [_vm._v(" mdi-link ")])],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "v-list-item-content",
+                          [
+                            _c(
+                              "v-list-item-subtitle",
+                              [
+                                _c(
+                                  "Link",
+                                  {
+                                    attrs: {
+                                      href: "/app/project/type",
+                                      as: "button",
+                                      "preserve-scroll": "",
+                                    },
+                                  },
+                                  [_vm._v("PROJECT TYPE")]
+                                ),
+                              ],
+                              1
+                            ),
+                          ],
+                          1
+                        ),
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "v-list-item",
+                      { attrs: { dense: "" } },
+                      [
+                        _c(
+                          "v-list-item-icon",
+                          [_c("v-icon", [_vm._v(" mdi-link ")])],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "v-list-item-content",
+                          [
+                            _c(
+                              "v-list-item-subtitle",
+                              [
+                                _c(
+                                  "Link",
+                                  {
+                                    attrs: {
+                                      href: "/app/project/subtype",
+                                      as: "button",
+                                      "preserve-scroll": "",
+                                    },
+                                  },
+                                  [_vm._v("PROJECT SUB-TYPE")]
+                                ),
+                              ],
+                              1
+                            ),
+                          ],
+                          1
+                        ),
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "v-list-item",
+                      { attrs: { dense: "" } },
+                      [
+                        _c(
+                          "v-list-item-icon",
+                          [_c("v-icon", [_vm._v(" mdi-link ")])],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "v-list-item-content",
+                          [
+                            _c(
+                              "v-list-item-subtitle",
+                              [
+                                _c(
+                                  "Link",
+                                  {
+                                    attrs: {
+                                      href: "/app/project/specifictype",
+                                      as: "button",
+                                      "preserve-scroll": "",
+                                    },
+                                  },
+                                  [_vm._v("PROJECT SPECIFIC TYPE")]
+                                ),
+                              ],
+                              1
+                            ),
+                          ],
+                          1
+                        ),
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "v-list-item",
+                      { attrs: { dense: "" } },
+                      [
+                        _c(
+                          "v-list-item-icon",
+                          [_c("v-icon", [_vm._v(" mdi-link ")])],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "v-list-item-content",
+                          [
+                            _c(
+                              "v-list-item-subtitle",
+                              [
+                                _c(
+                                  "Link",
+                                  {
+                                    attrs: {
+                                      href: "/app/project/specificsubtype",
+                                      as: "button",
+                                      "preserve-scroll": "",
+                                    },
+                                  },
+                                  [_vm._v("SPECIFIC SUB-TYPE")]
+                                ),
+                              ],
+                              1
+                            ),
+                          ],
+                          1
+                        ),
+                      ],
+                      1
+                    ),
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "v-list-group",
+                  {
+                    attrs: { "prepend-icon": "mdi-file-document-multiple" },
+                    scopedSlots: _vm._u(
+                      [
+                        {
+                          key: "activator",
+                          fn: function () {
+                            return [
+                              _c(
+                                "v-list-item-content",
+                                [
+                                  _c("v-list-item-subtitle", [
+                                    _vm._v(
+                                      "\n                            2009 PSIC CODES\n                        "
+                                    ),
+                                  ]),
+                                ],
+                                1
+                              ),
+                            ]
+                          },
+                          proxy: true,
+                        },
+                      ],
+                      null,
+                      false,
+                      2169252016
+                    ),
+                  },
+                  [
+                    _vm._v(" "),
+                    _c(
+                      "v-list-item",
+                      { attrs: { dense: "" } },
+                      [
+                        _c(
+                          "v-list-item-icon",
+                          [_c("v-icon", [_vm._v(" mdi-link ")])],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "v-list-item-content",
+                          [
+                            _c(
+                              "v-list-item-subtitle",
+                              [
+                                _c(
+                                  "Link",
+                                  {
+                                    attrs: {
+                                      href: "/app/psic/group",
+                                      as: "button",
+                                      "preserve-scroll": "",
+                                    },
+                                  },
+                                  [_vm._v("PSIC GROUP")]
+                                ),
+                              ],
+                              1
+                            ),
+                          ],
+                          1
+                        ),
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "v-list-item",
+                      { attrs: { dense: "" } },
+                      [
+                        _c(
+                          "v-list-item-icon",
+                          [_c("v-icon", [_vm._v(" mdi-link ")])],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "v-list-item-content",
+                          [
+                            _c(
+                              "v-list-item-subtitle",
+                              [
+                                _c(
+                                  "Link",
+                                  {
+                                    attrs: {
+                                      href: "/app/sic/class",
+                                      as: "button",
+                                      "preserve-scroll": "",
+                                    },
+                                  },
+                                  [_vm._v("PSIC CLASS")]
+                                ),
+                              ],
+                              1
+                            ),
+                          ],
+                          1
+                        ),
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "v-list-item",
+                      { attrs: { dense: "" } },
+                      [
+                        _c(
+                          "v-list-item-icon",
+                          [_c("v-icon", [_vm._v(" mdi-link ")])],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "v-list-item-content",
+                          [
+                            _c(
+                              "v-list-item-subtitle",
+                              [
+                                _c(
+                                  "Link",
+                                  {
+                                    attrs: {
+                                      href: "/app/psic/sub-class",
+                                      as: "button",
+                                      "preserve-scroll": "",
+                                    },
+                                  },
+                                  [_vm._v("PSIC SUB CLASS")]
+                                ),
+                              ],
+                              1
+                            ),
+                          ],
+                          1
+                        ),
+                      ],
+                      1
+                    ),
+                  ],
+                  1
+                ),
+              ],
+              1
+            )
+          : _vm._e(),
+      ]),
+    ],
     1
   )
 }
@@ -22068,7 +23103,11 @@ var render = function () {
             expression: "drawer",
           },
         },
-        [_c("SideNavItems", { attrs: { items: _vm.sidebarItems } })],
+        [
+          _c("SideNavItems", {
+            attrs: { items: _vm.sidebarItems, access: _vm.access },
+          }),
+        ],
         1
       ),
       _vm._v(" "),
@@ -22197,6 +23236,7 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c(
     "DefaultLayout",
+    { attrs: { access: _vm.access } },
     [
       _c(
         "v-btn",

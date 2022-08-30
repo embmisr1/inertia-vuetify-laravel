@@ -104,6 +104,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     modal: Object,
@@ -1138,6 +1140,8 @@ var render = function () {
                                                       "mdi-account-details",
                                                     label: "Select Division",
                                                     "error-messages": errors[0],
+                                                    "item-text": "name",
+                                                    "item-value": "id",
                                                     clearable: "",
                                                   },
                                                   model: {

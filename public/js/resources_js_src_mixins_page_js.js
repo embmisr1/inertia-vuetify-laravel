@@ -68,6 +68,24 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     };
   },
   computed: {
+    hasAdminRole: function hasAdminRole() {
+      return lodash__WEBPACK_IMPORTED_MODULE_1___default().includes(this.access, "ADMIN USER");
+    },
+    isBasicUserRole: function isBasicUserRole() {
+      return lodash__WEBPACK_IMPORTED_MODULE_1___default().includes(this.access, "BASIC USER");
+    },
+    hasEMED: function hasEMED() {
+      return lodash__WEBPACK_IMPORTED_MODULE_1___default().includes(this.access, "EMED EDIT");
+    },
+    hasCPD: function hasCPD() {
+      return lodash__WEBPACK_IMPORTED_MODULE_1___default().includes(this.access, "CPD EDIT");
+    },
+    hasLEGAL: function hasLEGAL() {
+      return lodash__WEBPACK_IMPORTED_MODULE_1___default().includes(this.access, "LEGAL EDIT");
+    },
+    hasMAP: function hasMAP() {
+      return lodash__WEBPACK_IMPORTED_MODULE_1___default().includes(this.access, "MAP EDIT");
+    },
     route_params: function route_params() {
       var urlParams = new URLSearchParams(location.search);
       var routes = [];
@@ -249,7 +267,6 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       if (Object.keys(data).length > 1) this.error("Form Error");
     },
     successMessage: function successMessage(data) {
-      console.log(data);
       if (data.message) this.success(data.message);
     }
   }
