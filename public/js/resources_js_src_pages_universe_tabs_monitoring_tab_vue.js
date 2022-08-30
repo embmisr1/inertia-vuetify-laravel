@@ -216,11 +216,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     form_monitoring_info: Object,
     monitoring_table: Array,
-    laws: Array
+    laws: Array,
+    has_permit: Boolean
   },
   data: function data() {
     return {
@@ -252,7 +255,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }],
       date_monitoring_menu: "",
       addFileForm: false,
-      mon_or_sur_selection: ["Monitoring", "Survey"]
+      mon_or_sur_selection: ["Monitoring", "Survey", "Inspection", "Investigation"]
     };
   },
   methods: {
@@ -1440,18 +1443,32 @@ var render = function () {
           ])
         : _vm._e(),
       _vm._v(" "),
-      !_vm.addFileForm
+      _vm.has_permit
         ? _c(
-            "v-btn",
-            {
-              attrs: { depressed: "", color: "success", type: "button" },
-              on: { click: _vm.addFile },
-            },
+            "div",
             [
-              _c("v-icon", { staticClass: "mr-2", attrs: { small: "" } }, [
-                _vm._v(" mdi-plus-circle "),
-              ]),
-              _vm._v("\n        Add File\n    "),
+              !_vm.addFileForm
+                ? _c(
+                    "v-btn",
+                    {
+                      attrs: {
+                        depressed: "",
+                        color: "success",
+                        type: "button",
+                      },
+                      on: { click: _vm.addFile },
+                    },
+                    [
+                      _c(
+                        "v-icon",
+                        { staticClass: "mr-2", attrs: { small: "" } },
+                        [_vm._v(" mdi-plus-circle ")]
+                      ),
+                      _vm._v("\n            Add File\n        "),
+                    ],
+                    1
+                  )
+                : _vm._e(),
             ],
             1
           )
@@ -1470,85 +1487,93 @@ var render = function () {
                 items: _vm.monitoring_table,
                 "item-key": "monitoring_tables",
               },
-              scopedSlots: _vm._u([
-                {
-                  key: "item.mon_file",
-                  fn: function (ref) {
-                    var item = ref.item
-                    return [
-                      item.mon_file > 0
-                        ? _c(
-                            "a",
-                            {
-                              attrs: {
-                                href:
-                                  "/app/attachments?type=monitoring&id=" +
-                                  item.id,
-                                target: "_blank",
+              scopedSlots: _vm._u(
+                [
+                  {
+                    key: "item.mon_file",
+                    fn: function (ref) {
+                      var item = ref.item
+                      return [
+                        item.mon_file > 0
+                          ? _c(
+                              "a",
+                              {
+                                attrs: {
+                                  href:
+                                    "/app/attachments?type=monitoring&id=" +
+                                    item.id,
+                                  target: "_blank",
+                                },
                               },
-                            },
-                            [
-                              _c("v-btn", { attrs: { small: "", dark: "" } }, [
-                                _vm._v("Download File"),
-                              ]),
-                            ],
-                            1
-                          )
-                        : _c(
-                            "div",
-                            { staticClass: "text-xs font-bold italic" },
-                            [
-                              _vm._v(
-                                "\n                        No Attachment Found\n                    "
-                              ),
-                            ]
-                          ),
-                    ]
+                              [
+                                _c(
+                                  "v-btn",
+                                  { attrs: { small: "", dark: "" } },
+                                  [_vm._v("Download File")]
+                                ),
+                              ],
+                              1
+                            )
+                          : _c(
+                              "div",
+                              { staticClass: "text-xs font-bold italic" },
+                              [
+                                _vm._v(
+                                  "\n                        No Attachment Found\n                    "
+                                ),
+                              ]
+                            ),
+                      ]
+                    },
                   },
-                },
-                {
-                  key: "item.actions",
-                  fn: function (ref) {
-                    var item = ref.item
-                    return [
-                      _c(
-                        "v-icon",
-                        {
-                          staticClass: "mr-2",
-                          attrs: { small: "" },
-                          on: {
-                            click: function ($event) {
-                              return _vm.editMonitoring(item)
-                            },
-                          },
+                  _vm.has_permit
+                    ? {
+                        key: "item.actions",
+                        fn: function (ref) {
+                          var item = ref.item
+                          return [
+                            _c(
+                              "v-icon",
+                              {
+                                staticClass: "mr-2",
+                                attrs: { small: "" },
+                                on: {
+                                  click: function ($event) {
+                                    return _vm.editMonitoring(item)
+                                  },
+                                },
+                              },
+                              [
+                                _vm._v(
+                                  "\n                        mdi-pencil\n                    "
+                                ),
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "v-icon",
+                              {
+                                attrs: { small: "" },
+                                on: {
+                                  click: function ($event) {
+                                    return _vm.deleteMonitoring(item)
+                                  },
+                                },
+                              },
+                              [
+                                _vm._v(
+                                  "\n                        mdi-delete\n                    "
+                                ),
+                              ]
+                            ),
+                          ]
                         },
-                        [
-                          _vm._v(
-                            "\n                        mdi-pencil\n                    "
-                          ),
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "v-icon",
-                        {
-                          attrs: { small: "" },
-                          on: {
-                            click: function ($event) {
-                              return _vm.deleteMonitoring(item)
-                            },
-                          },
-                        },
-                        [
-                          _vm._v(
-                            "\n                        mdi-delete\n                    "
-                          ),
-                        ]
-                      ),
-                    ]
-                  },
-                },
-              ]),
+                      }
+                    : null,
+                ],
+                null,
+                true
+              ),
             }),
           ],
           1

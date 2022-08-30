@@ -78,6 +78,277 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @inertiajs/inertia-vue */ "./node_modules/@inertiajs/inertia-vue/dist/index.js");
+/* harmony import */ var _mixins___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../mixins/ */ "./resources/js/src/mixins/index.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_2__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -136,11 +407,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
     Link: _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_0__.Link
   },
+  mixins: [_mixins___WEBPACK_IMPORTED_MODULE_1__.page],
   props: {
+    access: Array,
     items: {
       type: Array,
       require: true
@@ -152,6 +427,26 @@ __webpack_require__.r(__webpack_exports__);
       admins: [["Management", "mdi-account-multiple-outline"], ["Settings", "mdi-cog-outline"]],
       cruds: [["Create", "mdi-plus-outline"], ["Read", "mdi-file-outline"], ["Update", "mdi-update"], ["Delete", "mdi-delete"]]
     };
+  },
+  computed: {
+    hasAdminRole: function hasAdminRole() {
+      return lodash__WEBPACK_IMPORTED_MODULE_2___default().includes(this.access, "ADMIN USER");
+    },
+    isBasicUserRole: function isBasicUserRole() {
+      return lodash__WEBPACK_IMPORTED_MODULE_2___default().includes(this.access, "BASIC USER");
+    },
+    hasEMED: function hasEMED() {
+      return lodash__WEBPACK_IMPORTED_MODULE_2___default().includes(this.access, "EMED EDIT");
+    },
+    hasCPD: function hasCPD() {
+      return lodash__WEBPACK_IMPORTED_MODULE_2___default().includes(this.access, "CPD EDIT");
+    },
+    hasLEGAL: function hasLEGAL() {
+      return lodash__WEBPACK_IMPORTED_MODULE_2___default().includes(this.access, "LEGAL EDIT");
+    },
+    hasMAP: function hasMAP() {
+      return lodash__WEBPACK_IMPORTED_MODULE_2___default().includes(this.access, "MAP EDIT");
+    }
   }
 });
 
@@ -176,6 +471,8 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+//
+//
 //
 //
 //
@@ -408,10 +705,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: {
+    access: Array
+  },
   components: {
     Link: _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_0__.Link,
     RightMenu: _components_RightMenu_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
@@ -430,6 +731,10 @@ __webpack_require__.r(__webpack_exports__);
       name: "Allan Daryl Ancheta",
       email: "allandaryl.dev@gmail.com",
       github: "allandaryldev"
+    }, {
+      name: "Russel Owens Miranda",
+      email: "",
+      github: "russelowens"
     }]
   },
   data: function data() {
@@ -446,6 +751,7 @@ __webpack_require__.r(__webpack_exports__);
       }],
       sidebarItems: [{
         header: "Firm Management",
+        access_role: ["ADMIN USER", "BASIC USER"],
         child: [{
           name: "Firm Management",
           link: null,
@@ -474,6 +780,7 @@ __webpack_require__.r(__webpack_exports__);
         }]
       }, {
         header: "Monitoring",
+        access_role: [],
         child: [{
           name: "ECC/NCC",
           link: null,
@@ -676,33 +983,27 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _layouts_default_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../layouts/default.vue */ "./resources/js/src/layouts/default.vue");
-/* harmony import */ var _components_UnitSection_CUD_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/UnitSection/CUD.vue */ "./resources/js/src/components/UnitSection/CUD.vue");
-/* harmony import */ var _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @inertiajs/inertia-vue */ "./node_modules/@inertiajs/inertia-vue/dist/index.js");
-/* harmony import */ var _mixins_page__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../mixins/page */ "./resources/js/src/mixins/page.js");
-/* harmony import */ var _mixins_unit_section_modal__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../mixins/unit_section_modal */ "./resources/js/src/mixins/unit_section_modal.js");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_5__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _layouts_default_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../layouts/default.vue */ "./resources/js/src/layouts/default.vue");
+/* harmony import */ var _components_UnitSection_CUD_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../components/UnitSection/CUD.vue */ "./resources/js/src/components/UnitSection/CUD.vue");
+/* harmony import */ var _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @inertiajs/inertia-vue */ "./node_modules/@inertiajs/inertia-vue/dist/index.js");
+/* harmony import */ var _mixins_page__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../mixins/page */ "./resources/js/src/mixins/page.js");
+/* harmony import */ var _mixins_unit_section_modal__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../mixins/unit_section_modal */ "./resources/js/src/mixins/unit_section_modal.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_6__);
+
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 //
 //
 //
@@ -808,12 +1109,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  mixins: [_mixins_page__WEBPACK_IMPORTED_MODULE_3__["default"], _mixins_unit_section_modal__WEBPACK_IMPORTED_MODULE_4__["default"]],
+  mixins: [_mixins_page__WEBPACK_IMPORTED_MODULE_4__["default"], _mixins_unit_section_modal__WEBPACK_IMPORTED_MODULE_5__["default"]],
   props: ["unit_section_data", "filters", "division_data"],
   components: {
-    DefaultLayout: _layouts_default_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
-    Link: _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_2__.Link,
-    CUDUnitSection: _components_UnitSection_CUD_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+    DefaultLayout: _layouts_default_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
+    Link: _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_3__.Link,
+    CUDUnitSection: _components_UnitSection_CUD_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   data: function data() {
     return {
@@ -822,8 +1123,129 @@ __webpack_require__.r(__webpack_exports__);
         division_id: ""
       }
     };
+  },
+  methods: {
+    get: lodash__WEBPACK_IMPORTED_MODULE_6___default().debounce( /*#__PURE__*/function () {
+      var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(params) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.prev = 0;
+                _context.next = 3;
+                return this.$inertia.get("/app/unit_section", _objectSpread({}, params));
+
+              case 3:
+                _context.next = 8;
+                break;
+
+              case 5:
+                _context.prev = 5;
+                _context.t0 = _context["catch"](0);
+                this.error(_context.t0.response.data.message);
+
+              case 8:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this, [[0, 5]]);
+      }));
+
+      return function (_x) {
+        return _ref.apply(this, arguments);
+      };
+    }(), 1500)
   }
 });
+
+/***/ }),
+
+/***/ "./resources/js/src/helpers/urls.js":
+/*!******************************************!*\
+  !*** ./resources/js/src/helpers/urls.js ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+var root = "http://127.0.0.1:8000/api/v1/";
+var urls = {
+  psic_group_class: root + "psic_group_class",
+  psic_sub_class: root + "psic_sub_class",
+  project_type: root + "project/type",
+  project_subtype: root + "project/subtype",
+  project_specifictype: root + "project/specifictype"
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (urls);
+
+/***/ }),
+
+/***/ "./resources/js/src/mixins/dialogs.js":
+/*!********************************************!*\
+  !*** ./resources/js/src/mixins/dialogs.js ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  methods: {
+    confirmDelete: function confirmDelete() {
+      var message = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'This action  cannot be undone';
+      var callback = arguments.length > 1 ? arguments[1] : undefined;
+      this.$buefy.dialog.confirm({
+        title: 'Are You Sure',
+        message: message,
+        confirmText: 'Delete',
+        type: 'is-danger',
+        hasIcon: true,
+        onConfirm: callback
+      });
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/src/mixins/index.js":
+/*!******************************************!*\
+  !*** ./resources/js/src/mixins/index.js ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "dialogs": () => (/* reexport safe */ _dialogs__WEBPACK_IMPORTED_MODULE_4__["default"]),
+/* harmony export */   "page": () => (/* reexport safe */ _page__WEBPACK_IMPORTED_MODULE_0__["default"]),
+/* harmony export */   "project": () => (/* reexport safe */ _project__WEBPACK_IMPORTED_MODULE_3__["default"]),
+/* harmony export */   "psic": () => (/* reexport safe */ _psic__WEBPACK_IMPORTED_MODULE_2__["default"]),
+/* harmony export */   "swm": () => (/* reexport safe */ _swm__WEBPACK_IMPORTED_MODULE_5__["default"]),
+/* harmony export */   "toasts": () => (/* reexport safe */ _toasts__WEBPACK_IMPORTED_MODULE_1__["default"]),
+/* harmony export */   "users": () => (/* reexport safe */ _users__WEBPACK_IMPORTED_MODULE_6__["default"])
+/* harmony export */ });
+/* harmony import */ var _page__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./page */ "./resources/js/src/mixins/page.js");
+/* harmony import */ var _toasts__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./toasts */ "./resources/js/src/mixins/toasts.js");
+/* harmony import */ var _psic__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./psic */ "./resources/js/src/mixins/psic.js");
+/* harmony import */ var _project__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./project */ "./resources/js/src/mixins/project.js");
+/* harmony import */ var _dialogs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./dialogs */ "./resources/js/src/mixins/dialogs.js");
+/* harmony import */ var _swm__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./swm */ "./resources/js/src/mixins/swm.js");
+/* harmony import */ var _users__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./users */ "./resources/js/src/mixins/users.js");
+
+
+
+
+
+
+
+
 
 /***/ }),
 
@@ -884,6 +1306,24 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     };
   },
   computed: {
+    hasAdminRole: function hasAdminRole() {
+      return lodash__WEBPACK_IMPORTED_MODULE_1___default().includes(this.access, "ADMIN USER");
+    },
+    isBasicUserRole: function isBasicUserRole() {
+      return lodash__WEBPACK_IMPORTED_MODULE_1___default().includes(this.access, "BASIC USER");
+    },
+    hasEMED: function hasEMED() {
+      return lodash__WEBPACK_IMPORTED_MODULE_1___default().includes(this.access, "EMED EDIT");
+    },
+    hasCPD: function hasCPD() {
+      return lodash__WEBPACK_IMPORTED_MODULE_1___default().includes(this.access, "CPD EDIT");
+    },
+    hasLEGAL: function hasLEGAL() {
+      return lodash__WEBPACK_IMPORTED_MODULE_1___default().includes(this.access, "LEGAL EDIT");
+    },
+    hasMAP: function hasMAP() {
+      return lodash__WEBPACK_IMPORTED_MODULE_1___default().includes(this.access, "MAP EDIT");
+    },
     route_params: function route_params() {
       var urlParams = new URLSearchParams(location.search);
       var routes = [];
@@ -1065,8 +1505,1831 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       if (Object.keys(data).length > 1) this.error("Form Error");
     },
     successMessage: function successMessage(data) {
-      console.log(data);
       if (data.message) this.success(data.message);
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/src/mixins/project.js":
+/*!********************************************!*\
+  !*** ./resources/js/src/mixins/project.js ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _helpers_urls__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../helpers/urls */ "./resources/js/src/helpers/urls.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_3__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      typeModal: {
+        active: false,
+        form: this.$inertia.form({
+          project_type_desc: "",
+          request_type: "post"
+        })
+      },
+      subTypeModal: {
+        active: false,
+        form: this.$inertia.form({
+          project_subtype_desc: "",
+          project_type_FK: "",
+          request_type: "post"
+        })
+      },
+      specificTypeModal: {
+        active: false,
+        form: this.$inertia.form({
+          project_specific_type_desc: "",
+          project_subtype_FK: "",
+          request_type: "post"
+        })
+      },
+      specificSubTypeModal: {
+        active: false,
+        form: this.$inertia.form({
+          project_specific_subtype_desc: "",
+          project_specific_type_FK: "",
+          request_type: "post"
+        })
+      },
+      project_type: [],
+      project_subtype: [],
+      project_specific_type: []
+    };
+  },
+  methods: {
+    // type
+    set_project_type: function set_project_type(data, type) {
+      this.typeModal = {
+        active: true,
+        form: this.$inertia.form(_objectSpread(_objectSpread({}, data), {}, {
+          request_type: type
+        }))
+      };
+    },
+    typeClose: function typeClose() {
+      var _this = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                try {
+                  _this.typeModal = {
+                    active: false,
+                    form: _this.$inertia.form({
+                      project_type_desc: "",
+                      request_type: "post"
+                    })
+                  };
+                } catch (error) {
+                  console.log(erro);
+
+                  _this.error("typeClose-error");
+                }
+
+              case 1:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }))();
+    },
+    submitProjectType: function submitProjectType() {
+      var _this2 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
+        var type_form;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.prev = 0;
+                _this2.loading = true;
+                type_form = _this2.typeModal.form;
+                _context2.t0 = type_form.request_type;
+                _context2.next = _context2.t0 === "post" ? 6 : _context2.t0 === "patch" ? 9 : _context2.t0 === "delete" ? 12 : 15;
+                break;
+
+              case 6:
+                _context2.next = 8;
+                return type_form.post("#");
+
+              case 8:
+                return _context2.abrupt("break", 17);
+
+              case 9:
+                _context2.next = 11;
+                return type_form.patch("type/".concat(type_form.id));
+
+              case 11:
+                return _context2.abrupt("break", 17);
+
+              case 12:
+                _context2.next = 14;
+                return type_form["delete"]("type/".concat(type_form.id));
+
+              case 14:
+                return _context2.abrupt("break", 17);
+
+              case 15:
+                _context2.next = 17;
+                return type_form.post("#");
+
+              case 17:
+                _this2.typeClose();
+
+                _this2.loading = false;
+                _context2.next = 25;
+                break;
+
+              case 21:
+                _context2.prev = 21;
+                _context2.t1 = _context2["catch"](0);
+                console.log(_context2.t1);
+
+                _this2.error("submitProjectType-error");
+
+              case 25:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, null, [[0, 21]]);
+      }))();
+    },
+    searchProjectType: lodash__WEBPACK_IMPORTED_MODULE_3___default().debounce( /*#__PURE__*/function () {
+      var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3(project_type_desc) {
+        var _yield$axios$get, data;
+
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                _context3.prev = 0;
+                this.loading = true;
+
+                if (project_type_desc) {
+                  _context3.next = 5;
+                  break;
+                }
+
+                this.loading = false;
+                return _context3.abrupt("return", this.psicGroup = []);
+
+              case 5:
+                _context3.next = 7;
+                return axios__WEBPACK_IMPORTED_MODULE_2___default().get(_helpers_urls__WEBPACK_IMPORTED_MODULE_1__["default"].project_type, {
+                  params: {
+                    project_type_desc: project_type_desc
+                  }
+                });
+
+              case 7:
+                _yield$axios$get = _context3.sent;
+                data = _yield$axios$get.data;
+                this.project_type = data.data;
+                this.loading = false;
+                _context3.next = 18;
+                break;
+
+              case 13:
+                _context3.prev = 13;
+                _context3.t0 = _context3["catch"](0);
+                console.log(_context3.t0);
+                this.loading = false;
+                this.error("searchGroup - error");
+
+              case 18:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3, this, [[0, 13]]);
+      }));
+
+      return function (_x) {
+        return _ref.apply(this, arguments);
+      };
+    }(), 1500),
+    // sub type
+    add_sub_type_via_page: function add_sub_type_via_page(data) {
+      var _this3 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee4() {
+        var id, project_type_desc;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee4$(_context4) {
+          while (1) {
+            switch (_context4.prev = _context4.next) {
+              case 0:
+                try {
+                  id = data.id, project_type_desc = data.project_type_desc;
+                  _this3.subTypeModal = {
+                    active: true,
+                    form: _this3.$inertia.form({
+                      project_subtype_desc: "",
+                      project_type_FK: id,
+                      searchClass: project_type_desc,
+                      request_type: "post"
+                    })
+                  };
+                } catch (error) {
+                  console.log(error);
+
+                  _this3.error("add_group_class_via_group_page - error");
+                }
+
+              case 1:
+              case "end":
+                return _context4.stop();
+            }
+          }
+        }, _callee4);
+      }))();
+    },
+    set_project_sub_type: function set_project_sub_type(data, type) {
+      var id = data.id,
+          project_subtype_desc = data.project_subtype_desc,
+          project_type = data.project_type;
+      this.subTypeModal = {
+        active: true,
+        form: this.$inertia.form({
+          // ...data,
+          id: id,
+          project_subtype_desc: project_subtype_desc,
+          project_type_FK: project_type.id,
+          searchClass: project_type.desc,
+          request_type: type
+        })
+      };
+    },
+    projectSubTypeClose: function projectSubTypeClose() {
+      var _this4 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee5() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee5$(_context5) {
+          while (1) {
+            switch (_context5.prev = _context5.next) {
+              case 0:
+                try {
+                  _this4.subTypeModal = {
+                    active: false,
+                    form: _this4.$inertia.form({
+                      project_subtype_desc: "",
+                      psic_type_FK: "",
+                      request_type: "post"
+                    })
+                  };
+                } catch (error) {
+                  console.log(erro);
+
+                  _this4.error("projectSubTypeClose-error");
+                }
+
+              case 1:
+              case "end":
+                return _context5.stop();
+            }
+          }
+        }, _callee5);
+      }))();
+    },
+    submitSubTypeClass: function submitSubTypeClass() {
+      var _this5 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee6() {
+        var subType_form;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee6$(_context6) {
+          while (1) {
+            switch (_context6.prev = _context6.next) {
+              case 0:
+                _context6.prev = 0;
+                _this5.loading = true;
+                subType_form = _this5.subTypeModal.form;
+                _context6.t0 = subType_form.request_type;
+                _context6.next = _context6.t0 === "post" ? 6 : _context6.t0 === "patch" ? 9 : _context6.t0 === "delete" ? 12 : 15;
+                break;
+
+              case 6:
+                _context6.next = 8;
+                return subType_form.post("/app/project/subtype");
+
+              case 8:
+                return _context6.abrupt("break", 17);
+
+              case 9:
+                _context6.next = 11;
+                return subType_form.patch("subtype/".concat(subType_form.id));
+
+              case 11:
+                return _context6.abrupt("break", 17);
+
+              case 12:
+                _context6.next = 14;
+                return subType_form["delete"]("subtype/".concat(subType_form.id));
+
+              case 14:
+                return _context6.abrupt("break", 17);
+
+              case 15:
+                _context6.next = 17;
+                return subType_form.post("/app/project/subtype");
+
+              case 17:
+                _this5.projectSubTypeClose();
+
+                _this5.loading = false;
+                _context6.next = 25;
+                break;
+
+              case 21:
+                _context6.prev = 21;
+                _context6.t1 = _context6["catch"](0);
+                console.log(_context6.t1);
+
+                _this5.error("submitGroupClass-error");
+
+              case 25:
+              case "end":
+                return _context6.stop();
+            }
+          }
+        }, _callee6, null, [[0, 21]]);
+      }))();
+    },
+    searchSubType: lodash__WEBPACK_IMPORTED_MODULE_3___default().debounce( /*#__PURE__*/function () {
+      var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee7(project_subtype_desc) {
+        var _yield$axios$get2, data;
+
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee7$(_context7) {
+          while (1) {
+            switch (_context7.prev = _context7.next) {
+              case 0:
+                _context7.prev = 0;
+                this.loading = true;
+
+                if (project_subtype_desc) {
+                  _context7.next = 5;
+                  break;
+                }
+
+                this.loading = false;
+                return _context7.abrupt("return", this.psicClass = []);
+
+              case 5:
+                _context7.next = 7;
+                return axios__WEBPACK_IMPORTED_MODULE_2___default().get(_helpers_urls__WEBPACK_IMPORTED_MODULE_1__["default"].project_subtype, {
+                  params: {
+                    project_subtype_desc: project_subtype_desc
+                  }
+                });
+
+              case 7:
+                _yield$axios$get2 = _context7.sent;
+                data = _yield$axios$get2.data;
+                this.project_subtype = data.data;
+                this.loading = false;
+                _context7.next = 18;
+                break;
+
+              case 13:
+                _context7.prev = 13;
+                _context7.t0 = _context7["catch"](0);
+                console.log(_context7.t0);
+                this.loading = false;
+                this.error("searchClass - error");
+
+              case 18:
+              case "end":
+                return _context7.stop();
+            }
+          }
+        }, _callee7, this, [[0, 13]]);
+      }));
+
+      return function (_x2) {
+        return _ref2.apply(this, arguments);
+      };
+    }(), 1500),
+    //specific type
+    add_specific_type_via_page: function add_specific_type_via_page(data) {
+      var _this6 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee8() {
+        var id, project_subtype_desc;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee8$(_context8) {
+          while (1) {
+            switch (_context8.prev = _context8.next) {
+              case 0:
+                try {
+                  id = data.id, project_subtype_desc = data.project_subtype_desc;
+                  _this6.specificTypeModal = {
+                    active: true,
+                    form: _this6.$inertia.form({
+                      project_specific_type_desc: "",
+                      project_subtype_FK: id,
+                      searchClass: project_subtype_desc,
+                      request_type: "post"
+                    })
+                  };
+                } catch (error) {
+                  console.log(error);
+
+                  _this6.error("add_sub_class_via_class_page - error");
+                }
+
+              case 1:
+              case "end":
+                return _context8.stop();
+            }
+          }
+        }, _callee8);
+      }))();
+    },
+    set_project_specific_type: function set_project_specific_type(data, type) {
+      var id = data.id,
+          project_specific_type_desc = data.project_specific_type_desc,
+          project_subtype = data.project_subtype;
+      this.specificTypeModal = {
+        active: true,
+        form: this.$inertia.form({
+          // ...data,
+          id: id,
+          project_specific_type_desc: project_specific_type_desc,
+          project_subtype_FK: project_subtype.id,
+          searchClass: project_subtype.desc,
+          request_type: type
+        })
+      };
+    },
+    specificTypeClose: function specificTypeClose() {
+      var _this7 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee9() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee9$(_context9) {
+          while (1) {
+            switch (_context9.prev = _context9.next) {
+              case 0:
+                try {
+                  _this7.specificTypeModal = {
+                    active: false,
+                    form: _this7.$inertia.form({
+                      project_specific_type_desc: "",
+                      project_subtype_FK: "",
+                      request_type: "post"
+                    })
+                  };
+                } catch (error) {
+                  console.log(erro);
+
+                  _this7.error("specificTypeClose-error");
+                }
+
+              case 1:
+              case "end":
+                return _context9.stop();
+            }
+          }
+        }, _callee9);
+      }))();
+    },
+    submitProjectSpecificType: function submitProjectSpecificType() {
+      var _this8 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee10() {
+        var form;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee10$(_context10) {
+          while (1) {
+            switch (_context10.prev = _context10.next) {
+              case 0:
+                _context10.prev = 0;
+                _this8.loading = true;
+                form = _this8.specificTypeModal.form;
+                _context10.t0 = form.request_type;
+                _context10.next = _context10.t0 === "post" ? 6 : _context10.t0 === "patch" ? 9 : _context10.t0 === "delete" ? 12 : 15;
+                break;
+
+              case 6:
+                _context10.next = 8;
+                return form.post("/app/project/specifictype");
+
+              case 8:
+                return _context10.abrupt("break", 17);
+
+              case 9:
+                _context10.next = 11;
+                return form.patch("specifictype/".concat(form.id));
+
+              case 11:
+                return _context10.abrupt("break", 17);
+
+              case 12:
+                _context10.next = 14;
+                return form["delete"]("specifictype/".concat(form.id));
+
+              case 14:
+                return _context10.abrupt("break", 17);
+
+              case 15:
+                _context10.next = 17;
+                return form.post("#");
+
+              case 17:
+                _this8.specificTypeClose();
+
+                _this8.loading = false;
+                _context10.next = 25;
+                break;
+
+              case 21:
+                _context10.prev = 21;
+                _context10.t1 = _context10["catch"](0);
+                console.log(_context10.t1);
+
+                _this8.error("submitProjectSpecificType-error");
+
+              case 25:
+              case "end":
+                return _context10.stop();
+            }
+          }
+        }, _callee10, null, [[0, 21]]);
+      }))();
+    },
+    searchProjectSpecificType: lodash__WEBPACK_IMPORTED_MODULE_3___default().debounce( /*#__PURE__*/function () {
+      var _ref3 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee11(project_specific_type_desc) {
+        var _yield$axios$get3, data;
+
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee11$(_context11) {
+          while (1) {
+            switch (_context11.prev = _context11.next) {
+              case 0:
+                _context11.prev = 0;
+                this.loading = true;
+
+                if (project_specific_type_desc) {
+                  _context11.next = 5;
+                  break;
+                }
+
+                this.loading = false;
+                return _context11.abrupt("return", this.psicClass = []);
+
+              case 5:
+                _context11.next = 7;
+                return axios__WEBPACK_IMPORTED_MODULE_2___default().get(_helpers_urls__WEBPACK_IMPORTED_MODULE_1__["default"].project_specifictype, {
+                  params: {
+                    project_specific_type_desc: project_specific_type_desc
+                  }
+                });
+
+              case 7:
+                _yield$axios$get3 = _context11.sent;
+                data = _yield$axios$get3.data;
+                this.project_specific_type = data.data;
+                this.loading = false;
+                _context11.next = 18;
+                break;
+
+              case 13:
+                _context11.prev = 13;
+                _context11.t0 = _context11["catch"](0);
+                console.log(_context11.t0);
+                this.loading = false;
+                this.error("searchClass - error");
+
+              case 18:
+              case "end":
+                return _context11.stop();
+            }
+          }
+        }, _callee11, this, [[0, 13]]);
+      }));
+
+      return function (_x3) {
+        return _ref3.apply(this, arguments);
+      };
+    }(), 1500),
+    //specific sub type
+    add_specific_sub_type_via_page: function add_specific_sub_type_via_page(data) {
+      var _this9 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee12() {
+        var id, project_specific_type_desc;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee12$(_context12) {
+          while (1) {
+            switch (_context12.prev = _context12.next) {
+              case 0:
+                try {
+                  id = data.id, project_specific_type_desc = data.project_specific_type_desc;
+                  _this9.specificSubTypeModal = {
+                    active: true,
+                    form: _this9.$inertia.form({
+                      project_specific_subtype_desc: "",
+                      project_specific_type_FK: id,
+                      searchClass: project_specific_type_desc,
+                      request_type: "post"
+                    })
+                  };
+                } catch (error) {
+                  console.log(error);
+
+                  _this9.error("add_sub_class_via_class_page - error");
+                }
+
+              case 1:
+              case "end":
+                return _context12.stop();
+            }
+          }
+        }, _callee12);
+      }))();
+    },
+    set_project_specific_sub_type: function set_project_specific_sub_type(data, type) {
+      var id = data.id,
+          project_specific_subtype_desc = data.project_specific_subtype_desc,
+          project_specific_type = data.project_specific_type;
+      this.specificSubTypeModal = {
+        active: true,
+        form: this.$inertia.form({
+          // ...data,
+          id: id,
+          project_specific_subtype_desc: project_specific_subtype_desc,
+          project_specific_type_FK: project_specific_type.id,
+          searchClass: project_specific_type.desc,
+          request_type: type
+        })
+      };
+    },
+    specificSubTypeClose: function specificSubTypeClose() {
+      var _this10 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee13() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee13$(_context13) {
+          while (1) {
+            switch (_context13.prev = _context13.next) {
+              case 0:
+                try {
+                  _this10.specificSubTypeModal = {
+                    active: false,
+                    form: _this10.$inertia.form({
+                      project_specific_subtype_desc: "",
+                      project_specific_type_FK: "",
+                      request_type: "post"
+                    })
+                  };
+                } catch (error) {
+                  console.log(erro);
+
+                  _this10.error("specificTypeClose-error");
+                }
+
+              case 1:
+              case "end":
+                return _context13.stop();
+            }
+          }
+        }, _callee13);
+      }))();
+    },
+    submitProjectSpecificSubType: function submitProjectSpecificSubType() {
+      var _this11 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee14() {
+        var form;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee14$(_context14) {
+          while (1) {
+            switch (_context14.prev = _context14.next) {
+              case 0:
+                _context14.prev = 0;
+                _this11.loading = true;
+                form = _this11.specificSubTypeModal.form;
+                _context14.t0 = form.request_type;
+                _context14.next = _context14.t0 === "post" ? 6 : _context14.t0 === "patch" ? 9 : _context14.t0 === "delete" ? 12 : 15;
+                break;
+
+              case 6:
+                _context14.next = 8;
+                return form.post("/app/project/specificsubtype");
+
+              case 8:
+                return _context14.abrupt("break", 17);
+
+              case 9:
+                _context14.next = 11;
+                return form.patch("specificsubtype/".concat(form.id));
+
+              case 11:
+                return _context14.abrupt("break", 17);
+
+              case 12:
+                _context14.next = 14;
+                return form["delete"]("specificsubtype/".concat(form.id));
+
+              case 14:
+                return _context14.abrupt("break", 17);
+
+              case 15:
+                _context14.next = 17;
+                return form.post("#");
+
+              case 17:
+                _this11.specificSubTypeClose();
+
+                _this11.loading = false;
+                _context14.next = 25;
+                break;
+
+              case 21:
+                _context14.prev = 21;
+                _context14.t1 = _context14["catch"](0);
+                console.log(_context14.t1);
+
+                _this11.error("submitProjectSpecificSubType-error");
+
+              case 25:
+              case "end":
+                return _context14.stop();
+            }
+          }
+        }, _callee14, null, [[0, 21]]);
+      }))();
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/src/mixins/psic.js":
+/*!*****************************************!*\
+  !*** ./resources/js/src/mixins/psic.js ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _helpers_urls__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../helpers/urls */ "./resources/js/src/helpers/urls.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_3__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      groupModal: {
+        active: false,
+        form: this.$inertia.form({
+          psic_group_desc: "",
+          request_type: "post"
+        })
+      },
+      groupClassModal: {
+        active: false,
+        form: this.$inertia.form({
+          psic_class_desc: "",
+          psic_group_FK: "",
+          request_type: "post"
+        })
+      },
+      subClassModal: {
+        active: false,
+        form: this.$inertia.form({
+          psic_subclass_desc: "",
+          psic_class_FK: "",
+          request_type: "post"
+        })
+      },
+      psic_group_desc: "",
+      psicGroup: [],
+      psicClass: []
+    };
+  },
+  methods: {
+    // group
+    set_psic_group: function set_psic_group(data, type) {
+      this.groupModal = {
+        active: true,
+        form: this.$inertia.form(_objectSpread(_objectSpread({}, data), {}, {
+          request_type: type
+        }))
+      };
+    },
+    groupClose: function groupClose() {
+      var _this = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                try {
+                  _this.groupModal = {
+                    active: false,
+                    form: _this.$inertia.form({
+                      psic_group_desc: "",
+                      request_type: "post"
+                    })
+                  };
+                } catch (error) {
+                  console.log(erro);
+
+                  _this.error("groupClose-error");
+                }
+
+              case 1:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }))();
+    },
+    submitGroup: function submitGroup() {
+      var _this2 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
+        var group_form;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.prev = 0;
+                _this2.loading = true;
+                group_form = _this2.groupModal.form;
+                _context2.t0 = group_form.request_type;
+                _context2.next = _context2.t0 === "post" ? 6 : _context2.t0 === "patch" ? 9 : _context2.t0 === "delete" ? 12 : 15;
+                break;
+
+              case 6:
+                _context2.next = 8;
+                return group_form.post("#");
+
+              case 8:
+                return _context2.abrupt("break", 17);
+
+              case 9:
+                _context2.next = 11;
+                return group_form.patch("group/".concat(group_form.id));
+
+              case 11:
+                return _context2.abrupt("break", 17);
+
+              case 12:
+                _context2.next = 14;
+                return group_form["delete"]("group/".concat(group_form.id));
+
+              case 14:
+                return _context2.abrupt("break", 17);
+
+              case 15:
+                _context2.next = 17;
+                return group_form.post("#");
+
+              case 17:
+                _this2.groupClose();
+
+                _this2.loading = false;
+                _context2.next = 25;
+                break;
+
+              case 21:
+                _context2.prev = 21;
+                _context2.t1 = _context2["catch"](0);
+                console.log(_context2.t1);
+
+                _this2.error("submitGroup-error");
+
+              case 25:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, null, [[0, 21]]);
+      }))();
+    },
+    searchGroup: lodash__WEBPACK_IMPORTED_MODULE_3___default().debounce( /*#__PURE__*/function () {
+      var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3(psic_group_desc) {
+        var _yield$axios$get, data;
+
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                _context3.prev = 0;
+                this.loading = true;
+
+                if (psic_group_desc) {
+                  _context3.next = 5;
+                  break;
+                }
+
+                this.loading = false;
+                return _context3.abrupt("return", this.psicGroup = []);
+
+              case 5:
+                _context3.next = 7;
+                return axios__WEBPACK_IMPORTED_MODULE_2___default().get(_helpers_urls__WEBPACK_IMPORTED_MODULE_1__["default"].psic_group_class, {
+                  params: {
+                    psic_group_desc: psic_group_desc
+                  }
+                });
+
+              case 7:
+                _yield$axios$get = _context3.sent;
+                data = _yield$axios$get.data;
+                this.psicGroup = data.data;
+                this.loading = false;
+                _context3.next = 18;
+                break;
+
+              case 13:
+                _context3.prev = 13;
+                _context3.t0 = _context3["catch"](0);
+                console.log(_context3.t0);
+                this.loading = false;
+                this.error("searchGroup - error");
+
+              case 18:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3, this, [[0, 13]]);
+      }));
+
+      return function (_x) {
+        return _ref.apply(this, arguments);
+      };
+    }(), 1500),
+    // class
+    add_group_class_via_group_page: function add_group_class_via_group_page(data) {
+      var _this3 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee4() {
+        var id, psic_group_desc;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee4$(_context4) {
+          while (1) {
+            switch (_context4.prev = _context4.next) {
+              case 0:
+                try {
+                  id = data.id, psic_group_desc = data.psic_group_desc;
+                  _this3.groupClassModal = {
+                    active: true,
+                    form: _this3.$inertia.form({
+                      psic_class_desc: "",
+                      psic_group_FK: id,
+                      searchClass: psic_group_desc,
+                      request_type: "post"
+                    })
+                  };
+                } catch (error) {
+                  console.log(error);
+
+                  _this3.error("add_group_class_via_group_page - error");
+                }
+
+              case 1:
+              case "end":
+                return _context4.stop();
+            }
+          }
+        }, _callee4);
+      }))();
+    },
+    set_psic_group_class: function set_psic_group_class(data, type) {
+      var id = data.id,
+          psic_class_desc = data.psic_class_desc,
+          psic_group = data.psic_group;
+      this.groupClassModal = {
+        active: true,
+        form: this.$inertia.form({
+          // ...data,
+          id: id,
+          psic_class_desc: psic_class_desc,
+          psic_group_FK: psic_group.id,
+          searchClass: psic_group.desc,
+          request_type: type
+        })
+      };
+    },
+    groupClassClose: function groupClassClose() {
+      var _this4 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee5() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee5$(_context5) {
+          while (1) {
+            switch (_context5.prev = _context5.next) {
+              case 0:
+                try {
+                  _this4.groupClassModal = {
+                    active: false,
+                    form: _this4.$inertia.form({
+                      psic_group_desc: "",
+                      request_type: "post"
+                    })
+                  };
+                } catch (error) {
+                  console.log(erro);
+
+                  _this4.error("groupClose-error");
+                }
+
+              case 1:
+              case "end":
+                return _context5.stop();
+            }
+          }
+        }, _callee5);
+      }))();
+    },
+    submitGroupClass: function submitGroupClass() {
+      var _this5 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee6() {
+        var group_class_form;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee6$(_context6) {
+          while (1) {
+            switch (_context6.prev = _context6.next) {
+              case 0:
+                _context6.prev = 0;
+                _this5.loading = true;
+                group_class_form = _this5.groupClassModal.form;
+                _context6.t0 = group_class_form.request_type;
+                _context6.next = _context6.t0 === "post" ? 6 : _context6.t0 === "patch" ? 9 : _context6.t0 === "delete" ? 12 : 15;
+                break;
+
+              case 6:
+                _context6.next = 8;
+                return group_class_form.post("/app/psic/class");
+
+              case 8:
+                return _context6.abrupt("break", 17);
+
+              case 9:
+                _context6.next = 11;
+                return group_class_form.patch("class/".concat(group_class_form.id));
+
+              case 11:
+                return _context6.abrupt("break", 17);
+
+              case 12:
+                _context6.next = 14;
+                return group_class_form["delete"]("class/".concat(group_class_form.id));
+
+              case 14:
+                return _context6.abrupt("break", 17);
+
+              case 15:
+                _context6.next = 17;
+                return group_class_form.post("#");
+
+              case 17:
+                _this5.groupClassClose();
+
+                _this5.loading = false;
+                _context6.next = 25;
+                break;
+
+              case 21:
+                _context6.prev = 21;
+                _context6.t1 = _context6["catch"](0);
+                console.log(_context6.t1);
+
+                _this5.error("submitGroupClass-error");
+
+              case 25:
+              case "end":
+                return _context6.stop();
+            }
+          }
+        }, _callee6, null, [[0, 21]]);
+      }))();
+    },
+    searchClass: lodash__WEBPACK_IMPORTED_MODULE_3___default().debounce( /*#__PURE__*/function () {
+      var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee7(psic_class_desc) {
+        var _yield$axios$get2, data;
+
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee7$(_context7) {
+          while (1) {
+            switch (_context7.prev = _context7.next) {
+              case 0:
+                _context7.prev = 0;
+                this.loading = true;
+
+                if (psic_class_desc) {
+                  _context7.next = 5;
+                  break;
+                }
+
+                this.loading = false;
+                return _context7.abrupt("return", this.psicClass = []);
+
+              case 5:
+                _context7.next = 7;
+                return axios__WEBPACK_IMPORTED_MODULE_2___default().get(_helpers_urls__WEBPACK_IMPORTED_MODULE_1__["default"].psic_sub_class, {
+                  params: {
+                    psic_class_desc: psic_class_desc
+                  }
+                });
+
+              case 7:
+                _yield$axios$get2 = _context7.sent;
+                data = _yield$axios$get2.data;
+                this.psicClass = data.data;
+                this.loading = false;
+                _context7.next = 18;
+                break;
+
+              case 13:
+                _context7.prev = 13;
+                _context7.t0 = _context7["catch"](0);
+                console.log(_context7.t0);
+                this.loading = false;
+                this.error("searchClass - error");
+
+              case 18:
+              case "end":
+                return _context7.stop();
+            }
+          }
+        }, _callee7, this, [[0, 13]]);
+      }));
+
+      return function (_x2) {
+        return _ref2.apply(this, arguments);
+      };
+    }(), 1500),
+    //sub class
+    add_sub_class_via_class_page: function add_sub_class_via_class_page(data) {
+      var _this6 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee8() {
+        var id, psic_class_desc;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee8$(_context8) {
+          while (1) {
+            switch (_context8.prev = _context8.next) {
+              case 0:
+                try {
+                  id = data.id, psic_class_desc = data.psic_class_desc;
+                  _this6.subClassModal = {
+                    active: true,
+                    form: _this6.$inertia.form({
+                      psic_subclass_desc: "",
+                      psic_class_FK: id,
+                      searchClass: psic_class_desc,
+                      request_type: "post"
+                    })
+                  };
+                } catch (error) {
+                  console.log(error);
+
+                  _this6.error("add_sub_class_via_class_page - error");
+                }
+
+              case 1:
+              case "end":
+                return _context8.stop();
+            }
+          }
+        }, _callee8);
+      }))();
+    },
+    set_psic_sub_class: function set_psic_sub_class(data, type) {
+      var id = data.id,
+          psic_subclass_desc = data.psic_subclass_desc,
+          psic_class = data.psic_class;
+      this.subClassModal = {
+        active: true,
+        form: this.$inertia.form({
+          // ...data,
+          id: id,
+          psic_subclass_desc: psic_subclass_desc,
+          psic_class_FK: psic_class.id,
+          searchClass: psic_class.desc,
+          request_type: type
+        })
+      };
+    },
+    subClassClose: function subClassClose() {
+      var _this7 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee9() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee9$(_context9) {
+          while (1) {
+            switch (_context9.prev = _context9.next) {
+              case 0:
+                try {
+                  _this7.subClassModal = {
+                    active: false,
+                    form: _this7.$inertia.form({
+                      psic_subclass_desc: "",
+                      psic_class_FK: "",
+                      request_type: "post"
+                    })
+                  };
+                } catch (error) {
+                  console.log(erro);
+
+                  _this7.error("subClassClose-error");
+                }
+
+              case 1:
+              case "end":
+                return _context9.stop();
+            }
+          }
+        }, _callee9);
+      }))();
+    },
+    submitSubClass: function submitSubClass() {
+      var _this8 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee10() {
+        var sub_class_form;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee10$(_context10) {
+          while (1) {
+            switch (_context10.prev = _context10.next) {
+              case 0:
+                _context10.prev = 0;
+                _this8.loading = true;
+                sub_class_form = _this8.subClassModal.form;
+                _context10.t0 = sub_class_form.request_type;
+                _context10.next = _context10.t0 === "post" ? 6 : _context10.t0 === "patch" ? 9 : _context10.t0 === "delete" ? 12 : 15;
+                break;
+
+              case 6:
+                _context10.next = 8;
+                return sub_class_form.post("/app/psic/sub-class");
+
+              case 8:
+                return _context10.abrupt("break", 17);
+
+              case 9:
+                _context10.next = 11;
+                return sub_class_form.patch("sub-class/".concat(sub_class_form.id));
+
+              case 11:
+                return _context10.abrupt("break", 17);
+
+              case 12:
+                _context10.next = 14;
+                return sub_class_form["delete"]("sub-class/".concat(sub_class_form.id));
+
+              case 14:
+                return _context10.abrupt("break", 17);
+
+              case 15:
+                _context10.next = 17;
+                return sub_class_form.post("#");
+
+              case 17:
+                _this8.subClassClose();
+
+                _this8.loading = false;
+                _context10.next = 25;
+                break;
+
+              case 21:
+                _context10.prev = 21;
+                _context10.t1 = _context10["catch"](0);
+                console.log(_context10.t1);
+
+                _this8.error("submitSubClass-error");
+
+              case 25:
+              case "end":
+                return _context10.stop();
+            }
+          }
+        }, _callee10, null, [[0, 21]]);
+      }))();
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/src/mixins/swm.js":
+/*!****************************************!*\
+  !*** ./resources/js/src/mixins/swm.js ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: {
+    query_closed_dumpsite_id: Number,
+    lce_edit: Array,
+    province_dropdown: Array,
+    lce_info: Array,
+    query_slf: Array,
+    // slf table
+    slf_edit: Array,
+    query_mrf: Array,
+    // mrf table
+    mrf_edit: Array,
+    cd_edit: Array,
+    query_rca: Array,
+    attachments: Object,
+    query_ten_year: Array,
+    ten_year_edit: Array,
+    ten_year_monitoring_list: Array,
+    ten_year_monitoring_edit: Array,
+    ten_year_findings_array: Array,
+    query_equipment: Array,
+    query_dues: Array,
+    dues_edit: Array,
+    query_gad: Array
+  },
+  data: function data() {
+    return {
+      lce: {
+        lce_title: "",
+        lce_first_name: "",
+        lce_middle_name: "",
+        lce_last_name: "",
+        lce_salutation: "",
+        lce_position: "",
+        lce_municipality_FK: "",
+        lce_province_FK: "",
+        lce_barangay_FK: "",
+        lce_disctrict: "",
+        lce_zip_code: "",
+        lce_focal_person: "",
+        lce_contact_number: "",
+        lce_email_address: ""
+      },
+      slf: {
+        slf_complete_address: null,
+        slf_latitude: null,
+        slf_longitude: null,
+        slf_project_operator: null,
+        slf_ecc_number: null,
+        slf_contact_person: null,
+        slf_contact_number: null,
+        slf_category: null,
+        slf_site_hectares: null,
+        slf_total_capacity: null,
+        slf_tons_per_day: null,
+        slf_service_life: null,
+        slf_remaining_service_life: null,
+        slf_exceeded_capacity: null,
+        slf_with_planned_extension: null,
+        slf_lgu_served: null,
+        slf_leachate_treatment: null,
+        slf_daily_soil_cover: null,
+        slf_presence_of_mrf: null,
+        slf_separate_cells_for_hazwaste: null,
+        slf_methane_recovery: null,
+        slf_discharge_permit: null,
+        slf_1586_compliance: null,
+        slf_9275_compliance: null,
+        slf_6969_compliance: null,
+        slf_file: null,
+        lce_FK: null
+      },
+      mrf: {
+        mrf_emb_funded: null,
+        mrf_latitude: null,
+        mrf_longitude: null,
+        mrf_status_operation: null,
+        mrf_service_area: null,
+        mrf_total_waste_generation: null,
+        mrf_biodegradable: null,
+        mrf_recyclable: null,
+        mrf_special_waste: null,
+        mrf_total_waste_diverted: null,
+        mrf_number_of_waste_diverted: null,
+        mrf_file: null,
+        lce_FK: null
+      },
+      cd: {
+        cd_total_land_area: null,
+        cd_date_monitored: new Date(Date.now() - new Date().getTimezoneOffset() * 60000).toISOString().substr(0, 10),
+        cd_site_clearing: null,
+        cd_site_grading: null,
+        cd_application_maintenance: null,
+        cd_provision_drainage: null,
+        cd_leachate_management: null,
+        cd_gas_management: null,
+        cd_fencing_security: null,
+        cd_putting_sinages: null,
+        cd_prohibition: null,
+        cd_status: null,
+        cd_remarks: null,
+        cd_date_closure: null,
+        lce_FK: null
+      },
+      ten_yr: {
+        ten_year_planning_period: null,
+        ten_year_year_approved: null,
+        ten_year_number: null,
+        ten_year_file: null,
+        ten_year_copy_plan: null,
+        ten_year_copy_resolution: null,
+        ten_year_copy_form: null,
+        lce_FK: null,
+        finding_a: false,
+        finding_b: false,
+        finding_c: false,
+        finding_d: false,
+        finding_e: false,
+        finding_f: false,
+        finding_g: false,
+        finding_h: false,
+        finding_i: false,
+        finding_j: false
+      },
+      ten_yr_mon: {
+        ten_year_mon_status: null,
+        ten_year_mon_date_monitored: null,
+        ten_year_mon_date_submitted: null,
+        ten_year_mon_iis_number: null,
+        ten_year_mon_copy_report: null,
+        ten_year_mon_by: null,
+        ten_year_FK: null
+      },
+      dues: {
+        dues_purpose: null,
+        dues_amount_granted: null,
+        dues_date_granted: null,
+        dues_unliquidated: null,
+        dues_remarks: null,
+        dues_accountant: null,
+        dues_contact_email: null,
+        lce_FK: null
+      },
+      gad: {
+        gad_male: null,
+        gad_female: null
+      },
+      complete_address: null,
+      complete_address_setter: {
+        prov: {},
+        cityMun: {},
+        brgy: {}
+      },
+      equipment: {
+        equipment_description: ""
+      },
+      category: ["Category 1", "Category 2", "Category 3", "Category 4"],
+      leachment_type: ["Recirculaation", "Chemical", "Biological"],
+      status_of_operation: ["Operational", "Not Operational"],
+      cd_status: ["Closed", "Rehabilitation", "Ongoing"],
+      cityMun: [],
+      brgy: [],
+      equipment_modal: {
+        active: false,
+        type: "create"
+      }
+    };
+  },
+  computed: {
+    withAttachment: function withAttachment() {
+      var toReturn = true;
+
+      if (this.attachments === undefined) {
+        return toReturn = false;
+      } else if (this.attachments.data.length === 0) {
+        return toReturn = false;
+      }
+
+      return toReturn;
+    },
+    date_now: function date_now() {
+      return new Date(Date.now() - new Date().getTimezoneOffset() * 60000).toISOString().substr(0, 10);
+    },
+    lce_id: function lce_id() {
+      return this.lce_details.id;
+    },
+    lce_details: function lce_details() {
+      return this.lce_edit[0];
+    },
+    lce_complete_name: function lce_complete_name() {
+      var _this$lce_details = this.lce_details,
+          lce_first_name = _this$lce_details.lce_first_name,
+          lce_middle_name = _this$lce_details.lce_middle_name,
+          lce_last_name = _this$lce_details.lce_last_name;
+      return "".concat(lce_first_name, " ").concat(lce_middle_name, " ").concat(lce_last_name);
+    },
+    lce_address: function lce_address() {
+      var _this$lce_details2 = this.lce_details,
+          provDesc = _this$lce_details2.provDesc,
+          citymunDesc = _this$lce_details2.citymunDesc,
+          lce_zip_code = _this$lce_details2.lce_zip_code,
+          districtCode = _this$lce_details2.districtCode;
+      return "".concat(citymunDesc, ", District No ").concat(districtCode, ", ").concat(provDesc, ", ").concat(lce_zip_code, " ");
+    },
+    lce_prov_id: function lce_prov_id() {
+      return this.lce.lce_province_FK;
+    },
+    lce_cityMun_id: function lce_cityMun_id() {
+      return this.lce.lce_municipality_FK;
+    },
+    address_setter: function address_setter() {
+      return _objectSpread({}, this.complete_address_setter);
+    },
+    prov_id: function prov_id() {
+      return this.complete_address_setter.prov.PK_province_ID;
+    },
+    cityMun_id: function cityMun_id() {
+      return this.complete_address_setter.cityMun.PK_citymun_ID;
+    },
+    slf_details: function slf_details() {
+      return this.slf_info[0];
+    }
+  },
+  watch: {
+    lce_prov_id: function lce_prov_id(value) {
+      if (value !== "" || value !== null) return this.search_cityMun(value);
+    },
+    lce_cityMun_id: function lce_cityMun_id(value) {
+      if (value !== "" || value !== null) return this.search_brgy(value);
+    },
+    prov_id: function prov_id(value) {
+      if (value !== "" || value !== null) return this.search_cityMun(value);
+    },
+    cityMun_id: function cityMun_id(value) {
+      if (value !== "" || value !== null) return this.search_brgy(value);
+    },
+    address_setter: function address_setter(data) {
+      var _prov$provDesc, _cityMun$citymunDesc, _brgy$brgyDesc;
+
+      var prov = data.prov,
+          cityMun = data.cityMun,
+          brgy = data.brgy;
+      this.complete_address = "".concat((_prov$provDesc = prov.provDesc) !== null && _prov$provDesc !== void 0 ? _prov$provDesc : "", ", ").concat((_cityMun$citymunDesc = cityMun.citymunDesc) !== null && _cityMun$citymunDesc !== void 0 ? _cityMun$citymunDesc : "", ", ").concat((_brgy$brgyDesc = brgy.brgyDesc) !== null && _brgy$brgyDesc !== void 0 ? _brgy$brgyDesc : "");
+    }
+  },
+  methods: {
+    search_cityMun: function search_cityMun(prov_id) {
+      var _this = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+        var _yield$axios$get, data;
+
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.prev = 0;
+                _this.loading = true;
+                _context.next = 4;
+                return axios__WEBPACK_IMPORTED_MODULE_1___default().get("http://127.0.0.1:8000/api/app/province_dropdown/".concat(prov_id));
+
+              case 4:
+                _yield$axios$get = _context.sent;
+                data = _yield$axios$get.data;
+                _this.cityMun = data;
+                _this.loading = false;
+                _context.next = 15;
+                break;
+
+              case 10:
+                _context.prev = 10;
+                _context.t0 = _context["catch"](0);
+                _this.loading = false;
+                console.log("search_cityMun - error");
+
+                _this.error(_context.t0.response.data.message);
+
+              case 15:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, null, [[0, 10]]);
+      }))();
+    },
+    search_brgy: function search_brgy(cityMun_id) {
+      var _this2 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
+        var _yield$axios$get2, data;
+
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.prev = 0;
+                _this2.loading = true;
+                _context2.next = 4;
+                return axios__WEBPACK_IMPORTED_MODULE_1___default().get("http://127.0.0.1:8000/api/app/municipality_dropdown/".concat(cityMun_id));
+
+              case 4:
+                _yield$axios$get2 = _context2.sent;
+                data = _yield$axios$get2.data;
+                _this2.brgy = data;
+                _this2.loading = false;
+                _context2.next = 15;
+                break;
+
+              case 10:
+                _context2.prev = 10;
+                _context2.t0 = _context2["catch"](0);
+                _this2.loading = false;
+                console.log("search_brgy - error");
+
+                _this2.error(_context2.t0.response.data.message);
+
+              case 15:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, null, [[0, 10]]);
+      }))();
+    },
+    goBack: function goBack() {
+      window.history.back();
+    },
+    setEquipmentModal: function setEquipmentModal(active, type) {
+      this.equipment_modal = {
+        active: active,
+        type: type
+      };
+    },
+    setUpdateEquipment: function setUpdateEquipment(equip) {
+      this.equipment = _objectSpread({}, equip);
+      this.setEquipmentModal(true, "update");
+    },
+    submitEquimentForm: function submitEquimentForm() {
+      var _this3 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3() {
+        var data, type;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                _context3.prev = 0;
+                data = _objectSpread(_objectSpread({}, _this3.equipment), {}, {
+                  lce_FK: _this3.lce_id
+                });
+                type = _this3.equipment_modal.type;
+                _this3.loading = true;
+
+                if (!(type === "create")) {
+                  _context3.next = 9;
+                  break;
+                }
+
+                _context3.next = 7;
+                return _this3.$inertia.post("/app/swm/equipment_register_process", data);
+
+              case 7:
+                _context3.next = 12;
+                break;
+
+              case 9:
+                if (!(type === "update")) {
+                  _context3.next = 12;
+                  break;
+                }
+
+                _context3.next = 12;
+                return _this3.$inertia.post("/app/swm/equipment_update_process", data);
+
+              case 12:
+                // this.submitEquimentForm(false,"create")
+                _this3.equipment_modal = {
+                  active: false,
+                  type: "create"
+                };
+                _this3.loading = false;
+                _context3.next = 21;
+                break;
+
+              case 16:
+                _context3.prev = 16;
+                _context3.t0 = _context3["catch"](0);
+                _this3.loading = false;
+
+                _this3.error(_context3.t0.response.data.message);
+
+                console.log(_context3.t0);
+
+              case 21:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3, null, [[0, 16]]);
+      }))();
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/src/mixins/toasts.js":
+/*!*******************************************!*\
+  !*** ./resources/js/src/mixins/toasts.js ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  methods: {
+    success: function success() {
+      var message = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "No Message";
+      this.$buefy.toast.open({
+        message: message,
+        type: "is-success",
+        position: "is-bottom-right",
+        queue: false
+      });
+    },
+    error: function error() {
+      var message = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "No Message";
+      this.$buefy.toast.open({
+        message: message,
+        type: "is-danger",
+        position: "is-top",
+        queue: false
+      });
+    },
+    info: function info() {
+      var message = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "No Message";
+      this.$buefy.toast.open({
+        message: message,
+        position: "is-top-right",
+        queue: false
+      });
     }
   }
 });
@@ -1113,6 +3376,167 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         }),
         type: "Add"
       };
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/src/mixins/users.js":
+/*!******************************************!*\
+  !*** ./resources/js/src/mixins/users.js ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      role_form: {
+        access_role: ""
+      },
+      roles_modal: {
+        active: false,
+        type: "create"
+      }
+    };
+  },
+  methods: {
+    setRoleModal: function setRoleModal(role) {
+      this.role_form = _objectSpread({}, role);
+      this.roles_modal = {
+        active: true,
+        type: "update"
+      };
+    },
+    removeRole: function removeRole(role_id) {
+      var _this = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.prev = 0;
+                _this.loading = true;
+                _context2.next = 4;
+                return _this.confirmDelete("This action  cannot be undone", /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+                  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+                    while (1) {
+                      switch (_context.prev = _context.next) {
+                        case 0:
+                          _this.loading = true;
+                          _context.next = 3;
+                          return _this.$inertia["delete"]("/app/users_access/users_access_role_delete/".concat(role_id));
+
+                        case 3:
+                          _this.loading = false;
+
+                        case 4:
+                        case "end":
+                          return _context.stop();
+                      }
+                    }
+                  }, _callee);
+                })));
+
+              case 4:
+                _this.loading = false;
+                _context2.next = 12;
+                break;
+
+              case 7:
+                _context2.prev = 7;
+                _context2.t0 = _context2["catch"](0);
+                _this.loading = false;
+                console.log(_context2.t0);
+
+                _this.error(_context2.t0.data.response.messag);
+
+              case 12:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, null, [[0, 7]]);
+      }))();
+    },
+    submitRole: function submitRole() {
+      var _this2 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3() {
+        var type;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                _context3.prev = 0;
+                type = _this2.roles_modal.type;
+                _this2.loading = true;
+
+                if (!(type === "create")) {
+                  _context3.next = 8;
+                  break;
+                }
+
+                _context3.next = 6;
+                return _this2.$inertia.post("/app/users_access/users_access_role_register_process", _this2.role_form);
+
+              case 6:
+                _context3.next = 11;
+                break;
+
+              case 8:
+                if (!(type === "update")) {
+                  _context3.next = 11;
+                  break;
+                }
+
+                _context3.next = 11;
+                return _this2.$inertia.post("/app/users_access/users_access_role_update_process", _this2.role_form);
+
+              case 11:
+                _this2.roles_modal = {
+                  active: false,
+                  type: "create"
+                };
+                _this2.loading = false;
+                _context3.next = 20;
+                break;
+
+              case 15:
+                _context3.prev = 15;
+                _context3.t0 = _context3["catch"](0);
+                _this2.loading = false;
+                console.log(_context3.t0);
+
+                _this2.error(_context3.t0.data.response.messag);
+
+              case 20:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3, null, [[0, 15]]);
+      }))();
     }
   }
 });
@@ -19542,134 +21966,847 @@ var render = function () {
   return _c(
     "div",
     { staticClass: "overflow-hidden" },
-    _vm._l(_vm.items, function (item, index) {
-      return _c(
-        "v-list",
-        {
-          key: index,
-          staticClass: "overflow-hidden  ",
-          attrs: { dense: "", nav: "" },
-        },
-        [
-          _c("v-subheader", [_vm._v(_vm._s(item.header))]),
-          _vm._v(" "),
-          _vm._l(item.child, function (child, i) {
-            return _c(
-              "v-list-group",
-              {
-                key: i,
-                attrs: {
-                  dark: "",
-                  "prepend-icon": child.icon,
-                  value: false,
-                  "append-icon": child.child.length ? "mdi-chevron-down" : null,
-                },
-                scopedSlots: _vm._u(
-                  [
-                    {
-                      key: "activator",
-                      fn: function () {
-                        return [
-                          _c(
-                            "v-list-item-content",
-                            [
-                              !child.link
-                                ? _c("v-list-item-subtitle", {
-                                    domProps: {
-                                      textContent: _vm._s(child.name),
-                                    },
-                                  })
-                                : _c(
-                                    "v-list-item-subtitle",
-                                    [
-                                      _c(
-                                        "Link",
-                                        {
-                                          attrs: {
-                                            href: child.link,
-                                            as: "button",
-                                            "preserve-scroll": "",
-                                          },
-                                        },
-                                        [_vm._v(_vm._s(child.name))]
-                                      ),
-                                    ],
-                                    1
-                                  ),
-                            ],
-                            1
-                          ),
-                        ]
-                      },
-                      proxy: true,
-                    },
-                  ],
-                  null,
-                  true
-                ),
-              },
+    [
+      _c("v-list", { attrs: { dense: "", nav: "" } }, [
+        _vm.hasAdminRole || _vm.isBasicUserRole
+          ? _c(
+              "div",
               [
+                _c("v-subheader", [_vm._v("Firm Management")]),
                 _vm._v(" "),
-                _vm._l(child.child, function (childItem) {
-                  return _c(
-                    "v-list-item",
-                    { key: childItem.name, attrs: { dense: "" } },
-                    [
-                      _c(
-                        "v-list-item-icon",
-                        [
-                          _c("v-icon", [
-                            _vm._v(
-                              "\n                        " +
-                                _vm._s(childItem.icon) +
-                                "\n                    "
-                            ),
-                          ]),
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "v-list-item-content",
-                        [
-                          !childItem.link
-                            ? _c("v-list-item-subtitle", {
-                                domProps: {
-                                  textContent: _vm._s(childItem.name),
-                                },
-                              })
-                            : _c(
-                                "v-list-item-subtitle",
+                _c(
+                  "v-list-group",
+                  {
+                    attrs: { "prepend-icon": "mdi-view-dashboard" },
+                    scopedSlots: _vm._u(
+                      [
+                        {
+                          key: "activator",
+                          fn: function () {
+                            return [
+                              _c(
+                                "v-list-item-content",
                                 [
-                                  _c(
-                                    "Link",
-                                    {
-                                      attrs: {
-                                        href: childItem.link,
-                                        as: "button",
-                                        "preserve-scroll": "",
-                                      },
-                                    },
-                                    [_vm._v(_vm._s(childItem.name))]
-                                  ),
+                                  _c("v-list-item-subtitle", [
+                                    _vm._v(
+                                      "\n                            Firm Management\n                        "
+                                    ),
+                                  ]),
                                 ],
                                 1
                               ),
-                        ],
-                        1
-                      ),
-                    ],
-                    1
-                  )
-                }),
+                            ]
+                          },
+                          proxy: true,
+                        },
+                      ],
+                      null,
+                      false,
+                      87131311
+                    ),
+                  },
+                  [
+                    _vm._v(" "),
+                    _c(
+                      "v-list-item",
+                      { attrs: { dense: "" } },
+                      [
+                        _c(
+                          "v-list-item-icon",
+                          [_c("v-icon", [_vm._v(" mdi-link ")])],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "v-list-item-content",
+                          [
+                            _c(
+                              "v-list-item-subtitle",
+                              [
+                                _c(
+                                  "Link",
+                                  {
+                                    attrs: {
+                                      href: "/app/universe_dashboard/firm",
+                                      as: "button",
+                                      "preserve-scroll": "",
+                                    },
+                                  },
+                                  [_vm._v("Universe Dashboard Firm")]
+                                ),
+                              ],
+                              1
+                            ),
+                          ],
+                          1
+                        ),
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "v-list-item",
+                      { attrs: { dense: "" } },
+                      [
+                        _c(
+                          "v-list-item-icon",
+                          [_c("v-icon", [_vm._v(" mdi-link ")])],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "v-list-item-content",
+                          [
+                            _c(
+                              "v-list-item-subtitle",
+                              [
+                                _c(
+                                  "Link",
+                                  {
+                                    attrs: {
+                                      href: "/app/universe_dashboard/lgu",
+                                      as: "button",
+                                      "preserve-scroll": "",
+                                    },
+                                  },
+                                  [_vm._v("Universe Dashboard LGU")]
+                                ),
+                              ],
+                              1
+                            ),
+                          ],
+                          1
+                        ),
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "v-list-item",
+                      { attrs: { dense: "" } },
+                      [
+                        _c(
+                          "v-list-item-icon",
+                          [_c("v-icon", [_vm._v(" mdi-link ")])],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "v-list-item-content",
+                          [
+                            _c(
+                              "v-list-item-subtitle",
+                              [
+                                _c(
+                                  "Link",
+                                  {
+                                    attrs: {
+                                      href: "/app/universe",
+                                      as: "button",
+                                      "preserve-scroll": "",
+                                    },
+                                  },
+                                  [
+                                    _vm._v(
+                                      "Universe\n                            "
+                                    ),
+                                  ]
+                                ),
+                              ],
+                              1
+                            ),
+                          ],
+                          1
+                        ),
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "v-list-item",
+                      { attrs: { dense: "" } },
+                      [
+                        _c(
+                          "v-list-item-icon",
+                          [_c("v-icon", [_vm._v(" mdi-link ")])],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "v-list-item-content",
+                          [
+                            _c(
+                              "v-list-item-subtitle",
+                              [
+                                _c(
+                                  "Link",
+                                  {
+                                    attrs: {
+                                      href: "/app/universe_form",
+                                      as: "button",
+                                      "preserve-scroll": "",
+                                    },
+                                  },
+                                  [_vm._v("Universe Registration")]
+                                ),
+                              ],
+                              1
+                            ),
+                          ],
+                          1
+                        ),
+                      ],
+                      1
+                    ),
+                  ],
+                  1
+                ),
               ],
-              2
+              1
             )
-          }),
-        ],
-        2
-      )
-    }),
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.hasAdminRole
+          ? _c(
+              "div",
+              [
+                _c("v-subheader", [_vm._v("Monitoring")]),
+                _vm._v(" "),
+                _c(
+                  "v-list-item",
+                  { attrs: { dense: "" } },
+                  [
+                    _c(
+                      "v-list-item-icon",
+                      [_c("v-icon", [_vm._v(" mdi-trash-can ")])],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "v-list-item-content",
+                      [
+                        _c(
+                          "v-list-item-subtitle",
+                          [
+                            _c(
+                              "Link",
+                              {
+                                attrs: {
+                                  href: "/app/swm/lce_list",
+                                  as: "button",
+                                  "preserve-scroll": "",
+                                },
+                              },
+                              [_vm._v("SOLID WASTE")]
+                            ),
+                          ],
+                          1
+                        ),
+                      ],
+                      1
+                    ),
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c("v-subheader", [_vm._v("USER MANAGEMENT")]),
+                _vm._v(" "),
+                _c(
+                  "v-list-item",
+                  { attrs: { dense: "" } },
+                  [
+                    _c(
+                      "v-list-item-icon",
+                      [_c("v-icon", [_vm._v(" mdi-account-group ")])],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "v-list-item-content",
+                      [
+                        _c(
+                          "v-list-item-subtitle",
+                          [
+                            _c(
+                              "Link",
+                              {
+                                attrs: {
+                                  href: "/app/users",
+                                  as: "button",
+                                  "preserve-scroll": "",
+                                },
+                              },
+                              [_vm._v("SYSTEM USERS")]
+                            ),
+                          ],
+                          1
+                        ),
+                      ],
+                      1
+                    ),
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "v-list-item",
+                  { attrs: { dense: "" } },
+                  [
+                    _c(
+                      "v-list-item-icon",
+                      [_c("v-icon", [_vm._v(" mdi-account-supervisor ")])],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "v-list-item-content",
+                      [
+                        _c(
+                          "v-list-item-subtitle",
+                          [
+                            _c(
+                              "Link",
+                              {
+                                attrs: {
+                                  href: "/app/position",
+                                  as: "button",
+                                  "preserve-scroll": "",
+                                },
+                              },
+                              [_vm._v("POSITION")]
+                            ),
+                          ],
+                          1
+                        ),
+                      ],
+                      1
+                    ),
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "v-list-item",
+                  { attrs: { dense: "" } },
+                  [
+                    _c(
+                      "v-list-item-icon",
+                      [_c("v-icon", [_vm._v(" mdi-account-supervisor ")])],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "v-list-item-content",
+                      [
+                        _c(
+                          "v-list-item-subtitle",
+                          [
+                            _c(
+                              "Link",
+                              {
+                                attrs: {
+                                  href: "/app/division",
+                                  as: "button",
+                                  "preserve-scroll": "",
+                                },
+                              },
+                              [_vm._v("DIVISION")]
+                            ),
+                          ],
+                          1
+                        ),
+                      ],
+                      1
+                    ),
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "v-list-item",
+                  { attrs: { dense: "" } },
+                  [
+                    _c(
+                      "v-list-item-icon",
+                      [_c("v-icon", [_vm._v(" mdi-account-supervisor ")])],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "v-list-item-content",
+                      [
+                        _c(
+                          "v-list-item-subtitle",
+                          [
+                            _c(
+                              "Link",
+                              {
+                                attrs: {
+                                  href: "/app/unit_section",
+                                  as: "button",
+                                  "preserve-scroll": "",
+                                },
+                              },
+                              [_vm._v("UNIT SECTION")]
+                            ),
+                          ],
+                          1
+                        ),
+                      ],
+                      1
+                    ),
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "v-list-group",
+                  {
+                    attrs: { "prepend-icon": "mdi-account-group" },
+                    scopedSlots: _vm._u(
+                      [
+                        {
+                          key: "activator",
+                          fn: function () {
+                            return [
+                              _c(
+                                "v-list-item-content",
+                                [
+                                  _c("v-list-item-subtitle", [
+                                    _vm._v(
+                                      "\n                            User Access\n                        "
+                                    ),
+                                  ]),
+                                ],
+                                1
+                              ),
+                            ]
+                          },
+                          proxy: true,
+                        },
+                      ],
+                      null,
+                      false,
+                      551348121
+                    ),
+                  },
+                  [
+                    _vm._v(" "),
+                    _c(
+                      "v-list-item",
+                      { attrs: { dense: "" } },
+                      [
+                        _c(
+                          "v-list-item-icon",
+                          [_c("v-icon", [_vm._v(" mdi-link ")])],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "v-list-item-content",
+                          [
+                            _c(
+                              "v-list-item-subtitle",
+                              [
+                                _c(
+                                  "Link",
+                                  {
+                                    attrs: {
+                                      href: "/app/users_access/users_access_role_list",
+                                      as: "button",
+                                      "preserve-scroll": "",
+                                    },
+                                  },
+                                  [_vm._v("User Roles")]
+                                ),
+                              ],
+                              1
+                            ),
+                          ],
+                          1
+                        ),
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "v-list-item",
+                      { attrs: { dense: "" } },
+                      [
+                        _c(
+                          "v-list-item-icon",
+                          [_c("v-icon", [_vm._v(" mdi-link ")])],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "v-list-item-content",
+                          [
+                            _c(
+                              "v-list-item-subtitle",
+                              [
+                                _c(
+                                  "Link",
+                                  {
+                                    attrs: {
+                                      href: "/app/users_access/users_access_template_list",
+                                      as: "button",
+                                      "preserve-scroll": "",
+                                    },
+                                  },
+                                  [_vm._v("User Role Template")]
+                                ),
+                              ],
+                              1
+                            ),
+                          ],
+                          1
+                        ),
+                      ],
+                      1
+                    ),
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c("v-subheader", [_vm._v("INDUSTRY CONFIGURATION")]),
+                _vm._v(" "),
+                _c(
+                  "v-list-group",
+                  {
+                    attrs: { "prepend-icon": "mdi-file-document-multiple" },
+                    scopedSlots: _vm._u(
+                      [
+                        {
+                          key: "activator",
+                          fn: function () {
+                            return [
+                              _c(
+                                "v-list-item-content",
+                                [
+                                  _c("v-list-item-subtitle", [
+                                    _vm._v(
+                                      "\n                            PROJECT TYPE\n                        "
+                                    ),
+                                  ]),
+                                ],
+                                1
+                              ),
+                            ]
+                          },
+                          proxy: true,
+                        },
+                      ],
+                      null,
+                      false,
+                      1881568801
+                    ),
+                  },
+                  [
+                    _vm._v(" "),
+                    _c(
+                      "v-list-item",
+                      { attrs: { dense: "" } },
+                      [
+                        _c(
+                          "v-list-item-icon",
+                          [_c("v-icon", [_vm._v(" mdi-link ")])],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "v-list-item-content",
+                          [
+                            _c(
+                              "v-list-item-subtitle",
+                              [
+                                _c(
+                                  "Link",
+                                  {
+                                    attrs: {
+                                      href: "/app/project/type",
+                                      as: "button",
+                                      "preserve-scroll": "",
+                                    },
+                                  },
+                                  [_vm._v("PROJECT TYPE")]
+                                ),
+                              ],
+                              1
+                            ),
+                          ],
+                          1
+                        ),
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "v-list-item",
+                      { attrs: { dense: "" } },
+                      [
+                        _c(
+                          "v-list-item-icon",
+                          [_c("v-icon", [_vm._v(" mdi-link ")])],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "v-list-item-content",
+                          [
+                            _c(
+                              "v-list-item-subtitle",
+                              [
+                                _c(
+                                  "Link",
+                                  {
+                                    attrs: {
+                                      href: "/app/project/subtype",
+                                      as: "button",
+                                      "preserve-scroll": "",
+                                    },
+                                  },
+                                  [_vm._v("PROJECT SUB-TYPE")]
+                                ),
+                              ],
+                              1
+                            ),
+                          ],
+                          1
+                        ),
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "v-list-item",
+                      { attrs: { dense: "" } },
+                      [
+                        _c(
+                          "v-list-item-icon",
+                          [_c("v-icon", [_vm._v(" mdi-link ")])],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "v-list-item-content",
+                          [
+                            _c(
+                              "v-list-item-subtitle",
+                              [
+                                _c(
+                                  "Link",
+                                  {
+                                    attrs: {
+                                      href: "/app/project/specifictype",
+                                      as: "button",
+                                      "preserve-scroll": "",
+                                    },
+                                  },
+                                  [_vm._v("PROJECT SPECIFIC TYPE")]
+                                ),
+                              ],
+                              1
+                            ),
+                          ],
+                          1
+                        ),
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "v-list-item",
+                      { attrs: { dense: "" } },
+                      [
+                        _c(
+                          "v-list-item-icon",
+                          [_c("v-icon", [_vm._v(" mdi-link ")])],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "v-list-item-content",
+                          [
+                            _c(
+                              "v-list-item-subtitle",
+                              [
+                                _c(
+                                  "Link",
+                                  {
+                                    attrs: {
+                                      href: "/app/project/specificsubtype",
+                                      as: "button",
+                                      "preserve-scroll": "",
+                                    },
+                                  },
+                                  [_vm._v("SPECIFIC SUB-TYPE")]
+                                ),
+                              ],
+                              1
+                            ),
+                          ],
+                          1
+                        ),
+                      ],
+                      1
+                    ),
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "v-list-group",
+                  {
+                    attrs: { "prepend-icon": "mdi-file-document-multiple" },
+                    scopedSlots: _vm._u(
+                      [
+                        {
+                          key: "activator",
+                          fn: function () {
+                            return [
+                              _c(
+                                "v-list-item-content",
+                                [
+                                  _c("v-list-item-subtitle", [
+                                    _vm._v(
+                                      "\n                            2009 PSIC CODES\n                        "
+                                    ),
+                                  ]),
+                                ],
+                                1
+                              ),
+                            ]
+                          },
+                          proxy: true,
+                        },
+                      ],
+                      null,
+                      false,
+                      2169252016
+                    ),
+                  },
+                  [
+                    _vm._v(" "),
+                    _c(
+                      "v-list-item",
+                      { attrs: { dense: "" } },
+                      [
+                        _c(
+                          "v-list-item-icon",
+                          [_c("v-icon", [_vm._v(" mdi-link ")])],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "v-list-item-content",
+                          [
+                            _c(
+                              "v-list-item-subtitle",
+                              [
+                                _c(
+                                  "Link",
+                                  {
+                                    attrs: {
+                                      href: "/app/psic/group",
+                                      as: "button",
+                                      "preserve-scroll": "",
+                                    },
+                                  },
+                                  [_vm._v("PSIC GROUP")]
+                                ),
+                              ],
+                              1
+                            ),
+                          ],
+                          1
+                        ),
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "v-list-item",
+                      { attrs: { dense: "" } },
+                      [
+                        _c(
+                          "v-list-item-icon",
+                          [_c("v-icon", [_vm._v(" mdi-link ")])],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "v-list-item-content",
+                          [
+                            _c(
+                              "v-list-item-subtitle",
+                              [
+                                _c(
+                                  "Link",
+                                  {
+                                    attrs: {
+                                      href: "/app/sic/class",
+                                      as: "button",
+                                      "preserve-scroll": "",
+                                    },
+                                  },
+                                  [_vm._v("PSIC CLASS")]
+                                ),
+                              ],
+                              1
+                            ),
+                          ],
+                          1
+                        ),
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "v-list-item",
+                      { attrs: { dense: "" } },
+                      [
+                        _c(
+                          "v-list-item-icon",
+                          [_c("v-icon", [_vm._v(" mdi-link ")])],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "v-list-item-content",
+                          [
+                            _c(
+                              "v-list-item-subtitle",
+                              [
+                                _c(
+                                  "Link",
+                                  {
+                                    attrs: {
+                                      href: "/app/psic/sub-class",
+                                      as: "button",
+                                      "preserve-scroll": "",
+                                    },
+                                  },
+                                  [_vm._v("PSIC SUB CLASS")]
+                                ),
+                              ],
+                              1
+                            ),
+                          ],
+                          1
+                        ),
+                      ],
+                      1
+                    ),
+                  ],
+                  1
+                ),
+              ],
+              1
+            )
+          : _vm._e(),
+      ]),
+    ],
     1
   )
 }
@@ -19814,6 +22951,8 @@ var render = function () {
                                                       "mdi-account-details",
                                                     label: "Select Division",
                                                     "error-messages": errors[0],
+                                                    "item-text": "name",
+                                                    "item-value": "id",
                                                     clearable: "",
                                                   },
                                                   model: {
@@ -19941,7 +23080,11 @@ var render = function () {
             expression: "drawer",
           },
         },
-        [_c("SideNavItems", { attrs: { items: _vm.sidebarItems } })],
+        [
+          _c("SideNavItems", {
+            attrs: { items: _vm.sidebarItems, access: _vm.access },
+          }),
+        ],
         1
       ),
       _vm._v(" "),
@@ -20070,6 +23213,7 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c(
     "DefaultLayout",
+    { attrs: { access: _vm.access } },
     [
       _c(
         "b-table",
@@ -20167,52 +23311,6 @@ var render = function () {
           ]),
         },
         [
-          _vm._v(" "),
-          _c("b-table-column", {
-            attrs: {
-              field: "id",
-              label: "ID",
-              width: "70",
-              sortable: "",
-              numeric: "",
-              searchable: "",
-            },
-            scopedSlots: _vm._u([
-              {
-                key: "searchable",
-                fn: function (props) {
-                  return [
-                    _c("b-input", {
-                      attrs: {
-                        placeholder: "Search...",
-                        icon: "magnify",
-                        size: "is-small",
-                      },
-                      model: {
-                        value: _vm.filters.id,
-                        callback: function ($$v) {
-                          _vm.$set(_vm.filters, "id", $$v)
-                        },
-                        expression: "filters.id",
-                      },
-                    }),
-                  ]
-                },
-              },
-              {
-                key: "default",
-                fn: function (props) {
-                  return [
-                    _vm._v(
-                      "\n                " +
-                        _vm._s(props.row.id) +
-                        "\n            "
-                    ),
-                  ]
-                },
-              },
-            ]),
-          }),
           _vm._v(" "),
           _c("b-table-column", {
             attrs: { field: "name", label: "Name", searchable: "" },

@@ -230,7 +230,7 @@ export default {
         ],
         date_monitoring_menu: "",
         addFileForm: false,
-        mon_or_sur_selection: ["Monitoring", "Survey"],
+        mon_or_sur_selection: ["Monitoring", "Survey", "Inspection", "Investigation"],
     }),
     methods: {
         editMonitoring(item) {
