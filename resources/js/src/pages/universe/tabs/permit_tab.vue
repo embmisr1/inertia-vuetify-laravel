@@ -133,22 +133,33 @@
                     </div>
                 </div>
                 <div class="text-center">
-                        <v-btn v-if="has_permit || has_hazwaste" depressed color="primary" type="submit">
-                            <v-icon small class="mr-2">
-                                mdi-content-save
-                            </v-icon>
-                            Submit
-                        </v-btn>
-                        <v-btn
-                            depressed
-                            color="warning"
-                            type="button"
-                            @click="resetPermit"
-                            v-if="has_permit || has_hazwaste"
-                        >
-                            <v-icon small class="mr-2"> mdi-autorenew </v-icon>
-                            Reset
-                        </v-btn>
+                    <v-btn
+                        v-if="
+                            has_permit ||
+                            (has_hazwaste &&
+                                form_permit_info.perm_law === 'RA 6969')
+                        "
+                        depressed
+                        color="primary"
+                        type="submit"
+                    >
+                        <v-icon small class="mr-2"> mdi-content-save </v-icon>
+                        Submit
+                    </v-btn>
+                    <v-btn
+                        depressed
+                        color="warning"
+                        type="button"
+                        @click="resetPermit"
+                        v-if="
+                            has_permit ||
+                            (has_hazwaste &&
+                                form_permit_info.perm_law === 'RA 6969')
+                        "
+                    >
+                        <v-icon small class="mr-2"> mdi-autorenew </v-icon>
+                        Reset
+                    </v-btn>
                     <v-btn
                         depressed
                         color="error"
@@ -387,9 +398,11 @@ export default {
     },
     watch: {
         addFileForm(value) {
-            if (!this.has_permit) {
-                if (this.has_hazwaste) {
-                    this.form_permit_info.perm_law = "RA 6969";
+            if (!value) {
+                if (!this.has_permit) {
+                    if (this.has_hazwaste) {
+                        this.form_permit_info.perm_law = "RA 6969";
+                    }
                 }
             }
         },
