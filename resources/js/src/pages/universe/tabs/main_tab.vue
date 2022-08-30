@@ -86,7 +86,7 @@
                                 <div class="flex flex-start text-left">
                                     <v-icon
                                         >mdi-file-document-multiple-outline</v-icon
-                                    >&nbsp; Monitoring
+                                    >&nbsp; Monitoring/Survey
                                 </div>
                             </v-tab>
                             <v-tab>
@@ -255,6 +255,7 @@ export default {
             let has_permission = false;
             has_permission = this.hasAdminRole;
             if (!has_permission) has_permission = this.hasEMED;
+            if (!has_permission) has_permission = this.hasCPD;
 
             return has_permission;
         },
