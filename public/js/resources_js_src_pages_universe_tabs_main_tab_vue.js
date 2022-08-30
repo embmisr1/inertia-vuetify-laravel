@@ -453,7 +453,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     project_type_list: Array,
     project_subtype_list: Array,
     project_specific_type_list: Array,
-    project_specific_subtype_list: Array
+    project_specific_subtype_list: Array,
+    has_permit: Boolean
   },
   components: {
     Link: _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_1__.Link
@@ -693,6 +694,22 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -1389,6 +1406,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     form_legal_info: Object,
@@ -1737,6 +1761,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 
 
@@ -1788,7 +1815,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   // mixins:[page],
   computed: {
-    has_permit_pco: function has_permit_pco() {
+    has_basic_permit_pco: function has_basic_permit_pco() {
       var has_permission = false;
       has_permission = this.hasAdminRole;
       if (!has_permission) has_permission = this.hasCPD;
@@ -1810,8 +1837,9 @@ __webpack_require__.r(__webpack_exports__);
     has_hazwaste: function has_hazwaste() {
       var has_permission = false;
       has_permission = this.hasAdminRole;
-      if (!has_permission) has_permission = this.hasCPD;
-      if (!has_permission) has_permission = this.hasEMED;
+      if (!has_permission) has_permission = this.hasHAZWASTE; // if (!has_permission) has_permission = this.hasCPD;
+      // if (!has_permission) has_permission = this.hasEMED;
+
       return has_permission;
     },
     hasAdminRole: function hasAdminRole() {
@@ -1831,6 +1859,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     hasMAP: function hasMAP() {
       return _.includes(this.access, "MAP EDIT");
+    },
+    hasHAZWASTE: function hasHAZWASTE() {
+      return _.includes(this.access, "HAZWASTE EDIT");
     }
   },
   data: function data() {
@@ -1912,6 +1943,18 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2212,6 +2255,13 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2724,6 +2774,27 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -2732,7 +2803,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   props: {
     form_permit_info: Object,
     permit_table: Array,
-    has_permit: Boolean
+    has_permit: Boolean,
+    has_hazwaste: Boolean
   },
   components: {
     vueDropzone: (vue2_dropzone__WEBPACK_IMPORTED_MODULE_1___default()),
@@ -2886,6 +2958,22 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     closeFile: function closeFile() {
       this.addFileForm = false;
       this.resetPermit();
+    }
+  },
+  mounted: function mounted() {
+    if (!this.has_permit) {
+      if (this.has_hazwaste) {
+        this.form_permit_info.perm_law = "RA 6969";
+      }
+    }
+  },
+  watch: {
+    addFileForm: function addFileForm(value) {
+      if (!this.has_permit) {
+        if (this.has_hazwaste) {
+          this.form_permit_info.perm_law = "RA 6969";
+        }
+      }
     }
   }
 });
@@ -24762,18 +24850,20 @@ var render = function () {
       ),
     ]),
     _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "text-center" },
-      [
-        _c(
-          "v-btn",
-          { attrs: { depressed: "", color: "primary", type: "submit" } },
-          [_vm._v("\n            Submit\n        ")]
-        ),
-      ],
-      1
-    ),
+    _vm.has_permit
+      ? _c(
+          "div",
+          { staticClass: "text-center" },
+          [
+            _c(
+              "v-btn",
+              { attrs: { depressed: "", color: "primary", type: "submit" } },
+              [_vm._v("\n            Submit\n        ")]
+            ),
+          ],
+          1
+        )
+      : _vm._e(),
   ])
 }
 var staticRenderFns = []
@@ -25011,38 +25101,58 @@ var render = function () {
               "div",
               { staticClass: "text-center" },
               [
-                _c(
-                  "v-btn",
-                  {
-                    attrs: { depressed: "", color: "primary", type: "submit" },
-                  },
-                  [
-                    _c(
-                      "v-icon",
-                      { staticClass: "mr-2", attrs: { small: "" } },
-                      [_vm._v(" mdi-content-save ")]
-                    ),
-                    _vm._v("\n                Submit\n            "),
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "v-btn",
-                  {
-                    attrs: { depressed: "", color: "warning", type: "button" },
-                    on: { click: _vm.resetComplaint },
-                  },
-                  [
-                    _c(
-                      "v-icon",
-                      { staticClass: "mr-2", attrs: { small: "" } },
-                      [_vm._v(" mdi-autorenew ")]
-                    ),
-                    _vm._v("\n                Reset\n            "),
-                  ],
-                  1
-                ),
+                _vm.has_permit
+                  ? _c(
+                      "div",
+                      [
+                        _c(
+                          "v-btn",
+                          {
+                            attrs: {
+                              depressed: "",
+                              color: "primary",
+                              type: "submit",
+                            },
+                          },
+                          [
+                            _c(
+                              "v-icon",
+                              { staticClass: "mr-2", attrs: { small: "" } },
+                              [_vm._v(" mdi-content-save ")]
+                            ),
+                            _vm._v(
+                              "\n                    Submit\n                "
+                            ),
+                          ],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "v-btn",
+                          {
+                            attrs: {
+                              depressed: "",
+                              color: "warning",
+                              type: "button",
+                            },
+                            on: { click: _vm.resetComplaint },
+                          },
+                          [
+                            _c(
+                              "v-icon",
+                              { staticClass: "mr-2", attrs: { small: "" } },
+                              [_vm._v(" mdi-autorenew ")]
+                            ),
+                            _vm._v(
+                              "\n                    Reset\n                "
+                            ),
+                          ],
+                          1
+                        ),
+                      ],
+                      1
+                    )
+                  : _vm._e(),
                 _vm._v(" "),
                 _c(
                   "v-btn",
@@ -25110,130 +25220,144 @@ var render = function () {
                 items: _vm.complaint_table,
                 "item-key": "complaint_tables",
               },
-              scopedSlots: _vm._u(
-                [
-                  {
-                    key: "item.comp_attached_file",
-                    fn: function (ref) {
-                      var item = ref.item
-                      return [
-                        item.comp_attached_file > 0
-                          ? _c(
-                              "a",
-                              {
-                                attrs: {
-                                  href:
-                                    "/app/attachments?type=complaint&id=" +
-                                    item.id,
-                                  target: "_blank",
-                                },
+              scopedSlots: _vm._u([
+                {
+                  key: "item.comp_attached_file",
+                  fn: function (ref) {
+                    var item = ref.item
+                    return [
+                      item.comp_attached_file > 0
+                        ? _c(
+                            "a",
+                            {
+                              attrs: {
+                                href:
+                                  "/app/attachments?type=complaint&id=" +
+                                  item.id,
+                                target: "_blank",
                               },
-                              [
-                                _c(
-                                  "v-btn",
-                                  { attrs: { small: "", dark: "" } },
-                                  [_vm._v("Download File")]
-                                ),
-                              ],
-                              1
-                            )
-                          : _c(
-                              "div",
-                              { staticClass: "text-xs font-bold italic" },
-                              [
-                                _vm._v(
-                                  "\n                        No Attachment Found\n                    "
-                                ),
-                              ]
-                            ),
-                      ]
-                    },
+                            },
+                            [
+                              _c("v-btn", { attrs: { small: "", dark: "" } }, [
+                                _vm._v("Download File"),
+                              ]),
+                            ],
+                            1
+                          )
+                        : _c(
+                            "div",
+                            { staticClass: "text-xs font-bold italic" },
+                            [
+                              _vm._v(
+                                "\n                        No Attachment Found\n                    "
+                              ),
+                            ]
+                          ),
+                    ]
                   },
-                  {
-                    key: "item.comp_action_file",
-                    fn: function (ref) {
-                      var item = ref.item
-                      return [
-                        item.comp_action_file > 0
-                          ? _c(
-                              "a",
-                              {
-                                attrs: {
-                                  href:
-                                    "/app/attachments?type=complaintaction&id=" +
-                                    item.id,
-                                  target: "_blank",
-                                },
+                },
+                {
+                  key: "item.comp_action_file",
+                  fn: function (ref) {
+                    var item = ref.item
+                    return [
+                      item.comp_action_file > 0
+                        ? _c(
+                            "a",
+                            {
+                              attrs: {
+                                href:
+                                  "/app/attachments?type=complaintaction&id=" +
+                                  item.id,
+                                target: "_blank",
                               },
-                              [
-                                _c(
-                                  "v-btn",
-                                  { attrs: { small: "", dark: "" } },
-                                  [_vm._v("Download File")]
-                                ),
-                              ],
-                              1
-                            )
-                          : _c(
-                              "div",
-                              { staticClass: "text-xs font-bold italic" },
-                              [
-                                _vm._v(
-                                  "\n                        No Attachment Found\n                    "
-                                ),
-                              ]
-                            ),
-                      ]
-                    },
+                            },
+                            [
+                              _c("v-btn", { attrs: { small: "", dark: "" } }, [
+                                _vm._v("Download File"),
+                              ]),
+                            ],
+                            1
+                          )
+                        : _c(
+                            "div",
+                            { staticClass: "text-xs font-bold italic" },
+                            [
+                              _vm._v(
+                                "\n                        No Attachment Found\n                    "
+                              ),
+                            ]
+                          ),
+                    ]
                   },
-                  _vm.has_permit
-                    ? {
-                        key: "item.actions",
-                        fn: function (ref) {
-                          var item = ref.item
-                          return [
-                            _c(
-                              "v-icon",
-                              {
-                                staticClass: "mr-2",
-                                attrs: { small: "" },
-                                on: {
-                                  click: function ($event) {
-                                    return _vm.editComplaint(item)
+                },
+                {
+                  key: "item.actions",
+                  fn: function (ref) {
+                    var item = ref.item
+                    return [
+                      _vm.has_permit
+                        ? _c(
+                            "div",
+                            [
+                              _c(
+                                "v-icon",
+                                {
+                                  staticClass: "mr-2",
+                                  attrs: { small: "" },
+                                  on: {
+                                    click: function ($event) {
+                                      return _vm.editComplaint(item)
+                                    },
                                   },
                                 },
-                              },
-                              [
-                                _vm._v(
-                                  "\n                        mdi-pencil\n                    "
-                                ),
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "v-icon",
-                              {
-                                attrs: { small: "" },
-                                on: {
-                                  click: function ($event) {
-                                    return _vm.deleteComplaint(item)
+                                [
+                                  _vm._v(
+                                    "\n                            mdi-pencil\n                        "
+                                  ),
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-icon",
+                                {
+                                  attrs: { small: "" },
+                                  on: {
+                                    click: function ($event) {
+                                      return _vm.deleteComplaint(item)
+                                    },
                                   },
                                 },
+                                [
+                                  _vm._v(
+                                    "\n                            mdi-delete\n                        "
+                                  ),
+                                ]
+                              ),
+                            ],
+                            1
+                          )
+                        : _c(
+                            "v-icon",
+                            {
+                              staticClass: "mr-2",
+                              attrs: { small: "" },
+                              on: {
+                                click: function ($event) {
+                                  return _vm.editComplaint(item)
+                                },
                               },
-                              [
-                                _vm._v(
-                                  "\n                        mdi-delete\n                    "
-                                ),
-                              ]
-                            ),
-                          ]
-                        },
-                      }
-                    : null,
-                ],
-                null,
-                true
-              ),
+                            },
+                            [
+                              _vm._v(
+                                "\n                        mdi-eye\n                    "
+                              ),
+                            ]
+                          ),
+                    ]
+                  },
+                },
+              ]),
             }),
           ],
           1
@@ -25906,38 +26030,54 @@ var render = function () {
               "div",
               { staticClass: "text-center" },
               [
-                _c(
-                  "v-btn",
-                  {
-                    attrs: { depressed: "", color: "primary", type: "submit" },
-                  },
-                  [
-                    _c(
-                      "v-icon",
-                      { staticClass: "mr-2", attrs: { small: "" } },
-                      [_vm._v(" mdi-content-save ")]
-                    ),
-                    _vm._v("\n                Submit\n            "),
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "v-btn",
-                  {
-                    attrs: { depressed: "", color: "warning", type: "button" },
-                    on: { click: _vm.resetLegal },
-                  },
-                  [
-                    _c(
-                      "v-icon",
-                      { staticClass: "mr-2", attrs: { small: "" } },
-                      [_vm._v(" mdi-autorenew ")]
-                    ),
-                    _vm._v("\n                Reset\n            "),
-                  ],
-                  1
-                ),
+                _vm.has_permit
+                  ? _c(
+                      "div",
+                      [
+                        _c(
+                          "v-btn",
+                          {
+                            attrs: {
+                              depressed: "",
+                              color: "primary",
+                              type: "submit",
+                            },
+                          },
+                          [
+                            _c(
+                              "v-icon",
+                              { staticClass: "mr-2", attrs: { small: "" } },
+                              [_vm._v(" mdi-content-save ")]
+                            ),
+                            _vm._v("\n                Submit\n            "),
+                          ],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "v-btn",
+                          {
+                            attrs: {
+                              depressed: "",
+                              color: "warning",
+                              type: "button",
+                            },
+                            on: { click: _vm.resetLegal },
+                          },
+                          [
+                            _c(
+                              "v-icon",
+                              { staticClass: "mr-2", attrs: { small: "" } },
+                              [_vm._v(" mdi-autorenew ")]
+                            ),
+                            _vm._v("\n                Reset\n            "),
+                          ],
+                          1
+                        ),
+                      ],
+                      1
+                    )
+                  : _vm._e(),
                 _vm._v(" "),
                 _c(
                   "v-btn",
@@ -26049,40 +26189,64 @@ var render = function () {
                         fn: function (ref) {
                           var item = ref.item
                           return [
-                            _c(
-                              "v-icon",
-                              {
-                                staticClass: "mr-2",
-                                attrs: { small: "" },
-                                on: {
-                                  click: function ($event) {
-                                    return _vm.editLegal(item)
+                            _vm.has_permit
+                              ? _c(
+                                  "div",
+                                  [
+                                    _c(
+                                      "v-icon",
+                                      {
+                                        staticClass: "mr-2",
+                                        attrs: { small: "" },
+                                        on: {
+                                          click: function ($event) {
+                                            return _vm.editLegal(item)
+                                          },
+                                        },
+                                      },
+                                      [
+                                        _vm._v(
+                                          "\n                        mdi-pencil\n                    "
+                                        ),
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "v-icon",
+                                      {
+                                        attrs: { small: "" },
+                                        on: {
+                                          click: function ($event) {
+                                            return _vm.deleteLegal(item)
+                                          },
+                                        },
+                                      },
+                                      [
+                                        _vm._v(
+                                          "\n                        mdi-delete\n                    "
+                                        ),
+                                      ]
+                                    ),
+                                  ],
+                                  1
+                                )
+                              : _c(
+                                  "v-icon",
+                                  {
+                                    staticClass: "mr-2",
+                                    attrs: { small: "" },
+                                    on: {
+                                      click: function ($event) {
+                                        return _vm.editLegal(item)
+                                      },
+                                    },
                                   },
-                                },
-                              },
-                              [
-                                _vm._v(
-                                  "\n                        mdi-pencil\n                    "
+                                  [
+                                    _vm._v(
+                                      "\n                        mdi-eye\n                    "
+                                    ),
+                                  ]
                                 ),
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "v-icon",
-                              {
-                                attrs: { small: "" },
-                                on: {
-                                  click: function ($event) {
-                                    return _vm.deleteLegal(item)
-                                  },
-                                },
-                              },
-                              [
-                                _vm._v(
-                                  "\n                        mdi-delete\n                    "
-                                ),
-                              ]
-                            ),
                           ]
                         },
                       }
@@ -26134,6 +26298,7 @@ var render = function () {
       },
     },
     [
+      _vm._v("\n    " + _vm._s(_vm.access) + "\n    "),
       _c("div", { staticClass: "grid grid-cols-1 gap-4 mt-5 mb-5" }, [
         _vm.ctr_file
           ? _c(
@@ -26329,6 +26494,7 @@ var render = function () {
                                   _vm.project_specific_type_list,
                                 project_specific_subtype_list:
                                   _vm.project_specific_subtype_list,
+                                has_permit: _vm.has_basic_permit_pco,
                               },
                             }),
                           ],
@@ -26342,7 +26508,8 @@ var render = function () {
                               attrs: {
                                 form_permit_info: _vm.form_permit_info,
                                 permit_table: _vm.permit_table,
-                                has_permit: _vm.has_permit_pco,
+                                has_permit: _vm.has_basic_permit_pco,
+                                has_hazwaste: _vm.has_hazwaste,
                               },
                             }),
                           ],
@@ -26386,7 +26553,7 @@ var render = function () {
                               attrs: {
                                 form_pco_info: _vm.form_pco_info,
                                 pco_table: _vm.pco_table,
-                                has_permit: _vm.has_permit_pco,
+                                has_permit: _vm.has_basic_permit_pco,
                               },
                             }),
                           ],
@@ -26784,38 +26951,58 @@ var render = function () {
               "div",
               { staticClass: "text-center" },
               [
-                _c(
-                  "v-btn",
-                  {
-                    attrs: { depressed: "", color: "primary", type: "submit" },
-                  },
-                  [
-                    _c(
-                      "v-icon",
-                      { staticClass: "mr-2", attrs: { small: "" } },
-                      [_vm._v(" mdi-content-save ")]
-                    ),
-                    _vm._v("\n                Submit\n            "),
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "v-btn",
-                  {
-                    attrs: { depressed: "", color: "warning", type: "button" },
-                    on: { click: _vm.resetMonitoring },
-                  },
-                  [
-                    _c(
-                      "v-icon",
-                      { staticClass: "mr-2", attrs: { small: "" } },
-                      [_vm._v(" mdi-autorenew ")]
-                    ),
-                    _vm._v("\n                Reset\n            "),
-                  ],
-                  1
-                ),
+                _vm.has_permit
+                  ? _c(
+                      "div",
+                      [
+                        _c(
+                          "v-btn",
+                          {
+                            attrs: {
+                              depressed: "",
+                              color: "primary",
+                              type: "submit",
+                            },
+                          },
+                          [
+                            _c(
+                              "v-icon",
+                              { staticClass: "mr-2", attrs: { small: "" } },
+                              [_vm._v(" mdi-content-save ")]
+                            ),
+                            _vm._v(
+                              "\n                    Submit\n                "
+                            ),
+                          ],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "v-btn",
+                          {
+                            attrs: {
+                              depressed: "",
+                              color: "warning",
+                              type: "button",
+                            },
+                            on: { click: _vm.resetMonitoring },
+                          },
+                          [
+                            _c(
+                              "v-icon",
+                              { staticClass: "mr-2", attrs: { small: "" } },
+                              [_vm._v(" mdi-autorenew ")]
+                            ),
+                            _vm._v(
+                              "\n                    Reset\n                "
+                            ),
+                          ],
+                          1
+                        ),
+                      ],
+                      1
+                    )
+                  : _vm._e(),
                 _vm._v(" "),
                 _c(
                   "v-btn",
@@ -26883,93 +27070,109 @@ var render = function () {
                 items: _vm.monitoring_table,
                 "item-key": "monitoring_tables",
               },
-              scopedSlots: _vm._u(
-                [
-                  {
-                    key: "item.mon_file",
-                    fn: function (ref) {
-                      var item = ref.item
-                      return [
-                        item.mon_file > 0
-                          ? _c(
-                              "a",
-                              {
-                                attrs: {
-                                  href:
-                                    "/app/attachments?type=monitoring&id=" +
-                                    item.id,
-                                  target: "_blank",
-                                },
+              scopedSlots: _vm._u([
+                {
+                  key: "item.mon_file",
+                  fn: function (ref) {
+                    var item = ref.item
+                    return [
+                      item.mon_file > 0
+                        ? _c(
+                            "a",
+                            {
+                              attrs: {
+                                href:
+                                  "/app/attachments?type=monitoring&id=" +
+                                  item.id,
+                                target: "_blank",
                               },
-                              [
-                                _c(
-                                  "v-btn",
-                                  { attrs: { small: "", dark: "" } },
-                                  [_vm._v("Download File")]
-                                ),
-                              ],
-                              1
-                            )
-                          : _c(
-                              "div",
-                              { staticClass: "text-xs font-bold italic" },
-                              [
-                                _vm._v(
-                                  "\n                        No Attachment Found\n                    "
-                                ),
-                              ]
-                            ),
-                      ]
-                    },
+                            },
+                            [
+                              _c("v-btn", { attrs: { small: "", dark: "" } }, [
+                                _vm._v("Download File"),
+                              ]),
+                            ],
+                            1
+                          )
+                        : _c(
+                            "div",
+                            { staticClass: "text-xs font-bold italic" },
+                            [
+                              _vm._v(
+                                "\n                        No Attachment Found\n                    "
+                              ),
+                            ]
+                          ),
+                    ]
                   },
-                  _vm.has_permit
-                    ? {
-                        key: "item.actions",
-                        fn: function (ref) {
-                          var item = ref.item
-                          return [
-                            _c(
-                              "v-icon",
-                              {
-                                staticClass: "mr-2",
-                                attrs: { small: "" },
-                                on: {
-                                  click: function ($event) {
-                                    return _vm.editMonitoring(item)
+                },
+                {
+                  key: "item.actions",
+                  fn: function (ref) {
+                    var item = ref.item
+                    return [
+                      _vm.has_permit
+                        ? _c(
+                            "div",
+                            [
+                              _c(
+                                "v-icon",
+                                {
+                                  staticClass: "mr-2",
+                                  attrs: { small: "" },
+                                  on: {
+                                    click: function ($event) {
+                                      return _vm.editMonitoring(item)
+                                    },
                                   },
                                 },
-                              },
-                              [
-                                _vm._v(
-                                  "\n                        mdi-pencil\n                    "
-                                ),
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "v-icon",
-                              {
-                                attrs: { small: "" },
-                                on: {
-                                  click: function ($event) {
-                                    return _vm.deleteMonitoring(item)
+                                [
+                                  _vm._v(
+                                    "\n                            mdi-pencil\n                        "
+                                  ),
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-icon",
+                                {
+                                  attrs: { small: "" },
+                                  on: {
+                                    click: function ($event) {
+                                      return _vm.deleteMonitoring(item)
+                                    },
                                   },
                                 },
+                                [
+                                  _vm._v(
+                                    "\n                            mdi-delete\n                        "
+                                  ),
+                                ]
+                              ),
+                            ],
+                            1
+                          )
+                        : _c(
+                            "v-icon",
+                            {
+                              staticClass: "mr-2",
+                              attrs: { small: "" },
+                              on: {
+                                click: function ($event) {
+                                  return _vm.editMonitoring(item)
+                                },
                               },
-                              [
-                                _vm._v(
-                                  "\n                        mdi-delete\n                    "
-                                ),
-                              ]
-                            ),
-                          ]
-                        },
-                      }
-                    : null,
-                ],
-                null,
-                true
-              ),
+                            },
+                            [
+                              _vm._v(
+                                "\n                        mdi-eye\n                    "
+                              ),
+                            ]
+                          ),
+                    ]
+                  },
+                },
+              ]),
             }),
           ],
           1
@@ -27321,38 +27524,54 @@ var render = function () {
               "div",
               { staticClass: "text-center" },
               [
-                _c(
-                  "v-btn",
-                  {
-                    attrs: { depressed: "", color: "primary", type: "submit" },
-                  },
-                  [
-                    _c(
-                      "v-icon",
-                      { staticClass: "mr-2", attrs: { small: "" } },
-                      [_vm._v(" mdi-content-save ")]
-                    ),
-                    _vm._v("\n                Submit\n            "),
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "v-btn",
-                  {
-                    attrs: { depressed: "", color: "warning", type: "button" },
-                    on: { click: _vm.resetPco },
-                  },
-                  [
-                    _c(
-                      "v-icon",
-                      { staticClass: "mr-2", attrs: { small: "" } },
-                      [_vm._v(" mdi-autorenew ")]
-                    ),
-                    _vm._v("\n                Reset\n            "),
-                  ],
-                  1
-                ),
+                _vm.has_permit
+                  ? _c(
+                      "div",
+                      [
+                        _c(
+                          "v-btn",
+                          {
+                            attrs: {
+                              depressed: "",
+                              color: "primary",
+                              type: "submit",
+                            },
+                          },
+                          [
+                            _c(
+                              "v-icon",
+                              { staticClass: "mr-2", attrs: { small: "" } },
+                              [_vm._v(" mdi-content-save ")]
+                            ),
+                            _vm._v("\n                Submit\n            "),
+                          ],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "v-btn",
+                          {
+                            attrs: {
+                              depressed: "",
+                              color: "warning",
+                              type: "button",
+                            },
+                            on: { click: _vm.resetPco },
+                          },
+                          [
+                            _c(
+                              "v-icon",
+                              { staticClass: "mr-2", attrs: { small: "" } },
+                              [_vm._v(" mdi-autorenew ")]
+                            ),
+                            _vm._v("\n                Reset\n            "),
+                          ],
+                          1
+                        ),
+                      ],
+                      1
+                    )
+                  : _vm._e(),
                 _vm._v(" "),
                 _c(
                   "v-btn",
@@ -27420,56 +27639,74 @@ var render = function () {
                 items: _vm.pco_table,
                 "item-key": "pco_tables",
               },
-              scopedSlots: _vm._u(
-                [
-                  _vm.has_permit
-                    ? {
-                        key: "item.actions",
-                        fn: function (ref) {
-                          var item = ref.item
-                          return [
-                            _c(
-                              "v-icon",
-                              {
-                                staticClass: "mr-2",
-                                attrs: { small: "" },
-                                on: {
-                                  click: function ($event) {
-                                    return _vm.editPco(item)
+              scopedSlots: _vm._u([
+                {
+                  key: "item.actions",
+                  fn: function (ref) {
+                    var item = ref.item
+                    return [
+                      _vm.has_permit
+                        ? _c(
+                            "div",
+                            [
+                              _c(
+                                "v-icon",
+                                {
+                                  staticClass: "mr-2",
+                                  attrs: { small: "" },
+                                  on: {
+                                    click: function ($event) {
+                                      return _vm.editPco(item)
+                                    },
                                   },
                                 },
-                              },
-                              [
-                                _vm._v(
-                                  "\n                        mdi-pencil\n                    "
-                                ),
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "v-icon",
-                              {
-                                attrs: { small: "" },
-                                on: {
-                                  click: function ($event) {
-                                    return _vm.deletePco(item)
+                                [
+                                  _vm._v(
+                                    "\n                        mdi-pencil\n                    "
+                                  ),
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-icon",
+                                {
+                                  attrs: { small: "" },
+                                  on: {
+                                    click: function ($event) {
+                                      return _vm.deletePco(item)
+                                    },
                                   },
                                 },
+                                [
+                                  _vm._v(
+                                    "\n                        mdi-delete\n                    "
+                                  ),
+                                ]
+                              ),
+                            ],
+                            1
+                          )
+                        : _c(
+                            "v-icon",
+                            {
+                              staticClass: "mr-2",
+                              attrs: { small: "" },
+                              on: {
+                                click: function ($event) {
+                                  return _vm.editPco(item)
+                                },
                               },
-                              [
-                                _vm._v(
-                                  "\n                        mdi-delete\n                    "
-                                ),
-                              ]
-                            ),
-                          ]
-                        },
-                      }
-                    : null,
-                ],
-                null,
-                true
-              ),
+                            },
+                            [
+                              _vm._v(
+                                "\n                        mdi-eye\n                    "
+                              ),
+                            ]
+                          ),
+                    ]
+                  },
+                },
+              ]),
             }),
           ],
           1
@@ -27547,6 +27784,9 @@ var render = function () {
                                   return [
                                     _c("v-autocomplete", {
                                       attrs: {
+                                        disabled: _vm.has_permit
+                                          ? false
+                                          : _vm.has_hazwaste,
                                         items: _vm.permit_law_selection,
                                         label: "Law",
                                         "item-text": "law_selection",
@@ -27572,7 +27812,7 @@ var render = function () {
                             ],
                             null,
                             false,
-                            3601820785
+                            1429220607
                           ),
                         }),
                       ],
@@ -27843,48 +28083,62 @@ var render = function () {
                   "div",
                   { staticClass: "text-center" },
                   [
-                    _c(
-                      "v-btn",
-                      {
-                        attrs: {
-                          depressed: "",
-                          color: "primary",
-                          type: "submit",
-                        },
-                      },
-                      [
-                        _c(
-                          "v-icon",
-                          { staticClass: "mr-2", attrs: { small: "" } },
-                          [_vm._v(" mdi-content-save ")]
-                        ),
-                        _vm._v(
-                          "\n                    Submit\n                "
-                        ),
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "v-btn",
-                      {
-                        attrs: {
-                          depressed: "",
-                          color: "warning",
-                          type: "button",
-                        },
-                        on: { click: _vm.resetPermit },
-                      },
-                      [
-                        _c(
-                          "v-icon",
-                          { staticClass: "mr-2", attrs: { small: "" } },
-                          [_vm._v(" mdi-autorenew ")]
-                        ),
-                        _vm._v("\n                    Reset\n                "),
-                      ],
-                      1
-                    ),
+                    _vm.has_permit || _vm.has_hazwaste
+                      ? _c(
+                          "div",
+                          [
+                            _c(
+                              "v-btn",
+                              {
+                                attrs: {
+                                  depressed: "",
+                                  color: "primary",
+                                  type: "submit",
+                                },
+                              },
+                              [
+                                _c(
+                                  "v-icon",
+                                  { staticClass: "mr-2", attrs: { small: "" } },
+                                  [
+                                    _vm._v(
+                                      "\n                            mdi-content-save\n                        "
+                                    ),
+                                  ]
+                                ),
+                                _vm._v(
+                                  "\n                        Submit\n                    "
+                                ),
+                              ],
+                              1
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "v-btn",
+                              {
+                                attrs: {
+                                  depressed: "",
+                                  color: "warning",
+                                  type: "button",
+                                },
+                                on: { click: _vm.resetPermit },
+                              },
+                              [
+                                _c(
+                                  "v-icon",
+                                  { staticClass: "mr-2", attrs: { small: "" } },
+                                  [_vm._v(" mdi-autorenew ")]
+                                ),
+                                _vm._v(
+                                  "\n                        Reset\n                    "
+                                ),
+                              ],
+                              1
+                            ),
+                          ],
+                          1
+                        )
+                      : _vm._e(),
                     _vm._v(" "),
                     _c(
                       "v-btn",
@@ -27912,7 +28166,7 @@ var render = function () {
               ])
             : _vm._e(),
           _vm._v(" "),
-          _vm.has_permit
+          _vm.has_permit || _vm.has_hazwaste
             ? _c(
                 "div",
                 [
@@ -27956,93 +28210,112 @@ var render = function () {
                     items: _vm.permit_table,
                     "item-key": "permit_tables",
                   },
-                  scopedSlots: _vm._u(
-                    [
-                      {
-                        key: "item.perm_file",
-                        fn: function (ref) {
-                          var item = ref.item
-                          return [
-                            item.perm_file > 0
-                              ? _c(
-                                  "a",
-                                  {
-                                    attrs: {
-                                      href:
-                                        "/app/attachments?type=permits&id=" +
-                                        item.id,
-                                      target: "_blank",
-                                    },
+                  scopedSlots: _vm._u([
+                    {
+                      key: "item.perm_file",
+                      fn: function (ref) {
+                        var item = ref.item
+                        return [
+                          item.perm_file > 0
+                            ? _c(
+                                "a",
+                                {
+                                  attrs: {
+                                    href:
+                                      "/app/attachments?type=permits&id=" +
+                                      item.id,
+                                    target: "_blank",
                                   },
-                                  [
-                                    _c(
-                                      "v-btn",
-                                      { attrs: { small: "", dark: "" } },
-                                      [_vm._v("Download File")]
-                                    ),
-                                  ],
-                                  1
-                                )
-                              : _c(
-                                  "div",
-                                  { staticClass: "text-xs font-bold italic" },
-                                  [
-                                    _vm._v(
-                                      "\n                            No Attachment Found\n                        "
-                                    ),
-                                  ]
-                                ),
-                          ]
-                        },
+                                },
+                                [
+                                  _c(
+                                    "v-btn",
+                                    { attrs: { small: "", dark: "" } },
+                                    [_vm._v("Download File")]
+                                  ),
+                                ],
+                                1
+                              )
+                            : _c(
+                                "div",
+                                { staticClass: "text-xs font-bold italic" },
+                                [
+                                  _vm._v(
+                                    "\n                            No Attachment Found\n                        "
+                                  ),
+                                ]
+                              ),
+                        ]
                       },
-                      _vm.has_permit
-                        ? {
-                            key: "item.actions",
-                            fn: function (ref) {
-                              var item = ref.item
-                              return [
-                                _c(
-                                  "v-icon",
-                                  {
-                                    staticClass: "mr-2",
-                                    attrs: { small: "" },
-                                    on: {
-                                      click: function ($event) {
-                                        return _vm.editPermit(item)
+                    },
+                    {
+                      key: "item.actions",
+                      fn: function (ref) {
+                        var item = ref.item
+                        return [
+                          _vm.has_permit ||
+                          (_vm.has_hazwaste && item.perm_law === "RA 6969")
+                            ? _c(
+                                "div",
+                                [
+                                  _c(
+                                    "v-icon",
+                                    {
+                                      staticClass: "mr-2",
+                                      attrs: { small: "" },
+                                      on: {
+                                        click: function ($event) {
+                                          return _vm.editPermit(item)
+                                        },
                                       },
                                     },
-                                  },
-                                  [
-                                    _vm._v(
-                                      "\n                            mdi-pencil\n                        "
-                                    ),
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "v-icon",
-                                  {
-                                    attrs: { small: "" },
-                                    on: {
-                                      click: function ($event) {
-                                        return _vm.deletePermit(item)
+                                    [
+                                      _vm._v(
+                                        "\n                                mdi-pencil\n                            "
+                                      ),
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "v-icon",
+                                    {
+                                      attrs: { small: "" },
+                                      on: {
+                                        click: function ($event) {
+                                          return _vm.deletePermit(item)
+                                        },
                                       },
                                     },
+                                    [
+                                      _vm._v(
+                                        "\n                                mdi-delete\n                            "
+                                      ),
+                                    ]
+                                  ),
+                                ],
+                                1
+                              )
+                            : _c(
+                                "v-icon",
+                                {
+                                  staticClass: "mr-2",
+                                  attrs: { small: "" },
+                                  on: {
+                                    click: function ($event) {
+                                      return _vm.editPermit(item)
+                                    },
                                   },
-                                  [
-                                    _vm._v(
-                                      "\n                            mdi-delete\n                        "
-                                    ),
-                                  ]
-                                ),
-                              ]
-                            },
-                          }
-                        : null,
-                    ],
-                    null,
-                    true
-                  ),
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                            mdi-eye\n                        "
+                                  ),
+                                ]
+                              ),
+                        ]
+                      },
+                    },
+                  ]),
                 }),
               ],
               1

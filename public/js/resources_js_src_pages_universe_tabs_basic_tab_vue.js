@@ -320,7 +320,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     project_type_list: Array,
     project_subtype_list: Array,
     project_specific_type_list: Array,
-    project_specific_subtype_list: Array
+    project_specific_subtype_list: Array,
+    has_permit: Boolean
   },
   components: {
     Link: _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_1__.Link
@@ -1997,18 +1998,20 @@ var render = function () {
       ),
     ]),
     _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "text-center" },
-      [
-        _c(
-          "v-btn",
-          { attrs: { depressed: "", color: "primary", type: "submit" } },
-          [_vm._v("\n            Submit\n        ")]
-        ),
-      ],
-      1
-    ),
+    _vm.has_permit
+      ? _c(
+          "div",
+          { staticClass: "text-center" },
+          [
+            _c(
+              "v-btn",
+              { attrs: { depressed: "", color: "primary", type: "submit" } },
+              [_vm._v("\n            Submit\n        ")]
+            ),
+          ],
+          1
+        )
+      : _vm._e(),
   ])
 }
 var staticRenderFns = []

@@ -189,6 +189,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     form_pco_info: Object,
@@ -1471,38 +1478,54 @@ var render = function () {
               "div",
               { staticClass: "text-center" },
               [
-                _c(
-                  "v-btn",
-                  {
-                    attrs: { depressed: "", color: "primary", type: "submit" },
-                  },
-                  [
-                    _c(
-                      "v-icon",
-                      { staticClass: "mr-2", attrs: { small: "" } },
-                      [_vm._v(" mdi-content-save ")]
-                    ),
-                    _vm._v("\n                Submit\n            "),
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "v-btn",
-                  {
-                    attrs: { depressed: "", color: "warning", type: "button" },
-                    on: { click: _vm.resetPco },
-                  },
-                  [
-                    _c(
-                      "v-icon",
-                      { staticClass: "mr-2", attrs: { small: "" } },
-                      [_vm._v(" mdi-autorenew ")]
-                    ),
-                    _vm._v("\n                Reset\n            "),
-                  ],
-                  1
-                ),
+                _vm.has_permit
+                  ? _c(
+                      "div",
+                      [
+                        _c(
+                          "v-btn",
+                          {
+                            attrs: {
+                              depressed: "",
+                              color: "primary",
+                              type: "submit",
+                            },
+                          },
+                          [
+                            _c(
+                              "v-icon",
+                              { staticClass: "mr-2", attrs: { small: "" } },
+                              [_vm._v(" mdi-content-save ")]
+                            ),
+                            _vm._v("\n                Submit\n            "),
+                          ],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "v-btn",
+                          {
+                            attrs: {
+                              depressed: "",
+                              color: "warning",
+                              type: "button",
+                            },
+                            on: { click: _vm.resetPco },
+                          },
+                          [
+                            _c(
+                              "v-icon",
+                              { staticClass: "mr-2", attrs: { small: "" } },
+                              [_vm._v(" mdi-autorenew ")]
+                            ),
+                            _vm._v("\n                Reset\n            "),
+                          ],
+                          1
+                        ),
+                      ],
+                      1
+                    )
+                  : _vm._e(),
                 _vm._v(" "),
                 _c(
                   "v-btn",
@@ -1570,56 +1593,74 @@ var render = function () {
                 items: _vm.pco_table,
                 "item-key": "pco_tables",
               },
-              scopedSlots: _vm._u(
-                [
-                  _vm.has_permit
-                    ? {
-                        key: "item.actions",
-                        fn: function (ref) {
-                          var item = ref.item
-                          return [
-                            _c(
-                              "v-icon",
-                              {
-                                staticClass: "mr-2",
-                                attrs: { small: "" },
-                                on: {
-                                  click: function ($event) {
-                                    return _vm.editPco(item)
+              scopedSlots: _vm._u([
+                {
+                  key: "item.actions",
+                  fn: function (ref) {
+                    var item = ref.item
+                    return [
+                      _vm.has_permit
+                        ? _c(
+                            "div",
+                            [
+                              _c(
+                                "v-icon",
+                                {
+                                  staticClass: "mr-2",
+                                  attrs: { small: "" },
+                                  on: {
+                                    click: function ($event) {
+                                      return _vm.editPco(item)
+                                    },
                                   },
                                 },
-                              },
-                              [
-                                _vm._v(
-                                  "\n                        mdi-pencil\n                    "
-                                ),
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "v-icon",
-                              {
-                                attrs: { small: "" },
-                                on: {
-                                  click: function ($event) {
-                                    return _vm.deletePco(item)
+                                [
+                                  _vm._v(
+                                    "\n                        mdi-pencil\n                    "
+                                  ),
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-icon",
+                                {
+                                  attrs: { small: "" },
+                                  on: {
+                                    click: function ($event) {
+                                      return _vm.deletePco(item)
+                                    },
                                   },
                                 },
+                                [
+                                  _vm._v(
+                                    "\n                        mdi-delete\n                    "
+                                  ),
+                                ]
+                              ),
+                            ],
+                            1
+                          )
+                        : _c(
+                            "v-icon",
+                            {
+                              staticClass: "mr-2",
+                              attrs: { small: "" },
+                              on: {
+                                click: function ($event) {
+                                  return _vm.editPco(item)
+                                },
                               },
-                              [
-                                _vm._v(
-                                  "\n                        mdi-delete\n                    "
-                                ),
-                              ]
-                            ),
-                          ]
-                        },
-                      }
-                    : null,
-                ],
-                null,
-                true
-              ),
+                            },
+                            [
+                              _vm._v(
+                                "\n                        mdi-eye\n                    "
+                              ),
+                            ]
+                          ),
+                    ]
+                  },
+                },
+              ]),
             }),
           ],
           1
