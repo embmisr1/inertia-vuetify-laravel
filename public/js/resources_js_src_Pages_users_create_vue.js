@@ -1140,7 +1140,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
 
 
 
@@ -23442,7 +23441,7 @@ var render = function () {
                                             attrs: {
                                               vid: "position",
                                               name: "Position",
-                                              rules: "required",
+                                              rules: "",
                                             },
                                             scopedSlots: _vm._u(
                                               [
@@ -23512,7 +23511,7 @@ var render = function () {
                                             attrs: {
                                               vid: "Email",
                                               name: "Email",
-                                              rules: "required|email",
+                                              rules: "",
                                             },
                                             scopedSlots: _vm._u(
                                               [
@@ -23524,7 +23523,6 @@ var render = function () {
                                                       _c("v-text-field", {
                                                         attrs: {
                                                           label: "Email",
-                                                          type: "email",
                                                           filled: "",
                                                           outlined: "",
                                                           clearable: "",
