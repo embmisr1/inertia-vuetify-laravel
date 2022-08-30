@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\Auth\AuthRequestForm;
+use App\Models\USER_ACCESS\UsersAccess;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Auth;
 
@@ -28,11 +29,25 @@ class AuthController extends Controller
      */
     public function login(AuthRequestForm $request)
     {
-        $request->authenticate();
+        try {
+            $request->authenticate();
 
-        $request->session()->regenerate();
+            $request->session()->regenerate();
 
-        return redirect()->intended(RouteServiceProvider::HOME);
+            $user = UsersAccess::select("access_role_assigned")->firstOrFail()->where('users_FK', auth()->id())->get();
+            if (!count($user)) {
+                Auth::guard('web')->logout();
+
+                $request->session()->invalidate();
+
+                $request->session()->regenerateToken();
+
+                return redirect('/')->withErrors(["error_message" => "User has No Access. Please Contact MIS"]);
+            }
+            return redirect()->intended(RouteServiceProvider::HOME);
+        } catch (\Throwable $th) {
+            return back()->withErrors(["error_message" => $th->getMessage()]);
+        }
     }
 
 
@@ -44,7 +59,7 @@ class AuthController extends Controller
      */
     public function destroy(Request $request)
     {
-        Auth ::guard('web')->logout();
+        Auth::guard('web')->logout();
 
         $request->session()->invalidate();
 

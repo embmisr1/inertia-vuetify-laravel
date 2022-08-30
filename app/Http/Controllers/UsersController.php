@@ -141,13 +141,22 @@ class UsersController extends Controller
      */
     public function update(UpdateUsersRequest $request, User $user)
     {
-        $input = $request->validated();
-        $user->update($input);
-        $assign_role = new UsersAccess();
-        $assign_role->access_role_assigned = json_encode($request->selected_roles);
-        $assign_role->users_FK = $user->id;
-        $assign_role->save();
-        return Redirect::back()->with('success', 'User Updated Successfully.');
+        try {
+            $input = $request->validated();
+            $user->update($input);
+            $assign_role = UsersAccess::where("users_FK", $user->id)->firstOrFail();
+            $assign_role->access_role_assigned = json_encode($request->selected_roles);
+            $assign_role->save();
+
+            return back()->with('message', 'User Updated Successfully.');
+        } catch (\Throwable $th) {
+            $assign_role = new UsersAccess();
+            $assign_role->access_role_assigned = json_encode($request->selected_roles);
+            $assign_role->users_FK = $user->id;
+            $assign_role->save();
+            return back()->with("message", "User Role Successfully Added");
+            // return Redirect::back()->with('success', 'User Role Successfully Added.');
+        }
     }
 
     /**
