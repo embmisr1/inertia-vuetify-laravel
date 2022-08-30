@@ -1,6 +1,5 @@
 <template>
     <v-form @submit.prevent="submit_basic_info">
-        {{access}}
         <div class="grid grid-cols-1 gap-4 mt-5 mb-5">
             <!--
         <v-card class="p-3" elevation="3" max-width="100%">

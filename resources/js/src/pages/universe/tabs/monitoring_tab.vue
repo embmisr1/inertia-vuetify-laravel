@@ -117,12 +117,12 @@
                 </div>
             </div>
             <div class="text-center">
-                <div v-if="has_permit">
-                    <v-btn depressed color="primary" type="submit">
+                    <v-btn v-if="has_permit" depressed color="primary" type="submit">
                         <v-icon small class="mr-2"> mdi-content-save </v-icon>
                         Submit
                     </v-btn>
                     <v-btn
+                    v-if="has_permit"
                         depressed
                         color="warning"
                         type="button"
@@ -131,7 +131,6 @@
                         <v-icon small class="mr-2"> mdi-autorenew </v-icon>
                         Reset
                     </v-btn>
-                </div>
                 <v-btn depressed color="error" type="button" @click="closeFile">
                     <v-icon small class="mr-2"> mdi-plus-circle </v-icon>
                     Close
