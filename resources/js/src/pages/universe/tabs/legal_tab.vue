@@ -178,6 +178,7 @@
                 </div>
             </div>
             <div class="text-center">
+                <div v-if="has_permit">
                 <v-btn depressed color="primary" type="submit">
                     <v-icon small class="mr-2"> mdi-content-save </v-icon>
                     Submit
@@ -191,7 +192,8 @@
                     <v-icon small class="mr-2"> mdi-autorenew </v-icon>
                     Reset
                 </v-btn>
-                <v-btn depressed color="error" type="button" @click="closeFile">
+                </div>
+                <v-btn  depressed color="error" type="button" @click="closeFile">
                     <v-icon small class="mr-2"> mdi-plus-circle </v-icon>
                     Close
                 </v-btn>
@@ -231,11 +233,16 @@
                         </div>
                     </template>
                     <template v-slot:item.actions="{ item }" v-if="has_permit">
+                        <div v-if="has_permit">
                         <v-icon small class="mr-2" @click="editLegal(item)">
                             mdi-pencil
                         </v-icon>
                         <v-icon small @click="deleteLegal(item)">
                             mdi-delete
+                        </v-icon>
+                        </div>
+                        <v-icon v-else small class="mr-2" @click="editLegal(item)">
+                            mdi-eye
                         </v-icon>
                     </template>
                 </v-data-table>

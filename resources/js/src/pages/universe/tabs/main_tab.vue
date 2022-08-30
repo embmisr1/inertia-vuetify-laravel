@@ -1,5 +1,6 @@
 <template>
     <v-form @submit.prevent="submit_basic_info">
+        {{access}}
         <div class="grid grid-cols-1 gap-4 mt-5 mb-5">
             <!--
         <v-card class="p-3" elevation="3" max-width="100%">
@@ -136,6 +137,7 @@
                                     :project_specific_subtype_list="
                                         project_specific_subtype_list
                                     "
+                                    :has_permit="has_basic_permit_pco"
                                 >
                                 </BasicTab>
                             </v-tab-item>
@@ -143,7 +145,8 @@
                                 <PermitTab
                                     :form_permit_info="form_permit_info"
                                     :permit_table="permit_table"
-                                    :has_permit="has_permit_pco"
+                                    :has_permit="has_basic_permit_pco"
+                                    :has_hazwaste="has_hazwaste"
                                 ></PermitTab>
                             </v-tab-item>
                             <v-tab-item>
@@ -171,7 +174,7 @@
                                 <PcoTab
                                     :form_pco_info="form_pco_info"
                                     :pco_table="pco_table"
-                                    :has_permit="has_permit_pco"
+                                    :has_permit="has_basic_permit_pco"
                                 ></PcoTab>
                             </v-tab-item>
                             <v-tab-item>
@@ -244,7 +247,7 @@ export default {
     },
     // mixins:[page],
     computed: {
-        has_permit_pco() {
+        has_basic_permit_pco() {
             let has_permission = false;
             has_permission = this.hasAdminRole;
             if (!has_permission) has_permission = this.hasCPD;
@@ -269,8 +272,10 @@ export default {
         has_hazwaste() {
             let has_permission = false;
             has_permission = this.hasAdminRole;
-            if (!has_permission) has_permission = this.hasCPD;
-            if (!has_permission) has_permission = this.hasEMED;
+
+            if (!has_permission) has_permission = this.hasHAZWASTE;
+            // if (!has_permission) has_permission = this.hasCPD;
+            // if (!has_permission) has_permission = this.hasEMED;
 
             return has_permission;
         },
@@ -291,6 +296,9 @@ export default {
         },
         hasMAP() {
             return _.includes(this.access, "MAP EDIT");
+        },
+        hasHAZWASTE() {
+            return _.includes(this.access, "HAZWASTE EDIT");
         },
     },
     data() {

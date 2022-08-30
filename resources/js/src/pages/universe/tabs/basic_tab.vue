@@ -264,7 +264,7 @@
                         ></v-autocomplete>
                     </div>
             </div>
-            <div class="text-center">
+            <div class="text-center" v-if="has_permit">
                 <v-btn depressed color="primary" type="submit">
                     Submit
                 </v-btn>
@@ -287,6 +287,7 @@ import axios from 'axios';
         project_subtype_list: Array,
         project_specific_type_list: Array,
         project_specific_subtype_list: Array,
+        has_permit: Boolean,
     },
     components:{
         Link,

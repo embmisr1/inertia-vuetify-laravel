@@ -18,6 +18,7 @@
                             v-slot="{ errors }"
                         >
                             <v-autocomplete
+                                :disabled="has_permit ? false : has_hazwaste"
                                 :items="permit_law_selection"
                                 v-model="form_permit_info.perm_law"
                                 label="Law"
@@ -132,19 +133,23 @@
                     </div>
                 </div>
                 <div class="text-center">
-                    <v-btn depressed color="primary" type="submit">
-                        <v-icon small class="mr-2"> mdi-content-save </v-icon>
-                        Submit
-                    </v-btn>
-                    <v-btn
-                        depressed
-                        color="warning"
-                        type="button"
-                        @click="resetPermit"
-                    >
-                        <v-icon small class="mr-2"> mdi-autorenew </v-icon>
-                        Reset
-                    </v-btn>
+                    <div v-if="has_permit || has_hazwaste ">
+                        <v-btn depressed color="primary" type="submit">
+                            <v-icon small class="mr-2">
+                                mdi-content-save
+                            </v-icon>
+                            Submit
+                        </v-btn>
+                        <v-btn
+                            depressed
+                            color="warning"
+                            type="button"
+                            @click="resetPermit"
+                        >
+                            <v-icon small class="mr-2"> mdi-autorenew </v-icon>
+                            Reset
+                        </v-btn>
+                    </div>
                     <v-btn
                         depressed
                         color="error"
@@ -156,7 +161,7 @@
                     </v-btn>
                 </div>
             </div>
-            <div v-if="has_permit">
+            <div v-if="has_permit || has_hazwaste">
                 <v-btn
                     v-if="!addFileForm"
                     depressed
@@ -189,16 +194,26 @@
                                 No Attachment Found
                             </div>
                         </template>
-                        <template v-slot:item.actions="{ item }" v-if="has_permit">
+                        <template v-slot:item.actions="{ item }">
+                            <div v-if="has_permit || has_hazwaste && item.perm_law ==='RA 6969'">
+                                <v-icon
+                                    small
+                                    class="mr-2"
+                                    @click="editPermit(item)"
+                                >
+                                    mdi-pencil
+                                </v-icon>
+                                <v-icon small @click="deletePermit(item)">
+                                    mdi-delete
+                                </v-icon>
+                            </div>
                             <v-icon
+                                v-else
                                 small
                                 class="mr-2"
                                 @click="editPermit(item)"
                             >
-                                mdi-pencil
-                            </v-icon>
-                            <v-icon small @click="deletePermit(item)">
-                                mdi-delete
+                                mdi-eye
                             </v-icon>
                         </template>
                     </v-data-table>
@@ -226,6 +241,7 @@ export default {
         form_permit_info: Object,
         permit_table: Array,
         has_permit: Boolean,
+        has_hazwaste: Boolean,
     },
     components: {
         vueDropzone: vue2Dropzone,
@@ -356,6 +372,13 @@ export default {
             this.addFileForm = false;
             this.resetPermit();
         },
+    },
+    mounted() {
+        if (!this.has_permit) {
+            if (this.has_hazwaste) {
+                this.form_permit_info.perm_law = "RA 6969";
+            }
+        }
     },
 };
 </script>
