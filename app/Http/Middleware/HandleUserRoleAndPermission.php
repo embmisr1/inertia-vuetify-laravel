@@ -25,23 +25,29 @@ class HandleUserRoleAndPermission
     {
         try {
 
-            $user = UsersAccess::select("access_role_assigned")->firstOrFail()->where('users_FK', auth()->id())->get();
-            if (!count($user)) {
-                Auth::guard('web')->logout();
+            $check_user_role = cache("access_user_id" . auth()->id());
+            // dd($check_user_role);
 
-                $request->session()->invalidate();
+            // if (empty($check_user_role)) {
+                $user = UsersAccess::select("access_role_assigned")->firstOrFail()->where('users_FK', auth()->id())->get();
+                if (!count($user)) {
+                    Auth::guard('web')->logout();
 
-                $request->session()->regenerateToken();
+                    $request->session()->invalidate();
 
-                return redirect('/')->withErrors(["error_message" => "User has No Access. Please Contact MIS"]);
-                //    dd("User has No Access");
-                // return redirect("/");
-                // return redirect()->route("authForm")->withErrors(["error_message" => "User has No Access"]);
-            }
+                    $request->session()->regenerateToken();
 
-            $access_role_assigned = UsersAccessRole::find(json_decode($user[0]->access_role_assigned, true));
+                    return redirect('/')->withErrors(["error_message" => "User has No Access. Please Contact MIS"]);
+                    //    dd("User has No Access");
+                    // return redirect("/");
+                    // return redirect()->route("authForm")->withErrors(["error_message" => "User has No Access"]);
+                }
 
-            $request->user_access = $access_role_assigned->pluck("access_role");
+                $access_role_assigned = UsersAccessRole::find(json_decode($user[0]->access_role_assigned, true))->pluck("access_role");
+                // $request->user_access = $access_role_assigned->pluck("access_role");
+                $request->user_access = $access_role_assigned;
+            // }
+            // $request->user_access = $check_user_role;
 
             return $next($request);
         } catch (\Throwable $th) {
