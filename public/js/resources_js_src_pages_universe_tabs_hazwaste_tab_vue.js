@@ -122,7 +122,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     form_hazwaste_info: Object,
-    hazwaste_table: Array
+    hazwaste_table: Array,
+    has_permit: Boolean
   },
   data: function data() {
     return {
@@ -1204,50 +1205,56 @@ var render = function () {
                 items: _vm.hazwaste_table,
                 "item-key": "hazwaste_tables",
               },
-              scopedSlots: _vm._u([
-                {
-                  key: "item.actions",
-                  fn: function (ref) {
-                    var item = ref.item
-                    return [
-                      _c(
-                        "v-icon",
-                        {
-                          staticClass: "mr-2",
-                          attrs: { small: "" },
-                          on: {
-                            click: function ($event) {
-                              return _vm.editHazwaste(item)
-                            },
-                          },
+              scopedSlots: _vm._u(
+                [
+                  _vm.has_permit
+                    ? {
+                        key: "item.actions",
+                        fn: function (ref) {
+                          var item = ref.item
+                          return [
+                            _c(
+                              "v-icon",
+                              {
+                                staticClass: "mr-2",
+                                attrs: { small: "" },
+                                on: {
+                                  click: function ($event) {
+                                    return _vm.editHazwaste(item)
+                                  },
+                                },
+                              },
+                              [
+                                _vm._v(
+                                  "\n                        mdi-pencil\n                    "
+                                ),
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "v-icon",
+                              {
+                                attrs: { small: "" },
+                                on: {
+                                  click: function ($event) {
+                                    return _vm.deleteHazwaste(item)
+                                  },
+                                },
+                              },
+                              [
+                                _vm._v(
+                                  "\n                        mdi-delete\n                    "
+                                ),
+                              ]
+                            ),
+                          ]
                         },
-                        [
-                          _vm._v(
-                            "\n                        mdi-pencil\n                    "
-                          ),
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "v-icon",
-                        {
-                          attrs: { small: "" },
-                          on: {
-                            click: function ($event) {
-                              return _vm.deleteHazwaste(item)
-                            },
-                          },
-                        },
-                        [
-                          _vm._v(
-                            "\n                        mdi-delete\n                    "
-                          ),
-                        ]
-                      ),
-                    ]
-                  },
-                },
-              ]),
+                      }
+                    : null,
+                ],
+                null,
+                true
+              ),
             }),
           ],
           1

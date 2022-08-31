@@ -365,23 +365,16 @@ class UniverseController extends Controller
     public function universe_process_create(request $request)
     {
         try {
-            $universe_id = $this->basic_process_create($request);
             $user_access = $request->user_access->toArray();
             if( in_array('CPD EDIT', $user_access) ){
+                $universe_id = $this->basic_process_create($request);
                 $this->permit_process_create($request, $universe_id);
                 $this->pco_process_create($request, $universe_id);
                 $this->monitoring_process_create($request, $universe_id);
-                $this->hazwaste_process_create($request, $universe_id);
+                return $universe_id;
+            }else{
+                return back();
             }
-            if( in_array('EMED EDIT', $user_access) ){
-                $this->monitoring_process_create($request, $universe_id);
-                $this->hazwaste_process_create($request, $universe_id);
-            }
-            if( in_array('LEGAL EDIT', $user_access) ){
-                $this->legal_process_create($request, $universe_id);
-                $this->complaint_process_create($request, $universe_id);
-            }
-            return $universe_id;
         } catch (\Throwable $th) {
             return back()->withErrors(["error_message" => $th->getMessage()]);
         }
@@ -390,19 +383,18 @@ class UniverseController extends Controller
     public function universe_process_update(request $request)
     {
         try {
-            $universe_id = $this->basic_process_update($request);
             $user_access = $request->user_access->toArray();
             if( in_array('CPD EDIT', $user_access) ){
-                $this->permit_process_update($request, $universe_id);
+                $universe_id = $this->basic_process_update($request);
                 $this->pco_process_update($request, $universe_id);
-                $this->monitoring_process_update($request, $universe_id);
-                $this->hazwaste_process_update($request, $universe_id);
             }
-            if( in_array('EMED EDIT', $user_access) ){
+            if( in_array('EMED EDIT', $user_access) || in_array('CPD EDIT', $user_access) ){
+                $universe_id = $request->basic['id'];
+                $this->permit_process_update($request, $universe_id);
                 $this->monitoring_process_update($request, $universe_id);
-                $this->hazwaste_process_update($request, $universe_id);
             }
             if( in_array('LEGAL EDIT', $user_access) ){
+                $universe_id = $request->basic['id'];
                 $this->legal_process_update($request, $universe_id);
                 $this->complaint_process_update($request, $universe_id);
             }

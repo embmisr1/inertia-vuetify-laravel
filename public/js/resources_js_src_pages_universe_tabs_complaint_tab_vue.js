@@ -1357,52 +1357,46 @@ var render = function () {
               [
                 _vm.has_permit
                   ? _c(
-                      "div",
+                      "v-btn",
+                      {
+                        attrs: {
+                          depressed: "",
+                          color: "primary",
+                          type: "submit",
+                        },
+                      },
                       [
                         _c(
-                          "v-btn",
-                          {
-                            attrs: {
-                              depressed: "",
-                              color: "primary",
-                              type: "submit",
-                            },
-                          },
-                          [
-                            _c(
-                              "v-icon",
-                              { staticClass: "mr-2", attrs: { small: "" } },
-                              [_vm._v(" mdi-content-save ")]
-                            ),
-                            _vm._v(
-                              "\n                    Submit\n                "
-                            ),
-                          ],
-                          1
+                          "v-icon",
+                          { staticClass: "mr-2", attrs: { small: "" } },
+                          [_vm._v(" mdi-content-save ")]
                         ),
-                        _vm._v(" "),
+                        _vm._v(
+                          "\n                    Submit\n                "
+                        ),
+                      ],
+                      1
+                    )
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.has_permit
+                  ? _c(
+                      "v-btn",
+                      {
+                        attrs: {
+                          depressed: "",
+                          color: "warning",
+                          type: "button",
+                        },
+                        on: { click: _vm.resetComplaint },
+                      },
+                      [
                         _c(
-                          "v-btn",
-                          {
-                            attrs: {
-                              depressed: "",
-                              color: "warning",
-                              type: "button",
-                            },
-                            on: { click: _vm.resetComplaint },
-                          },
-                          [
-                            _c(
-                              "v-icon",
-                              { staticClass: "mr-2", attrs: { small: "" } },
-                              [_vm._v(" mdi-autorenew ")]
-                            ),
-                            _vm._v(
-                              "\n                    Reset\n                "
-                            ),
-                          ],
-                          1
+                          "v-icon",
+                          { staticClass: "mr-2", attrs: { small: "" } },
+                          [_vm._v(" mdi-autorenew ")]
                         ),
+                        _vm._v("\n                    Reset\n                "),
                       ],
                       1
                     )
