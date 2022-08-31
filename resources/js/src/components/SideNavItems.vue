@@ -56,7 +56,7 @@
                             </v-list-item-subtitle>
                         </v-list-item-content>
                     </v-list-item>
-                    <v-list-item dense>
+                    <v-list-item dense v-if="hasAdminRole || hasCPD">
                         <v-list-item-icon>
                             <v-icon> mdi-link </v-icon>
                         </v-list-item-icon>
