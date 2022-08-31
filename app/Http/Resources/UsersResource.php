@@ -17,10 +17,10 @@ class UsersResource extends JsonResource
         return [
             "id" => $this->id,
             "username" => $this->username,
-            "email" => $this->email,
-            "position" => $this->position->name,
+            "email" => $this->email ?? null,
+            "position" => $this->position->name ?? null,
             "unit_section" => $this->unit_section->name ?? null,
-            "position_id" => $this->position_id,
+            "position_id" => $this->position_id ?? null,
             "unit_section_id" => $this->unit_section_id ?? null,
             "selected_roles" => $this->access ? json_decode($this->access->access_role_assigned,true) : array(),
         ];
