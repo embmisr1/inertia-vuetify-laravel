@@ -1,6 +1,6 @@
 <template>
     <v-card class="p-4" elevation="0">
-        <div v-if="addFileForm">
+        <div v-if="form_monitoring_info.addFileForm">
             <div class="grid grid-cols-5 gap-y-0 gap-x-5 ml-8">
                 <div hidden>
                     <v-text-field
@@ -117,11 +117,16 @@
                 </div>
             </div>
             <div class="text-center">
-                    <v-btn v-if="has_permit" depressed color="primary" type="submit">
-                        <v-icon small class="mr-2"> mdi-content-save </v-icon>
-                        Submit
-                    </v-btn>
-                    <v-btn
+                <v-btn
+                    v-if="has_permit"
+                    depressed
+                    color="primary"
+                    type="submit"
+                >
+                    <v-icon small class="mr-2"> mdi-content-save </v-icon>
+                    Submit
+                </v-btn>
+                <!-- <v-btn
                     v-if="has_permit"
                         depressed
                         color="warning"
@@ -130,8 +135,13 @@
                     >
                         <v-icon small class="mr-2"> mdi-autorenew </v-icon>
                         Reset
-                    </v-btn>
-                <v-btn depressed color="error" type="button" @click="closeFile">
+                    </v-btn> -->
+                <v-btn
+                    depressed
+                    color="error"
+                    type="button"
+                    @click="resetMonitoring"
+                >
                     <v-icon small class="mr-2"> mdi-plus-circle </v-icon>
                     Close
                 </v-btn>
@@ -143,7 +153,7 @@
                 depressed
                 color="success"
                 type="button"
-                @click="addFile"
+                @click="form_monitoring_info.addFileForm = true"
             >
                 <v-icon small class="mr-2"> mdi-plus-circle </v-icon>
                 Add File
@@ -240,7 +250,6 @@ export default {
             },
         ],
         date_monitoring_menu: "",
-        addFileForm: false,
         mon_or_sur_selection: [
             "Monitoring",
             "Survey",
@@ -248,6 +257,12 @@ export default {
             "Investigation",
         ],
     }),
+
+    computed: {
+        addFileForm() {
+            return this.form_monitoring_info.addFileForm;
+        },
+    },
     methods: {
         editMonitoring(item) {
             const lawArray = item.mon_law.split(", ");
@@ -257,12 +272,14 @@ export default {
                 item.mon_date_monitored;
             this.form_monitoring_info.mon_or_survey = item.mon_or_survey;
             this.form_monitoring_info.mon_type = item.mon_type;
-            this.form_monitoring_info.mon_file = item.mon_file;
-            this.addFileForm = true;
+            this.form_monitoring_info.mon_file = [];
+            this.form_monitoring_info.addFileForm = true;
         },
         async deleteMonitoring(item) {
-            await this.$inertia.delete(`/app/delete_monitoring/${item.id}`);
-            this.resetMonitoring();
+            if (confirm("Do you want to proceed?")) {
+                await this.$inertia.delete(`/app/delete_monitoring/${item.id}`);
+                this.resetMonitoring();
+            }
         },
         resetMonitoring() {
             this.form_monitoring_info.mon_id = null;
@@ -271,6 +288,7 @@ export default {
             this.form_monitoring_info.mon_or_survey = null;
             this.form_monitoring_info.mon_type = null;
             this.form_monitoring_info.mon_file = [];
+            this.form_monitoring_info.addFileForm = false;
         },
         addFile() {
             this.addFileForm = true;

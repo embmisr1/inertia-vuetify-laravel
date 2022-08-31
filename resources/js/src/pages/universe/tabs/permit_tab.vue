@@ -1,7 +1,7 @@
 <template>
     <div>
         <v-card class="p-4" elevation="0">
-            <div v-if="addFileForm">
+            <div v-if="form_permit_info.addFileForm">
                 <div class="grid grid-cols-5 gap-y-0 gap-x-4 ml-8">
                     <div hidden>
                         <v-text-field
@@ -146,7 +146,7 @@
                         <v-icon small class="mr-2"> mdi-content-save </v-icon>
                         Submit
                     </v-btn>
-                    <v-btn
+                    <!-- <v-btn
                         depressed
                         color="warning"
                         type="button"
@@ -159,12 +159,12 @@
                     >
                         <v-icon small class="mr-2"> mdi-autorenew </v-icon>
                         Reset
-                    </v-btn>
+                    </v-btn> -->
                     <v-btn
                         depressed
                         color="error"
                         type="button"
-                        @click="closeFile"
+                        @click="resetPermit"
                     >
                         <v-icon small class="mr-2"> mdi-plus-circle </v-icon>
                         Close
@@ -173,11 +173,11 @@
             </div>
             <div v-if="has_permit || has_hazwaste">
                 <v-btn
-                    v-if="!addFileForm"
+                    v-if="!form_permit_info.addFileForm"
                     depressed
                     color="success"
                     type="button"
-                    @click="addFile"
+                    @click="form_permit_info.addFileForm  = true"
                 >
                     <v-icon small class="mr-2"> mdi-plus-circle </v-icon>
                     Add File
@@ -346,8 +346,12 @@ export default {
             //     "X-CSRF-TOKEN": document.head.querySelector("[name=csrf-token]").content
             //    }
         },
-        addFileForm: false,
     }),
+    computed: {
+        addFileForm() {
+            return this.form_permit_info.addFileForm;
+        },
+    },
     methods: {
         editPermit(item) {
             console.log(this.form_permit_info);
@@ -362,11 +366,13 @@ export default {
             this.form_permit_info.perm_number = item.perm_number;
             this.form_permit_info.perm_status = item.perm_status;
             this.form_permit_info.perm_file = [];
-            this.addFileForm = true;
+            this.form_permit_info.addFileForm = true;
         },
         async deletePermit(item) {
-            await this.$inertia.delete(`/app/delete_permit/${item.id}`);
-            this.resetPermit();
+            if (confirm("Do you want to proceed?")) {
+                await this.$inertia.delete(`/app/delete_permit/${item.id}`);
+                this.resetPermit();
+            }
         },
         resetPermit() {
             this.form_permit_info.perm_law = null;
@@ -380,13 +386,14 @@ export default {
             this.form_permit_info.perm_number = null;
             this.form_permit_info.perm_status = null;
             this.form_permit_info.perm_file = [];
+            this.form_permit_info.addFileForm = false;
         },
         addFile() {
             this.addFileForm = true;
         },
         closeFile() {
             this.addFileForm = false;
-            this.resetPermit();
+            // this.resetPermit();
         },
     },
     mounted() {

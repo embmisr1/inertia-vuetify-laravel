@@ -1,6 +1,6 @@
 <template>
     <v-card class="p-4" elevation="0">
-        <div v-if="addFileForm">
+        <div v-if="form_pco_info.addFileForm">
             <div class="grid grid-cols-4 gap-y-0 gap-x-4 ml-8">
                 <div hidden>
                     <v-text-field
@@ -93,7 +93,7 @@
                         rules="required"
                         v-slot="{ errors }"
                     >
-                    <v-text-field
+                        <v-text-field
                             v-model="form_pco_info.pco_end_date"
                             type="date"
                             label="Date End"
@@ -104,12 +104,17 @@
                 </div>
             </div>
             <div class="text-center">
-                <v-btn v-if="has_permit" depressed color="primary" type="submit">
+                <v-btn
+                    v-if="has_permit"
+                    depressed
+                    color="primary"
+                    type="submit"
+                >
                     <v-icon small class="mr-2"> mdi-content-save </v-icon>
                     Submit
                 </v-btn>
-                <v-btn
-                v-if="has_permit"
+                <!-- <v-btn
+                    v-if="has_permit"
                     depressed
                     color="warning"
                     type="button"
@@ -117,24 +122,24 @@
                 >
                     <v-icon small class="mr-2"> mdi-autorenew </v-icon>
                     Reset
-                </v-btn>
-                <v-btn depressed color="error" type="button" @click="closeFile">
+                </v-btn> -->
+                <v-btn depressed color="error" type="button" @click="resetPco">
                     <v-icon small class="mr-2"> mdi-plus-circle </v-icon>
                     Close
                 </v-btn>
             </div>
         </div>
         <div v-if="has_permit">
-        <v-btn
-            v-if="!addFileForm"
-            depressed
-            color="success"
-            type="button"
-            @click="addFile"
-        >
-            <v-icon small class="mr-2"> mdi-plus-circle </v-icon>
-            Add File
-        </v-btn>
+            <v-btn
+                v-if="!addFileForm"
+                depressed
+                color="success"
+                type="button"
+                @click="form_pco_info.addFileForm  = true"
+            >
+                <v-icon small class="mr-2"> mdi-plus-circle </v-icon>
+                Add File
+            </v-btn>
         </div>
         <template>
             <v-card elevation="2" class="mt-5">
@@ -145,16 +150,21 @@
                     item-key="pco_tables"
                     class="elevation-1"
                 >
-                    <template v-slot:item.actions="{ item }" >
+                    <template v-slot:item.actions="{ item }">
                         <div v-if="has_permit">
-                        <v-icon small class="mr-2" @click="editPco(item)">
-                            mdi-pencil
-                        </v-icon>
-                        <v-icon small @click="deletePco(item)">
-                            mdi-delete
-                        </v-icon>
+                            <v-icon small class="mr-2" @click="editPco(item)">
+                                mdi-pencil
+                            </v-icon>
+                            <v-icon small @click="deletePco(item)">
+                                mdi-delete
+                            </v-icon>
                         </div>
-                        <v-icon v-else small class="mr-2" @click="editPco(item)">
+                        <v-icon
+                            v-else
+                            small
+                            class="mr-2"
+                            @click="editPco(item)"
+                        >
                             mdi-eye
                         </v-icon>
                     </template>
@@ -218,8 +228,12 @@ export default {
         ],
         date_pco_start_menu: "",
         date_pco_end_menu: "",
-        addFileForm: false,
     }),
+    computed: {
+        addFileForm() {
+            return this.form_pco_info.addFileForm;
+        },
+    },
     methods: {
         editPco(item) {
             this.form_pco_info.pco_id = item.id;
@@ -229,18 +243,20 @@ export default {
             this.form_pco_info.pco_contact = item.pco_contact;
             this.form_pco_info.pco_start_date = item.pco_start_date;
             this.form_pco_info.pco_end_date = item.pco_end_date;
-            this.addFileForm = true;
+            this.form_pco_info.addFileForm = true;
         },
         async deletePco(item) {
-            await this.$inertia.delete(`/app/delete_pco/${item.id}`);
-            this.form_pco_info.pco_id = null;
-            this.form_pco_info.pco_name = null;
-            this.form_pco_info.pco_number = null;
-            this.form_pco_info.pco_email = null;
-            this.form_pco_info.pco_contact = null;
-            this.form_pco_info.pco_start_date = null;
-            this.form_pco_info.pco_end_date = null;
-            this.resetPco();
+            if (confirm("Do you want to proceed?")) {
+                await this.$inertia.delete(`/app/delete_pco/${item.id}`);
+                this.form_pco_info.pco_id = null;
+                this.form_pco_info.pco_name = null;
+                this.form_pco_info.pco_number = null;
+                this.form_pco_info.pco_email = null;
+                this.form_pco_info.pco_contact = null;
+                this.form_pco_info.pco_start_date = null;
+                this.form_pco_info.pco_end_date = null;
+                this.resetPco();
+            }
         },
         resetPco() {
             this.form_pco_info.pco_id = null;
@@ -250,6 +266,8 @@ export default {
             this.form_pco_info.pco_contact = null;
             this.form_pco_info.pco_start_date = null;
             this.form_pco_info.pco_end_date = null;
+
+            this.form_pco_info.addFileForm = false;
         },
         addFile() {
             this.addFileForm = true;

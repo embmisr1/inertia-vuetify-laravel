@@ -1,6 +1,6 @@
 <template>
     <v-card class="p-4" elevation="0">
-        <div v-if="addFileForm">
+        <div v-if="form_legal_info.addFileForm">
             <div class="grid grid-cols-4 gap-y-0 gap-x-4 ml-8">
                 <div hidden>
                     <v-text-field
@@ -182,7 +182,7 @@
                     <v-icon small class="mr-2"> mdi-content-save </v-icon>
                     Submit
                 </v-btn>
-                <v-btn
+                <!-- <v-btn
                 v-if="has_permit"
                     depressed
                     color="warning"
@@ -191,7 +191,7 @@
                 >
                     <v-icon small class="mr-2"> mdi-autorenew </v-icon>
                     Reset
-                </v-btn>
+                </v-btn> -->
                 <v-btn  depressed color="error" type="button" @click="closeFile">
                     <v-icon small class="mr-2"> mdi-plus-circle </v-icon>
                     Close
@@ -200,11 +200,11 @@
         </div>
         <div v-if="has_permit">
         <v-btn
-            v-if="!addFileForm"
+            v-if="!form_legal_info.addFileForm"
             depressed
             color="success"
             type="button"
-            @click="addFile"
+            @click="form_legal_info.addFileForm = true"
         >
             <v-icon small class="mr-2"> mdi-plus-circle </v-icon>
             Add File
@@ -322,8 +322,13 @@ export default {
         date_legal_tc_menu: "",
         date_legal_order_issuance_menu: "",
         date_legal_order_settlement_menu: "",
-        addFileForm: false,
     }),
+
+    computed: {
+        addFileForm() {
+            return this.form_legal_info.addFileForm;
+        },
+    },
     methods: {
         editLegal(item) {
             const lawArray = item.nov_law.split(", ");
@@ -333,7 +338,7 @@ export default {
             this.form_legal_info.nov_date = item.nov_date;
             this.form_legal_info.nov_tc_date = item.nov_tc_date;
             this.form_legal_info.nov_tc_status = item.nov_tc_status;
-            this.form_legal_info.nov_file = item.nov_file;
+            this.form_legal_info.nov_file = [];
             this.form_legal_info.nov_order_number = item.nov_order_number;
             this.form_legal_info.nov_order_amt = item.nov_order_amt;
             this.form_legal_info.nov_order_date_issuance =
@@ -345,7 +350,7 @@ export default {
             this.form_legal_info.nov_compliance_status =
                 item.nov_compliance_status;
             this.form_legal_info.nov_order_remarks = item.nov_order_remarks;
-            this.addFileForm = true;
+            this.form_legal_info.addFileForm = true;
         },
         async deleteLegal(item) {
             await this.$inertia.delete(`/app/delete_legal/${item.id}`);
@@ -366,6 +371,7 @@ export default {
             this.form_legal_info.nov_official_receipt_number = null;
             this.form_legal_info.nov_compliance_status = null;
             this.form_legal_info.nov_order_remarks = null;
+            this.form_legal_info.addFileForm = true;
         },
         addFile() {
             this.addFileForm = true;
