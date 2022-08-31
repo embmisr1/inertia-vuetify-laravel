@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Redirect;
 use App\Filters\UsersFilter;
 use App\Http\Controllers\USER_CONTROLLER\UsersAccessController;
 use App\Http\Resources\UsersResource;
+use App\Jobs\ProcessAccessRoleCaching;
 use App\Models\USER_ACCESS\UsersAccess;
 use App\Models\USER_ACCESS\UsersAccessRole;
 use App\Models\USER_ACCESS\UsersAccessTemplate;
@@ -88,7 +89,6 @@ class UsersController extends Controller
             $assign_role->access_role_assigned = json_encode($assign_role);
             $assign_role->users_FK = $user->id;
             $assign_role->save();
-            cache(['access_user_id' . $user->id => $assign_role]);
             return redirect()->route("users")->with("message", "User Created");
         } catch (\Throwable $th) {
             dd($th->getMessage());
@@ -149,7 +149,7 @@ class UsersController extends Controller
             $assign_role = UsersAccess::where("users_FK", $user->id)->firstOrFail();
             $assign_role->access_role_assigned = json_encode($role_assigned);
             $assign_role->save();
-            cache(['access_user_id' . $user->id => $role_assigned]);
+            ProcessAccessRoleCaching::dispatchAfterResponse($user, json_encode($role_assigned));
             return back()->with('message', 'User Updated Successfully.');
         } catch (\Throwable $th) {
             $assign_role = new UsersAccess();

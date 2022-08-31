@@ -35,7 +35,8 @@ class ProcessAccessRoleCaching implements ShouldQueue
      */
     public function handle()
     {
-        $role_names = UsersAccessRole::find(json_decode($this->assigned_roles, true))->pluck("access_role");;
+        $role_names = UsersAccessRole::find(json_encode($this->assigned_roles, true))->pluck("access_role");;
+        cache(['access_user_id' . $this->user->id => $role_names]);
 
     }
 }
