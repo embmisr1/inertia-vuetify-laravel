@@ -10,6 +10,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\Log;
 
 class ProcessAccessRoleCaching implements ShouldQueue
 {
@@ -22,7 +23,7 @@ class ProcessAccessRoleCaching implements ShouldQueue
      *
      * @return void
      */
-    public function __construct(User $user, $assigned_roles = array())
+    public function __construct(User $user, $assigned_roles)
     {
         $this->user = $user->withoutRelations();
         $this->assigned_roles = $assigned_roles;
@@ -35,8 +36,8 @@ class ProcessAccessRoleCaching implements ShouldQueue
      */
     public function handle()
     {
-        $role_names = UsersAccessRole::find(json_encode($this->assigned_roles, true))->pluck("access_role");;
-        cache(['access_user_id' . $this->user->id => $role_names]);
+        $role_names = UsersAccessRole::find(json_decode($this->assigned_roles, true));
+        cache(['access_user_id' . $this->user->id => $role_names->pluck("access_role")]);
 
     }
 }

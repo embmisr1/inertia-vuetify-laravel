@@ -149,13 +149,14 @@ class UsersController extends Controller
             $assign_role = UsersAccess::where("users_FK", $user->id)->firstOrFail();
             $assign_role->access_role_assigned = json_encode($role_assigned);
             $assign_role->save();
-            ProcessAccessRoleCaching::dispatchAfterResponse($user, json_encode($role_assigned));
+            ProcessAccessRoleCaching::dispatch($user, json_encode($role_assigned));
             return back()->with('message', 'User Updated Successfully.');
         } catch (\Throwable $th) {
             $assign_role = new UsersAccess();
             $assign_role->access_role_assigned = json_encode($request->selected_roles);
             $assign_role->users_FK = $user->id;
             $assign_role->save();
+            ProcessAccessRoleCaching::dispatchAfterResponse($user, json_encode($role_assigned));
             return back()->with("message", "User Role Successfully Added");
             // return Redirect::back()->with('success', 'User Role Successfully Added.');
         }

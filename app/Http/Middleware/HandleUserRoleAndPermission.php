@@ -26,10 +26,10 @@ class HandleUserRoleAndPermission
         try {
 
             $check_user_role = cache("access_user_id" . auth()->id());
-            // dd($check_user_role);
 
-            // if (empty($check_user_role)) {
+            if ($check_user_role === null) {
                 $user = UsersAccess::select("access_role_assigned")->firstOrFail()->where('users_FK', auth()->id())->get();
+                // dd($user);
                 if (!count($user)) {
                     Auth::guard('web')->logout();
 
@@ -43,13 +43,13 @@ class HandleUserRoleAndPermission
                     // return redirect()->route("authForm")->withErrors(["error_message" => "User has No Access"]);
                 }
 
-                $access_role_assigned = UsersAccessRole::find(json_decode($user[0]->access_role_assigned, true))->pluck("access_role");
-                // $request->user_access = $access_role_assigned->pluck("access_role");
-                $request->user_access = $access_role_assigned;
-            // }
-            // $request->user_access = $check_user_role;
+                $access_role_assigned = UsersAccessRole::find(json_decode($user[0]->access_role_assigned, true));
+                $request->user_access = $access_role_assigned->pluck("access_role");
+                // $request->user_access = $access_role_assigned;
+                return $next($request);
+            }
+            $request->user_access = $check_user_role;
 
-            return $next($request);
         } catch (\Throwable $th) {
             // return redirect("authForm")->with("message","You don't have a permission Please Contact MIS");
             // return back()->with("message","You don't have a permission Please Contact MIS");
