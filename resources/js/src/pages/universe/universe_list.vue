@@ -431,7 +431,25 @@ export default {
             this.get(this.filterObject);
         },
         async exportUniverse() {
-            this.get(this.filterObject);
+            // await axios.get("/app/universe/export", { ...this.filterObject });
+            const { data } = await axios.get("/app/universe/export", {
+                    params: { ...this.filtersObject },
+                    responseType: "blob",
+                });
+                const blob = new Blob([data], {
+                    // type: "text/csv",
+                    typ: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                });
+                let fileURL = window.URL.createObjectURL(blob);
+                let fileLink = document.createElement("a");
+
+                fileLink.href = fileURL;
+                fileLink.setAttribute("download", "items.xlsx");
+                // fileLink.setAttribute("download", "items.csv");
+                document.body.appendChild(fileLink);
+
+                fileLink.click();
+            // this.get(this.filterObject);
         },
         async provinceDropdown(val) {
             try {
