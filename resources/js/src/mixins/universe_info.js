@@ -40,6 +40,7 @@ export default {
                 perm_file: [],
                 perm_description: "",
                 perm_status: "",
+                addFileForm:false
             },
             form_monitoring_info: {
                 mon_id: "",
@@ -48,6 +49,7 @@ export default {
                 mon_or_survey: "",
                 mon_type: "",
                 mon_file: [],
+                addFileForm:false
             },
             form_legal_info: {
                 nov_id: "",
@@ -64,6 +66,7 @@ export default {
                 nov_official_receipt_number: "",
                 nov_compliance_status: "",
                 nov_order_remarks: "",
+                addFileForm:false
             },
             form_hazwaste_info: {
                 haz_id: "",
@@ -73,6 +76,7 @@ export default {
                 haz_date_issuance: "",
                 haz_date_expiry: "",
                 haz_file: "",
+                addFileForm:false
             },
             form_pco_info: {
                 pco_id: "",
@@ -82,6 +86,7 @@ export default {
                 pco_contact: "",
                 pco_start_date: "",
                 pco_end_date: "",
+                addFileForm:false
             },
             form_complaint_info: {
                 comp_id: "",
@@ -90,6 +95,7 @@ export default {
                 comp_attached_file: [],
                 comp_action_file: [],
                 comp_remarks: "",
+                addFileForm:false
             },
         };
     },
@@ -172,6 +178,7 @@ export default {
                 perm_file: [],
                 perm_description: "",
                 perm_status: "",
+                addFileForm:false
             };
         },
         reset_monitoring_info() {
@@ -182,6 +189,7 @@ export default {
                 mon_or_survey: "",
                 mon_type: "",
                 mon_file: [],
+                addFileForm:false
             };
         },
         reset_legal_info() {
@@ -200,6 +208,7 @@ export default {
                 nov_official_receipt_number: "",
                 nov_compliance_status: "",
                 nov_order_remarks: "",
+                addFileForm:false
             };
         },
         reset_hazwaste_info() {
@@ -211,6 +220,7 @@ export default {
                 haz_date_issuance: "",
                 haz_date_expiry: "",
                 haz_file: [],
+                addFileForm:false
             };
         },
         reset_pco_info() {
@@ -222,6 +232,7 @@ export default {
                 pco_contact: "",
                 pco_start_date: "",
                 pco_end_date: "",
+                addFileForm:false
             };
         },
         reset_complaint_info() {
@@ -232,6 +243,7 @@ export default {
                 comp_attached_file: "",
                 comp_action_file: [],
                 comp_remarks: "",
+                addFileForm:false
             };
         },
     },
