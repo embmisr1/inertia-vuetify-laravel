@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Redirect;
 use App\Filters\UsersFilter;
 use App\Http\Controllers\USER_CONTROLLER\UsersAccessController;
 use App\Http\Resources\UsersResource;
+use App\Jobs\ProcessAccessRoleCaching;
 use App\Models\USER_ACCESS\UsersAccess;
 use App\Models\USER_ACCESS\UsersAccessRole;
 use App\Models\USER_ACCESS\UsersAccessTemplate;
@@ -30,7 +31,6 @@ class UsersController extends Controller
      */
     public function index()
     {
-
         // Cache::flush();
         // dd(Cache::has("Users-index-page"));
         return Inertia::render("pages/users/", [
@@ -82,10 +82,11 @@ class UsersController extends Controller
         try {
 
             $input = $request->validated();
+            $assign_role = $request->selected_roles;
             $input['password'] = Hash::make(env("DEFAULT_USER_PASSWORD"));
             $user = User::create($input);
             $assign_role = new UsersAccess();
-            $assign_role->access_role_assigned = json_encode($request->selected_roles);
+            $assign_role->access_role_assigned = json_encode($assign_role);
             $assign_role->users_FK = $user->id;
             $assign_role->save();
             return redirect()->route("users")->with("message", "User Created");
@@ -143,17 +144,19 @@ class UsersController extends Controller
     {
         try {
             $input = $request->validated();
+            $role_assigned = $request->selected_roles;
             $user->update($input);
             $assign_role = UsersAccess::where("users_FK", $user->id)->firstOrFail();
-            $assign_role->access_role_assigned = json_encode($request->selected_roles);
+            $assign_role->access_role_assigned = json_encode($role_assigned);
             $assign_role->save();
-
+            ProcessAccessRoleCaching::dispatch($user, json_encode($role_assigned));
             return back()->with('message', 'User Updated Successfully.');
         } catch (\Throwable $th) {
             $assign_role = new UsersAccess();
             $assign_role->access_role_assigned = json_encode($request->selected_roles);
             $assign_role->users_FK = $user->id;
             $assign_role->save();
+            ProcessAccessRoleCaching::dispatchAfterResponse($user, json_encode($role_assigned));
             return back()->with("message", "User Role Successfully Added");
             // return Redirect::back()->with('success', 'User Role Successfully Added.');
         }
@@ -168,6 +171,8 @@ class UsersController extends Controller
     public function destroy(User $user)
     {
         $user->delete();
+
+        cache(['access_user_id' . $user->id => []], -1);
 
         return Redirect::back()->with('success', 'User deleted.');
     }
