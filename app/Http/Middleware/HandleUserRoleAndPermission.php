@@ -49,6 +49,7 @@ class HandleUserRoleAndPermission
                 return $next($request);
             }
             $request->user_access = $check_user_role;
+            return $next($request);
 
         } catch (\Throwable $th) {
             // return redirect("authForm")->with("message","You don't have a permission Please Contact MIS");
