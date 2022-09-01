@@ -1319,13 +1319,34 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var _this4 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee4() {
+        var _yield$axios$get, data, blob, fileURL, fileLink;
+
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee4$(_context4) {
           while (1) {
             switch (_context4.prev = _context4.next) {
               case 0:
-                _this4.get(_this4.filterObject);
+                _context4.next = 2;
+                return axios__WEBPACK_IMPORTED_MODULE_3___default().get("/app/universe/export", {
+                  params: _objectSpread({}, _this4.filtersObject),
+                  responseType: "blob"
+                });
 
-              case 1:
+              case 2:
+                _yield$axios$get = _context4.sent;
+                data = _yield$axios$get.data;
+                blob = new Blob([data], {
+                  // type: "text/csv",
+                  typ: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+                });
+                fileURL = window.URL.createObjectURL(blob);
+                fileLink = document.createElement("a");
+                fileLink.href = fileURL;
+                fileLink.setAttribute("download", "items.xlsx"); // fileLink.setAttribute("download", "items.csv");
+
+                document.body.appendChild(fileLink);
+                fileLink.click(); // this.get(this.filterObject);
+
+              case 11:
               case "end":
                 return _context4.stop();
             }
@@ -22381,42 +22402,44 @@ var render = function () {
                       1
                     ),
                     _vm._v(" "),
-                    _c(
-                      "v-list-item",
-                      { attrs: { dense: "" } },
-                      [
-                        _c(
-                          "v-list-item-icon",
-                          [_c("v-icon", [_vm._v(" mdi-link ")])],
-                          1
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "v-list-item-content",
+                    _vm.hasAdminRole || _vm.hasCPD
+                      ? _c(
+                          "v-list-item",
+                          { attrs: { dense: "" } },
                           [
                             _c(
-                              "v-list-item-subtitle",
+                              "v-list-item-icon",
+                              [_c("v-icon", [_vm._v(" mdi-link ")])],
+                              1
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "v-list-item-content",
                               [
                                 _c(
-                                  "Link",
-                                  {
-                                    attrs: {
-                                      href: "/app/universe_form",
-                                      as: "button",
-                                      "preserve-scroll": "",
-                                    },
-                                  },
-                                  [_vm._v("Universe Registration")]
+                                  "v-list-item-subtitle",
+                                  [
+                                    _c(
+                                      "Link",
+                                      {
+                                        attrs: {
+                                          href: "/app/universe_form",
+                                          as: "button",
+                                          "preserve-scroll": "",
+                                        },
+                                      },
+                                      [_vm._v("Universe Registration")]
+                                    ),
+                                  ],
+                                  1
                                 ),
                               ],
                               1
                             ),
                           ],
                           1
-                        ),
-                      ],
-                      1
-                    ),
+                        )
+                      : _vm._e(),
                   ],
                   1
                 ),

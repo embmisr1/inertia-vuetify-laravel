@@ -195,6 +195,16 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     form_pco_info: Object,
@@ -240,9 +250,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         sortable: false
       }],
       date_pco_start_menu: "",
-      date_pco_end_menu: "",
-      addFileForm: false
+      date_pco_end_menu: ""
     };
+  },
+  computed: {
+    addFileForm: function addFileForm() {
+      return this.form_pco_info.addFileForm;
+    }
   },
   methods: {
     editPco: function editPco(item) {
@@ -253,7 +267,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.form_pco_info.pco_contact = item.pco_contact;
       this.form_pco_info.pco_start_date = item.pco_start_date;
       this.form_pco_info.pco_end_date = item.pco_end_date;
-      this.addFileForm = true;
+      this.form_pco_info.addFileForm = true;
     },
     deletePco: function deletePco(item) {
       var _this = this;
@@ -263,10 +277,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                _context.next = 2;
+                if (!confirm("Do you want to proceed?")) {
+                  _context.next = 11;
+                  break;
+                }
+
+                _context.next = 3;
                 return _this.$inertia["delete"]("/app/delete_pco/".concat(item.id));
 
-              case 2:
+              case 3:
                 _this.form_pco_info.pco_id = null;
                 _this.form_pco_info.pco_name = null;
                 _this.form_pco_info.pco_number = null;
@@ -277,7 +296,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
                 _this.resetPco();
 
-              case 10:
+              case 11:
               case "end":
                 return _context.stop();
             }
@@ -293,6 +312,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.form_pco_info.pco_contact = null;
       this.form_pco_info.pco_start_date = null;
       this.form_pco_info.pco_end_date = null;
+      this.form_pco_info.addFileForm = false;
     },
     addFile: function addFile() {
       this.addFileForm = true;
@@ -1162,7 +1182,7 @@ var render = function () {
     "v-card",
     { staticClass: "p-4", attrs: { elevation: "0" } },
     [
-      _vm.addFileForm
+      _vm.form_pco_info.addFileForm
         ? _c("div", [
             _c(
               "div",
@@ -1499,34 +1519,11 @@ var render = function () {
                     )
                   : _vm._e(),
                 _vm._v(" "),
-                _vm.has_permit
-                  ? _c(
-                      "v-btn",
-                      {
-                        attrs: {
-                          depressed: "",
-                          color: "warning",
-                          type: "button",
-                        },
-                        on: { click: _vm.resetPco },
-                      },
-                      [
-                        _c(
-                          "v-icon",
-                          { staticClass: "mr-2", attrs: { small: "" } },
-                          [_vm._v(" mdi-autorenew ")]
-                        ),
-                        _vm._v("\n                Reset\n            "),
-                      ],
-                      1
-                    )
-                  : _vm._e(),
-                _vm._v(" "),
                 _c(
                   "v-btn",
                   {
                     attrs: { depressed: "", color: "error", type: "button" },
-                    on: { click: _vm.closeFile },
+                    on: { click: _vm.resetPco },
                   },
                   [
                     _c(
@@ -1557,7 +1554,11 @@ var render = function () {
                         color: "success",
                         type: "button",
                       },
-                      on: { click: _vm.addFile },
+                      on: {
+                        click: function ($event) {
+                          _vm.form_pco_info.addFileForm = true
+                        },
+                      },
                     },
                     [
                       _c(
@@ -1565,7 +1566,7 @@ var render = function () {
                         { staticClass: "mr-2", attrs: { small: "" } },
                         [_vm._v(" mdi-plus-circle ")]
                       ),
-                      _vm._v("\n        Add File\n    "),
+                      _vm._v("\n            Add File\n        "),
                     ],
                     1
                   )
@@ -1611,7 +1612,7 @@ var render = function () {
                                 },
                                 [
                                   _vm._v(
-                                    "\n                        mdi-pencil\n                    "
+                                    "\n                            mdi-pencil\n                        "
                                   ),
                                 ]
                               ),
@@ -1628,7 +1629,7 @@ var render = function () {
                                 },
                                 [
                                   _vm._v(
-                                    "\n                        mdi-delete\n                    "
+                                    "\n                            mdi-delete\n                        "
                                   ),
                                 ]
                               ),

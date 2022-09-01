@@ -76,7 +76,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         perm_date_expiry: "",
         perm_file: [],
         perm_description: "",
-        perm_status: ""
+        perm_status: "",
+        addFileForm: false
       },
       form_monitoring_info: {
         mon_id: "",
@@ -84,7 +85,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         mon_date_monitored: "",
         mon_or_survey: "",
         mon_type: "",
-        mon_file: []
+        mon_file: [],
+        addFileForm: false
       },
       form_legal_info: {
         nov_id: "",
@@ -100,7 +102,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         nov_order_date_settlement: "",
         nov_official_receipt_number: "",
         nov_compliance_status: "",
-        nov_order_remarks: ""
+        nov_order_remarks: "",
+        addFileForm: false
       },
       form_hazwaste_info: {
         haz_id: "",
@@ -109,7 +112,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         haz_date_acceptance: "",
         haz_date_issuance: "",
         haz_date_expiry: "",
-        haz_file: ""
+        haz_file: "",
+        addFileForm: false
       },
       form_pco_info: {
         pco_id: "",
@@ -118,7 +122,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         pco_email: "",
         pco_contact: "",
         pco_start_date: "",
-        pco_end_date: ""
+        pco_end_date: "",
+        addFileForm: false
       },
       form_complaint_info: {
         comp_id: "",
@@ -126,7 +131,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         comp_nature: "",
         comp_attached_file: [],
         comp_action_file: [],
-        comp_remarks: ""
+        comp_remarks: "",
+        addFileForm: false
       }
     };
   },
@@ -231,7 +237,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         perm_date_expiry: "",
         perm_file: [],
         perm_description: "",
-        perm_status: ""
+        perm_status: "",
+        addFileForm: false
       };
     },
     reset_monitoring_info: function reset_monitoring_info() {
@@ -241,7 +248,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         mon_date_monitored: "",
         mon_or_survey: "",
         mon_type: "",
-        mon_file: []
+        mon_file: [],
+        addFileForm: false
       };
     },
     reset_legal_info: function reset_legal_info() {
@@ -259,7 +267,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         nov_order_date_settlement: "",
         nov_official_receipt_number: "",
         nov_compliance_status: "",
-        nov_order_remarks: ""
+        nov_order_remarks: "",
+        addFileForm: false
       };
     },
     reset_hazwaste_info: function reset_hazwaste_info() {
@@ -270,7 +279,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         haz_date_acceptance: "",
         haz_date_issuance: "",
         haz_date_expiry: "",
-        haz_file: []
+        haz_file: [],
+        addFileForm: false
       };
     },
     reset_pco_info: function reset_pco_info() {
@@ -281,7 +291,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         pco_email: "",
         pco_contact: "",
         pco_start_date: "",
-        pco_end_date: ""
+        pco_end_date: "",
+        addFileForm: false
       };
     },
     reset_complaint_info: function reset_complaint_info() {
@@ -291,7 +302,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         comp_nature: "",
         comp_attached_file: "",
         comp_action_file: [],
-        comp_remarks: ""
+        comp_remarks: "",
+        addFileForm: false
       };
     }
   }

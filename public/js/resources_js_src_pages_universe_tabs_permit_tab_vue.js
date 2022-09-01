@@ -519,9 +519,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         //     "X-CSRF-TOKEN": document.head.querySelector("[name=csrf-token]").content
         //    }
 
-      },
-      addFileForm: false
+      }
     };
+  },
+  computed: {
+    addFileForm: function addFileForm() {
+      return this.form_permit_info.addFileForm;
+    }
   },
   methods: {
     editPermit: function editPermit(item) {
@@ -537,7 +541,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.form_permit_info.perm_number = item.perm_number;
       this.form_permit_info.perm_status = item.perm_status;
       this.form_permit_info.perm_file = [];
-      this.addFileForm = true;
+      this.form_permit_info.addFileForm = true;
     },
     deletePermit: function deletePermit(item) {
       var _this = this;
@@ -547,13 +551,18 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                _context.next = 2;
+                if (!confirm("Do you want to proceed?")) {
+                  _context.next = 4;
+                  break;
+                }
+
+                _context.next = 3;
                 return _this.$inertia["delete"]("/app/delete_permit/".concat(item.id));
 
-              case 2:
+              case 3:
                 _this.resetPermit();
 
-              case 3:
+              case 4:
               case "end":
                 return _context.stop();
             }
@@ -573,13 +582,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.form_permit_info.perm_number = null;
       this.form_permit_info.perm_status = null;
       this.form_permit_info.perm_file = [];
+      this.form_permit_info.addFileForm = false;
     },
     addFile: function addFile() {
       this.addFileForm = true;
     },
     closeFile: function closeFile() {
-      this.addFileForm = false;
-      this.resetPermit();
+      this.addFileForm = false; // this.resetPermit();
     }
   },
   mounted: function mounted() {
@@ -1753,7 +1762,7 @@ var render = function () {
         "v-card",
         { staticClass: "p-4", attrs: { elevation: "0" } },
         [
-          _vm.addFileForm
+          _vm.form_permit_info.addFileForm
             ? _c("div", [
                 _c(
                   "div",
@@ -2116,33 +2125,6 @@ var render = function () {
                         )
                       : _vm._e(),
                     _vm._v(" "),
-                    _vm.has_permit ||
-                    (_vm.has_hazwaste &&
-                      _vm.form_permit_info.perm_law === "RA 6969")
-                      ? _c(
-                          "v-btn",
-                          {
-                            attrs: {
-                              depressed: "",
-                              color: "warning",
-                              type: "button",
-                            },
-                            on: { click: _vm.resetPermit },
-                          },
-                          [
-                            _c(
-                              "v-icon",
-                              { staticClass: "mr-2", attrs: { small: "" } },
-                              [_vm._v(" mdi-autorenew ")]
-                            ),
-                            _vm._v(
-                              "\n                    Reset\n                "
-                            ),
-                          ],
-                          1
-                        )
-                      : _vm._e(),
-                    _vm._v(" "),
                     _c(
                       "v-btn",
                       {
@@ -2151,7 +2133,7 @@ var render = function () {
                           color: "error",
                           type: "button",
                         },
-                        on: { click: _vm.closeFile },
+                        on: { click: _vm.resetPermit },
                       },
                       [
                         _c(
@@ -2173,7 +2155,7 @@ var render = function () {
             ? _c(
                 "div",
                 [
-                  !_vm.addFileForm
+                  !_vm.form_permit_info.addFileForm
                     ? _c(
                         "v-btn",
                         {
@@ -2182,7 +2164,11 @@ var render = function () {
                             color: "success",
                             type: "button",
                           },
-                          on: { click: _vm.addFile },
+                          on: {
+                            click: function ($event) {
+                              _vm.form_permit_info.addFileForm = true
+                            },
+                          },
                         },
                         [
                           _c(
