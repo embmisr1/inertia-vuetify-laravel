@@ -18,22 +18,39 @@
             paginated
             backend-pagination
             @page-change="onPageChange"
+            aria-next-label="Next page"
+            aria-previous-label="Previous page"
+            aria-page-label="Page"
+            aria-current-label="Current page"
+
         >
-        <template #top-left>
-                <b-select placeholder="Rows Per Page" v-model="filter.per_page">
-                    <option value="10">10</option>
-                    <option value="50">50</option>
-                    <option value="100">100</option>
-                    <option value="500">500</option>
-                </b-select>
+            <template #top-left>
+                <b-field  type="is-dark">
+                    <b-select
+                        placeholder="Rows Per Page"
+                        v-model="filter.per_page"
+                        size="is-small"
+                    >
+                        <option value="10">10</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                        <option value="500">500</option>
+                    </b-select>
+                </b-field>
             </template>
             <template #bottom-left>
-                <b-select placeholder="Rows Per Page" v-model="filter.per_page">
-                    <option value="10">10</option>
-                    <option value="50">50</option>
-                    <option value="100">100</option>
-                    <option value="500">500</option>
-                </b-select>
+                <b-field type="is-dark">
+                    <b-select
+                        placeholder="Rows Per Page"
+                        v-model="filter.per_page"
+                        size="is-small"
+                    >
+                        <option value="10">10</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                        <option value="500">500</option>
+                    </b-select>
+                </b-field>
             </template>
             <b-table-column field="un_firmname" label="Firmname" searchable>
                 <template #searchable="props">
