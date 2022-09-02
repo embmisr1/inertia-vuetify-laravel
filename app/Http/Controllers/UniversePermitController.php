@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\Logger;
 use Illuminate\Http\Request;
 use App\Models\Permit;
 use Illuminate\Support\Facades\DB;
@@ -34,7 +35,7 @@ class UniversePermitController extends Controller
             $query_media_counter = Permit::find($query->id);
             $query_media_counter->perm_file = $media_counter;
             $query_media_counter->save();
-
+            Logger::dispatch("Permit", $query->id, auth()->id(), "Updated a Permit: model_id " . $query->id, "create");
             return $query->id;
         }
     }
@@ -51,7 +52,7 @@ class UniversePermitController extends Controller
                         'is_priority' => null,
                     ]);
                 $query_null_priority;
-    
+
                 if ($request->permit['perm_id']) {
                     $query = Permit::find($request->permit['perm_id']);
                 } else {
@@ -64,22 +65,22 @@ class UniversePermitController extends Controller
                 $query->universe_FK = $universe_id;
                 $query->is_priority = 1;
                 $query->save();
-    
-    
+
+
                 if(isset($request->permit['perm_file'])){
                     foreach ($request->permit['perm_file'] as $pdf) {
-    
+
                         $query->addMedia($pdf)
                             ->preservingOriginal()
                             ->toMediaCollection("permits");
                     }
                 }
-    
+
                 $media_counter = Media::where('model_id',$query->id)->count();
                 $query_media_counter = Permit::find($query->id);
                 $query_media_counter->perm_file = $media_counter;
                 $query_media_counter->save();
-    
+                Logger::dispatch("Permit", $query->id, auth()->id(), "Updated a Permit: model_id " . $query->id, "update");
                 return $request->permit['perm_id'];
             }
         }elseif( in_array('EMED EDIT', $user_access) && $request->permit['perm_law'] == 'RA 6969'){
@@ -91,7 +92,7 @@ class UniversePermitController extends Controller
                         'is_priority' => null,
                     ]);
                 $query_null_priority;
-    
+
                 if ($request->permit['perm_id']) {
                     $query = Permit::find($request->permit['perm_id']);
                 } else {
@@ -104,22 +105,22 @@ class UniversePermitController extends Controller
                 $query->universe_FK = $universe_id;
                 $query->is_priority = 1;
                 $query->save();
-    
-    
+
+
                 if(isset($request->permit['perm_file'])){
                     foreach ($request->permit['perm_file'] as $pdf) {
-    
+
                         $query->addMedia($pdf)
                             ->preservingOriginal()
                             ->toMediaCollection("permits");
                     }
                 }
-    
+
                 $media_counter = Media::where('model_id',$query->id)->count();
                 $query_media_counter = Permit::find($query->id);
                 $query_media_counter->perm_file = $media_counter;
                 $query_media_counter->save();
-    
+                Logger::dispatch("Permit", $query->id, auth()->id(), "Updated a Permit: model_id " . $query->id, "update");
                 return $request->permit['perm_id'];
             }
         }else{}
@@ -129,6 +130,7 @@ class UniversePermitController extends Controller
     {
         $query = Permit::find($request);
         $query->delete();
+        Logger::dispatch("Permit", $request, auth()->id(), "deleted a Permit: model_id " . $request, "delete");
         return back();
     }
 

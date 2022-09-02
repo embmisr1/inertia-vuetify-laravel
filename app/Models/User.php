@@ -76,4 +76,7 @@ class User extends Authenticatable
             });
         });
     }
+    public function logs(){
+        return $this->hasMany(Logs::class);
+    }
 }

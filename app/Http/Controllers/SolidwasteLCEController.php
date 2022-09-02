@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\Logger;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use App\Models\SWM\LCE;
@@ -132,6 +133,7 @@ class SolidwasteLCEController extends Controller
         $query->lce_contact_number = $request->lce_contact_number;
         $query->lce_email_address = $request->lce_email_address;
         $query->save();
+        Logger::dispatch("SolidwasteLCE", $query->id, auth()->id(), "Created a LCE: model_id " . $query->id, "create");
         return back()->with("message", "LCE Created");
     }
 
@@ -153,12 +155,14 @@ class SolidwasteLCEController extends Controller
         $query->lce_contact_number = $request->lce_contact_number;
         $query->lce_email_address = $request->lce_email_address;
         $query->save();
+        Logger::dispatch("SolidwasteLCE", $query->id, auth()->id(), "Updated a LCE: model_id " . $query->id, "update");
         return back()->with("message", "LCE Updated");
     }
     public function lce_delete(request $request)
     {
         $lce_delete = SolidwasteLCE::find($request->id);
         $lce_delete->delete();
+        Logger::dispatch("SolidwasteLCE", $request->id, auth()->id(), "Deleted a LCE: model_id " . $request->id, "delete");
         return back()->with("message", "LCE Deleted");
     }
 }

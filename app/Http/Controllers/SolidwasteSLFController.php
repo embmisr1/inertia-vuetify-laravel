@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\AttachmentResource;
+use App\Jobs\Logger;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\DB;
@@ -88,6 +89,7 @@ class SolidwasteSLFController extends Controller
                         ->toMediaCollection("slf");
                 }
             }
+            Logger::dispatch("SolidwasteSLF", $query->id, auth()->id(), "Created a SLF: model_id " . $query->id, "create");
             return redirect()->route("lce_show",["id"=>$request->lce_FK])->with("message", "SLF Created");
         } catch (\Throwable $th) {
             return $th->getMessage();
@@ -133,12 +135,14 @@ class SolidwasteSLFController extends Controller
                     ->toMediaCollection("slf");
             }
         }
+        Logger::dispatch("SolidwasteSLF", $query->id, auth()->id(), "Updated a SLF: model_id " . $query->id, "update");
         return redirect()->route("lce_show",["id"=>$request->lce_FK])->with("message", "SLF Updated");
     }
     public function slf_delete(request $request)
     {
         $slf_delete = SolidwasteSLF::find($request->id);
         $slf_delete->delete();
+        Logger::dispatch("SolidwasteSLF", $request->id, auth()->id(), "Deleted a SLF: model_id " . $request->id, "update");
         return back()->with("message", "SLF Deleted");
     }
 }

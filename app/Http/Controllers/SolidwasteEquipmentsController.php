@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\AttachmentResource;
+use App\Jobs\Logger;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\DB;
@@ -49,6 +50,7 @@ class SolidwasteEquipmentsController extends Controller
             $query->equipment_description = $request->equipment_description;
             $query->lce_FK = $request->lce_FK;
             $query->save();
+            Logger::dispatch("SolidwasteEquipments", $query->id, auth()->id(), "Created a EQUIPMENT: model_id " . $query->id, "create");
             return redirect()->route("lce_show",["id"=>$request->lce_FK])->with("message", "Equipment Created");
         } catch (\Throwable $th) {
             return $th->getMessage();
@@ -62,6 +64,7 @@ class SolidwasteEquipmentsController extends Controller
             $query->equipment_description = $request->equipment_description;
             $query->lce_FK = $request->lce_FK;
             $query->save();
+            Logger::dispatch("SolidwasteEquipments", $query->id, auth()->id(), "Updated a EQUIPMENT: model_id " . $query->id, "update");
             return redirect()->route("lce_show",["id"=>$request->lce_FK])->with("message", "Equipment Updated");
         } catch (\Throwable $th) {
             return $th->getMessage();
@@ -71,6 +74,7 @@ class SolidwasteEquipmentsController extends Controller
     {
         $equipment_delete = SolidwasteEquipments::find($request->id);
         $equipment_delete->delete();
+        Logger::dispatch("SolidwasteEquipments", $request->id, auth()->id(), "Deleted a EQUIPMENT: model_id " . $request->id, "delete");
         return back()->with("message", "Equipment Deleted");
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\Logger;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\DB;
@@ -47,6 +48,7 @@ class SolidwasteGadController extends Controller
             $query->gad_female = $request->gad_female;
             $query->lce_FK = $request->lce_FK;
             $query->save();
+            Logger::dispatch("SolidwasteGad", $query->id, auth()->id(), "Created a GAD: model_id " . $query->id, "create");
             return redirect()->route("lce_show",["id"=>$request->lce_FK])->with("message", "Gad Created");
         } catch (\Throwable $th) {
             return $th->getMessage();
@@ -61,6 +63,7 @@ class SolidwasteGadController extends Controller
             $query->gad_female = $request->gad_female;
             $query->lce_FK = $request->lce_FK;
             $query->save();
+            Logger::dispatch("SolidwasteGad", $query->id, auth()->id(), "Updated a GAD: model_id " . $query->id, "update");
             return redirect()->route("lce_show",["id"=>$request->lce_FK])->with("message", "Gad Updated");
         } catch (\Throwable $th) {
             return $th->getMessage();
@@ -70,6 +73,7 @@ class SolidwasteGadController extends Controller
     {
         $gad_delete = SolidwasteGad::find($request->id);
         $gad_delete->delete();
+        Logger::dispatch("SolidwasteGad", $request->id, auth()->id(), "Deleted a GAD: model_id " . $request->id, "delte");
         return back()->with("message", "Gad Deleted");
     }
 }

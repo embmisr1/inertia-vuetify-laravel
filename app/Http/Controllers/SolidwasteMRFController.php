@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\AttachmentResource;
+use App\Jobs\Logger;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\DB;
@@ -69,6 +70,7 @@ class SolidwasteMRFController extends Controller
                     ->toMediaCollection($request->mrf_or_rca);
             }
         }
+        Logger::dispatch("SolidwasteMRF", $query->id, auth()->id(), "Created a mrf: model_id " . $query->id, "create");
         return redirect()->route("lce_show",["id"=>$request->lce_FK])->with("message", strtoupper($request->mrf_or_rca)  . " Created");
     }
 
@@ -98,12 +100,14 @@ class SolidwasteMRFController extends Controller
                     ->toMediaCollection("mrf");
             }
         }
+        Logger::dispatch("SolidwasteMRF", $query->id, auth()->id(), "Updated a mrf: model_id " . $query->id, "update");
         return redirect()->route("lce_show",["id"=>$request->lce_FK])->with("message",  strtoupper($request->mrf_or_rca)  . " Updated");
     }
     public function mrf_delete(request $request)
     {
         $mrf_delete = SolidwasteMRF::find($request->id);
         $mrf_delete->delete();
+        Logger::dispatch("SolidwasteMRF", $request->id, auth()->id(), "Deleted a mrf: model_id " . $request->id, "delete");
         return back()->with("message", "MRF Deleted");
     }
 }

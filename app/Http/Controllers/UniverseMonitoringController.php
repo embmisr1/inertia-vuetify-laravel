@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\Logger;
 use Illuminate\Http\Request;
 use App\Models\Monitoring;
 use Illuminate\Support\Facades\DB;
@@ -33,7 +34,7 @@ class UniverseMonitoringController extends Controller
             $query_media_counter = Monitoring::find($query->id);
             $query_media_counter->mon_file = $media_counter;
             $query_media_counter->save();
-
+            Logger::dispatch("Monitoring", $query->id, auth()->id(), "Created a monitoring: model_id " . $query->id, "create");
             return $query->id;
         }
     }
@@ -66,7 +67,7 @@ class UniverseMonitoringController extends Controller
             $query_media_counter = Monitoring::find($query->id);
             $query_media_counter->mon_file = $media_counter;
             $query_media_counter->save();
-
+            Logger::dispatch("Monitoring", $query->id, auth()->id(), "Updated a monitoring: model_id " . $query->id, "update");
             return $request->monitoring['mon_id'];
         }
     }
@@ -74,6 +75,7 @@ class UniverseMonitoringController extends Controller
     public function delete_monitoring($request){
         $query = Monitoring::find($request);
         $query->delete();
+        Logger::dispatch("Monitoring", $request, auth()->id(), "Deleted a monitoring: model_id " . $query->id, "delete");
         return back();
     }
 

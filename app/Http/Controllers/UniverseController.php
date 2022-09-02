@@ -27,6 +27,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Request as FacadeRequest;
 use App\Exports\UniverseExport;
 use App\Exports\UniverseExport3;
+use App\Jobs\Logger;
 use Maatwebsite\Excel\Facades\Excel;
 use Carbon\Carbon;
 
@@ -169,7 +170,7 @@ class UniverseController extends Controller
             ->when(request('un_status'), function ($query) {
                 $query->where('a.un_status', 'like', '%' . request("un_status") . '%');
             })
-            ->paginate(request("per_page",10));
+            ->paginate(request("per_page", 10));
         return Inertia::render("pages/universe/universe_list", [
             "filter" => [
                 'PK_province_ID' => request('PK_province_ID'),
@@ -187,7 +188,7 @@ class UniverseController extends Controller
                 "un_crs_number" => request("un_crs_number"),
                 "un_proponent" => request("un_proponent"),
                 "un_status" => request("un_status"),
-                "per_page" => request("per_page",10),
+                "per_page" => request("per_page", 10),
             ],
 
             'query' => $query,
@@ -352,11 +353,13 @@ class UniverseController extends Controller
     {
         if (isset($request->basic['id'])) {
             $id = $this->universe_process_update($request);
+            Logger::dispatchAfterResponse("Universe", $id, auth()->id(), "Updated a Firm: model_id " . $id, "update");
             return Redirect::route('universe_form_id', [
                 'id' => $id,
             ]);
         } else {
             $id = $this->universe_process_create($request);
+            Logger::dispatch("Universe", $id, auth()->id(), "Created a Firm: model_id " . $id, "create");
             return Redirect::route('universe_form');
         }
     }
@@ -367,13 +370,13 @@ class UniverseController extends Controller
     {
         try {
             $user_access = $request->user_access->toArray();
-            if( in_array('CPD EDIT', $user_access) ){
+            if (in_array('CPD EDIT', $user_access)) {
                 $universe_id = $this->basic_process_create($request);
                 $this->permit_process_create($request, $universe_id);
                 $this->pco_process_create($request, $universe_id);
                 $this->monitoring_process_create($request, $universe_id);
                 return $universe_id;
-            }else{
+            } else {
                 return back();
             }
         } catch (\Throwable $th) {
@@ -385,16 +388,16 @@ class UniverseController extends Controller
     {
         try {
             $user_access = $request->user_access->toArray();
-            if( in_array('CPD EDIT', $user_access) ){
+            if (in_array('CPD EDIT', $user_access)) {
                 $universe_id = $this->basic_process_update($request);
                 $this->pco_process_update($request, $universe_id);
             }
-            if( in_array('EMED EDIT', $user_access) || in_array('CPD EDIT', $user_access) ){
+            if (in_array('EMED EDIT', $user_access) || in_array('CPD EDIT', $user_access)) {
                 $universe_id = $request->basic['id'];
                 $this->permit_process_update($request, $universe_id);
                 $this->monitoring_process_update($request, $universe_id);
             }
-            if( in_array('LEGAL EDIT', $user_access) ){
+            if (in_array('LEGAL EDIT', $user_access)) {
                 $universe_id = $request->basic['id'];
                 $this->legal_process_update($request, $universe_id);
                 $this->complaint_process_update($request, $universe_id);
