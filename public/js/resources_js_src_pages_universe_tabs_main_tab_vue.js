@@ -861,6 +861,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     form_complaint_info: Object,
@@ -899,9 +904,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         text: "Actions",
         value: "actions",
         sortable: false
-      }],
-      addFileForm: false
+      }]
     };
+  },
+  computed: {
+    addFileForm: function addFileForm() {
+      return this.form_complaint_info.addFileForm;
+    }
   },
   methods: {
     editComplaint: function editComplaint(item) {
@@ -911,7 +920,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.form_complaint_info.comp_attached_file = item.comp_attached_file;
       this.form_complaint_info.comp_action_file = item.comp_action_file;
       this.form_complaint_info.comp_remarks = item.comp_remarks;
-      this.addFileForm = true;
+      this.form_complaint_info.addFileForm = true;
     },
     deleteComplaint: function deleteComplaint(item) {
       var _this = this;
@@ -921,13 +930,18 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                _context.next = 2;
+                if (!confirm("Do you want to proceed?")) {
+                  _context.next = 4;
+                  break;
+                }
+
+                _context.next = 3;
                 return _this.$inertia["delete"]("/app/delete_complaint/".concat(item.id));
 
-              case 2:
+              case 3:
                 _this.resetComplaint();
 
-              case 3:
+              case 4:
               case "end":
                 return _context.stop();
             }
@@ -942,6 +956,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.form_complaint_info.comp_attached_file = [];
       this.form_complaint_info.comp_action_file = [];
       this.form_complaint_info.comp_remarks = null;
+      this.form_complaint_info.addFileForm = false;
     },
     addFile: function addFile() {
       this.addFileForm = true;
@@ -1478,9 +1493,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       date_legal_nov_menu: "",
       date_legal_tc_menu: "",
       date_legal_order_issuance_menu: "",
-      date_legal_order_settlement_menu: "",
-      addFileForm: false
+      date_legal_order_settlement_menu: ""
     };
+  },
+  computed: {
+    addFileForm: function addFileForm() {
+      return this.form_legal_info.addFileForm;
+    }
   },
   methods: {
     editLegal: function editLegal(item) {
@@ -1491,7 +1510,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.form_legal_info.nov_date = item.nov_date;
       this.form_legal_info.nov_tc_date = item.nov_tc_date;
       this.form_legal_info.nov_tc_status = item.nov_tc_status;
-      this.form_legal_info.nov_file = item.nov_file;
+      this.form_legal_info.nov_file = [];
       this.form_legal_info.nov_order_number = item.nov_order_number;
       this.form_legal_info.nov_order_amt = item.nov_order_amt;
       this.form_legal_info.nov_order_date_issuance = item.nov_order_date_issuance;
@@ -1499,7 +1518,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.form_legal_info.nov_official_receipt_number = item.nov_official_receipt_number;
       this.form_legal_info.nov_compliance_status = item.nov_compliance_status;
       this.form_legal_info.nov_order_remarks = item.nov_order_remarks;
-      this.addFileForm = true;
+      this.form_legal_info.addFileForm = true;
     },
     deleteLegal: function deleteLegal(item) {
       var _this = this;
@@ -1538,6 +1557,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.form_legal_info.nov_official_receipt_number = null;
       this.form_legal_info.nov_compliance_status = null;
       this.form_legal_info.nov_order_remarks = null;
+      this.form_legal_info.addFileForm = true;
     },
     addFile: function addFile() {
       this.addFileForm = true;
@@ -2141,6 +2161,16 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     form_monitoring_info: Object,
@@ -2177,9 +2207,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         sortable: false
       }],
       date_monitoring_menu: "",
-      addFileForm: false,
       mon_or_sur_selection: ["Monitoring", "Survey", "Inspection", "Investigation"]
     };
+  },
+  computed: {
+    addFileForm: function addFileForm() {
+      return this.form_monitoring_info.addFileForm;
+    }
   },
   methods: {
     editMonitoring: function editMonitoring(item) {
@@ -2189,8 +2223,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.form_monitoring_info.mon_date_monitored = item.mon_date_monitored;
       this.form_monitoring_info.mon_or_survey = item.mon_or_survey;
       this.form_monitoring_info.mon_type = item.mon_type;
-      this.form_monitoring_info.mon_file = item.mon_file;
-      this.addFileForm = true;
+      this.form_monitoring_info.mon_file = [];
+      this.form_monitoring_info.addFileForm = true;
     },
     deleteMonitoring: function deleteMonitoring(item) {
       var _this = this;
@@ -2200,13 +2234,18 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                _context.next = 2;
+                if (!confirm("Do you want to proceed?")) {
+                  _context.next = 4;
+                  break;
+                }
+
+                _context.next = 3;
                 return _this.$inertia["delete"]("/app/delete_monitoring/".concat(item.id));
 
-              case 2:
+              case 3:
                 _this.resetMonitoring();
 
-              case 3:
+              case 4:
               case "end":
                 return _context.stop();
             }
@@ -2221,6 +2260,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.form_monitoring_info.mon_or_survey = null;
       this.form_monitoring_info.mon_type = null;
       this.form_monitoring_info.mon_file = [];
+      this.form_monitoring_info.addFileForm = false;
     },
     addFile: function addFile() {
       this.addFileForm = true;
@@ -2253,6 +2293,16 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2463,9 +2513,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         sortable: false
       }],
       date_pco_start_menu: "",
-      date_pco_end_menu: "",
-      addFileForm: false
+      date_pco_end_menu: ""
     };
+  },
+  computed: {
+    addFileForm: function addFileForm() {
+      return this.form_pco_info.addFileForm;
+    }
   },
   methods: {
     editPco: function editPco(item) {
@@ -2476,7 +2530,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.form_pco_info.pco_contact = item.pco_contact;
       this.form_pco_info.pco_start_date = item.pco_start_date;
       this.form_pco_info.pco_end_date = item.pco_end_date;
-      this.addFileForm = true;
+      this.form_pco_info.addFileForm = true;
     },
     deletePco: function deletePco(item) {
       var _this = this;
@@ -2486,10 +2540,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                _context.next = 2;
+                if (!confirm("Do you want to proceed?")) {
+                  _context.next = 11;
+                  break;
+                }
+
+                _context.next = 3;
                 return _this.$inertia["delete"]("/app/delete_pco/".concat(item.id));
 
-              case 2:
+              case 3:
                 _this.form_pco_info.pco_id = null;
                 _this.form_pco_info.pco_name = null;
                 _this.form_pco_info.pco_number = null;
@@ -2500,7 +2559,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
                 _this.resetPco();
 
-              case 10:
+              case 11:
               case "end":
                 return _context.stop();
             }
@@ -2516,6 +2575,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.form_pco_info.pco_contact = null;
       this.form_pco_info.pco_start_date = null;
       this.form_pco_info.pco_end_date = null;
+      this.form_pco_info.addFileForm = false;
     },
     addFile: function addFile() {
       this.addFileForm = true;
@@ -2904,9 +2964,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         //     "X-CSRF-TOKEN": document.head.querySelector("[name=csrf-token]").content
         //    }
 
-      },
-      addFileForm: false
+      }
     };
+  },
+  computed: {
+    addFileForm: function addFileForm() {
+      return this.form_permit_info.addFileForm;
+    }
   },
   methods: {
     editPermit: function editPermit(item) {
@@ -2922,7 +2986,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.form_permit_info.perm_number = item.perm_number;
       this.form_permit_info.perm_status = item.perm_status;
       this.form_permit_info.perm_file = [];
-      this.addFileForm = true;
+      this.form_permit_info.addFileForm = true;
     },
     deletePermit: function deletePermit(item) {
       var _this = this;
@@ -2932,13 +2996,18 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                _context.next = 2;
+                if (!confirm("Do you want to proceed?")) {
+                  _context.next = 4;
+                  break;
+                }
+
+                _context.next = 3;
                 return _this.$inertia["delete"]("/app/delete_permit/".concat(item.id));
 
-              case 2:
+              case 3:
                 _this.resetPermit();
 
-              case 3:
+              case 4:
               case "end":
                 return _context.stop();
             }
@@ -2958,13 +3027,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.form_permit_info.perm_number = null;
       this.form_permit_info.perm_status = null;
       this.form_permit_info.perm_file = [];
+      this.form_permit_info.addFileForm = false;
     },
     addFile: function addFile() {
       this.addFileForm = true;
     },
     closeFile: function closeFile() {
-      this.addFileForm = false;
-      this.resetPermit();
+      this.addFileForm = false; // this.resetPermit();
     }
   },
   mounted: function mounted() {
@@ -24902,7 +24971,7 @@ var render = function () {
     "v-card",
     { staticClass: "p-4", attrs: { elevation: "0" } },
     [
-      _vm.addFileForm
+      _vm.form_complaint_info.addFileForm
         ? _c("div", [
             _c(
               "div",
@@ -25126,32 +25195,7 @@ var render = function () {
                           { staticClass: "mr-2", attrs: { small: "" } },
                           [_vm._v(" mdi-content-save ")]
                         ),
-                        _vm._v(
-                          "\n                    Submit\n                "
-                        ),
-                      ],
-                      1
-                    )
-                  : _vm._e(),
-                _vm._v(" "),
-                _vm.has_permit
-                  ? _c(
-                      "v-btn",
-                      {
-                        attrs: {
-                          depressed: "",
-                          color: "warning",
-                          type: "button",
-                        },
-                        on: { click: _vm.resetComplaint },
-                      },
-                      [
-                        _c(
-                          "v-icon",
-                          { staticClass: "mr-2", attrs: { small: "" } },
-                          [_vm._v(" mdi-autorenew ")]
-                        ),
-                        _vm._v("\n                    Reset\n                "),
+                        _vm._v("\n                Submit\n            "),
                       ],
                       1
                     )
@@ -25161,7 +25205,7 @@ var render = function () {
                   "v-btn",
                   {
                     attrs: { depressed: "", color: "error", type: "button" },
-                    on: { click: _vm.closeFile },
+                    on: { click: _vm.resetComplaint },
                   },
                   [
                     _c(
@@ -25192,7 +25236,11 @@ var render = function () {
                         color: "success",
                         type: "button",
                       },
-                      on: { click: _vm.addFile },
+                      on: {
+                        click: function ($event) {
+                          _vm.form_complaint_info.addFileForm = true
+                        },
+                      },
                     },
                     [
                       _c(
@@ -25633,7 +25681,7 @@ var render = function () {
     "v-card",
     { staticClass: "p-4", attrs: { elevation: "0" } },
     [
-      _vm.addFileForm
+      _vm.form_legal_info.addFileForm
         ? _c("div", [
             _c(
               "div",
@@ -26061,29 +26109,6 @@ var render = function () {
                     )
                   : _vm._e(),
                 _vm._v(" "),
-                _vm.has_permit
-                  ? _c(
-                      "v-btn",
-                      {
-                        attrs: {
-                          depressed: "",
-                          color: "warning",
-                          type: "button",
-                        },
-                        on: { click: _vm.resetLegal },
-                      },
-                      [
-                        _c(
-                          "v-icon",
-                          { staticClass: "mr-2", attrs: { small: "" } },
-                          [_vm._v(" mdi-autorenew ")]
-                        ),
-                        _vm._v("\n                Reset\n            "),
-                      ],
-                      1
-                    )
-                  : _vm._e(),
-                _vm._v(" "),
                 _c(
                   "v-btn",
                   {
@@ -26110,7 +26135,7 @@ var render = function () {
         ? _c(
             "div",
             [
-              !_vm.addFileForm
+              !_vm.form_legal_info.addFileForm
                 ? _c(
                     "v-btn",
                     {
@@ -26119,7 +26144,11 @@ var render = function () {
                         color: "success",
                         type: "button",
                       },
-                      on: { click: _vm.addFile },
+                      on: {
+                        click: function ($event) {
+                          _vm.form_legal_info.addFileForm = true
+                        },
+                      },
                     },
                     [
                       _c(
@@ -26734,7 +26763,7 @@ var render = function () {
     "v-card",
     { staticClass: "p-4", attrs: { elevation: "0" } },
     [
-      _vm.addFileForm
+      _vm.form_monitoring_info.addFileForm
         ? _c("div", [
             _c(
               "div",
@@ -26971,32 +27000,7 @@ var render = function () {
                           { staticClass: "mr-2", attrs: { small: "" } },
                           [_vm._v(" mdi-content-save ")]
                         ),
-                        _vm._v(
-                          "\n                    Submit\n                "
-                        ),
-                      ],
-                      1
-                    )
-                  : _vm._e(),
-                _vm._v(" "),
-                _vm.has_permit
-                  ? _c(
-                      "v-btn",
-                      {
-                        attrs: {
-                          depressed: "",
-                          color: "warning",
-                          type: "button",
-                        },
-                        on: { click: _vm.resetMonitoring },
-                      },
-                      [
-                        _c(
-                          "v-icon",
-                          { staticClass: "mr-2", attrs: { small: "" } },
-                          [_vm._v(" mdi-autorenew ")]
-                        ),
-                        _vm._v("\n                    Reset\n                "),
+                        _vm._v("\n                Submit\n            "),
                       ],
                       1
                     )
@@ -27006,7 +27010,7 @@ var render = function () {
                   "v-btn",
                   {
                     attrs: { depressed: "", color: "error", type: "button" },
-                    on: { click: _vm.closeFile },
+                    on: { click: _vm.resetMonitoring },
                   },
                   [
                     _c(
@@ -27037,7 +27041,11 @@ var render = function () {
                         color: "success",
                         type: "button",
                       },
-                      on: { click: _vm.addFile },
+                      on: {
+                        click: function ($event) {
+                          _vm.form_monitoring_info.addFileForm = true
+                        },
+                      },
                     },
                     [
                       _c(
@@ -27207,7 +27215,7 @@ var render = function () {
     "v-card",
     { staticClass: "p-4", attrs: { elevation: "0" } },
     [
-      _vm.addFileForm
+      _vm.form_pco_info.addFileForm
         ? _c("div", [
             _c(
               "div",
@@ -27544,34 +27552,11 @@ var render = function () {
                     )
                   : _vm._e(),
                 _vm._v(" "),
-                _vm.has_permit
-                  ? _c(
-                      "v-btn",
-                      {
-                        attrs: {
-                          depressed: "",
-                          color: "warning",
-                          type: "button",
-                        },
-                        on: { click: _vm.resetPco },
-                      },
-                      [
-                        _c(
-                          "v-icon",
-                          { staticClass: "mr-2", attrs: { small: "" } },
-                          [_vm._v(" mdi-autorenew ")]
-                        ),
-                        _vm._v("\n                Reset\n            "),
-                      ],
-                      1
-                    )
-                  : _vm._e(),
-                _vm._v(" "),
                 _c(
                   "v-btn",
                   {
                     attrs: { depressed: "", color: "error", type: "button" },
-                    on: { click: _vm.closeFile },
+                    on: { click: _vm.resetPco },
                   },
                   [
                     _c(
@@ -27602,7 +27587,11 @@ var render = function () {
                         color: "success",
                         type: "button",
                       },
-                      on: { click: _vm.addFile },
+                      on: {
+                        click: function ($event) {
+                          _vm.form_pco_info.addFileForm = true
+                        },
+                      },
                     },
                     [
                       _c(
@@ -27610,7 +27599,7 @@ var render = function () {
                         { staticClass: "mr-2", attrs: { small: "" } },
                         [_vm._v(" mdi-plus-circle ")]
                       ),
-                      _vm._v("\n        Add File\n    "),
+                      _vm._v("\n            Add File\n        "),
                     ],
                     1
                   )
@@ -27656,7 +27645,7 @@ var render = function () {
                                 },
                                 [
                                   _vm._v(
-                                    "\n                        mdi-pencil\n                    "
+                                    "\n                            mdi-pencil\n                        "
                                   ),
                                 ]
                               ),
@@ -27673,7 +27662,7 @@ var render = function () {
                                 },
                                 [
                                   _vm._v(
-                                    "\n                        mdi-delete\n                    "
+                                    "\n                            mdi-delete\n                        "
                                   ),
                                 ]
                               ),
@@ -27740,7 +27729,7 @@ var render = function () {
         "v-card",
         { staticClass: "p-4", attrs: { elevation: "0" } },
         [
-          _vm.addFileForm
+          _vm.form_permit_info.addFileForm
             ? _c("div", [
                 _c(
                   "div",
@@ -28103,33 +28092,6 @@ var render = function () {
                         )
                       : _vm._e(),
                     _vm._v(" "),
-                    _vm.has_permit ||
-                    (_vm.has_hazwaste &&
-                      _vm.form_permit_info.perm_law === "RA 6969")
-                      ? _c(
-                          "v-btn",
-                          {
-                            attrs: {
-                              depressed: "",
-                              color: "warning",
-                              type: "button",
-                            },
-                            on: { click: _vm.resetPermit },
-                          },
-                          [
-                            _c(
-                              "v-icon",
-                              { staticClass: "mr-2", attrs: { small: "" } },
-                              [_vm._v(" mdi-autorenew ")]
-                            ),
-                            _vm._v(
-                              "\n                    Reset\n                "
-                            ),
-                          ],
-                          1
-                        )
-                      : _vm._e(),
-                    _vm._v(" "),
                     _c(
                       "v-btn",
                       {
@@ -28138,7 +28100,7 @@ var render = function () {
                           color: "error",
                           type: "button",
                         },
-                        on: { click: _vm.closeFile },
+                        on: { click: _vm.resetPermit },
                       },
                       [
                         _c(
@@ -28160,7 +28122,7 @@ var render = function () {
             ? _c(
                 "div",
                 [
-                  !_vm.addFileForm
+                  !_vm.form_permit_info.addFileForm
                     ? _c(
                         "v-btn",
                         {
@@ -28169,7 +28131,11 @@ var render = function () {
                             color: "success",
                             type: "button",
                           },
-                          on: { click: _vm.addFile },
+                          on: {
+                            click: function ($event) {
+                              _vm.form_permit_info.addFileForm = true
+                            },
+                          },
                         },
                         [
                           _c(

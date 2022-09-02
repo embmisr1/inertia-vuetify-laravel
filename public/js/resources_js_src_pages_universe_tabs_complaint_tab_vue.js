@@ -197,6 +197,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     form_complaint_info: Object,
@@ -235,9 +240,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         text: "Actions",
         value: "actions",
         sortable: false
-      }],
-      addFileForm: false
+      }]
     };
+  },
+  computed: {
+    addFileForm: function addFileForm() {
+      return this.form_complaint_info.addFileForm;
+    }
   },
   methods: {
     editComplaint: function editComplaint(item) {
@@ -247,7 +256,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.form_complaint_info.comp_attached_file = item.comp_attached_file;
       this.form_complaint_info.comp_action_file = item.comp_action_file;
       this.form_complaint_info.comp_remarks = item.comp_remarks;
-      this.addFileForm = true;
+      this.form_complaint_info.addFileForm = true;
     },
     deleteComplaint: function deleteComplaint(item) {
       var _this = this;
@@ -257,13 +266,18 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                _context.next = 2;
+                if (!confirm("Do you want to proceed?")) {
+                  _context.next = 4;
+                  break;
+                }
+
+                _context.next = 3;
                 return _this.$inertia["delete"]("/app/delete_complaint/".concat(item.id));
 
-              case 2:
+              case 3:
                 _this.resetComplaint();
 
-              case 3:
+              case 4:
               case "end":
                 return _context.stop();
             }
@@ -278,6 +292,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.form_complaint_info.comp_attached_file = [];
       this.form_complaint_info.comp_action_file = [];
       this.form_complaint_info.comp_remarks = null;
+      this.form_complaint_info.addFileForm = false;
     },
     addFile: function addFile() {
       this.addFileForm = true;
@@ -1147,7 +1162,7 @@ var render = function () {
     "v-card",
     { staticClass: "p-4", attrs: { elevation: "0" } },
     [
-      _vm.addFileForm
+      _vm.form_complaint_info.addFileForm
         ? _c("div", [
             _c(
               "div",
@@ -1371,32 +1386,7 @@ var render = function () {
                           { staticClass: "mr-2", attrs: { small: "" } },
                           [_vm._v(" mdi-content-save ")]
                         ),
-                        _vm._v(
-                          "\n                    Submit\n                "
-                        ),
-                      ],
-                      1
-                    )
-                  : _vm._e(),
-                _vm._v(" "),
-                _vm.has_permit
-                  ? _c(
-                      "v-btn",
-                      {
-                        attrs: {
-                          depressed: "",
-                          color: "warning",
-                          type: "button",
-                        },
-                        on: { click: _vm.resetComplaint },
-                      },
-                      [
-                        _c(
-                          "v-icon",
-                          { staticClass: "mr-2", attrs: { small: "" } },
-                          [_vm._v(" mdi-autorenew ")]
-                        ),
-                        _vm._v("\n                    Reset\n                "),
+                        _vm._v("\n                Submit\n            "),
                       ],
                       1
                     )
@@ -1406,7 +1396,7 @@ var render = function () {
                   "v-btn",
                   {
                     attrs: { depressed: "", color: "error", type: "button" },
-                    on: { click: _vm.closeFile },
+                    on: { click: _vm.resetComplaint },
                   },
                   [
                     _c(
@@ -1437,7 +1427,11 @@ var render = function () {
                         color: "success",
                         type: "button",
                       },
-                      on: { click: _vm.addFile },
+                      on: {
+                        click: function ($event) {
+                          _vm.form_complaint_info.addFileForm = true
+                        },
+                      },
                     },
                     [
                       _c(

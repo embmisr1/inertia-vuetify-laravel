@@ -22312,42 +22312,44 @@ var render = function () {
                       1
                     ),
                     _vm._v(" "),
-                    _c(
-                      "v-list-item",
-                      { attrs: { dense: "" } },
-                      [
-                        _c(
-                          "v-list-item-icon",
-                          [_c("v-icon", [_vm._v(" mdi-link ")])],
-                          1
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "v-list-item-content",
+                    _vm.hasAdminRole || _vm.hasCPD
+                      ? _c(
+                          "v-list-item",
+                          { attrs: { dense: "" } },
                           [
                             _c(
-                              "v-list-item-subtitle",
+                              "v-list-item-icon",
+                              [_c("v-icon", [_vm._v(" mdi-link ")])],
+                              1
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "v-list-item-content",
                               [
                                 _c(
-                                  "Link",
-                                  {
-                                    attrs: {
-                                      href: "/app/universe_form",
-                                      as: "button",
-                                      "preserve-scroll": "",
-                                    },
-                                  },
-                                  [_vm._v("Universe Registration")]
+                                  "v-list-item-subtitle",
+                                  [
+                                    _c(
+                                      "Link",
+                                      {
+                                        attrs: {
+                                          href: "/app/universe_form",
+                                          as: "button",
+                                          "preserve-scroll": "",
+                                        },
+                                      },
+                                      [_vm._v("Universe Registration")]
+                                    ),
+                                  ],
+                                  1
                                 ),
                               ],
                               1
                             ),
                           ],
                           1
-                        ),
-                      ],
-                      1
-                    ),
+                        )
+                      : _vm._e(),
                   ],
                   1
                 ),

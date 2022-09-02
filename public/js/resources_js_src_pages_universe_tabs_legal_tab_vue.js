@@ -346,9 +346,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       date_legal_nov_menu: "",
       date_legal_tc_menu: "",
       date_legal_order_issuance_menu: "",
-      date_legal_order_settlement_menu: "",
-      addFileForm: false
+      date_legal_order_settlement_menu: ""
     };
+  },
+  computed: {
+    addFileForm: function addFileForm() {
+      return this.form_legal_info.addFileForm;
+    }
   },
   methods: {
     editLegal: function editLegal(item) {
@@ -359,7 +363,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.form_legal_info.nov_date = item.nov_date;
       this.form_legal_info.nov_tc_date = item.nov_tc_date;
       this.form_legal_info.nov_tc_status = item.nov_tc_status;
-      this.form_legal_info.nov_file = item.nov_file;
+      this.form_legal_info.nov_file = [];
       this.form_legal_info.nov_order_number = item.nov_order_number;
       this.form_legal_info.nov_order_amt = item.nov_order_amt;
       this.form_legal_info.nov_order_date_issuance = item.nov_order_date_issuance;
@@ -367,7 +371,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.form_legal_info.nov_official_receipt_number = item.nov_official_receipt_number;
       this.form_legal_info.nov_compliance_status = item.nov_compliance_status;
       this.form_legal_info.nov_order_remarks = item.nov_order_remarks;
-      this.addFileForm = true;
+      this.form_legal_info.addFileForm = true;
     },
     deleteLegal: function deleteLegal(item) {
       var _this = this;
@@ -406,6 +410,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.form_legal_info.nov_official_receipt_number = null;
       this.form_legal_info.nov_compliance_status = null;
       this.form_legal_info.nov_order_remarks = null;
+      this.form_legal_info.addFileForm = true;
     },
     addFile: function addFile() {
       this.addFileForm = true;
@@ -1275,7 +1280,7 @@ var render = function () {
     "v-card",
     { staticClass: "p-4", attrs: { elevation: "0" } },
     [
-      _vm.addFileForm
+      _vm.form_legal_info.addFileForm
         ? _c("div", [
             _c(
               "div",
@@ -1703,29 +1708,6 @@ var render = function () {
                     )
                   : _vm._e(),
                 _vm._v(" "),
-                _vm.has_permit
-                  ? _c(
-                      "v-btn",
-                      {
-                        attrs: {
-                          depressed: "",
-                          color: "warning",
-                          type: "button",
-                        },
-                        on: { click: _vm.resetLegal },
-                      },
-                      [
-                        _c(
-                          "v-icon",
-                          { staticClass: "mr-2", attrs: { small: "" } },
-                          [_vm._v(" mdi-autorenew ")]
-                        ),
-                        _vm._v("\n                Reset\n            "),
-                      ],
-                      1
-                    )
-                  : _vm._e(),
-                _vm._v(" "),
                 _c(
                   "v-btn",
                   {
@@ -1752,7 +1734,7 @@ var render = function () {
         ? _c(
             "div",
             [
-              !_vm.addFileForm
+              !_vm.form_legal_info.addFileForm
                 ? _c(
                     "v-btn",
                     {
@@ -1761,7 +1743,11 @@ var render = function () {
                         color: "success",
                         type: "button",
                       },
-                      on: { click: _vm.addFile },
+                      on: {
+                        click: function ($event) {
+                          _vm.form_legal_info.addFileForm = true
+                        },
+                      },
                     },
                     [
                       _c(
