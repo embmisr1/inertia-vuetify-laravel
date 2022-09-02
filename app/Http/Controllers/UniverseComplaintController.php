@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\Logger;
 use Illuminate\Http\Request;
 use App\Models\Complaint;
 use Illuminate\Support\Facades\DB;
@@ -21,6 +22,7 @@ class UniverseComplaintController extends Controller
 
             $this->add_media_attached($request->complaint['comp_attached_file'], $query);
             $this->add_media_action($request->complaint['comp_action_file'], $query);
+            Logger::dispatch("Complaint", $query->id, auth()->id(), "Created a NOV: model_id " . $query->id, "create");
 
             return $query->id;
         }
@@ -42,7 +44,8 @@ class UniverseComplaintController extends Controller
 
             $this->add_media_attached($request->complaint['comp_attached_file'], $query);
             $this->add_media_action($request->complaint['comp_action_file'], $query);
-            
+            Logger::dispatch("Complaint", $query->id, auth()->id(), "Updated a NOV: model_id " . $query->id, "update");
+
             return $request->complaint['comp_id'];
         }
     }
@@ -51,6 +54,7 @@ class UniverseComplaintController extends Controller
     {
         $query = Complaint::find($request);
         $query->delete();
+        Logger::dispatch("Complaint", $request, auth()->id(), "Deleted a NOV: model_id " . $query->id, "delete");
         return back();
     }
 

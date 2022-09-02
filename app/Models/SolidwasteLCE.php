@@ -18,4 +18,8 @@ class SolidwasteLCE extends Model implements HasMedia
             ->acceptsMimeTypes(['image/jpeg', 'image/png', 'image/jpg', 'application/pdf'])
             ->useDisk('LCE');
     }
+
+    public function logs(){
+        return $this->hasMany(Logs::class);
+    }
 }

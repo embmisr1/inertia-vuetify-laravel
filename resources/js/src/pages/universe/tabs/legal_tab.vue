@@ -64,7 +64,7 @@
                         rules="required"
                         v-slot="{ errors }"
                     >
-                    <v-text-field
+                        <v-text-field
                             v-model="form_legal_info.nov_date"
                             type="date"
                             label="NOV Date"
@@ -73,12 +73,12 @@
                     </ValidationProvider>
                 </div>
                 <div>
-                     <v-text-field
-                            v-model="form_legal_info.nov_tc_date"
-                            type="date"
-                            label="TC Date"
-                            required
-                        ></v-text-field>
+                    <v-text-field
+                        v-model="form_legal_info.nov_tc_date"
+                        type="date"
+                        label="TC Date"
+                        required
+                    ></v-text-field>
                 </div>
                 <div>
                     <v-autocomplete
@@ -117,20 +117,19 @@
                 </div>
                 <div>
                     <v-text-field
-                            v-model="form_legal_info.nov_order_date_issuance"
-                            type="date"
-                            label="Order Date Issuance"
-                            required
-                        ></v-text-field>
-
+                        v-model="form_legal_info.nov_order_date_issuance"
+                        type="date"
+                        label="Order Date Issuance"
+                        required
+                    ></v-text-field>
                 </div>
                 <div>
-                     <v-text-field
-                            v-model="form_legal_info.nov_order_date_settlement"
-                            type="date"
-                            label="Order Date Settlement"
-                            required
-                        ></v-text-field>
+                    <v-text-field
+                        v-model="form_legal_info.nov_order_date_settlement"
+                        type="date"
+                        label="Order Date Settlement"
+                        required
+                    ></v-text-field>
                 </div>
                 <div>
                     <v-text-field
@@ -178,7 +177,12 @@
                 </div>
             </div>
             <div class="text-center">
-                <v-btn v-if="has_permit" depressed color="primary" type="submit">
+                <v-btn
+                    v-if="has_permit"
+                    depressed
+                    color="primary"
+                    type="submit"
+                >
                     <v-icon small class="mr-2"> mdi-content-save </v-icon>
                     Submit
                 </v-btn>
@@ -192,23 +196,28 @@
                     <v-icon small class="mr-2"> mdi-autorenew </v-icon>
                     Reset
                 </v-btn> -->
-                <v-btn  depressed color="error" type="button" @click="closeFile">
+                <v-btn
+                    depressed
+                    color="error"
+                    type="button"
+                    @click="resetLegal"
+                >
                     <v-icon small class="mr-2"> mdi-plus-circle </v-icon>
                     Close
                 </v-btn>
             </div>
         </div>
         <div v-if="has_permit">
-        <v-btn
-            v-if="!form_legal_info.addFileForm"
-            depressed
-            color="success"
-            type="button"
-            @click="form_legal_info.addFileForm = true"
-        >
-            <v-icon small class="mr-2"> mdi-plus-circle </v-icon>
-            Add File
-        </v-btn>
+            <v-btn
+                v-if="!form_legal_info.addFileForm"
+                depressed
+                color="success"
+                type="button"
+                @click="form_legal_info.addFileForm = true"
+            >
+                <v-icon small class="mr-2"> mdi-plus-circle </v-icon>
+                Add File
+            </v-btn>
         </div>
         <template>
             <v-card elevation="2" class="mt-5">
@@ -221,7 +230,7 @@
                 >
                     <template v-slot:item.nov_file="{ item }">
                         <a
-                        v-if="item.nov_file > 0"
+                            v-if="item.nov_file > 0"
                             :href="`/app/attachments?type=legal&id=${item.id}`"
                             target="_blank"
                         >
@@ -233,14 +242,19 @@
                     </template>
                     <template v-slot:item.actions="{ item }" v-if="has_permit">
                         <div v-if="has_permit">
-                        <v-icon small class="mr-2" @click="editLegal(item)">
-                            mdi-pencil
-                        </v-icon>
-                        <v-icon small @click="deleteLegal(item)">
-                            mdi-delete
-                        </v-icon>
+                            <v-icon small class="mr-2" @click="editLegal(item)">
+                                mdi-pencil
+                            </v-icon>
+                            <v-icon small @click="deleteLegal(item)">
+                                mdi-delete
+                            </v-icon>
                         </div>
-                        <v-icon v-else small class="mr-2" @click="editLegal(item)">
+                        <v-icon
+                            v-else
+                            small
+                            class="mr-2"
+                            @click="editLegal(item)"
+                        >
                             mdi-eye
                         </v-icon>
                     </template>
@@ -353,8 +367,10 @@ export default {
             this.form_legal_info.addFileForm = true;
         },
         async deleteLegal(item) {
-            await this.$inertia.delete(`/app/delete_legal/${item.id}`);
-            this.resetLegal();
+            if (confirm("Do you want to proceed?")) {
+                await this.$inertia.delete(`/app/delete_legal/${item.id}`);
+                this.resetLegal();
+            }
         },
         resetLegal() {
             this.form_legal_info.nov_id = null;
@@ -371,7 +387,7 @@ export default {
             this.form_legal_info.nov_official_receipt_number = null;
             this.form_legal_info.nov_compliance_status = null;
             this.form_legal_info.nov_order_remarks = null;
-            this.form_legal_info.addFileForm = true;
+            this.form_legal_info.addFileForm = false;
         },
         addFile() {
             this.addFileForm = true;

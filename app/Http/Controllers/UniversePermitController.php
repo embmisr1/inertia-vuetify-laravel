@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\Logger;
 use Illuminate\Http\Request;
 use App\Models\Permit;
 use App\Models\Universe;
@@ -24,6 +25,7 @@ class UniversePermitController extends Controller
 
             $this->add_ecc_to_universe($universe_id);
             $this->add_media($request->permit['perm_file'], $query);
+            Logger::dispatch("Permit", $query->id, auth()->id(), "Updated a Permit: model_id " . $query->id, "create");
 
             return $query->id;
         }
@@ -52,12 +54,14 @@ class UniversePermitController extends Controller
                 $this->add_ecc_to_universe($universe_id);
                 $this->add_media($request->permit['perm_file'], $query);
     
+                Logger::dispatch("Permit", $query->id, auth()->id(), "Updated a Permit: model_id " . $query->id, "update");
+
                 return $request->permit['perm_id'];
             }
         }elseif( in_array('EMED EDIT', $user_access) && $request->permit['perm_law'] == 'RA 6969'){
             if ($request->permit['perm_law'] && $request->permit['perm_number']) {
                 $this->null_priority($request->permit['perm_law'], $universe_id);
-    
+
                 if ($request->permit['perm_id']) {
                     $query = Permit::find($request->permit['perm_id']);
                 } else {
@@ -74,6 +78,8 @@ class UniversePermitController extends Controller
                 $this->add_ecc_to_universe($universe_id);
                 $this->add_media($request->permit['perm_file'], $query);
     
+                Logger::dispatch("Permit", $query->id, auth()->id(), "Updated a Permit: model_id " . $query->id, "update");
+
                 return $request->permit['perm_id'];
             }
         }else{}
@@ -94,6 +100,8 @@ class UniversePermitController extends Controller
         }
 
         $this->add_ecc_to_universe($universe_id);
+        Logger::dispatch("Permit", $request, auth()->id(), "deleted a Permit: model_id " . $request, "delete");
+
         return back();
     }
 

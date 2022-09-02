@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\Logger;
 use Illuminate\Http\Request;
 use App\Models\Pco;
 use DB;
@@ -17,6 +18,7 @@ class UniversePcoController extends Controller
             $query->universe_FK = $universe_id;
             $query->save();
             return $query->id;
+            Logger::dispatch("PCO", $query->id, auth()->id(), "Created a PCO: model_id " . $query->id, "create");
         }
     }
 
@@ -32,16 +34,18 @@ class UniversePcoController extends Controller
             }
             $query->universe_FK = $universe_id;
             $query->save();
+            Logger::dispatch("PCO", $query->id, auth()->id(), "Updated a PCO: model_id " . $query->id, "update");
             return $request->pco['pco_id'];
         }
     }
-    
+
     public function delete_pco($request){
         $query = Pco::find($request);
         $query->delete();
+        Logger::dispatch("PCO", $request, auth()->id(), "Updated a PCO: model_id " . $request, "delete");
         return back();
     }
-    
+
     public function pco_columns(){
         $columns_controller = new ColumnsController;
         return $columns_controller->pco_columns();

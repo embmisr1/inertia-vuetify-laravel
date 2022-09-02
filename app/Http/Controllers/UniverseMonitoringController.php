@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\Logger;
 use Illuminate\Http\Request;
 use App\Models\Monitoring;
 use Illuminate\Support\Facades\DB;
@@ -20,13 +21,14 @@ class UniverseMonitoringController extends Controller
             $query->save();
 
             $this->add_media($request->monitoring['mon_file'], $query);
+            Logger::dispatch("Monitoring", $query->id, auth()->id(), "Created a monitoring: model_id " . $query->id, "create");
 
             return $query->id;
         }
     }
 
     public function monitoring_process_update($request, $universe_id){
-        if(!isset($request->monitoring['mon_law'])) return;
+        // if(!isset($request->monitoring['mon_law'])) return;
         if($request->monitoring['mon_law'] && $request->monitoring['mon_date_monitored']){
             if($request->monitoring['mon_id']){
                 $query = Monitoring::find($request->monitoring['mon_id']);
@@ -41,6 +43,7 @@ class UniverseMonitoringController extends Controller
             $query->save();
             
             $this->add_media($request->monitoring['mon_file'], $query);
+            Logger::dispatch("Monitoring", $query->id, auth()->id(), "Updated a monitoring: model_id " . $query->id, "update");
 
             return $request->monitoring['mon_id'];
         }
@@ -49,6 +52,7 @@ class UniverseMonitoringController extends Controller
     public function delete_monitoring($request){
         $query = Monitoring::find($request);
         $query->delete();
+        Logger::dispatch("Monitoring", $request, auth()->id(), "Deleted a monitoring: model_id " . $query->id, "delete");
         return back();
     }
 

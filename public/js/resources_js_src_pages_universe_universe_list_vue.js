@@ -1225,6 +1225,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -23267,489 +23278,553 @@ var render = function () {
     { attrs: { access: _vm.access } },
     [
       _c(
-        "div",
-        { staticClass: "container", attrs: { id: "app" } },
+        "v-btn",
+        {
+          staticClass: "mb-2",
+          attrs: { color: "primary", dark: "" },
+          on: {
+            click: function ($event) {
+              _vm.dialog = !_vm.dialog
+            },
+          },
+        },
         [
-          _c(
-            "v-btn",
+          _c("v-icon", { attrs: { dark: "" } }, [_vm._v(" mdi-filter ")]),
+          _vm._v(
+            "\n        " +
+              _vm._s(!_vm.dialog ? "Open Filter" : "Close Filter") +
+              "\n    "
+          ),
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "b-table",
+        {
+          attrs: {
+            data: _vm.query.data,
+            total: _vm.query.total,
+            "per-page": _vm.query.per_page,
+            "current-page": _vm.query.current_page,
+            "pagination-position": "both",
+            "default-sort-direction": "asd",
+            "sort-icon": "arrow-up",
+            "sort-icon-size": "is-small",
+            loading: _vm.loading,
+            paginated: "",
+            "backend-pagination": "",
+            "aria-next-label": "Next page",
+            "aria-previous-label": "Previous page",
+            "aria-page-label": "Page",
+            "aria-current-label": "Current page",
+          },
+          on: {
+            "update:currentPage": function ($event) {
+              return _vm.$set(_vm.query, "current_page", $event)
+            },
+            "update:current-page": function ($event) {
+              return _vm.$set(_vm.query, "current_page", $event)
+            },
+            "page-change": _vm.onPageChange,
+          },
+          scopedSlots: _vm._u([
             {
-              staticClass: "mb-2",
-              attrs: { color: "primary", dark: "" },
-              on: {
-                click: function ($event) {
-                  _vm.dialog = !_vm.dialog
+              key: "top-left",
+              fn: function () {
+                return [
+                  _c(
+                    "b-field",
+                    { attrs: { type: "is-dark" } },
+                    [
+                      _c(
+                        "b-select",
+                        {
+                          attrs: {
+                            placeholder: "Rows Per Page",
+                            size: "is-small",
+                          },
+                          model: {
+                            value: _vm.filter.per_page,
+                            callback: function ($$v) {
+                              _vm.$set(_vm.filter, "per_page", $$v)
+                            },
+                            expression: "filter.per_page",
+                          },
+                        },
+                        [
+                          _c("option", { attrs: { value: "10" } }, [
+                            _vm._v("10"),
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "50" } }, [
+                            _vm._v("50"),
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "100" } }, [
+                            _vm._v("100"),
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "500" } }, [
+                            _vm._v("500"),
+                          ]),
+                        ]
+                      ),
+                    ],
+                    1
+                  ),
+                ]
+              },
+              proxy: true,
+            },
+            {
+              key: "bottom-left",
+              fn: function () {
+                return [
+                  _c(
+                    "b-field",
+                    { attrs: { type: "is-dark" } },
+                    [
+                      _c(
+                        "b-select",
+                        {
+                          attrs: {
+                            placeholder: "Rows Per Page",
+                            size: "is-small",
+                          },
+                          model: {
+                            value: _vm.filter.per_page,
+                            callback: function ($$v) {
+                              _vm.$set(_vm.filter, "per_page", $$v)
+                            },
+                            expression: "filter.per_page",
+                          },
+                        },
+                        [
+                          _c("option", { attrs: { value: "10" } }, [
+                            _vm._v("10"),
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "50" } }, [
+                            _vm._v("50"),
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "100" } }, [
+                            _vm._v("100"),
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "500" } }, [
+                            _vm._v("500"),
+                          ]),
+                        ]
+                      ),
+                    ],
+                    1
+                  ),
+                ]
+              },
+              proxy: true,
+            },
+          ]),
+        },
+        [
+          _vm._v(" "),
+          _vm._v(" "),
+          _c("b-table-column", {
+            attrs: { field: "un_firmname", label: "Firmname", searchable: "" },
+            scopedSlots: _vm._u([
+              {
+                key: "searchable",
+                fn: function (props) {
+                  return [
+                    _c("b-input", {
+                      attrs: {
+                        placeholder: "Search...",
+                        icon: "magnify",
+                        size: "is-small",
+                      },
+                      model: {
+                        value: _vm.filter.un_firmname,
+                        callback: function ($$v) {
+                          _vm.$set(_vm.filter, "un_firmname", $$v)
+                        },
+                        expression: "filter.un_firmname",
+                      },
+                    }),
+                  ]
                 },
               },
-            },
-            [
-              _c("v-icon", { attrs: { dark: "" } }, [_vm._v(" mdi-filter ")]),
-              _vm._v(
-                "\n            " +
-                  _vm._s(!_vm.dialog ? "Open Filter" : "Close Filter") +
-                  "\n        "
-              ),
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "section",
-            [
-              _c(
-                "b-table",
-                {
-                  attrs: {
-                    data: _vm.query.data,
-                    total: _vm.query.total,
-                    "per-page": _vm.query.per_page,
-                    "current-page": _vm.query.current_page,
-                    "pagination-position": "bottom",
-                    "default-sort-direction": "asd",
-                    "sort-icon": "arrow-up",
-                    "sort-icon-size": "is-small",
-                    loading: _vm.loading,
-                    paginated: "",
-                    "backend-pagination": "",
-                  },
-                  on: {
-                    "update:currentPage": function ($event) {
-                      return _vm.$set(_vm.query, "current_page", $event)
-                    },
-                    "update:current-page": function ($event) {
-                      return _vm.$set(_vm.query, "current_page", $event)
-                    },
-                    "page-change": _vm.onPageChange,
-                  },
+              {
+                key: "default",
+                fn: function (props) {
+                  return [
+                    _vm._v(
+                      "\n                " +
+                        _vm._s(props.row.un_firmname) +
+                        "\n            "
+                    ),
+                  ]
                 },
-                [
-                  _c("b-table-column", {
-                    attrs: {
-                      field: "un_firmname",
-                      label: "Firmname",
-                      searchable: "",
-                    },
-                    scopedSlots: _vm._u([
+              },
+            ]),
+          }),
+          _vm._v(" "),
+          _c("b-table-column", {
+            attrs: { field: "un_crs_number", label: "CRS No.", searchable: "" },
+            scopedSlots: _vm._u([
+              {
+                key: "searchable",
+                fn: function (props) {
+                  return [
+                    _c("b-input", {
+                      attrs: {
+                        placeholder: "Search...",
+                        icon: "magnify",
+                        size: "is-small",
+                      },
+                      model: {
+                        value: _vm.filter.un_crs_number,
+                        callback: function ($$v) {
+                          _vm.$set(_vm.filter, "un_crs_number", $$v)
+                        },
+                        expression: "filter.un_crs_number",
+                      },
+                    }),
+                  ]
+                },
+              },
+              {
+                key: "default",
+                fn: function (props) {
+                  return [
+                    _vm._v(
+                      "\n                " +
+                        _vm._s(props.row.un_crs_number) +
+                        "\n            "
+                    ),
+                  ]
+                },
+              },
+            ]),
+          }),
+          _vm._v(" "),
+          _c("b-table-column", {
+            attrs: {
+              field: "un_proponent",
+              label: "Proponent",
+              searchable: "",
+            },
+            scopedSlots: _vm._u([
+              {
+                key: "searchable",
+                fn: function (props) {
+                  return [
+                    _c("b-input", {
+                      attrs: {
+                        placeholder: "Search...",
+                        icon: "magnify",
+                        size: "is-small",
+                      },
+                      model: {
+                        value: _vm.filter.un_proponent,
+                        callback: function ($$v) {
+                          _vm.$set(_vm.filter, "un_proponent", $$v)
+                        },
+                        expression: "filter.un_proponent",
+                      },
+                    }),
+                  ]
+                },
+              },
+              {
+                key: "default",
+                fn: function (props) {
+                  return [
+                    _vm._v(
+                      "\n                " +
+                        _vm._s(props.row.un_proponent) +
+                        "\n            "
+                    ),
+                  ]
+                },
+              },
+            ]),
+          }),
+          _vm._v(" "),
+          _c("b-table-column", {
+            attrs: { field: "un_status", label: "Firm Status", searchable: "" },
+            scopedSlots: _vm._u([
+              {
+                key: "searchable",
+                fn: function (props) {
+                  return [
+                    _c("b-input", {
+                      attrs: {
+                        placeholder: "Search...",
+                        icon: "magnify",
+                        size: "is-small",
+                      },
+                      model: {
+                        value: _vm.filter.un_status,
+                        callback: function ($$v) {
+                          _vm.$set(_vm.filter, "un_status", $$v)
+                        },
+                        expression: "filter.un_status",
+                      },
+                    }),
+                  ]
+                },
+              },
+              {
+                key: "default",
+                fn: function (props) {
+                  return [
+                    _vm._v(
+                      "\n                " +
+                        _vm._s(props.row.un_status) +
+                        "\n            "
+                    ),
+                  ]
+                },
+              },
+            ]),
+          }),
+          _vm._v(" "),
+          _c("b-table-column", {
+            attrs: { field: "provDesc", label: "Province" },
+            scopedSlots: _vm._u([
+              {
+                key: "searchable",
+                fn: function (props) {
+                  return [
+                    _c(
+                      "b-select",
                       {
-                        key: "searchable",
-                        fn: function (props) {
-                          return [
-                            _c("b-input", {
-                              attrs: {
-                                placeholder: "Search...",
-                                icon: "magnify",
-                                size: "is-small",
-                              },
-                              model: {
-                                value: _vm.filter.un_firmname,
-                                callback: function ($$v) {
-                                  _vm.$set(_vm.filter, "un_firmname", $$v)
-                                },
-                                expression: "filter.un_firmname",
-                              },
-                            }),
-                          ]
+                        attrs: {
+                          placeholder: "Select a Province",
+                          size: "is-small",
+                        },
+                        model: {
+                          value: _vm.filter.PK_province_ID,
+                          callback: function ($$v) {
+                            _vm.$set(_vm.filter, "PK_province_ID", $$v)
+                          },
+                          expression: "filter.PK_province_ID",
                         },
                       },
-                      {
-                        key: "default",
-                        fn: function (props) {
-                          return [
+                      _vm._l(_vm.province_list, function (option) {
+                        return _c(
+                          "option",
+                          {
+                            key: option.PK_province_ID,
+                            domProps: { value: option.PK_province_ID },
+                          },
+                          [
                             _vm._v(
                               "\n                        " +
-                                _vm._s(props.row.un_firmname) +
+                                _vm._s(option.provDesc) +
                                 "\n                    "
                             ),
                           ]
+                        )
+                      }),
+                      0
+                    ),
+                  ]
+                },
+              },
+              {
+                key: "default",
+                fn: function (props) {
+                  return [
+                    _vm._v(
+                      "\n                " +
+                        _vm._s(props.row.provDesc) +
+                        "\n            "
+                    ),
+                  ]
+                },
+              },
+            ]),
+          }),
+          _vm._v(" "),
+          _c("b-table-column", {
+            attrs: { field: "citymunDesc", label: "City/Municipality" },
+            scopedSlots: _vm._u([
+              {
+                key: "searchable",
+                fn: function (props) {
+                  return [
+                    _c(
+                      "b-select",
+                      {
+                        attrs: {
+                          placeholder: "Select a Municipality",
+                          expanded: "",
+                          "label-position": "inside",
+                          size: "is-small",
+                        },
+                        model: {
+                          value: _vm.filter.PK_citymun_ID,
+                          callback: function ($$v) {
+                            _vm.$set(_vm.filter, "PK_citymun_ID", $$v)
+                          },
+                          expression: "filter.PK_citymun_ID",
                         },
                       },
-                    ]),
-                  }),
-                  _vm._v(" "),
-                  _c("b-table-column", {
-                    attrs: {
-                      field: "un_crs_number",
-                      label: "CRS No.",
-                      searchable: "",
-                    },
-                    scopedSlots: _vm._u([
-                      {
-                        key: "searchable",
-                        fn: function (props) {
-                          return [
-                            _c("b-input", {
-                              attrs: {
-                                placeholder: "Search...",
-                                icon: "magnify",
-                                size: "is-small",
-                              },
-                              model: {
-                                value: _vm.filter.un_crs_number,
-                                callback: function ($$v) {
-                                  _vm.$set(_vm.filter, "un_crs_number", $$v)
-                                },
-                                expression: "filter.un_crs_number",
-                              },
-                            }),
-                          ]
-                        },
-                      },
-                      {
-                        key: "default",
-                        fn: function (props) {
-                          return [
+                      _vm._l(_vm.municipality_list_alter, function (option) {
+                        return _c(
+                          "option",
+                          {
+                            key: option.PK_citymun_ID,
+                            attrs: { size: "is-small" },
+                            domProps: { value: option.PK_citymun_ID },
+                          },
+                          [
                             _vm._v(
                               "\n                        " +
-                                _vm._s(props.row.un_crs_number) +
+                                _vm._s(option.citymunDesc) +
                                 "\n                    "
                             ),
                           ]
+                        )
+                      }),
+                      0
+                    ),
+                  ]
+                },
+              },
+              {
+                key: "default",
+                fn: function (props) {
+                  return [
+                    _vm._v(
+                      "\n                " +
+                        _vm._s(props.row.citymunDesc) +
+                        "\n            "
+                    ),
+                  ]
+                },
+              },
+            ]),
+          }),
+          _vm._v(" "),
+          _c("b-table-column", {
+            attrs: { field: "brgyDesc", label: "Barangay" },
+            scopedSlots: _vm._u([
+              {
+                key: "searchable",
+                fn: function (props) {
+                  return [
+                    _c(
+                      "b-select",
+                      {
+                        attrs: {
+                          placeholder: "Select a Barangay",
+                          expanded: "",
+                          "label-position": "inside",
+                          size: "is-small",
+                        },
+                        model: {
+                          value: _vm.filter.PK_brgy_ID,
+                          callback: function ($$v) {
+                            _vm.$set(_vm.filter, "PK_brgy_ID", $$v)
+                          },
+                          expression: "filter.PK_brgy_ID",
                         },
                       },
-                    ]),
-                  }),
-                  _vm._v(" "),
-                  _c("b-table-column", {
-                    attrs: {
-                      field: "un_proponent",
-                      label: "Proponent",
-                      searchable: "",
-                    },
-                    scopedSlots: _vm._u([
-                      {
-                        key: "searchable",
-                        fn: function (props) {
-                          return [
-                            _c("b-input", {
-                              attrs: {
-                                placeholder: "Search...",
-                                icon: "magnify",
-                                size: "is-small",
-                              },
-                              model: {
-                                value: _vm.filter.un_proponent,
-                                callback: function ($$v) {
-                                  _vm.$set(_vm.filter, "un_proponent", $$v)
-                                },
-                                expression: "filter.un_proponent",
-                              },
-                            }),
-                          ]
-                        },
-                      },
-                      {
-                        key: "default",
-                        fn: function (props) {
-                          return [
+                      _vm._l(_vm.barangay_list_alter, function (option) {
+                        return _c(
+                          "option",
+                          {
+                            key: option.PK_brgy_ID,
+                            domProps: { value: option.PK_brgy_ID },
+                          },
+                          [
                             _vm._v(
                               "\n                        " +
-                                _vm._s(props.row.un_proponent) +
+                                _vm._s(option.brgyDesc) +
                                 "\n                    "
                             ),
                           ]
-                        },
-                      },
-                    ]),
-                  }),
-                  _vm._v(" "),
-                  _c("b-table-column", {
-                    attrs: {
-                      field: "un_status",
-                      label: "Firm Status",
-                      searchable: "",
-                    },
-                    scopedSlots: _vm._u([
-                      {
-                        key: "searchable",
-                        fn: function (props) {
-                          return [
-                            _c("b-input", {
-                              attrs: {
-                                placeholder: "Search...",
-                                icon: "magnify",
-                                size: "is-small",
-                              },
-                              model: {
-                                value: _vm.filter.un_status,
-                                callback: function ($$v) {
-                                  _vm.$set(_vm.filter, "un_status", $$v)
-                                },
-                                expression: "filter.un_status",
-                              },
-                            }),
-                          ]
-                        },
-                      },
-                      {
-                        key: "default",
-                        fn: function (props) {
-                          return [
-                            _vm._v(
-                              "\n                        " +
-                                _vm._s(props.row.un_status) +
-                                "\n                    "
-                            ),
-                          ]
-                        },
-                      },
-                    ]),
-                  }),
-                  _vm._v(" "),
-                  _c("b-table-column", {
-                    attrs: { field: "provDesc", label: "Province" },
-                    scopedSlots: _vm._u([
-                      {
-                        key: "searchable",
-                        fn: function (props) {
-                          return [
+                        )
+                      }),
+                      0
+                    ),
+                  ]
+                },
+              },
+              {
+                key: "default",
+                fn: function (props) {
+                  return [
+                    _vm._v(
+                      "\n                " +
+                        _vm._s(props.row.brgyDesc) +
+                        "\n            "
+                    ),
+                  ]
+                },
+              },
+            ]),
+          }),
+          _vm._v(" "),
+          _c("b-table-column", {
+            attrs: { label: "Action" },
+            scopedSlots: _vm._u([
+              {
+                key: "default",
+                fn: function (props) {
+                  return [
+                    _c(
+                      "span",
+                      [
+                        _c(
+                          "Link",
+                          {
+                            attrs: {
+                              href: "/app/universe_form/" + props.row.id,
+                              as: "button",
+                            },
+                          },
+                          [
                             _c(
-                              "b-select",
-                              {
-                                attrs: {
-                                  placeholder: "Select a Province",
-                                  size: "is-small",
-                                },
-                                model: {
-                                  value: _vm.filter.PK_province_ID,
-                                  callback: function ($$v) {
-                                    _vm.$set(_vm.filter, "PK_province_ID", $$v)
-                                  },
-                                  expression: "filter.PK_province_ID",
-                                },
-                              },
-                              _vm._l(_vm.province_list, function (option) {
-                                return _c(
-                                  "option",
-                                  {
-                                    key: option.PK_province_ID,
-                                    domProps: { value: option.PK_province_ID },
-                                  },
-                                  [
-                                    _vm._v(
-                                      "\n                                " +
-                                        _vm._s(option.provDesc) +
-                                        "\n                            "
-                                    ),
-                                  ]
-                                )
-                              }),
-                              0
-                            ),
-                          ]
-                        },
-                      },
-                      {
-                        key: "default",
-                        fn: function (props) {
-                          return [
-                            _vm._v(
-                              "\n                        " +
-                                _vm._s(props.row.provDesc) +
-                                "\n                    "
-                            ),
-                          ]
-                        },
-                      },
-                    ]),
-                  }),
-                  _vm._v(" "),
-                  _c("b-table-column", {
-                    attrs: { field: "citymunDesc", label: "City/Municipality" },
-                    scopedSlots: _vm._u([
-                      {
-                        key: "searchable",
-                        fn: function (props) {
-                          return [
-                            _c(
-                              "b-select",
-                              {
-                                attrs: {
-                                  placeholder: "Select a Municipality",
-                                  expanded: "",
-                                  "label-position": "inside",
-                                  size: "is-small",
-                                },
-                                model: {
-                                  value: _vm.filter.PK_citymun_ID,
-                                  callback: function ($$v) {
-                                    _vm.$set(_vm.filter, "PK_citymun_ID", $$v)
-                                  },
-                                  expression: "filter.PK_citymun_ID",
-                                },
-                              },
-                              _vm._l(
-                                _vm.municipality_list_alter,
-                                function (option) {
-                                  return _c(
-                                    "option",
-                                    {
-                                      key: option.PK_citymun_ID,
-                                      attrs: { size: "is-small" },
-                                      domProps: { value: option.PK_citymun_ID },
-                                    },
-                                    [
-                                      _vm._v(
-                                        "\n                                " +
-                                          _vm._s(option.citymunDesc) +
-                                          "\n                            "
-                                      ),
-                                    ]
-                                  )
-                                }
-                              ),
-                              0
-                            ),
-                          ]
-                        },
-                      },
-                      {
-                        key: "default",
-                        fn: function (props) {
-                          return [
-                            _vm._v(
-                              "\n                        " +
-                                _vm._s(props.row.citymunDesc) +
-                                "\n                    "
-                            ),
-                          ]
-                        },
-                      },
-                    ]),
-                  }),
-                  _vm._v(" "),
-                  _c("b-table-column", {
-                    attrs: { field: "brgyDesc", label: "Barangay" },
-                    scopedSlots: _vm._u([
-                      {
-                        key: "searchable",
-                        fn: function (props) {
-                          return [
-                            _c(
-                              "b-select",
-                              {
-                                attrs: {
-                                  placeholder: "Select a Barangay",
-                                  expanded: "",
-                                  "label-position": "inside",
-                                  size: "is-small",
-                                },
-                                model: {
-                                  value: _vm.filter.PK_brgy_ID,
-                                  callback: function ($$v) {
-                                    _vm.$set(_vm.filter, "PK_brgy_ID", $$v)
-                                  },
-                                  expression: "filter.PK_brgy_ID",
-                                },
-                              },
-                              _vm._l(
-                                _vm.barangay_list_alter,
-                                function (option) {
-                                  return _c(
-                                    "option",
-                                    {
-                                      key: option.PK_brgy_ID,
-                                      domProps: { value: option.PK_brgy_ID },
-                                    },
-                                    [
-                                      _vm._v(
-                                        "\n                                " +
-                                          _vm._s(option.brgyDesc) +
-                                          "\n                            "
-                                      ),
-                                    ]
-                                  )
-                                }
-                              ),
-                              0
-                            ),
-                          ]
-                        },
-                      },
-                      {
-                        key: "default",
-                        fn: function (props) {
-                          return [
-                            _vm._v(
-                              "\n                        " +
-                                _vm._s(props.row.brgyDesc) +
-                                "\n                    "
-                            ),
-                          ]
-                        },
-                      },
-                    ]),
-                  }),
-                  _vm._v(" "),
-                  _c("b-table-column", {
-                    attrs: { label: "Action" },
-                    scopedSlots: _vm._u([
-                      {
-                        key: "default",
-                        fn: function (props) {
-                          return [
-                            _c(
-                              "span",
+                              "v-btn",
+                              { attrs: { link: "", small: "", icon: "" } },
                               [
                                 _c(
-                                  "Link",
+                                  "b-tooltip",
                                   {
                                     attrs: {
-                                      href:
-                                        "/app/universe_form/" + props.row.id,
-                                      as: "button",
+                                      type: "is-dark",
+                                      label: "Edit - " + props.row.un_firmname,
                                     },
                                   },
                                   [
-                                    _c(
-                                      "v-btn",
-                                      {
-                                        attrs: {
-                                          link: "",
-                                          small: "",
-                                          icon: "",
-                                        },
+                                    _c("box-icon", {
+                                      attrs: {
+                                        name: "edit",
+                                        color: "orange",
+                                        animation: "tada-hover",
                                       },
-                                      [
-                                        _c(
-                                          "b-tooltip",
-                                          {
-                                            attrs: {
-                                              type: "is-dark",
-                                              label:
-                                                "Edit - " +
-                                                props.row.un_firmname,
-                                            },
-                                          },
-                                          [
-                                            _c("box-icon", {
-                                              attrs: {
-                                                name: "edit",
-                                                color: "orange",
-                                                animation: "tada-hover",
-                                              },
-                                            }),
-                                          ],
-                                          1
-                                        ),
-                                      ],
-                                      1
-                                    ),
+                                    }),
                                   ],
                                   1
                                 ),
                               ],
                               1
                             ),
-                          ]
-                        },
-                      },
-                    ]),
-                  }),
-                ],
-                1
-              ),
-            ],
-            1
-          ),
+                          ],
+                          1
+                        ),
+                      ],
+                      1
+                    ),
+                  ]
+                },
+              },
+            ]),
+          }),
         ],
         1
       ),

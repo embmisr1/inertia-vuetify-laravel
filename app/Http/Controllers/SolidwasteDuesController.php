@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\Logger;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\DB;
@@ -52,6 +53,7 @@ class SolidwasteDuesController extends Controller
             $query->dues_contact_email = $request->dues_contact_email;
             $query->lce_FK = $request->lce_FK;
             $query->save();
+            Logger::dispatch("SolidwasteDues", $query->id, auth()->id(), "Created a DUES: model_id " . $query->id, "create");
             return redirect()->route("lce_show",["id"=>$request->lce_FK])->with("message", "Dues Created");
         } catch (\Throwable $th) {
             return $th->getMessage();
@@ -71,6 +73,7 @@ class SolidwasteDuesController extends Controller
             $query->dues_contact_email = $request->dues_contact_email;
             $query->lce_FK = $request->lce_FK;
             $query->save();
+            Logger::dispatch("SolidwasteDues", $query->id, auth()->id(), "Updated a DUES: model_id " . $query->id, "update");
             return redirect()->route("lce_show",["id"=>$request->lce_FK])->with("message", "Dues Updated");
         } catch (\Throwable $th) {
             return $th->getMessage();
@@ -80,6 +83,7 @@ class SolidwasteDuesController extends Controller
     {
         $dues_delete = SolidwasteDues::find($request->id);
         $dues_delete->delete();
+        Logger::dispatch("SolidwasteDues", $request->id, auth()->id(), "Deleted a DUES: model_id " . $request->id, "delete");
         return back()->with("message", "Dues Deleted");
     }
 }
