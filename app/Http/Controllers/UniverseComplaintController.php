@@ -18,33 +18,9 @@ class UniverseComplaintController extends Controller
             }
             $query->universe_FK = $universe_id;
             $query->save();
-        if (isset($request->complaint['comp_attached_file'])) {
-                foreach ($request->complaint['comp_attached_file'] as $pdf) {
 
-                    $query->addMedia($pdf)
-                        ->preservingOriginal()
-                        ->toMediaCollection("complaint");
-                }
-            }
-
-            $media_counter = Media::where('model_id',$query->id)->where('collection_name','complaint')->count();
-            $query_media_counter = Complaint::find($query->id);
-            $query_media_counter->comp_attached_file = $media_counter;
-            $query_media_counter->save();
-
-            if (isset($request->complaint['comp_action_file'])) {
-                foreach ($request->complaint['comp_action_file'] as $pdf) {
-
-                    $query->addMedia($pdf)
-                        ->preservingOriginal()
-                        ->toMediaCollection("complaintaction","complaintaction");
-                }
-            }
-
-            $media_counter = Media::where('model_id',$query->id)->where('collection_name','complaintaction')->count();
-            $query_media_counter = Complaint::find($query->id);
-            $query_media_counter->comp_action_file = $media_counter;
-            $query_media_counter->save();
+            $this->add_media_attached($request->complaint['comp_attached_file'], $query);
+            $this->add_media_action($request->complaint['comp_action_file'], $query);
 
             return $query->id;
         }
@@ -64,23 +40,9 @@ class UniverseComplaintController extends Controller
             $query->universe_FK = $universe_id;
             $query->save();
 
-            if (isset($request->complaint['comp_attached_file'])) {
-                foreach ($request->complaint['comp_attached_file'] as $pdf) {
-
-                    $query->addMedia($pdf)
-                        ->preservingOriginal()
-                        ->toMediaCollection("complaint");
-                }
-            }
-            if (isset($request->complaint['comp_action_file'])) {
-                // dd($request->complaint['comp_action_file']);
-                foreach ($request->complaint['comp_action_file'] as $pdf) {
-
-                    $query->addMedia($pdf)
-                        ->preservingOriginal()
-                        ->toMediaCollection("complaintaction","complaintaction");
-                }
-            }
+            $this->add_media_attached($request->complaint['comp_attached_file'], $query);
+            $this->add_media_action($request->complaint['comp_action_file'], $query);
+            
             return $request->complaint['comp_id'];
         }
     }
@@ -96,5 +58,33 @@ class UniverseComplaintController extends Controller
     {
         $columns_controller = new ColumnsController;
         return $columns_controller->complaint_columns();
+    }
+
+    public function add_media_attached($file, $query){
+        if(isset($file)){
+            foreach ($file as $pdf) {
+                $query->addMedia($pdf)
+                    ->preservingOriginal()
+                    ->toMediaCollection("complaint");
+            }
+        }
+        $media_counter = Media::where('model_id',$query->id)->count();
+        $query_media_counter = Complaint::find($query->id);
+        $query_media_counter->comp_attached_file = $media_counter;
+        $query_media_counter->save();
+    }
+
+    public function add_media_action($file, $query){
+        if(isset($file)){
+            foreach ($file as $pdf) {
+                $query->addMedia($pdf)
+                    ->preservingOriginal()
+                    ->toMediaCollection("complaintaction","complaintaction");
+            }
+        }
+        $media_counter = Media::where('model_id',$query->id)->count();
+        $query_media_counter = Complaint::find($query->id);
+        $query_media_counter->comp_action_file = $media_counter;
+        $query_media_counter->save();
     }
 }

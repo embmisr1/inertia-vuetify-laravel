@@ -21,26 +21,14 @@ class UniverseLegalController extends Controller
                 $query->nov_compliance_status = 'Not Complied';
             }
             $query->save();
-            if(isset($request->legal['nov_file'])){
-                foreach ($request->legal['nov_file'] as $pdf) {
 
-                    $query->addMedia($pdf)
-                        ->preservingOriginal()
-                        ->toMediaCollection("legal");
-                }
-            }
-
-            $media_counter = Media::where('model_id',$query->id)->count();
-            $query_media_counter = Legal::find($query->id);
-            $query_media_counter->nov_file = $media_counter;
-            $query_media_counter->save();
+            $this->add_media($request->legal['nov_file'], $query);
 
             return $query->id;
         }
     }
 
     public function legal_process_update($request, $universe_id){
-        if(!isset($request->legal['nov_law'])) return;
         if($request->legal['nov_law'] && $request->legal['nov_date']){
             if($request->legal['nov_id']){
                 $query = Legal::find($request->legal['nov_id']);
@@ -57,19 +45,7 @@ class UniverseLegalController extends Controller
             }
             $query->save();
 
-            if(isset($request->legal['nov_file'])){
-                foreach ($request->legal['nov_file'] as $pdf) {
-
-                    $query->addMedia($pdf)
-                        ->preservingOriginal()
-                        ->toMediaCollection("legal");
-                }
-            }
-
-            $media_counter = Media::where('model_id',$query->id)->count();
-            $query_media_counter = Legal::find($query->id);
-            $query_media_counter->nov_file = $media_counter;
-            $query_media_counter->save();
+            $this->add_media($request->legal['nov_file'], $query);
 
             return $request->legal['nov_id'];
         }
@@ -92,5 +68,19 @@ class UniverseLegalController extends Controller
             $industry_laws = $industry_laws.$industry_law.', ';
         }
         return rtrim($industry_laws,', ');
+    }
+
+    public function add_media($file, $query){
+        if(isset($file)){
+            foreach ($file as $pdf) {
+                $query->addMedia($pdf)
+                    ->preservingOriginal()
+                    ->toMediaCollection("legal");
+            }
+        }
+        $media_counter = Media::where('model_id',$query->id)->count();
+        $query_media_counter = Legal::find($query->id);
+        $query_media_counter->nov_file = $media_counter;
+        $query_media_counter->save();
     }
 }

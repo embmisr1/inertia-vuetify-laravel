@@ -19,20 +19,7 @@ class UniverseMonitoringController extends Controller
             $query->universe_FK = $universe_id;
             $query->save();
 
-
-            if(isset($request->monitoring['mon_file'])){
-                foreach ($request->monitoring['mon_file'] as $pdf) {
-
-                    $query->addMedia($pdf)
-                        ->preservingOriginal()
-                        ->toMediaCollection("monitoring");
-                }
-            }
-
-            $media_counter = Media::where('model_id',$query->id)->count();
-            $query_media_counter = Monitoring::find($query->id);
-            $query_media_counter->mon_file = $media_counter;
-            $query_media_counter->save();
+            $this->add_media($request->monitoring['mon_file'], $query);
 
             return $query->id;
         }
@@ -52,20 +39,8 @@ class UniverseMonitoringController extends Controller
             $query->mon_law = $this->industry_laws($request, 'monitoring', 'mon_law');
             $query->universe_FK = $universe_id;
             $query->save();
-
-            if(isset($request->monitoring['mon_file'])){
-                foreach ($request->monitoring['mon_file'] as $pdf) {
-
-                    $query->addMedia($pdf)
-                        ->preservingOriginal()
-                        ->toMediaCollection("monitoring");
-                }
-            }
-
-            $media_counter = Media::where('model_id',$query->id)->count();
-            $query_media_counter = Monitoring::find($query->id);
-            $query_media_counter->mon_file = $media_counter;
-            $query_media_counter->save();
+            
+            $this->add_media($request->monitoring['mon_file'], $query);
 
             return $request->monitoring['mon_id'];
         }
@@ -88,5 +63,19 @@ class UniverseMonitoringController extends Controller
             $industry_laws = $industry_laws.$industry_law.', ';
         }
         return rtrim($industry_laws,', ');
+    }
+
+    public function add_media($file, $query){
+        if(isset($file)){
+            foreach ($file as $pdf) {
+                $query->addMedia($pdf)
+                    ->preservingOriginal()
+                    ->toMediaCollection("monitoring");
+            }
+        }
+        $media_counter = Media::where('model_id',$query->id)->count();
+        $query_media_counter = Monitoring::find($query->id);
+        $query_media_counter->mon_file = $media_counter;
+        $query_media_counter->save();
     }
 }

@@ -113,9 +113,9 @@ class UniversePermitController extends Controller
         $query_null_priority;
     }
 
-    public function add_media($perm_file, $query){
-        if(isset($perm_file)){
-            foreach ($perm_file as $pdf) {
+    public function add_media($file, $query){
+        if(isset($file)){
+            foreach ($file as $pdf) {
                 $query->addMedia($pdf)
                     ->preservingOriginal()
                     ->toMediaCollection("permits");
