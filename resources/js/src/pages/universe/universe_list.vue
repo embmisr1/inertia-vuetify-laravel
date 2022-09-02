@@ -1,166 +1,162 @@
 <template>
     <DefaultLayout :access="access">
-        <div id="app" class="container">
-            <v-btn color="primary" dark class="mb-2" @click="dialog = !dialog">
-                <v-icon dark> mdi-filter </v-icon>
-                {{ !dialog ? "Open Filter" : "Close Filter" }}
-            </v-btn>
-            <section>
-                <b-table
-                    :data="query.data"
-                    :total="query.total"
-                    :per-page="query.per_page"
-                    :current-page.sync="query.current_page"
-                    pagination-position="bottom"
-                    default-sort-direction="asd"
-                    sort-icon="arrow-up"
-                    sort-icon-size="is-small"
-                    :loading="loading"
-                    paginated
-                    backend-pagination
-                    @page-change="onPageChange"
-                >
-                    <b-table-column
-                        field="un_firmname"
-                        label="Firmname"
-                        searchable
-                    >
-                        <template #searchable="props">
-                            <b-input
-                                v-model="filter.un_firmname"
-                                placeholder="Search..."
-                                icon="magnify"
-                                size="is-small"
-                            />
-                        </template>
-                        <template v-slot="props">
-                            {{ props.row.un_firmname }}
-                        </template>
-                    </b-table-column>
-                    <b-table-column
-                        field="un_crs_number"
-                        label="CRS No."
-                        searchable
-                    >
-                        <template #searchable="props">
-                            <b-input
-                                v-model="filter.un_crs_number"
-                                placeholder="Search..."
-                                icon="magnify"
-                                size="is-small"
-                            />
-                        </template>
-                        <template v-slot="props">
-                            {{ props.row.un_crs_number }}
-                        </template>
-                    </b-table-column>
-                    <b-table-column
-                        field="un_proponent"
-                        label="Proponent"
-                        searchable
-                    >
-                        <template #searchable="props">
-                            <b-input
-                                v-model="filter.un_proponent"
-                                placeholder="Search..."
-                                icon="magnify"
-                                size="is-small"
-                            />
-                        </template>
-                        <template v-slot="props">
-                            {{ props.row.un_proponent }}
-                        </template>
-                    </b-table-column>
+        <v-btn color="primary" dark class="mb-2" @click="dialog = !dialog">
+            <v-icon dark> mdi-filter </v-icon>
+            {{ !dialog ? "Open Filter" : "Close Filter" }}
+        </v-btn>
 
-                    <b-table-column
-                        field="un_status"
-                        label="Firm Status"
-                        searchable
+        <b-table
+            :data="query.data"
+            :total="query.total"
+            :per-page="query.per_page"
+            :current-page.sync="query.current_page"
+            pagination-position="both"
+            default-sort-direction="asd"
+            sort-icon="arrow-up"
+            sort-icon-size="is-small"
+            :loading="loading"
+            paginated
+            backend-pagination
+            @page-change="onPageChange"
+        >
+        <template #top-left>
+                <b-select placeholder="Rows Per Page" v-model="filter.per_page">
+                    <option value="10">10</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                    <option value="500">500</option>
+                </b-select>
+            </template>
+            <template #bottom-left>
+                <b-select placeholder="Rows Per Page" v-model="filter.per_page">
+                    <option value="10">10</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                    <option value="500">500</option>
+                </b-select>
+            </template>
+            <b-table-column field="un_firmname" label="Firmname" searchable>
+                <template #searchable="props">
+                    <b-input
+                        v-model="filter.un_firmname"
+                        placeholder="Search..."
+                        icon="magnify"
+                        size="is-small"
+                    />
+                </template>
+                <template v-slot="props">
+                    {{ props.row.un_firmname }}
+                </template>
+            </b-table-column>
+            <b-table-column field="un_crs_number" label="CRS No." searchable>
+                <template #searchable="props">
+                    <b-input
+                        v-model="filter.un_crs_number"
+                        placeholder="Search..."
+                        icon="magnify"
+                        size="is-small"
+                    />
+                </template>
+                <template v-slot="props">
+                    {{ props.row.un_crs_number }}
+                </template>
+            </b-table-column>
+            <b-table-column field="un_proponent" label="Proponent" searchable>
+                <template #searchable="props">
+                    <b-input
+                        v-model="filter.un_proponent"
+                        placeholder="Search..."
+                        icon="magnify"
+                        size="is-small"
+                    />
+                </template>
+                <template v-slot="props">
+                    {{ props.row.un_proponent }}
+                </template>
+            </b-table-column>
+
+            <b-table-column field="un_status" label="Firm Status" searchable>
+                <template #searchable="props">
+                    <b-input
+                        v-model="filter.un_status"
+                        placeholder="Search..."
+                        icon="magnify"
+                        size="is-small"
+                    />
+                </template>
+                <template v-slot="props">
+                    {{ props.row.un_status }}
+                </template>
+            </b-table-column>
+
+            <b-table-column field="provDesc" label="Province">
+                <template #searchable="props">
+                    <b-select
+                        v-model="filter.PK_province_ID"
+                        placeholder="Select a Province"
+                        size="is-small"
                     >
-                        <template #searchable="props">
-                            <b-input
-                                v-model="filter.un_status"
-                                placeholder="Search..."
-                                icon="magnify"
-                                size="is-small"
-                            />
-                        </template>
-                        <template v-slot="props">
-                            {{ props.row.un_status }}
-                        </template>
-                    </b-table-column>
-
-                    <b-table-column field="provDesc" label="Province">
-                        <template #searchable="props">
-                            <b-select
-                                v-model="filter.PK_province_ID"
-                                placeholder="Select a Province"
-                                size="is-small"
-                            >
-                                <option
-                                    v-for="option in province_list"
-                                    :value="option.PK_province_ID"
-                                    :key="option.PK_province_ID"
-                                >
-                                    {{ option.provDesc }}
-                                </option>
-                            </b-select>
-                        </template>
-                        <template v-slot="props">
-                            {{ props.row.provDesc }}
-                        </template>
-                    </b-table-column>
-                    <b-table-column
-                        field="citymunDesc"
-                        label="City/Municipality"
+                        <option
+                            v-for="option in province_list"
+                            :value="option.PK_province_ID"
+                            :key="option.PK_province_ID"
+                        >
+                            {{ option.provDesc }}
+                        </option>
+                    </b-select>
+                </template>
+                <template v-slot="props">
+                    {{ props.row.provDesc }}
+                </template>
+            </b-table-column>
+            <b-table-column field="citymunDesc" label="City/Municipality">
+                <template #searchable="props">
+                    <b-select
+                        v-model="filter.PK_citymun_ID"
+                        placeholder="Select a Municipality"
+                        expanded
+                        label-position="inside"
+                        size="is-small"
                     >
-                        <template #searchable="props">
-                            <b-select
-                                v-model="filter.PK_citymun_ID"
-                                placeholder="Select a Municipality"
-                                expanded
-                                label-position="inside"
-                                size="is-small"
-                            >
-                                <option
-                                    v-for="option in municipality_list_alter"
-                                    :value="option.PK_citymun_ID"
-                                    :key="option.PK_citymun_ID"
-                                    size="is-small"
-                                >
-                                    {{ option.citymunDesc }}
-                                </option>
-                            </b-select>
-                        </template>
-                        <template v-slot="props">
-                            {{ props.row.citymunDesc }}
-                        </template>
-                    </b-table-column>
+                        <option
+                            v-for="option in municipality_list_alter"
+                            :value="option.PK_citymun_ID"
+                            :key="option.PK_citymun_ID"
+                            size="is-small"
+                        >
+                            {{ option.citymunDesc }}
+                        </option>
+                    </b-select>
+                </template>
+                <template v-slot="props">
+                    {{ props.row.citymunDesc }}
+                </template>
+            </b-table-column>
 
-                    <b-table-column field="brgyDesc" label="Barangay">
-                        <template #searchable="props">
-                            <b-select
-                                v-model="filter.PK_brgy_ID"
-                                placeholder="Select a Barangay"
-                                expanded
-                                label-position="inside"
-                                size="is-small"
-                            >
-                                <option
-                                    v-for="option in barangay_list_alter"
-                                    :value="option.PK_brgy_ID"
-                                    :key="option.PK_brgy_ID"
-                                >
-                                    {{ option.brgyDesc }}
-                                </option>
-                            </b-select>
-                        </template>
-                        <template v-slot="props">
-                            {{ props.row.brgyDesc }}
-                        </template>
-                    </b-table-column>
+            <b-table-column field="brgyDesc" label="Barangay">
+                <template #searchable="props">
+                    <b-select
+                        v-model="filter.PK_brgy_ID"
+                        placeholder="Select a Barangay"
+                        expanded
+                        label-position="inside"
+                        size="is-small"
+                    >
+                        <option
+                            v-for="option in barangay_list_alter"
+                            :value="option.PK_brgy_ID"
+                            :key="option.PK_brgy_ID"
+                        >
+                            {{ option.brgyDesc }}
+                        </option>
+                    </b-select>
+                </template>
+                <template v-slot="props">
+                    {{ props.row.brgyDesc }}
+                </template>
+            </b-table-column>
 
-                    <!-- <b-table-column
+            <!-- <b-table-column
                         field="provDesc"
                         label="Barangay"
                         sortable
@@ -169,31 +165,29 @@
                         {{ props.row.brgyDesc }}
                     </b-table-column> -->
 
-                    <b-table-column label="Action" v-slot="props">
-                        <span>
-                            <Link
-                                :href="`/app/universe_form/${props.row.id}`"
-                                as="button"
+            <b-table-column label="Action" v-slot="props">
+                <span>
+                    <Link
+                        :href="`/app/universe_form/${props.row.id}`"
+                        as="button"
+                    >
+                        <v-btn link small icon>
+                            <b-tooltip
+                                type="is-dark"
+                                :label="`Edit - ${props.row.un_firmname}`"
                             >
-                                <v-btn link small icon>
-                                    <b-tooltip
-                                        type="is-dark"
-                                        :label="`Edit - ${props.row.un_firmname}`"
-                                    >
-                                        <box-icon
-                                            name="edit"
-                                            color="orange"
-                                            animation="tada-hover"
-                                        >
-                                        </box-icon>
-                                    </b-tooltip>
-                                </v-btn>
-                            </Link>
-                        </span>
-                    </b-table-column>
-                </b-table>
-            </section>
-        </div>
+                                <box-icon
+                                    name="edit"
+                                    color="orange"
+                                    animation="tada-hover"
+                                >
+                                </box-icon>
+                            </b-tooltip>
+                        </v-btn>
+                    </Link>
+                </span>
+            </b-table-column>
+        </b-table>
         <v-dialog v-model="dialog" max-width="500" persistent>
             <v-card>
                 <v-card-title class="text-h5">
@@ -433,22 +427,22 @@ export default {
         async exportUniverse() {
             // await axios.get("/app/universe/export", { ...this.filterObject });
             const { data } = await axios.get("/app/universe/export", {
-                    params: { ...this.filtersObject },
-                    responseType: "blob",
-                });
-                const blob = new Blob([data], {
-                    // type: "text/csv",
-                    typ: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-                });
-                let fileURL = window.URL.createObjectURL(blob);
-                let fileLink = document.createElement("a");
+                params: { ...this.filtersObject },
+                responseType: "blob",
+            });
+            const blob = new Blob([data], {
+                // type: "text/csv",
+                typ: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+            });
+            let fileURL = window.URL.createObjectURL(blob);
+            let fileLink = document.createElement("a");
 
-                fileLink.href = fileURL;
-                fileLink.setAttribute("download", "items.xlsx");
-                // fileLink.setAttribute("download", "items.csv");
-                document.body.appendChild(fileLink);
+            fileLink.href = fileURL;
+            fileLink.setAttribute("download", "items.xlsx");
+            // fileLink.setAttribute("download", "items.csv");
+            document.body.appendChild(fileLink);
 
-                fileLink.click();
+            fileLink.click();
             // this.get(this.filterObject);
         },
         async provinceDropdown(val) {

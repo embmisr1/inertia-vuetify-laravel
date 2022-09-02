@@ -169,7 +169,7 @@ class UniverseController extends Controller
             ->when(request('un_status'), function ($query) {
                 $query->where('a.un_status', 'like', '%' . request("un_status") . '%');
             })
-            ->paginate(10);
+            ->paginate(request("per_page",10));
         return Inertia::render("pages/universe/universe_list", [
             "filter" => [
                 'PK_province_ID' => request('PK_province_ID'),
@@ -187,6 +187,7 @@ class UniverseController extends Controller
                 "un_crs_number" => request("un_crs_number"),
                 "un_proponent" => request("un_proponent"),
                 "un_status" => request("un_status"),
+                "per_page" => request("per_page",10),
             ],
 
             'query' => $query,
