@@ -321,5 +321,12 @@ class ImportDataController extends Controller
         //     $query_insert->password = $qry->password;
         //     $query_insert->save();
         // }
+        // =============================================== IMPORT ECC NUMBER TO UNIVERSE ===============================================
+        // $query = DB::table('tbl_permit')->select('*')->where('perm_law','PD 1586')->where('is_priority',1)->get();
+        // foreach($query as $qry){
+        //     $query_update = Universe::find($qry->universe_FK);
+        //     $query_update->un_ecc_number = $qry->id;
+        //     $query_update->save();
+        // }
     }
 }
