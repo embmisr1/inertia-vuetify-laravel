@@ -12,7 +12,7 @@ class UniverseLegalController extends Controller
 {
     public function legal_process_create($request, $universe_id)
     {
-        $valid_array = $request->monitoring['nov_law'] ?? false;
+        $valid_array = $request->legal['nov_law'] ?? false;
         if ($valid_array) {
             if ($request->legal['nov_law'] && $request->legal['nov_date']) {
                 $query = new Legal();
@@ -26,7 +26,11 @@ class UniverseLegalController extends Controller
                 }
                 $query->save();
 
-                $this->add_media($request->legal['nov_file'], $query);
+                $file = $request->legal['nov_file'] ?? false;
+
+                if ($file) {
+                    $this->add_media($request->legal['nov_file'], $query);
+                }
                 Logger::dispatch("Legal", $query->id, auth()->id(), "Created a monitoring: model_id " . $query->id, "create");
 
                 return $query->id;
@@ -36,7 +40,7 @@ class UniverseLegalController extends Controller
 
     public function legal_process_update($request, $universe_id)
     {
-        $valid_array = $request->monitoring['nov_law'] ?? false;
+        $valid_array = $request->legal['nov_law'] ?? false;
         if ($valid_array) {
 
             if ($request->legal['nov_law'] && $request->legal['nov_date']) {
@@ -55,7 +59,11 @@ class UniverseLegalController extends Controller
                 }
                 $query->save();
 
-                $this->add_media($request->legal['nov_file'], $query);
+                $file = $request->legal['nov_file'] ?? false;
+
+                if ($file) {
+                    $this->add_media($request->legal['nov_file'], $query);
+                }
                 Logger::dispatch("Legal", $query->id, auth()->id(), "Updated a monitoring: model_id " . $query->id, "update");
 
                 return $request->legal['nov_id'];

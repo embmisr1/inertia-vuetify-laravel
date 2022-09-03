@@ -23,7 +23,11 @@ class UniverseMonitoringController extends Controller
                 $query->universe_FK = $universe_id;
                 $query->save();
 
-                $this->add_media($request->monitoring['mon_file'], $query);
+                $file = $request->monitoring['mon_file'] ?? false;
+
+                if ($file) {
+                    $this->add_media($request->monitoring['mon_file'], $query);
+                }
                 Logger::dispatch("Monitoring", $query->id, auth()->id(), "Created a monitoring: model_id " . $query->id, "create");
 
                 return $query->id;
@@ -49,7 +53,11 @@ class UniverseMonitoringController extends Controller
                 $query->universe_FK = $universe_id;
                 $query->save();
 
-                $this->add_media($request->monitoring['mon_file'], $query);
+                $file = $request->monitoring['mon_file'] ?? false;
+
+                if ($file) {
+                    $this->add_media($request->monitoring['mon_file'], $query);
+                }
                 Logger::dispatch("Monitoring", $query->id, auth()->id(), "Updated a monitoring: model_id " . $query->id, "update");
 
                 return $request->monitoring['mon_id'];
