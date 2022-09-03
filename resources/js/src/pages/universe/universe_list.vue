@@ -5,6 +5,7 @@
             {{ !dialog ? "Open Filter" : "Close Filter" }}
         </v-btn>
 
+{{query.data[0]}}
         <b-table
             :data="query.data"
             :total="query.total"
@@ -65,17 +66,17 @@
                     {{ props.row.un_firmname }}
                 </template>
             </b-table-column>
-            <b-table-column field="un_crs_number" label="CRS No." searchable>
+            <b-table-column field="ecc_number" label="Ecc No." searchable>
                 <template #searchable="props">
                     <b-input
-                        v-model="filter.un_crs_number"
+                        v-model="filter.ecc_number"
                         placeholder="Search..."
                         icon="magnify"
                         size="is-small"
                     />
                 </template>
                 <template v-slot="props">
-                    {{ props.row.un_crs_number }}
+                    {{ props.row.ecc_number }}
                 </template>
             </b-table-column>
             <b-table-column field="un_proponent" label="Proponent" searchable>
@@ -433,7 +434,7 @@ export default {
                 search6969: null,
                 search9003: null,
                 un_firmname: null,
-                un_crs_number: null,
+                un_ecc_number: null,
                 un_proponent: null,
                 un_status: null,
             };

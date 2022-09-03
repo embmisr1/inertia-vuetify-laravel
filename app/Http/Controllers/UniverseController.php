@@ -41,10 +41,12 @@ class UniverseController extends Controller
             'b.provDesc',
             'c.citymunDesc',
             'd.brgyDesc',
+            'z.perm_number as ecc_number',
         )
             ->leftjoin('ref_province as b', 'a.un_province', '=', 'b.PK_province_ID')
             ->leftjoin('ref_citymun as c', 'a.un_municipality', '=', 'c.PK_citymun_ID')
             ->leftjoin('ref_brgy as d', 'a.un_brgy', '=', 'd.PK_brgy_ID')
+            ->leftjoin('tbl_permit as z', 'a.un_ecc_number', '=', 'z.id')
             ->when(request('PK_province_ID'), function ($query) {
                 $query->where('a.un_province', request('PK_province_ID'));
             })
@@ -170,6 +172,9 @@ class UniverseController extends Controller
             ->when(request('un_status'), function ($query) {
                 $query->where('a.un_status', 'like', '%' . request("un_status") . '%');
             })
+            ->when(request('ecc_number'), function ($query) {
+                $query->where('z.perm_number', 'like', '%' . request("ecc_number") . '%');
+            })
             ->paginate(request("per_page", 10));
         return Inertia::render("pages/universe/universe_list", [
             "filter" => [
@@ -186,6 +191,7 @@ class UniverseController extends Controller
                 "search9003" => request("search9003"),
                 "un_firmname" => request("un_firmname"),
                 "un_crs_number" => request("un_crs_number"),
+                "ecc_number" => request("ecc_number"),
                 "un_proponent" => request("un_proponent"),
                 "un_status" => request("un_status"),
                 "per_page" => request("per_page", 10),
