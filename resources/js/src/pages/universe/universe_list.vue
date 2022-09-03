@@ -5,7 +5,6 @@
             {{ !dialog ? "Open Filter" : "Close Filter" }}
         </v-btn>
 
-{{query.data[0]}}
         <b-table
             :data="query.data"
             :total="query.total"
