@@ -295,7 +295,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     form_legal_info: Object,
@@ -1790,11 +1789,6 @@ var render = function () {
           "v-card",
           { staticClass: "mt-5", attrs: { elevation: "2" } },
           [
-            _vm._v(
-              "\n            " +
-                _vm._s(_vm.legal_table[0].nov_file) +
-                "\n            "
-            ),
             _c("v-data-table", {
               staticClass: "elevation-1",
               attrs: {
