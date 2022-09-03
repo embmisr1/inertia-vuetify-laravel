@@ -404,6 +404,7 @@ class UniverseController extends Controller
             }
             return $universe_id;
         } catch (\Throwable $th) {
+            // dd($th->getMessage());
             return back()->withErrors(["error_message" => $th->getMessage()]);
         }
     }

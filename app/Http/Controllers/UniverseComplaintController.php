@@ -20,8 +20,19 @@ class UniverseComplaintController extends Controller
             $query->universe_FK = $universe_id;
             $query->save();
 
-            $this->add_media_attached($request->complaint['comp_attached_file'], $query);
-            $this->add_media_action($request->complaint['comp_action_file'], $query);
+            $file_comp_attached_file = $request->complaint['comp_attached_file'] ?? false;
+
+            if ($file_comp_attached_file) {
+                $this->add_media_attached($request->complaint['comp_attached_file'], $query);
+            }
+
+            $file_comp_action_file = $request->complaint['comp_action_file'] ?? false;
+
+            if ($file_comp_action_file) {
+                $this->add_media_action($request->complaint['comp_action_file'], $query);
+            }
+
+
             Logger::dispatch("Complaint", $query->id, auth()->id(), "Created a NOV: model_id " . $query->id, "create");
 
             return $query->id;
@@ -42,8 +53,18 @@ class UniverseComplaintController extends Controller
             $query->universe_FK = $universe_id;
             $query->save();
 
-            $this->add_media_attached($request->complaint['comp_attached_file'], $query);
-            $this->add_media_action($request->complaint['comp_action_file'], $query);
+            $file_comp_attached_file = $request->complaint['comp_attached_file'] ?? false;
+
+            if ($file_comp_attached_file) {
+                $this->add_media_attached($request->complaint['comp_attached_file'], $query);
+            }
+
+            $file_comp_action_file = $request->complaint['comp_action_file'] ?? false;
+
+            if ($file_comp_action_file) {
+                $this->add_media_action($request->complaint['comp_action_file'], $query);
+            }
+
             Logger::dispatch("Complaint", $query->id, auth()->id(), "Updated a NOV: model_id " . $query->id, "update");
 
             return $request->complaint['comp_id'];
@@ -64,29 +85,31 @@ class UniverseComplaintController extends Controller
         return $columns_controller->complaint_columns();
     }
 
-    public function add_media_attached($file, $query){
-        if(isset($file)){
+    public function add_media_attached($file, $query)
+    {
+        if (isset($file)) {
             foreach ($file as $pdf) {
                 $query->addMedia($pdf)
                     ->preservingOriginal()
                     ->toMediaCollection("complaint");
             }
         }
-        $media_counter = Media::where('model_id',$query->id)->count();
+        $media_counter = Media::where('model_id', $query->id)->count();
         $query_media_counter = Complaint::find($query->id);
         $query_media_counter->comp_attached_file = $media_counter;
         $query_media_counter->save();
     }
 
-    public function add_media_action($file, $query){
-        if(isset($file)){
+    public function add_media_action($file, $query)
+    {
+        if (isset($file)) {
             foreach ($file as $pdf) {
                 $query->addMedia($pdf)
                     ->preservingOriginal()
-                    ->toMediaCollection("complaintaction","complaintaction");
+                    ->toMediaCollection("complaintaction", "complaintaction");
             }
         }
-        $media_counter = Media::where('model_id',$query->id)->count();
+        $media_counter = Media::where('model_id', $query->id)->count();
         $query_media_counter = Complaint::find($query->id);
         $query_media_counter->comp_action_file = $media_counter;
         $query_media_counter->save();
