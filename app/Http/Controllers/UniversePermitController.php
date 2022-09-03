@@ -13,76 +13,86 @@ class UniversePermitController extends Controller
 {
     public function permit_process_create($request, $universe_id)
     {
-        if ($request->permit['perm_law'] && $request->permit['perm_number']) {
-            $query = new Permit();
-            foreach ($this->permit_columns() as $cols) {
-                $query->$cols = $request->permit[$cols];
+        try {
+            if ($request->permit['perm_law'] && $request->permit['perm_number']) {
+                $query = new Permit();
+                foreach ($this->permit_columns() as $cols) {
+                    $query->$cols = $request->permit[$cols];
+                }
+                $query->perm_law = $request->permit['perm_law'];
+                $query->universe_FK = $universe_id;
+                $query->is_priority = 1;
+                $query->save();
+
+                $this->add_ecc_to_universe($universe_id);
+                $this->add_media($request->permit['perm_file'], $query);
+                Logger::dispatch("Permit", $query->id, auth()->id(), "Updated a Permit: model_id " . $query->id, "create");
+
+                return $query->id;
             }
-            $query->perm_law = $request->permit['perm_law'];
-            $query->universe_FK = $universe_id;
-            $query->is_priority = 1;
-            $query->save();
-
-            $this->add_ecc_to_universe($universe_id);
-            $this->add_media($request->permit['perm_file'], $query);
-            Logger::dispatch("Permit", $query->id, auth()->id(), "Updated a Permit: model_id " . $query->id, "create");
-
-            return $query->id;
+        } catch (\Throwable $th) {
+            return $th->getMessage();
         }
     }
 
     public function permit_process_update($request, $universe_id)
     {
-        $user_access = $request->user_access->toArray();
-        if( in_array('CPD EDIT', $user_access) ){
-            if ($request->permit['perm_law'] && $request->permit['perm_number']) {
-                $this->null_priority($request->permit['perm_law'], $universe_id);
+        try {
+            $user_access = $request->user_access->toArray();
+            if (in_array('CPD EDIT', $user_access)) {
+                if ($request->permit['perm_law'] && $request->permit['perm_number']) {
+                    $this->null_priority($request->permit['perm_law'], $universe_id);
+                    if ($request->permit['perm_id']) {
+                        $query = Permit::find($request->permit['perm_id']);
+                    } else {
+                        $query = new Permit();
+                    }
+                    foreach ($this->permit_columns() as $cols) {
+                        $query->$cols = $request->permit[$cols];
+                    }
+                    $query->perm_law = $request->permit['perm_law'];
+                    $query->universe_FK = $universe_id;
+                    $query->is_priority = 1;
+                    $query->save();
 
-                if ($request->permit['perm_id']) {
-                    $query = Permit::find($request->permit['perm_id']);
-                } else {
-                    $query = new Permit();
+                    $this->add_ecc_to_universe($universe_id);
+                    $this->add_media($request->permit['perm_file'], $query);
+
+                    Logger::dispatch("Permit", $query->id, auth()->id(), "Updated a Permit: model_id " . $query->id, "update");
+
+                    return $request->permit['perm_id'];
                 }
-                foreach ($this->permit_columns() as $cols) {
-                    $query->$cols = $request->permit[$cols];
+            } elseif (in_array('EMED EDIT', $user_access) && $request->permit['perm_law'] == 'RA 6969') {
+                if ($request->permit['perm_law'] && $request->permit['perm_number']) {
+                    dd("cpd x emed");
+                    $this->null_priority($request->permit['perm_law'], $universe_id);
+
+                    if ($request->permit['perm_id']) {
+                        $query = Permit::find($request->permit['perm_id']);
+                    } else {
+                        $query = new Permit();
+                    }
+                    foreach ($this->permit_columns() as $cols) {
+                        $query->$cols = $request->permit[$cols];
+                    }
+                    $query->perm_law = $request->permit['perm_law'];
+                    $query->universe_FK = $universe_id;
+                    $query->is_priority = 1;
+                    $query->save();
+
+                    $this->add_ecc_to_universe($universe_id);
+                    $this->add_media($request->permit['perm_file'], $query);
+
+                    Logger::dispatch("Permit", $query->id, auth()->id(), "Updated a Permit: model_id " . $query->id, "update");
+
+                    return $request->permit['perm_id'];
                 }
-                $query->perm_law = $request->permit['perm_law'];
-                $query->universe_FK = $universe_id;
-                $query->is_priority = 1;
-                $query->save();
-
-                $this->add_ecc_to_universe($universe_id);
-                $this->add_media($request->permit['perm_file'], $query);
-    
-                Logger::dispatch("Permit", $query->id, auth()->id(), "Updated a Permit: model_id " . $query->id, "update");
-
-                return $request->permit['perm_id'];
+            } else {
             }
-        }elseif( in_array('EMED EDIT', $user_access) && $request->permit['perm_law'] == 'RA 6969'){
-            if ($request->permit['perm_law'] && $request->permit['perm_number']) {
-                $this->null_priority($request->permit['perm_law'], $universe_id);
-
-                if ($request->permit['perm_id']) {
-                    $query = Permit::find($request->permit['perm_id']);
-                } else {
-                    $query = new Permit();
-                }
-                foreach ($this->permit_columns() as $cols) {
-                    $query->$cols = $request->permit[$cols];
-                }
-                $query->perm_law = $request->permit['perm_law'];
-                $query->universe_FK = $universe_id;
-                $query->is_priority = 1;
-                $query->save();
-
-                $this->add_ecc_to_universe($universe_id);
-                $this->add_media($request->permit['perm_file'], $query);
-    
-                Logger::dispatch("Permit", $query->id, auth()->id(), "Updated a Permit: model_id " . $query->id, "update");
-
-                return $request->permit['perm_id'];
-            }
-        }else{}
+        } catch (\Throwable $th) {
+            dd($th->getMessage());
+            return $th->getMessage();
+        }
     }
 
     public function delete_permit($request)
@@ -92,8 +102,8 @@ class UniversePermitController extends Controller
         $perm_law = $query->perm_law;
         $query->delete();
 
-        $query_select_null_priority = DB::table('tbl_permit')->where('universe_FK',$universe_id)->where('perm_law', $perm_law)->orderby('updated_at','desc')->limit(1)->get();
-        if($query_select_null_priority->count() > 0){
+        $query_select_null_priority = DB::table('tbl_permit')->where('universe_FK', $universe_id)->where('perm_law', $perm_law)->orderby('updated_at', 'desc')->limit(1)->get();
+        if ($query_select_null_priority->count() > 0) {
             $query_set_priority = Permit::find($query_select_null_priority[0]->id);
             $query_set_priority->is_priority = 1;
             $query_set_priority->save();
@@ -111,33 +121,36 @@ class UniversePermitController extends Controller
         return $columns_controller->permit_columns();
     }
 
-    public function null_priority($perm_law, $universe_id){
+    public function null_priority($perm_law, $universe_id)
+    {
         $query_null_priority = DB::table('tbl_permit')
-        ->where('universe_FK', $universe_id)
-        ->where('perm_law', $perm_law)
-        ->update([
-            'is_priority' => null,
-        ]);
-        $query_null_priority;
+            ->where('universe_FK', $universe_id)
+            ->where('perm_law', $perm_law)
+            ->update([
+                'is_priority' => null,
+            ]);
+        return $query_null_priority;
     }
 
-    public function add_media($file, $query){
-        if(isset($file)){
+    public function add_media($file, $query)
+    {
+        if (isset($file)) {
             foreach ($file as $pdf) {
                 $query->addMedia($pdf)
                     ->preservingOriginal()
                     ->toMediaCollection("permits");
             }
         }
-        $media_counter = Media::where('model_id',$query->id)->count();
+        $media_counter = Media::where('model_id', $query->id)->count();
         $query_media_counter = Permit::find($query->id);
         $query_media_counter->perm_file = $media_counter;
-        $query_media_counter->save();
+        return $query_media_counter->save();
     }
 
-    public function add_ecc_to_universe($universe_id){
-        $query = DB::table('tbl_permit')->select('*')->where('perm_law','PD 1586')->where('is_priority',1)->where('universe_FK',$universe_id)->limit(1)->get();
-        if($query->count() > 0){
+    public function add_ecc_to_universe($universe_id)
+    {
+        $query = DB::table('tbl_permit')->select('*')->where('perm_law', 'PD 1586')->where('is_priority', 1)->where('universe_FK', $universe_id)->limit(1)->get();
+        if ($query->count() > 0) {
             $query_update = Universe::find($universe_id);
             $query_update->un_ecc_number = $query[0]->id;
             $query_update->save();
