@@ -45,8 +45,8 @@ class UniversePermitController extends Controller
     public function permit_process_update($request, $universe_id)
     {
         try {
-            $valid_array = $request->permit['perm_law'] ?? false;
-            if ($valid_array) {
+            // $valid_array = $request->permit['perm_law'] ?? false;
+            // if ($valid_array) {
                 $user_access = $request->user_access->toArray();
                 if (in_array('CPD EDIT', $user_access)) {
                     if ($request->permit['perm_law'] && $request->permit['perm_number']) {
@@ -105,7 +105,7 @@ class UniversePermitController extends Controller
                     }
                 } else {
                 }
-            }
+            // }
         } catch (\Throwable $th) {
             dd($th->getMessage());
             return $th->getMessage();

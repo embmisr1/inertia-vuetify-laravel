@@ -12,9 +12,9 @@ class UniverseLegalController extends Controller
 {
     public function legal_process_create($request, $universe_id)
     {
-        $valid_array = $request->legal['nov_law'] ?? false;
-        if ($valid_array) {
-            if ($request->legal['nov_law'] && $request->legal['nov_date']) {
+        // $valid_array = $request->legal['nov_law'] ?? false;
+        // if ($valid_array) {
+            if (isset($request->legal['nov_law']) && $request->legal['nov_date']) {
                 $query = new Legal();
                 foreach ($this->legal_columns() as $cols) {
                     $query->$cols = $request->legal[$cols];
@@ -35,15 +35,15 @@ class UniverseLegalController extends Controller
 
                 return $query->id;
             }
-        }
+        // }
     }
 
     public function legal_process_update($request, $universe_id)
     {
-        $valid_array = $request->legal['nov_law'] ?? false;
-        if ($valid_array) {
+        // $valid_array = $request->legal['nov_law'] ?? false;
+        // if ($valid_array) {
 
-            if ($request->legal['nov_law'] && $request->legal['nov_date']) {
+            if (isset($request->legal['nov_law']) && $request->legal['nov_date']) {
                 if ($request->legal['nov_id']) {
                     $query = Legal::find($request->legal['nov_id']);
                 } else {
@@ -68,7 +68,7 @@ class UniverseLegalController extends Controller
 
                 return $request->legal['nov_id'];
             }
-        }
+        // }
     }
 
     public function delete_legal($request)
