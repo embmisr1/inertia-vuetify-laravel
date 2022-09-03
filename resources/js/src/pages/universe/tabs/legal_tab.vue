@@ -221,6 +221,7 @@
         </div>
         <template>
             <v-card elevation="2" class="mt-5">
+                {{legal_table[0].nov_file}}
                 <v-data-table
                     dense
                     :headers="headers"
@@ -314,7 +315,7 @@ export default {
                 text: "Attachments",
                 align: "start",
                 sortable: false,
-                value: "nov_desc",
+                value: "nov_file",
             },
             {
                 width: "100px",
