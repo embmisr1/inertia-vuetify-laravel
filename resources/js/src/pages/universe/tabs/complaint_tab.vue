@@ -230,8 +230,8 @@ export default {
             this.form_complaint_info.comp_name = item.comp_name;
             this.form_complaint_info.comp_nature = item.comp_nature;
             this.form_complaint_info.comp_attached_file =
-                item.comp_attached_file;
-            this.form_complaint_info.comp_action_file = item.comp_action_file;
+                [];
+            this.form_complaint_info.comp_action_file = [];
             this.form_complaint_info.comp_remarks = item.comp_remarks;
             this.form_complaint_info.addFileForm = true;
         },

@@ -240,7 +240,7 @@ export default {
                 comp_id: "",
                 comp_name: "",
                 comp_nature: "",
-                comp_attached_file: "",
+                comp_attached_file: {},
                 comp_action_file: [],
                 comp_remarks: "",
                 addFileForm:false
