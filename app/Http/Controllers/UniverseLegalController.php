@@ -103,7 +103,7 @@ class UniverseLegalController extends Controller
                     ->toMediaCollection("legal");
             }
         }
-        $media_counter = Media::where('model_id', $query->id)->count();
+        $media_counter = Media::where('model_id', $query->id)->where('collection_name', 'legal')->count();
         $query_media_counter = Legal::find($query->id);
         $query_media_counter->nov_file = $media_counter;
         $query_media_counter->save();

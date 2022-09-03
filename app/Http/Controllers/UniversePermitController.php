@@ -158,7 +158,7 @@ class UniversePermitController extends Controller
                     ->toMediaCollection("permits");
             }
         }
-        $media_counter = Media::where('model_id', $query->id)->count();
+        $media_counter = Media::where('model_id', $query->id)->where('collection_name', 'permits')->count();
         $query_media_counter = Permit::find($query->id);
         $query_media_counter->perm_file = $media_counter;
         return $query_media_counter->save();
