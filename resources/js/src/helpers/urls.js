@@ -1,4 +1,4 @@
-const root = "http://127.0.0.1:8000/api/v1/"
+const root = "http://210.213.92.250:90/api/v1/"
 
 const urls = {
     psic_group_class: root + "psic_group_class",

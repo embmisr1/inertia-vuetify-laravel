@@ -467,7 +467,7 @@ export default {
                 this.loading = true;
 
                 const municipality = await axios.get(
-                    `http://127.0.0.1:8000/api/app/province_dropdown/${val}`
+                    `http://210.213.92.250:90/api/app/province_dropdown/${val}`
                 );
                 this.municipality_list_alter = municipality.data;
                 this.loading = false;
@@ -479,7 +479,7 @@ export default {
             try {
                 this.loading = true;
                 const barangay = await axios.get(
-                    `http://127.0.0.1:8000/api/app/municipality_dropdown/${val}`
+                    `http://210.213.92.250:90/api/app/municipality_dropdown/${val}`
                 );
                 this.barangay_list_alter = barangay.data;
                 this.loading = false;
