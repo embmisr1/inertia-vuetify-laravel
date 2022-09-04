@@ -1241,6 +1241,86 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -1435,34 +1515,34 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   data: function data() {
     return {
       universe_type_selection: [{
-        'universe_type_selection_obj': 'FIRM'
+        universe_type_selection_obj: "FIRM"
       }, {
-        'universe_type_selection_obj': 'LGU'
+        universe_type_selection_obj: "LGU"
       }],
       basic_tab: null,
       province_list_alter: this.province_list,
       municipality_list_alter: this.municipality_list,
       barangay_list_alter: this.barangay_list,
       basic_status: [{
-        'basic_status_selection': 'Active-Operational'
+        basic_status_selection: "Active-Operational"
       }, {
-        'basic_status_selection': 'Operational'
+        basic_status_selection: "Operational"
       }, {
-        'basic_status_selection': 'Non-Operational'
+        basic_status_selection: "Non-Operational"
       }, {
-        'basic_status_selection': 'Temporary Closure'
+        basic_status_selection: "Temporary Closure"
       }, {
-        'basic_status_selection': 'Closed'
+        basic_status_selection: "Closed"
       }, {
-        'basic_status_selection': 'Temporary Ceased Operation'
+        basic_status_selection: "Temporary Ceased Operation"
       }, {
-        'basic_status_selection': 'Ceased'
+        basic_status_selection: "Ceased"
       }, {
-        'basic_status_selection': 'Completed'
+        basic_status_selection: "Completed"
       }, {
-        'basic_status_selection': 'Cancelled'
+        basic_status_selection: "Cancelled"
       }, {
-        'basic_status_selection': 'Delisted'
+        basic_status_selection: "Delisted"
       }],
       psic_group_list_alter: this.psic_group_list,
       psic_class_list_alter: this.psic_class_list,
@@ -1979,7 +2059,6 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-//
 //
 //
 //
@@ -26924,9 +27003,9 @@ var render = function () {
           "div",
           {
             staticClass: "text-white bg-blue-500 rounded-md p-2",
-            staticStyle: { "box-shadow": "0px 0px 5px #9C9C9C" },
+            staticStyle: { "box-shadow": "0px 0px 5px #9c9c9c" },
           },
-          [_vm._v("Basic Information")]
+          [_vm._v("\n                Basic Information\n            ")]
         ),
       ]),
       _vm._v(" "),
@@ -26951,15 +27030,32 @@ var render = function () {
       _c(
         "div",
         [
-          _c("v-text-field", {
-            attrs: { label: "Firm Name", clearable: "" },
-            model: {
-              value: _vm.form_basic_info.un_firmname,
-              callback: function ($$v) {
-                _vm.$set(_vm.form_basic_info, "un_firmname", $$v)
+          _c("ValidationProvider", {
+            attrs: { vid: "un_firmname", name: "Firm name", rules: "required" },
+            scopedSlots: _vm._u([
+              {
+                key: "default",
+                fn: function (ref) {
+                  var errors = ref.errors
+                  return [
+                    _c("v-text-field", {
+                      attrs: {
+                        "error-messages": errors[0],
+                        label: "Firm Name",
+                        clearable: "",
+                      },
+                      model: {
+                        value: _vm.form_basic_info.un_firmname,
+                        callback: function ($$v) {
+                          _vm.$set(_vm.form_basic_info, "un_firmname", $$v)
+                        },
+                        expression: "form_basic_info.un_firmname",
+                      },
+                    }),
+                  ]
+                },
               },
-              expression: "form_basic_info.un_firmname",
-            },
+            ]),
           }),
         ],
         1
@@ -26968,15 +27064,36 @@ var render = function () {
       _c(
         "div",
         [
-          _c("v-text-field", {
-            attrs: { label: "Proponent", clearable: "" },
-            model: {
-              value: _vm.form_basic_info.un_proponent,
-              callback: function ($$v) {
-                _vm.$set(_vm.form_basic_info, "un_proponent", $$v)
-              },
-              expression: "form_basic_info.un_proponent",
+          _c("ValidationProvider", {
+            attrs: {
+              vid: "un_proponent",
+              name: "Proponent",
+              rules: "required",
             },
+            scopedSlots: _vm._u([
+              {
+                key: "default",
+                fn: function (ref) {
+                  var errors = ref.errors
+                  return [
+                    _c("v-text-field", {
+                      attrs: {
+                        "error-messages": errors[0],
+                        label: "Proponent",
+                        clearable: "",
+                      },
+                      model: {
+                        value: _vm.form_basic_info.un_proponent,
+                        callback: function ($$v) {
+                          _vm.$set(_vm.form_basic_info, "un_proponent", $$v)
+                        },
+                        expression: "form_basic_info.un_proponent",
+                      },
+                    }),
+                  ]
+                },
+              },
+            ]),
           }),
         ],
         1
@@ -27002,21 +27119,35 @@ var render = function () {
       _c(
         "div",
         [
-          _c("v-autocomplete", {
-            attrs: {
-              items: _vm.universe_type_selection,
-              label: "Universe Type",
-              "item-text": "universe_type_selection_obj",
-              "item-value": "universe_type_selection_obj",
-              clearable: "",
-            },
-            model: {
-              value: _vm.form_basic_info.un_type,
-              callback: function ($$v) {
-                _vm.$set(_vm.form_basic_info, "un_type", $$v)
+          _c("ValidationProvider", {
+            attrs: { vid: "un_type", name: "Universe Type", rules: "required" },
+            scopedSlots: _vm._u([
+              {
+                key: "default",
+                fn: function (ref) {
+                  var errors = ref.errors
+                  return [
+                    _c("v-autocomplete", {
+                      attrs: {
+                        "error-messages": errors[0],
+                        items: _vm.universe_type_selection,
+                        label: "Universe Type",
+                        "item-text": "universe_type_selection_obj",
+                        "item-value": "universe_type_selection_obj",
+                        clearable: "",
+                      },
+                      model: {
+                        value: _vm.form_basic_info.un_type,
+                        callback: function ($$v) {
+                          _vm.$set(_vm.form_basic_info, "un_type", $$v)
+                        },
+                        expression: "form_basic_info.un_type",
+                      },
+                    }),
+                  ]
+                },
               },
-              expression: "form_basic_info.un_type",
-            },
+            ]),
           }),
         ],
         1
@@ -27029,31 +27160,45 @@ var render = function () {
           "div",
           {
             staticClass: "text-white bg-blue-500 rounded-md p-2",
-            staticStyle: { "box-shadow": "0px 0px 5px #9C9C9C" },
+            staticStyle: { "box-shadow": "0px 0px 5px #9c9c9c" },
           },
-          [_vm._v("Project Location")]
+          [_vm._v("\n                Project Location\n            ")]
         ),
       ]),
       _vm._v(" "),
       _c(
         "div",
         [
-          _c("v-autocomplete", {
-            attrs: {
-              items: _vm.province_list_alter,
-              label: "Province",
-              "item-text": "provDesc",
-              "item-value": "PK_province_ID",
-              clearable: "",
-            },
-            on: { change: _vm.provinceDropdown },
-            model: {
-              value: _vm.form_basic_info.un_province,
-              callback: function ($$v) {
-                _vm.$set(_vm.form_basic_info, "un_province", $$v)
+          _c("ValidationProvider", {
+            attrs: { vid: "un_province", name: "Province", rules: "required" },
+            scopedSlots: _vm._u([
+              {
+                key: "default",
+                fn: function (ref) {
+                  var errors = ref.errors
+                  return [
+                    _c("v-autocomplete", {
+                      attrs: {
+                        "error-messages": errors[0],
+                        items: _vm.province_list_alter,
+                        label: "Province",
+                        "item-text": "provDesc",
+                        "item-value": "PK_province_ID",
+                        clearable: "",
+                      },
+                      on: { change: _vm.provinceDropdown },
+                      model: {
+                        value: _vm.form_basic_info.un_province,
+                        callback: function ($$v) {
+                          _vm.$set(_vm.form_basic_info, "un_province", $$v)
+                        },
+                        expression: "form_basic_info.un_province",
+                      },
+                    }),
+                  ]
+                },
               },
-              expression: "form_basic_info.un_province",
-            },
+            ]),
           }),
         ],
         1
@@ -27062,22 +27207,40 @@ var render = function () {
       _c(
         "div",
         [
-          _c("v-autocomplete", {
+          _c("ValidationProvider", {
             attrs: {
-              items: _vm.municipality_list_alter,
-              label: "Municipality",
-              "item-text": "citymunDesc",
-              "item-value": "PK_citymun_ID",
-              clearable: "",
+              vid: "un_municipality",
+              name: "Municipality",
+              rules: "required",
             },
-            on: { change: _vm.municipalityDropdown },
-            model: {
-              value: _vm.form_basic_info.un_municipality,
-              callback: function ($$v) {
-                _vm.$set(_vm.form_basic_info, "un_municipality", $$v)
+            scopedSlots: _vm._u([
+              {
+                key: "default",
+                fn: function (ref) {
+                  var errors = ref.errors
+                  return [
+                    _c("v-autocomplete", {
+                      attrs: {
+                        "error-messages": errors[0],
+                        items: _vm.municipality_list_alter,
+                        label: "Municipality",
+                        "item-text": "citymunDesc",
+                        "item-value": "PK_citymun_ID",
+                        clearable: "",
+                      },
+                      on: { change: _vm.municipalityDropdown },
+                      model: {
+                        value: _vm.form_basic_info.un_municipality,
+                        callback: function ($$v) {
+                          _vm.$set(_vm.form_basic_info, "un_municipality", $$v)
+                        },
+                        expression: "form_basic_info.un_municipality",
+                      },
+                    }),
+                  ]
+                },
               },
-              expression: "form_basic_info.un_municipality",
-            },
+            ]),
           }),
         ],
         1
@@ -27086,21 +27249,35 @@ var render = function () {
       _c(
         "div",
         [
-          _c("v-autocomplete", {
-            attrs: {
-              items: _vm.barangay_list_alter,
-              label: "Barangay",
-              "item-text": "brgyDesc",
-              "item-value": "PK_brgy_ID",
-              clearable: "",
-            },
-            model: {
-              value: _vm.form_basic_info.un_brgy,
-              callback: function ($$v) {
-                _vm.$set(_vm.form_basic_info, "un_brgy", $$v)
+          _c("ValidationProvider", {
+            attrs: { vid: "un_brgy", name: "Barangay", rules: "required" },
+            scopedSlots: _vm._u([
+              {
+                key: "default",
+                fn: function (ref) {
+                  var errors = ref.errors
+                  return [
+                    _c("v-autocomplete", {
+                      attrs: {
+                        "error-messages": errors[0],
+                        items: _vm.barangay_list_alter,
+                        label: "Barangay",
+                        "item-text": "brgyDesc",
+                        "item-value": "PK_brgy_ID",
+                        clearable: "",
+                      },
+                      model: {
+                        value: _vm.form_basic_info.un_brgy,
+                        callback: function ($$v) {
+                          _vm.$set(_vm.form_basic_info, "un_brgy", $$v)
+                        },
+                        expression: "form_basic_info.un_brgy",
+                      },
+                    }),
+                  ]
+                },
               },
-              expression: "form_basic_info.un_brgy",
-            },
+            ]),
           }),
         ],
         1
@@ -27176,7 +27353,7 @@ var render = function () {
                 },
                 [
                   _vm._v(
-                    "\n                        View Location\n                    "
+                    "\n                    View Location\n                "
                   ),
                 ]
               ),
@@ -27193,9 +27370,9 @@ var render = function () {
           "div",
           {
             staticClass: "text-white bg-blue-500 rounded-md p-2",
-            staticStyle: { "box-shadow": "0px 0px 5px #9C9C9C" },
+            staticStyle: { "box-shadow": "0px 0px 5px #9c9c9c" },
           },
-          [_vm._v("Representative")]
+          [_vm._v("\n                Representative\n            ")]
         ),
       ]),
       _vm._v(" "),
@@ -27261,9 +27438,9 @@ var render = function () {
           "div",
           {
             staticClass: "text-white bg-blue-500 rounded-md p-2",
-            staticStyle: { "box-shadow": "0px 0px 5px #9C9C9C" },
+            staticStyle: { "box-shadow": "0px 0px 5px #9c9c9c" },
           },
-          [_vm._v("PSIC Code")]
+          [_vm._v("\n                PSIC Code\n            ")]
         ),
       ]),
       _vm._v(" "),
@@ -27345,9 +27522,9 @@ var render = function () {
           "div",
           {
             staticClass: "text-white bg-blue-500 rounded-md p-2",
-            staticStyle: { "box-shadow": "0px 0px 5px #9C9C9C" },
+            staticStyle: { "box-shadow": "0px 0px 5px #9c9c9c" },
           },
-          [_vm._v("Project Type")]
+          [_vm._v("\n                Project Type\n            ")]
         ),
       ]),
       _vm._v(" "),
@@ -27474,9 +27651,9 @@ var render = function () {
           "div",
           {
             staticClass: "text-white bg-blue-500 rounded-md p-2",
-            staticStyle: { "box-shadow": "0px 0px 5px #9C9C9C" },
+            staticStyle: { "box-shadow": "0px 0px 5px #9c9c9c" },
           },
-          [_vm._v("Status")]
+          [_vm._v("\n                Status\n            ")]
         ),
       ]),
       _vm._v(" "),
@@ -27500,21 +27677,35 @@ var render = function () {
       _c(
         "div",
         [
-          _c("v-autocomplete", {
-            attrs: {
-              items: _vm.basic_status,
-              label: "Status",
-              "item-text": "basic_status_selection",
-              "item-value": "basic_status_selection",
-              clearable: "",
-            },
-            model: {
-              value: _vm.form_basic_info.un_status,
-              callback: function ($$v) {
-                _vm.$set(_vm.form_basic_info, "un_status", $$v)
+          _c("ValidationProvider", {
+            attrs: { vid: "un_status", name: "Status", rules: "required" },
+            scopedSlots: _vm._u([
+              {
+                key: "default",
+                fn: function (ref) {
+                  var errors = ref.errors
+                  return [
+                    _c("v-autocomplete", {
+                      attrs: {
+                        "error-messages": errors[0],
+                        items: _vm.basic_status,
+                        label: "Status",
+                        "item-text": "basic_status_selection",
+                        "item-value": "basic_status_selection",
+                        clearable: "",
+                      },
+                      model: {
+                        value: _vm.form_basic_info.un_status,
+                        callback: function ($$v) {
+                          _vm.$set(_vm.form_basic_info, "un_status", $$v)
+                        },
+                        expression: "form_basic_info.un_status",
+                      },
+                    }),
+                  ]
+                },
               },
-              expression: "form_basic_info.un_status",
-            },
+            ]),
           }),
         ],
         1
@@ -27529,7 +27720,7 @@ var render = function () {
             _c(
               "v-btn",
               { attrs: { depressed: "", color: "primary", type: "submit" } },
-              [_vm._v("\n            Submit\n        ")]
+              [_vm._v(" Submit ")]
             ),
           ],
           1
@@ -28764,11 +28955,6 @@ var render = function () {
           "v-card",
           { staticClass: "mt-5", attrs: { elevation: "2" } },
           [
-            _vm._v(
-              "\n            " +
-                _vm._s(_vm.legal_table[0].nov_file) +
-                "\n            "
-            ),
             _c("v-data-table", {
               staticClass: "elevation-1",
               attrs: {

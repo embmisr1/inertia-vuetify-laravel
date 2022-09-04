@@ -1298,7 +1298,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   PK_province_ID: null,
                   PK_citymun_ID: null,
                   PK_brgy_ID: null
-                }, _defineProperty(_this2$filter, "PK_province_ID", null), _defineProperty(_this2$filter, "PK_citymun_ID", null), _defineProperty(_this2$filter, "PK_brgy_ID", null), _defineProperty(_this2$filter, "selectedSearchCategory", null), _defineProperty(_this2$filter, "searchStatus", null), _defineProperty(_this2$filter, "searchType", null), _defineProperty(_this2$filter, "search1586", null), _defineProperty(_this2$filter, "search8749", null), _defineProperty(_this2$filter, "search9275", null), _defineProperty(_this2$filter, "search6969", null), _defineProperty(_this2$filter, "search9003", null), _defineProperty(_this2$filter, "un_firmname", null), _defineProperty(_this2$filter, "un_crs_number", null), _defineProperty(_this2$filter, "un_proponent", null), _defineProperty(_this2$filter, "un_status", null), _this2$filter);
+                }, _defineProperty(_this2$filter, "PK_province_ID", null), _defineProperty(_this2$filter, "PK_citymun_ID", null), _defineProperty(_this2$filter, "PK_brgy_ID", null), _defineProperty(_this2$filter, "selectedSearchCategory", null), _defineProperty(_this2$filter, "searchStatus", null), _defineProperty(_this2$filter, "searchType", null), _defineProperty(_this2$filter, "search1586", null), _defineProperty(_this2$filter, "search8749", null), _defineProperty(_this2$filter, "search9275", null), _defineProperty(_this2$filter, "search6969", null), _defineProperty(_this2$filter, "search9003", null), _defineProperty(_this2$filter, "un_firmname", null), _defineProperty(_this2$filter, "un_ecc_number", null), _defineProperty(_this2$filter, "un_proponent", null), _defineProperty(_this2$filter, "un_status", null), _this2$filter);
 
               case 2:
               case "end":
@@ -23470,7 +23470,7 @@ var render = function () {
           }),
           _vm._v(" "),
           _c("b-table-column", {
-            attrs: { field: "un_crs_number", label: "CRS No.", searchable: "" },
+            attrs: { field: "ecc_number", label: "Ecc No.", searchable: "" },
             scopedSlots: _vm._u([
               {
                 key: "searchable",
@@ -23483,11 +23483,11 @@ var render = function () {
                         size: "is-small",
                       },
                       model: {
-                        value: _vm.filter.un_crs_number,
+                        value: _vm.filter.ecc_number,
                         callback: function ($$v) {
-                          _vm.$set(_vm.filter, "un_crs_number", $$v)
+                          _vm.$set(_vm.filter, "ecc_number", $$v)
                         },
-                        expression: "filter.un_crs_number",
+                        expression: "filter.ecc_number",
                       },
                     }),
                   ]
@@ -23499,7 +23499,7 @@ var render = function () {
                   return [
                     _vm._v(
                       "\n                " +
-                        _vm._s(props.row.un_crs_number) +
+                        _vm._s(props.row.ecc_number) +
                         "\n            "
                     ),
                   ]
