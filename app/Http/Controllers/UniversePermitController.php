@@ -76,7 +76,6 @@ class UniversePermitController extends Controller
                     }
                 } elseif (in_array('EMED EDIT', $user_access) && $request->permit['perm_law'] == 'RA 6969') {
                     if ($request->permit['perm_law'] && $request->permit['perm_number']) {
-                        dd("cpd x emed");
                         $this->null_priority($request->permit['perm_law'], $universe_id);
 
                         if ($request->permit['perm_id']) {

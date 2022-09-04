@@ -175,7 +175,11 @@ class UniverseController extends Controller
             ->when(request('ecc_number'), function ($query) {
                 $query->where('z.perm_number', 'like', '%' . request("ecc_number") . '%');
             })
-            ->paginate(request("per_page", 10));
+            ->orderBy("a.updated_at", "asc")
+            ->cloneWithoutBindings(["offset"])
+            ->paginate(request("per_page", 10), ["8"], "page", request("page"))
+        ;
+        // return response()->json($query);
         return Inertia::render("pages/universe/universe_list", [
             "filter" => [
                 'PK_province_ID' => request('PK_province_ID'),
@@ -195,6 +199,7 @@ class UniverseController extends Controller
                 "un_proponent" => request("un_proponent"),
                 "un_status" => request("un_status"),
                 "per_page" => request("per_page", 10),
+                "page" => request("page", 1),
             ],
 
             'query' => $query,

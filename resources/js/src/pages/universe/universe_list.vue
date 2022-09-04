@@ -604,6 +604,7 @@ export default {
                 this.loading = false;
                 return;
             }
+            value.page = 1;
             this.filterUniverse();
             this.loading = false;
         },
