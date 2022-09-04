@@ -175,8 +175,6 @@ class UniverseController extends Controller
             ->when(request('ecc_number'), function ($query) {
                 $query->where('z.perm_number', 'like', '%' . request("ecc_number") . '%');
             })
-            ->orderBy("a.updated_at", "asc")
-            ->cloneWithoutBindings(["offset"])
             ->paginate(request("per_page", 10), ["8"], "page", request("page"))
         ;
         // return response()->json($query);

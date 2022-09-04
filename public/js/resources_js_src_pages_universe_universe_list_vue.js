@@ -1562,6 +1562,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         return;
       }
 
+      value.page = 1;
       this.filterUniverse();
       this.loading = false;
     }
