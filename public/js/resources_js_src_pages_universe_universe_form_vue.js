@@ -4026,7 +4026,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  mixins: [_mixins_universe_info__WEBPACK_IMPORTED_MODULE_2__["default"], _mixins___WEBPACK_IMPORTED_MODULE_3__.page],
+  mixins: [_mixins_universe_info__WEBPACK_IMPORTED_MODULE_2__["default"], _mixins___WEBPACK_IMPORTED_MODULE_3__.page, _mixins___WEBPACK_IMPORTED_MODULE_3__.toasts],
   components: {
     DefaultLayout: _layouts_default_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
     Link: _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_4__.Link,
@@ -6367,6 +6367,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }
     };
   },
+  computed: {
+    basic_info_id: function basic_info_id() {
+      return _objectSpread({}, this.query);
+    }
+  },
   methods: {
     submit_basic_info: function submit_basic_info() {
       var _this = this;
@@ -6378,7 +6383,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             switch (_context.prev = _context.next) {
               case 0:
                 if (!confirm("Do you want to proceed?")) {
-                  _context.next = 11;
+                  _context.next = 10;
                   break;
                 }
 
@@ -6405,10 +6410,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                 return _this.$inertia.post("/app/universe_process", _objectSpread({}, data));
 
               case 4:
-                if (!data.basic.id) {
-                  _this.reset_basic_info();
-                }
-
+                // if(!data.basic.id){
+                // this.reset_basic_info();
+                // }
                 _this.reset_permit_info();
 
                 _this.reset_monitoring_info();
@@ -6421,7 +6425,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
                 _this.reset_complaint_info();
 
-              case 11:
+              case 10:
               case "end":
                 return _context.stop();
             }
@@ -6536,6 +6540,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         comp_remarks: "",
         addFileForm: false
       };
+    }
+  },
+  watch: {
+    basic_info_id: function basic_info_id(value) {
+      if (value.id) {
+        this.form_basic_info = _objectSpread({}, value);
+      }
     }
   }
 });
@@ -27020,24 +27031,6 @@ var render = function () {
           [_vm._v("\n                Basic Information\n            ")]
         ),
       ]),
-      _vm._v(" "),
-      _c(
-        "div",
-        { attrs: { hidden: "" } },
-        [
-          _c("v-text-field", {
-            attrs: { label: "Universe ID", clearable: "" },
-            model: {
-              value: _vm.form_basic_info.id,
-              callback: function ($$v) {
-                _vm.$set(_vm.form_basic_info, "id", $$v)
-              },
-              expression: "form_basic_info.id",
-            },
-          }),
-        ],
-        1
-      ),
       _vm._v(" "),
       _c(
         "div",

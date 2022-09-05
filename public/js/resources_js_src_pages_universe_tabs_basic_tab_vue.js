@@ -1524,24 +1524,6 @@ var render = function () {
       _vm._v(" "),
       _c(
         "div",
-        { attrs: { hidden: "" } },
-        [
-          _c("v-text-field", {
-            attrs: { label: "Universe ID", clearable: "" },
-            model: {
-              value: _vm.form_basic_info.id,
-              callback: function ($$v) {
-                _vm.$set(_vm.form_basic_info, "id", $$v)
-              },
-              expression: "form_basic_info.id",
-            },
-          }),
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
         [
           _c("ValidationProvider", {
             attrs: { vid: "un_firmname", name: "Firm name", rules: "required" },

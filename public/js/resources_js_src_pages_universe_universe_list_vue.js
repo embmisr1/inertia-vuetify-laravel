@@ -1317,9 +1317,21 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context3.prev = _context3.next) {
               case 0:
+                if (_this3.prov_filter) {
+                  _this3.filterObject.PK_province_ID = _this3.prov_filter;
+                }
+
+                if (_this3.citymun_filter) {
+                  _this3.filterObject.PK_citymun_ID = _this3.citymun_filter;
+                }
+
+                if (_this3.brgy_filter) {
+                  _this3.filterObject.PK_brgy_ID = _this3.brgy_filter;
+                }
+
                 _this3.get(_this3.filterObject);
 
-              case 1:
+              case 4:
               case "end":
                 return _context3.stop();
             }
@@ -1449,24 +1461,24 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 return this.$inertia.get("#", _objectSpread({}, params));
 
               case 4:
-                this.loading = false;
-                this.dialog = false;
-                _context7.next = 13;
+                this.loading = false; // this.dialog = false;
+
+                _context7.next = 12;
                 break;
 
-              case 8:
-                _context7.prev = 8;
+              case 7:
+                _context7.prev = 7;
                 _context7.t0 = _context7["catch"](0);
                 this.loading = false;
                 console.log(_context7.t0);
                 this.error("Project Type Get - error");
 
-              case 13:
+              case 12:
               case "end":
                 return _context7.stop();
             }
           }
-        }, _callee7, this, [[0, 8]]);
+        }, _callee7, this, [[0, 7]]);
       }));
 
       return function (_x) {
@@ -1508,16 +1520,25 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       searchType: ["FIRM", "LGU"],
       searchValidity: ["VALID", "EXPIRED", "UNDEFINED"],
       selectedCategory: null,
-      openFilter: false
+      openFilter: false,
+      prov_filter: null,
+      citymun_filter: null,
+      brgy_filter: null
     };
   },
   watch: {
-    PK_province_ID: function PK_province_ID(value) {
+    prov_filter: function prov_filter(value) {
       if (value) this.provinceDropdown(value);
     },
-    PK_citymun_ID: function PK_citymun_ID(value) {
+    citymun_filter: function citymun_filter(value) {
       if (value) this.municipalityDropdown(value);
     },
+    // PK_province_ID(value) {
+    //     if (value) this.provinceDropdown(value);
+    // },
+    // PK_citymun_ID(value) {
+    //     if (value) this.municipalityDropdown(value);
+    // },
     selectedSearchCategory: function selectedSearchCategory(data) {
       if (data == "ORDER" || data == "PCO" || data == "COMPLAINT") {
         this.filter.search1586 = null;
@@ -1543,24 +1564,18 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }
     },
     filterObject: function filterObject(value) {
-      this.loading = true; // this.filterUniverse({ ...this.filterObject });
+      this.loading = true; // // this.filterUniverse({ ...this.filterObject });
 
-      if (value.PK_province_ID) {
-        // console.log(value.PK_province_ID
-        this.loading = false;
-        return;
+      if (this.prov_filter) {
+        value.PK_province_ID = this.prov_filter;
       }
 
-      if (value.PK_citymun_ID) {
-        // console.log(value.PK_citymun_ID
-        this.loading = false;
-        return;
+      if (this.citymun_filter) {
+        value.PK_citymun_ID = this.citymun_filter;
       }
 
-      if (value.PK_brgy_ID) {
-        // console.log(value.PK_brgy_ID
-        this.loading = false;
-        return;
+      if (this.brgy_filter) {
+        value.PK_brgy_ID = this.brgy_filter;
       }
 
       value.page = 1;
@@ -23888,11 +23903,11 @@ var render = function () {
                                 expanded: "",
                               },
                               model: {
-                                value: _vm.filter.PK_province_ID,
+                                value: _vm.prov_filter,
                                 callback: function ($$v) {
-                                  _vm.$set(_vm.filter, "PK_province_ID", $$v)
+                                  _vm.prov_filter = $$v
                                 },
-                                expression: "filter.PK_province_ID",
+                                expression: "prov_filter",
                               },
                             },
                             _vm._l(_vm.province_list, function (option) {
@@ -23942,11 +23957,11 @@ var render = function () {
                                 "label-position": "inside",
                               },
                               model: {
-                                value: _vm.filter.PK_citymun_ID,
+                                value: _vm.citymun_filter,
                                 callback: function ($$v) {
-                                  _vm.$set(_vm.filter, "PK_citymun_ID", $$v)
+                                  _vm.citymun_filter = $$v
                                 },
-                                expression: "filter.PK_citymun_ID",
+                                expression: "citymun_filter",
                               },
                             },
                             _vm._l(
@@ -23999,11 +24014,11 @@ var render = function () {
                                 "label-position": "inside",
                               },
                               model: {
-                                value: _vm.filter.PK_brgy_ID,
+                                value: _vm.brgy_filter,
                                 callback: function ($$v) {
-                                  _vm.$set(_vm.filter, "PK_brgy_ID", $$v)
+                                  _vm.brgy_filter = $$v
                                 },
-                                expression: "filter.PK_brgy_ID",
+                                expression: "brgy_filter",
                               },
                             },
                             _vm._l(_vm.barangay_list_alter, function (option) {
