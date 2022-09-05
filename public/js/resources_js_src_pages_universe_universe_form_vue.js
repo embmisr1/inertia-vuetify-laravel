@@ -962,6 +962,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @inertiajs/inertia-vue */ "./node_modules/@inertiajs/inertia-vue/dist/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _helpers_urls__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../helpers/urls */ "./resources/js/src/helpers/urls.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -1323,6 +1324,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 
 
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     form_basic_info: Object,
@@ -1352,7 +1354,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return axios__WEBPACK_IMPORTED_MODULE_2___default().get("http://127.0.0.1:8000/api/app/province_dropdown/".concat(val));
+                return axios__WEBPACK_IMPORTED_MODULE_2___default().get("".concat(_helpers_urls__WEBPACK_IMPORTED_MODULE_3__["default"].provinceDropdown, "/").concat(val));
 
               case 2:
                 municipality = _context.sent;
@@ -1377,7 +1379,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context2.prev = _context2.next) {
               case 0:
                 _context2.next = 2;
-                return axios__WEBPACK_IMPORTED_MODULE_2___default().get("http://127.0.0.1:8000/api/app/municipality_dropdown/".concat(val));
+                return axios__WEBPACK_IMPORTED_MODULE_2___default().get("".concat(_helpers_urls__WEBPACK_IMPORTED_MODULE_3__["default"].municipalityDropdown, "/").concat(val));
 
               case 2:
                 barangay = _context2.sent;
@@ -1401,7 +1403,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context3.prev = _context3.next) {
               case 0:
                 _context3.next = 2;
-                return axios__WEBPACK_IMPORTED_MODULE_2___default().get("http://127.0.0.1:8000/api/app/psic_group_dropdown/".concat(val));
+                return axios__WEBPACK_IMPORTED_MODULE_2___default().get("".concat(_helpers_urls__WEBPACK_IMPORTED_MODULE_3__["default"].psic_group_dropdown, "/").concat(val));
 
               case 2:
                 psic_class = _context3.sent;
@@ -1425,7 +1427,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context4.prev = _context4.next) {
               case 0:
                 _context4.next = 2;
-                return axios__WEBPACK_IMPORTED_MODULE_2___default().get("http://127.0.0.1:8000/api/app/psic_class_dropdown/".concat(val));
+                return axios__WEBPACK_IMPORTED_MODULE_2___default().get("".concat(_helpers_urls__WEBPACK_IMPORTED_MODULE_3__["default"].psic_class_dropdown, "/").concat(val));
 
               case 2:
                 psic_subclass = _context4.sent;
@@ -1449,7 +1451,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context5.prev = _context5.next) {
               case 0:
                 _context5.next = 2;
-                return axios__WEBPACK_IMPORTED_MODULE_2___default().get("http://127.0.0.1:8000/api/app/project_type_dropdown/".concat(val));
+                return axios__WEBPACK_IMPORTED_MODULE_2___default().get("".concat(_helpers_urls__WEBPACK_IMPORTED_MODULE_3__["default"].project_type_dropdown, "/").concat(val));
 
               case 2:
                 project_subtype = _context5.sent;
@@ -1473,7 +1475,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context6.prev = _context6.next) {
               case 0:
                 _context6.next = 2;
-                return axios__WEBPACK_IMPORTED_MODULE_2___default().get("http://127.0.0.1:8000/api/app/project_subtype_dropdown/".concat(val));
+                return axios__WEBPACK_IMPORTED_MODULE_2___default().get("".concat(_helpers_urls__WEBPACK_IMPORTED_MODULE_3__["default"].project_subtype_dropdown).concat(val));
 
               case 2:
                 project_specific_type = _context6.sent;
@@ -1497,7 +1499,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context7.prev = _context7.next) {
               case 0:
                 _context7.next = 2;
-                return axios__WEBPACK_IMPORTED_MODULE_2___default().get("http://127.0.0.1:8000/api/app/project_specific_type_dropdown/".concat(val));
+                return axios__WEBPACK_IMPORTED_MODULE_2___default().get("".concat(_helpers_urls__WEBPACK_IMPORTED_MODULE_3__["default"].project_specific_type_dropdown, "/").concat(val));
 
               case 2:
                 project_specific_subtype = _context7.sent;
@@ -4066,13 +4068,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-var root = "http://127.0.0.1:8000/api/v1/";
+var root = "http://210.213.92.250:90/api/v1/";
+var root_owens = "http://210.213.92.250:90/api/app/";
 var urls = {
   psic_group_class: root + "psic_group_class",
   psic_sub_class: root + "psic_sub_class",
   project_type: root + "project/type",
   project_subtype: root + "project/subtype",
-  project_specifictype: root + "project/specifictype"
+  project_specifictype: root + "project/specifictype",
+  provinceDropdown: root_owens + "province_dropdown",
+  municipalityDropdown: root_owens + "municipality_dropdown",
+  psic_group_dropdown: root_owens + "psic_group_dropdown",
+  psic_class_dropdown: root_owens + "psic_class_dropdown",
+  project_type_dropdown: root_owens + "project_type_dropdown",
+  project_subtype_dropdown: root_owens + "project_subtype_dropdown",
+  project_specific_type_dropdown: root_owens + "project_specific_type_dropdown"
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (urls);
 
@@ -6258,7 +6268,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
-      laws: ["PD 1586", "RA 8749", "RA 9275", "RA 6969"],
+      laws: ["PD 1586", "RA 8749", "RA 9275", "RA 6969", "RA 9003"],
       form_basic_info: _objectSpread({
         id: "",
         un_crs_number: "",

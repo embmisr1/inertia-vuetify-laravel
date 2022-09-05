@@ -1,9 +1,6 @@
-<<<<<<< HEAD
-const root = "http://210.213.92.250:90/api/v1/"
-=======
+
 const root = "http://210.213.92.250:90/api/v1/";
 const root_owens = "http://210.213.92.250:90/api/app/";
->>>>>>> 2c27b2cdac2c7a1091d8a09d0dae7abb2665f89d
 
 const urls = {
     psic_group_class: root + "psic_group_class",
