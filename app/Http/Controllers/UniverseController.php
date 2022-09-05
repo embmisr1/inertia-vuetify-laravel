@@ -375,7 +375,7 @@ class UniverseController extends Controller
             //     'id' => $id,
             // ]);
             $request->id = $id;
-            return $this->universe_form($request);
+            // return $this->universe_form($request);
             return redirect()->route('universe_form_id', ['id' => $id]);
         }
     }
