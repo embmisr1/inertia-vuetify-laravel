@@ -177,8 +177,7 @@ class UniverseController extends Controller
             })
             ->orderBy("a.updated_at", "asc")
             ->cloneWithoutBindings(["offset"])
-            ->paginate(request("per_page", 10), ["8"], "page", request("page"))
-        ;
+            ->paginate(request("per_page", 10), ["8"], "page", request("page"));
         // return response()->json($query);
         return Inertia::render("pages/universe/universe_list", [
             "filter" => [
@@ -371,7 +370,10 @@ class UniverseController extends Controller
         } else {
             $id = $this->universe_process_create($request);
             Logger::dispatch("Universe", $id, auth()->id(), "Created a Firm: model_id " . $id, "create");
-            return Redirect::route('universe_form');
+            // return Redirect::route('universe_form');
+            return Redirect::route('universe_form_id', [
+                'id' => $id,
+            ]);
         }
     }
 
