@@ -1,5 +1,6 @@
 <template>
     <DefaultLayout :access="access">
+        {{query}}
         <ValidationObserver v-slot="{}" ref="validation_observer">
             <form @submit.prevent="submit_basic_info">
                 <MainTab
@@ -43,10 +44,10 @@
 import DefaultLayout from "../../layouts/default.vue";
 import MainTab from "./tabs/main_tab";
 import UniverseInfo from "../../mixins/universe_info";
-import { page } from "../../mixins/";
+import { page, toasts } from "../../mixins/";
 import { Link } from "@inertiajs/inertia-vue";
 export default {
-    mixins: [UniverseInfo, page],
+    mixins: [UniverseInfo, page,toasts],
     components: {
         DefaultLayout,
         Link,
