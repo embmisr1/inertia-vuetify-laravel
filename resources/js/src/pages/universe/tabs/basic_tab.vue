@@ -202,11 +202,12 @@
                 ></v-text-field>
             </div>
             <div>
-                <v-text-field
+                <v-select
                     v-model="form_basic_info.un_representative_gender"
+                    :items="['MALE', 'FEMALE']"
                     label="Gender"
                     clearable
-                ></v-text-field>
+                ></v-select>
             </div>
         </div>
         <div class="grid grid-cols-3 gap-y-0 gap-x-4 ml-8">
@@ -334,15 +335,15 @@
                     rules="required"
                     v-slot="{ errors }"
                 >
-                <v-autocomplete
-                :error-messages="errors[0]"
-                    :items="basic_status"
-                    v-model="form_basic_info.un_status"
-                    label="Status"
-                    item-text="basic_status_selection"
-                    item-value="basic_status_selection"
-                    clearable
-                ></v-autocomplete>
+                    <v-autocomplete
+                        :error-messages="errors[0]"
+                        :items="basic_status"
+                        v-model="form_basic_info.un_status"
+                        label="Status"
+                        item-text="basic_status_selection"
+                        item-value="basic_status_selection"
+                        clearable
+                    ></v-autocomplete>
                 </ValidationProvider>
             </div>
         </div>
