@@ -370,10 +370,13 @@ class UniverseController extends Controller
         } else {
             $id = $this->universe_process_create($request);
             Logger::dispatch("Universe", $id, auth()->id(), "Created a Firm: model_id " . $id, "create");
-            // return Redirect::route('universe_form');
-            return Redirect::route('universe_form_id', [
-                'id' => $id,
-            ]);
+            // return Redirect::route('universe_form_id', ['id' => $id]);
+            // return Redirect::to('/app/universe_form', [
+            //     'id' => $id,
+            // ]);
+            $request->id = $id;
+            return $this->universe_form($request);
+            return redirect()->route('universe_form_id', ['id' => $id]);
         }
     }
 

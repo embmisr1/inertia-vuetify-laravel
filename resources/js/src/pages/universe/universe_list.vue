@@ -218,7 +218,7 @@
                                 type="is-dark"
                             >
                                 <b-select
-                                    v-model="filter.PK_province_ID"
+                                    v-model="prov_filter"
                                     placeholder="Select a Province"
                                     expanded
                                 >
@@ -239,7 +239,7 @@
                                 type="is-dark"
                             >
                                 <b-select
-                                    v-model="filter.PK_citymun_ID"
+                                    v-model="citymun_filter"
                                     placeholder="Select a Municipality"
                                     expanded
                                     label-position="inside"
@@ -261,7 +261,7 @@
                                 type="is-dark"
                             >
                                 <b-select
-                                    v-model="filter.PK_brgy_ID"
+                                    v-model="brgy_filter"
                                     placeholder="Select a Barangay"
                                     expanded
                                     label-position="inside"
@@ -438,6 +438,15 @@ export default {
             };
         },
         async filterUniverse() {
+            if (this.prov_filter) {
+                this.filterObject.PK_province_ID = this.prov_filter;
+            }
+            if (this.citymun_filter) {
+                this.filterObject.PK_citymun_ID = this.citymun_filter;
+            }
+            if (this.brgy_filter) {
+                this.filterObject.PK_brgy_ID = this.brgy_filter;
+            }
             this.get(this.filterObject);
         },
         async exportUniverse() {
@@ -492,7 +501,7 @@ export default {
                 this.loading = true;
                 await this.$inertia.get("#", { ...params });
                 this.loading = false;
-                this.dialog = false;
+                // this.dialog = false;
             } catch (error) {
                 this.loading = false;
                 console.log(error);
@@ -552,15 +561,24 @@ export default {
             searchValidity: ["VALID", "EXPIRED", "UNDEFINED"],
             selectedCategory: null,
             openFilter: false,
+            prov_filter: null,
+            citymun_filter: null,
+            brgy_filter: null,
         };
     },
     watch: {
-        PK_province_ID(value) {
+        prov_filter(value) {
             if (value) this.provinceDropdown(value);
         },
-        PK_citymun_ID(value) {
+        citymun_filter(value) {
             if (value) this.municipalityDropdown(value);
         },
+        // PK_province_ID(value) {
+        //     if (value) this.provinceDropdown(value);
+        // },
+        // PK_citymun_ID(value) {
+        //     if (value) this.municipalityDropdown(value);
+        // },
         selectedSearchCategory(data) {
             if (data == "ORDER" || data == "PCO" || data == "COMPLAINT") {
                 this.filter.search1586 = null;
@@ -587,21 +605,15 @@ export default {
         },
         filterObject(value) {
             this.loading = true;
-            // this.filterUniverse({ ...this.filterObject });
-            if (value.PK_province_ID) {
-                // console.log(value.PK_province_ID
-                this.loading = false;
-                return;
+            // // this.filterUniverse({ ...this.filterObject });
+            if (this.prov_filter) {
+                value.PK_province_ID = this.prov_filter;
             }
-            if (value.PK_citymun_ID) {
-                // console.log(value.PK_citymun_ID
-                this.loading = false;
-                return;
+            if (this.citymun_filter) {
+                value.PK_citymun_ID = this.citymun_filter;
             }
-            if (value.PK_brgy_ID) {
-                // console.log(value.PK_brgy_ID
-                this.loading = false;
-                return;
+            if (this.brgy_filter) {
+                value.PK_brgy_ID = this.brgy_filter;
             }
 
             value.page = 1;
