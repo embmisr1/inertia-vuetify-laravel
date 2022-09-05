@@ -520,6 +520,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+
 
 
 
@@ -24854,8 +24856,12 @@ var render = function () {
       _c(
         "div",
         [
-          _c("v-text-field", {
-            attrs: { label: "Gender", clearable: "" },
+          _c("v-select", {
+            attrs: {
+              items: ["MALE", "FEMALE"],
+              label: "Gender",
+              clearable: "",
+            },
             model: {
               value: _vm.form_basic_info.un_representative_gender,
               callback: function ($$v) {
