@@ -22,10 +22,9 @@
             aria-previous-label="Previous page"
             aria-page-label="Page"
             aria-current-label="Current page"
-
         >
             <template #top-left>
-                <b-field  type="is-dark">
+                <b-field type="is-dark">
                     <b-select
                         placeholder="Rows Per Page"
                         v-model="filter.per_page"
@@ -395,7 +394,7 @@ import DefaultLayout from "../../layouts/default.vue";
 import axios from "axios";
 import _ from "lodash";
 import { page, toasts } from "../../mixins/";
-
+import urls from "../../helpers/urls";
 export default {
     mixins: [page, toasts],
     components: {
@@ -467,7 +466,7 @@ export default {
                 this.loading = true;
 
                 const municipality = await axios.get(
-                    `http://210.213.92.250:90/api/app/province_dropdown/${val}`
+                    `${urls.provinceDropdown}/${val}`
                 );
                 this.municipality_list_alter = municipality.data;
                 this.loading = false;
@@ -479,7 +478,7 @@ export default {
             try {
                 this.loading = true;
                 const barangay = await axios.get(
-                    `http://210.213.92.250:90/api/app/municipality_dropdown/${val}`
+                    `${urls.municipalityDropdown}/${val}`
                 );
                 this.barangay_list_alter = barangay.data;
                 this.loading = false;
@@ -604,6 +603,7 @@ export default {
                 this.loading = false;
                 return;
             }
+
             value.page = 1;
             this.filterUniverse();
             this.loading = false;

@@ -354,6 +354,8 @@
 <script>
 import { Link } from "@inertiajs/inertia-vue";
 import axios from "axios";
+
+import urls from "../../../helpers/urls";
 export default {
     props: {
         form_basic_info: Object,
@@ -375,44 +377,44 @@ export default {
     methods: {
         async provinceDropdown(val) {
             const municipality = await axios.get(
-                `http://127.0.0.1:8000/api/app/province_dropdown/${val}`
+                `${urls.provinceDropdown}/${val}`
             );
             this.municipality_list_alter = municipality.data;
             this.barangay_list_alter = [];
         },
         async municipalityDropdown(val) {
             const barangay = await axios.get(
-                `http://127.0.0.1:8000/api/app/municipality_dropdown/${val}`
+                `${urls.municipalityDropdown}/${val}`
             );
             this.barangay_list_alter = barangay.data;
         },
         async psicGroupDropdown(val) {
             const psic_class = await axios.get(
-                `http://127.0.0.1:8000/api/app/psic_group_dropdown/${val}`
+                `${urls.psic_group_dropdown}/${val}`
             );
             this.psic_class_list_alter = psic_class.data;
         },
         async psicClassDropdown(val) {
             const psic_subclass = await axios.get(
-                `http://127.0.0.1:8000/api/app/psic_class_dropdown/${val}`
+                `${urls.psic_class_dropdown}/${val}`
             );
             this.psic_subclass_list_alter = psic_subclass.data;
         },
         async projectTypeDropdown(val) {
             const project_subtype = await axios.get(
-                `http://127.0.0.1:8000/api/app/project_type_dropdown/${val}`
+                `${urls.project_type_dropdown}/${val}`
             );
             this.project_subtype_list_alter = project_subtype.data;
         },
         async projectSubTypeDropdown(val) {
             const project_specific_type = await axios.get(
-                `http://127.0.0.1:8000/api/app/project_subtype_dropdown/${val}`
+                `${urls.project_subtype_dropdown}${val}`
             );
             this.project_specific_type_list_alter = project_specific_type.data;
         },
         async projectSpecificTypeDropdown(val) {
             const project_specific_subtype = await axios.get(
-                `http://127.0.0.1:8000/api/app/project_specific_type_dropdown/${val}`
+                `${urls.project_specific_type_dropdown}/${val}`
             );
             this.project_specific_subtype_list_alter =
                 project_specific_subtype.data;
