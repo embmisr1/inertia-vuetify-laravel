@@ -1,7 +1,7 @@
 export default {
     data() {
         return {
-            laws: ["PD 1586", "RA 8749", "RA 9275", "RA 6969"],
+            laws: ["PD 1586", "RA 8749", "RA 9275", "RA 6969", "RA 9003"],
             form_basic_info: {
                 id: "",
                 un_crs_number: "",
