@@ -833,6 +833,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _mixins___WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../mixins/ */ "./resources/js/src/mixins/index.js");
+/* harmony import */ var _helpers_urls__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../helpers/urls */ "./resources/js/src/helpers/urls.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
@@ -1235,7 +1236,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
+
 
 
 
@@ -1377,7 +1378,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 _context5.prev = 0;
                 _this5.loading = true;
                 _context5.next = 4;
-                return axios__WEBPACK_IMPORTED_MODULE_3___default().get("http://127.0.0.1:8000/api/app/province_dropdown/".concat(val));
+                return axios__WEBPACK_IMPORTED_MODULE_3___default().get("".concat(_helpers_urls__WEBPACK_IMPORTED_MODULE_6__["default"].provinceDropdown, "/").concat(val));
 
               case 4:
                 municipality = _context5.sent;
@@ -1412,7 +1413,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 _context6.prev = 0;
                 _this6.loading = true;
                 _context6.next = 4;
-                return axios__WEBPACK_IMPORTED_MODULE_3___default().get("http://127.0.0.1:8000/api/app/municipality_dropdown/".concat(val));
+                return axios__WEBPACK_IMPORTED_MODULE_3___default().get("".concat(_helpers_urls__WEBPACK_IMPORTED_MODULE_6__["default"].municipalityDropdown, "/").concat(val));
 
               case 4:
                 barangay = _context6.sent;
@@ -1582,13 +1583,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-var root = "http://127.0.0.1:8000/api/v1/";
+var root = "http://210.213.92.250:90/api/v1/";
+var root_owens = "http://210.213.92.250:90/api/app/";
 var urls = {
   psic_group_class: root + "psic_group_class",
   psic_sub_class: root + "psic_sub_class",
   project_type: root + "project/type",
   project_subtype: root + "project/subtype",
-  project_specifictype: root + "project/specifictype"
+  project_specifictype: root + "project/specifictype",
+  provinceDropdown: root_owens + "province_dropdown",
+  municipalityDropdown: root_owens + "municipality_dropdown",
+  psic_group_dropdown: root_owens + "psic_group_dropdown",
+  psic_class_dropdown: root_owens + "psic_class_dropdown",
+  project_type_dropdown: root_owens + "project_type_dropdown",
+  project_subtype_dropdown: root_owens + "project_subtype_dropdown",
+  project_specific_type_dropdown: root_owens + "project_specific_type_dropdown"
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (urls);
 

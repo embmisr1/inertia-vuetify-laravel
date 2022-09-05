@@ -39,7 +39,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
-      laws: ["PD 1586", "RA 8749", "RA 9275", "RA 6969"],
+      laws: ["PD 1586", "RA 8749", "RA 9275", "RA 6969", "RA 9003"],
       form_basic_info: _objectSpread({
         id: "",
         un_crs_number: "",
