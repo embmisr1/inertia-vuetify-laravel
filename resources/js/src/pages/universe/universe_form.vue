@@ -1,6 +1,5 @@
 <template>
     <DefaultLayout :access="access">
-        {{query}}
         <ValidationObserver v-slot="{}" ref="validation_observer">
             <form @submit.prevent="submit_basic_info">
                 <MainTab
