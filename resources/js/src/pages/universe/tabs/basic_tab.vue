@@ -9,13 +9,13 @@
                     Basic Information
                 </div>
             </div>
-            <div hidden>
+            <!-- <div hidden>
                 <v-text-field
                     v-model="form_basic_info.id"
                     label="Universe ID"
                     clearable
                 ></v-text-field>
-            </div>
+            </div> -->
             <div>
                 <ValidationProvider
                     vid="un_firmname"

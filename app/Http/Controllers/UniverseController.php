@@ -321,6 +321,7 @@ class UniverseController extends Controller
                 ]);
             } else {
                 return Inertia::render("pages/universe/universe_form", [
+                    'query' => null,
                     'permit_table' => $query_permit,
                     'monitoring_table' => $query_monitoring,
                     'legal_table' => $query_legal,
@@ -342,6 +343,7 @@ class UniverseController extends Controller
             }
         } else {
             return Inertia::render("pages/universe/universe_form", [
+                'query' => null,
                 'province_list' => $province_list,
                 'municipality_list' => [],
                 'barangay_list' => [],
@@ -369,7 +371,11 @@ class UniverseController extends Controller
         } else {
             $id = $this->universe_process_create($request);
             Logger::dispatch("Universe", $id, auth()->id(), "Created a Firm: model_id " . $id, "create");
-            return Redirect::route('universe_form');
+            // // return Redirect::route('universe_form');
+            // return back()->with("message", "Firm Successfully Created");
+            return Redirect::route('universe_form_id', [
+                'id' => $id,
+            ]);
         }
     }
 
