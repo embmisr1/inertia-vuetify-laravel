@@ -3000,10 +3000,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         sortable: false,
         value: "perm_number"
       }, {
-        text: "Status.",
+        text: "Status",
         align: "start",
         sortable: false,
         value: "perm_status"
+      }, {
+        text: "Description",
+        align: "start",
+        sortable: false,
+        value: "perm_description"
       }, {
         text: "Date Issuance",
         align: "start",
@@ -3048,17 +3053,33 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         status_selection: "Cancelled"
       }],
       permit_hazwaste_selection: [{
-        hazwaste_selection: "TSD"
+        hazwaste_selection: "Hazwaste ID"
       }, {
         hazwaste_selection: "Transporter"
       }, {
-        hazwaste_selection: "Hazwaste ID"
+        hazwaste_selection: "TSD"
+      }, {
+        hazwaste_selection: "CCO Asbestos"
       }, {
         hazwaste_selection: "CCO Cyanide"
       }, {
+        hazwaste_selection: "CCO Lead"
+      }, {
         hazwaste_selection: "CCO Mercury"
       }, {
-        hazwaste_selection: "CCO Asbestos"
+        hazwaste_selection: "CCO PCB"
+      }, {
+        hazwaste_selection: "CCO ODS Service Provider"
+      }, {
+        hazwaste_selection: "CCO ODS Dealers Retailers/Resellers"
+      }, {
+        hazwaste_selection: "CCO HFC Service Provider"
+      }, {
+        hazwaste_selection: "CCO HFC Dealers Retailers/Resellers"
+      }, {
+        hazwaste_selection: "Cement Kiln Co-processing"
+      }, {
+        hazwaste_selection: "Small Quantity Importation"
       }],
       date_permit_issuance_menu: "",
       date_permit_expiry_menu: "",
