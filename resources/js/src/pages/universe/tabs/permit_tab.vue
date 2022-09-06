@@ -286,13 +286,13 @@ export default {
                 value: "perm_number",
             },
             {
-                text: "Status.",
+                text: "Status",
                 align: "start",
                 sortable: false,
                 value: "perm_status",
             },
             {
-                text: "Permit Description.",
+                text: "Description",
                 align: "start",
                 sortable: false,
                 value: "perm_description",
