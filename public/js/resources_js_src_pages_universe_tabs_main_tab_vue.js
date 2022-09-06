@@ -2999,10 +2999,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         sortable: false,
         value: "perm_number"
       }, {
-        text: "Status.",
+        text: "Status",
         align: "start",
         sortable: false,
         value: "perm_status"
+      }, {
+        text: "Description",
+        align: "start",
+        sortable: false,
+        value: "perm_description"
       }, {
         text: "Date Issuance",
         align: "start",
