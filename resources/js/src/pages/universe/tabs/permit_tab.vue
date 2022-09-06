@@ -292,6 +292,12 @@ export default {
                 value: "perm_status",
             },
             {
+                text: "Permit Description.",
+                align: "start",
+                sortable: false,
+                value: "perm_description",
+            },
+            {
                 text: "Date Issuance",
                 align: "start",
                 sortable: false,
