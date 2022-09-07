@@ -328,5 +328,45 @@ class ImportDataController extends Controller
         //     $query_update->un_ecc_number = $qry->id;
         //     $query_update->save();
         // }
+        // =============================================== IMPORT PROJECT TYPES ===============================================
+        // $query = DB::table('proj_types')->select('*')->get();
+        // foreach($query as $qry){
+        //     $query_update = DB::table('tbl_project_type')->insert([
+        //         'project_type_desc'=>$qry->type,
+        //         'created_at'=>now(),
+        //         'updated_at'=>now(),
+        //     ]);
+        //     $query_update;
+        // }
+        // $query = DB::table('proj_subtypes')->select('*')->get();
+        // foreach($query as $qry){
+        //     $query_update = DB::table('tbl_project_subtype')->insert([
+        //         'project_subtype_desc'=>$qry->type,
+        //         'project_type_FK'=>$qry->proj_type_id,
+        //         'created_at'=>now(),
+        //         'updated_at'=>now(),
+        //     ]);
+        //     $query_update;
+        // }
+        // $query = DB::table('proj_spectypes')->select('*')->get();
+        // foreach($query as $qry){
+        //     $query_update = DB::table('tbl_project_specific_type')->insert([
+        //         'project_specific_type_desc'=>$qry->type,
+        //         'project_subtype_FK'=>$qry->proj_subtype_id,
+        //         'created_at'=>now(),
+        //         'updated_at'=>now(),
+        //     ]);
+        //     $query_update;
+        // }
+        // $query = DB::table('proj_specsubtypes')->select('*')->get();
+        // foreach($query as $qry){
+        //     $query_update = DB::table('tbl_project_specific_subtype')->insert([
+        //         'project_specific_subtype_desc'=>$qry->type,
+        //         'project_specific_type_FK'=>$qry->proj_spectype_id,
+        //         'created_at'=>now(),
+        //         'updated_at'=>now(),
+        //     ]);
+        //     $query_update;
+        // }
     }
 }
