@@ -99,6 +99,7 @@ Route::group([
     Route::patch('/position/{position}', [PositionController::class, 'update'])->name("position.update");
     Route::delete('/position/{position}', [PositionController::class, 'destroy'])->name("position.delete");
 
+    Route::get('/map', [UniverseController::class, 'imthemap'])->name("imthemap");
     // OWENS
 
     // GET REQUESTS

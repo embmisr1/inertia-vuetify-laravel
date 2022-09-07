@@ -33,6 +33,10 @@ use Carbon\Carbon;
 
 class UniverseController extends Controller
 {
+    public function imthemap(){
+        return Inertia::render("pages/universe/imthemap.vue",[]);
+    }
+
     public function universe_list(Request $request)
     {
         $province_list = Province::where('regCode', '01')->get();
