@@ -488,6 +488,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 
@@ -528,6 +530,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     hasMAP: function hasMAP() {
       return lodash__WEBPACK_IMPORTED_MODULE_2___default().includes(this.access, "MAP EDIT");
+    },
+    hasSWM: function hasSWM() {
+      return lodash__WEBPACK_IMPORTED_MODULE_2___default().includes(this.access, "SOLIDWASTE EDIT");
     }
   }
 });
@@ -22799,7 +22804,7 @@ var render = function () {
             )
           : _vm._e(),
         _vm._v(" "),
-        _vm.hasAdminRole
+        _vm.hasAdminRole || _vm.hasSWM
           ? _c(
               "div",
               [
@@ -22841,7 +22846,15 @@ var render = function () {
                   ],
                   1
                 ),
-                _vm._v(" "),
+              ],
+              1
+            )
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.hasAdminRole
+          ? _c(
+              "div",
+              [
                 _c("v-subheader", [_vm._v("USER MANAGEMENT")]),
                 _vm._v(" "),
                 _c(
