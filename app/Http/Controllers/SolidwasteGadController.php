@@ -12,6 +12,7 @@ class SolidwasteGadController extends Controller
 {
     public function create(request $request)
     {
+        if(!$this->solidwaste_validator($request)){ return back(); }
         $id = $request->id;
         $lce_info = DB::table('tbl_solidwaste_lce as a')
             ->select('a.*', 'b.provDesc', 'c.citymunDesc', 'd.brgyDesc', 'c.districtCode')
@@ -27,6 +28,7 @@ class SolidwasteGadController extends Controller
 
     public function edit(request $request)
     {
+        if(!$this->solidwaste_validator($request)){ return back(); }
         $id = $request->id;
         $gad_edit = DB::table('tbl_solidwaste_gad as a')
             ->select('a.*', 'c.provDesc', 'd.citymunDesc', 'e.brgyDesc', 'd.districtCode')
@@ -42,6 +44,7 @@ class SolidwasteGadController extends Controller
 
     public function register(request $request)
     {
+        if(!$this->solidwaste_validator($request)){ return back(); }
         try {
             $query = new SolidwasteGad();
             $query->gad_male = $request->gad_male;
@@ -57,6 +60,7 @@ class SolidwasteGadController extends Controller
 
     public function update(request $request)
     {
+        if(!$this->solidwaste_validator($request)){ return back(); }
         try {
             $query = SolidwasteGad::find($request->id);
             $query->gad_male = $request->gad_male;
@@ -69,11 +73,18 @@ class SolidwasteGadController extends Controller
             return $th->getMessage();
         }
     }
+
     public function delete(request $request)
     {
+        if(!$this->solidwaste_validator($request)){ return back(); }
         $gad_delete = SolidwasteGad::find($request->id);
         $gad_delete->delete();
         Logger::dispatch("SolidwasteGad", $request->id, auth()->id(), "Deleted a GAD: model_id " . $request->id, "delte");
         return back()->with("message", "Gad Deleted");
+    }
+
+    public function solidwaste_validator($request){
+        $validator_controller = new UnisysValidator;
+        return $validator_controller->solidwaste_validator($request);
     }
 }

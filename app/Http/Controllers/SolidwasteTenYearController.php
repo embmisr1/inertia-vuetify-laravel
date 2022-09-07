@@ -17,6 +17,7 @@ class SolidwasteTenYearController extends Controller
 
     public function create(request $request)
     {
+        if(!$this->solidwaste_validator($request)){ return back(); }
         $id = $request->id;
         $lce_info = DB::table('tbl_solidwaste_lce as a')
             ->select('a.*', 'b.provDesc', 'c.citymunDesc', 'd.brgyDesc', 'c.districtCode')
@@ -32,6 +33,7 @@ class SolidwasteTenYearController extends Controller
 
     public function ten_year_edit(request $request)
     {
+        if(!$this->solidwaste_validator($request)){ return back(); }
         $id = $request->id;
         $ten_year_edit = DB::table('tbl_solidwaste_ten_year as a')
             ->select(
@@ -84,6 +86,7 @@ class SolidwasteTenYearController extends Controller
 
     public function ten_year_register_process(request $request)
     {
+        if(!$this->solidwaste_validator($request)){ return back(); }
         try {
             $query = new SolidwasteTenYear();
             $query->ten_year_planning_period = $request->ten_year_planning_period;
@@ -154,6 +157,7 @@ class SolidwasteTenYearController extends Controller
 
     public function ten_year_update_process(request $request)
     {
+        if(!$this->solidwaste_validator($request)){ return back(); }
         try {
         $query = SolidwasteTenYear::find($request->id);
         $query->ten_year_planning_period = $request->ten_year_planning_period;
@@ -240,8 +244,10 @@ class SolidwasteTenYearController extends Controller
             return $th->getMessage();
         }
     }
+
     public function ten_year_delete(request $request)
     {
+        if(!$this->solidwaste_validator($request)){ return back(); }
         $ten_year_delete = SolidwasteTenYear::find($request->id);
         $ten_year_delete->delete();
         $ten_year_findings_delete = SolidwasteTenYearFindings::where('ten_year_FK',$request->id);
@@ -252,6 +258,7 @@ class SolidwasteTenYearController extends Controller
 
     public function removeFIle(request $request, Media $media)
     {
+        if(!$this->solidwaste_validator($request)){ return back(); }
         $ten_yr = SolidwasteTenYear::findOrFail($media->model_id);
 
         if ($ten_yr->getMedia($media->collection_name)->count() === 1) {
@@ -283,5 +290,10 @@ class SolidwasteTenYearController extends Controller
         $media->delete();
 
         return back()->with("message", "Attachement Deleted");
+    }
+    
+    public function solidwaste_validator($request){
+        $validator_controller = new UnisysValidator;
+        return $validator_controller->solidwaste_validator($request);
     }
 }

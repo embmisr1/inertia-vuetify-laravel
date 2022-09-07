@@ -11,6 +11,7 @@ class SolidwasteTenYearMonitoringController extends Controller
 {
     public function create(request $request)
     {
+        if(!$this->solidwaste_validator($request)){ return back(); }
         $id = $request->id;
         $lce_info = DB::table('tbl_solidwaste_ten_year as a')
         ->select('a.*', 'c.provDesc', 'd.citymunDesc', 'e.brgyDesc', 'd.districtCode')
@@ -27,6 +28,7 @@ class SolidwasteTenYearMonitoringController extends Controller
 
     public function ten_year_monitoring_edit(request $request)
     {
+        if(!$this->solidwaste_validator($request)){ return back(); }
         $id = $request->id;
         $ten_year_monitoring_edit = DB::table('tbl_solidwaste_ten_year_monitoring as a')
             ->select('a.*', 'd.provDesc', 'e.citymunDesc', 'f.brgyDesc', 'e.districtCode')
@@ -43,6 +45,7 @@ class SolidwasteTenYearMonitoringController extends Controller
 
     public function ten_year_monitoring_register_process(request $request)
     {
+        if(!$this->solidwaste_validator($request)){ return back(); }
         $query = new SolidwasteTenYearMonitoring();
         $query->ten_year_mon_status = $request->ten_year_mon_status;
         $query->ten_year_mon_date_monitored = $request->ten_year_mon_date_monitored;
@@ -65,6 +68,7 @@ class SolidwasteTenYearMonitoringController extends Controller
 
     public function ten_year_monitoring_update_process(request $request)
     {
+        if(!$this->solidwaste_validator($request)){ return back(); }
         $query = SolidwasteTenYearMonitoring::find($request->id);
         $query->ten_year_mon_status = $request->ten_year_mon_status;
         $query->ten_year_mon_date_monitored = $request->ten_year_mon_date_monitored;
@@ -84,10 +88,17 @@ class SolidwasteTenYearMonitoringController extends Controller
         }
         return redirect()->route("ten_year_edit",["id"=>$request->ten_year_FK])->with("message", "10 Year Monitoring Updated");
     }
+
     public function ten_year_monitoring_delete(request $request)
     {
+        if(!$this->solidwaste_validator($request)){ return back(); }
         $ten_year_monitoring_delete = SolidwasteTenYearMonitoring::find($request->id);
         $ten_year_monitoring_delete->delete();
         return back()->with("message", "10 Year Monitoring Deleted");
+    }
+    
+    public function solidwaste_validator($request){
+        $validator_controller = new UnisysValidator;
+        return $validator_controller->solidwaste_validator($request);
     }
 }

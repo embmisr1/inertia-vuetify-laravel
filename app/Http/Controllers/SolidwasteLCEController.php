@@ -23,6 +23,7 @@ class SolidwasteLCEController extends Controller
 {
     public function lce_list(request $request)
     {
+        if(!$this->solidwaste_validator($request)){ return back(); }
         $lce_list = DB::table('tbl_solidwaste_lce as a')
             ->select('a.*', 'b.provDesc', 'c.citymunDesc', 'd.brgyDesc', 'c.districtCode')
             ->leftjoin('ref_province as b', 'a.lce_province_FK', '=', 'b.PK_province_ID')
@@ -51,8 +52,9 @@ class SolidwasteLCEController extends Controller
         ]);
     }
 
-    public function create()
+    public function create(request $request)
     {
+        if(!$this->solidwaste_validator($request)){ return back(); }
         $province_dropdown = Province::whereIn('PK_province_ID', [128, 129, 133, 155])->get();
         return Inertia::render("pages/swm/LCEForm", [
             'province_dropdown' => $province_dropdown,
@@ -63,6 +65,7 @@ class SolidwasteLCEController extends Controller
 
     public function lce_show(request $request)
     {
+        if(!$this->solidwaste_validator($request)){ return back(); }
         $id = $request->id;
         $query_slf = SolidwasteSLF::where('lce_FK', $id)->orderBy('created_at', 'desc')->get();
         $query_mrf = SolidwasteMRF::where('lce_FK', $id)->where('mrf_or_rca', 'mrf')->orderBy('created_at', 'desc')->get();
@@ -101,6 +104,7 @@ class SolidwasteLCEController extends Controller
 
     public function lce_edit(request $request)
     {
+        if(!$this->solidwaste_validator($request)){ return back(); }
         $province_dropdown = Province::whereIn('PK_province_ID', [128, 129, 133, 155])->get();
         $lce_edit = DB::table('tbl_solidwaste_lce as a')
             ->select('a.*', 'b.provDesc', 'c.citymunDesc', 'd.brgyDesc', 'c.districtCode')
@@ -117,6 +121,7 @@ class SolidwasteLCEController extends Controller
 
     public function lce_register_process(request $request)
     {
+        if(!$this->solidwaste_validator($request)){ return back(); }
         $query = new SolidwasteLCE();
         $query->lce_title = $request->lce_title;
         $query->lce_first_name = $request->lce_first_name;
@@ -139,6 +144,7 @@ class SolidwasteLCEController extends Controller
 
     public function lce_update_process(request $request)
     {
+        if(!$this->solidwaste_validator($request)){ return back(); }
         $query = SolidwasteLCE::find($request->id);
         $query->lce_title = $request->lce_title;
         $query->lce_first_name = $request->lce_first_name;
@@ -158,11 +164,18 @@ class SolidwasteLCEController extends Controller
         Logger::dispatch("SolidwasteLCE", $query->id, auth()->id(), "Updated a LCE: model_id " . $query->id, "update");
         return back()->with("message", "LCE Updated");
     }
+    
     public function lce_delete(request $request)
     {
+        if(!$this->solidwaste_validator($request)){ return back(); }
         $lce_delete = SolidwasteLCE::find($request->id);
         $lce_delete->delete();
         Logger::dispatch("SolidwasteLCE", $request->id, auth()->id(), "Deleted a LCE: model_id " . $request->id, "delete");
         return back()->with("message", "LCE Deleted");
+    }
+
+    public function solidwaste_validator($request){
+        $validator_controller = new UnisysValidator;
+        return $validator_controller->solidwaste_validator($request);
     }
 }

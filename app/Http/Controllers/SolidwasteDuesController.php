@@ -12,6 +12,7 @@ class SolidwasteDuesController extends Controller
 {
     public function create(request $request)
     {
+        if(!$this->solidwaste_validator($request)){ return back(); }
         $id = $request->id;
         $lce_info = DB::table('tbl_solidwaste_lce as a')
             ->select('a.*', 'b.provDesc', 'c.citymunDesc', 'd.brgyDesc', 'c.districtCode')
@@ -27,6 +28,7 @@ class SolidwasteDuesController extends Controller
 
     public function dues_edit(request $request)
     {
+        if(!$this->solidwaste_validator($request)){ return back(); }
         $id = $request->id;
         $dues_edit = DB::table('tbl_solidwaste_dues as a')
             ->select('a.*', 'c.provDesc', 'd.citymunDesc', 'e.brgyDesc', 'd.districtCode')
@@ -42,6 +44,7 @@ class SolidwasteDuesController extends Controller
 
     public function dues_register_process(request $request)
     {
+        if(!$this->solidwaste_validator($request)){ return back(); }
         try {
             $query = new SolidwasteDues();
             $query->dues_purpose = $request->dues_purpose;
@@ -62,6 +65,7 @@ class SolidwasteDuesController extends Controller
 
     public function dues_update_process(request $request)
     {
+        if(!$this->solidwaste_validator($request)){ return back(); }
         try {
             $query = SolidwasteDues::find($request->id);
             $query->dues_purpose = $request->dues_purpose;
@@ -79,11 +83,18 @@ class SolidwasteDuesController extends Controller
             return $th->getMessage();
         }
     }
+    
     public function dues_delete(request $request)
     {
+        if(!$this->solidwaste_validator($request)){ return back(); }
         $dues_delete = SolidwasteDues::find($request->id);
         $dues_delete->delete();
         Logger::dispatch("SolidwasteDues", $request->id, auth()->id(), "Deleted a DUES: model_id " . $request->id, "delete");
         return back()->with("message", "Dues Deleted");
+    }
+
+    public function solidwaste_validator($request){
+        $validator_controller = new UnisysValidator;
+        return $validator_controller->solidwaste_validator($request);
     }
 }
