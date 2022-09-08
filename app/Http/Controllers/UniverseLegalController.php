@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Jobs\Logger;
 use Illuminate\Http\Request;
 use App\Models\Legal;
+use App\Models\Universe;
 use Illuminate\Support\Facades\DB;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
@@ -25,6 +26,8 @@ class UniverseLegalController extends Controller
                     $query->nov_compliance_status = 'Not Complied';
                 }
                 $query->save();
+                
+                $this->add_foreign_keys_to_universe($universe_id);
 
                 $file = $request->legal['nov_file'] ?? false;
 
@@ -58,6 +61,8 @@ class UniverseLegalController extends Controller
                     $query->nov_compliance_status = 'Not Complied';
                 }
                 $query->save();
+                
+                $this->add_foreign_keys_to_universe($universe_id);
 
                 $file = $request->legal['nov_file'] ?? false;
 
@@ -74,7 +79,10 @@ class UniverseLegalController extends Controller
     public function delete_legal($request)
     {
         $query = Legal::find($request);
+        $universe_id = $query->universe_FK;
         $query->delete();
+                
+        $this->add_foreign_keys_to_universe($universe_id);
         Logger::dispatch("Legal", $request, auth()->id(), "Deleted a monitoring: model_id " . $request, "delete");
         return back();
     }
@@ -107,5 +115,15 @@ class UniverseLegalController extends Controller
         $query_media_counter = Legal::find($query->id);
         $query_media_counter->nov_file = $media_counter;
         $query_media_counter->save();
+    }
+
+    public function add_foreign_keys_to_universe($universe_id)
+    {
+        $query = DB::table('tbl_legal')->select('*')->where('nov_compliance_status','!=','Complied')->where('universe_FK', $universe_id)->orderby('nov_date','desc')->limit(1)->get();
+        if ($query->count() > 0) {
+            $query_update = Universe::find($universe_id);
+            $query_update->un_legal = $query[0]->id;
+            $query_update->save();
+        }
     }
 }

@@ -27,7 +27,7 @@ class UniversePermitController extends Controller
                     $query->is_priority = 1;
                     $query->save();
 
-                    $this->add_ecc_to_universe($universe_id);
+                    $this->add_foreign_keys_to_universe($universe_id);
                     $file = $request->permit['perm_file'] ?? false;
                     if ($file) {
                         $this->add_media($request->permit['perm_file'], $query);
@@ -64,7 +64,7 @@ class UniversePermitController extends Controller
                         $query->is_priority = 1;
                         $query->save();
 
-                        $this->add_ecc_to_universe($universe_id);
+                        $this->add_foreign_keys_to_universe($universe_id);
                         $file = $request->permit['perm_file'] ?? false;
                         if ($file) {
                             $this->add_media($request->permit['perm_file'], $query);
@@ -91,7 +91,7 @@ class UniversePermitController extends Controller
                         $query->is_priority = 1;
                         $query->save();
 
-                        $this->add_ecc_to_universe($universe_id);
+                        $this->add_foreign_keys_to_universe($universe_id);
                         $file = $request->permit['perm_file'] ?? false;
 
                         if ($file) {
@@ -125,7 +125,7 @@ class UniversePermitController extends Controller
             $query_set_priority->save();
         }
 
-        $this->add_ecc_to_universe($universe_id);
+        $this->add_foreign_keys_to_universe($universe_id);
         Logger::dispatch("Permit", $request, auth()->id(), "deleted a Permit: model_id " . $request, "delete");
 
         return back();
@@ -163,12 +163,30 @@ class UniversePermitController extends Controller
         return $query_media_counter->save();
     }
 
-    public function add_ecc_to_universe($universe_id)
+    public function add_foreign_keys_to_universe($universe_id)
     {
         $query = DB::table('tbl_permit')->select('*')->where('perm_law', 'PD 1586')->where('is_priority', 1)->where('universe_FK', $universe_id)->limit(1)->get();
         if ($query->count() > 0) {
             $query_update = Universe::find($universe_id);
             $query_update->un_ecc_number = $query[0]->id;
+            $query_update->save();
+        }
+        $query = DB::table('tbl_permit')->select('*')->where('perm_law', 'RA 8749')->where('is_priority', 1)->where('universe_FK', $universe_id)->limit(1)->get();
+        if ($query->count() > 0) {
+            $query_update = Universe::find($universe_id);
+            $query_update->un_poa_number = $query[0]->id;
+            $query_update->save();
+        }
+        $query = DB::table('tbl_permit')->select('*')->where('perm_law', 'RA 9275')->where('is_priority', 1)->where('universe_FK', $universe_id)->limit(1)->get();
+        if ($query->count() > 0) {
+            $query_update = Universe::find($universe_id);
+            $query_update->un_wwdp_number = $query[0]->id;
+            $query_update->save();
+        }
+        $query = DB::table('tbl_permit')->select('*')->where('perm_law', 'RA 6969')->where('is_priority', 1)->where('universe_FK', $universe_id)->limit(1)->get();
+        if ($query->count() > 0) {
+            $query_update = Universe::find($universe_id);
+            $query_update->un_hazwaste_number = $query[0]->id;
             $query_update->save();
         }
     }
