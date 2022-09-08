@@ -24,13 +24,13 @@ class AddPoaWwdpHazwasteMonitoringPcoLegalToUniverseTable extends Migration
             $table->foreign('un_hazwaste_number')->references('id')->on('tbl_permit')->onUpdate('cascade')->nullOnDelete();
 
             $table->unsignedBigInteger('un_monitoring')->nullable()->after('id');
-            $table->foreign('un_monitoring')->references('id')->on('tbl_permit')->onUpdate('cascade')->nullOnDelete();
+            $table->foreign('un_monitoring')->references('id')->on('tbl_monitoring')->onUpdate('cascade')->nullOnDelete();
 
             $table->unsignedBigInteger('un_pco')->nullable()->after('id');
-            $table->foreign('un_pco')->references('id')->on('tbl_permit')->onUpdate('cascade')->nullOnDelete();
+            $table->foreign('un_pco')->references('id')->on('tbl_pco')->onUpdate('cascade')->nullOnDelete();
 
             $table->unsignedBigInteger('un_legal')->nullable()->after('id');
-            $table->foreign('un_legal')->references('id')->on('tbl_permit')->onUpdate('cascade')->nullOnDelete();
+            $table->foreign('un_legal')->references('id')->on('tbl_legal')->onUpdate('cascade')->nullOnDelete();
         });
     }
 

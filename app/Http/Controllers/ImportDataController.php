@@ -328,6 +328,42 @@ class ImportDataController extends Controller
         //     $query_update->un_ecc_number = $qry->id;
         //     $query_update->save();
         // }
+        // $query = DB::table('tbl_permit')->select('*')->where('perm_law','RA 8749')->where('is_priority',1)->get();
+        // foreach($query as $qry){
+        //     $query_update = Universe::find($qry->universe_FK);
+        //     $query_update->un_poa_number = $qry->id;
+        //     $query_update->save();
+        // }
+        // $query = DB::table('tbl_permit')->select('*')->where('perm_law','RA 9275')->where('is_priority',1)->get();
+        // foreach($query as $qry){
+        //     $query_update = Universe::find($qry->universe_FK);
+        //     $query_update->un_wwdp_number = $qry->id;
+        //     $query_update->save();
+        // }
+        // $query = DB::table('tbl_permit')->select('*')->where('perm_law','RA 6969')->where('is_priority',1)->get();
+        // foreach($query as $qry){
+        //     $query_update = Universe::find($qry->universe_FK);
+        //     $query_update->un_hazwaste_number = $qry->id;
+        //     $query_update->save();
+        // }
+        // $query = DB::table('tbl_monitoring')->select('*')->orderby('mon_date_monitored','asc')->get();
+        // foreach($query as $qry){
+        //     $query_update = Universe::find($qry->universe_FK);
+        //     $query_update->un_monitoring = $qry->id;
+        //     $query_update->save();
+        // }
+        // $query = DB::table('tbl_pco')->select('*')->orderby('pco_start_date','asc')->get();
+        // foreach($query as $qry){
+        //     $query_update = Universe::find($qry->universe_FK);
+        //     $query_update->un_pco = $qry->id;
+        //     $query_update->save();
+        // }
+        // $query = DB::table('tbl_legal')->select('*')->where('nov_compliance_status','!=','Complied')->orderby('nov_date','asc')->get();
+        // foreach($query as $qry){
+        //     $query_update = Universe::find($qry->universe_FK);
+        //     $query_update->un_legal = $qry->id;
+        //     $query_update->save();
+        // }
         // =============================================== IMPORT PROJECT TYPES ===============================================
         // $query = DB::table('proj_types')->select('*')->get();
         // foreach($query as $qry){
