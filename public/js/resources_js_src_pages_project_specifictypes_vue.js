@@ -712,6 +712,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 
@@ -752,6 +754,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     hasMAP: function hasMAP() {
       return lodash__WEBPACK_IMPORTED_MODULE_2___default().includes(this.access, "MAP EDIT");
+    },
+    hasSWM: function hasSWM() {
+      return lodash__WEBPACK_IMPORTED_MODULE_2___default().includes(this.access, "SOLIDWASTE EDIT");
     }
   }
 });
@@ -1349,13 +1354,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-var root = "http://127.0.0.1:8000/api/v1/";
+var root = "http://210.213.92.250:90/api/v1/";
+var root_owens = "http://210.213.92.250:90/api/app/";
 var urls = {
   psic_group_class: root + "psic_group_class",
   psic_sub_class: root + "psic_sub_class",
   project_type: root + "project/type",
   project_subtype: root + "project/subtype",
-  project_specifictype: root + "project/specifictype"
+  project_specifictype: root + "project/specifictype",
+  provinceDropdown: root_owens + "province_dropdown",
+  municipalityDropdown: root_owens + "municipality_dropdown",
+  psic_group_dropdown: root_owens + "psic_group_dropdown",
+  psic_class_dropdown: root_owens + "psic_class_dropdown",
+  project_type_dropdown: root_owens + "project_type_dropdown",
+  project_subtype_dropdown: root_owens + "project_subtype_dropdown",
+  project_specific_type_dropdown: root_owens + "project_specific_type_dropdown"
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (urls);
 
@@ -22942,7 +22955,7 @@ var render = function () {
             )
           : _vm._e(),
         _vm._v(" "),
-        _vm.hasAdminRole
+        _vm.hasAdminRole || _vm.hasSWM
           ? _c(
               "div",
               [
@@ -22984,7 +22997,15 @@ var render = function () {
                   ],
                   1
                 ),
-                _vm._v(" "),
+              ],
+              1
+            )
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.hasAdminRole
+          ? _c(
+              "div",
+              [
                 _c("v-subheader", [_vm._v("USER MANAGEMENT")]),
                 _vm._v(" "),
                 _c(

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Jobs\Logger;
 use Illuminate\Http\Request;
 use App\Models\Monitoring;
+use App\Models\Universe;
 use Illuminate\Support\Facades\DB;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
@@ -22,6 +23,8 @@ class UniverseMonitoringController extends Controller
                 $query->mon_law = $this->industry_laws($request, 'monitoring', 'mon_law');
                 $query->universe_FK = $universe_id;
                 $query->save();
+                
+                $this->add_foreign_keys_to_universe($universe_id);
 
                 $file = $request->monitoring['mon_file'] ?? false;
 
@@ -52,6 +55,8 @@ class UniverseMonitoringController extends Controller
                 $query->mon_law = $this->industry_laws($request, 'monitoring', 'mon_law');
                 $query->universe_FK = $universe_id;
                 $query->save();
+                
+                $this->add_foreign_keys_to_universe($universe_id);
 
                 $file = $request->monitoring['mon_file'] ?? false;
 
@@ -68,7 +73,10 @@ class UniverseMonitoringController extends Controller
     public function delete_monitoring($request)
     {
         $query = Monitoring::find($request);
+        $universe_id = $query->universe_FK;
         $query->delete();
+                
+        $this->add_foreign_keys_to_universe($universe_id);
         Logger::dispatch("Monitoring", $request, auth()->id(), "Deleted a monitoring: model_id " . $query->id, "delete");
         return back();
     }
@@ -101,5 +109,15 @@ class UniverseMonitoringController extends Controller
         $query_media_counter = Monitoring::find($query->id);
         $query_media_counter->mon_file = $media_counter;
         $query_media_counter->save();
+    }
+
+    public function add_foreign_keys_to_universe($universe_id)
+    {
+        $query = DB::table('tbl_monitoring')->select('*')->where('universe_FK', $universe_id)->orderby('mon_date_monitored','desc')->limit(1)->get();
+        if ($query->count() > 0) {
+            $query_update = Universe::find($universe_id);
+            $query_update->un_monitoring = $query[0]->id;
+            $query_update->save();
+        }
     }
 }

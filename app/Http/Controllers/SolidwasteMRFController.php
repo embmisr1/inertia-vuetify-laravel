@@ -14,6 +14,7 @@ class SolidwasteMRFController extends Controller
 
     public function create(request $request)
     {
+        if(!$this->solidwaste_validator($request)){ return back(); }
         $id = $request->id;
         $lce_info = DB::table('tbl_solidwaste_lce as a')
             ->select('a.*', 'b.provDesc', 'c.citymunDesc', 'd.brgyDesc', 'c.districtCode')
@@ -29,6 +30,7 @@ class SolidwasteMRFController extends Controller
 
     public function mrf_edit(request $request)
     {
+        if(!$this->solidwaste_validator($request)){ return back(); }
         $id = $request->id;
         $mrf_edit = DB::table('tbl_solidwaste_mrf as a')
             ->select('a.*', 'c.provDesc', 'd.citymunDesc', 'e.brgyDesc', 'd.districtCode')
@@ -46,6 +48,7 @@ class SolidwasteMRFController extends Controller
 
     public function mrf_register_process(request $request)
     {
+        if(!$this->solidwaste_validator($request)){ return back(); }
         $query = new SolidwasteMRF();
         $query->mrf_emb_funded = $request->mrf_emb_funded;
         $query->mrf_latitude = $request->mrf_latitude;
@@ -76,6 +79,7 @@ class SolidwasteMRFController extends Controller
 
     public function mrf_update_process(request $request)
     {
+        if(!$this->solidwaste_validator($request)){ return back(); }
         $query = SolidwasteMRF::find($request->id);
         $query->mrf_emb_funded = $request->mrf_emb_funded;
         $query->mrf_latitude = $request->mrf_latitude;
@@ -103,11 +107,18 @@ class SolidwasteMRFController extends Controller
         Logger::dispatch("SolidwasteMRF", $query->id, auth()->id(), "Updated a mrf: model_id " . $query->id, "update");
         return redirect()->route("lce_show",["id"=>$request->lce_FK])->with("message",  strtoupper($request->mrf_or_rca)  . " Updated");
     }
+
     public function mrf_delete(request $request)
     {
+        if(!$this->solidwaste_validator($request)){ return back(); }
         $mrf_delete = SolidwasteMRF::find($request->id);
         $mrf_delete->delete();
         Logger::dispatch("SolidwasteMRF", $request->id, auth()->id(), "Deleted a mrf: model_id " . $request->id, "delete");
         return back()->with("message", "MRF Deleted");
+    }
+    
+    public function solidwaste_validator($request){
+        $validator_controller = new UnisysValidator;
+        return $validator_controller->solidwaste_validator($request);
     }
 }

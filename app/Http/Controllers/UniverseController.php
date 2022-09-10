@@ -45,12 +45,12 @@ class UniverseController extends Controller
             'b.provDesc',
             'c.citymunDesc',
             'd.brgyDesc',
-            'z.perm_number as ecc_number',
+            'fk_ecc.perm_number as ecc_number',
         )
             ->leftjoin('ref_province as b', 'a.un_province', '=', 'b.PK_province_ID')
             ->leftjoin('ref_citymun as c', 'a.un_municipality', '=', 'c.PK_citymun_ID')
             ->leftjoin('ref_brgy as d', 'a.un_brgy', '=', 'd.PK_brgy_ID')
-            ->leftjoin('tbl_permit as z', 'a.un_ecc_number', '=', 'z.id')
+            ->leftjoin('tbl_permit as fk_ecc', 'a.un_ecc_number', '=', 'fk_ecc.id')
             ->when(request('PK_province_ID'), function ($query) {
                 $query->where('a.un_province', request('PK_province_ID'));
             })
@@ -177,11 +177,10 @@ class UniverseController extends Controller
                 $query->where('a.un_status', 'like', '%' . request("un_status") . '%');
             })
             ->when(request('ecc_number'), function ($query) {
-                $query->where('z.perm_number', 'like', '%' . request("ecc_number") . '%');
+                $query->where('fk_ecc.perm_number', 'like', '%' . request("ecc_number") . '%');
             })
-            ->orderBy("a.updated_at", "asc")
-            ->cloneWithoutBindings(["offset"])
-            ->paginate(request("per_page", 10), ["8"], "page", request("page"));
+            ->paginate(request("per_page", 10), ["8"], "page", request("page"))
+        ;
         // return response()->json($query);
         return Inertia::render("pages/universe/universe_list", [
             "filter" => [

@@ -406,6 +406,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 
@@ -446,6 +448,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     hasMAP: function hasMAP() {
       return lodash__WEBPACK_IMPORTED_MODULE_2___default().includes(this.access, "MAP EDIT");
+    },
+    hasSWM: function hasSWM() {
+      return lodash__WEBPACK_IMPORTED_MODULE_2___default().includes(this.access, "SOLIDWASTE EDIT");
     }
   }
 });
@@ -833,6 +838,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _mixins___WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../mixins/ */ "./resources/js/src/mixins/index.js");
+/* harmony import */ var _helpers_urls__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../helpers/urls */ "./resources/js/src/helpers/urls.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
@@ -1235,7 +1241,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
+
 
 
 
@@ -1316,9 +1322,21 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context3.prev = _context3.next) {
               case 0:
+                if (_this3.prov_filter) {
+                  _this3.filterObject.PK_province_ID = _this3.prov_filter;
+                }
+
+                if (_this3.citymun_filter) {
+                  _this3.filterObject.PK_citymun_ID = _this3.citymun_filter;
+                }
+
+                if (_this3.brgy_filter) {
+                  _this3.filterObject.PK_brgy_ID = _this3.brgy_filter;
+                }
+
                 _this3.get(_this3.filterObject);
 
-              case 1:
+              case 4:
               case "end":
                 return _context3.stop();
             }
@@ -1377,7 +1395,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 _context5.prev = 0;
                 _this5.loading = true;
                 _context5.next = 4;
-                return axios__WEBPACK_IMPORTED_MODULE_3___default().get("http://127.0.0.1:8000/api/app/province_dropdown/".concat(val));
+                return axios__WEBPACK_IMPORTED_MODULE_3___default().get("".concat(_helpers_urls__WEBPACK_IMPORTED_MODULE_6__["default"].provinceDropdown, "/").concat(val));
 
               case 4:
                 municipality = _context5.sent;
@@ -1412,7 +1430,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 _context6.prev = 0;
                 _this6.loading = true;
                 _context6.next = 4;
-                return axios__WEBPACK_IMPORTED_MODULE_3___default().get("http://127.0.0.1:8000/api/app/municipality_dropdown/".concat(val));
+                return axios__WEBPACK_IMPORTED_MODULE_3___default().get("".concat(_helpers_urls__WEBPACK_IMPORTED_MODULE_6__["default"].municipalityDropdown, "/").concat(val));
 
               case 4:
                 barangay = _context6.sent;
@@ -1448,24 +1466,24 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 return this.$inertia.get("#", _objectSpread({}, params));
 
               case 4:
-                this.loading = false;
-                this.dialog = false;
-                _context7.next = 13;
+                this.loading = false; // this.dialog = false;
+
+                _context7.next = 12;
                 break;
 
-              case 8:
-                _context7.prev = 8;
+              case 7:
+                _context7.prev = 7;
                 _context7.t0 = _context7["catch"](0);
                 this.loading = false;
                 console.log(_context7.t0);
                 this.error("Project Type Get - error");
 
-              case 13:
+              case 12:
               case "end":
                 return _context7.stop();
             }
           }
-        }, _callee7, this, [[0, 8]]);
+        }, _callee7, this, [[0, 7]]);
       }));
 
       return function (_x) {
@@ -1507,16 +1525,25 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       searchType: ["FIRM", "LGU"],
       searchValidity: ["VALID", "EXPIRED", "UNDEFINED"],
       selectedCategory: null,
-      openFilter: false
+      openFilter: false,
+      prov_filter: null,
+      citymun_filter: null,
+      brgy_filter: null
     };
   },
   watch: {
-    PK_province_ID: function PK_province_ID(value) {
+    prov_filter: function prov_filter(value) {
       if (value) this.provinceDropdown(value);
     },
-    PK_citymun_ID: function PK_citymun_ID(value) {
+    citymun_filter: function citymun_filter(value) {
       if (value) this.municipalityDropdown(value);
     },
+    // PK_province_ID(value) {
+    //     if (value) this.provinceDropdown(value);
+    // },
+    // PK_citymun_ID(value) {
+    //     if (value) this.municipalityDropdown(value);
+    // },
     selectedSearchCategory: function selectedSearchCategory(data) {
       if (data == "ORDER" || data == "PCO" || data == "COMPLAINT") {
         this.filter.search1586 = null;
@@ -1542,26 +1569,21 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }
     },
     filterObject: function filterObject(value) {
-      this.loading = true; // this.filterUniverse({ ...this.filterObject });
+      this.loading = true; // // this.filterUniverse({ ...this.filterObject });
 
-      if (value.PK_province_ID) {
-        // console.log(value.PK_province_ID
-        this.loading = false;
-        return;
+      if (this.prov_filter) {
+        value.PK_province_ID = this.prov_filter;
       }
 
-      if (value.PK_citymun_ID) {
-        // console.log(value.PK_citymun_ID
-        this.loading = false;
-        return;
+      if (this.citymun_filter) {
+        value.PK_citymun_ID = this.citymun_filter;
       }
 
-      if (value.PK_brgy_ID) {
-        // console.log(value.PK_brgy_ID
-        this.loading = false;
-        return;
+      if (this.brgy_filter) {
+        value.PK_brgy_ID = this.brgy_filter;
       }
 
+      value.page = 1;
       this.filterUniverse();
       this.loading = false;
     }
@@ -1581,13 +1603,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-var root = "http://127.0.0.1:8000/api/v1/";
+var root = "http://210.213.92.250:90/api/v1/";
+var root_owens = "http://210.213.92.250:90/api/app/";
 var urls = {
   psic_group_class: root + "psic_group_class",
   psic_sub_class: root + "psic_sub_class",
   project_type: root + "project/type",
   project_subtype: root + "project/subtype",
-  project_specifictype: root + "project/specifictype"
+  project_specifictype: root + "project/specifictype",
+  provinceDropdown: root_owens + "province_dropdown",
+  municipalityDropdown: root_owens + "municipality_dropdown",
+  psic_group_dropdown: root_owens + "psic_group_dropdown",
+  psic_class_dropdown: root_owens + "psic_class_dropdown",
+  project_type_dropdown: root_owens + "project_type_dropdown",
+  project_subtype_dropdown: root_owens + "project_subtype_dropdown",
+  project_specific_type_dropdown: root_owens + "project_specific_type_dropdown"
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (urls);
 
@@ -22459,7 +22489,7 @@ var render = function () {
             )
           : _vm._e(),
         _vm._v(" "),
-        _vm.hasAdminRole
+        _vm.hasAdminRole || _vm.hasSWM
           ? _c(
               "div",
               [
@@ -22501,7 +22531,15 @@ var render = function () {
                   ],
                   1
                 ),
-                _vm._v(" "),
+              ],
+              1
+            )
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.hasAdminRole
+          ? _c(
+              "div",
+              [
                 _c("v-subheader", [_vm._v("USER MANAGEMENT")]),
                 _vm._v(" "),
                 _c(
@@ -23878,11 +23916,11 @@ var render = function () {
                                 expanded: "",
                               },
                               model: {
-                                value: _vm.filter.PK_province_ID,
+                                value: _vm.prov_filter,
                                 callback: function ($$v) {
-                                  _vm.$set(_vm.filter, "PK_province_ID", $$v)
+                                  _vm.prov_filter = $$v
                                 },
-                                expression: "filter.PK_province_ID",
+                                expression: "prov_filter",
                               },
                             },
                             _vm._l(_vm.province_list, function (option) {
@@ -23932,11 +23970,11 @@ var render = function () {
                                 "label-position": "inside",
                               },
                               model: {
-                                value: _vm.filter.PK_citymun_ID,
+                                value: _vm.citymun_filter,
                                 callback: function ($$v) {
-                                  _vm.$set(_vm.filter, "PK_citymun_ID", $$v)
+                                  _vm.citymun_filter = $$v
                                 },
-                                expression: "filter.PK_citymun_ID",
+                                expression: "citymun_filter",
                               },
                             },
                             _vm._l(
@@ -23989,11 +24027,11 @@ var render = function () {
                                 "label-position": "inside",
                               },
                               model: {
-                                value: _vm.filter.PK_brgy_ID,
+                                value: _vm.brgy_filter,
                                 callback: function ($$v) {
-                                  _vm.$set(_vm.filter, "PK_brgy_ID", $$v)
+                                  _vm.brgy_filter = $$v
                                 },
-                                expression: "filter.PK_brgy_ID",
+                                expression: "brgy_filter",
                               },
                             },
                             _vm._l(_vm.barangay_list_alter, function (option) {

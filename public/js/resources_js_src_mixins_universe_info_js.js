@@ -39,7 +39,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
-      laws: ["PD 1586", "RA 8749", "RA 9275", "RA 6969"],
+      laws: ["PD 1586", "RA 8749", "RA 9275", "RA 6969", "RA 9003"],
       form_basic_info: _objectSpread({
         id: "",
         un_crs_number: "",
@@ -136,6 +136,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }
     };
   },
+  computed: {
+    basic_info_id: function basic_info_id() {
+      return _objectSpread({}, this.query);
+    }
+  },
   methods: {
     submit_basic_info: function submit_basic_info() {
       var _this = this;
@@ -147,7 +152,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             switch (_context.prev = _context.next) {
               case 0:
                 if (!confirm("Do you want to proceed?")) {
-                  _context.next = 11;
+                  _context.next = 10;
                   break;
                 }
 
@@ -174,10 +179,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                 return _this.$inertia.post("/app/universe_process", _objectSpread({}, data));
 
               case 4:
-                if (!data.basic.id) {
-                  _this.reset_basic_info();
-                }
-
+                // if(!data.basic.id){
+                // this.reset_basic_info();
+                // }
                 _this.reset_permit_info();
 
                 _this.reset_monitoring_info();
@@ -190,7 +194,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
                 _this.reset_complaint_info();
 
-              case 11:
+              case 10:
               case "end":
                 return _context.stop();
             }
@@ -305,6 +309,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         comp_remarks: "",
         addFileForm: false
       };
+    }
+  },
+  watch: {
+    basic_info_id: function basic_info_id(value) {
+      if (value.id) {
+        this.form_basic_info = _objectSpread({}, value);
+      }
     }
   }
 });

@@ -12,6 +12,7 @@ class SolidwasteClosedDumpsiteController extends Controller
 {
 
     public function create(request $request){
+        if(!$this->solidwaste_validator($request)){ return back(); }
         $id = $request->id;
         $lce_info = DB::table('tbl_solidwaste_lce as a')
         ->select('a.*', 'b.provDesc', 'c.citymunDesc', 'd.brgyDesc', 'c.districtCode')
@@ -26,6 +27,7 @@ class SolidwasteClosedDumpsiteController extends Controller
     }
 
     public function cd_edit(request $request){
+        if(!$this->solidwaste_validator($request)){ return back(); }
         $id = $request->id;
         $cd_edit = DB::table('tbl_solidwaste_closed_dumpsite as a')
         ->select('a.*', 'c.provDesc', 'd.citymunDesc', 'e.brgyDesc', 'd.districtCode')
@@ -40,6 +42,7 @@ class SolidwasteClosedDumpsiteController extends Controller
     }
 
     public function cd_register_process(request $request){
+        if(!$this->solidwaste_validator($request)){ return back(); }
         $query = new SolidwasteClosedDumpsite();
         $query->cd_total_land_area = $request->cd_total_land_area;
         $query->cd_date_monitored = $request->cd_date_monitored;
@@ -61,6 +64,7 @@ class SolidwasteClosedDumpsiteController extends Controller
     }
 
     public function cd_update_process(request $request){
+        if(!$this->solidwaste_validator($request)){ return back(); }
         $query = SolidwasteClosedDumpsite::find($request->id);
         $query->cd_total_land_area = $request->cd_total_land_area;
         $query->cd_date_monitored = $request->cd_date_monitored;
@@ -80,9 +84,16 @@ class SolidwasteClosedDumpsiteController extends Controller
         $query->save();
         return redirect()->route("lce_show",["id"=>$request->lce_FK])->with("message","Closed Dumpsite Updated");
     }
+
     public function cd_delete(request $request){
+        if(!$this->solidwaste_validator($request)){ return back(); }
         $cd_delete = SolidwasteClosedDumpsite::find($request->id);
         $cd_delete->delete();
         return back()->with("message","Closed Dumpsite Deleted");
+    }
+
+    public function solidwaste_validator($request){
+        $validator_controller = new UnisysValidator;
+        return $validator_controller->solidwaste_validator($request);
     }
 }

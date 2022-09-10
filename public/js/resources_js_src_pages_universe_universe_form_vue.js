@@ -406,6 +406,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 
@@ -446,6 +448,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     hasMAP: function hasMAP() {
       return lodash__WEBPACK_IMPORTED_MODULE_2___default().includes(this.access, "MAP EDIT");
+    },
+    hasSWM: function hasSWM() {
+      return lodash__WEBPACK_IMPORTED_MODULE_2___default().includes(this.access, "SOLIDWASTE EDIT");
     }
   }
 });
@@ -3854,17 +3859,33 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         status_selection: "Cancelled"
       }],
       permit_hazwaste_selection: [{
-        hazwaste_selection: "TSD"
+        hazwaste_selection: "Hazwaste ID"
       }, {
         hazwaste_selection: "Transporter"
       }, {
-        hazwaste_selection: "Hazwaste ID"
+        hazwaste_selection: "TSD"
+      }, {
+        hazwaste_selection: "CCO Asbestos"
       }, {
         hazwaste_selection: "CCO Cyanide"
       }, {
+        hazwaste_selection: "CCO Lead"
+      }, {
         hazwaste_selection: "CCO Mercury"
       }, {
-        hazwaste_selection: "CCO Asbestos"
+        hazwaste_selection: "CCO PCB"
+      }, {
+        hazwaste_selection: "CCO ODS Service Provider"
+      }, {
+        hazwaste_selection: "CCO ODS Dealers Retailers/Resellers"
+      }, {
+        hazwaste_selection: "CCO HFC Service Provider"
+      }, {
+        hazwaste_selection: "CCO HFC Dealers Retailers/Resellers"
+      }, {
+        hazwaste_selection: "Cement Kiln Co-processing"
+      }, {
+        hazwaste_selection: "Small Quantity Importation"
       }],
       date_permit_issuance_menu: "",
       date_permit_expiry_menu: "",
@@ -25991,7 +26012,7 @@ var render = function () {
             )
           : _vm._e(),
         _vm._v(" "),
-        _vm.hasAdminRole
+        _vm.hasAdminRole || _vm.hasSWM
           ? _c(
               "div",
               [
@@ -26033,7 +26054,15 @@ var render = function () {
                   ],
                   1
                 ),
-                _vm._v(" "),
+              ],
+              1
+            )
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.hasAdminRole
+          ? _c(
+              "div",
+              [
                 _c("v-subheader", [_vm._v("USER MANAGEMENT")]),
                 _vm._v(" "),
                 _c(
