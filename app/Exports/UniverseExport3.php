@@ -12,6 +12,7 @@ use Maatwebsite\Excel\Concerns\WithMapping;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Concerns\Exportable;
+use Illuminate\Http\Request;
 
 
 class UniverseExport3 implements FromQuery, WithHeadings, WithMapping
@@ -40,21 +41,71 @@ class UniverseExport3 implements FromQuery, WithHeadings, WithMapping
     public function query()
     {
         $query = DB::table('tbl_universe as a')->select(
-            "un_crs_number",
-            "un_lat",
-            "un_long",
-            "un_firmname",
-            "un_proponent",
+            // BASIC INFO
+            "a.un_lat as latitude",
+            "a.un_long as longitude",
+            "a.un_region as region",
+            "a.un_firmname as firmname",
+            "a.un_proponent as proponent",
+            "a.un_representative_name as representative",
+            "a.un_representative_designation as representative_designation",
+            "a.un_representative_gender as representative_gender",
+            "a.un_remarks as remarks",
+            // LOCATION
             'b.provDesc as province',
             'c.citymunDesc as city_municipality',
             'd.brgyDesc as barangay',
-            // 'b.provDesc',
-            // 'c.citymunDesc',
-            // 'd.brgyDesc',
+            // PSIC
+            'fk_psic_group.psic_group_desc as psic_group_desc',
+            'fk_psic_class.psic_class_desc as psic_class_desc',
+            'fk_psic_subclass.psic_subclass_desc as psic_subclass_desc',
+            // PROJECT TYPE
+            'fk_project_type.project_type_desc as project_type_desc',
+            'fk_project_subtype.project_subtype_desc as project_subtype_desc',
+            'fk_project_specific_type.project_specific_type_desc as project_specific_type_desc',
+            'fk_project_specific_subtype.project_specific_subtype_desc as project_specific_subtype_desc',
+            // ECC
+            'fk_ecc.perm_number as ecc_number',
+            // POA
+            'fk_poa.perm_number as poa_number',
+            'fk_poa.perm_date_issuance as poa_issuance',
+            'fk_poa.perm_date_expiry as poa_expiry',
+            // WWDP
+            'fk_wwdp.perm_number as wwdp_number',
+            'fk_wwdp.perm_date_issuance as wwdp_issuance',
+            'fk_wwdp.perm_date_expiry as wwdp_expiry',
+            // HAZWASTE
+            'fk_hazwaste.perm_number as hazwaste_number',
+            'fk_hazwaste.perm_date_issuance as hazwaste_issuance',
+            // MONITORING
+            'fk_monitoring.mon_law as monitoring_law',
+            'fk_monitoring.mon_date_monitored as monitoring_date',
+            // PCO
+            'fk_pco.pco_name as pco_name',
+            'fk_pco.pco_number as pco_number',
+            // NOV FOR LEGAL
+            'fk_legal.nov_law as nov_law',
+            'fk_legal.nov_date as nov_date',
+            'fk_legal.nov_tc_date as nov_tc_date',
+            'fk_legal.nov_compliance_status as nov_compliance_status',
         )
             ->leftjoin('ref_province as b', 'a.un_province', '=', 'b.PK_province_ID')
             ->leftjoin('ref_citymun as c', 'a.un_municipality', '=', 'c.PK_citymun_ID')
             ->leftjoin('ref_brgy as d', 'a.un_brgy', '=', 'd.PK_brgy_ID')
+            ->leftjoin('tbl_psic_group as fk_psic_group', 'a.un_psic_group', '=', 'fk_psic_group.id')
+            ->leftjoin('tbl_psic_class as fk_psic_class', 'a.un_psic_class', '=', 'fk_psic_class.id')
+            ->leftjoin('tbl_psic_subclass as fk_psic_subclass', 'a.un_psic_subclass', '=', 'fk_psic_subclass.id')
+            ->leftjoin('tbl_project_type as fk_project_type', 'a.un_project_type', '=', 'fk_project_type.id')
+            ->leftjoin('tbl_project_subtype as fk_project_subtype', 'a.un_project_subtype', '=', 'fk_project_subtype.id')
+            ->leftjoin('tbl_project_specific_type as fk_project_specific_type', 'a.un_project_specific_type', '=', 'fk_project_specific_type.id')
+            ->leftjoin('tbl_project_specific_subtype as fk_project_specific_subtype', 'a.un_project_specific_subtype', '=', 'fk_project_specific_subtype.id')
+            ->leftjoin('tbl_permit as fk_ecc', 'a.un_ecc_number', '=', 'fk_ecc.id')
+            ->leftjoin('tbl_permit as fk_poa', 'a.un_poa_number', '=', 'fk_poa.id')
+            ->leftjoin('tbl_permit as fk_wwdp', 'a.un_wwdp_number', '=', 'fk_wwdp.id')
+            ->leftjoin('tbl_permit as fk_hazwaste', 'a.un_hazwaste_number', '=', 'fk_hazwaste.id')
+            ->leftjoin('tbl_monitoring as fk_monitoring', 'a.un_monitoring', '=', 'fk_monitoring.id')
+            ->leftjoin('tbl_pco as fk_pco', 'a.un_pco', '=', 'fk_pco.id')
+            ->leftjoin('tbl_legal as fk_legal', 'a.un_legal', '=', 'fk_legal.id')
             ->when(request('PK_province_ID'), function ($query) {
                 $query->where('a.un_province', request('PK_province_ID'));
             })
