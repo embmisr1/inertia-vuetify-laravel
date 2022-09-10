@@ -28,7 +28,6 @@ class UniverseExport3 implements FromQuery, WithHeadings, WithMapping
     public function headings(): array
     {
         return [
-            "#",
             "ecc_number",
             "region",
             "firmname",
