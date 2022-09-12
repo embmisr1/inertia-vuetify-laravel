@@ -5,6 +5,7 @@ use App\Http\Controllers\Dashboard;
 use App\Http\Controllers\DivisionController;
 use App\Http\Controllers\DownloadAttachmentController;
 use App\Http\Controllers\ImportDataController;
+use App\Http\Controllers\LogsController;
 use App\Http\Controllers\PositionController;
 use App\Http\Controllers\Profile;
 use App\Http\Controllers\ProjectSpecificSubTypeController;
@@ -100,6 +101,7 @@ Route::group([
     Route::delete('/position/{position}', [PositionController::class, 'destroy'])->name("position.delete");
 
     Route::get('/map', [UniverseController::class, 'imthemap'])->name("imthemap");
+    Route::get('/universe/logs', [LogsController::class, 'index'])->name("logs");
     // OWENS
 
     // GET REQUESTS
