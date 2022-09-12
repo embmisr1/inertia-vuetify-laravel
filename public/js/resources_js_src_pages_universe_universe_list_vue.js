@@ -1354,13 +1354,26 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context4.prev = _context4.next) {
               case 0:
-                _context4.next = 2;
+                // await axios.get("/app/universe/export", { ...this.filterObject });
+                if (_this4.prov_filter) {
+                  _this4.filtersObject.PK_province_ID = _this4.prov_filter;
+                }
+
+                if (_this4.citymun_filter) {
+                  _this4.filtersObject.PK_citymun_ID = _this4.citymun_filter;
+                }
+
+                if (_this4.brgy_filter) {
+                  _this4.filtersObject.PK_brgy_ID = _this4.brgy_filter;
+                }
+
+                _context4.next = 5;
                 return axios__WEBPACK_IMPORTED_MODULE_3___default().get("/app/universe/export", {
-                  params: _objectSpread({}, _this4.filtersObject),
+                  params: _objectSpread({}, _this4.filter),
                   responseType: "blob"
                 });
 
-              case 2:
+              case 5:
                 _yield$axios$get = _context4.sent;
                 data = _yield$axios$get.data;
                 blob = new Blob([data], {
@@ -1375,7 +1388,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 document.body.appendChild(fileLink);
                 fileLink.click(); // this.get(this.filterObject);
 
-              case 11:
+              case 14:
               case "end":
                 return _context4.stop();
             }
