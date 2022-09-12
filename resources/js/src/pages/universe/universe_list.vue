@@ -282,7 +282,7 @@
                             :loading="loading"
                             :items="searchStatus"
                             label="Status"
-                            v-model="filter.searchStatus"
+                            v-model="modal_filter.searchStatus"
                             clearable
                         ></v-autocomplete>
                     </div>
@@ -291,7 +291,7 @@
                             :loading="loading"
                             :items="searchType"
                             label="Firm Type"
-                            v-model="filter.searchType"
+                            v-model="modal_filter.searchType"
                             clearable
                         ></v-autocomplete>
                     </div>
@@ -300,7 +300,7 @@
                             :loading="loading"
                             :items="searchCategory"
                             label="Category"
-                            v-model="filter.selectedSearchCategory"
+                            v-model="modal_filter.selectedSearchCategory"
                             clearable
                         ></v-autocomplete>
                     </div>
@@ -312,25 +312,25 @@
                         "
                     >
                         <v-checkbox
-                            v-model="filter.search1586"
+                            v-model="modal_filter.search1586"
                             label="PD 1586"
                             value="PD 1586"
                             class="p-0 m-0 mt-5"
                         ></v-checkbox>
                         <v-checkbox
-                            v-model="filter.search8749"
+                            v-model="modal_filter.search8749"
                             label="RA 8749"
                             value="RA 8749"
                             class="p-0 m-0"
                         ></v-checkbox>
                         <v-checkbox
-                            v-model="filter.search9275"
+                            v-model="modal_filter.search9275"
                             label="RA 9275"
                             value="RA 9275"
                             class="p-0 m-0"
                         ></v-checkbox>
                         <v-checkbox
-                            v-model="filter.search6969"
+                            v-model="modal_filter.search6969"
                             label="RA 6969"
                             value="RA 6969"
                             class="p-0 m-0"
@@ -340,7 +340,7 @@
                                 selectedSearchCategory == 'MONITORING' ||
                                 selectedSearchCategory == 'NOV'
                             "
-                            v-model="filter.search9003"
+                            v-model="modal_filter.search9003"
                             label="RA 9003"
                             value="RA 9003"
                             class="p-0 m-0"
@@ -349,7 +349,7 @@
                             <v-autocomplete
                                 :items="searchValidity"
                                 label="Validity"
-                                v-model="filter.searchValidity"
+                                v-model="modal_filter.searchValidity"
                                 clearable
                             ></v-autocomplete>
                         </div>
@@ -447,7 +447,8 @@ export default {
             if (this.brgy_filter) {
                 this.filterObject.PK_brgy_ID = this.brgy_filter;
             }
-            this.get(this.filterObject);
+            const filter = { ...this.filterObject, ...this.modal_filter };
+            this.get(filter);
         },
         async exportUniverse() {
             // await axios.get("/app/universe/export", { ...this.filterObject });
@@ -529,13 +530,13 @@ export default {
             return this.filter.PK_citymun_ID;
         },
         selectedSearchCategory() {
-            return this.filter.selectedSearchCategory;
+            return this.modal_filter.selectedSearchCategory;
         },
         computed_search8749() {
-            return this.filter.search8749;
+            return this.modal_filter.search8749;
         },
         computed_search9275() {
-            return this.filter.search9275;
+            return this.modal_filter.search9275;
         },
     },
 
@@ -548,6 +549,17 @@ export default {
             searchProvince: null,
             searchCityMun: null,
             searchBrgy: null,
+            modal_filter: {
+                searchStatus: null,
+                searchType: null,
+                selectedSearchCategory: null,
+                search1586: null,
+                search8749: null,
+                search9275: null,
+                search6969: null,
+                search9003: null,
+                searchValidity: null,
+            },
             searchCategory: [
                 "PERMIT",
                 "MONITORING",
@@ -614,6 +626,17 @@ export default {
         },
         filterObject(value) {
             this.loading = true;
+            // const {
+            //     searchStatus,
+            //     searchType,
+            //     selectedSearchCategory,
+            //     search1586,
+            //     search8749,
+            //     search9275,
+            //     search6969,
+            //     search9003,
+            //     searchValidity,
+            // } = this.modal_filter;
             // // this.filterUniverse({ ...this.filterObject });
             if (this.prov_filter) {
                 value.PK_province_ID = this.prov_filter;
@@ -624,6 +647,33 @@ export default {
             if (this.brgy_filter) {
                 value.PK_brgy_ID = this.brgy_filter;
             }
+            // if (searchStatus) {
+            //     value.searchStatus = searchStatus;
+            // }
+            // if (searchType) {
+            //     value.searchType = searchType;
+            // }
+            // if (selectedSearchCategory) {
+            //     value.selectedSearchCategory = selectedSearchCategory;
+            // }
+            // if (search1586) {
+            //     value.search1586 = this.search1586;
+            // }
+            // if (search8749) {
+            //     value.search8749 = search8749;
+            // }
+            // if (search9275) {
+            //     value.search9275 = search9275;
+            // }
+            // if (search6969) {
+            //     value.search6969 = search6969;
+            // }
+            // if (search9003) {
+            //     value.search9003 = this.search9003;
+            // }
+            // if (searchValidity) {
+            //     value.searchValidity = searchValidity;
+            // }
 
             value.page = 1;
             this.filterUniverse();

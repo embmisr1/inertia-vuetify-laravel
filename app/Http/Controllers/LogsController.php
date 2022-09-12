@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Filters\LogsFilter;
+use App\Http\Resources\LogsResource;
 use Illuminate\Http\Request;
 use App\Models\Logs;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Request as FacadesRequest;
+use Inertia\Inertia;
 
 class LogsController extends Controller
 {
@@ -40,5 +44,19 @@ class LogsController extends Controller
             Log::error("ERROR occur " . now()->format('M d, Y -  h:m a ') . " when storing user: " . $this->user_id . "\n log content" . $this->activity);
             return $th->getMessage();
         }
+    }
+
+    public function index(Request $request)
+    {
+
+        return Inertia::render("pages/universe/logs", [
+            "filters" => FacadesRequest::all(
+                "username",
+                "activity_type",
+                "activity",
+                "per_page"
+            ),
+            "data" => LogsResource::collection((new LogsFilter)->get())
+        ]);
     }
 }

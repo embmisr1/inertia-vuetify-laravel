@@ -71,6 +71,21 @@
                             </v-list-item-subtitle>
                         </v-list-item-content>
                     </v-list-item>
+                    <v-list-item dense v-if="hasAdminRole">
+                        <v-list-item-icon>
+                            <v-icon> mdi-file </v-icon>
+                        </v-list-item-icon>
+                        <v-list-item-content>
+                            <v-list-item-subtitle>
+                                <Link
+                                    href="/app/universe/logs"
+                                    as="button"
+                                    preserve-scroll
+                                    >Universe Logs</Link
+                                >
+                            </v-list-item-subtitle>
+                        </v-list-item-content>
+                    </v-list-item>
                 </v-list-group>
             </div>
             <!-- monitoring -->
