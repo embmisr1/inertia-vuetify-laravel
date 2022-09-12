@@ -451,8 +451,17 @@ export default {
         },
         async exportUniverse() {
             // await axios.get("/app/universe/export", { ...this.filterObject });
+            if (this.prov_filter) {
+                this.filtersObject.PK_province_ID = this.prov_filter;
+            }
+            if (this.citymun_filter) {
+                this.filtersObject.PK_citymun_ID = this.citymun_filter;
+            }
+            if (this.brgy_filter) {
+                this.filtersObject.PK_brgy_ID = this.brgy_filter;
+            }
             const { data } = await axios.get("/app/universe/export", {
-                params: { ...this.filtersObject },
+                params: { ...this.filter },
                 responseType: "blob",
             });
             const blob = new Blob([data], {
