@@ -525,6 +525,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -565,6 +582,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     hasMAP: function hasMAP() {
       return lodash__WEBPACK_IMPORTED_MODULE_2___default().includes(this.access, "MAP EDIT");
+    },
+    hasSWM: function hasSWM() {
+      return lodash__WEBPACK_IMPORTED_MODULE_2___default().includes(this.access, "SOLIDWASTE EDIT");
     }
   }
 });
@@ -22246,6 +22266,45 @@ var render = function () {
                           1
                         )
                       : _vm._e(),
+                    _vm._v(" "),
+                    _vm.hasAdminRole
+                      ? _c(
+                          "v-list-item",
+                          { attrs: { dense: "" } },
+                          [
+                            _c(
+                              "v-list-item-icon",
+                              [_c("v-icon", [_vm._v(" mdi-file ")])],
+                              1
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "v-list-item-content",
+                              [
+                                _c(
+                                  "v-list-item-subtitle",
+                                  [
+                                    _c(
+                                      "Link",
+                                      {
+                                        attrs: {
+                                          href: "/app/universe/logs",
+                                          as: "button",
+                                          "preserve-scroll": "",
+                                        },
+                                      },
+                                      [_vm._v("Universe Logs")]
+                                    ),
+                                  ],
+                                  1
+                                ),
+                              ],
+                              1
+                            ),
+                          ],
+                          1
+                        )
+                      : _vm._e(),
                   ],
                   1
                 ),
@@ -22254,7 +22313,7 @@ var render = function () {
             )
           : _vm._e(),
         _vm._v(" "),
-        _vm.hasAdminRole
+        _vm.hasAdminRole || _vm.hasSWM
           ? _c(
               "div",
               [
@@ -22296,7 +22355,15 @@ var render = function () {
                   ],
                   1
                 ),
-                _vm._v(" "),
+              ],
+              1
+            )
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.hasAdminRole
+          ? _c(
+              "div",
+              [
                 _c("v-subheader", [_vm._v("USER MANAGEMENT")]),
                 _vm._v(" "),
                 _c(

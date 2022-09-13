@@ -17,6 +17,7 @@ class SolidwasteSLFController extends Controller
 
     public function create(request $request)
     {
+        if(!$this->solidwaste_validator($request)){ return back(); }
         $id = $request->id;
         $lce_info = DB::table('tbl_solidwaste_lce as a')
             ->select('a.*', 'b.provDesc', 'c.citymunDesc', 'd.brgyDesc', 'c.districtCode')
@@ -32,6 +33,7 @@ class SolidwasteSLFController extends Controller
 
     public function slf_edit(request $request)
     {
+        if(!$this->solidwaste_validator($request)){ return back(); }
         $id = $request->id;
         $slf_edit = DB::table('tbl_solidwaste_slf as a')
             ->select('a.*', 'c.provDesc', 'd.citymunDesc', 'e.brgyDesc', 'd.districtCode')
@@ -49,6 +51,7 @@ class SolidwasteSLFController extends Controller
 
     public function slf_register_process(request $request)
     {
+        if(!$this->solidwaste_validator($request)){ return back(); }
         try {
             // dd($request->slf_file);
             // $query = SolidwasteSLF::create($request->toArray());
@@ -98,6 +101,7 @@ class SolidwasteSLFController extends Controller
 
     public function slf_update_process(request $request)
     {
+        if(!$this->solidwaste_validator($request)){ return back(); }
         $query = SolidwasteSLF::find($request->id);
         $query->slf_complete_address = $request->slf_complete_address;
         $query->slf_latitude = $request->slf_latitude;
@@ -138,11 +142,18 @@ class SolidwasteSLFController extends Controller
         Logger::dispatch("SolidwasteSLF", $query->id, auth()->id(), "Updated a SLF: model_id " . $query->id, "update");
         return redirect()->route("lce_show",["id"=>$request->lce_FK])->with("message", "SLF Updated");
     }
+    
     public function slf_delete(request $request)
     {
+        if(!$this->solidwaste_validator($request)){ return back(); }
         $slf_delete = SolidwasteSLF::find($request->id);
         $slf_delete->delete();
         Logger::dispatch("SolidwasteSLF", $request->id, auth()->id(), "Deleted a SLF: model_id " . $request->id, "update");
         return back()->with("message", "SLF Deleted");
+    }
+    
+    public function solidwaste_validator($request){
+        $validator_controller = new UnisysValidator;
+        return $validator_controller->solidwaste_validator($request);
     }
 }

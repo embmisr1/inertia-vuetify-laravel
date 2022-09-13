@@ -16,7 +16,7 @@ class CreateTblLegalTable extends Migration
         Schema::create('tbl_legal', function (Blueprint $table) {
             $table->id();
             $table->string('nov_law')->nullable();
-            $table->string('nov_desc')->nullable();
+            $table->longText('nov_desc')->nullable();
             $table->string('nov_date')->nullable();
             $table->string('nov_tc_date')->nullable();
             $table->string('nov_tc_status')->nullable();

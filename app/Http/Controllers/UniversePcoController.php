@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use App\Jobs\Logger;
 use Illuminate\Http\Request;
 use App\Models\Pco;
-use DB;
+use App\Models\Universe;
+use Illuminate\Support\Facades\DB;
 
 class UniversePcoController extends Controller
 {
@@ -17,6 +18,8 @@ class UniversePcoController extends Controller
             }
             $query->universe_FK = $universe_id;
             $query->save();
+                
+            $this->add_foreign_keys_to_universe($universe_id);
             return $query->id;
             Logger::dispatch("PCO", $query->id, auth()->id(), "Created a PCO: model_id " . $query->id, "create");
         }
@@ -34,6 +37,8 @@ class UniversePcoController extends Controller
             }
             $query->universe_FK = $universe_id;
             $query->save();
+                
+            $this->add_foreign_keys_to_universe($universe_id);
             Logger::dispatch("PCO", $query->id, auth()->id(), "Updated a PCO: model_id " . $query->id, "update");
             return $request->pco['pco_id'];
         }
@@ -41,7 +46,10 @@ class UniversePcoController extends Controller
 
     public function delete_pco($request){
         $query = Pco::find($request);
+        $universe_id = $query->universe_FK;
         $query->delete();
+                
+        $this->add_foreign_keys_to_universe($universe_id);
         Logger::dispatch("PCO", $request, auth()->id(), "Updated a PCO: model_id " . $request, "delete");
         return back();
     }
@@ -49,5 +57,15 @@ class UniversePcoController extends Controller
     public function pco_columns(){
         $columns_controller = new ColumnsController;
         return $columns_controller->pco_columns();
+    }
+
+    public function add_foreign_keys_to_universe($universe_id)
+    {
+        $query = DB::table('tbl_pco')->select('*')->where('universe_FK', $universe_id)->orderby('pco_start_date','desc')->limit(1)->get();
+        if ($query->count() > 0) {
+            $query_update = Universe::find($universe_id);
+            $query_update->un_pco = $query[0]->id;
+            $query_update->save();
+        }
     }
 }

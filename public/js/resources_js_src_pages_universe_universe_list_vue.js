@@ -406,6 +406,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -446,6 +463,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     hasMAP: function hasMAP() {
       return lodash__WEBPACK_IMPORTED_MODULE_2___default().includes(this.access, "MAP EDIT");
+    },
+    hasSWM: function hasSWM() {
+      return lodash__WEBPACK_IMPORTED_MODULE_2___default().includes(this.access, "SOLIDWASTE EDIT");
     }
   }
 });
@@ -1313,6 +1333,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var _this3 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3() {
+        var filter;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
           while (1) {
             switch (_context3.prev = _context3.next) {
@@ -1329,9 +1350,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   _this3.filterObject.PK_brgy_ID = _this3.brgy_filter;
                 }
 
-                _this3.get(_this3.filterObject);
+                filter = _objectSpread(_objectSpread({}, _this3.filterObject), _this3.modal_filter);
 
-              case 4:
+                _this3.get(filter);
+
+              case 5:
               case "end":
                 return _context3.stop();
             }
@@ -1349,13 +1372,26 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context4.prev = _context4.next) {
               case 0:
-                _context4.next = 2;
+                // await axios.get("/app/universe/export", { ...this.filterObject });
+                if (_this4.prov_filter) {
+                  _this4.filtersObject.PK_province_ID = _this4.prov_filter;
+                }
+
+                if (_this4.citymun_filter) {
+                  _this4.filtersObject.PK_citymun_ID = _this4.citymun_filter;
+                }
+
+                if (_this4.brgy_filter) {
+                  _this4.filtersObject.PK_brgy_ID = _this4.brgy_filter;
+                }
+
+                _context4.next = 5;
                 return axios__WEBPACK_IMPORTED_MODULE_3___default().get("/app/universe/export", {
-                  params: _objectSpread({}, _this4.filtersObject),
+                  params: _objectSpread({}, _this4.filter),
                   responseType: "blob"
                 });
 
-              case 2:
+              case 5:
                 _yield$axios$get = _context4.sent;
                 data = _yield$axios$get.data;
                 blob = new Blob([data], {
@@ -1370,7 +1406,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 document.body.appendChild(fileLink);
                 fileLink.click(); // this.get(this.filterObject);
 
-              case 11:
+              case 14:
               case "end":
                 return _context4.stop();
             }
@@ -1497,13 +1533,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       return this.filter.PK_citymun_ID;
     },
     selectedSearchCategory: function selectedSearchCategory() {
-      return this.filter.selectedSearchCategory;
+      return this.modal_filter.selectedSearchCategory;
     },
     computed_search8749: function computed_search8749() {
-      return this.filter.search8749;
+      return this.modal_filter.search8749;
     },
     computed_search9275: function computed_search9275() {
-      return this.filter.search9275;
+      return this.modal_filter.search9275;
     }
   },
   data: function data() {
@@ -1515,6 +1551,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       searchProvince: null,
       searchCityMun: null,
       searchBrgy: null,
+      modal_filter: {
+        searchStatus: null,
+        searchType: null,
+        selectedSearchCategory: null,
+        search1586: null,
+        search8749: null,
+        search9275: null,
+        search6969: null,
+        search9003: null,
+        searchValidity: null
+      },
       searchCategory: ["PERMIT", "MONITORING", "NOV", "ORDER", "PCO", "COMPLAINT"],
       searchStatus: ["Active-Operational", "Active-Proposed", "Cancelled", "Ceased", "Ceased Operation", "Delisted", "Inactive-", "Inactive-CANCELLED"],
       searchType: ["FIRM", "LGU"],
@@ -1564,7 +1611,18 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }
     },
     filterObject: function filterObject(value) {
-      this.loading = true; // // this.filterUniverse({ ...this.filterObject });
+      this.loading = true; // const {
+      //     searchStatus,
+      //     searchType,
+      //     selectedSearchCategory,
+      //     search1586,
+      //     search8749,
+      //     search9275,
+      //     search6969,
+      //     search9003,
+      //     searchValidity,
+      // } = this.modal_filter;
+      // // this.filterUniverse({ ...this.filterObject });
 
       if (this.prov_filter) {
         value.PK_province_ID = this.prov_filter;
@@ -1576,7 +1634,34 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
       if (this.brgy_filter) {
         value.PK_brgy_ID = this.brgy_filter;
-      }
+      } // if (searchStatus) {
+      //     value.searchStatus = searchStatus;
+      // }
+      // if (searchType) {
+      //     value.searchType = searchType;
+      // }
+      // if (selectedSearchCategory) {
+      //     value.selectedSearchCategory = selectedSearchCategory;
+      // }
+      // if (search1586) {
+      //     value.search1586 = this.search1586;
+      // }
+      // if (search8749) {
+      //     value.search8749 = search8749;
+      // }
+      // if (search9275) {
+      //     value.search9275 = search9275;
+      // }
+      // if (search6969) {
+      //     value.search6969 = search6969;
+      // }
+      // if (search9003) {
+      //     value.search9003 = this.search9003;
+      // }
+      // if (searchValidity) {
+      //     value.searchValidity = searchValidity;
+      // }
+
 
       value.page = 1;
       this.filterUniverse();
@@ -22476,6 +22561,45 @@ var render = function () {
                           1
                         )
                       : _vm._e(),
+                    _vm._v(" "),
+                    _vm.hasAdminRole
+                      ? _c(
+                          "v-list-item",
+                          { attrs: { dense: "" } },
+                          [
+                            _c(
+                              "v-list-item-icon",
+                              [_c("v-icon", [_vm._v(" mdi-file ")])],
+                              1
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "v-list-item-content",
+                              [
+                                _c(
+                                  "v-list-item-subtitle",
+                                  [
+                                    _c(
+                                      "Link",
+                                      {
+                                        attrs: {
+                                          href: "/app/universe/logs",
+                                          as: "button",
+                                          "preserve-scroll": "",
+                                        },
+                                      },
+                                      [_vm._v("Universe Logs")]
+                                    ),
+                                  ],
+                                  1
+                                ),
+                              ],
+                              1
+                            ),
+                          ],
+                          1
+                        )
+                      : _vm._e(),
                   ],
                   1
                 ),
@@ -22484,7 +22608,7 @@ var render = function () {
             )
           : _vm._e(),
         _vm._v(" "),
-        _vm.hasAdminRole
+        _vm.hasAdminRole || _vm.hasSWM
           ? _c(
               "div",
               [
@@ -22526,7 +22650,15 @@ var render = function () {
                   ],
                   1
                 ),
-                _vm._v(" "),
+              ],
+              1
+            )
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.hasAdminRole
+          ? _c(
+              "div",
+              [
                 _c("v-subheader", [_vm._v("USER MANAGEMENT")]),
                 _vm._v(" "),
                 _c(
@@ -24058,11 +24190,11 @@ var render = function () {
                         clearable: "",
                       },
                       model: {
-                        value: _vm.filter.searchStatus,
+                        value: _vm.modal_filter.searchStatus,
                         callback: function ($$v) {
-                          _vm.$set(_vm.filter, "searchStatus", $$v)
+                          _vm.$set(_vm.modal_filter, "searchStatus", $$v)
                         },
-                        expression: "filter.searchStatus",
+                        expression: "modal_filter.searchStatus",
                       },
                     }),
                   ],
@@ -24080,11 +24212,11 @@ var render = function () {
                         clearable: "",
                       },
                       model: {
-                        value: _vm.filter.searchType,
+                        value: _vm.modal_filter.searchType,
                         callback: function ($$v) {
-                          _vm.$set(_vm.filter, "searchType", $$v)
+                          _vm.$set(_vm.modal_filter, "searchType", $$v)
                         },
-                        expression: "filter.searchType",
+                        expression: "modal_filter.searchType",
                       },
                     }),
                   ],
@@ -24102,11 +24234,15 @@ var render = function () {
                         clearable: "",
                       },
                       model: {
-                        value: _vm.filter.selectedSearchCategory,
+                        value: _vm.modal_filter.selectedSearchCategory,
                         callback: function ($$v) {
-                          _vm.$set(_vm.filter, "selectedSearchCategory", $$v)
+                          _vm.$set(
+                            _vm.modal_filter,
+                            "selectedSearchCategory",
+                            $$v
+                          )
                         },
-                        expression: "filter.selectedSearchCategory",
+                        expression: "modal_filter.selectedSearchCategory",
                       },
                     }),
                   ],
@@ -24123,11 +24259,11 @@ var render = function () {
                           staticClass: "p-0 m-0 mt-5",
                           attrs: { label: "PD 1586", value: "PD 1586" },
                           model: {
-                            value: _vm.filter.search1586,
+                            value: _vm.modal_filter.search1586,
                             callback: function ($$v) {
-                              _vm.$set(_vm.filter, "search1586", $$v)
+                              _vm.$set(_vm.modal_filter, "search1586", $$v)
                             },
-                            expression: "filter.search1586",
+                            expression: "modal_filter.search1586",
                           },
                         }),
                         _vm._v(" "),
@@ -24135,11 +24271,11 @@ var render = function () {
                           staticClass: "p-0 m-0",
                           attrs: { label: "RA 8749", value: "RA 8749" },
                           model: {
-                            value: _vm.filter.search8749,
+                            value: _vm.modal_filter.search8749,
                             callback: function ($$v) {
-                              _vm.$set(_vm.filter, "search8749", $$v)
+                              _vm.$set(_vm.modal_filter, "search8749", $$v)
                             },
-                            expression: "filter.search8749",
+                            expression: "modal_filter.search8749",
                           },
                         }),
                         _vm._v(" "),
@@ -24147,11 +24283,11 @@ var render = function () {
                           staticClass: "p-0 m-0",
                           attrs: { label: "RA 9275", value: "RA 9275" },
                           model: {
-                            value: _vm.filter.search9275,
+                            value: _vm.modal_filter.search9275,
                             callback: function ($$v) {
-                              _vm.$set(_vm.filter, "search9275", $$v)
+                              _vm.$set(_vm.modal_filter, "search9275", $$v)
                             },
-                            expression: "filter.search9275",
+                            expression: "modal_filter.search9275",
                           },
                         }),
                         _vm._v(" "),
@@ -24159,11 +24295,11 @@ var render = function () {
                           staticClass: "p-0 m-0",
                           attrs: { label: "RA 6969", value: "RA 6969" },
                           model: {
-                            value: _vm.filter.search6969,
+                            value: _vm.modal_filter.search6969,
                             callback: function ($$v) {
-                              _vm.$set(_vm.filter, "search6969", $$v)
+                              _vm.$set(_vm.modal_filter, "search6969", $$v)
                             },
-                            expression: "filter.search6969",
+                            expression: "modal_filter.search6969",
                           },
                         }),
                         _vm._v(" "),
@@ -24173,11 +24309,11 @@ var render = function () {
                               staticClass: "p-0 m-0",
                               attrs: { label: "RA 9003", value: "RA 9003" },
                               model: {
-                                value: _vm.filter.search9003,
+                                value: _vm.modal_filter.search9003,
                                 callback: function ($$v) {
-                                  _vm.$set(_vm.filter, "search9003", $$v)
+                                  _vm.$set(_vm.modal_filter, "search9003", $$v)
                                 },
-                                expression: "filter.search9003",
+                                expression: "modal_filter.search9003",
                               },
                             })
                           : _vm._e(),
@@ -24193,15 +24329,15 @@ var render = function () {
                                     clearable: "",
                                   },
                                   model: {
-                                    value: _vm.filter.searchValidity,
+                                    value: _vm.modal_filter.searchValidity,
                                     callback: function ($$v) {
                                       _vm.$set(
-                                        _vm.filter,
+                                        _vm.modal_filter,
                                         "searchValidity",
                                         $$v
                                       )
                                     },
-                                    expression: "filter.searchValidity",
+                                    expression: "modal_filter.searchValidity",
                                   },
                                 }),
                               ],

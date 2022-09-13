@@ -57,19 +57,19 @@ class DownloadAttachmentController extends Controller
         $media_counter = 0;
 
         if ($category == 'permits') {
-            $media_counter = Media::where('model_id', $media_id)->count();
+            $media_counter = Media::where('model_id', $media_id)->where('collection_name','permits')->count();
             $query_media_counter = Permit::find($media_id);
             $query_media_counter->perm_file = $media_counter;
             $query_media_counter->save();
         }
         if ($category == 'monitoring') {
-            $media_counter = Media::where('model_id', $media_id)->count();
+            $media_counter = Media::where('model_id', $media_id)->where('collection_name', 'monitoring')->count();
             $query_media_counter = Monitoring::find($media_id);
             $query_media_counter->mon_file = $media_counter;
             $query_media_counter->save();
         }
         if ($category == 'legal') {
-            $media_counter = Media::where('model_id', $media_id)->count();
+            $media_counter = Media::where('model_id', $media_id)->where('collection_name', 'legal')->count();
             $query_media_counter = Legal::find($media_id);
             $query_media_counter->nov_file = $media_counter;
             $query_media_counter->save();

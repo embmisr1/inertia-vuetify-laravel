@@ -71,10 +71,25 @@
                             </v-list-item-subtitle>
                         </v-list-item-content>
                     </v-list-item>
+                    <v-list-item dense v-if="hasAdminRole">
+                        <v-list-item-icon>
+                            <v-icon> mdi-file </v-icon>
+                        </v-list-item-icon>
+                        <v-list-item-content>
+                            <v-list-item-subtitle>
+                                <Link
+                                    href="/app/universe/logs"
+                                    as="button"
+                                    preserve-scroll
+                                    >Universe Logs</Link
+                                >
+                            </v-list-item-subtitle>
+                        </v-list-item-content>
+                    </v-list-item>
                 </v-list-group>
             </div>
-            <div v-if="hasAdminRole">
-                <!-- monitoring -->
+            <!-- monitoring -->
+            <div v-if="hasAdminRole || hasSWM">
                 <v-subheader>Monitoring</v-subheader>
                 <v-list-item dense>
                     <v-list-item-icon>
@@ -91,7 +106,9 @@
                         </v-list-item-subtitle>
                     </v-list-item-content>
                 </v-list-item>
+            </div>
 
+            <div v-if="hasAdminRole">
                 <!-- legal -->
 
                 <!-- users -->
@@ -373,6 +390,9 @@ export default {
         },
         hasMAP() {
             return _.includes(this.access, "MAP EDIT");
+        },
+        hasSWM() {
+            return _.includes(this.access, "SOLIDWASTE EDIT");
         },
     },
 };

@@ -13,6 +13,7 @@ class SolidwasteEquipmentsController extends Controller
 {
     public function create(request $request)
     {
+        if(!$this->solidwaste_validator($request)){ return back(); }
         $id = $request->id;
         $lce_info = DB::table('tbl_solidwaste_lce as a')
             ->select('a.*', 'b.provDesc', 'c.citymunDesc', 'd.brgyDesc', 'c.districtCode')
@@ -28,6 +29,7 @@ class SolidwasteEquipmentsController extends Controller
 
     public function equipment_edit(request $request)
     {
+        if(!$this->solidwaste_validator($request)){ return back(); }
         $id = $request->id;
         $equipment_edit = DB::table('tbl_solidwaste_equipments as a')
             ->select('a.*', 'c.provDesc', 'd.citymunDesc', 'e.brgyDesc', 'd.districtCode')
@@ -45,6 +47,7 @@ class SolidwasteEquipmentsController extends Controller
 
     public function equipment_register_process(request $request)
     {
+        if(!$this->solidwaste_validator($request)){ return back(); }
         try {
             $query = new SolidwasteEquipments();
             $query->equipment_description = $request->equipment_description;
@@ -59,6 +62,7 @@ class SolidwasteEquipmentsController extends Controller
 
     public function equipment_update_process(request $request)
     {
+        if(!$this->solidwaste_validator($request)){ return back(); }
         try {
             $query = SolidwasteEquipments::find($request->id);
             $query->equipment_description = $request->equipment_description;
@@ -70,11 +74,18 @@ class SolidwasteEquipmentsController extends Controller
             return $th->getMessage();
         }
     }
+
     public function equipment_delete(request $request)
     {
+        if(!$this->solidwaste_validator($request)){ return back(); }
         $equipment_delete = SolidwasteEquipments::find($request->id);
         $equipment_delete->delete();
         Logger::dispatch("SolidwasteEquipments", $request->id, auth()->id(), "Deleted a EQUIPMENT: model_id " . $request->id, "delete");
         return back()->with("message", "Equipment Deleted");
+    }
+
+    public function solidwaste_validator($request){
+        $validator_controller = new UnisysValidator;
+        return $validator_controller->solidwaste_validator($request);
     }
 }
