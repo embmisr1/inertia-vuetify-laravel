@@ -183,11 +183,16 @@ class UniversePermitController extends Controller
             $query_update->un_wwdp_number = $query[0]->id;
             $query_update->save();
         }
+        $this->hazwaste_id_is_priority($universe_id);
         $query = DB::table('tbl_permit')->select('*')->where('perm_law', 'RA 6969')->where('is_priority', 1)->where('universe_FK', $universe_id)->limit(1)->get();
         if ($query->count() > 0) {
             $query_update = Universe::find($universe_id);
             $query_update->un_hazwaste_number = $query[0]->id;
             $query_update->save();
         }
+    }
+    public function hazwaste_id_is_priority($universe_id){
+        $query = DB::table('tbl_permit')->where('perm_law', 'RA 6969')->where('universe_FK', $universe_id)->update(['is_priority'=>null]);
+        $query = DB::table('tbl_permit')->where('perm_law', 'RA 6969')->where('perm_hazwaste_type','Hazwaste ID')->where('universe_FK', $universe_id)->orderBy('id','desc')->limit(1)->update(['is_priority'=>1]);
     }
 }

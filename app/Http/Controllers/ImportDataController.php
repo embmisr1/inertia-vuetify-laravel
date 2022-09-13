@@ -96,6 +96,7 @@ class ImportDataController extends Controller
         // ->where('id','>',15000)
         // ->where('id','<=',16000)
         // ->where('a.perm_law','!=',null)
+        // ->whereNotIn('a.perm_hazwaste_type',['CCO Asbestos', 'CCO Mercury', 'Transporter', 'TSD'])
         // ->get();
         // foreach($query as $qry){
         //     $query2 = DB::table('tbl_permit')->select('*')
