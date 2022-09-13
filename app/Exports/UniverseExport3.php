@@ -13,9 +13,15 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Concerns\Exportable;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Concerns\WithEvents;
+use Maatwebsite\Excel\Events\BeforeExport;
+use Maatwebsite\Excel\Events\AfterSheet;
+use \Maatwebsite\Excel\Sheet;
+use Maatwebsite\Excel\Concerns\WithColumnWidths;
 
 
-class UniverseExport3 implements FromQuery, WithHeadings, WithMapping
+
+class UniverseExport3 implements FromQuery, WithHeadings, WithMapping, WithEvents, WithColumnWidths
 {
 
     use Exportable;
@@ -25,41 +31,116 @@ class UniverseExport3 implements FromQuery, WithHeadings, WithMapping
     {
         $this->request = $request;
     }
+    public function registerEvents(): array
+    {
+        return [
+            // BeforeExport::class  => function(BeforeExport $event) {
+            //     $event->writer->setCreator('Patrick');
+            // },
+            AfterSheet::class    => function (AfterSheet $event) {
+                $event->sheet->setOrientation(\PhpOffice\PhpSpreadsheet\Worksheet\PageSetup::ORIENTATION_LANDSCAPE);
+
+                $event->sheet->styleCells(
+                    'A1:AF1',
+                    [
+                        'font'=>[
+                            'color'=>[
+                                'argb'=>'FFFFFFFF'
+                            ],
+                            'bold'=>true,
+                            'size'=>12
+                        ],
+
+                        // 'borders' => [
+                        //     'outline' => [
+                        //         'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THICK,
+                        //         'color' => ['argb' => 'ff2b81d6'],
+                        //     ],
+                        // ],
+                        'fill' => [
+                            'fillType' => \PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID,
+                            'color' => ['argb' => "ff2b81d6"]
+                        ]
+                    ]
+                );
+            },
+        ];
+    }
+
+    public function columnWidths(): array
+    {
+        {
+            return [
+                "A"=>55,
+                "B"=>55,
+                "C"=>55,
+                "D"=>55,
+                "E"=>55,
+                "F"=>55,
+                "G"=>55,
+                "H"=>55,
+                "I"=>55,
+                "J"=>55,
+                "K"=>55,
+                "L"=>55,
+                "M"=>55,
+                "N"=>55,
+                "O"=>55,
+                "P"=>55,
+                "Q"=>55,
+                "R"=>55,
+                "S"=>55,
+                "T"=>55,
+                "U"=>55,
+                "V"=>55,
+                "W"=>55,
+                "X"=>55,
+                "Y"=>55,
+                "Z"=>55,
+                "AA"=>55,
+                "AB"=>55,
+                "AC"=>55,
+                "AD"=>55,
+                "AE"=>55,
+                "AF"=>55,
+            ];
+        }
+    }
     public function headings(): array
     {
         return [
-            "ecc_number",
-            "region",
-            "firmname",
-            "proponent",
-            "barangay",
-            "city_municipality",
-            "province",
-            "latitude",
-            "longitude",
-            "psic_group_desc",
-            "psic_class_desc",
-            "psic_subclass_desc",
-            "project_type_desc",
-            "project_subtype_desc",
-            "project_specific_type_desc",
-            "project_specific_subtype_desc",
-            "poa_number",
-            "poa_issuance",
-            "poa_expiry",
-            "wwdp_number",
-            "wwdp_issuance",
-            "wwdp_expiry",
-            "hazwaste_number",
-            "hazwaste_issuance",
-            "monitoring_law",
-            "monitoring_date",
-            "pco_name",
-            "pco_number",
-            "nov_law",
-            "nov_date",
-            "nov_tc_date",
-            "nov_compliance_status",
+            "Ecc Number",
+            "Region",
+            "Firmname",
+            "Proponent",
+            "Barangay",
+            "City Municipality",
+            "Province",
+            "Latitude",
+            "Longitude",
+            "Psic Group Desc",
+            "Psic Class Fesc",
+            "Psic SubClass Desc",
+            "Project Type Desc",
+            "Project SubType Desc",
+            "Project Specific Type Desc",
+            "Project Specific SubType Desc",
+            "Poa Number",
+            "Poa Issuance",
+            "Poa Expiry",
+            "Wwdp Number",
+            "Wwdp Issuance",
+            "Wwdp Expiry",
+            "Hazwaste Number",
+            "hHazwaste Issuance",
+            "Monitoring Law",
+            "Monitoring Date",
+            "Pco Name",
+            "Pco Number",
+            "Nov Law",
+            "Nov Date",
+            "Nov TC Date",
+            "Nov Compliance Status",
         ];
     }
     public function query()
