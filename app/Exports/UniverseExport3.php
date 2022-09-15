@@ -41,7 +41,7 @@ class UniverseExport3 implements FromQuery, WithHeadings, WithMapping, WithEvent
                 $event->sheet->setOrientation(\PhpOffice\PhpSpreadsheet\Worksheet\PageSetup::ORIENTATION_LANDSCAPE);
 
                 $event->sheet->styleCells(
-                    'A1:AF1',
+                    'A1:AG1',
                     [
                         'font'=>[
                             'color'=>[
@@ -103,6 +103,7 @@ class UniverseExport3 implements FromQuery, WithHeadings, WithMapping, WithEvent
                 "AD"=>55,
                 "AE"=>55,
                 "AF"=>55,
+                "AG"=>55,
             ];
         }
     }
@@ -141,6 +142,7 @@ class UniverseExport3 implements FromQuery, WithHeadings, WithMapping, WithEvent
             "Nov Date",
             "Nov TC Date",
             "Nov Compliance Status",
+            "Remarks"
         ];
     }
     public function query()
@@ -193,6 +195,7 @@ class UniverseExport3 implements FromQuery, WithHeadings, WithMapping, WithEvent
             'fk_legal.nov_date as nov_date',
             'fk_legal.nov_tc_date as nov_tc_date',
             'fk_legal.nov_compliance_status as nov_compliance_status',
+            'fk_poa.perm_description'
         )
             ->leftjoin('ref_province as b', 'a.un_province', '=', 'b.PK_province_ID')
             ->leftjoin('ref_citymun as c', 'a.un_municipality', '=', 'c.PK_citymun_ID')
@@ -375,6 +378,7 @@ class UniverseExport3 implements FromQuery, WithHeadings, WithMapping, WithEvent
             $data->nov_date,
             $data->nov_tc_date,
             $data->nov_compliance_status,
+            $data->perm_description
         ];
     }
 }
