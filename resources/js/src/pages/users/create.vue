@@ -23,7 +23,7 @@
                                         <ValidationProvider
                                             vid="username"
                                             name="Username"
-                                            rules="required|min:6"
+                                            rules="required"
                                             v-slot="{ errors }"
                                         >
                                             <v-text-field

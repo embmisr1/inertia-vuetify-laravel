@@ -41,7 +41,7 @@ class UniverseExport3 implements FromQuery, WithHeadings, WithMapping, WithEvent
                 $event->sheet->setOrientation(\PhpOffice\PhpSpreadsheet\Worksheet\PageSetup::ORIENTATION_LANDSCAPE);
 
                 $event->sheet->styleCells(
-                    'A1:AG1',
+                    'A1:AK1',
                     [
                         'font'=>[
                             'color'=>[
@@ -71,39 +71,43 @@ class UniverseExport3 implements FromQuery, WithHeadings, WithMapping, WithEvent
     {
         {
             return [
-                "A"=>55,
-                "B"=>55,
-                "C"=>55,
-                "D"=>55,
-                "E"=>55,
-                "F"=>55,
-                "G"=>55,
-                "H"=>55,
-                "I"=>55,
-                "J"=>55,
-                "K"=>55,
-                "L"=>55,
-                "M"=>55,
-                "N"=>55,
-                "O"=>55,
-                "P"=>55,
-                "Q"=>55,
-                "R"=>55,
-                "S"=>55,
-                "T"=>55,
-                "U"=>55,
-                "V"=>55,
-                "W"=>55,
-                "X"=>55,
-                "Y"=>55,
-                "Z"=>55,
-                "AA"=>55,
-                "AB"=>55,
-                "AC"=>55,
-                "AD"=>55,
-                "AE"=>55,
-                "AF"=>55,
-                "AG"=>55,
+                "A"=>40,
+                "B"=>10,
+                "C"=>40,
+                "D"=>40,
+                "E"=>40,
+                "F"=>40,
+                "G"=>40,
+                "H"=>40,
+                "I"=>40,
+                "J"=>40,
+                "K"=>40,
+                "L"=>40,
+                "M"=>40,
+                "N"=>40,
+                "O"=>40,
+                "P"=>40,
+                "Q"=>40,
+                "R"=>40,
+                "S"=>40,
+                "T"=>40,
+                "U"=>40,
+                "V"=>40,
+                "W"=>40,
+                "X"=>40,
+                "Y"=>40,
+                "Z"=>40,
+                "AA"=>40,
+                "AB"=>40,
+                "AC"=>40,
+                "AD"=>40,
+                "AE"=>40,
+                "AF"=>40,
+                "AG"=>40,
+                "AH"=>40,
+                "AI"=>40,
+                "AJ"=>40,
+                "AK"=>40,
             ];
         }
     }
@@ -129,9 +133,12 @@ class UniverseExport3 implements FromQuery, WithHeadings, WithMapping, WithEvent
             "Poa Number",
             "Poa Issuance",
             "Poa Expiry",
+            "Poa Status",
+            "Apsi Remarks",
             "Wwdp Number",
             "Wwdp Issuance",
             "Wwdp Expiry",
+            "Wwdp Status",
             "Hazwaste Number",
             "hHazwaste Issuance",
             "Monitoring Law",
@@ -142,7 +149,8 @@ class UniverseExport3 implements FromQuery, WithHeadings, WithMapping, WithEvent
             "Nov Date",
             "Nov TC Date",
             "Nov Compliance Status",
-            "Remarks"
+            "Status",
+            "Remarks",
         ];
     }
     public function query()
@@ -157,7 +165,8 @@ class UniverseExport3 implements FromQuery, WithHeadings, WithMapping, WithEvent
             "a.un_representative_name as representative",
             "a.un_representative_designation as representative_designation",
             "a.un_representative_gender as representative_gender",
-            "a.un_remarks as remarks",
+            "a.un_status as universe_status",
+            "a.un_remarks as universe_remarks",
             // LOCATION
             'b.provDesc as province',
             'c.citymunDesc as city_municipality',
@@ -177,10 +186,13 @@ class UniverseExport3 implements FromQuery, WithHeadings, WithMapping, WithEvent
             'fk_poa.perm_number as poa_number',
             'fk_poa.perm_date_issuance as poa_issuance',
             'fk_poa.perm_date_expiry as poa_expiry',
+            'fk_poa.perm_status as poa_perm_status',
+            'fk_poa.perm_description as poa_apsi_remarks',
             // WWDP
             'fk_wwdp.perm_number as wwdp_number',
             'fk_wwdp.perm_date_issuance as wwdp_issuance',
             'fk_wwdp.perm_date_expiry as wwdp_expiry',
+            'fk_wwdp.perm_status as wwdp_perm_status',
             // HAZWASTE
             'fk_hazwaste.perm_number as hazwaste_number',
             'fk_hazwaste.perm_date_issuance as hazwaste_issuance',
@@ -195,7 +207,6 @@ class UniverseExport3 implements FromQuery, WithHeadings, WithMapping, WithEvent
             'fk_legal.nov_date as nov_date',
             'fk_legal.nov_tc_date as nov_tc_date',
             'fk_legal.nov_compliance_status as nov_compliance_status',
-            'fk_poa.perm_description'
         )
             ->leftjoin('ref_province as b', 'a.un_province', '=', 'b.PK_province_ID')
             ->leftjoin('ref_citymun as c', 'a.un_municipality', '=', 'c.PK_citymun_ID')
@@ -365,9 +376,12 @@ class UniverseExport3 implements FromQuery, WithHeadings, WithMapping, WithEvent
             $data->poa_number,
             $data->poa_issuance,
             $data->poa_expiry,
+            $data->poa_perm_status,
+            $data->poa_apsi_remarks,
             $data->wwdp_number,
             $data->wwdp_issuance,
             $data->wwdp_expiry,
+            $data->wwdp_perm_status,
             $data->hazwaste_number,
             $data->hazwaste_issuance,
             $data->monitoring_law,
@@ -378,7 +392,8 @@ class UniverseExport3 implements FromQuery, WithHeadings, WithMapping, WithEvent
             $data->nov_date,
             $data->nov_tc_date,
             $data->nov_compliance_status,
-            $data->perm_description
+            $data->universe_status,
+            $data->universe_remarks,
         ];
     }
 }
