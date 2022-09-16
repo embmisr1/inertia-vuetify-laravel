@@ -24,7 +24,7 @@ class Profile extends Controller
     {
         $user_id = auth()->id();
         $user = User::findOrFail($user_id);
-        $user_logs = Logs::whereUserId($user_id)->paginate(request("per_page", 10));
+        $user_logs = Logs::whereUserId($user_id)->orderBy("created_at","desc")->paginate(request("per_page", 10));
 
         return Inertia::render("pages/profile/", [
             'filters' => FacadesRequest::all(

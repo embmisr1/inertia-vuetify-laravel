@@ -18,10 +18,10 @@ class UniversePcoController extends Controller
             }
             $query->universe_FK = $universe_id;
             $query->save();
-                
+
             $this->add_foreign_keys_to_universe($universe_id);
             return $query->id;
-            Logger::dispatch("PCO", $query->id, auth()->id(), "Created a PCO: model_id " . $query->id, "create");
+            Logger::dispatch("PCO", $query->id, auth()->id(), "Created a PCO: ", "create", $universe_id);
         }
     }
 
@@ -37,9 +37,9 @@ class UniversePcoController extends Controller
             }
             $query->universe_FK = $universe_id;
             $query->save();
-                
+
             $this->add_foreign_keys_to_universe($universe_id);
-            Logger::dispatch("PCO", $query->id, auth()->id(), "Updated a PCO: model_id " . $query->id, "update");
+            Logger::dispatch("PCO", $query->id, auth()->id(), "Updated a PCO: ", "update",  $universe_id);
             return $request->pco['pco_id'];
         }
     }
@@ -48,9 +48,9 @@ class UniversePcoController extends Controller
         $query = Pco::find($request);
         $universe_id = $query->universe_FK;
         $query->delete();
-                
+
         $this->add_foreign_keys_to_universe($universe_id);
-        Logger::dispatch("PCO", $request, auth()->id(), "Updated a PCO: model_id " . $request, "delete");
+        Logger::dispatch("PCO", $request, auth()->id(), "Updated a PCO: ", "delete", $universe_id);
         return back();
     }
 

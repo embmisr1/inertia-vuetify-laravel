@@ -26,7 +26,7 @@ class UniverseLegalController extends Controller
                     $query->nov_compliance_status = 'Not Complied';
                 }
                 $query->save();
-                
+
                 $this->add_foreign_keys_to_universe($universe_id);
 
                 $file = $request->legal['nov_file'] ?? false;
@@ -34,7 +34,7 @@ class UniverseLegalController extends Controller
                 if ($file) {
                     $this->add_media($request->legal['nov_file'], $query);
                 }
-                Logger::dispatch("Legal", $query->id, auth()->id(), "Created a monitoring: model_id " . $query->id, "create");
+                Logger::dispatch("Legal", $query->id, auth()->id(), "Created a monitoring: ", "create", $universe_id);
 
                 return $query->id;
             }
@@ -61,7 +61,7 @@ class UniverseLegalController extends Controller
                     $query->nov_compliance_status = 'Not Complied';
                 }
                 $query->save();
-                
+
                 $this->add_foreign_keys_to_universe($universe_id);
 
                 $file = $request->legal['nov_file'] ?? false;
@@ -69,7 +69,7 @@ class UniverseLegalController extends Controller
                 if ($file) {
                     $this->add_media($request->legal['nov_file'], $query);
                 }
-                Logger::dispatch("Legal", $query->id, auth()->id(), "Updated a monitoring: model_id " . $query->id, "update");
+                Logger::dispatch("Legal", $query->id, auth()->id(), "Updated a monitoring: ", "update", $universe_id);
 
                 return $request->legal['nov_id'];
             }
@@ -81,9 +81,9 @@ class UniverseLegalController extends Controller
         $query = Legal::find($request);
         $universe_id = $query->universe_FK;
         $query->delete();
-                
+
         $this->add_foreign_keys_to_universe($universe_id);
-        Logger::dispatch("Legal", $request, auth()->id(), "Deleted a monitoring: model_id " . $request, "delete");
+        Logger::dispatch("Legal", $request, auth()->id(), "Deleted a monitoring: ", "delete", $universe_id);
         return back();
     }
 

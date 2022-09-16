@@ -33,7 +33,7 @@ class UniverseComplaintController extends Controller
             }
 
 
-            Logger::dispatch("Complaint", $query->id, auth()->id(), "Created a NOV: model_id " . $query->id, "create");
+            Logger::dispatch("Complaint", $query->id, auth()->id(), "Created a NOV: ", "create", $universe_id);
 
             return $query->id;
         }
@@ -65,7 +65,7 @@ class UniverseComplaintController extends Controller
                 $this->add_media_action($request->complaint['comp_action_file'], $query);
             }
 
-            Logger::dispatch("Complaint", $query->id, auth()->id(), "Updated a NOV: model_id " . $query->id, "update");
+            Logger::dispatch("Complaint", $query->id, auth()->id(), "Updated a NOV: ", "update", $universe_id);
 
             return $request->complaint['comp_id'];
         }
@@ -74,8 +74,10 @@ class UniverseComplaintController extends Controller
     public function delete_complaint($request)
     {
         $query = Complaint::find($request);
+
+        $universe_id = $query->universe_FK;
         $query->delete();
-        Logger::dispatch("Complaint", $request, auth()->id(), "Deleted a NOV: model_id " . $query->id, "delete");
+        Logger::dispatch("Complaint", $request, auth()->id(), "Deleted a NOV: ", "delete", $universe_id);
         return back();
     }
 
