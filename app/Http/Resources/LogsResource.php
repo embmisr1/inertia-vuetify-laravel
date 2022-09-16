@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use Carbon\Carbon;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class LogsResource extends JsonResource
@@ -20,6 +21,7 @@ class LogsResource extends JsonResource
             "user" => $this->user->username,
             "type" => ucfirst($this->activity_type),
             "activity" => ucfirst($this->activity),
+            "created_at" => Carbon::parse($this->created_at)->format('M d, Y -  h:m a '),
 
         ];
     }

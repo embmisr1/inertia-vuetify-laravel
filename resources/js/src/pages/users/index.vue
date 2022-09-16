@@ -102,35 +102,23 @@
                         ></box-icon>
                     </v-btn>
                 </Link>
-                <!-- <v-btn
-                    icon
-                    small
-                    color="success"
-                    @click="setRoleModal(props.row.id)"
-                    ><box-icon name="id-card"></box-icon
-                ></v-btn> -->
-                <v-btn
-                    icon
-                    @click="
-                        setChangePassModal(
-                            change_pass_fields,
-                            'Change Password'
-                        )
-                    "
-                    ><box-icon
-                        name="lock-alt"
-                        animation="tada-hover"
-                        type="solid"
-                        :color="isTheme ? 'white' : 'black'"
-                    ></box-icon
-                ></v-btn>
-                <v-btn icon @click="setModal(props.row, 'Delete')"
+                <b-tooltip label="Reset User Password" position="is-left" type="is-dark">
+                    <v-btn icon @click="setAdminReset(props.row)"
+                        ><box-icon
+                            name="lock-alt"
+                            animation="tada-hover"
+                            type="solid"
+                            :color="isTheme ? 'white' : 'black'"
+                        ></box-icon
+                    ></v-btn>
+                </b-tooltip>
+                <!-- <v-btn icon @click="setModal(props.row, 'Delete')"
                     ><box-icon
                         name="trash"
                         color="red"
                         animation="tada-hover"
                     ></box-icon
-                ></v-btn>
+                ></v-btn> -->
             </b-table-column>
             <template #empty>
                 <div class="text-center text-3xl text-gray-500 font-extrabold">
@@ -139,9 +127,9 @@
             </template>
         </b-table>
         <CUDUser :modal="user_modal" :close="resetUserModal" />
-        <ChangePassword
-            :modal="change_pass_modal"
-            :close="resetChangePassModal"
+        <AdminResetPassword
+            :modal="admin_reset_password"
+            :close="resetAdminResetPasswordModal"
         />
         <UserRole
             :modal="role_modal"
@@ -161,6 +149,7 @@ import axios from "axios";
 import { Link } from "@inertiajs/inertia-vue";
 import _ from "lodash";
 import UserRole from "../../components/Users/UserRole.vue";
+import AdminResetPassword from "../../components/Users/AdminResetPassword.vue";
 export default {
     metaInfo: {
         title: "Users",
@@ -172,6 +161,7 @@ export default {
         ChangePassword,
         Link,
         UserRole,
+        AdminResetPassword,
     },
     props: {
         users: Object,
