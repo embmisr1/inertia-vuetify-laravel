@@ -13,7 +13,9 @@
                 <form @submit.prevent="handleSubmit(submitForm())">
                     <v-card :loading="loading">
                         <v-toolbar>
-                            <div class="font-bold text-lg">Change Password</div>
+                            <div class="font-bold text-lg">
+                                Reset Password for user {{ username }}
+                            </div>
                             <v-spacer></v-spacer>
                             <box-icon
                                 class="cursor-pointer"
@@ -24,29 +26,6 @@
                             ></box-icon>
                         </v-toolbar>
                         <v-card-text>
-                            <ValidationProvider
-                                vid="old_pass"
-                                name="Old Password"
-                                rules="required|min:6"
-                                v-slot="{ errors }"
-                            >
-                                <v-text-field
-                                    v-model="user_form.old"
-                                    dense
-                                    label="Old Password"
-                                    type="password"
-                                    clearable
-                                    prepend-inner-icon="mdi-lock"
-                                    color="dark"
-                                    outlined
-                                    :error-messages="
-                                        errors[0]
-                                            ? errors[0]
-                                            : user_form.errors.old
-                                    "
-                                    :loading="loading"
-                                ></v-text-field>
-                            </ValidationProvider>
                             <ValidationProvider
                                 vid="new_pass"
                                 name="New Password"
@@ -114,7 +93,7 @@
                                 Submit
                             </v-btn>
                             <v-btn
-                            :loading="loading"
+                                :loading="loading"
                                 outlined
                                 type="reset"
                                 @click="close()"
@@ -140,22 +119,26 @@ export default {
         user_form() {
             return this.modal.form;
         },
+        user_id() {
+            return this.modal.form.id;
+        },
+        username() {
+            return this.modal.form.username;
+        },
     },
     methods: {
         async submitForm() {
             try {
                 this.loading = true;
-                await this.user_form.post("/app/profile");
+                await this.user_form.post("/app/users/reset_password");
                 this.loading = false;
-            } catch (error) {
-                this.error(error.response.data.message);
-            }
+            } catch (error) {}
         },
     },
     data() {
         return {
             showpass: false,
-            loading:false
+            loading: false,
         };
     },
 };

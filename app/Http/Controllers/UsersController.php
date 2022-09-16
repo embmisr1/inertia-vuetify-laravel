@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Position;
 use App\Models\UnitSection;
-// use Illuminate\Http\Request;
+use Illuminate\Http\Request as NativeRequest;
 use Illuminate\Support\Facades\Request;
 use Inertia\Inertia;
 use App\Http\Requests\UsersRequest;
@@ -191,5 +191,26 @@ dd($th->getMessage());
         cache(['access_user_id' . $user->id => []], -1);
 
         return Redirect::back()->with('success', 'User deleted.');
+    }
+
+    public function resetPassword(NativeRequest $request)
+    {
+        try {
+            $input = $request->validate([
+                'id' => 'required|exists:App\Models\User,id',
+                'new' => 'required',
+                'conf' => 'required|min:6',
+            ]);
+            if ($input['new'] !== $input['conf']) {
+                return back()->withErrors(["error_message" => "Confirm Password don't match new Password"]);
+            }
+            User::findOrFail($input['id'])->update([
+                "password" => Hash::make($input['new'])
+            ]);
+            return back()->with('message', "Password Updated");
+        } catch (\Throwable $th) {
+            return $th->getMessage();
+            return back()->withErrors(["error_message" => "Server Error"]);
+        }
     }
 }

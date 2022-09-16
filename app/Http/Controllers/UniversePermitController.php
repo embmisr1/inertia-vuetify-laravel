@@ -70,7 +70,7 @@ class UniversePermitController extends Controller
                             $this->add_media($request->permit['perm_file'], $query);
                         }
 
-                        Logger::dispatch("Permit", $query->id, auth()->id(), "Updated a Permit: model_id " . $query->id, "update");
+                        Logger::dispatch("Permit", $query->id, auth()->id(), "Updated a Permit: ", "update", $universe_id);
 
                         return $request->permit['perm_id'];
                     }
@@ -98,7 +98,7 @@ class UniversePermitController extends Controller
                             $this->add_media($request->permit['perm_file'], $query);
                         }
 
-                        Logger::dispatch("Permit", $query->id, auth()->id(), "Updated a Permit: model_id " . $query->id, "update");
+                        Logger::dispatch("Permit", $query->id, auth()->id(), "Updated a Permit: ", "update",  $universe_id);
 
                         return $request->permit['perm_id'];
                     }
@@ -126,7 +126,7 @@ class UniversePermitController extends Controller
         }
 
         $this->add_foreign_keys_to_universe($universe_id);
-        Logger::dispatch("Permit", $request, auth()->id(), "deleted a Permit: model_id " . $request, "delete");
+        Logger::dispatch("Permit", $request, auth()->id(), "deleted a Permit: ", "delete",  $universe_id);
 
         return back();
     }

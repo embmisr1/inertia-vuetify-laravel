@@ -23,7 +23,7 @@ class UniverseMonitoringController extends Controller
                 $query->mon_law = $this->industry_laws($request, 'monitoring', 'mon_law');
                 $query->universe_FK = $universe_id;
                 $query->save();
-                
+
                 $this->add_foreign_keys_to_universe($universe_id);
 
                 $file = $request->monitoring['mon_file'] ?? false;
@@ -31,7 +31,7 @@ class UniverseMonitoringController extends Controller
                 if ($file) {
                     $this->add_media($request->monitoring['mon_file'], $query);
                 }
-                Logger::dispatch("Monitoring", $query->id, auth()->id(), "Created a monitoring: model_id " . $query->id, "create");
+                Logger::dispatch("Monitoring", $query->id, auth()->id(), "Created a monitoring: ", "create");
 
                 return $query->id;
             }
@@ -55,7 +55,7 @@ class UniverseMonitoringController extends Controller
                 $query->mon_law = $this->industry_laws($request, 'monitoring', 'mon_law');
                 $query->universe_FK = $universe_id;
                 $query->save();
-                
+
                 $this->add_foreign_keys_to_universe($universe_id);
 
                 $file = $request->monitoring['mon_file'] ?? false;
@@ -63,7 +63,7 @@ class UniverseMonitoringController extends Controller
                 if ($file) {
                     $this->add_media($request->monitoring['mon_file'], $query);
                 }
-                Logger::dispatch("Monitoring", $query->id, auth()->id(), "Updated a monitoring: model_id " . $query->id, "update");
+                Logger::dispatch("Monitoring", $query->id, auth()->id(), "Updated a monitoring: ", "update", $universe_id);
 
                 return $request->monitoring['mon_id'];
             }
@@ -75,9 +75,9 @@ class UniverseMonitoringController extends Controller
         $query = Monitoring::find($request);
         $universe_id = $query->universe_FK;
         $query->delete();
-                
+
         $this->add_foreign_keys_to_universe($universe_id);
-        Logger::dispatch("Monitoring", $request, auth()->id(), "Deleted a monitoring: model_id " . $query->id, "delete");
+        Logger::dispatch("Monitoring", $request, auth()->id(), "Deleted a monitoring: ", "delete", $universe_id);
         return back();
     }
 

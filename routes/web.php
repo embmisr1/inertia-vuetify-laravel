@@ -74,6 +74,7 @@ Route::group([
 
     Route::get('/pornhub', [Dashboard::class, 'index'])->name("dashboard.index");
     Route::get('/profile', [Profile::class, 'index'])->name("profile.index");
+    Route::post('/profile', [Profile::class, 'store'])->name("profile.store");//change user pass
 
     Route::get('/users', [UsersController::class, 'index'])->name("users");
     Route::get('/users/create', [UsersController::class, 'create'])->name("users.create");
@@ -84,6 +85,8 @@ Route::group([
     Route::patch('/users/{user}', [UsersController::class, 'update'])->name("users.update");
 
     Route::delete('/users/{user}', [UsersController::class, 'destroy'])->name("users.destroy");
+
+    Route::post('/users/reset_password', [UsersController::class, 'resetPassword'])->name("users.resetPassword");
 
     Route::get('/unit_section', [UnitSectionController::class, 'index'])->name("unit_section.index");
     Route::post('/unit_section', [UnitSectionController::class, 'store'])->name("unit_section.store");
