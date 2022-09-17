@@ -20,8 +20,23 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
-      change_pass_modal: {},
-      user_modal: {}
+      change_pass_modal: {
+        active: false,
+        form: this.$inertia.form({
+          old: "",
+          "new": "",
+          conf: ""
+        })
+      },
+      user_modal: {},
+      admin_reset_password: {
+        active: false,
+        form: this.$inertia.form({
+          id: "",
+          "new": "",
+          conf: ""
+        })
+      }
     };
   },
   methods: {
@@ -49,12 +64,32 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         type: type
       };
     },
+    setAdminReset: function setAdminReset(data) {
+      this.admin_reset_password = {
+        active: true,
+        form: this.$inertia.form(_objectSpread(_objectSpread({}, data), {}, {
+          "new": "",
+          conf: ""
+        }))
+      };
+    },
+    resetAdminResetPasswordModal: function resetAdminResetPasswordModal() {
+      this.admin_reset_password = {
+        active: false,
+        form: this.$inertia.form({
+          id: "",
+          "new": "",
+          conf: ""
+        })
+      };
+    },
     resetChangePassModal: function resetChangePassModal() {
       this.change_pass_modal = {
         active: false,
-        form: this.$inertia.form({// username: "",
-          // email: "",
-          // password: "",
+        form: this.$inertia.form({
+          old: "",
+          "new": "",
+          conf: ""
         }),
         type: "Change Password"
       };

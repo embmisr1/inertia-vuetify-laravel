@@ -16744,6 +16744,194 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/components/Users/AdminResetPassword.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/components/Users/AdminResetPassword.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: {
+    modal: Object,
+    close: Function
+  },
+  computed: {
+    user_form: function user_form() {
+      return this.modal.form;
+    },
+    user_id: function user_id() {
+      return this.modal.form.id;
+    },
+    username: function username() {
+      return this.modal.form.username;
+    }
+  },
+  methods: {
+    submitForm: function submitForm() {
+      var _this = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.prev = 0;
+                _this.loading = true;
+                _context.next = 4;
+                return _this.user_form.post("/app/users/reset_password");
+
+              case 4:
+                _this.loading = false;
+                _context.next = 9;
+                break;
+
+              case 7:
+                _context.prev = 7;
+                _context.t0 = _context["catch"](0);
+
+              case 9:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, null, [[0, 7]]);
+      }))();
+    }
+  },
+  data: function data() {
+    return {
+      showpass: false,
+      loading: false
+    };
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/components/Users/CUD.vue?vue&type=script&lang=js&":
 /*!********************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/components/Users/CUD.vue?vue&type=script&lang=js& ***!
@@ -16941,10 +17129,106 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     modal: Object,
     close: Function
+  },
+  computed: {
+    user_form: function user_form() {
+      return this.modal.form;
+    }
   },
   methods: {
     submitForm: function submitForm() {
@@ -16955,17 +17239,36 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                // await this.modal.form.post("/app/users");
-                _this.close();
+                _context.prev = 0;
+                _this.loading = true;
+                _context.next = 4;
+                return _this.user_form.post("/app/profile");
 
-              case 1:
+              case 4:
+                _this.loading = false;
+                _context.next = 10;
+                break;
+
+              case 7:
+                _context.prev = 7;
+                _context.t0 = _context["catch"](0);
+
+                _this.error(_context.t0.response.data.message);
+
+              case 10:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee);
+        }, _callee, null, [[0, 7]]);
       }))();
     }
+  },
+  data: function data() {
+    return {
+      showpass: false,
+      loading: false
+    };
   }
 });
 
@@ -17545,6 +17848,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_9__);
 /* harmony import */ var _components_Users_UserRole_vue__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../components/Users/UserRole.vue */ "./resources/js/src/components/Users/UserRole.vue");
+/* harmony import */ var _components_Users_AdminResetPassword_vue__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../components/Users/AdminResetPassword.vue */ "./resources/js/src/components/Users/AdminResetPassword.vue");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
@@ -17697,18 +18001,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
 
 
 
@@ -17729,7 +18022,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     CUDUser: _components_Users_CUD_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
     ChangePassword: _components_Users_ChangePassword_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
     Link: _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_8__.Link,
-    UserRole: _components_Users_UserRole_vue__WEBPACK_IMPORTED_MODULE_10__["default"]
+    UserRole: _components_Users_UserRole_vue__WEBPACK_IMPORTED_MODULE_10__["default"],
+    AdminResetPassword: _components_Users_AdminResetPassword_vue__WEBPACK_IMPORTED_MODULE_11__["default"]
   },
   props: {
     users: Object,
@@ -17918,6 +18212,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "psic": () => (/* reexport safe */ _psic__WEBPACK_IMPORTED_MODULE_2__["default"]),
 /* harmony export */   "swm": () => (/* reexport safe */ _swm__WEBPACK_IMPORTED_MODULE_5__["default"]),
 /* harmony export */   "toasts": () => (/* reexport safe */ _toasts__WEBPACK_IMPORTED_MODULE_1__["default"]),
+/* harmony export */   "user_modal": () => (/* reexport safe */ _user_modal__WEBPACK_IMPORTED_MODULE_7__["default"]),
 /* harmony export */   "users": () => (/* reexport safe */ _users__WEBPACK_IMPORTED_MODULE_6__["default"])
 /* harmony export */ });
 /* harmony import */ var _page__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./page */ "./resources/js/src/mixins/page.js");
@@ -17927,6 +18222,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _dialogs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./dialogs */ "./resources/js/src/mixins/dialogs.js");
 /* harmony import */ var _swm__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./swm */ "./resources/js/src/mixins/swm.js");
 /* harmony import */ var _users__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./users */ "./resources/js/src/mixins/users.js");
+/* harmony import */ var _user_modal__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./user_modal */ "./resources/js/src/mixins/user_modal.js");
+
 
 
 
@@ -20045,8 +20342,23 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
-      change_pass_modal: {},
-      user_modal: {}
+      change_pass_modal: {
+        active: false,
+        form: this.$inertia.form({
+          old: "",
+          "new": "",
+          conf: ""
+        })
+      },
+      user_modal: {},
+      admin_reset_password: {
+        active: false,
+        form: this.$inertia.form({
+          id: "",
+          "new": "",
+          conf: ""
+        })
+      }
     };
   },
   methods: {
@@ -20074,12 +20386,32 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         type: type
       };
     },
+    setAdminReset: function setAdminReset(data) {
+      this.admin_reset_password = {
+        active: true,
+        form: this.$inertia.form(_objectSpread(_objectSpread({}, data), {}, {
+          "new": "",
+          conf: ""
+        }))
+      };
+    },
+    resetAdminResetPasswordModal: function resetAdminResetPasswordModal() {
+      this.admin_reset_password = {
+        active: false,
+        form: this.$inertia.form({
+          id: "",
+          "new": "",
+          conf: ""
+        })
+      };
+    },
     resetChangePassModal: function resetChangePassModal() {
       this.change_pass_modal = {
         active: false,
-        form: this.$inertia.form({// username: "",
-          // email: "",
-          // password: "",
+        form: this.$inertia.form({
+          old: "",
+          "new": "",
+          conf: ""
         }),
         type: "Change Password"
       };
@@ -38342,6 +38674,45 @@ component.options.__file = "resources/js/src/components/SideNavItems.vue"
 
 /***/ }),
 
+/***/ "./resources/js/src/components/Users/AdminResetPassword.vue":
+/*!******************************************************************!*\
+  !*** ./resources/js/src/components/Users/AdminResetPassword.vue ***!
+  \******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _AdminResetPassword_vue_vue_type_template_id_25d8d9c2___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AdminResetPassword.vue?vue&type=template&id=25d8d9c2& */ "./resources/js/src/components/Users/AdminResetPassword.vue?vue&type=template&id=25d8d9c2&");
+/* harmony import */ var _AdminResetPassword_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AdminResetPassword.vue?vue&type=script&lang=js& */ "./resources/js/src/components/Users/AdminResetPassword.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _AdminResetPassword_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _AdminResetPassword_vue_vue_type_template_id_25d8d9c2___WEBPACK_IMPORTED_MODULE_0__.render,
+  _AdminResetPassword_vue_vue_type_template_id_25d8d9c2___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/src/components/Users/AdminResetPassword.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/src/components/Users/CUD.vue":
 /*!***************************************************!*\
   !*** ./resources/js/src/components/Users/CUD.vue ***!
@@ -38569,6 +38940,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/src/components/Users/AdminResetPassword.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************!*\
+  !*** ./resources/js/src/components/Users/AdminResetPassword.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminResetPassword_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./AdminResetPassword.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/components/Users/AdminResetPassword.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminResetPassword_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/src/components/Users/CUD.vue?vue&type=script&lang=js&":
 /*!****************************************************************************!*\
   !*** ./resources/js/src/components/Users/CUD.vue?vue&type=script&lang=js& ***!
@@ -38679,6 +39066,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SideNavItems_vue_vue_type_template_id_40864e14___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SideNavItems_vue_vue_type_template_id_40864e14___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./SideNavItems.vue?vue&type=template&id=40864e14& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/components/SideNavItems.vue?vue&type=template&id=40864e14&");
+
+
+/***/ }),
+
+/***/ "./resources/js/src/components/Users/AdminResetPassword.vue?vue&type=template&id=25d8d9c2&":
+/*!*************************************************************************************************!*\
+  !*** ./resources/js/src/components/Users/AdminResetPassword.vue?vue&type=template&id=25d8d9c2& ***!
+  \*************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminResetPassword_vue_vue_type_template_id_25d8d9c2___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminResetPassword_vue_vue_type_template_id_25d8d9c2___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminResetPassword_vue_vue_type_template_id_25d8d9c2___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./AdminResetPassword.vue?vue&type=template&id=25d8d9c2& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/components/Users/AdminResetPassword.vue?vue&type=template&id=25d8d9c2&");
 
 
 /***/ }),
@@ -39755,6 +40159,307 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/components/Users/AdminResetPassword.vue?vue&type=template&id=25d8d9c2&":
+/*!****************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/components/Users/AdminResetPassword.vue?vue&type=template&id=25d8d9c2& ***!
+  \****************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("v-dialog", {
+    attrs: {
+      transition: "dialog-bottom-transition",
+      "max-width": "600",
+      persistent: "",
+    },
+    scopedSlots: _vm._u([
+      {
+        key: "default",
+        fn: function (dialog) {
+          return [
+            _c("ValidationObserver", {
+              ref: "validation_observer",
+              scopedSlots: _vm._u(
+                [
+                  {
+                    key: "default",
+                    fn: function (ref) {
+                      var handleSubmit = ref.handleSubmit
+                      var invalid = ref.invalid
+                      return [
+                        _c(
+                          "form",
+                          {
+                            on: {
+                              submit: function ($event) {
+                                $event.preventDefault()
+                                handleSubmit(_vm.submitForm())
+                              },
+                            },
+                          },
+                          [
+                            _c(
+                              "v-card",
+                              { attrs: { loading: _vm.loading } },
+                              [
+                                _c(
+                                  "v-toolbar",
+                                  [
+                                    _c(
+                                      "div",
+                                      { staticClass: "font-bold text-lg" },
+                                      [
+                                        _vm._v(
+                                          "\n                            Reset Password for user " +
+                                            _vm._s(_vm.username) +
+                                            "\n                        "
+                                        ),
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c("v-spacer"),
+                                    _vm._v(" "),
+                                    _c("box-icon", {
+                                      staticClass: "cursor-pointer",
+                                      attrs: {
+                                        name: "x",
+                                        animation: "tada-hover",
+                                        color: "red",
+                                      },
+                                      on: {
+                                        click: function ($event) {
+                                          return _vm.close()
+                                        },
+                                      },
+                                    }),
+                                  ],
+                                  1
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "v-card-text",
+                                  [
+                                    _c("ValidationProvider", {
+                                      attrs: {
+                                        vid: "new_pass",
+                                        name: "New Password",
+                                        rules: "required|min:6",
+                                      },
+                                      scopedSlots: _vm._u(
+                                        [
+                                          {
+                                            key: "default",
+                                            fn: function (ref) {
+                                              var errors = ref.errors
+                                              return [
+                                                _c("v-text-field", {
+                                                  attrs: {
+                                                    dense: "",
+                                                    label: "New Password",
+                                                    type: _vm.showpass
+                                                      ? "text"
+                                                      : "password",
+                                                    clearable: "",
+                                                    "prepend-inner-icon":
+                                                      "mdi-shield-account",
+                                                    color: "dark",
+                                                    outlined: "",
+                                                    "error-messages": errors[0]
+                                                      ? errors[0]
+                                                      : _vm.user_form.errors
+                                                          .new,
+                                                    "append-icon": _vm.showpass
+                                                      ? "mdi-eye"
+                                                      : "mdi-eye-off",
+                                                    loading: _vm.loading,
+                                                  },
+                                                  on: {
+                                                    "click:append": function (
+                                                      $event
+                                                    ) {
+                                                      _vm.showpass =
+                                                        !_vm.showpass
+                                                    },
+                                                  },
+                                                  model: {
+                                                    value: _vm.user_form.new,
+                                                    callback: function ($$v) {
+                                                      _vm.$set(
+                                                        _vm.user_form,
+                                                        "new",
+                                                        $$v
+                                                      )
+                                                    },
+                                                    expression: "user_form.new",
+                                                  },
+                                                }),
+                                              ]
+                                            },
+                                          },
+                                        ],
+                                        null,
+                                        true
+                                      ),
+                                    }),
+                                    _vm._v(" "),
+                                    _c("ValidationProvider", {
+                                      attrs: {
+                                        vid: "conf_pass",
+                                        name: "Confirm New Password",
+                                        rules: "required|confirmed:new_pass",
+                                      },
+                                      scopedSlots: _vm._u(
+                                        [
+                                          {
+                                            key: "default",
+                                            fn: function (ref) {
+                                              var errors = ref.errors
+                                              return [
+                                                _c("v-text-field", {
+                                                  attrs: {
+                                                    dense: "",
+                                                    label:
+                                                      "Confirm New Password",
+                                                    type: _vm.showpass
+                                                      ? "text"
+                                                      : "password",
+                                                    clearable: "",
+                                                    "prepend-inner-icon":
+                                                      "mdi-shield-check",
+                                                    color: "dark",
+                                                    outlined: "",
+                                                    "error-messages": errors[0]
+                                                      ? errors[0]
+                                                      : _vm.user_form.errors
+                                                          .conf,
+                                                    "append-icon": _vm.showpass
+                                                      ? "mdi-eye"
+                                                      : "mdi-eye-off",
+                                                    loading: _vm.loading,
+                                                  },
+                                                  on: {
+                                                    "click:append": function (
+                                                      $event
+                                                    ) {
+                                                      _vm.showpass =
+                                                        !_vm.showpass
+                                                    },
+                                                  },
+                                                  model: {
+                                                    value: _vm.user_form.conf,
+                                                    callback: function ($$v) {
+                                                      _vm.$set(
+                                                        _vm.user_form,
+                                                        "conf",
+                                                        $$v
+                                                      )
+                                                    },
+                                                    expression:
+                                                      "user_form.conf",
+                                                  },
+                                                }),
+                                              ]
+                                            },
+                                          },
+                                        ],
+                                        null,
+                                        true
+                                      ),
+                                    }),
+                                  ],
+                                  1
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "v-card-actions",
+                                  [
+                                    _c("v-spacer"),
+                                    _vm._v(" "),
+                                    _c(
+                                      "v-btn",
+                                      {
+                                        staticClass: "white--text",
+                                        attrs: {
+                                          disabled: invalid,
+                                          type: "submit",
+                                          color: "green darken-2",
+                                          loading: _vm.loading,
+                                        },
+                                      },
+                                      [
+                                        _vm._v(
+                                          "\n                            Submit\n                        "
+                                        ),
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "v-btn",
+                                      {
+                                        attrs: {
+                                          loading: _vm.loading,
+                                          outlined: "",
+                                          type: "reset",
+                                          color: "red darken-2",
+                                        },
+                                        on: {
+                                          click: function ($event) {
+                                            return _vm.close()
+                                          },
+                                        },
+                                      },
+                                      [
+                                        _vm._v(
+                                          "\n                            Close\n                        "
+                                        ),
+                                      ]
+                                    ),
+                                  ],
+                                  1
+                                ),
+                              ],
+                              1
+                            ),
+                          ],
+                          1
+                        ),
+                      ]
+                    },
+                  },
+                ],
+                null,
+                true
+              ),
+            }),
+          ]
+        },
+      },
+    ]),
+    model: {
+      value: _vm.modal.active,
+      callback: function ($$v) {
+        _vm.$set(_vm.modal, "active", $$v)
+      },
+      expression: "modal.active",
+    },
+  })
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/components/Users/CUD.vue?vue&type=template&id=6856760a&":
 /*!*************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/components/Users/CUD.vue?vue&type=template&id=6856760a& ***!
@@ -39928,81 +40633,304 @@ var render = function () {
         key: "default",
         fn: function (dialog) {
           return [
-            _c(
-              "v-card",
-              [
-                _c("v-toolbar", [_vm._v("Change Password")]),
-                _vm._v(" "),
-                _c("div", { staticClass: "p-4" }, [
-                  _c(
-                    "form",
-                    {
-                      on: {
-                        submit: function ($event) {
-                          $event.preventDefault()
-                          return _vm.submitForm.apply(null, arguments)
-                        },
-                      },
+            _c("ValidationObserver", {
+              ref: "validation_observer",
+              scopedSlots: _vm._u(
+                [
+                  {
+                    key: "default",
+                    fn: function (ref) {
+                      var handleSubmit = ref.handleSubmit
+                      var invalid = ref.invalid
+                      return [
+                        _c(
+                          "form",
+                          {
+                            on: {
+                              submit: function ($event) {
+                                $event.preventDefault()
+                                handleSubmit(_vm.submitForm())
+                              },
+                            },
+                          },
+                          [
+                            _c(
+                              "v-card",
+                              { attrs: { loading: _vm.loading } },
+                              [
+                                _c(
+                                  "v-toolbar",
+                                  [
+                                    _c(
+                                      "div",
+                                      { staticClass: "font-bold text-lg" },
+                                      [_vm._v("Change Password")]
+                                    ),
+                                    _vm._v(" "),
+                                    _c("v-spacer"),
+                                    _vm._v(" "),
+                                    _c("box-icon", {
+                                      staticClass: "cursor-pointer",
+                                      attrs: {
+                                        name: "x",
+                                        animation: "tada-hover",
+                                        color: "red",
+                                      },
+                                      on: {
+                                        click: function ($event) {
+                                          return _vm.close()
+                                        },
+                                      },
+                                    }),
+                                  ],
+                                  1
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "v-card-text",
+                                  [
+                                    _c("ValidationProvider", {
+                                      attrs: {
+                                        vid: "old_pass",
+                                        name: "Old Password",
+                                        rules: "required|min:6",
+                                      },
+                                      scopedSlots: _vm._u(
+                                        [
+                                          {
+                                            key: "default",
+                                            fn: function (ref) {
+                                              var errors = ref.errors
+                                              return [
+                                                _c("v-text-field", {
+                                                  attrs: {
+                                                    dense: "",
+                                                    label: "Old Password",
+                                                    type: "password",
+                                                    clearable: "",
+                                                    "prepend-inner-icon":
+                                                      "mdi-lock",
+                                                    color: "dark",
+                                                    outlined: "",
+                                                    "error-messages": errors[0]
+                                                      ? errors[0]
+                                                      : _vm.user_form.errors
+                                                          .old,
+                                                    loading: _vm.loading,
+                                                  },
+                                                  model: {
+                                                    value: _vm.user_form.old,
+                                                    callback: function ($$v) {
+                                                      _vm.$set(
+                                                        _vm.user_form,
+                                                        "old",
+                                                        $$v
+                                                      )
+                                                    },
+                                                    expression: "user_form.old",
+                                                  },
+                                                }),
+                                              ]
+                                            },
+                                          },
+                                        ],
+                                        null,
+                                        true
+                                      ),
+                                    }),
+                                    _vm._v(" "),
+                                    _c("ValidationProvider", {
+                                      attrs: {
+                                        vid: "new_pass",
+                                        name: "New Password",
+                                        rules: "required|min:6",
+                                      },
+                                      scopedSlots: _vm._u(
+                                        [
+                                          {
+                                            key: "default",
+                                            fn: function (ref) {
+                                              var errors = ref.errors
+                                              return [
+                                                _c("v-text-field", {
+                                                  attrs: {
+                                                    dense: "",
+                                                    label: "New Password",
+                                                    type: _vm.showpass
+                                                      ? "text"
+                                                      : "password",
+                                                    clearable: "",
+                                                    "prepend-inner-icon":
+                                                      "mdi-shield-account",
+                                                    color: "dark",
+                                                    outlined: "",
+                                                    "error-messages": errors[0]
+                                                      ? errors[0]
+                                                      : _vm.user_form.errors
+                                                          .new,
+                                                    "append-icon": _vm.showpass
+                                                      ? "mdi-eye"
+                                                      : "mdi-eye-off",
+                                                    loading: _vm.loading,
+                                                  },
+                                                  on: {
+                                                    "click:append": function (
+                                                      $event
+                                                    ) {
+                                                      _vm.showpass =
+                                                        !_vm.showpass
+                                                    },
+                                                  },
+                                                  model: {
+                                                    value: _vm.user_form.new,
+                                                    callback: function ($$v) {
+                                                      _vm.$set(
+                                                        _vm.user_form,
+                                                        "new",
+                                                        $$v
+                                                      )
+                                                    },
+                                                    expression: "user_form.new",
+                                                  },
+                                                }),
+                                              ]
+                                            },
+                                          },
+                                        ],
+                                        null,
+                                        true
+                                      ),
+                                    }),
+                                    _vm._v(" "),
+                                    _c("ValidationProvider", {
+                                      attrs: {
+                                        vid: "conf_pass",
+                                        name: "Confirm New Password",
+                                        rules: "required|confirmed:new_pass",
+                                      },
+                                      scopedSlots: _vm._u(
+                                        [
+                                          {
+                                            key: "default",
+                                            fn: function (ref) {
+                                              var errors = ref.errors
+                                              return [
+                                                _c("v-text-field", {
+                                                  attrs: {
+                                                    dense: "",
+                                                    label:
+                                                      "Confirm New Password",
+                                                    type: _vm.showpass
+                                                      ? "text"
+                                                      : "password",
+                                                    clearable: "",
+                                                    "prepend-inner-icon":
+                                                      "mdi-shield-check",
+                                                    color: "dark",
+                                                    outlined: "",
+                                                    "error-messages": errors[0]
+                                                      ? errors[0]
+                                                      : _vm.user_form.errors
+                                                          .conf,
+                                                    "append-icon": _vm.showpass
+                                                      ? "mdi-eye"
+                                                      : "mdi-eye-off",
+                                                    loading: _vm.loading,
+                                                  },
+                                                  on: {
+                                                    "click:append": function (
+                                                      $event
+                                                    ) {
+                                                      _vm.showpass =
+                                                        !_vm.showpass
+                                                    },
+                                                  },
+                                                  model: {
+                                                    value: _vm.user_form.conf,
+                                                    callback: function ($$v) {
+                                                      _vm.$set(
+                                                        _vm.user_form,
+                                                        "conf",
+                                                        $$v
+                                                      )
+                                                    },
+                                                    expression:
+                                                      "user_form.conf",
+                                                  },
+                                                }),
+                                              ]
+                                            },
+                                          },
+                                        ],
+                                        null,
+                                        true
+                                      ),
+                                    }),
+                                  ],
+                                  1
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "v-card-actions",
+                                  [
+                                    _c("v-spacer"),
+                                    _vm._v(" "),
+                                    _c(
+                                      "v-btn",
+                                      {
+                                        staticClass: "white--text",
+                                        attrs: {
+                                          disabled: invalid,
+                                          type: "submit",
+                                          color: "green darken-2",
+                                          loading: _vm.loading,
+                                        },
+                                      },
+                                      [
+                                        _vm._v(
+                                          "\n                            Submit\n                        "
+                                        ),
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "v-btn",
+                                      {
+                                        attrs: {
+                                          loading: _vm.loading,
+                                          outlined: "",
+                                          type: "reset",
+                                          color: "red darken-2",
+                                        },
+                                        on: {
+                                          click: function ($event) {
+                                            return _vm.close()
+                                          },
+                                        },
+                                      },
+                                      [
+                                        _vm._v(
+                                          "\n                            Close\n                        "
+                                        ),
+                                      ]
+                                    ),
+                                  ],
+                                  1
+                                ),
+                              ],
+                              1
+                            ),
+                          ],
+                          1
+                        ),
+                      ]
                     },
-                    [
-                      _c("v-text-field", {
-                        attrs: {
-                          label: "New Password",
-                          type: "password",
-                          outlined: "",
-                          filled: "",
-                          "error-messages": _vm.modal.form.errors.password,
-                        },
-                        model: {
-                          value: _vm.modal.form.password,
-                          callback: function ($$v) {
-                            _vm.$set(_vm.modal.form, "password", $$v)
-                          },
-                          expression: "modal.form.password",
-                        },
-                      }),
-                      _vm._v(" "),
-                      _c("v-text-field", {
-                        attrs: {
-                          label: "Confirm Password",
-                          type: "password",
-                          outlined: "",
-                          filled: "",
-                          "error-messages":
-                            _vm.modal.form.errors.confirm_password,
-                        },
-                        model: {
-                          value: _vm.modal.form.confirm_password,
-                          callback: function ($$v) {
-                            _vm.$set(_vm.modal.form, "confirm_password", $$v)
-                          },
-                          expression: "modal.form.confirm_password",
-                        },
-                      }),
-                      _vm._v(" "),
-                      _c(
-                        "v-card-actions",
-                        { staticClass: "justify-end" },
-                        [
-                          _c("v-btn", { attrs: { type: "submit" } }, [
-                            _vm._v("Submt"),
-                          ]),
-                          _vm._v(" "),
-                          _c(
-                            "v-btn",
-                            { attrs: { text: "" }, on: { click: _vm.close } },
-                            [_vm._v("Close")]
-                          ),
-                        ],
-                        1
-                      ),
-                    ],
-                    1
-                  ),
-                ]),
-              ],
-              1
-            ),
+                  },
+                ],
+                null,
+                true
+              ),
+            }),
           ]
         },
       },
@@ -40630,49 +41558,37 @@ var render = function () {
                     ),
                     _vm._v(" "),
                     _c(
-                      "v-btn",
+                      "b-tooltip",
                       {
-                        attrs: { icon: "" },
-                        on: {
-                          click: function ($event) {
-                            return _vm.setChangePassModal(
-                              _vm.change_pass_fields,
-                              "Change Password"
-                            )
-                          },
+                        attrs: {
+                          label: "Reset User Password",
+                          position: "is-left",
+                          type: "is-dark",
                         },
                       },
                       [
-                        _c("box-icon", {
-                          attrs: {
-                            name: "lock-alt",
-                            animation: "tada-hover",
-                            type: "solid",
-                            color: _vm.isTheme ? "white" : "black",
+                        _c(
+                          "v-btn",
+                          {
+                            attrs: { icon: "" },
+                            on: {
+                              click: function ($event) {
+                                return _vm.setAdminReset(props.row)
+                              },
+                            },
                           },
-                        }),
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "v-btn",
-                      {
-                        attrs: { icon: "" },
-                        on: {
-                          click: function ($event) {
-                            return _vm.setModal(props.row, "Delete")
-                          },
-                        },
-                      },
-                      [
-                        _c("box-icon", {
-                          attrs: {
-                            name: "trash",
-                            color: "red",
-                            animation: "tada-hover",
-                          },
-                        }),
+                          [
+                            _c("box-icon", {
+                              attrs: {
+                                name: "lock-alt",
+                                animation: "tada-hover",
+                                type: "solid",
+                                color: _vm.isTheme ? "white" : "black",
+                              },
+                            }),
+                          ],
+                          1
+                        ),
                       ],
                       1
                     ),
@@ -40689,10 +41605,10 @@ var render = function () {
         attrs: { modal: _vm.user_modal, close: _vm.resetUserModal },
       }),
       _vm._v(" "),
-      _c("ChangePassword", {
+      _c("AdminResetPassword", {
         attrs: {
-          modal: _vm.change_pass_modal,
-          close: _vm.resetChangePassModal,
+          modal: _vm.admin_reset_password,
+          close: _vm.resetAdminResetPasswordModal,
         },
       }),
       _vm._v(" "),
