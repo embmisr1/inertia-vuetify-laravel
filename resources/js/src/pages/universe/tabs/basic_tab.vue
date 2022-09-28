@@ -409,7 +409,7 @@ export default {
         },
         async projectSubTypeDropdown(val) {
             const project_specific_type = await axios.get(
-                `${urls.project_subtype_dropdown}${val}`
+                `${urls.project_subtype_dropdown}/${val}`
             );
             this.project_specific_type_list_alter = project_specific_type.data;
         },

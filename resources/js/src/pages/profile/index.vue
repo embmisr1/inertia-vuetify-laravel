@@ -27,10 +27,13 @@
             height="420"
         >
             <template #top-left>
-                <b-button type="is-text" size="is-small" @click="change_pass_modal.active = true" >Change your Password</b-button>
-                <div class="border border-black mx-2">
-
-                </div>
+                <b-button
+                    type="is-text"
+                    size="is-small"
+                    @click="change_pass_modal.active = true"
+                    >Change your Password</b-button
+                >
+                <div class="border border-black mx-2"></div>
                 <b-select
                     placeholder="Rows Per Page"
                     v-model="filters.per_page"
@@ -41,7 +44,6 @@
                     <option value="100">100</option>
                     <option value="500">500</option>
                 </b-select>
-
             </template>
             <template #bottom-left>
                 <b-field type="is-dark">
@@ -84,6 +86,22 @@
                 </template>
                 <template v-slot="props">
                     {{ props.row.type }}
+                </template>
+            </b-table-column>
+            <b-table-column field="created_at" label="Created At">
+                <template #searchable="props">
+                    <b-select
+                        placeholder="Search Activity Type"
+                        v-model="filters.activity_type"
+                        size="is-small"
+                    >
+                        <option value="Create">Create</option>
+                        <option value="Update">Update</option>
+                        <option value="Delete">Delete</option>
+                    </b-select>
+                </template>
+                <template v-slot="props">
+                    {{ props.row.created_at }}
                 </template>
             </b-table-column>
             <template #empty>

@@ -60,7 +60,8 @@ class Logger implements ShouldQueue
             Log::notice("Log Created log_id: " . $new_log->id . " created_at " . now()->format('M d, Y -  h:m a '));
             return $new_log;
         } catch (\Throwable $th) {
-            Log::error("ERROR occur " . now()->format('M d, Y -  h:m a ') . " when storing user: " . $this->user_id . "\n log content " . $this->activity , "\n" . $th->getMessage());
+            // Log::error("ERROR occur " . now()->format('M d, Y -  h:m a ') . " when storing user: " . $this->user_id . "\n log content " . $this->activity , "\n" . $th->getMessage());
+            Log::error($th->getMessage());
             return $th->getMessage();
         }
     }
