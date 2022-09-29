@@ -1208,6 +1208,24 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -23933,6 +23951,60 @@ var render = function () {
                     _vm._v(
                       "\n                " +
                         _vm._s(props.row.type) +
+                        "\n            "
+                    ),
+                  ]
+                },
+              },
+            ]),
+          }),
+          _vm._v(" "),
+          _c("b-table-column", {
+            attrs: { field: "created_at", label: "Created At" },
+            scopedSlots: _vm._u([
+              {
+                key: "searchable",
+                fn: function (props) {
+                  return [
+                    _c(
+                      "b-select",
+                      {
+                        attrs: {
+                          placeholder: "Search Activity Type",
+                          size: "is-small",
+                        },
+                        model: {
+                          value: _vm.filters.activity_type,
+                          callback: function ($$v) {
+                            _vm.$set(_vm.filters, "activity_type", $$v)
+                          },
+                          expression: "filters.activity_type",
+                        },
+                      },
+                      [
+                        _c("option", { attrs: { value: "Create" } }, [
+                          _vm._v("Create"),
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "Update" } }, [
+                          _vm._v("Update"),
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "Delete" } }, [
+                          _vm._v("Delete"),
+                        ]),
+                      ]
+                    ),
+                  ]
+                },
+              },
+              {
+                key: "default",
+                fn: function (props) {
+                  return [
+                    _vm._v(
+                      "\n                " +
+                        _vm._s(props.row.created_at) +
                         "\n            "
                     ),
                   ]
