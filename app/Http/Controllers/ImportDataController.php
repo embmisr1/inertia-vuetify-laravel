@@ -405,5 +405,22 @@ class ImportDataController extends Controller
         //     ]);
         //     $query_update;
         // }
+        // =============================================== MISSING MEDIA IMPORT ===============================================
+        $query = DB::table('media')->select('*')->get();
+        foreach($query as $qry){
+            $collection_name = $qry->collection_name;
+            $folder_id = $qry->id;
+            
+            $file_name = $qry->name;
+            $file_name = str_replace(" ", "", $file_name);
+            // if(file_exists("../storage/app/old_storage/".$file_name)){
+            //     rename("../storage/app/old_storage/".$file_name, "../storage/app/public/legal/".$model_id."/".$file_name);
+            // }
+            if(file_exists("../storage/app/public/".$collection_name."/".$folder_id."/".$file_name)){
+                // echo "True - ".$collection_name." - ".$folder_id." - ".$file_name."<br/>";
+            }else{
+                echo "False - ".$collection_name." - ".$folder_id." - ".$file_name."<br/>";
+            }
+        }
     }
 }
