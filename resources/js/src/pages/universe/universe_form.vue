@@ -1,5 +1,6 @@
 <template>
     <DefaultLayout :access="access">
+        <PageTitle :title="`Firm ${form_basic_info.un_firmname}`" :route="`${route_back}/universe`"/>
         <ValidationObserver v-slot="{}" ref="validation_observer">
             <form @submit.prevent="submit_basic_info">
                 <MainTab
@@ -45,13 +46,15 @@ import MainTab from "./tabs/main_tab";
 import UniverseInfo from "../../mixins/universe_info";
 import { page, toasts } from "../../mixins/";
 import { Link } from "@inertiajs/inertia-vue";
+import PageTitle from "../../components/PageTitle.vue";
 export default {
     mixins: [UniverseInfo, page,toasts],
     components: {
-        DefaultLayout,
-        Link,
-        MainTab,
-    },
+    DefaultLayout,
+    Link,
+    MainTab,
+    PageTitle
+},
     props: {
         query: Object,
         permit_table: Array,
