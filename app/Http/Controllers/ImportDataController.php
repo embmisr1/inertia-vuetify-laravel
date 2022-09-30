@@ -407,19 +407,22 @@ class ImportDataController extends Controller
         // }
         // =============================================== MISSING MEDIA IMPORT ===============================================
         $query = DB::table('media')->select('*')->get();
+        $ctr = 0;
         foreach($query as $qry){
             $collection_name = $qry->collection_name;
             $folder_id = $qry->id;
             
-            $file_name = $qry->name;
+            $file_name = $qry->file_name;
             $file_name = str_replace(" ", "", $file_name);
-            // if(file_exists("../storage/app/old_storage/".$file_name)){
-            //     rename("../storage/app/old_storage/".$file_name, "../storage/app/public/legal/".$model_id."/".$file_name);
-            // }
-            if(file_exists("../storage/app/public/".$collection_name."/".$folder_id."/".$file_name)){
-                // echo "True - ".$collection_name." - ".$folder_id." - ".$file_name."<br/>";
-            }else{
+            if(!file_exists("../storage/app/public/".$collection_name."/".$folder_id."/".$file_name)){
                 echo "False - ".$collection_name." - ".$folder_id." - ".$file_name."<br/>";
+                // for($i = 2401; $i <= 2600; $i++){
+                //     if(file_exists("../storage/app/public/".$collection_name."/".$i."/".$file_name)){
+                //         echo $i." - False - ".$collection_name." - ".$folder_id." - ".$file_name."<br/>";
+                //         mkdir("../storage/app/public/".$collection_name."/".$folder_id);
+                //         copy("../storage/app/public/".$collection_name."/".$i."/".$file_name, "../storage/app/public/".$collection_name."/".$folder_id."/".$file_name);
+                //     }
+                // }
             }
         }
     }
