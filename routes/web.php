@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Dashboard;
 use App\Http\Controllers\DivisionController;
 use App\Http\Controllers\DownloadAttachmentController;
@@ -61,6 +62,10 @@ Route::get('/getip', function (Request $request) {
 });
 
 Route::post('/', [AuthController::class, 'login'])->name("auth")->middleware("guest");
+
+Route::get('/forgot_password', [ForgotPasswordController::class, 'index'])->name("forgot_password_form")->middleware("guest");
+Route::post('/forgot_password', [ForgotPasswordController::class, 'post'])->name("forgot_password_send_mail")->middleware("guest");
+Route::post('/verify_code/{user}', [ForgotPasswordController::class, 'verify_code'])->name("forgot_password_send_mail")->middleware("guest");
 
 Route::group([
     'middleware' => ['auth','handle_user_role'],
