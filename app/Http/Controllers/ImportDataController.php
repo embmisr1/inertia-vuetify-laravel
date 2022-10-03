@@ -406,24 +406,29 @@ class ImportDataController extends Controller
         //     $query_update;
         // }
         // =============================================== MISSING MEDIA IMPORT ===============================================
-        $query = DB::table('media')->select('*')->get();
-        $ctr = 0;
-        foreach($query as $qry){
-            $collection_name = $qry->collection_name;
-            $folder_id = $qry->id;
+        // $query = DB::table('media')->select('*')->get();
+        // $ctr = 0;
+        // foreach($query as $qry){
+        //     $collection_name = $qry->collection_name;
+        //     $folder_id = $qry->id;
             
-            $file_name = $qry->file_name;
-            $file_name = str_replace(" ", "", $file_name);
-            if(!file_exists("../storage/app/public/".$collection_name."/".$folder_id."/".$file_name)){
-                echo "False - ".$collection_name." - ".$folder_id." - ".$file_name."<br/>";
-                // for($i = 2401; $i <= 2600; $i++){
-                //     if(file_exists("../storage/app/public/".$collection_name."/".$i."/".$file_name)){
-                //         echo $i." - False - ".$collection_name." - ".$folder_id." - ".$file_name."<br/>";
-                //         mkdir("../storage/app/public/".$collection_name."/".$folder_id);
-                //         copy("../storage/app/public/".$collection_name."/".$i."/".$file_name, "../storage/app/public/".$collection_name."/".$folder_id."/".$file_name);
-                //     }
-                // }
-            }
-        }
+        //     $file_name = $qry->file_name;
+        //     $file_name = str_replace(" ", "", $file_name);
+        //     if(!file_exists("../storage/app/public/".$collection_name."/".$folder_id."/".$file_name)){
+        //         echo "False - ".$collection_name." - ".$folder_id." - ".$file_name."<br/>";
+        //         for($i = 1; $i <= 11000; $i++){
+        //             if(file_exists("../storage/app/public_old/".$file_name)){
+        //                 if(!file_exists("../storage/app/public/".$collection_name."/".$folder_id)){
+        //                     mkdir("../storage/app/public/".$collection_name."/".$folder_id);
+        //                     copy("../storage/app/public_old/".$file_name, "../storage/app/public/".$collection_name."/".$folder_id."/".$file_name);
+        //                     echo 'New Folder Created Copied<br/>';
+        //                 }else{
+        //                     copy("../storage/app/public_old/".$file_name, "../storage/app/public/".$collection_name."/".$folder_id."/".$file_name);
+        //                     echo 'Exsisting Copied<br/>';
+        //                 }
+        //             }
+        //         }
+        //     }
+        // }
     }
 }
