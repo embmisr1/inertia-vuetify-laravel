@@ -5,11 +5,15 @@
                 class="p-4 capitalize"
                 max-width="900"
                 max-height="700"
-                shaped
+                flat
                 :loading="form.processing"
             >
                 <!-- <img :src="require('../1assets/logo.png')" alt="EMB - LOGO" class="h-28 object-cover "> -->
-                <img src="http://r1.emb.gov.ph/wp-content/uploads/2022/03/WEBSITE-LOGO_final.png" alt="EMB - LOGO" class="h-24 object-cover ">
+                <img
+                    src="http://r1.emb.gov.ph/wp-content/uploads/2022/03/WEBSITE-LOGO_final.png"
+                    alt="EMB - LOGO"
+                    class="h-24 object-cover"
+                />
                 <v-card-title>
                     <div class="text-center">
                         <h3 class="mb-0">Login</h3>
@@ -29,7 +33,7 @@
                         </v-col>
                         <v-col>
                             <v-text-field
-                            :loading="form.processing"
+                                :loading="form.processing"
                                 v-model="form.password"
                                 :append-icon="
                                     showpass ? 'mdi-eye' : 'mdi-eye-off'
@@ -45,9 +49,15 @@
                     </v-row>
                 </div>
                 <v-card-actions>
+                    <Link href="/forgot_password" >
+                        <v-btn text color="dark" x-small>Forgot password</v-btn>
+                    </Link>
                     <v-spacer></v-spacer>
-                    <v-btn text color="dark" x-small>Forgot password</v-btn>
-                    <v-btn color="light-green darken-4" type="submit" :loading="form.processing"
+                    <v-btn
+                        color="light-green darken-4"
+                        class="white--text"
+                        type="submit"
+                        :loading="form.processing"
                         >Log In</v-btn
                     >
                 </v-card-actions>
@@ -58,17 +68,19 @@
 
 <script>
 import AuthLayout from "../layouts/auth.vue";
+import { Link } from "@inertiajs/inertia-vue";
 
 import { page, toasts } from "../mixins/";
 export default {
     components: {
         AuthLayout,
+        Link,
     },
-    props:{
+    props: {
         flash: Object,
         errors: Object,
     },
-    mixins:[page, toasts],
+    mixins: [page, toasts],
     data() {
         return {
             form: this.$inertia.form({
@@ -78,14 +90,14 @@ export default {
             showpass: false,
         };
     },
-    computed:{
-         errorMessage() {
+    computed: {
+        errorMessage() {
             return { ...this.errors };
         },
         successMessage() {
             return { ...this.flash };
         },
-    }
+    },
 };
 </script>
 
