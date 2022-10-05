@@ -14,8 +14,10 @@ class AddApsiTblPermitTable extends Migration
     public function up()
     {
         Schema::table('tbl_permit', function (Blueprint $table) {
+            $table->string('perm_apsi_unit')->nullable()->after('perm_description');
+            $table->integer('perm_apsi_capacity')->nullable()->after('perm_description');
             $table->integer('perm_apsi_qty')->nullable()->after('perm_description');
-            $table->string('perm_apsi')->nullable()->after('perm_description');
+            $table->string('perm_apsi_type')->nullable()->after('perm_description');
         });
     }
 
@@ -27,8 +29,10 @@ class AddApsiTblPermitTable extends Migration
     public function down()
     {
         Schema::table('tbl_permit', function (Blueprint $table) {
+            $table->dropColumn('perm_apsi_unit');
+            $table->dropColumn('perm_apsi_capacity');
             $table->dropColumn('perm_apsi_qty');
-            $table->dropColumn('perm_apsi');
+            $table->dropColumn('perm_apsi_type');
         });
     }
 }
