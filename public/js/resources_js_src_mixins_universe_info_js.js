@@ -77,7 +77,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         perm_file: [],
         perm_description: "",
         perm_status: "",
-        addFileForm: false
+        addFileForm: false,
+        perm_apsi_unit: "",
+        perm_apsi_capacity: "",
+        perm_apsi_qty: "",
+        perm_apsi_type: ""
       },
       form_monitoring_info: {
         mon_id: "",
@@ -242,7 +246,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         perm_file: [],
         perm_description: "",
         perm_status: "",
-        addFileForm: false
+        addFileForm: false,
+        perm_apsi_unit: "",
+        perm_apsi_capacity: "",
+        perm_apsi_qty: "",
+        perm_apsi_type: ""
       };
     },
     reset_monitoring_info: function reset_monitoring_info() {
