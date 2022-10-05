@@ -47,6 +47,8 @@ class ColumnsController extends Controller
             'perm_date_expiry',
             // 'perm_file',
             'perm_description',
+            'perm_apsi',
+            'perm_apsi_qty',
             'perm_status',
         ];
         return $array;
