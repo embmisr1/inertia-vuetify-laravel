@@ -41,6 +41,10 @@ export default {
                 perm_description: "",
                 perm_status: "",
                 addFileForm: false,
+                perm_apsi_unit: "",
+                perm_apsi_capacity: "",
+                perm_apsi_qty: "",
+                perm_apsi_type: "",
             },
             form_monitoring_info: {
                 mon_id: "",
@@ -185,6 +189,10 @@ export default {
                 perm_description: "",
                 perm_status: "",
                 addFileForm: false,
+                perm_apsi_unit: "",
+                perm_apsi_capacity: "",
+                perm_apsi_qty: "",
+                perm_apsi_type: "",
             };
         },
         reset_monitoring_info() {
@@ -256,7 +264,7 @@ export default {
     watch: {
         basic_info_id(value) {
             if (value.id) {
-                this.form_basic_info = {...value};
+                this.form_basic_info = { ...value };
             }
         },
     },

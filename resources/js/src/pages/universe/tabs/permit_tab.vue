@@ -100,6 +100,34 @@
                             clearable
                         ></v-autocomplete>
                     </div>
+                    <div
+                        v-if="form_permit_info.perm_law === 'RA 8749'"
+                        class="col-span-4 grid grid-cols-4 gap-x-4"
+                    >
+                        <v-select
+                            v-model="form_permit_info.perm_apsi_type"
+                            label="APSI Type"
+                            :items="appsi_type"
+                        ></v-select>
+
+                        <v-text-field
+                            v-model="form_permit_info.perm_apsi_qty"
+                            type="number"
+                            label="APSI Quantity"
+                            required
+                        ></v-text-field>
+                        <v-text-field
+                            v-model="form_permit_info.perm_apsi_capacity"
+                            type="number"
+                            label="APSI Capacity"
+                            required
+                        ></v-text-field>
+                        <v-text-field
+                            v-model="form_permit_info.perm_apsi_unit"
+                            label="APSI Unit"
+                            required
+                        ></v-text-field>
+                    </div>
                 </div>
                 <div class="grid grid-cols-2 gap-y-0 gap-x-4 ml-8">
                     <div>
@@ -177,7 +205,7 @@
                     depressed
                     color="success"
                     type="button"
-                    @click="form_permit_info.addFileForm  = true"
+                    @click="form_permit_info.addFileForm = true"
                 >
                     <v-icon small class="mr-2"> mdi-plus-circle </v-icon>
                     Add File
@@ -322,6 +350,7 @@ export default {
                 sortable: false,
             },
         ],
+        appsi_type: ["Fuel Burning", "Non Fuel Burning"],
         permit_law_selection: [
             { law_selection: "PD 1586" },
             { law_selection: "RA 8749" },
@@ -380,6 +409,10 @@ export default {
             this.form_permit_info.perm_number = item.perm_number;
             this.form_permit_info.perm_status = item.perm_status;
             this.form_permit_info.perm_file = [];
+            this.form_permit_info.perm_apsi_unit = item.perm_apsi_unit;
+            this.form_permit_info.perm_apsi_capacity = item.perm_apsi_capacity;
+            this.form_permit_info.perm_apsi_qty = item.perm_apsi_qty;
+            this.form_permit_info.perm_apsi_type = item.perm_apsi_type;
             this.form_permit_info.addFileForm = true;
         },
         async deletePermit(item) {
@@ -401,6 +434,10 @@ export default {
             this.form_permit_info.perm_status = null;
             this.form_permit_info.perm_file = [];
             this.form_permit_info.addFileForm = false;
+            this.form_permit_info.perm_apsi_unit = null;
+            this.form_permit_info.perm_apsi_capacity = null;
+            this.form_permit_info.perm_apsi_qty = null;
+            this.form_permit_info.perm_apsi_type = null;
         },
         addFile() {
             this.addFileForm = true;
