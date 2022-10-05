@@ -490,6 +490,21 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -736,10 +751,106 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     modal: Object,
     close: Function
+  },
+  computed: {
+    user_form: function user_form() {
+      return this.modal.form;
+    }
   },
   methods: {
     submitForm: function submitForm() {
@@ -750,17 +861,36 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                // await this.modal.form.post("/app/users");
-                _this.close();
+                _context.prev = 0;
+                _this.loading = true;
+                _context.next = 4;
+                return _this.user_form.post("/app/profile");
 
-              case 1:
+              case 4:
+                _this.loading = false;
+                _context.next = 10;
+                break;
+
+              case 7:
+                _context.prev = 7;
+                _context.t0 = _context["catch"](0);
+
+                _this.error(_context.t0.response.data.message);
+
+              case 10:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee);
+        }, _callee, null, [[0, 7]]);
       }))();
     }
+  },
+  data: function data() {
+    return {
+      showpass: false,
+      loading: false
+    };
   }
 });
 
@@ -1520,6 +1650,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "psic": () => (/* reexport safe */ _psic__WEBPACK_IMPORTED_MODULE_2__["default"]),
 /* harmony export */   "swm": () => (/* reexport safe */ _swm__WEBPACK_IMPORTED_MODULE_5__["default"]),
 /* harmony export */   "toasts": () => (/* reexport safe */ _toasts__WEBPACK_IMPORTED_MODULE_1__["default"]),
+/* harmony export */   "user_modal": () => (/* reexport safe */ _user_modal__WEBPACK_IMPORTED_MODULE_7__["default"]),
 /* harmony export */   "users": () => (/* reexport safe */ _users__WEBPACK_IMPORTED_MODULE_6__["default"])
 /* harmony export */ });
 /* harmony import */ var _page__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./page */ "./resources/js/src/mixins/page.js");
@@ -1529,6 +1660,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _dialogs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./dialogs */ "./resources/js/src/mixins/dialogs.js");
 /* harmony import */ var _swm__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./swm */ "./resources/js/src/mixins/swm.js");
 /* harmony import */ var _users__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./users */ "./resources/js/src/mixins/users.js");
+/* harmony import */ var _user_modal__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./user_modal */ "./resources/js/src/mixins/user_modal.js");
+
 
 
 
@@ -3647,8 +3780,23 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
-      change_pass_modal: {},
-      user_modal: {}
+      change_pass_modal: {
+        active: false,
+        form: this.$inertia.form({
+          old: "",
+          "new": "",
+          conf: ""
+        })
+      },
+      user_modal: {},
+      admin_reset_password: {
+        active: false,
+        form: this.$inertia.form({
+          id: "",
+          "new": "",
+          conf: ""
+        })
+      }
     };
   },
   methods: {
@@ -3676,12 +3824,32 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         type: type
       };
     },
+    setAdminReset: function setAdminReset(data) {
+      this.admin_reset_password = {
+        active: true,
+        form: this.$inertia.form(_objectSpread(_objectSpread({}, data), {}, {
+          "new": "",
+          conf: ""
+        }))
+      };
+    },
+    resetAdminResetPasswordModal: function resetAdminResetPasswordModal() {
+      this.admin_reset_password = {
+        active: false,
+        form: this.$inertia.form({
+          id: "",
+          "new": "",
+          conf: ""
+        })
+      };
+    },
     resetChangePassModal: function resetChangePassModal() {
       this.change_pass_modal = {
         active: false,
-        form: this.$inertia.form({// username: "",
-          // email: "",
-          // password: "",
+        form: this.$inertia.form({
+          old: "",
+          "new": "",
+          conf: ""
         }),
         type: "Change Password"
       };
@@ -22796,6 +22964,45 @@ var render = function () {
                           1
                         )
                       : _vm._e(),
+                    _vm._v(" "),
+                    _vm.hasAdminRole
+                      ? _c(
+                          "v-list-item",
+                          { attrs: { dense: "" } },
+                          [
+                            _c(
+                              "v-list-item-icon",
+                              [_c("v-icon", [_vm._v(" mdi-file ")])],
+                              1
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "v-list-item-content",
+                              [
+                                _c(
+                                  "v-list-item-subtitle",
+                                  [
+                                    _c(
+                                      "Link",
+                                      {
+                                        attrs: {
+                                          href: "/app/universe/logs",
+                                          as: "button",
+                                          "preserve-scroll": "",
+                                        },
+                                      },
+                                      [_vm._v("Universe Logs")]
+                                    ),
+                                  ],
+                                  1
+                                ),
+                              ],
+                              1
+                            ),
+                          ],
+                          1
+                        )
+                      : _vm._e(),
                   ],
                   1
                 ),
@@ -23636,81 +23843,304 @@ var render = function () {
         key: "default",
         fn: function (dialog) {
           return [
-            _c(
-              "v-card",
-              [
-                _c("v-toolbar", [_vm._v("Change Password")]),
-                _vm._v(" "),
-                _c("div", { staticClass: "p-4" }, [
-                  _c(
-                    "form",
-                    {
-                      on: {
-                        submit: function ($event) {
-                          $event.preventDefault()
-                          return _vm.submitForm.apply(null, arguments)
-                        },
-                      },
+            _c("ValidationObserver", {
+              ref: "validation_observer",
+              scopedSlots: _vm._u(
+                [
+                  {
+                    key: "default",
+                    fn: function (ref) {
+                      var handleSubmit = ref.handleSubmit
+                      var invalid = ref.invalid
+                      return [
+                        _c(
+                          "form",
+                          {
+                            on: {
+                              submit: function ($event) {
+                                $event.preventDefault()
+                                handleSubmit(_vm.submitForm())
+                              },
+                            },
+                          },
+                          [
+                            _c(
+                              "v-card",
+                              { attrs: { loading: _vm.loading } },
+                              [
+                                _c(
+                                  "v-toolbar",
+                                  [
+                                    _c(
+                                      "div",
+                                      { staticClass: "font-bold text-lg" },
+                                      [_vm._v("Change Password")]
+                                    ),
+                                    _vm._v(" "),
+                                    _c("v-spacer"),
+                                    _vm._v(" "),
+                                    _c("box-icon", {
+                                      staticClass: "cursor-pointer",
+                                      attrs: {
+                                        name: "x",
+                                        animation: "tada-hover",
+                                        color: "red",
+                                      },
+                                      on: {
+                                        click: function ($event) {
+                                          return _vm.close()
+                                        },
+                                      },
+                                    }),
+                                  ],
+                                  1
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "v-card-text",
+                                  [
+                                    _c("ValidationProvider", {
+                                      attrs: {
+                                        vid: "old_pass",
+                                        name: "Old Password",
+                                        rules: "required|min:6",
+                                      },
+                                      scopedSlots: _vm._u(
+                                        [
+                                          {
+                                            key: "default",
+                                            fn: function (ref) {
+                                              var errors = ref.errors
+                                              return [
+                                                _c("v-text-field", {
+                                                  attrs: {
+                                                    dense: "",
+                                                    label: "Old Password",
+                                                    type: "password",
+                                                    clearable: "",
+                                                    "prepend-inner-icon":
+                                                      "mdi-lock",
+                                                    color: "dark",
+                                                    outlined: "",
+                                                    "error-messages": errors[0]
+                                                      ? errors[0]
+                                                      : _vm.user_form.errors
+                                                          .old,
+                                                    loading: _vm.loading,
+                                                  },
+                                                  model: {
+                                                    value: _vm.user_form.old,
+                                                    callback: function ($$v) {
+                                                      _vm.$set(
+                                                        _vm.user_form,
+                                                        "old",
+                                                        $$v
+                                                      )
+                                                    },
+                                                    expression: "user_form.old",
+                                                  },
+                                                }),
+                                              ]
+                                            },
+                                          },
+                                        ],
+                                        null,
+                                        true
+                                      ),
+                                    }),
+                                    _vm._v(" "),
+                                    _c("ValidationProvider", {
+                                      attrs: {
+                                        vid: "new_pass",
+                                        name: "New Password",
+                                        rules: "required|min:6",
+                                      },
+                                      scopedSlots: _vm._u(
+                                        [
+                                          {
+                                            key: "default",
+                                            fn: function (ref) {
+                                              var errors = ref.errors
+                                              return [
+                                                _c("v-text-field", {
+                                                  attrs: {
+                                                    dense: "",
+                                                    label: "New Password",
+                                                    type: _vm.showpass
+                                                      ? "text"
+                                                      : "password",
+                                                    clearable: "",
+                                                    "prepend-inner-icon":
+                                                      "mdi-shield-account",
+                                                    color: "dark",
+                                                    outlined: "",
+                                                    "error-messages": errors[0]
+                                                      ? errors[0]
+                                                      : _vm.user_form.errors
+                                                          .new,
+                                                    "append-icon": _vm.showpass
+                                                      ? "mdi-eye"
+                                                      : "mdi-eye-off",
+                                                    loading: _vm.loading,
+                                                  },
+                                                  on: {
+                                                    "click:append": function (
+                                                      $event
+                                                    ) {
+                                                      _vm.showpass =
+                                                        !_vm.showpass
+                                                    },
+                                                  },
+                                                  model: {
+                                                    value: _vm.user_form.new,
+                                                    callback: function ($$v) {
+                                                      _vm.$set(
+                                                        _vm.user_form,
+                                                        "new",
+                                                        $$v
+                                                      )
+                                                    },
+                                                    expression: "user_form.new",
+                                                  },
+                                                }),
+                                              ]
+                                            },
+                                          },
+                                        ],
+                                        null,
+                                        true
+                                      ),
+                                    }),
+                                    _vm._v(" "),
+                                    _c("ValidationProvider", {
+                                      attrs: {
+                                        vid: "conf_pass",
+                                        name: "Confirm New Password",
+                                        rules: "required|confirmed:new_pass",
+                                      },
+                                      scopedSlots: _vm._u(
+                                        [
+                                          {
+                                            key: "default",
+                                            fn: function (ref) {
+                                              var errors = ref.errors
+                                              return [
+                                                _c("v-text-field", {
+                                                  attrs: {
+                                                    dense: "",
+                                                    label:
+                                                      "Confirm New Password",
+                                                    type: _vm.showpass
+                                                      ? "text"
+                                                      : "password",
+                                                    clearable: "",
+                                                    "prepend-inner-icon":
+                                                      "mdi-shield-check",
+                                                    color: "dark",
+                                                    outlined: "",
+                                                    "error-messages": errors[0]
+                                                      ? errors[0]
+                                                      : _vm.user_form.errors
+                                                          .conf,
+                                                    "append-icon": _vm.showpass
+                                                      ? "mdi-eye"
+                                                      : "mdi-eye-off",
+                                                    loading: _vm.loading,
+                                                  },
+                                                  on: {
+                                                    "click:append": function (
+                                                      $event
+                                                    ) {
+                                                      _vm.showpass =
+                                                        !_vm.showpass
+                                                    },
+                                                  },
+                                                  model: {
+                                                    value: _vm.user_form.conf,
+                                                    callback: function ($$v) {
+                                                      _vm.$set(
+                                                        _vm.user_form,
+                                                        "conf",
+                                                        $$v
+                                                      )
+                                                    },
+                                                    expression:
+                                                      "user_form.conf",
+                                                  },
+                                                }),
+                                              ]
+                                            },
+                                          },
+                                        ],
+                                        null,
+                                        true
+                                      ),
+                                    }),
+                                  ],
+                                  1
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "v-card-actions",
+                                  [
+                                    _c("v-spacer"),
+                                    _vm._v(" "),
+                                    _c(
+                                      "v-btn",
+                                      {
+                                        staticClass: "white--text",
+                                        attrs: {
+                                          disabled: invalid,
+                                          type: "submit",
+                                          color: "green darken-2",
+                                          loading: _vm.loading,
+                                        },
+                                      },
+                                      [
+                                        _vm._v(
+                                          "\n                            Submit\n                        "
+                                        ),
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "v-btn",
+                                      {
+                                        attrs: {
+                                          loading: _vm.loading,
+                                          outlined: "",
+                                          type: "reset",
+                                          color: "red darken-2",
+                                        },
+                                        on: {
+                                          click: function ($event) {
+                                            return _vm.close()
+                                          },
+                                        },
+                                      },
+                                      [
+                                        _vm._v(
+                                          "\n                            Close\n                        "
+                                        ),
+                                      ]
+                                    ),
+                                  ],
+                                  1
+                                ),
+                              ],
+                              1
+                            ),
+                          ],
+                          1
+                        ),
+                      ]
                     },
-                    [
-                      _c("v-text-field", {
-                        attrs: {
-                          label: "New Password",
-                          type: "password",
-                          outlined: "",
-                          filled: "",
-                          "error-messages": _vm.modal.form.errors.password,
-                        },
-                        model: {
-                          value: _vm.modal.form.password,
-                          callback: function ($$v) {
-                            _vm.$set(_vm.modal.form, "password", $$v)
-                          },
-                          expression: "modal.form.password",
-                        },
-                      }),
-                      _vm._v(" "),
-                      _c("v-text-field", {
-                        attrs: {
-                          label: "Confirm Password",
-                          type: "password",
-                          outlined: "",
-                          filled: "",
-                          "error-messages":
-                            _vm.modal.form.errors.confirm_password,
-                        },
-                        model: {
-                          value: _vm.modal.form.confirm_password,
-                          callback: function ($$v) {
-                            _vm.$set(_vm.modal.form, "confirm_password", $$v)
-                          },
-                          expression: "modal.form.confirm_password",
-                        },
-                      }),
-                      _vm._v(" "),
-                      _c(
-                        "v-card-actions",
-                        { staticClass: "justify-end" },
-                        [
-                          _c("v-btn", { attrs: { type: "submit" } }, [
-                            _vm._v("Submt"),
-                          ]),
-                          _vm._v(" "),
-                          _c(
-                            "v-btn",
-                            { attrs: { text: "" }, on: { click: _vm.close } },
-                            [_vm._v("Close")]
-                          ),
-                        ],
-                        1
-                      ),
-                    ],
-                    1
-                  ),
-                ]),
-              ],
-              1
-            ),
+                  },
+                ],
+                null,
+                true
+              ),
+            }),
           ]
         },
       },

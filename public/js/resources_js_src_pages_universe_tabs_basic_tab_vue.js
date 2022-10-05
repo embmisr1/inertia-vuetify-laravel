@@ -541,7 +541,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context6.prev = _context6.next) {
               case 0:
                 _context6.next = 2;
-                return axios__WEBPACK_IMPORTED_MODULE_2___default().get("".concat(_helpers_urls__WEBPACK_IMPORTED_MODULE_3__["default"].project_subtype_dropdown).concat(val));
+                return axios__WEBPACK_IMPORTED_MODULE_2___default().get("".concat(_helpers_urls__WEBPACK_IMPORTED_MODULE_3__["default"].project_subtype_dropdown, "/").concat(val));
 
               case 2:
                 project_specific_type = _context6.sent;

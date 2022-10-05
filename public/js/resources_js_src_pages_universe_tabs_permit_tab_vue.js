@@ -417,6 +417,34 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -482,6 +510,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         value: "actions",
         sortable: false
       }],
+      appsi_type: ["Fuel Burning", "Non Fuel Burning"],
       permit_law_selection: [{
         law_selection: "PD 1586"
       }, {
@@ -562,6 +591,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.form_permit_info.perm_number = item.perm_number;
       this.form_permit_info.perm_status = item.perm_status;
       this.form_permit_info.perm_file = [];
+      this.form_permit_info.perm_apsi_unit = item.perm_apsi_unit;
+      this.form_permit_info.perm_apsi_capacity = item.perm_apsi_capacity;
+      this.form_permit_info.perm_apsi_qty = item.perm_apsi_qty;
+      this.form_permit_info.perm_apsi_type = item.perm_apsi_type;
       this.form_permit_info.addFileForm = true;
     },
     deletePermit: function deletePermit(item) {
@@ -604,6 +637,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.form_permit_info.perm_status = null;
       this.form_permit_info.perm_file = [];
       this.form_permit_info.addFileForm = false;
+      this.form_permit_info.perm_apsi_unit = null;
+      this.form_permit_info.perm_apsi_capacity = null;
+      this.form_permit_info.perm_apsi_qty = null;
+      this.form_permit_info.perm_apsi_type = null;
     },
     addFile: function addFile() {
       this.addFileForm = true;
@@ -2056,6 +2093,89 @@ var render = function () {
                                 },
                                 expression:
                                   "form_permit_info.perm_hazwaste_type",
+                              },
+                            }),
+                          ],
+                          1
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.form_permit_info.perm_law === "RA 8749"
+                      ? _c(
+                          "div",
+                          {
+                            staticClass: "col-span-4 grid grid-cols-4 gap-x-4",
+                          },
+                          [
+                            _c("v-select", {
+                              attrs: {
+                                label: "APSI Type",
+                                items: _vm.appsi_type,
+                              },
+                              model: {
+                                value: _vm.form_permit_info.perm_apsi_type,
+                                callback: function ($$v) {
+                                  _vm.$set(
+                                    _vm.form_permit_info,
+                                    "perm_apsi_type",
+                                    $$v
+                                  )
+                                },
+                                expression: "form_permit_info.perm_apsi_type",
+                              },
+                            }),
+                            _vm._v(" "),
+                            _c("v-text-field", {
+                              attrs: {
+                                type: "number",
+                                label: "APSI Quantity",
+                                required: "",
+                              },
+                              model: {
+                                value: _vm.form_permit_info.perm_apsi_qty,
+                                callback: function ($$v) {
+                                  _vm.$set(
+                                    _vm.form_permit_info,
+                                    "perm_apsi_qty",
+                                    $$v
+                                  )
+                                },
+                                expression: "form_permit_info.perm_apsi_qty",
+                              },
+                            }),
+                            _vm._v(" "),
+                            _c("v-text-field", {
+                              attrs: {
+                                type: "number",
+                                label: "APSI Capacity",
+                                required: "",
+                              },
+                              model: {
+                                value: _vm.form_permit_info.perm_apsi_capacity,
+                                callback: function ($$v) {
+                                  _vm.$set(
+                                    _vm.form_permit_info,
+                                    "perm_apsi_capacity",
+                                    $$v
+                                  )
+                                },
+                                expression:
+                                  "form_permit_info.perm_apsi_capacity",
+                              },
+                            }),
+                            _vm._v(" "),
+                            _c("v-text-field", {
+                              attrs: { label: "APSI Unit", required: "" },
+                              model: {
+                                value: _vm.form_permit_info.perm_apsi_unit,
+                                callback: function ($$v) {
+                                  _vm.$set(
+                                    _vm.form_permit_info,
+                                    "perm_apsi_unit",
+                                    $$v
+                                  )
+                                },
+                                expression: "form_permit_info.perm_apsi_unit",
                               },
                             }),
                           ],
