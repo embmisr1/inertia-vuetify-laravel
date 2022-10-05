@@ -517,6 +517,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .float-left {
   float: left;
 }
+.m-4 {
+  margin: 1rem;
+}
 .m-0 {
   margin: 0px;
 }
@@ -624,6 +627,15 @@ Ensure the default browser behavior of the `hidden` attribute.
 .h-16 {
   height: 4rem;
 }
+.h-32 {
+  height: 8rem;
+}
+.h-full {
+  height: 100%;
+}
+.h-96 {
+  height: 24rem;
+}
 .h-56 {
   height: 14rem;
 }
@@ -632,6 +644,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .h-28 {
   height: 7rem;
+}
+.h-14 {
+  height: 3.5rem;
 }
 .h-24 {
   height: 6rem;
@@ -656,6 +671,12 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .w-1\/2 {
   width: 50%;
+}
+.w-32 {
+  width: 8rem;
+}
+.w-full {
+  width: 100%;
 }
 .w-screen {
   width: 100vw;
@@ -881,6 +902,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-left: 1.5rem;
   padding-right: 1.5rem;
 }
+.py-10 {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
 .px-3 {
   padding-left: 0.75rem;
   padding-right: 0.75rem;
@@ -891,6 +916,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .pt-8 {
   padding-top: 2rem;
+}
+.pl-10 {
+  padding-left: 2.5rem;
 }
 .pl-2 {
   padding-left: 0.5rem;

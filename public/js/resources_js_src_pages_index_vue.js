@@ -65,7 +65,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _layouts_auth_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../layouts/auth.vue */ "./resources/js/src/layouts/auth.vue");
-/* harmony import */ var _mixins___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../mixins/ */ "./resources/js/src/mixins/index.js");
+/* harmony import */ var _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @inertiajs/inertia-vue */ "./node_modules/@inertiajs/inertia-vue/dist/index.js");
+/* harmony import */ var _mixins___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../mixins/ */ "./resources/js/src/mixins/index.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
@@ -130,17 +131,29 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
-    AuthLayout: _layouts_auth_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+    AuthLayout: _layouts_auth_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
+    Link: _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_1__.Link
   },
   props: {
     flash: Object,
     errors: Object
   },
-  mixins: [_mixins___WEBPACK_IMPORTED_MODULE_1__.page, _mixins___WEBPACK_IMPORTED_MODULE_1__.toasts],
+  mixins: [_mixins___WEBPACK_IMPORTED_MODULE_2__.page, _mixins___WEBPACK_IMPORTED_MODULE_2__.toasts],
   data: function data() {
     return {
       form: this.$inertia.form({
@@ -20815,13 +20828,13 @@ var render = function () {
             attrs: {
               "max-width": "900",
               "max-height": "700",
-              shaped: "",
+              flat: "",
               loading: _vm.form.processing,
             },
           },
           [
             _c("img", {
-              staticClass: "h-24 object-cover ",
+              staticClass: "h-24 object-cover",
               attrs: {
                 src: "http://r1.emb.gov.ph/wp-content/uploads/2022/03/WEBSITE-LOGO_final.png",
                 alt: "EMB - LOGO",
@@ -20905,17 +20918,25 @@ var render = function () {
             _c(
               "v-card-actions",
               [
+                _c(
+                  "Link",
+                  { attrs: { href: "/forgot_password" } },
+                  [
+                    _c(
+                      "v-btn",
+                      { attrs: { text: "", color: "dark", "x-small": "" } },
+                      [_vm._v("Forgot password")]
+                    ),
+                  ],
+                  1
+                ),
+                _vm._v(" "),
                 _c("v-spacer"),
                 _vm._v(" "),
                 _c(
                   "v-btn",
-                  { attrs: { text: "", color: "dark", "x-small": "" } },
-                  [_vm._v("Forgot password")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "v-btn",
                   {
+                    staticClass: "white--text",
                     attrs: {
                       color: "light-green darken-4",
                       type: "submit",
