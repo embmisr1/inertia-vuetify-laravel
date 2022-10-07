@@ -41,7 +41,7 @@ class UniverseExport3 implements FromQuery, WithHeadings, WithMapping, WithEvent
                 $event->sheet->setOrientation(\PhpOffice\PhpSpreadsheet\Worksheet\PageSetup::ORIENTATION_LANDSCAPE);
 
                 $event->sheet->styleCells(
-                    'A1:AK1',
+                    'A1:AQ1',
                     [
                         'font'=>[
                             'color'=>[
@@ -108,6 +108,12 @@ class UniverseExport3 implements FromQuery, WithHeadings, WithMapping, WithEvent
                 "AI"=>40,
                 "AJ"=>40,
                 "AK"=>40,
+                "AL"=>40,
+                "AM"=>40,
+                "AN"=>40,
+                "AO"=>40,
+                "AP"=>40,
+                "AQ"=>40,
             ];
         }
     }
@@ -134,13 +140,19 @@ class UniverseExport3 implements FromQuery, WithHeadings, WithMapping, WithEvent
             "Poa Issuance",
             "Poa Expiry",
             "Poa Status",
-            "Apsi Remarks",
+            "Apsi Type",
+            "Apsi Quantity",
+            "Apsi Capacity",
+            "Apsi Unit",
+            "Poa Remarks",
             "Wwdp Number",
             "Wwdp Issuance",
             "Wwdp Expiry",
             "Wwdp Status",
+            "Wwdp Remarks",
             "Hazwaste Number",
-            "hHazwaste Issuance",
+            "Hazwaste Issuance",
+            "Hazwaste Remarks",
             "Monitoring Law",
             "Monitoring Date",
             "Pco Name",
@@ -187,15 +199,21 @@ class UniverseExport3 implements FromQuery, WithHeadings, WithMapping, WithEvent
             'fk_poa.perm_date_issuance as poa_issuance',
             'fk_poa.perm_date_expiry as poa_expiry',
             'fk_poa.perm_status as poa_perm_status',
-            'fk_poa.perm_description as poa_apsi_remarks',
+            'fk_poa.perm_apsi_type as poa_apsi_type',
+            'fk_poa.perm_apsi_qty as poa_apsi_qty',
+            'fk_poa.perm_apsi_capacity as poa_apsi_capacity',
+            'fk_poa.perm_apsi_unit as poa_apsi_unit',
+            'fk_poa.perm_description as poa_remarks',
             // WWDP
             'fk_wwdp.perm_number as wwdp_number',
             'fk_wwdp.perm_date_issuance as wwdp_issuance',
             'fk_wwdp.perm_date_expiry as wwdp_expiry',
             'fk_wwdp.perm_status as wwdp_perm_status',
+            'fk_wwdp.perm_description as wwdp_remarks',
             // HAZWASTE
             'fk_hazwaste.perm_number as hazwaste_number',
             'fk_hazwaste.perm_date_issuance as hazwaste_issuance',
+            'fk_hazwaste.perm_description as hazwaste_remarks',
             // MONITORING
             'fk_monitoring.mon_law as monitoring_law',
             'fk_monitoring.mon_date_monitored as monitoring_date',
@@ -377,13 +395,19 @@ class UniverseExport3 implements FromQuery, WithHeadings, WithMapping, WithEvent
             $data->poa_issuance,
             $data->poa_expiry,
             $data->poa_perm_status,
-            $data->poa_apsi_remarks,
+            $data->poa_apsi_type,
+            $data->poa_apsi_qty,
+            $data->poa_apsi_capacity,
+            $data->poa_apsi_unit,
+            $data->poa_remarks,
             $data->wwdp_number,
             $data->wwdp_issuance,
             $data->wwdp_expiry,
             $data->wwdp_perm_status,
+            $data->wwdp_remarks,
             $data->hazwaste_number,
             $data->hazwaste_issuance,
+            $data->hazwaste_remarks,
             $data->monitoring_law,
             $data->monitoring_date,
             $data->pco_name,
