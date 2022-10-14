@@ -574,24 +574,28 @@ class UniverseController extends Controller
 
     public function export()
     {
-        $filters = FacadeRequest::all(
-            'PK_province_ID',
-            'PK_citymun_ID',
-            'PK_brgy_ID',
-            "selectedSearchCategory",
-            "searchStatus",
-            "searchType",
-            "search1586",
-            "search8749",
-            "search9275",
-            "search6969",
-            "search9003",
-            "un_firmname",
-            "un_crs_number",
-            "un_proponent",
-            "un_status",
-        );
-        return (new UniverseExport3($filters))->download('universe.xlsx', \Maatwebsite\Excel\Excel::XLSX);
-        // return Excel::download(new UniverseExport, 'universe.xlsx');
+        try {
+            $filters = FacadeRequest::all(
+                'PK_province_ID',
+                'PK_citymun_ID',
+                'PK_brgy_ID',
+                "selectedSearchCategory",
+                "searchStatus",
+                "searchType",
+                "search1586",
+                "search8749",
+                "search9275",
+                "search6969",
+                "search9003",
+                "un_firmname",
+                "un_crs_number",
+                "un_proponent",
+                "un_status",
+            );
+            return (new UniverseExport3($filters))->download('universe.xlsx', \Maatwebsite\Excel\Excel::XLSX);
+            // return Excel::download(new UniverseExport, 'universe.xlsx');
+        } catch (\Throwable $th) {
+            dd($th->getMessage());
+        }
     }
 }
