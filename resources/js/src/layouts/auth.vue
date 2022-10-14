@@ -5,16 +5,16 @@
     <!-- Sizes your content based upon application components -->
     <v-main>
       <!-- Provides the application the proper gutter -->
-      <div class="h-screen bg-gradient-to-t from-lime-400 via-lime-200 to-lime-400">
+      <v-container class="min-h-screen grid place-content-center">
         <!-- If using vue-router -->
         <slot />
-      </div>
+      </v-container>
     </v-main>
 
-    <!-- <v-footer app rounded class="bg-black">
-            <v-spacer></v-spacer>
-            &copy; DENR - EMB REGION 1 - UNISYS
-        </v-footer> -->
+    <v-footer app rounded>
+      <v-spacer></v-spacer>
+      &copy; DENR - EMB REGION 1 - UNISYS
+    </v-footer>
   </v-app>
 </template>
 
