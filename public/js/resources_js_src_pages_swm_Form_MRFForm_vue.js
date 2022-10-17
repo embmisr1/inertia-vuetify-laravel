@@ -23579,7 +23579,7 @@ var render = function () {
                                             attrs: {
                                               vid: "lat",
                                               name: "Latitude",
-                                              rules: "required",
+                                              rules: "",
                                             },
                                             scopedSlots: _vm._u(
                                               [
@@ -23628,7 +23628,7 @@ var render = function () {
                                             attrs: {
                                               vid: "long",
                                               name: "Longitude",
-                                              rules: "required",
+                                              rules: "",
                                             },
                                             scopedSlots: _vm._u(
                                               [
@@ -23770,7 +23770,7 @@ var render = function () {
                                           attrs: {
                                             vid: "mrf_status_operation",
                                             name: "Status of Operation",
-                                            rules: "required",
+                                            rules: "",
                                           },
                                           scopedSlots: _vm._u(
                                             [
@@ -23831,7 +23831,7 @@ var render = function () {
                                       attrs: {
                                         vid: "mrf_service_area",
                                         name: "Area/s",
-                                        rules: "required",
+                                        rules: "",
                                       },
                                       scopedSlots: _vm._u(
                                         [
@@ -23890,7 +23890,7 @@ var render = function () {
                                           attrs: {
                                             vid: "mrf_total_waste_generation",
                                             name: "Total Waste Generation",
-                                            rules: "required",
+                                            rules: "",
                                           },
                                           scopedSlots: _vm._u(
                                             [
@@ -23940,7 +23940,7 @@ var render = function () {
                                           attrs: {
                                             vid: "mrf_biodegradable",
                                             name: "Biodegradable",
-                                            rules: "required",
+                                            rules: "",
                                           },
                                           scopedSlots: _vm._u(
                                             [
@@ -23991,7 +23991,7 @@ var render = function () {
                                           attrs: {
                                             vid: "mrf_recyclable",
                                             name: "Recyclable",
-                                            rules: "required",
+                                            rules: "",
                                           },
                                           scopedSlots: _vm._u(
                                             [
@@ -24042,7 +24042,7 @@ var render = function () {
                                           attrs: {
                                             vid: "mrf_special_waste",
                                             name: "Special Waste",
-                                            rules: "required",
+                                            rules: "",
                                           },
                                           scopedSlots: _vm._u(
                                             [
@@ -24093,7 +24093,7 @@ var render = function () {
                                           attrs: {
                                             vid: "mrf_total_waste_diverted",
                                             name: "Waste Diverted",
-                                            rules: "required",
+                                            rules: "",
                                           },
                                           scopedSlots: _vm._u(
                                             [
@@ -24144,7 +24144,7 @@ var render = function () {
                                           attrs: {
                                             vid: "mrf_number_of_waste_diverted",
                                             name: "% of Waster Diverted",
-                                            rules: "required",
+                                            rules: "",
                                           },
                                           scopedSlots: _vm._u(
                                             [

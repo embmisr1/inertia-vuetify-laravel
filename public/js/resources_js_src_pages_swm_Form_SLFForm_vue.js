@@ -1366,28 +1366,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -23621,7 +23599,7 @@ var render = function () {
             ],
             1
           ),
-          _vm._v("\n            SLF Form\n        "),
+          _vm._v("\n      SLF Form\n    "),
         ],
         1
       ),
@@ -23661,16 +23639,14 @@ var render = function () {
                                   "v-card",
                                   [
                                     _c("v-card-title", [
-                                      _vm._v(
-                                        "\n                                Address Information\n                            "
-                                      ),
+                                      _vm._v(" Address Information "),
                                     ]),
                                     _vm._v(" "),
                                     _c("v-card-text", {}, [
                                       _vm._v(
-                                        "\n                                " +
+                                        "\n                " +
                                           _vm._s(_vm.slf_address) +
-                                          "\n                                "
+                                          "\n                "
                                       ),
                                       _c(
                                         "div",
@@ -23682,7 +23658,7 @@ var render = function () {
                                             attrs: {
                                               vid: "lat",
                                               name: "Latitude",
-                                              rules: "required",
+                                              rules: "",
                                             },
                                             scopedSlots: _vm._u(
                                               [
@@ -23731,7 +23707,7 @@ var render = function () {
                                             attrs: {
                                               vid: "long",
                                               name: "Longitude",
-                                              rules: "required",
+                                              rules: "",
                                             },
                                             scopedSlots: _vm._u(
                                               [
@@ -23787,9 +23763,7 @@ var render = function () {
                                   "v-card",
                                   [
                                     _c("v-card-title", [
-                                      _vm._v(
-                                        "\n                                Operator Information\n                            "
-                                      ),
+                                      _vm._v(" Operator Information "),
                                     ]),
                                     _vm._v(" "),
                                     _c(
@@ -23800,7 +23774,7 @@ var render = function () {
                                           attrs: {
                                             vid: "proj_operator",
                                             name: "Project Operator",
-                                            rules: "required",
+                                            rules: "",
                                           },
                                           scopedSlots: _vm._u(
                                             [
@@ -23850,7 +23824,7 @@ var render = function () {
                                           attrs: {
                                             vid: "ecc_no",
                                             name: "ECC Number",
-                                            rules: "required",
+                                            rules: "",
                                           },
                                           scopedSlots: _vm._u(
                                             [
@@ -23899,7 +23873,7 @@ var render = function () {
                                           attrs: {
                                             vid: "contact_person",
                                             name: "Contact Person",
-                                            rules: "required",
+                                            rules: "",
                                           },
                                           scopedSlots: _vm._u(
                                             [
@@ -23948,7 +23922,7 @@ var render = function () {
                                           attrs: {
                                             vid: "contact_no",
                                             name: "Contact Number",
-                                            rules: "required",
+                                            rules: "",
                                           },
                                           scopedSlots: _vm._u(
                                             [
@@ -24003,9 +23977,7 @@ var render = function () {
                                   "v-card",
                                   [
                                     _c("v-card-title", [
-                                      _vm._v(
-                                        "\n                                Site Capacity Information\n                            "
-                                      ),
+                                      _vm._v(" Site Capacity Information "),
                                     ]),
                                     _vm._v(" "),
                                     _c(
@@ -24016,7 +23988,7 @@ var render = function () {
                                           attrs: {
                                             vid: "cat",
                                             name: "Select Category",
-                                            rules: "required",
+                                            rules: "",
                                           },
                                           scopedSlots: _vm._u(
                                             [
@@ -24066,7 +24038,7 @@ var render = function () {
                                           attrs: {
                                             vid: "site_ha",
                                             name: "Site Hectares",
-                                            rules: "required",
+                                            rules: "",
                                           },
                                           scopedSlots: _vm._u(
                                             [
@@ -24115,7 +24087,7 @@ var render = function () {
                                           attrs: {
                                             vid: "site_cap",
                                             name: "Site Capacity",
-                                            rules: "required",
+                                            rules: "",
                                           },
                                           scopedSlots: _vm._u(
                                             [
@@ -24164,7 +24136,7 @@ var render = function () {
                                           attrs: {
                                             vid: "tons_per_day",
                                             name: "Tons per Day",
-                                            rules: "required",
+                                            rules: "",
                                           },
                                           scopedSlots: _vm._u(
                                             [
@@ -24213,7 +24185,7 @@ var render = function () {
                                           attrs: {
                                             vid: "service_life",
                                             name: "Service Life",
-                                            rules: "required",
+                                            rules: "",
                                           },
                                           scopedSlots: _vm._u(
                                             [
@@ -24262,7 +24234,7 @@ var render = function () {
                                           attrs: {
                                             vid: "rem_service_life",
                                             name: "Remaining Service Life",
-                                            rules: "required",
+                                            rules: "",
                                           },
                                           scopedSlots: _vm._u(
                                             [
@@ -24296,7 +24268,7 @@ var render = function () {
                                                           )
                                                         },
                                                         expression:
-                                                          "\n                                            slf.slf_remaining_service_life\n                                        ",
+                                                          "slf.slf_remaining_service_life",
                                                       },
                                                     }),
                                                   ]
@@ -24360,7 +24332,7 @@ var render = function () {
                                                   )
                                                 },
                                                 expression:
-                                                  "\n                                            slf.slf_with_planned_extension\n                                        ",
+                                                  "slf.slf_with_planned_extension",
                                               },
                                             }),
                                           ],
@@ -24380,7 +24352,7 @@ var render = function () {
                                       attrs: {
                                         vid: "lgu_served",
                                         name: "LGU Served",
-                                        rules: "required",
+                                        rules: "",
                                       },
                                       scopedSlots: _vm._u(
                                         [
@@ -24429,7 +24401,7 @@ var render = function () {
                                   [
                                     _c("v-card-title", [
                                       _vm._v(
-                                        "\n                                Treatment Process And Facilities Information\n                            "
+                                        "\n                Treatment Process And Facilities Information\n              "
                                       ),
                                     ]),
                                     _vm._v(" "),
@@ -24441,7 +24413,7 @@ var render = function () {
                                           attrs: {
                                             vid: "leachate",
                                             name: "Leachate Treatment",
-                                            rules: "required",
+                                            rules: "",
                                           },
                                           scopedSlots: _vm._u(
                                             [
@@ -24551,7 +24523,7 @@ var render = function () {
                                               )
                                             },
                                             expression:
-                                              "\n                                        slf.slf_separate_cells_for_hazwaste\n                                    ",
+                                              "slf.slf_separate_cells_for_hazwaste",
                                           },
                                         }),
                                         _vm._v(" "),
