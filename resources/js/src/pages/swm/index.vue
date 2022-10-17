@@ -109,6 +109,13 @@ export default {
   },
   mixins: [page, toasts, swm, dialogs],
   methods: {
+    get: _.debounce(async function (params) {
+      try {
+        await this.$inertia.get("/app/swm/lce_list", { ...params });
+      } catch (error) {
+        console.log(error);
+      }
+    }, 1500),
     async saveLCEForm() {
       try {
         const lce_list = { ...this.lce };
