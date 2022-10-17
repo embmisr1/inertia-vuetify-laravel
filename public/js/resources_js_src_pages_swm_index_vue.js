@@ -958,20 +958,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -22965,11 +22951,7 @@ var render = function () {
                       staticClass:
                         "text-center text-3xl text-gray-500 font-extrabold",
                     },
-                    [
-                      _vm._v(
-                        "\n                No lce_list Found\n            "
-                      ),
-                    ]
+                    [_vm._v("\n        No lce_list Found\n      ")]
                   ),
                 ]
               },
@@ -23007,9 +22989,7 @@ var render = function () {
                 fn: function (props) {
                   return [
                     _vm._v(
-                      "\n                " +
-                        _vm._s(props.row.provDesc) +
-                        "\n            "
+                      "\n        " + _vm._s(props.row.provDesc) + "\n      "
                     ),
                   ]
                 },
@@ -23050,9 +23030,7 @@ var render = function () {
                 fn: function (props) {
                   return [
                     _vm._v(
-                      "\n                " +
-                        _vm._s(props.row.citymunDesc) +
-                        "\n            "
+                      "\n        " + _vm._s(props.row.citymunDesc) + "\n      "
                     ),
                   ]
                 },
@@ -23089,9 +23067,7 @@ var render = function () {
                 fn: function (props) {
                   return [
                     _vm._v(
-                      "\n                " +
-                        _vm._s(props.row.brgyDesc) +
-                        "\n            "
+                      "\n        " + _vm._s(props.row.brgyDesc) + "\n      "
                     ),
                   ]
                 },
@@ -23132,9 +23108,7 @@ var render = function () {
                 fn: function (props) {
                   return [
                     _vm._v(
-                      "\n                " +
-                        _vm._s(props.row.districtCode) +
-                        "\n            "
+                      "\n        " + _vm._s(props.row.districtCode) + "\n      "
                     ),
                   ]
                 },
