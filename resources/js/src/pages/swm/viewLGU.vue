@@ -883,8 +883,6 @@
             >
             <v-tab-item class="overflow-y-auto"
                 ><v-container>
-                    <!-- <Link :href="`/app/swm/dues_register/${lce_id}`">
-                    </Link> -->
                         <v-btn dark >Add GAD</v-btn>
                     <b-table
                         :data="query_dues"
@@ -1005,7 +1003,7 @@ export default {
   mixins: [page, toasts, swm, dialogs],
   data() {
     return {
-      tabs: ["LCE", "SLF", "MRF", "RCA", "10 YR", "Equipment", "DUES","GAD"],
+      tabs: ["LCE", "SLF", "MRF", "RCA", "10 YR", "Equipment", "DUES"],
     };
   },
   methods: {

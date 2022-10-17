@@ -1926,8 +1926,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
 
 
 
@@ -1945,7 +1943,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   mixins: [_mixins___WEBPACK_IMPORTED_MODULE_4__.page, _mixins___WEBPACK_IMPORTED_MODULE_4__.toasts, _mixins___WEBPACK_IMPORTED_MODULE_4__.swm, _mixins___WEBPACK_IMPORTED_MODULE_4__.dialogs],
   data: function data() {
     return {
-      tabs: ["LCE", "SLF", "MRF", "RCA", "10 YR", "Equipment", "DUES", "GAD"]
+      tabs: ["LCE", "SLF", "MRF", "RCA", "10 YR", "Equipment", "DUES"]
     };
   },
   methods: {

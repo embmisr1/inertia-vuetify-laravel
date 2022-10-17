@@ -6,6 +6,7 @@ use App\Http\Controllers\Dashboard;
 use App\Http\Controllers\DivisionController;
 use App\Http\Controllers\DownloadAttachmentController;
 use App\Http\Controllers\ImportDataController;
+use App\Http\Controllers\ImportDataSWMController;
 use App\Http\Controllers\LogsController;
 use App\Http\Controllers\PositionController;
 use App\Http\Controllers\Profile;
@@ -114,6 +115,7 @@ Route::group([
 
     // GET REQUESTS
     Route::get('/import_data', [ImportDataController::class, 'import_data'])->name("import_data");
+    Route::get('/import_data_swm', [ImportDataSWMController::class, 'import_data_swm'])->name("import_data_swm");
     Route::get('/universe', [UniverseController::class, 'universe_list'])->name("universe_list");
     Route::get('/universe_dashboard/{firm_type}', [UniverseController::class, 'universe_dashboard'])->name("universe_dashboard");
     Route::get('/universe_form', [UniverseController::class, 'universe_form'])->name("universe_form");

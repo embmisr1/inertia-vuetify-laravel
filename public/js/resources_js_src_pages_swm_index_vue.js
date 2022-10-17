@@ -958,20 +958,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -986,68 +972,99 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
   mixins: [_mixins___WEBPACK_IMPORTED_MODULE_4__.page, _mixins___WEBPACK_IMPORTED_MODULE_4__.toasts, _mixins___WEBPACK_IMPORTED_MODULE_4__.swm, _mixins___WEBPACK_IMPORTED_MODULE_4__.dialogs],
   methods: {
-    saveLCEForm: function saveLCEForm() {
-      var _this = this;
-
-      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
-        var lce_list;
+    get: lodash__WEBPACK_IMPORTED_MODULE_3___default().debounce( /*#__PURE__*/function () {
+      var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(params) {
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
                 _context.prev = 0;
-                lce_list = _objectSpread({}, _this.lce);
-                _context.next = 4;
-                return _this.$inertia.post("/app/swm/rce_register_process", lce_list);
+                _context.next = 3;
+                return this.$inertia.get("/app/swm/lce_list", _objectSpread({}, params));
 
-              case 4:
-                _context.next = 10;
+              case 3:
+                _context.next = 8;
                 break;
 
-              case 6:
-                _context.prev = 6;
+              case 5:
+                _context.prev = 5;
                 _context.t0 = _context["catch"](0);
-                console.error(_context.t0.message);
+                console.log(_context.t0);
 
-                _this.error(_context.t0.dat.response.messsage);
-
-              case 10:
+              case 8:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, null, [[0, 6]]);
-      }))();
-    },
-    deleteLCEForm: function deleteLCEForm(LCE_id) {
-      var _this2 = this;
+        }, _callee, this, [[0, 5]]);
+      }));
+
+      return function (_x) {
+        return _ref.apply(this, arguments);
+      };
+    }(), 1500),
+    saveLCEForm: function saveLCEForm() {
+      var _this = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
+        var lce_list;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
                 _context2.prev = 0;
-                _context2.next = 3;
-                return _this2.$inertia.get("/app/swm/lce_delete/".concat(LCE_id));
+                lce_list = _objectSpread({}, _this.lce);
+                _context2.next = 4;
+                return _this.$inertia.post("/app/swm/rce_register_process", lce_list);
 
-              case 3:
-                _context2.next = 9;
+              case 4:
+                _context2.next = 10;
                 break;
 
-              case 5:
-                _context2.prev = 5;
+              case 6:
+                _context2.prev = 6;
                 _context2.t0 = _context2["catch"](0);
                 console.error(_context2.t0.message);
 
-                _this2.error(_context2.t0.dat.response.messsage);
+                _this.error(_context2.t0.dat.response.messsage);
 
-              case 9:
+              case 10:
               case "end":
                 return _context2.stop();
             }
           }
-        }, _callee2, null, [[0, 5]]);
+        }, _callee2, null, [[0, 6]]);
+      }))();
+    },
+    deleteLCEForm: function deleteLCEForm(LCE_id) {
+      var _this2 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                _context3.prev = 0;
+                _context3.next = 3;
+                return _this2.$inertia.get("/app/swm/lce_delete/".concat(LCE_id));
+
+              case 3:
+                _context3.next = 9;
+                break;
+
+              case 5:
+                _context3.prev = 5;
+                _context3.t0 = _context3["catch"](0);
+                console.error(_context3.t0.message);
+
+                _this2.error(_context3.t0.dat.response.messsage);
+
+              case 9:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3, null, [[0, 5]]);
       }))();
     }
   }
@@ -22965,11 +22982,7 @@ var render = function () {
                       staticClass:
                         "text-center text-3xl text-gray-500 font-extrabold",
                     },
-                    [
-                      _vm._v(
-                        "\n                No lce_list Found\n            "
-                      ),
-                    ]
+                    [_vm._v("\n        No lce_list Found\n      ")]
                   ),
                 ]
               },
@@ -23007,9 +23020,7 @@ var render = function () {
                 fn: function (props) {
                   return [
                     _vm._v(
-                      "\n                " +
-                        _vm._s(props.row.provDesc) +
-                        "\n            "
+                      "\n        " + _vm._s(props.row.provDesc) + "\n      "
                     ),
                   ]
                 },
@@ -23050,9 +23061,7 @@ var render = function () {
                 fn: function (props) {
                   return [
                     _vm._v(
-                      "\n                " +
-                        _vm._s(props.row.citymunDesc) +
-                        "\n            "
+                      "\n        " + _vm._s(props.row.citymunDesc) + "\n      "
                     ),
                   ]
                 },
@@ -23089,9 +23098,7 @@ var render = function () {
                 fn: function (props) {
                   return [
                     _vm._v(
-                      "\n                " +
-                        _vm._s(props.row.brgyDesc) +
-                        "\n            "
+                      "\n        " + _vm._s(props.row.brgyDesc) + "\n      "
                     ),
                   ]
                 },
@@ -23132,9 +23139,7 @@ var render = function () {
                 fn: function (props) {
                   return [
                     _vm._v(
-                      "\n                " +
-                        _vm._s(props.row.districtCode) +
-                        "\n            "
+                      "\n        " + _vm._s(props.row.districtCode) + "\n      "
                     ),
                   ]
                 },

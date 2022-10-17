@@ -32,7 +32,7 @@
                                         <ValidationProvider
                                             vid="lat"
                                             name="Latitude"
-                                            rules="required"
+                                           rules=""
                                             v-slot="{ errors }"
                                         >
                                             <v-text-field
@@ -48,7 +48,7 @@
                                         <ValidationProvider
                                             vid="long"
                                             name="Longitude"
-                                            rules="required"
+                                           rules=""
                                             v-slot="{ errors }"
                                         >
                                             <v-text-field
@@ -86,7 +86,7 @@
                                     <ValidationProvider
                                         vid="mrf_emb_lgu_funded"
                                         name="EMB LGU FUNDED"
-                                        rules="required"
+                                       rules=""
                                         v-slot="{ errors }"
                                     >
                                         <v-text-field
@@ -124,7 +124,7 @@
                                     <ValidationProvider
                                         vid="mrf_status_operation"
                                         name="Status of Operation"
-                                        rules="required"
+                                       rules=""
                                         v-slot="{ errors }"
                                     >
                                         <v-select
@@ -145,7 +145,7 @@
                                 <ValidationProvider
                                     vid="mrf_service_area"
                                     name="Area/s"
-                                    rules="required"
+                                   rules=""
                                     v-slot="{ errors }"
                                 >
                                     <v-text-field
@@ -166,7 +166,7 @@
                                     <ValidationProvider
                                         vid="mrf_total_waste_generation"
                                         name="Total Waste Generation"
-                                        rules="required"
+                                       rules=""
                                         v-slot="{ errors }"
                                     >
                                         <v-text-field
@@ -184,7 +184,7 @@
                                     <ValidationProvider
                                         vid="mrf_biodegradable"
                                         name="Biodegradable"
-                                        rules="required"
+                                       rules=""
                                         v-slot="{ errors }"
                                     >
                                         <v-text-field
@@ -202,7 +202,7 @@
                                     <ValidationProvider
                                         vid="mrf_recyclable"
                                         name="Recyclable"
-                                        rules="required"
+                                       rules=""
                                         v-slot="{ errors }"
                                     >
                                         <v-text-field
@@ -220,7 +220,7 @@
                                     <ValidationProvider
                                         vid="mrf_special_waste"
                                         name="Special Waste"
-                                        rules="required"
+                                       rules=""
                                         v-slot="{ errors }"
                                     >
                                         <v-text-field
@@ -238,7 +238,7 @@
                                     <ValidationProvider
                                         vid="mrf_total_waste_diverted"
                                         name="Waste Diverted"
-                                        rules="required"
+                                       rules=""
                                         v-slot="{ errors }"
                                     >
                                         <v-text-field
@@ -258,7 +258,7 @@
                                     <ValidationProvider
                                         vid="mrf_number_of_waste_diverted"
                                         name="% of Waster Diverted"
-                                        rules="required"
+                                       rules=""
                                         v-slot="{ errors }"
                                     >
                                         <v-text-field
