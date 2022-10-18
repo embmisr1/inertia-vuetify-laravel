@@ -1164,21 +1164,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -23206,11 +23191,7 @@ var render = function () {
                                   { staticClass: "grid grid-cols-3 gap-x-2" },
                                   [
                                     _c("ValidationProvider", {
-                                      attrs: {
-                                        vid: "prov",
-                                        name: "Province",
-                                        rules: "required",
-                                      },
+                                      attrs: { vid: "prov", name: "Province" },
                                       scopedSlots: _vm._u(
                                         [
                                           {
@@ -23261,7 +23242,6 @@ var render = function () {
                                       attrs: {
                                         vid: "mun",
                                         name: "Municipaliiy",
-                                        rules: "required",
                                       },
                                       scopedSlots: _vm._u(
                                         [
@@ -23313,11 +23293,7 @@ var render = function () {
                                     }),
                                     _vm._v(" "),
                                     _c("ValidationProvider", {
-                                      attrs: {
-                                        vid: "brgy",
-                                        name: "Barangay",
-                                        rules: "required",
-                                      },
+                                      attrs: { vid: "brgy", name: "Barangay" },
                                       scopedSlots: _vm._u(
                                         [
                                           {
