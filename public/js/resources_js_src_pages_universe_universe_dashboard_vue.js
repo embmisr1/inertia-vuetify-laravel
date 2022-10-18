@@ -717,9 +717,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 
 
 
@@ -817,7 +814,7 @@ __webpack_require__.r(__webpack_exports__);
           child: []
         }, {
           name: "SOLID WASTE",
-          link: '/app/swm/lce_list',
+          link: "/app/swm/lce_list",
           icon: "mdi-trash-can",
           child: []
         }, {
@@ -874,17 +871,17 @@ __webpack_require__.r(__webpack_exports__);
           child: []
         }, {
           name: "POSITION",
-          link: '/app/position',
+          link: "/app/position",
           icon: "mdi-account-supervisor",
           child: []
         }, {
           name: "DIVISION",
-          link: '/app/division',
+          link: "/app/division",
           icon: "mdi-account-supervisor",
           child: []
         }, {
           name: "UNIT SECTION",
-          link: '/app/unit_section',
+          link: "/app/unit_section",
           icon: "mdi-account-supervisor",
           child: []
         }, {
@@ -23900,10 +23897,7 @@ var render = function () {
       _c(
         "v-footer",
         { attrs: { app: "", rounded: "" } },
-        [
-          _c("v-spacer"),
-          _vm._v("\n        © DENR - EMB REGION 1 - UNISYS\n    "),
-        ],
+        [_c("v-spacer"), _vm._v("\n    © DENR - EMB REGION 1 - UNISYS\n  ")],
         1
       ),
     ],

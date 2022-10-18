@@ -129,18 +129,7 @@ var render = function () {
   return _c(
     "v-app",
     [
-      _c(
-        "v-main",
-        [
-          _c(
-            "v-container",
-            { staticClass: "min-h-screen grid place-content-center" },
-            [_vm._t("default")],
-            2
-          ),
-        ],
-        1
-      ),
+      _c("v-main", [_vm._t("default")], 2),
       _vm._v(" "),
       _c(
         "v-footer",
