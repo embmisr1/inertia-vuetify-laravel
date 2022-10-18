@@ -248,7 +248,7 @@ export default {
             try {
                 this.loading = true;
                 const { data } = await axios.get(
-                    `http://127.0.0.1:8000/api/app/province_dropdown/${prov_id}`
+                    `http://210.213.92.250/api/app/province_dropdown/${prov_id}`
                 );
                 this.cityMun = data;
                 this.loading = false;
@@ -262,7 +262,7 @@ export default {
             try {
                 this.loading = true;
                 const { data } = await axios.get(
-                    `http://127.0.0.1:8000/api/app/municipality_dropdown/${cityMun_id}`
+                    `http://210.213.92.250/api/app/municipality_dropdown/${cityMun_id}`
                 );
                 this.brgy = data;
                 this.loading = false;
