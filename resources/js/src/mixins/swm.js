@@ -200,7 +200,7 @@ export default {
         lce_address() {
             const { provDesc, citymunDesc, lce_zip_code, districtCode } =
                 this.lce_details;
-            return `${citymunDesc}, District No ${districtCode}, ${provDesc}, ${lce_zip_code} `;
+            return `${citymunDesc}, District No ${districtCode ? districtCode :''}, ${provDesc}, ${lce_zip_code ? lce_zip_code:''} `;
         },
         lce_prov_id() {
             return this.lce.lce_province_FK;
