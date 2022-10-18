@@ -104,7 +104,6 @@
                                         <v-date-picker
                                             v-model="dues.dues_date_granted"
                                             scrollable
-                                            :min="date_now"
                                             dark
                                         >
                                             <v-spacer></v-spacer>
