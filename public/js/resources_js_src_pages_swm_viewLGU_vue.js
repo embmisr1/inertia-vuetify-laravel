@@ -24401,7 +24401,7 @@ var render = function () {
                                     [
                                       _vm._v(
                                         _vm._s(this.lce_details.lce_title) +
-                                          ".\n                                        "
+                                          "\n                                        "
                                       ),
                                     ]
                                   ),
