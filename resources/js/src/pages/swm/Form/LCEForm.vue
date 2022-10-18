@@ -21,12 +21,7 @@
               <v-card-title> Address Information </v-card-title>
               <v-card-text>
                 <div class="grid grid-cols-3 gap-x-2">
-                  <ValidationProvider
-                    vid="prov"
-                    name="Province"
-                    rules="required"
-                    v-slot="{ errors }"
-                  >
+                  <ValidationProvider vid="prov" name="Province" v-slot="{ errors }">
                     <v-select
                       :items="province_dropdown"
                       label="Select Province"
@@ -42,12 +37,7 @@
                       persistent-hint
                     ></v-select>
                   </ValidationProvider>
-                  <ValidationProvider
-                    vid="mun"
-                    name="Municipaliiy"
-                    rules="required"
-                    v-slot="{ errors }"
-                  >
+                  <ValidationProvider vid="mun" name="Municipaliiy" v-slot="{ errors }">
                     <v-select
                       :disabled="!cityMun.length"
                       :items="cityMun"
@@ -64,12 +54,7 @@
                       persistent-hint
                     ></v-select>
                   </ValidationProvider>
-                  <ValidationProvider
-                    vid="brgy"
-                    name="Barangay"
-                    rules="required"
-                    v-slot="{ errors }"
-                  >
+                  <ValidationProvider vid="brgy" name="Barangay" v-slot="{ errors }">
                     <v-select
                       :disabled="!brgy.length"
                       :items="brgy"
