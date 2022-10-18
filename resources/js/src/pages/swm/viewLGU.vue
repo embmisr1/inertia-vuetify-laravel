@@ -32,7 +32,7 @@
                                     <div>Name</div>
                                     <div>
                                         <span class="text-sm italic"
-                                            >{{ this.lce_details.lce_title }}.
+                                            >{{ this.lce_details.lce_title }}
                                         </span>
                                         <span class="text-black text-2xl">{{
                                             lce_complete_name
