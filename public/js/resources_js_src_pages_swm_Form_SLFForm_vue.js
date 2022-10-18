@@ -643,9 +643,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 
 
 
@@ -743,7 +740,7 @@ __webpack_require__.r(__webpack_exports__);
           child: []
         }, {
           name: "SOLID WASTE",
-          link: '/app/swm/lce_list',
+          link: "/app/swm/lce_list",
           icon: "mdi-trash-can",
           child: []
         }, {
@@ -800,17 +797,17 @@ __webpack_require__.r(__webpack_exports__);
           child: []
         }, {
           name: "POSITION",
-          link: '/app/position',
+          link: "/app/position",
           icon: "mdi-account-supervisor",
           child: []
         }, {
           name: "DIVISION",
-          link: '/app/division',
+          link: "/app/division",
           icon: "mdi-account-supervisor",
           child: []
         }, {
           name: "UNIT SECTION",
-          link: '/app/unit_section',
+          link: "/app/unit_section",
           icon: "mdi-account-supervisor",
           child: []
         }, {
@@ -943,12 +940,6 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -3451,7 +3442,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           lce_first_name = _this$lce_details.lce_first_name,
           lce_middle_name = _this$lce_details.lce_middle_name,
           lce_last_name = _this$lce_details.lce_last_name;
-      return "".concat(lce_first_name, " ").concat(lce_middle_name, " ").concat(lce_last_name);
+      return "".concat(lce_first_name ? lce_first_name : '', " ").concat(lce_middle_name ? lce_middle_name : '', " ").concat(lce_last_name ? lce_last_name : "");
     },
     lce_address: function lce_address() {
       var _this$lce_details2 = this.lce_details,
@@ -3459,7 +3450,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           citymunDesc = _this$lce_details2.citymunDesc,
           lce_zip_code = _this$lce_details2.lce_zip_code,
           districtCode = _this$lce_details2.districtCode;
-      return "".concat(citymunDesc, ", District No ").concat(districtCode, ", ").concat(provDesc, ", ").concat(lce_zip_code, " ");
+      return "".concat(citymunDesc, ", District No ").concat(districtCode ? districtCode : '', ", ").concat(provDesc, ", ").concat(lce_zip_code ? lce_zip_code : '', " ");
     },
     lce_prov_id: function lce_prov_id() {
       return this.lce.lce_province_FK;
@@ -23565,10 +23556,7 @@ var render = function () {
       _c(
         "v-footer",
         { attrs: { app: "", rounded: "" } },
-        [
-          _c("v-spacer"),
-          _vm._v("\n        © DENR - EMB REGION 1 - UNISYS\n    "),
-        ],
+        [_c("v-spacer"), _vm._v("\n    © DENR - EMB REGION 1 - UNISYS\n  ")],
         1
       ),
     ],
@@ -23621,7 +23609,7 @@ var render = function () {
             ],
             1
           ),
-          _vm._v("\n            SLF Form\n        "),
+          _vm._v("\n      SLF Form\n    "),
         ],
         1
       ),
@@ -23661,124 +23649,178 @@ var render = function () {
                                   "v-card",
                                   [
                                     _c("v-card-title", [
-                                      _vm._v(
-                                        "\n                                Address Information\n                            "
-                                      ),
+                                      _vm._v(" Address Information "),
                                     ]),
                                     _vm._v(" "),
-                                    _c("v-card-text", {}, [
-                                      _vm._v(
-                                        "\n                                " +
-                                          _vm._s(_vm.slf_address) +
-                                          "\n                                "
-                                      ),
-                                      _c(
-                                        "div",
-                                        {
-                                          staticClass: "grid grid-cols-2 gap-2",
-                                        },
-                                        [
-                                          _c("ValidationProvider", {
-                                            attrs: {
-                                              vid: "lat",
-                                              name: "Latitude",
-                                              rules: "required",
-                                            },
-                                            scopedSlots: _vm._u(
-                                              [
-                                                {
-                                                  key: "default",
-                                                  fn: function (ref) {
-                                                    var errors = ref.errors
-                                                    return [
-                                                      _c("v-text-field", {
-                                                        attrs: {
-                                                          label: "Latitude",
-                                                          "error-messages":
-                                                            errors[0],
-                                                          outlined: "",
-                                                          clearable: "",
-                                                          dense: "",
-                                                          color: "dark",
-                                                        },
-                                                        model: {
-                                                          value:
-                                                            _vm.slf
-                                                              .slf_latitude,
-                                                          callback: function (
+                                    _c(
+                                      "v-card-text",
+                                      {},
+                                      [
+                                        _vm._v(
+                                          "\n                " +
+                                            _vm._s(_vm.slf_address) +
+                                            "\n                "
+                                        ),
+                                        _c("ValidationProvider", {
+                                          attrs: {
+                                            vid: "slf_complete_address",
+                                            name: "Complete Address",
+                                            rules: "",
+                                          },
+                                          scopedSlots: _vm._u(
+                                            [
+                                              {
+                                                key: "default",
+                                                fn: function (ref) {
+                                                  var errors = ref.errors
+                                                  return [
+                                                    _c("v-text-field", {
+                                                      attrs: {
+                                                        label:
+                                                          "Complete Address",
+                                                        "error-messages":
+                                                          errors[0],
+                                                        outlined: "",
+                                                        clearable: "",
+                                                        dense: "",
+                                                        color: "dark",
+                                                      },
+                                                      model: {
+                                                        value:
+                                                          _vm.slf
+                                                            .slf_complete_address,
+                                                        callback: function (
+                                                          $$v
+                                                        ) {
+                                                          _vm.$set(
+                                                            _vm.slf,
+                                                            "slf_complete_address",
                                                             $$v
-                                                          ) {
-                                                            _vm.$set(
-                                                              _vm.slf,
-                                                              "slf_latitude",
-                                                              $$v
-                                                            )
-                                                          },
-                                                          expression:
-                                                            "slf.slf_latitude",
+                                                          )
                                                         },
-                                                      }),
-                                                    ]
-                                                  },
+                                                        expression:
+                                                          "slf.slf_complete_address",
+                                                      },
+                                                    }),
+                                                  ]
                                                 },
-                                              ],
-                                              null,
-                                              true
-                                            ),
-                                          }),
-                                          _vm._v(" "),
-                                          _c("ValidationProvider", {
-                                            attrs: {
-                                              vid: "long",
-                                              name: "Longitude",
-                                              rules: "required",
-                                            },
-                                            scopedSlots: _vm._u(
-                                              [
-                                                {
-                                                  key: "default",
-                                                  fn: function (ref) {
-                                                    var errors = ref.errors
-                                                    return [
-                                                      _c("v-text-field", {
-                                                        attrs: {
-                                                          label: "Longitude",
-                                                          "error-messages":
-                                                            errors[0],
-                                                          outlined: "",
-                                                          clearable: "",
-                                                          dense: "",
-                                                          color: "dark",
-                                                        },
-                                                        model: {
-                                                          value:
-                                                            _vm.slf
-                                                              .slf_longitude,
-                                                          callback: function (
-                                                            $$v
-                                                          ) {
-                                                            _vm.$set(
-                                                              _vm.slf,
-                                                              "slf_longitude",
-                                                              $$v
-                                                            )
+                                              },
+                                            ],
+                                            null,
+                                            true
+                                          ),
+                                        }),
+                                        _vm._v(" "),
+                                        _c(
+                                          "div",
+                                          {
+                                            staticClass:
+                                              "grid grid-cols-2 gap-2",
+                                          },
+                                          [
+                                            _c("ValidationProvider", {
+                                              attrs: {
+                                                vid: "lat",
+                                                name: "Latitude",
+                                                rules: "",
+                                              },
+                                              scopedSlots: _vm._u(
+                                                [
+                                                  {
+                                                    key: "default",
+                                                    fn: function (ref) {
+                                                      var errors = ref.errors
+                                                      return [
+                                                        _c("v-text-field", {
+                                                          attrs: {
+                                                            label: "Latitude",
+                                                            "error-messages":
+                                                              errors[0],
+                                                            outlined: "",
+                                                            clearable: "",
+                                                            dense: "",
+                                                            color: "dark",
                                                           },
-                                                          expression:
-                                                            "slf.slf_longitude",
-                                                        },
-                                                      }),
-                                                    ]
+                                                          model: {
+                                                            value:
+                                                              _vm.slf
+                                                                .slf_latitude,
+                                                            callback: function (
+                                                              $$v
+                                                            ) {
+                                                              _vm.$set(
+                                                                _vm.slf,
+                                                                "slf_latitude",
+                                                                $$v
+                                                              )
+                                                            },
+                                                            expression:
+                                                              "slf.slf_latitude",
+                                                          },
+                                                        }),
+                                                      ]
+                                                    },
                                                   },
-                                                },
-                                              ],
-                                              null,
-                                              true
-                                            ),
-                                          }),
-                                        ],
-                                        1
-                                      ),
-                                    ]),
+                                                ],
+                                                null,
+                                                true
+                                              ),
+                                            }),
+                                            _vm._v(" "),
+                                            _c("ValidationProvider", {
+                                              attrs: {
+                                                vid: "long",
+                                                name: "Longitude",
+                                                rules: "",
+                                              },
+                                              scopedSlots: _vm._u(
+                                                [
+                                                  {
+                                                    key: "default",
+                                                    fn: function (ref) {
+                                                      var errors = ref.errors
+                                                      return [
+                                                        _c("v-text-field", {
+                                                          attrs: {
+                                                            label: "Longitude",
+                                                            "error-messages":
+                                                              errors[0],
+                                                            outlined: "",
+                                                            clearable: "",
+                                                            dense: "",
+                                                            color: "dark",
+                                                          },
+                                                          model: {
+                                                            value:
+                                                              _vm.slf
+                                                                .slf_longitude,
+                                                            callback: function (
+                                                              $$v
+                                                            ) {
+                                                              _vm.$set(
+                                                                _vm.slf,
+                                                                "slf_longitude",
+                                                                $$v
+                                                              )
+                                                            },
+                                                            expression:
+                                                              "slf.slf_longitude",
+                                                          },
+                                                        }),
+                                                      ]
+                                                    },
+                                                  },
+                                                ],
+                                                null,
+                                                true
+                                              ),
+                                            }),
+                                          ],
+                                          1
+                                        ),
+                                      ],
+                                      1
+                                    ),
                                   ],
                                   1
                                 ),
@@ -23787,9 +23829,7 @@ var render = function () {
                                   "v-card",
                                   [
                                     _c("v-card-title", [
-                                      _vm._v(
-                                        "\n                                Operator Information\n                            "
-                                      ),
+                                      _vm._v(" Operator Information "),
                                     ]),
                                     _vm._v(" "),
                                     _c(
@@ -23800,7 +23840,7 @@ var render = function () {
                                           attrs: {
                                             vid: "proj_operator",
                                             name: "Project Operator",
-                                            rules: "required",
+                                            rules: "",
                                           },
                                           scopedSlots: _vm._u(
                                             [
@@ -23850,7 +23890,7 @@ var render = function () {
                                           attrs: {
                                             vid: "ecc_no",
                                             name: "ECC Number",
-                                            rules: "required",
+                                            rules: "",
                                           },
                                           scopedSlots: _vm._u(
                                             [
@@ -23899,7 +23939,7 @@ var render = function () {
                                           attrs: {
                                             vid: "contact_person",
                                             name: "Contact Person",
-                                            rules: "required",
+                                            rules: "",
                                           },
                                           scopedSlots: _vm._u(
                                             [
@@ -23948,7 +23988,7 @@ var render = function () {
                                           attrs: {
                                             vid: "contact_no",
                                             name: "Contact Number",
-                                            rules: "required",
+                                            rules: "",
                                           },
                                           scopedSlots: _vm._u(
                                             [
@@ -24003,9 +24043,7 @@ var render = function () {
                                   "v-card",
                                   [
                                     _c("v-card-title", [
-                                      _vm._v(
-                                        "\n                                Site Capacity Information\n                            "
-                                      ),
+                                      _vm._v(" Site Capacity Information "),
                                     ]),
                                     _vm._v(" "),
                                     _c(
@@ -24016,7 +24054,7 @@ var render = function () {
                                           attrs: {
                                             vid: "cat",
                                             name: "Select Category",
-                                            rules: "required",
+                                            rules: "",
                                           },
                                           scopedSlots: _vm._u(
                                             [
@@ -24066,7 +24104,7 @@ var render = function () {
                                           attrs: {
                                             vid: "site_ha",
                                             name: "Site Hectares",
-                                            rules: "required",
+                                            rules: "",
                                           },
                                           scopedSlots: _vm._u(
                                             [
@@ -24115,7 +24153,7 @@ var render = function () {
                                           attrs: {
                                             vid: "site_cap",
                                             name: "Site Capacity",
-                                            rules: "required",
+                                            rules: "",
                                           },
                                           scopedSlots: _vm._u(
                                             [
@@ -24164,7 +24202,7 @@ var render = function () {
                                           attrs: {
                                             vid: "tons_per_day",
                                             name: "Tons per Day",
-                                            rules: "required",
+                                            rules: "",
                                           },
                                           scopedSlots: _vm._u(
                                             [
@@ -24213,7 +24251,7 @@ var render = function () {
                                           attrs: {
                                             vid: "service_life",
                                             name: "Service Life",
-                                            rules: "required",
+                                            rules: "",
                                           },
                                           scopedSlots: _vm._u(
                                             [
@@ -24262,7 +24300,7 @@ var render = function () {
                                           attrs: {
                                             vid: "rem_service_life",
                                             name: "Remaining Service Life",
-                                            rules: "required",
+                                            rules: "",
                                           },
                                           scopedSlots: _vm._u(
                                             [
@@ -24296,7 +24334,7 @@ var render = function () {
                                                           )
                                                         },
                                                         expression:
-                                                          "\n                                            slf.slf_remaining_service_life\n                                        ",
+                                                          "slf.slf_remaining_service_life",
                                                       },
                                                     }),
                                                   ]
@@ -24360,7 +24398,7 @@ var render = function () {
                                                   )
                                                 },
                                                 expression:
-                                                  "\n                                            slf.slf_with_planned_extension\n                                        ",
+                                                  "slf.slf_with_planned_extension",
                                               },
                                             }),
                                           ],
@@ -24380,7 +24418,7 @@ var render = function () {
                                       attrs: {
                                         vid: "lgu_served",
                                         name: "LGU Served",
-                                        rules: "required",
+                                        rules: "",
                                       },
                                       scopedSlots: _vm._u(
                                         [
@@ -24429,7 +24467,7 @@ var render = function () {
                                   [
                                     _c("v-card-title", [
                                       _vm._v(
-                                        "\n                                Treatment Process And Facilities Information\n                            "
+                                        "\n                Treatment Process And Facilities Information\n              "
                                       ),
                                     ]),
                                     _vm._v(" "),
@@ -24441,7 +24479,7 @@ var render = function () {
                                           attrs: {
                                             vid: "leachate",
                                             name: "Leachate Treatment",
-                                            rules: "required",
+                                            rules: "",
                                           },
                                           scopedSlots: _vm._u(
                                             [
@@ -24551,7 +24589,7 @@ var render = function () {
                                               )
                                             },
                                             expression:
-                                              "\n                                        slf.slf_separate_cells_for_hazwaste\n                                    ",
+                                              "slf.slf_separate_cells_for_hazwaste",
                                           },
                                         }),
                                         _vm._v(" "),

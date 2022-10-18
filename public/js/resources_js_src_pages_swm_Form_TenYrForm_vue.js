@@ -643,9 +643,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 
 
 
@@ -743,7 +740,7 @@ __webpack_require__.r(__webpack_exports__);
           child: []
         }, {
           name: "SOLID WASTE",
-          link: '/app/swm/lce_list',
+          link: "/app/swm/lce_list",
           icon: "mdi-trash-can",
           child: []
         }, {
@@ -800,17 +797,17 @@ __webpack_require__.r(__webpack_exports__);
           child: []
         }, {
           name: "POSITION",
-          link: '/app/position',
+          link: "/app/position",
           icon: "mdi-account-supervisor",
           child: []
         }, {
           name: "DIVISION",
-          link: '/app/division',
+          link: "/app/division",
           icon: "mdi-account-supervisor",
           child: []
         }, {
           name: "UNIT SECTION",
-          link: '/app/unit_section',
+          link: "/app/unit_section",
           icon: "mdi-account-supervisor",
           child: []
         }, {
@@ -1393,54 +1390,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -1455,7 +1404,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   mixins: [_mixins__WEBPACK_IMPORTED_MODULE_4__.page, _mixins__WEBPACK_IMPORTED_MODULE_4__.toasts, _mixins__WEBPACK_IMPORTED_MODULE_4__.swm, _mixins__WEBPACK_IMPORTED_MODULE_4__.dialogs],
   data: function data() {
     return {
-      ten_yr_form_type: "create"
+      ten_yr_form_type: "create",
+      ten_year_year_approved: false
     };
   },
   created: function created() {
@@ -3580,7 +3530,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           lce_first_name = _this$lce_details.lce_first_name,
           lce_middle_name = _this$lce_details.lce_middle_name,
           lce_last_name = _this$lce_details.lce_last_name;
-      return "".concat(lce_first_name, " ").concat(lce_middle_name, " ").concat(lce_last_name);
+      return "".concat(lce_first_name ? lce_first_name : '', " ").concat(lce_middle_name ? lce_middle_name : '', " ").concat(lce_last_name ? lce_last_name : "");
     },
     lce_address: function lce_address() {
       var _this$lce_details2 = this.lce_details,
@@ -3588,7 +3538,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           citymunDesc = _this$lce_details2.citymunDesc,
           lce_zip_code = _this$lce_details2.lce_zip_code,
           districtCode = _this$lce_details2.districtCode;
-      return "".concat(citymunDesc, ", District No ").concat(districtCode, ", ").concat(provDesc, ", ").concat(lce_zip_code, " ");
+      return "".concat(citymunDesc, ", District No ").concat(districtCode ? districtCode : '', ", ").concat(provDesc, ", ").concat(lce_zip_code ? lce_zip_code : '', " ");
     },
     lce_prov_id: function lce_prov_id() {
       return this.lce.lce_province_FK;
@@ -23694,10 +23644,7 @@ var render = function () {
       _c(
         "v-footer",
         { attrs: { app: "", rounded: "" } },
-        [
-          _c("v-spacer"),
-          _vm._v("\n        © DENR - EMB REGION 1 - UNISYS\n    "),
-        ],
+        [_c("v-spacer"), _vm._v("\n    © DENR - EMB REGION 1 - UNISYS\n  ")],
         1
       ),
     ],
@@ -23767,7 +23714,7 @@ var render = function () {
             ],
             1
           ),
-          _vm._v("\n            10 Year Form\n        "),
+          _vm._v("\n      10 Year Form\n    "),
         ],
         1
       ),
@@ -23807,16 +23754,14 @@ var render = function () {
                                   "v-card",
                                   [
                                     _c("v-card-title", [
-                                      _vm._v(
-                                        "\n                                Address Information\n                            "
-                                      ),
+                                      _vm._v(" Address Information "),
                                     ]),
                                     _vm._v(" "),
                                     _c("v-card-text", {}, [
                                       _vm._v(
-                                        "\n                                " +
+                                        "\n                " +
                                           _vm._s(_vm.address) +
-                                          "\n                            "
+                                          "\n              "
                                       ),
                                     ]),
                                   ],
@@ -23827,9 +23772,7 @@ var render = function () {
                                   "v-card",
                                   [
                                     _c("v-card-title", [
-                                      _vm._v(
-                                        "\n                                10 Year Information\n                            "
-                                      ),
+                                      _vm._v(" 10 Year Information "),
                                     ]),
                                     _vm._v(" "),
                                     _c(
@@ -23874,7 +23817,7 @@ var render = function () {
                                                           )
                                                         },
                                                         expression:
-                                                          "\n                                            ten_yr.ten_year_planning_period\n                                        ",
+                                                          "ten_yr.ten_year_planning_period",
                                                       },
                                                     }),
                                                   ]
@@ -23899,34 +23842,195 @@ var render = function () {
                                                 fn: function (ref) {
                                                   var errors = ref.errors
                                                   return [
-                                                    _c("v-text-field", {
-                                                      attrs: {
-                                                        label:
-                                                          "10 YEAR APPROVED",
-                                                        "error-messages":
-                                                          errors[0],
-                                                        outlined: "",
-                                                        clearable: "",
-                                                        dense: "",
-                                                        color: "dark",
-                                                      },
-                                                      model: {
-                                                        value:
-                                                          _vm.ten_yr
-                                                            .ten_year_year_approved,
-                                                        callback: function (
-                                                          $$v
-                                                        ) {
-                                                          _vm.$set(
-                                                            _vm.ten_yr,
-                                                            "ten_year_year_approved",
-                                                            $$v
-                                                          )
+                                                    _c(
+                                                      "v-dialog",
+                                                      {
+                                                        ref: "dialog",
+                                                        attrs: {
+                                                          "return-value":
+                                                            _vm.ten_yr
+                                                              .ten_year_year_approved,
+                                                          persistent: "",
+                                                          width: "290px",
+                                                          dark: "",
                                                         },
-                                                        expression:
-                                                          "\n                                            ten_yr.ten_year_year_approved\n                                        ",
+                                                        on: {
+                                                          "update:returnValue":
+                                                            function ($event) {
+                                                              return _vm.$set(
+                                                                _vm.ten_yr,
+                                                                "ten_year_year_approved",
+                                                                $event
+                                                              )
+                                                            },
+                                                          "update:return-value":
+                                                            function ($event) {
+                                                              return _vm.$set(
+                                                                _vm.ten_yr,
+                                                                "ten_year_year_approved",
+                                                                $event
+                                                              )
+                                                            },
+                                                        },
+                                                        scopedSlots: _vm._u(
+                                                          [
+                                                            {
+                                                              key: "activator",
+                                                              fn: function (
+                                                                ref
+                                                              ) {
+                                                                var on = ref.on
+                                                                var attrs =
+                                                                  ref.attrs
+                                                                return [
+                                                                  _c(
+                                                                    "v-text-field",
+                                                                    _vm._g(
+                                                                      _vm._b(
+                                                                        {
+                                                                          attrs:
+                                                                            {
+                                                                              label:
+                                                                                "10 YEAR APPROVED",
+                                                                              readonly:
+                                                                                "",
+                                                                              outlined:
+                                                                                "",
+                                                                              dense:
+                                                                                "",
+                                                                              color:
+                                                                                "black",
+                                                                            },
+                                                                          model:
+                                                                            {
+                                                                              value:
+                                                                                _vm
+                                                                                  .ten_yr
+                                                                                  .ten_year_year_approved,
+                                                                              callback:
+                                                                                function (
+                                                                                  $$v
+                                                                                ) {
+                                                                                  _vm.$set(
+                                                                                    _vm.ten_yr,
+                                                                                    "ten_year_year_approved",
+                                                                                    $$v
+                                                                                  )
+                                                                                },
+                                                                              expression:
+                                                                                "ten_yr.ten_year_year_approved",
+                                                                            },
+                                                                        },
+                                                                        "v-text-field",
+                                                                        attrs,
+                                                                        false
+                                                                      ),
+                                                                      on
+                                                                    )
+                                                                  ),
+                                                                ]
+                                                              },
+                                                            },
+                                                          ],
+                                                          null,
+                                                          true
+                                                        ),
+                                                        model: {
+                                                          value:
+                                                            _vm.date_granted,
+                                                          callback: function (
+                                                            $$v
+                                                          ) {
+                                                            _vm.date_granted =
+                                                              $$v
+                                                          },
+                                                          expression:
+                                                            "date_granted",
+                                                        },
                                                       },
-                                                    }),
+                                                      [
+                                                        _vm._v(" "),
+                                                        _c(
+                                                          "v-date-picker",
+                                                          {
+                                                            attrs: {
+                                                              scrollable: "",
+                                                              dark: "",
+                                                            },
+                                                            model: {
+                                                              value:
+                                                                _vm.ten_yr
+                                                                  .ten_year_year_approved,
+                                                              callback:
+                                                                function ($$v) {
+                                                                  _vm.$set(
+                                                                    _vm.ten_yr,
+                                                                    "ten_year_year_approved",
+                                                                    $$v
+                                                                  )
+                                                                },
+                                                              expression:
+                                                                "ten_yr.ten_year_year_approved",
+                                                            },
+                                                          },
+                                                          [
+                                                            _c("v-spacer"),
+                                                            _vm._v(" "),
+                                                            _c(
+                                                              "v-btn",
+                                                              {
+                                                                attrs: {
+                                                                  text: "",
+                                                                  dark: "",
+                                                                },
+                                                                on: {
+                                                                  click:
+                                                                    function (
+                                                                      $event
+                                                                    ) {
+                                                                      _vm.ten_year_year_approved = false
+                                                                    },
+                                                                },
+                                                              },
+                                                              [
+                                                                _vm._v(
+                                                                  "\n                        Cancel\n                      "
+                                                                ),
+                                                              ]
+                                                            ),
+                                                            _vm._v(" "),
+                                                            _c(
+                                                              "v-btn",
+                                                              {
+                                                                attrs: {
+                                                                  text: "",
+                                                                  dark: "",
+                                                                },
+                                                                on: {
+                                                                  click:
+                                                                    function (
+                                                                      $event
+                                                                    ) {
+                                                                      return _vm.$refs.dialog.save(
+                                                                        _vm
+                                                                          .ten_yr
+                                                                          .ten_year_year_approved
+                                                                      )
+                                                                    },
+                                                                },
+                                                              },
+                                                              [
+                                                                _vm._v(
+                                                                  "\n                        OK\n                      "
+                                                                ),
+                                                              ]
+                                                            ),
+                                                          ],
+                                                          1
+                                                        ),
+                                                      ],
+                                                      1
+                                                    ),
                                                   ]
                                                 },
                                               },
@@ -24249,7 +24353,7 @@ var render = function () {
                                                   },
                                                   [
                                                     _vm._v(
-                                                      "\n                                        Add Monitoring List\n                                    "
+                                                      " Add Monitoring List "
                                                     ),
                                                   ]
                                                 ),
@@ -24342,7 +24446,7 @@ var render = function () {
                                                                 },
                                                                 [
                                                                   _vm._v(
-                                                                    "\n                                            No lce_list Found\n                                        "
+                                                                    "\n                      No lce_list Found\n                    "
                                                                   ),
                                                                 ]
                                                               ),
@@ -24389,12 +24493,12 @@ var render = function () {
                                                             ) {
                                                               return [
                                                                 _vm._v(
-                                                                  "\n                                            " +
+                                                                  "\n                      " +
                                                                     _vm._s(
                                                                       props.row
                                                                         .ten_year_mon_date_monitored
                                                                     ) +
-                                                                    "\n                                        "
+                                                                    "\n                    "
                                                                 ),
                                                               ]
                                                             },
@@ -24438,12 +24542,12 @@ var render = function () {
                                                             ) {
                                                               return [
                                                                 _vm._v(
-                                                                  "\n                                            " +
+                                                                  "\n                      " +
                                                                     _vm._s(
                                                                       props.row
                                                                         .ten_year_mon_date_submitted
                                                                     ) +
-                                                                    "\n                                        "
+                                                                    "\n                    "
                                                                 ),
                                                               ]
                                                             },
@@ -24470,12 +24574,12 @@ var render = function () {
                                                             ) {
                                                               return [
                                                                 _vm._v(
-                                                                  "\n                                            " +
+                                                                  "\n                      " +
                                                                     _vm._s(
                                                                       props.row
                                                                         .ten_year_mon_by
                                                                     ) +
-                                                                    "\n                                        "
+                                                                    "\n                    "
                                                                 ),
                                                               ]
                                                             },
@@ -24587,9 +24691,7 @@ var render = function () {
                                   "v-card",
                                   [
                                     _c("v-card-title", [
-                                      _vm._v(
-                                        "\n                                Upload Attachments\n                            "
-                                      ),
+                                      _vm._v(" Upload Attachments "),
                                     ]),
                                     _vm._v(" "),
                                     _c(
@@ -24746,7 +24848,7 @@ var render = function () {
                                                           )
                                                         },
                                                         expression:
-                                                          "\n                                            ten_yr.ten_year_copy_resolution\n                                        ",
+                                                          "ten_yr.ten_year_copy_resolution",
                                                       },
                                                     }),
                                                   ]
@@ -24825,11 +24927,7 @@ var render = function () {
                                         _c(
                                           "v-card-title",
                                           { attrs: { "primary-title": "" } },
-                                          [
-                                            _vm._v(
-                                              "\n                                Attachments\n                            "
-                                            ),
-                                          ]
+                                          [_vm._v(" Attachments ")]
                                         ),
                                         _vm._v(" "),
                                         _c(
