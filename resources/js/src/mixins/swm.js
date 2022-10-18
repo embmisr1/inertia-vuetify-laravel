@@ -195,7 +195,7 @@ export default {
         lce_complete_name() {
             const { lce_first_name, lce_middle_name, lce_last_name } =
                 this.lce_details;
-            return `${lce_first_name} ${lce_middle_name} ${lce_last_name}`;
+            return `${lce_first_name? lce_first_name:''} ${lce_middle_name ? lce_middle_name:'' } ${lce_last_name ? lce_last_name:""}`;
         },
         lce_address() {
             const { provDesc, citymunDesc, lce_zip_code, districtCode } =
