@@ -283,7 +283,6 @@
                     clearable
                     dense
                     color="dark"
-                    type="email"
                   ></v-text-field>
                 </ValidationProvider>
               </v-card-text>
@@ -291,7 +290,7 @@
           </div>
           <div class="flex justify-center mt-4">
             <v-btn color="red darken-2" text type="reset">Reset</v-btn>
-            <v-btn color="primary" :disabled="invalid" type="submit">Save</v-btn>
+            <v-btn color="primary" type="submit">Save</v-btn>
           </div>
         </v-container>
       </form>
