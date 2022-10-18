@@ -192,7 +192,7 @@
                                     <ValidationProvider
                                         vid="dues_contact_email"
                                         name="Contact Email"
-                                        rules="email"
+                                        rules=""
                                         v-slot="{ errors }"
                                     >
                                         <v-text-field
@@ -203,7 +203,6 @@
                                             clearable
                                             dense
                                             color="dark"
-                                            type="email"
                                         ></v-text-field>
                                     </ValidationProvider>
                                 </div>

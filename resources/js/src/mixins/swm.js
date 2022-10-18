@@ -195,12 +195,12 @@ export default {
         lce_complete_name() {
             const { lce_first_name, lce_middle_name, lce_last_name } =
                 this.lce_details;
-            return `${lce_first_name} ${lce_middle_name} ${lce_last_name}`;
+            return `${lce_first_name? lce_first_name:''} ${lce_middle_name ? lce_middle_name:'' } ${lce_last_name ? lce_last_name:""}`;
         },
         lce_address() {
             const { provDesc, citymunDesc, lce_zip_code, districtCode } =
                 this.lce_details;
-            return `${citymunDesc}, District No ${districtCode}, ${provDesc}, ${lce_zip_code} `;
+            return `${citymunDesc}, District No ${districtCode ? districtCode :''}, ${provDesc}, ${lce_zip_code ? lce_zip_code:''} `;
         },
         lce_prov_id() {
             return this.lce.lce_province_FK;
