@@ -6,6 +6,7 @@
     <link href="{{ mix('/css/app.css') }}" rel="stylesheet" />
     <script src="{{ mix('/js/app.js') }}" defer></script>
     <script src="https://unpkg.com/boxicons@2.1.1/dist/boxicons.js" defer></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@0.4.0/dist/lottie-player.js"></script>
     @inertiaHead
   </head>
   <body>

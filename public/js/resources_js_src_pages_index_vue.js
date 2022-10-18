@@ -137,8 +137,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
 
 
 
@@ -158,7 +156,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         username: null,
         password: null
       }),
-      showpass: false
+      showpass: false,
+      animation: ["https://assets4.lottiefiles.com/packages/lf20_kq41y3pa.json", "https://assets4.lottiefiles.com/packages/lf20_wzrthmvn.json", "https://assets5.lottiefiles.com/packages/lf20_tljjahng.json", "https://assets5.lottiefiles.com/packages/lf20_m2aybuxx.json", "https://assets5.lottiefiles.com/packages/lf20_pXBLg7.json", "https://assets5.lottiefiles.com/packages/lf20_0pxufWdKDU.json", "https://assets5.lottiefiles.com/packages/lf20_tQpgWqgHGl.json"]
     };
   },
   computed: {
@@ -167,6 +166,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     successMessage: function successMessage() {
       return _objectSpread({}, this.flash);
+    },
+    src: function src() {
+      return this.animation[Math.floor(Math.random() * 7)];
     }
   }
 });
@@ -2103,7 +2105,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           lce_first_name = _this$lce_details.lce_first_name,
           lce_middle_name = _this$lce_details.lce_middle_name,
           lce_last_name = _this$lce_details.lce_last_name;
-      return "".concat(lce_first_name, " ").concat(lce_middle_name, " ").concat(lce_last_name);
+      return "".concat(lce_first_name ? lce_first_name : '', " ").concat(lce_middle_name ? lce_middle_name : '', " ").concat(lce_last_name ? lce_last_name : "");
     },
     lce_address: function lce_address() {
       var _this$lce_details2 = this.lce_details,
@@ -2111,7 +2113,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           citymunDesc = _this$lce_details2.citymunDesc,
           lce_zip_code = _this$lce_details2.lce_zip_code,
           districtCode = _this$lce_details2.districtCode;
-      return "".concat(citymunDesc, ", District No ").concat(districtCode, ", ").concat(provDesc, ", ").concat(lce_zip_code, " ");
+      return "".concat(citymunDesc, ", District No ").concat(districtCode ? districtCode : '', ", ").concat(provDesc, ", ").concat(lce_zip_code ? lce_zip_code : '', " ");
     },
     lce_prov_id: function lce_prov_id() {
       return this.lce.lce_province_FK;
@@ -20758,18 +20760,7 @@ var render = function () {
   return _c(
     "v-app",
     [
-      _c(
-        "v-main",
-        [
-          _c(
-            "v-container",
-            { staticClass: "min-h-screen grid place-content-center" },
-            [_vm._t("default")],
-            2
-          ),
-        ],
-        1
-      ),
+      _c("v-main", [_vm._t("default")], 2),
       _vm._v(" "),
       _c(
         "v-footer",
@@ -20805,140 +20796,127 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("AuthLayout", [
-    _c(
-      "form",
-      {
-        on: {
-          submit: function ($event) {
-            $event.preventDefault()
-            return _vm.form.post("/")
-          },
+    _c("div", { staticClass: "my-4 bg-transparent" }, [
+      _c("img", {
+        staticClass: "h-32 w-full object-scale-down object-center",
+        attrs: {
+          src: "http://r1.emb.gov.ph/wp-content/uploads/2022/03/WEBSITE-LOGO_final.png",
+          alt: "EMB - LOGO",
         },
-      },
-      [
+      }),
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "flex justify-center" }, [
+      _c("div", { staticClass: "w-96" }, [
         _c(
-          "v-card",
+          "form",
           {
-            staticClass: "p-4 capitalize",
-            attrs: {
-              "max-width": "900",
-              "max-height": "700",
-              flat: "",
-              loading: _vm.form.processing,
+            on: {
+              submit: function ($event) {
+                $event.preventDefault()
+                return _vm.form.post("/")
+              },
             },
           },
           [
-            _c("img", {
-              staticClass: "h-24 object-cover",
-              attrs: {
-                src: "http://r1.emb.gov.ph/wp-content/uploads/2022/03/WEBSITE-LOGO_final.png",
-                alt: "EMB - LOGO",
-              },
-            }),
-            _vm._v(" "),
-            _c("v-card-title", [
-              _c("div", { staticClass: "text-center" }, [
-                _c("h3", { staticClass: "mb-0" }, [_vm._v("Login")]),
-              ]),
-            ]),
-            _vm._v(" "),
             _c(
-              "div",
-              { staticClass: "p-6" },
+              "v-card",
+              {
+                staticClass: "p-4 capitalize",
+                attrs: {
+                  "max-width": "900",
+                  "max-height": "700",
+                  elevation: "10",
+                  loading: _vm.form.processing,
+                },
+              },
               [
+                _c("v-card-text", {}, [
+                  _c(
+                    "div",
+                    [
+                      _c("v-text-field", {
+                        attrs: {
+                          label: "Username",
+                          required: "",
+                          outlined: "",
+                          "error-messages": _vm.form.errors.username,
+                          color: "dark",
+                          loading: _vm.form.processing,
+                        },
+                        model: {
+                          value: _vm.form.username,
+                          callback: function ($$v) {
+                            _vm.$set(_vm.form, "username", $$v)
+                          },
+                          expression: "form.username",
+                        },
+                      }),
+                      _vm._v(" "),
+                      _c("v-text-field", {
+                        attrs: {
+                          loading: _vm.form.processing,
+                          "append-icon": _vm.showpass
+                            ? "mdi-eye"
+                            : "mdi-eye-off",
+                          outlined: "",
+                          type: _vm.showpass ? "text" : "password",
+                          name: "password",
+                          label: "Password",
+                          color: "dark",
+                          "error-messages": _vm.form.errors.password,
+                        },
+                        on: {
+                          "click:append": function ($event) {
+                            _vm.showpass = !_vm.showpass
+                          },
+                        },
+                        model: {
+                          value: _vm.form.password,
+                          callback: function ($$v) {
+                            _vm.$set(_vm.form, "password", $$v)
+                          },
+                          expression: "form.password",
+                        },
+                      }),
+                    ],
+                    1
+                  ),
+                ]),
+                _vm._v(" "),
                 _c(
-                  "v-row",
+                  "v-card-actions",
+                  {},
                   [
                     _c(
-                      "v-col",
+                      "Link",
+                      { attrs: { href: "/forgot_password" } },
                       [
-                        _c("v-text-field", {
-                          attrs: {
-                            label: "Username",
-                            required: "",
-                            outlined: "",
-                            "error-messages": _vm.form.errors.username,
-                            loading: _vm.form.processing,
-                          },
-                          model: {
-                            value: _vm.form.username,
-                            callback: function ($$v) {
-                              _vm.$set(_vm.form, "username", $$v)
-                            },
-                            expression: "form.username",
-                          },
-                        }),
+                        _c(
+                          "v-btn",
+                          { attrs: { text: "", color: "dark", "x-small": "" } },
+                          [_vm._v("Forgot password")]
+                        ),
                       ],
                       1
                     ),
                     _vm._v(" "),
-                    _c(
-                      "v-col",
-                      [
-                        _c("v-text-field", {
-                          attrs: {
-                            loading: _vm.form.processing,
-                            "append-icon": _vm.showpass
-                              ? "mdi-eye"
-                              : "mdi-eye-off",
-                            outlined: "",
-                            type: _vm.showpass ? "text" : "password",
-                            name: "password",
-                            label: "Password",
-                            "error-messages": _vm.form.errors.password,
-                          },
-                          on: {
-                            "click:append": function ($event) {
-                              _vm.showpass = !_vm.showpass
-                            },
-                          },
-                          model: {
-                            value: _vm.form.password,
-                            callback: function ($$v) {
-                              _vm.$set(_vm.form, "password", $$v)
-                            },
-                            expression: "form.password",
-                          },
-                        }),
-                      ],
-                      1
-                    ),
-                  ],
-                  1
-                ),
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "v-card-actions",
-              [
-                _c(
-                  "Link",
-                  { attrs: { href: "/forgot_password" } },
-                  [
+                    _c("v-spacer"),
+                    _vm._v(" "),
                     _c(
                       "v-btn",
-                      { attrs: { text: "", color: "dark", "x-small": "" } },
-                      [_vm._v("Forgot password")]
+                      {
+                        staticClass: "white--text",
+                        attrs: {
+                          color: "light-green darken-4",
+                          type: "submit",
+                          loading: _vm.form.processing,
+                        },
+                      },
+                      [_vm._v("Log In")]
                     ),
                   ],
                   1
-                ),
-                _vm._v(" "),
-                _c("v-spacer"),
-                _vm._v(" "),
-                _c(
-                  "v-btn",
-                  {
-                    staticClass: "white--text",
-                    attrs: {
-                      color: "light-green darken-4",
-                      type: "submit",
-                      loading: _vm.form.processing,
-                    },
-                  },
-                  [_vm._v("Log In")]
                 ),
               ],
               1
@@ -20946,9 +20924,8 @@ var render = function () {
           ],
           1
         ),
-      ],
-      1
-    ),
+      ]),
+    ]),
   ])
 }
 var staticRenderFns = []

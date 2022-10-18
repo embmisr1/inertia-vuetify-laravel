@@ -643,9 +643,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 
 
 
@@ -743,7 +740,7 @@ __webpack_require__.r(__webpack_exports__);
           child: []
         }, {
           name: "SOLID WASTE",
-          link: '/app/swm/lce_list',
+          link: "/app/swm/lce_list",
           icon: "mdi-trash-can",
           child: []
         }, {
@@ -800,17 +797,17 @@ __webpack_require__.r(__webpack_exports__);
           child: []
         }, {
           name: "POSITION",
-          link: '/app/position',
+          link: "/app/position",
           icon: "mdi-account-supervisor",
           child: []
         }, {
           name: "DIVISION",
-          link: '/app/division',
+          link: "/app/division",
           icon: "mdi-account-supervisor",
           child: []
         }, {
           name: "UNIT SECTION",
-          link: '/app/unit_section',
+          link: "/app/unit_section",
           icon: "mdi-account-supervisor",
           child: []
         }, {
@@ -3429,7 +3426,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           lce_first_name = _this$lce_details.lce_first_name,
           lce_middle_name = _this$lce_details.lce_middle_name,
           lce_last_name = _this$lce_details.lce_last_name;
-      return "".concat(lce_first_name, " ").concat(lce_middle_name, " ").concat(lce_last_name);
+      return "".concat(lce_first_name ? lce_first_name : '', " ").concat(lce_middle_name ? lce_middle_name : '', " ").concat(lce_last_name ? lce_last_name : "");
     },
     lce_address: function lce_address() {
       var _this$lce_details2 = this.lce_details,
@@ -3437,7 +3434,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           citymunDesc = _this$lce_details2.citymunDesc,
           lce_zip_code = _this$lce_details2.lce_zip_code,
           districtCode = _this$lce_details2.districtCode;
-      return "".concat(citymunDesc, ", District No ").concat(districtCode, ", ").concat(provDesc, ", ").concat(lce_zip_code, " ");
+      return "".concat(citymunDesc, ", District No ").concat(districtCode ? districtCode : '', ", ").concat(provDesc, ", ").concat(lce_zip_code ? lce_zip_code : '', " ");
     },
     lce_prov_id: function lce_prov_id() {
       return this.lce.lce_province_FK;
@@ -23543,10 +23540,7 @@ var render = function () {
       _c(
         "v-footer",
         { attrs: { app: "", rounded: "" } },
-        [
-          _c("v-spacer"),
-          _vm._v("\n        © DENR - EMB REGION 1 - UNISYS\n    "),
-        ],
+        [_c("v-spacer"), _vm._v("\n    © DENR - EMB REGION 1 - UNISYS\n  ")],
         1
       ),
     ],
