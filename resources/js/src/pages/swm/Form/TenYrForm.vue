@@ -78,7 +78,7 @@
                   >
                     <v-dialog
                       ref="dialog"
-                      v-model="date_granted"
+                      v-model="ten_year_year_approved"
                       :return-value.sync="ten_yr.ten_year_year_approved"
                       persistent
                       width="290px"
