@@ -23937,15 +23937,15 @@ var render = function () {
                                                         ),
                                                         model: {
                                                           value:
-                                                            _vm.date_granted,
+                                                            _vm.ten_year_year_approved,
                                                           callback: function (
                                                             $$v
                                                           ) {
-                                                            _vm.date_granted =
+                                                            _vm.ten_year_year_approved =
                                                               $$v
                                                           },
                                                           expression:
-                                                            "date_granted",
+                                                            "ten_year_year_approved",
                                                         },
                                                       },
                                                       [
