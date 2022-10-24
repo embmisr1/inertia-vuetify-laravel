@@ -21,7 +21,7 @@ use Maatwebsite\Excel\Concerns\WithColumnWidths;
 
 
 
-class SolidwasteMRFExport implements FromQuery, WithHeadings, WithMapping, WithEvents, WithColumnWidths
+class SolidwasteTenYearExport implements FromQuery, WithHeadings, WithMapping, WithEvents, WithColumnWidths
 {
 
     use Exportable;
@@ -41,7 +41,7 @@ class SolidwasteMRFExport implements FromQuery, WithHeadings, WithMapping, WithE
                 $event->sheet->setOrientation(\PhpOffice\PhpSpreadsheet\Worksheet\PageSetup::ORIENTATION_LANDSCAPE);
 
                 $event->sheet->styleCells(
-                    'A1:R1',
+                    'A1:Q1',
                     [
                         'font'=>[
                             'color'=>[
@@ -88,7 +88,6 @@ class SolidwasteMRFExport implements FromQuery, WithHeadings, WithMapping, WithE
                 "O"=>20,
                 "P"=>20,
                 "Q"=>20,
-                "R"=>20,
             ];
         }
     }
@@ -99,50 +98,51 @@ class SolidwasteMRFExport implements FromQuery, WithHeadings, WithMapping, WithE
             "Municipality/City",
             "Barangay",
             "District",
-            "Complete Address",
-            "LGU Funded",
-            "EMB Funded",
-            "Funded Amount",
-            "Latitude",
-            "Longitude",
-            "Operation Status",
-            "Service Areas",
-            "Total Waste Generation",
-            "Biodegradable",
-            "Recyclable",
-            "Special Waste",
-            "Total Waste Diverted",
-            "Number of Waste Diverted",
+            "Planning Period",
+            "Date Approved",
+            "Number",
+            "Finding A",
+            "Finding B",
+            "Finding C",
+            "Finding D",
+            "Finding E",
+            "Finding F",
+            "Finding G",
+            "Finding H",
+            "Finding I",
+            "Finding J",
         ];
     }
     public function query()
     {
-        $query = DB::table('tbl_solidwaste_mrf as a')
+        $query = DB::table('tbl_solidwaste_ten_year as a')
             ->select(
                 'b.provDesc', 
                 'c.citymunDesc', 
                 'd.brgyDesc', 
                 'c.districtCode',
-                'a.mrf_complete_address', 
-                'a.mrf_emb_funded', 
-                'a.mrf_latitude', 
-                'a.mrf_longitude', 
-                'a.mrf_status_operation', 
-                'a.mrf_service_area', 
-                'a.mrf_total_waste_generation', 
-                'a.mrf_biodegradable', 
-                'a.mrf_recyclable', 
-                'a.mrf_special_waste', 
-                'a.mrf_number_of_waste_diverted', 
-                'a.mrf_total_waste_diverted', 
-
+                
+                'a.ten_year_planning_period', 
+                'a.ten_year_year_approved', 
+                'a.ten_year_number', 
+                
+                'findings.finding_a', 
+                'findings.finding_b', 
+                'findings.finding_c', 
+                'findings.finding_d', 
+                'findings.finding_e', 
+                'findings.finding_f', 
+                'findings.finding_g', 
+                'findings.finding_h', 
+                'findings.finding_i', 
+                'findings.finding_j', 
             )
             ->leftjoin('tbl_solidwaste_lce as lce','a.lce_FK','=','lce.id')
+            ->leftjoin('tbl_solidwaste_ten_year_findings as findings','a.id','=','findings.ten_year_FK')
             ->leftjoin('ref_province as b', 'lce.lce_province_FK', '=', 'b.PK_province_ID')
             ->leftjoin('ref_citymun as c', 'lce.lce_municipality_FK', '=', 'c.PK_citymun_ID')
             ->leftjoin('ref_brgy as d', 'lce.lce_barangay_FK', '=', 'd.PK_brgy_ID')
-            ->where('a.mrf_or_rca','mrf')
-            ->orderby('b.provDesc','ASC');
+            ->orderBy('b.provDesc','ASC');
         return $query;
     }
     public function map($data): array
@@ -152,20 +152,20 @@ class SolidwasteMRFExport implements FromQuery, WithHeadings, WithMapping, WithE
             $data->citymunDesc,
             $data->brgyDesc,
             $data->districtCode,
-            $data->mrf_complete_address,
-            $data->mrf_emb_funded <= 0 ? "Yes" : "No", //LGU FUNDED
-            $data->mrf_emb_funded > 0 ? "Yes" : "No", //EMB FUNDED
-            $data->mrf_emb_funded,
-            $data->mrf_latitude,
-            $data->mrf_longitude,
-            $data->mrf_status_operation,
-            $data->mrf_service_area,
-            $data->mrf_total_waste_generation,
-            $data->mrf_biodegradable,
-            $data->mrf_recyclable,
-            $data->mrf_special_waste,
-            $data->mrf_total_waste_diverted,
-            $data->mrf_number_of_waste_diverted,
+
+            $data->ten_year_planning_period,
+            $data->ten_year_year_approved,
+            $data->ten_year_number,
+            $data->finding_a,
+            $data->finding_b,
+            $data->finding_c,
+            $data->finding_d,
+            $data->finding_e,
+            $data->finding_f,
+            $data->finding_g,
+            $data->finding_h,
+            $data->finding_i,
+            $data->finding_j,
         ];
     }
 }

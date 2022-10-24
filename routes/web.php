@@ -200,10 +200,12 @@ Route::group([
         // SOLODWASTE EXPORTS
         Route::get('/lce_export', [SolidwasteExport::class, 'lce_export']);
         Route::get('/mrf_export', [SolidwasteExport::class, 'mrf_export']);
+        Route::get('/rca_export', [SolidwasteExport::class, 'rca_export']);
         Route::get('/slf_export', [SolidwasteExport::class, 'slf_export']);
         Route::get('/equipments_export', [SolidwasteExport::class, 'equipments_export']);
         Route::get('/dues_export', [SolidwasteExport::class, 'dues_export']);
         Route::get('/closed_dumpsite_export', [SolidwasteExport::class, 'closed_dumpsite_export']);
+        Route::get('/ten_year_export', [SolidwasteExport::class, 'ten_year_export']);
     });
 
     //USER ACCESS ROUTE

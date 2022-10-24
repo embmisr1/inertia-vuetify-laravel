@@ -21,7 +21,7 @@ use Maatwebsite\Excel\Concerns\WithColumnWidths;
 
 
 
-class SolidwasteMRFExport implements FromQuery, WithHeadings, WithMapping, WithEvents, WithColumnWidths
+class SolidwasteRCAExport implements FromQuery, WithHeadings, WithMapping, WithEvents, WithColumnWidths
 {
 
     use Exportable;
@@ -141,7 +141,7 @@ class SolidwasteMRFExport implements FromQuery, WithHeadings, WithMapping, WithE
             ->leftjoin('ref_province as b', 'lce.lce_province_FK', '=', 'b.PK_province_ID')
             ->leftjoin('ref_citymun as c', 'lce.lce_municipality_FK', '=', 'c.PK_citymun_ID')
             ->leftjoin('ref_brgy as d', 'lce.lce_barangay_FK', '=', 'd.PK_brgy_ID')
-            ->where('a.mrf_or_rca','mrf')
+            ->where('a.mrf_or_rca','rca')
             ->orderby('b.provDesc','ASC');
         return $query;
     }

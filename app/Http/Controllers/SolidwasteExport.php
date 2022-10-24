@@ -7,10 +7,12 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Request as FacadeRequest;
 use App\Exports\SolidwasteLCEExport;
 use App\Exports\SolidwasteMRFExport;
+use App\Exports\SolidwasteRCAExport;
 use App\Exports\SolidwasteSLFExport;
 use App\Exports\SolidwasteEquipmentsExport;
 use App\Exports\SolidwasteDuesExport;
 use App\Exports\SolidwasteClosedDumpsiteExport;
+use App\Exports\SolidwasteTenYearExport;
 
 class SolidwasteExport extends Controller
 {
@@ -23,6 +25,11 @@ class SolidwasteExport extends Controller
     {
         $filters = FacadeRequest::all();
         return (new SolidwasteMRFExport($filters))->download('MRF_SWM.xlsx', \Maatwebsite\Excel\Excel::XLSX);
+    }
+    public function rca_export()
+    {
+        $filters = FacadeRequest::all();
+        return (new SolidwasteRCAExport($filters))->download('RCA_SWM.xlsx', \Maatwebsite\Excel\Excel::XLSX);
     }
     public function slf_export()
     {
@@ -43,6 +50,11 @@ class SolidwasteExport extends Controller
     {
         $filters = FacadeRequest::all();
         return (new SolidwasteClosedDumpsiteExport($filters))->download('CLOSED_DUMPSITE_SWM.xlsx', \Maatwebsite\Excel\Excel::XLSX);
+    }
+    public function ten_year_export()
+    {
+        $filters = FacadeRequest::all();
+        return (new SolidwasteTenYearExport($filters))->download('TEN_YEAR_SWM.xlsx', \Maatwebsite\Excel\Excel::XLSX);
     }
     // public function equipments_export2(Request $request){
     //     $query = DB::table('tbl_solidwaste_equipments as a')
