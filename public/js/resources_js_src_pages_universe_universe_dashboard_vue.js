@@ -11,6 +11,159 @@ module.exports = __webpack_require__(/*! regenerator-runtime */ "./node_modules/
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/components/Dashboard/RightCards.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/components/Dashboard/RightCards.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: {
+    title: String,
+    type_1: {
+      type: Object
+    },
+    total: Number,
+    // valid: Number,
+    // expired: Number,
+    // undef: Number,
+    card_type: String,
+    type_2: {
+      type: Object
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/components/Dashboard/TopCards.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/components/Dashboard/TopCards.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: {
+    title: String,
+    counter: Number,
+    title_bg: {
+      type: String,
+      "default": "bg-blue-400"
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/components/RightMenu.vue?vue&type=script&lang=js&":
 /*!********************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/components/RightMenu.vue?vue&type=script&lang=js& ***!
@@ -564,9 +717,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 
 
 
@@ -664,7 +814,7 @@ __webpack_require__.r(__webpack_exports__);
           child: []
         }, {
           name: "SOLID WASTE",
-          link: '/app/swm/lce_list',
+          link: "/app/swm/lce_list",
           icon: "mdi-trash-can",
           child: []
         }, {
@@ -721,17 +871,17 @@ __webpack_require__.r(__webpack_exports__);
           child: []
         }, {
           name: "POSITION",
-          link: '/app/position',
+          link: "/app/position",
           icon: "mdi-account-supervisor",
           child: []
         }, {
           name: "DIVISION",
-          link: '/app/division',
+          link: "/app/division",
           icon: "mdi-account-supervisor",
           child: []
         }, {
           name: "UNIT SECTION",
-          link: '/app/unit_section',
+          link: "/app/unit_section",
           icon: "mdi-account-supervisor",
           child: []
         }, {
@@ -966,6 +1116,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _dashboard_cards_main_dashboard_card__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./dashboard_cards/main_dashboard_card */ "./resources/js/src/pages/universe/dashboard_cards/main_dashboard_card.vue");
 /* harmony import */ var _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @inertiajs/inertia-vue */ "./node_modules/@inertiajs/inertia-vue/dist/index.js");
 /* harmony import */ var _mixins___WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../mixins/ */ "./resources/js/src/mixins/index.js");
+/* harmony import */ var _components_Dashboard_TopCards_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../components/Dashboard/TopCards.vue */ "./resources/js/src/components/Dashboard/TopCards.vue");
+/* harmony import */ var _components_Dashboard_RightCards_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../components/Dashboard/RightCards.vue */ "./resources/js/src/components/Dashboard/RightCards.vue");
 //
 //
 //
@@ -1088,6 +1240,243 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
 
 
 
@@ -1098,7 +1487,9 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     DefaultLayout: _layouts_default_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
     Link: _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_3__.Link,
-    MainDashboard: _dashboard_cards_main_dashboard_card__WEBPACK_IMPORTED_MODULE_2__["default"]
+    MainDashboard: _dashboard_cards_main_dashboard_card__WEBPACK_IMPORTED_MODULE_2__["default"],
+    TopCards: _components_Dashboard_TopCards_vue__WEBPACK_IMPORTED_MODULE_5__["default"],
+    RightCards: _components_Dashboard_RightCards_vue__WEBPACK_IMPORTED_MODULE_6__["default"]
   },
   props: {
     firm_type: String,
@@ -1131,7 +1522,91 @@ __webpack_require__.r(__webpack_exports__);
     query_complaint: Number
   },
   data: function data() {
-    return {};
+    return {
+      with_9275: {
+        labels: ["Total", "Valid", "Expired", "Undefined"],
+        datasets: [{
+          label: "With 9275",
+          // backgroundColor: "#60A5FA",
+          data: [this.query_permit_9275, this.query_permit_9275_valid, this.query_permit_9275_expired, this.query_permit_9275_undefined],
+          backgroundColor: ["#60A5FA", "#0B9700", "#D62728", "#7E7E7E"]
+        }]
+      },
+      with_8749: {
+        labels: ["Total", "Valid", "Expired", "Undefined"],
+        datasets: [{
+          label: "With 8749",
+          // backgroundColor: "#60A5FA",
+          backgroundColor: ["#60A5FA", "#0B9700", "#D62728", "#7E7E7E"],
+          data: [this.query_permit_8749, this.query_permit_8749_valid, this.query_permit_8749_expired, this.query_permit_8749_undefined]
+        }]
+      },
+      with_nov: {
+        labels: ["Total", "PD 1586", "RA 8749", "RA 9275", "RA 6969", "RA 9003"],
+        datasets: [{
+          label: "With NOV",
+          backgroundColor: "#60A5FA",
+          data: [this.query_nov_all, this.query_nov_1586, this.query_nov_8749, this.query_nov_9275, this.query_nov_6969, this.query_nov_9003]
+        }]
+      },
+      monitoring: {
+        labels: ["Total", "PD 1586", "RA 8749", "RA 9275", " RA 6969", "RA 9003"],
+        datasets: [{
+          label: "Monitoring",
+          backgroundColor: "#60A5FA",
+          data: [this.query_monitoring_all, this.query_monitoring_1586, this.query_monitoring_8749, this.query_monitoring_9275, this.query_monitoring_6969, this.query_monitoring_9003]
+        }]
+      },
+      horizontalOptions: {
+        indexAxis: "y",
+        plugins: {
+          legend: {
+            labels: {
+              color: "#495057"
+            }
+          },
+          datalabels: {
+            listeners: {
+              enter: function enter(context, event) {
+                // Receives `enter` events for any labels of any dataset. Indices of the
+                // clicked label are: `context.datasetIndex` and `context.dataIndex`.
+                // For example, we can modify keep track of the hovered state and
+                // return `true` to update the label and re-render the chart.
+                context.hovered = true;
+                return true;
+              },
+              leave: function leave(context, event) {
+                // Receives `leave` events for any labels of any dataset.
+                context.hovered = false;
+                return true;
+              }
+            },
+            color: function color(context) {
+              // Change the label text color based on our new `hovered` context value.
+              return context.hovered ? "blue" : "gray";
+            }
+          }
+        },
+        scales: {
+          x: {
+            ticks: {
+              color: "#495057"
+            },
+            grid: {
+              color: "#ebedef"
+            }
+          },
+          y: {
+            ticks: {
+              color: "#495057"
+            },
+            grid: {
+              color: "#ebedef"
+            }
+          }
+        }
+      }
+    };
   }
 });
 
@@ -3067,7 +3542,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           lce_first_name = _this$lce_details.lce_first_name,
           lce_middle_name = _this$lce_details.lce_middle_name,
           lce_last_name = _this$lce_details.lce_last_name;
-      return "".concat(lce_first_name, " ").concat(lce_middle_name, " ").concat(lce_last_name);
+      return "".concat(lce_first_name ? lce_first_name : '', " ").concat(lce_middle_name ? lce_middle_name : '', " ").concat(lce_last_name ? lce_last_name : "");
     },
     lce_address: function lce_address() {
       var _this$lce_details2 = this.lce_details,
@@ -3075,7 +3550,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           citymunDesc = _this$lce_details2.citymunDesc,
           lce_zip_code = _this$lce_details2.lce_zip_code,
           districtCode = _this$lce_details2.districtCode;
-      return "".concat(citymunDesc, ", District No ").concat(districtCode, ", ").concat(provDesc, ", ").concat(lce_zip_code, " ");
+      return "".concat(citymunDesc, ", District No ").concat(districtCode ? districtCode : '', ", ").concat(provDesc, ", ").concat(lce_zip_code ? lce_zip_code : '', " ");
     },
     lce_prov_id: function lce_prov_id() {
       return this.lce.lce_province_FK;
@@ -21569,6 +22044,84 @@ try {
 
 /***/ }),
 
+/***/ "./resources/js/src/components/Dashboard/RightCards.vue":
+/*!**************************************************************!*\
+  !*** ./resources/js/src/components/Dashboard/RightCards.vue ***!
+  \**************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _RightCards_vue_vue_type_template_id_368c0d62___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./RightCards.vue?vue&type=template&id=368c0d62& */ "./resources/js/src/components/Dashboard/RightCards.vue?vue&type=template&id=368c0d62&");
+/* harmony import */ var _RightCards_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./RightCards.vue?vue&type=script&lang=js& */ "./resources/js/src/components/Dashboard/RightCards.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _RightCards_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _RightCards_vue_vue_type_template_id_368c0d62___WEBPACK_IMPORTED_MODULE_0__.render,
+  _RightCards_vue_vue_type_template_id_368c0d62___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/src/components/Dashboard/RightCards.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/src/components/Dashboard/TopCards.vue":
+/*!************************************************************!*\
+  !*** ./resources/js/src/components/Dashboard/TopCards.vue ***!
+  \************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _TopCards_vue_vue_type_template_id_1bd4ab09___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./TopCards.vue?vue&type=template&id=1bd4ab09& */ "./resources/js/src/components/Dashboard/TopCards.vue?vue&type=template&id=1bd4ab09&");
+/* harmony import */ var _TopCards_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./TopCards.vue?vue&type=script&lang=js& */ "./resources/js/src/components/Dashboard/TopCards.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _TopCards_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _TopCards_vue_vue_type_template_id_1bd4ab09___WEBPACK_IMPORTED_MODULE_0__.render,
+  _TopCards_vue_vue_type_template_id_1bd4ab09___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/src/components/Dashboard/TopCards.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/src/components/RightMenu.vue":
 /*!***************************************************!*\
   !*** ./resources/js/src/components/RightMenu.vue ***!
@@ -21764,6 +22317,38 @@ component.options.__file = "resources/js/src/pages/universe/universe_dashboard.v
 
 /***/ }),
 
+/***/ "./resources/js/src/components/Dashboard/RightCards.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************!*\
+  !*** ./resources/js/src/components/Dashboard/RightCards.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_RightCards_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./RightCards.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/components/Dashboard/RightCards.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_RightCards_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/src/components/Dashboard/TopCards.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************!*\
+  !*** ./resources/js/src/components/Dashboard/TopCards.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TopCards_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./TopCards.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/components/Dashboard/TopCards.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TopCards_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/src/components/RightMenu.vue?vue&type=script&lang=js&":
 /*!****************************************************************************!*\
   !*** ./resources/js/src/components/RightMenu.vue?vue&type=script&lang=js& ***!
@@ -21841,6 +22426,40 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_universe_dashboard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./universe_dashboard.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/pages/universe/universe_dashboard.vue?vue&type=script&lang=js&");
  /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_universe_dashboard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/src/components/Dashboard/RightCards.vue?vue&type=template&id=368c0d62&":
+/*!*********************************************************************************************!*\
+  !*** ./resources/js/src/components/Dashboard/RightCards.vue?vue&type=template&id=368c0d62& ***!
+  \*********************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_RightCards_vue_vue_type_template_id_368c0d62___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_RightCards_vue_vue_type_template_id_368c0d62___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_RightCards_vue_vue_type_template_id_368c0d62___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./RightCards.vue?vue&type=template&id=368c0d62& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/components/Dashboard/RightCards.vue?vue&type=template&id=368c0d62&");
+
+
+/***/ }),
+
+/***/ "./resources/js/src/components/Dashboard/TopCards.vue?vue&type=template&id=1bd4ab09&":
+/*!*******************************************************************************************!*\
+  !*** ./resources/js/src/components/Dashboard/TopCards.vue?vue&type=template&id=1bd4ab09& ***!
+  \*******************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TopCards_vue_vue_type_template_id_1bd4ab09___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TopCards_vue_vue_type_template_id_1bd4ab09___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TopCards_vue_vue_type_template_id_1bd4ab09___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./TopCards.vue?vue&type=template&id=1bd4ab09& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/components/Dashboard/TopCards.vue?vue&type=template&id=1bd4ab09&");
+
 
 /***/ }),
 
@@ -21925,6 +22544,238 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_universe_dashboard_vue_vue_type_template_id_9bb2b540___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_universe_dashboard_vue_vue_type_template_id_9bb2b540___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./universe_dashboard.vue?vue&type=template&id=9bb2b540& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/pages/universe/universe_dashboard.vue?vue&type=template&id=9bb2b540&");
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/components/Dashboard/RightCards.vue?vue&type=template&id=368c0d62&":
+/*!************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/components/Dashboard/RightCards.vue?vue&type=template&id=368c0d62& ***!
+  \************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    {
+      staticClass:
+        "shadow-xl w-52 rounded rounded-b-md border-b border-blue-400",
+    },
+    [
+      _c(
+        "div",
+        {
+          class:
+            "bg-blue-400 text-lg text-white rounded-b-lg font-bold text-center  uppercase",
+        },
+        [_vm._v("\n        " + _vm._s(_vm.title) + "\n    ")]
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "p-2" }, [
+        _c("ul", [
+          _c("li", [
+            _c("div", { staticClass: "flex justify-between font-semibold" }, [
+              _vm._v("\n                    Total:\n                    "),
+              _c("span", { staticClass: "text-right font-bold" }, [
+                _vm._v(_vm._s(_vm.total)),
+              ]),
+            ]),
+          ]),
+          _vm._v(" "),
+          _vm.card_type == "cat_1"
+            ? _c("div", [
+                _c("li", [
+                  _c(
+                    "div",
+                    { staticClass: "flex justify-between font-semibold" },
+                    [
+                      _vm._v(
+                        "\n                        Valid:\n                        "
+                      ),
+                      _c("span", { staticClass: "text-right font-bold" }, [
+                        _vm._v(_vm._s(_vm.type_1.valid)),
+                      ]),
+                    ]
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c(
+                    "div",
+                    { staticClass: "flex justify-between font-semibold" },
+                    [
+                      _vm._v(
+                        "\n                        Expired:\n                        "
+                      ),
+                      _c("span", { staticClass: "text-right font-bold" }, [
+                        _vm._v(_vm._s(_vm.type_1.expired)),
+                      ]),
+                    ]
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c(
+                    "div",
+                    { staticClass: "flex justify-between font-semibold" },
+                    [
+                      _vm._v(
+                        "\n                        Undefined:\n                        "
+                      ),
+                      _c("span", { staticClass: "text-right font-bold" }, [
+                        _vm._v(_vm._s(_vm.type_1.undef)),
+                      ]),
+                    ]
+                  ),
+                ]),
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.card_type == "cat_2"
+            ? _c("div", [
+                _c("li", [
+                  _c(
+                    "div",
+                    { staticClass: "flex justify-between font-semibold" },
+                    [
+                      _vm._v(
+                        "\n                        PD 1586:\n                        "
+                      ),
+                      _c("span", { staticClass: "text-right font-bold" }, [
+                        _vm._v(_vm._s(_vm.type_2.PD1586)),
+                      ]),
+                    ]
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c(
+                    "div",
+                    { staticClass: "flex justify-between font-semibold" },
+                    [
+                      _vm._v(
+                        "\n                        RA 8749:\n                        "
+                      ),
+                      _c("span", { staticClass: "text-right font-bold" }, [
+                        _vm._v(_vm._s(_vm.type_2.RA8749)),
+                      ]),
+                    ]
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c(
+                    "div",
+                    { staticClass: "flex justify-between font-semibold" },
+                    [
+                      _vm._v(
+                        "\n                        RA 9275:\n                        "
+                      ),
+                      _c("span", { staticClass: "text-right font-bold" }, [
+                        _vm._v(_vm._s(_vm.type_2.RA9275)),
+                      ]),
+                    ]
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c(
+                    "div",
+                    { staticClass: "flex justify-between font-semibold" },
+                    [
+                      _vm._v(
+                        "\n                        RA 6969:\n                        "
+                      ),
+                      _c("span", { staticClass: "text-right font-bold" }, [
+                        _vm._v(_vm._s(_vm.type_2.RA6969)),
+                      ]),
+                    ]
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c(
+                    "div",
+                    { staticClass: "flex justify-between font-semibold" },
+                    [
+                      _vm._v(
+                        "\n                        RA 9003:\n                        "
+                      ),
+                      _c("span", { staticClass: "text-right font-bold" }, [
+                        _vm._v(_vm._s(_vm.type_2.RA9003)),
+                      ]),
+                    ]
+                  ),
+                ]),
+              ])
+            : _vm._e(),
+        ]),
+      ]),
+    ]
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/components/Dashboard/TopCards.vue?vue&type=template&id=1bd4ab09&":
+/*!**********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/components/Dashboard/TopCards.vue?vue&type=template&id=1bd4ab09& ***!
+  \**********************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    {
+      staticClass:
+        "cursor-pointer text-center shadow-xl h-20 w-52 uppercase text-lg rounded rounded-b-md border-b border-blue-400",
+    },
+    [
+      _c(
+        "div",
+        { class: _vm.title_bg + " text-white rounded-b-lg font-bold  " },
+        [_vm._v(_vm._s(_vm.title))]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "p-2 font-black tracking-wide text-xl text-black" },
+        [
+          _vm._v(
+            "\n    " +
+              _vm._s(new Intl.NumberFormat().format(_vm.counter)) +
+              "\n  "
+          ),
+        ]
+      ),
+    ]
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
 
 
 /***/ }),
@@ -23046,10 +23897,7 @@ var render = function () {
       _c(
         "v-footer",
         { attrs: { app: "", rounded: "" } },
-        [
-          _c("v-spacer"),
-          _vm._v("\n        © DENR - EMB REGION 1 - UNISYS\n    "),
-        ],
+        [_c("v-spacer"), _vm._v("\n    © DENR - EMB REGION 1 - UNISYS\n  ")],
         1
       ),
     ],
@@ -23399,269 +24247,996 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("DefaultLayout", { attrs: { access: _vm.access } }, [
-    _c("div", { staticClass: "grid grid-cols-5 gap-5 mb-5" }, [
+    _c(
+      "div",
+      { staticClass: "my-2 p-2 flex space-x-2 overflow-auto" },
+      [
+        _c(
+          "Link",
+          {
+            attrs: {
+              href: "/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=&searchStatus=&searchType=firm&search1586=&search8749=&search9275=&search6969=&search9003=",
+            },
+          },
+          [
+            _c("TopCards", {
+              attrs: {
+                title: "Registered Firms",
+                counter: _vm.query_registered_industries,
+              },
+            }),
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c(
+          "Link",
+          {
+            attrs: {
+              href: "/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=PERMIT&searchStatus=&searchType=firm&search1586=&search8749=&search9275=&search6969=RA%206969&search9003=",
+            },
+          },
+          [
+            _c("TopCards", {
+              attrs: { title: "With 6969", counter: _vm.query_permit_6969 },
+            }),
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c(
+          "Link",
+          {
+            attrs: {
+              href: "/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=PERMIT&searchStatus=&searchType=firm&search1586=PD%201586&search8749=&search9275=&search6969=&search9003=",
+            },
+          },
+          [
+            _c("TopCards", {
+              attrs: { title: "With 1586", counter: _vm.query_permit_1586 },
+            }),
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c(
+          "Link",
+          {
+            attrs: {
+              as: "button",
+              href: "/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=ORDER&searchStatus=&searchType=firm&search1586=&search8749=&search9275=&search6969=&search9003=",
+            },
+          },
+          [
+            _c("TopCards", {
+              attrs: { title: "With Order", counter: _vm.query_order_issued },
+            }),
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c(
+          "Link",
+          {
+            attrs: {
+              href: "/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=PCO&searchStatus=&searchType=firm&search1586=&search8749=&search9275=&search6969=&search9003=",
+            },
+          },
+          [
+            _c("TopCards", {
+              attrs: { title: "With PCO", counter: _vm.query_pco_all },
+            }),
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c(
+          "Link",
+          {
+            attrs: {
+              href: "/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=COMPLAINT&searchStatus=&searchType=firm&search1586=&search8749=&search9275=&search6969=&search9003=",
+            },
+          },
+          [
+            _c("TopCards", {
+              attrs: { title: "Complaints", counter: _vm.query_complaint },
+            }),
+          ],
+          1
+        ),
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c("div", { staticClass: "border-t border-black w-full my-2" }),
+    _vm._v(" "),
+    _c("div", {}, [
       _c(
         "div",
+        { staticClass: "grid grid-cols-2 gap-x-2 gap-y-4 overflow-auto" },
         [
-          _c("MainDashboard", {
-            attrs: {
-              query_counter_total: _vm.query_permit_9275,
-              query_counter_valid: _vm.query_permit_9275_valid,
-              query_counter_expired: _vm.query_permit_9275_expired,
-              query_counter_undefined: _vm.query_permit_9275_undefined,
-              firm_type: _vm.firm_type,
-              href:
-                "/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=PERMIT&searchStatus=&searchType=" +
-                _vm.firm_type +
-                "&search1586=&search8749=&search9275=RA%209275&search6969=&search9003=",
-              href_valid:
-                "/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=PERMIT&searchStatus=&searchType=" +
-                _vm.firm_type +
-                "&search1586=&search8749=&search9275=RA%209275&search6969=&search9003=&searchValidity=VALID",
-              href_expired:
-                "/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=PERMIT&searchStatus=&searchType=" +
-                _vm.firm_type +
-                "&search1586=&search8749=&search9275=RA%209275&search6969=&search9003=&searchValidity=EXPIRED",
-              href_undefined:
-                "/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=PERMIT&searchStatus=&searchType=" +
-                _vm.firm_type +
-                "&search1586=&search8749=&search9275=RA%209275&search6969=&search9003=&searchValidity=UNDEFINED",
-              label: "WITH 9275",
-            },
-          }),
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        [
-          _c("MainDashboard", {
-            attrs: {
-              query_counter_total: _vm.query_permit_8749,
-              query_counter_valid: _vm.query_permit_8749_valid,
-              query_counter_expired: _vm.query_permit_8749_expired,
-              query_counter_undefined: _vm.query_permit_8749_undefined,
-              href:
-                "/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=PERMIT&searchStatus=&searchType=" +
-                _vm.firm_type +
-                "&search1586=&search8749=RA%208749&search9275=&search6969=&search9003=",
-              href_valid:
-                "/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=PERMIT&searchStatus=&searchType=" +
-                _vm.firm_type +
-                "&search1586=&search8749=&search9275=RA%208749&search6969=&search9003=&searchValidity=VALID",
-              href_expired:
-                "/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=PERMIT&searchStatus=&searchType=" +
-                _vm.firm_type +
-                "&search1586=&search8749=&search9275=RA%208749&search6969=&search9003=&searchValidity=EXPIRED",
-              href_undefined:
-                "/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=PERMIT&searchStatus=&searchType=" +
-                _vm.firm_type +
-                "&search1586=&search8749=&search9275=RA%208749&search6969=&search9003=&searchValidity=UNDEFINED",
-              firm_type: _vm.firm_type,
-              label: "WITH 8749",
-            },
-          }),
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        [
-          _c("MainDashboard", {
-            attrs: {
-              query_counter_total: _vm.query_permit_6969,
-              firm_type: _vm.firm_type,
-              href:
-                "/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=PERMIT&searchStatus=&searchType=" +
-                _vm.firm_type +
-                "&search1586=&search8749=&search9275=&search6969=RA%206969&search9003=",
-              label: "WITH 6969",
-            },
-          }),
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        [
-          _c("MainDashboard", {
-            attrs: {
-              query_counter_total: _vm.query_permit_1586,
-              firm_type: _vm.firm_type,
-              href:
-                "/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=PERMIT&searchStatus=&searchType=" +
-                _vm.firm_type +
-                "&search1586=PD%201586&search8749=&search9275=&search6969=&search9003=",
-              label: "WITH 1586",
-            },
-          }),
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        [
-          _c("MainDashboard", {
-            attrs: {
-              query_counter_total: _vm.query_registered_industries,
-              firm_type: _vm.firm_type,
-              href:
-                "/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=&searchStatus=&searchType=" +
-                _vm.firm_type +
-                "&search1586=&search8749=&search9275=&search6969=&search9003=",
-              label: "REGISTERED FIRMS",
-            },
-          }),
-        ],
-        1
+          _c(
+            "div",
+            { staticClass: "w-full border-4 p-2 shadow-xl rounded" },
+            [
+              _c("Chart", {
+                attrs: {
+                  type: "bar",
+                  data: _vm.with_9275,
+                  options: _vm.horizontalOptions,
+                },
+              }),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "group-hover:hidden flex justify-between" },
+                [
+                  _c(
+                    "b-tooltip",
+                    { attrs: { label: "Detailed View", type: "is-dark" } },
+                    [
+                      _c(
+                        "Link",
+                        {
+                          attrs: {
+                            href:
+                              "/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=PERMIT&searchStatus=&searchType=" +
+                              _vm.firm_type +
+                              "&search1586=&search8749=&search9275=RA%209275&search6969=&search9003=",
+                            target: "_blank",
+                          },
+                        },
+                        [
+                          _c(
+                            "v-btn",
+                            {
+                              attrs: { small: "", color: "#60A5FA", text: "" },
+                            },
+                            [
+                              _vm._v("Total: "),
+                              _c("br"),
+                              _vm._v(
+                                _vm._s(
+                                  new Intl.NumberFormat().format(
+                                    _vm.query_permit_9275
+                                  )
+                                )
+                              ),
+                            ]
+                          ),
+                        ],
+                        1
+                      ),
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "b-tooltip",
+                    { attrs: { label: "Detailed View", type: "is-dark" } },
+                    [
+                      _c(
+                        "Link",
+                        {
+                          attrs: {
+                            href:
+                              "/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=PERMIT&searchStatus=&searchType=" +
+                              _vm.firm_type +
+                              "&search1586=&search8749=&search9275=RA%209275&search6969=&search9003=&searchValidity=VALID",
+                            target: "_blank",
+                          },
+                        },
+                        [
+                          _c(
+                            "v-btn",
+                            {
+                              attrs: { small: "", color: "#0B9700", text: "" },
+                            },
+                            [
+                              _vm._v("Valid: "),
+                              _c("br"),
+                              _vm._v(
+                                _vm._s(
+                                  new Intl.NumberFormat().format(
+                                    _vm.query_permit_9275_valid
+                                  )
+                                )
+                              ),
+                            ]
+                          ),
+                        ],
+                        1
+                      ),
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "b-tooltip",
+                    { attrs: { label: "Detailed View", type: "is-dark" } },
+                    [
+                      _c(
+                        "Link",
+                        {
+                          attrs: {
+                            href:
+                              "/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=PERMIT&searchStatus=&searchType=" +
+                              _vm.firm_type +
+                              "&search1586=&search8749=&search9275=RA%209275&search6969=&search9003=&searchValidity=EXPIRED",
+                            target: "_blank",
+                          },
+                        },
+                        [
+                          _c(
+                            "v-btn",
+                            {
+                              attrs: { small: "", color: "#D62728", text: "" },
+                            },
+                            [
+                              _vm._v("Expired:"),
+                              _c("br"),
+                              _vm._v(
+                                "\n                " +
+                                  _vm._s(
+                                    new Intl.NumberFormat().format(
+                                      _vm.query_permit_9275_expired
+                                    )
+                                  )
+                              ),
+                            ]
+                          ),
+                        ],
+                        1
+                      ),
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "b-tooltip",
+                    { attrs: { label: "Detailed View", type: "is-dark" } },
+                    [
+                      _c(
+                        "Link",
+                        {
+                          attrs: {
+                            href:
+                              "/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=PERMIT&searchStatus=&searchType=" +
+                              _vm.firm_type +
+                              "&search1586=&search8749=&search9275=RA%209275&search6969=&search9003=&searchValidity=UNDEFINED",
+                            target: "_blank",
+                          },
+                        },
+                        [
+                          _c(
+                            "v-btn",
+                            {
+                              attrs: { small: "", color: "#7E7E7E", text: "" },
+                            },
+                            [
+                              _vm._v("Undefined: "),
+                              _c("br"),
+                              _vm._v(
+                                _vm._s(
+                                  new Intl.NumberFormat().format(
+                                    _vm.query_permit_9275_undefined
+                                  )
+                                )
+                              ),
+                            ]
+                          ),
+                        ],
+                        1
+                      ),
+                    ],
+                    1
+                  ),
+                ],
+                1
+              ),
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "w-full border-4 p-2 shadow-xl rounded" },
+            [
+              _c("Chart", {
+                attrs: {
+                  type: "bar",
+                  data: _vm.with_8749,
+                  options: _vm.horizontalOptions,
+                },
+              }),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "flex justify-between" },
+                [
+                  _c(
+                    "b-tooltip",
+                    { attrs: { label: "Detailed View", type: "is-dark" } },
+                    [
+                      _c(
+                        "Link",
+                        {
+                          attrs: {
+                            href:
+                              "/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=PERMIT&searchStatus=&searchType=" +
+                              _vm.firm_type +
+                              "&search1586=&search8749=RA%208749&search9275=&search6969=&search9003=",
+                          },
+                        },
+                        [
+                          _c(
+                            "v-btn",
+                            {
+                              attrs: { small: "", color: "#60A5FA", text: "" },
+                            },
+                            [
+                              _vm._v("Total: "),
+                              _c("br"),
+                              _vm._v(
+                                _vm._s(
+                                  new Intl.NumberFormat().format(
+                                    _vm.query_permit_8749
+                                  )
+                                )
+                              ),
+                            ]
+                          ),
+                        ],
+                        1
+                      ),
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "b-tooltip",
+                    { attrs: { label: "Detailed View", type: "is-dark" } },
+                    [
+                      _c(
+                        "Link",
+                        {
+                          attrs: {
+                            href:
+                              "/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=PERMIT&searchStatus=&searchType=" +
+                              _vm.firm_type +
+                              "&search1586=&search8749=&search9275=RA%208749&search6969=&search9003=&searchValidity=VALID",
+                          },
+                        },
+                        [
+                          _c(
+                            "v-btn",
+                            {
+                              attrs: { small: "", color: "#0B9700", text: "" },
+                            },
+                            [
+                              _vm._v("Valid: "),
+                              _c("br"),
+                              _vm._v(
+                                _vm._s(
+                                  new Intl.NumberFormat().format(
+                                    _vm.query_permit_8749_valid
+                                  )
+                                )
+                              ),
+                            ]
+                          ),
+                        ],
+                        1
+                      ),
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "b-tooltip",
+                    { attrs: { label: "Detailed View", type: "is-dark" } },
+                    [
+                      _c(
+                        "Link",
+                        {
+                          attrs: {
+                            href:
+                              "/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=PERMIT&searchStatus=&searchType=" +
+                              _vm.firm_type +
+                              "&search1586=&search8749=&search9275=RA%208749&search6969=&search9003=&searchValidity=EXPIRED",
+                          },
+                        },
+                        [
+                          _c(
+                            "v-btn",
+                            {
+                              attrs: { small: "", color: "#D62728", text: "" },
+                            },
+                            [
+                              _vm._v("Expired:"),
+                              _c("br"),
+                              _vm._v(
+                                "\n                " +
+                                  _vm._s(
+                                    new Intl.NumberFormat().format(
+                                      _vm.query_permit_8749_expired
+                                    )
+                                  )
+                              ),
+                            ]
+                          ),
+                        ],
+                        1
+                      ),
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "b-tooltip",
+                    { attrs: { label: "Detailed View", type: "is-dark" } },
+                    [
+                      _c(
+                        "Link",
+                        {
+                          attrs: {
+                            href:
+                              "/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=PERMIT&searchStatus=&searchType=" +
+                              _vm.firm_type +
+                              "&search1586=&search8749=&search9275=RA%208749&search6969=&search9003=&searchValidity=UNDEFINED",
+                          },
+                        },
+                        [
+                          _c(
+                            "v-btn",
+                            {
+                              attrs: { small: "", color: "#7E7E7E", text: "" },
+                            },
+                            [
+                              _vm._v("Undefined: "),
+                              _c("br"),
+                              _vm._v(
+                                _vm._s(
+                                  new Intl.NumberFormat().format(
+                                    _vm.query_permit_8749_undefined
+                                  )
+                                )
+                              ),
+                            ]
+                          ),
+                        ],
+                        1
+                      ),
+                    ],
+                    1
+                  ),
+                ],
+                1
+              ),
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "w-full border-4 p-2 shadow-xl rounded" },
+            [
+              _c("Chart", {
+                attrs: {
+                  type: "bar",
+                  data: _vm.with_nov,
+                  options: _vm.horizontalOptions,
+                },
+              }),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "flex justify-between" },
+                [
+                  _c(
+                    "b-tooltip",
+                    { attrs: { label: "Detailed View", type: "is-dark" } },
+                    [
+                      _c(
+                        "Link",
+                        {
+                          attrs: {
+                            href:
+                              "/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=NOV&searchStatus=&searchType=" +
+                              _vm.firm_type +
+                              "&search1586=PD%201586&search8749=RA%208749&search9275=RA%209275&search6969=RA%206969&search9003=RA%209003",
+                          },
+                        },
+                        [
+                          _c(
+                            "v-btn",
+                            {
+                              attrs: { small: "", color: "#0E1111", text: "" },
+                            },
+                            [
+                              _vm._v("Total: "),
+                              _c("br"),
+                              _vm._v(
+                                _vm._s(
+                                  new Intl.NumberFormat().format(
+                                    _vm.query_nov_all
+                                  )
+                                )
+                              ),
+                            ]
+                          ),
+                        ],
+                        1
+                      ),
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "b-tooltip",
+                    { attrs: { label: "Detailed View", type: "is-dark" } },
+                    [
+                      _c(
+                        "Link",
+                        {
+                          attrs: {
+                            href:
+                              "/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=NOV&searchStatus=&searchType=" +
+                              _vm.firm_type +
+                              "&search1586=PD%201586&search8749=&search9275=&search6969=&search9003=",
+                          },
+                        },
+                        [
+                          _c(
+                            "v-btn",
+                            {
+                              attrs: { small: "", color: "#0E1111", text: "" },
+                            },
+                            [
+                              _vm._v("PD 1586: "),
+                              _c("br"),
+                              _vm._v(
+                                _vm._s(
+                                  new Intl.NumberFormat().format(
+                                    _vm.query_nov_1586
+                                  )
+                                )
+                              ),
+                            ]
+                          ),
+                        ],
+                        1
+                      ),
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "b-tooltip",
+                    { attrs: { label: "Detailed View", type: "is-dark" } },
+                    [
+                      _c(
+                        "Link",
+                        {
+                          attrs: {
+                            href:
+                              "/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=NOV&searchStatus=&searchType=" +
+                              _vm.firm_type +
+                              "&search1586=&search8749=RA%208749&search9275=&search6969=&search9003=",
+                          },
+                        },
+                        [
+                          _c(
+                            "v-btn",
+                            {
+                              attrs: { small: "", color: "#0E1111", text: "" },
+                            },
+                            [
+                              _vm._v("RA 8749:"),
+                              _c("br"),
+                              _vm._v(
+                                "\n                " +
+                                  _vm._s(
+                                    new Intl.NumberFormat().format(
+                                      _vm.query_nov_8749
+                                    )
+                                  )
+                              ),
+                            ]
+                          ),
+                        ],
+                        1
+                      ),
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "b-tooltip",
+                    { attrs: { label: "Detailed View", type: "is-dark" } },
+                    [
+                      _c(
+                        "Link",
+                        {
+                          attrs: {
+                            href:
+                              "/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=NOV&searchStatus=&searchType=" +
+                              _vm.firm_type +
+                              "&search1586=&search8749=&search9275=RA%209275&search6969=&search9003=",
+                          },
+                        },
+                        [
+                          _c(
+                            "v-btn",
+                            {
+                              attrs: { small: "", color: "#0E1111", text: "" },
+                            },
+                            [
+                              _vm._v("RA 9275: "),
+                              _c("br"),
+                              _vm._v(
+                                _vm._s(
+                                  new Intl.NumberFormat().format(
+                                    _vm.query_nov_9275
+                                  )
+                                )
+                              ),
+                            ]
+                          ),
+                        ],
+                        1
+                      ),
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "b-tooltip",
+                    { attrs: { label: "Detailed View", type: "is-dark" } },
+                    [
+                      _c(
+                        "Link",
+                        {
+                          attrs: {
+                            href:
+                              "/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=NOV&searchStatus=&searchType=" +
+                              _vm.firm_type +
+                              "&search1586=&search8749=&search9275=&search6969=RA%206969&search9003=",
+                          },
+                        },
+                        [
+                          _c(
+                            "v-btn",
+                            {
+                              attrs: { small: "", color: "#0E1111", text: "" },
+                            },
+                            [
+                              _vm._v("RA 6969:"),
+                              _c("br"),
+                              _vm._v(
+                                "\n                " +
+                                  _vm._s(
+                                    new Intl.NumberFormat().format(
+                                      _vm.query_nov_6969
+                                    )
+                                  )
+                              ),
+                            ]
+                          ),
+                        ],
+                        1
+                      ),
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "b-tooltip",
+                    { attrs: { label: "Detailed View", type: "is-dark" } },
+                    [
+                      _c(
+                        "Link",
+                        {
+                          attrs: {
+                            href:
+                              "/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=NOV&searchStatus=&searchType=" +
+                              _vm.firm_type +
+                              "&search1586=&search8749=&search9275=&search6969=&search9003=RA%209003",
+                          },
+                        },
+                        [
+                          _c(
+                            "v-btn",
+                            {
+                              attrs: { small: "", color: "#0E1111", text: "" },
+                            },
+                            [
+                              _vm._v("RA 9003: "),
+                              _c("br"),
+                              _vm._v(
+                                _vm._s(
+                                  new Intl.NumberFormat().format(
+                                    _vm.query_nov_9003
+                                  )
+                                )
+                              ),
+                            ]
+                          ),
+                        ],
+                        1
+                      ),
+                    ],
+                    1
+                  ),
+                ],
+                1
+              ),
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "w-full border-4 p-2 shadow-xl rounded" },
+            [
+              _c("Chart", {
+                attrs: {
+                  type: "bar",
+                  data: _vm.monitoring,
+                  options: _vm.horizontalOptions,
+                },
+              }),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "flex justify-between" },
+                [
+                  _c(
+                    "b-tooltip",
+                    { attrs: { label: "Detailed View", type: "is-dark" } },
+                    [
+                      _c(
+                        "Link",
+                        {
+                          attrs: {
+                            href:
+                              "/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=MONITORING&searchStatus=&searchType=" +
+                              _vm.firm_type +
+                              "&search1586=PD%201586&search8749=RA%208749&search9275=RA%209275&search6969=RA%206969&search9003=RA%209003",
+                          },
+                        },
+                        [
+                          _c(
+                            "v-btn",
+                            {
+                              attrs: { small: "", color: "#0E1111", text: "" },
+                            },
+                            [
+                              _vm._v("Total: "),
+                              _c("br"),
+                              _vm._v(
+                                _vm._s(
+                                  new Intl.NumberFormat().format(
+                                    _vm.query_monitoring_all
+                                  )
+                                )
+                              ),
+                            ]
+                          ),
+                        ],
+                        1
+                      ),
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "b-tooltip",
+                    { attrs: { label: "Detailed View", type: "is-dark" } },
+                    [
+                      _c(
+                        "Link",
+                        {
+                          attrs: {
+                            href:
+                              "/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=MONITORING&searchStatus=&searchType=" +
+                              _vm.firm_type +
+                              "&search1586=PD%201586&search8749=&search9275=&search6969=&search9003=",
+                          },
+                        },
+                        [
+                          _c(
+                            "v-btn",
+                            {
+                              attrs: { small: "", color: "#0E1111", text: "" },
+                            },
+                            [
+                              _vm._v("PD 1586: "),
+                              _c("br"),
+                              _vm._v(
+                                _vm._s(
+                                  new Intl.NumberFormat().format(
+                                    _vm.query_monitoring_1586
+                                  )
+                                )
+                              ),
+                            ]
+                          ),
+                        ],
+                        1
+                      ),
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "b-tooltip",
+                    { attrs: { label: "Detailed View", type: "is-dark" } },
+                    [
+                      _c(
+                        "Link",
+                        {
+                          attrs: {
+                            href:
+                              "/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=MONITORING&searchStatus=&searchType=" +
+                              _vm.firm_type +
+                              "&search1586=&search8749=RA%208749&search9275=&search6969=&search9003=",
+                          },
+                        },
+                        [
+                          _c(
+                            "v-btn",
+                            {
+                              attrs: { small: "", color: "#0E1111", text: "" },
+                            },
+                            [
+                              _vm._v("RA 8749:"),
+                              _c("br"),
+                              _vm._v(
+                                "\n                " +
+                                  _vm._s(
+                                    new Intl.NumberFormat().format(
+                                      _vm.query_monitoring_8749
+                                    )
+                                  )
+                              ),
+                            ]
+                          ),
+                        ],
+                        1
+                      ),
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "b-tooltip",
+                    { attrs: { label: "Detailed View", type: "is-dark" } },
+                    [
+                      _c(
+                        "Link",
+                        {
+                          attrs: {
+                            href:
+                              "/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=MONITORING&searchStatus=&searchType=" +
+                              _vm.firm_type +
+                              "&search1586=&search8749=&search9275=RA%209275&search6969=&search9003=",
+                          },
+                        },
+                        [
+                          _c(
+                            "v-btn",
+                            {
+                              attrs: { small: "", color: "#0E1111", text: "" },
+                            },
+                            [
+                              _vm._v("RA 9275: "),
+                              _c("br"),
+                              _vm._v(
+                                _vm._s(
+                                  new Intl.NumberFormat().format(
+                                    _vm.query_monitoring_9275
+                                  )
+                                )
+                              ),
+                            ]
+                          ),
+                        ],
+                        1
+                      ),
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "b-tooltip",
+                    { attrs: { label: "Detailed View", type: "is-dark" } },
+                    [
+                      _c(
+                        "Link",
+                        {
+                          attrs: {
+                            href:
+                              "/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=MONITORING&searchStatus=&searchType=" +
+                              _vm.firm_type +
+                              "&search1586=&search8749=&search9275=&search6969=RA%206969&search9003=",
+                          },
+                        },
+                        [
+                          _c(
+                            "v-btn",
+                            {
+                              attrs: { small: "", color: "#0E1111", text: "" },
+                            },
+                            [
+                              _vm._v("RA 6969:"),
+                              _c("br"),
+                              _vm._v(
+                                "\n                " +
+                                  _vm._s(
+                                    new Intl.NumberFormat().format(
+                                      _vm.query_monitoring_6969
+                                    )
+                                  )
+                              ),
+                            ]
+                          ),
+                        ],
+                        1
+                      ),
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "b-tooltip",
+                    { attrs: { label: "Detailed View", type: "is-dark" } },
+                    [
+                      _c(
+                        "Link",
+                        {
+                          attrs: {
+                            href:
+                              "/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=MONITORING&searchStatus=&searchType=" +
+                              _vm.firm_type +
+                              "&search1586=&search8749=&search9275=&search6969=&search9003=RA%209003",
+                          },
+                        },
+                        [
+                          _c(
+                            "v-btn",
+                            {
+                              attrs: { small: "", color: "#0E1111", text: "" },
+                            },
+                            [
+                              _vm._v("RA 9003: "),
+                              _c("br"),
+                              _vm._v(
+                                _vm._s(
+                                  new Intl.NumberFormat().format(
+                                    _vm.query_monitoring_9003
+                                  )
+                                )
+                              ),
+                            ]
+                          ),
+                        ],
+                        1
+                      ),
+                    ],
+                    1
+                  ),
+                ],
+                1
+              ),
+            ],
+            1
+          ),
+        ]
       ),
     ]),
     _vm._v(" "),
-    _c("div", { staticClass: "grid grid-cols-5 gap-5" }, [
-      _c(
-        "div",
-        [
-          _c("MainDashboard", {
-            attrs: {
-              query_counter_total: _vm.query_monitoring_all,
-              query_counter_1586: _vm.query_monitoring_1586,
-              query_counter_8749: _vm.query_monitoring_8749,
-              query_counter_9275: _vm.query_monitoring_9275,
-              query_counter_6969: _vm.query_monitoring_6969,
-              query_counter_9003: _vm.query_monitoring_9003,
-              href_1586:
-                "/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=MONITORING&searchStatus=&searchType=" +
-                _vm.firm_type +
-                "&search1586=PD%201586&search8749=&search9275=&search6969=&search9003=",
-              href_8749:
-                "/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=MONITORING&searchStatus=&searchType=" +
-                _vm.firm_type +
-                "&search1586=&search8749=RA%208749&search9275=&search6969=&search9003=",
-              href_9275:
-                "/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=MONITORING&searchStatus=&searchType=" +
-                _vm.firm_type +
-                "&search1586=&search8749=&search9275=RA%209275&search6969=&search9003=",
-              href_6969:
-                "/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=MONITORING&searchStatus=&searchType=" +
-                _vm.firm_type +
-                "&search1586=&search8749=&search9275=&search6969=RA%206969&search9003=",
-              href_9003:
-                "/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=MONITORING&searchStatus=&searchType=" +
-                _vm.firm_type +
-                "&search1586=&search8749=&search9275=&search6969=&search9003=RA%209003",
-              href:
-                "/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=MONITORING&searchStatus=&searchType=" +
-                _vm.firm_type +
-                "&search1586=PD%201586&search8749=RA%208749&search9275=RA%209275&search6969=RA%206969&search9003=RA%209003",
-              firm_type: _vm.firm_type,
-              label: "MONITORING",
-            },
-          }),
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        [
-          _c("MainDashboard", {
-            attrs: {
-              query_counter_total: _vm.query_nov_all,
-              query_counter_1586: _vm.query_nov_1586,
-              query_counter_8749: _vm.query_nov_8749,
-              query_counter_9275: _vm.query_nov_9275,
-              query_counter_6969: _vm.query_nov_6969,
-              query_counter_9003: _vm.query_nov_9003,
-              href_1586:
-                "/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=NOV&searchStatus=&searchType=" +
-                _vm.firm_type +
-                "&search1586=PD%201586&search8749=&search9275=&search6969=&search9003=",
-              href_8749:
-                "/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=NOV&searchStatus=&searchType=" +
-                _vm.firm_type +
-                "&search1586=&search8749=RA%208749&search9275=&search6969=&search9003=",
-              href_9275:
-                "/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=NOV&searchStatus=&searchType=" +
-                _vm.firm_type +
-                "&search1586=&search8749=&search9275=RA%209275&search6969=&search9003=",
-              href_6969:
-                "/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=NOV&searchStatus=&searchType=" +
-                _vm.firm_type +
-                "&search1586=&search8749=&search9275=&search6969=RA%206969&search9003=",
-              href_9003:
-                "/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=NOV&searchStatus=&searchType=" +
-                _vm.firm_type +
-                "&search1586=&search8749=&search9275=&search6969=&search9003=RA%209003",
-              href:
-                "/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=NOV&searchStatus=&searchType=" +
-                _vm.firm_type +
-                "&search1586=PD%201586&search8749=RA%208749&search9275=RA%209275&search6969=RA%206969&search9003=RA%209003",
-              firm_type: _vm.firm_type,
-              label: "WITH NOV",
-            },
-          }),
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        [
-          _c("MainDashboard", {
-            attrs: {
-              query_counter_total: _vm.query_order_issued,
-              firm_type: _vm.firm_type,
-              href:
-                "/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=ORDER&searchStatus=&searchType=" +
-                _vm.firm_type +
-                "&search1586=&search8749=&search9275=&search6969=&search9003=",
-              label: "WITH ORDER",
-            },
-          }),
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        [
-          _c("MainDashboard", {
-            attrs: {
-              query_counter_total: _vm.query_pco_all,
-              firm_type: _vm.firm_type,
-              href:
-                "/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=PCO&searchStatus=&searchType=" +
-                _vm.firm_type +
-                "&search1586=&search8749=&search9275=&search6969=&search9003=",
-              label: "WITH PCO",
-            },
-          }),
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        [
-          _c("MainDashboard", {
-            attrs: {
-              query_counter_total: _vm.query_complaint,
-              firm_type: _vm.firm_type,
-              href:
-                "/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=COMPLAINT&searchStatus=&searchType=" +
-                _vm.firm_type +
-                "&search1586=&search8749=&search9275=&search6969=&search9003=",
-              label: "COMPLAINT",
-            },
-          }),
-        ],
-        1
-      ),
-    ]),
+    _c("div", { staticClass: "border-t border-black w-full my-2" }),
   ])
 }
 var staticRenderFns = []

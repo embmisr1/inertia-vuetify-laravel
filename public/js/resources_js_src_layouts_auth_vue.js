@@ -34,9 +34,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   metaInfo: {
     // if no subcomponents specify a metaInfo.title, this title will be used
-    title: 'Unisys',
+    title: "Unisys",
     // all titles will be injected into this template
-    titleTemplate: '%s | EMB - Region 1 - Unisys'
+    titleTemplate: "%s | EMB - Region 1 - Unisys"
   }
 });
 
@@ -129,26 +129,12 @@ var render = function () {
   return _c(
     "v-app",
     [
-      _c(
-        "v-main",
-        [
-          _c(
-            "v-container",
-            { staticClass: "min-h-screen grid place-content-center" },
-            [_vm._t("default")],
-            2
-          ),
-        ],
-        1
-      ),
+      _c("v-main", [_vm._t("default")], 2),
       _vm._v(" "),
       _c(
         "v-footer",
         { attrs: { app: "", rounded: "" } },
-        [
-          _c("v-spacer"),
-          _vm._v("\n      © DENR - EMB REGION 1 - UNISYS\n    "),
-        ],
+        [_c("v-spacer"), _vm._v("\n    © DENR - EMB REGION 1 - UNISYS\n  ")],
         1
       ),
     ],
