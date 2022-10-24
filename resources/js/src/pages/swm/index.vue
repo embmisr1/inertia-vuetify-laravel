@@ -80,9 +80,9 @@
         <Link :href="`/app/swm/lce_show/${props.row.id}`">
           <box-icon name="edit" color="orange" animation="tada-hover"></box-icon
         ></Link>
-        <v-btn icon small @click="deleteLCEForm(props.row.id)"
+        <!-- <v-btn icon small @click="deleteLCEForm(props.row.id)"
           ><box-icon name="trash" color="red" animation="tada-hover"></box-icon
-        ></v-btn>
+        ></v-btn> -->
       </b-table-column>
       <template #empty>
         <div class="text-center text-3xl text-gray-500 font-extrabold">
