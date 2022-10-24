@@ -41,7 +41,7 @@ class SolidwasteDuesExport implements FromQuery, WithHeadings, WithMapping, With
                 $event->sheet->setOrientation(\PhpOffice\PhpSpreadsheet\Worksheet\PageSetup::ORIENTATION_LANDSCAPE);
 
                 $event->sheet->styleCells(
-                    'A1:E1',
+                    'A1:K1',
                     [
                         'font'=>[
                             'color'=>[
@@ -76,6 +76,12 @@ class SolidwasteDuesExport implements FromQuery, WithHeadings, WithMapping, With
                 "C"=>20,
                 "D"=>20,
                 "E"=>20,
+                "F"=>20,
+                "G"=>20,
+                "H"=>20,
+                "I"=>20,
+                "J"=>20,
+                "K"=>20,
             ];
         }
     }
@@ -86,19 +92,31 @@ class SolidwasteDuesExport implements FromQuery, WithHeadings, WithMapping, With
             "Municipality/City",
             "Barangay",
             "District",
-            "Equipments",
+            "Purpose",
+            "Amount Granted",
+            "Date Granted",
+            "Unliquidated Amount",
+            "Remarks",
+            "Accountant Name",
+            "Contact Email",
         ];
     }
     public function query()
     {
-        $query = DB::table('tbl_solidwaste_equipments as a')
+        $query = DB::table('tbl_solidwaste_dues as a')
             ->select(
                 'b.provDesc', 
                 'c.citymunDesc', 
                 'd.brgyDesc', 
                 'c.districtCode',
                 
-                'a.equipment_description', 
+                'a.dues_purpose', 
+                'a.dues_amount_granted', 
+                'a.dues_date_granted', 
+                'a.dues_unliquidated', 
+                'a.dues_remarks', 
+                'a.dues_accountant', 
+                'a.dues_contact_email', 
             )
             ->leftjoin('tbl_solidwaste_lce as lce','a.lce_FK','=','lce.id')
             ->leftjoin('ref_province as b', 'lce.lce_province_FK', '=', 'b.PK_province_ID')
@@ -114,7 +132,13 @@ class SolidwasteDuesExport implements FromQuery, WithHeadings, WithMapping, With
             $data->citymunDesc,
             $data->brgyDesc,
             $data->districtCode,
-            $data->equipment_description,
+            $data->dues_purpose,
+            $data->dues_amount_granted,
+            $data->dues_date_granted,
+            $data->dues_unliquidated,
+            $data->dues_remarks,
+            $data->dues_accountant,
+            $data->dues_contact_email,
         ];
     }
 }

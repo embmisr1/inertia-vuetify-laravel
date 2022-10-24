@@ -23369,7 +23369,7 @@ var render = function () {
                                                                               attrs:
                                                                                 {
                                                                                   label:
-                                                                                    "Date of Closure",
+                                                                                    "Date of Granted",
                                                                                   readonly:
                                                                                     "",
                                                                                   outlined:
