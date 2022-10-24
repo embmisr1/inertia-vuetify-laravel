@@ -9,6 +9,7 @@ use App\Exports\SolidwasteLCEExport;
 use App\Exports\SolidwasteMRFExport;
 use App\Exports\SolidwasteSLFExport;
 use App\Exports\SolidwasteEquipmentsExport;
+use App\Exports\SolidwasteDuesExport;
 
 class SolidwasteExport extends Controller
 {
@@ -31,6 +32,11 @@ class SolidwasteExport extends Controller
     {
         $filters = FacadeRequest::all();
         return (new SolidwasteEquipmentsExport($filters))->download('EQUIPMENTS_SWM.xlsx', \Maatwebsite\Excel\Excel::XLSX);
+    }
+    public function dues_export()
+    {
+        $filters = FacadeRequest::all();
+        return (new SolidwasteDuesExport($filters))->download('DUES_SWM.xlsx', \Maatwebsite\Excel\Excel::XLSX);
     }
     public function equipments_export2(Request $request){
         $query = DB::table('tbl_solidwaste_equipments as a')

@@ -202,6 +202,7 @@ Route::group([
         Route::get('/mrf_export', [SolidwasteExport::class, 'mrf_export']);
         Route::get('/slf_export', [SolidwasteExport::class, 'slf_export']);
         Route::get('/equipments_export', [SolidwasteExport::class, 'equipments_export']);
+        Route::get('/dues_export', [SolidwasteExport::class, 'dues_export']);
     });
 
     //USER ACCESS ROUTE
