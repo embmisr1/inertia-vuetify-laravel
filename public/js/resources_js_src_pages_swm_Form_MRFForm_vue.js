@@ -23573,48 +23573,6 @@ var render = function () {
                                       ),
                                     ]),
                                     _vm._v(" "),
-<<<<<<< HEAD
-                                    _c("v-card-text", {}, [
-                                      _vm._v(
-                                        "\n                                " +
-                                          _vm._s(_vm.address) +
-                                          "\n                                "
-                                      ),
-                                      _c(
-                                        "div",
-                                        {
-                                          staticClass: "grid grid-cols-2 gap-2",
-                                        },
-                                        [
-                                          _c("ValidationProvider", {
-                                            attrs: {
-                                              vid: "lat",
-                                              name: "Latitude",
-                                              rules: "",
-                                            },
-                                            scopedSlots: _vm._u(
-                                              [
-                                                {
-                                                  key: "default",
-                                                  fn: function (ref) {
-                                                    var errors = ref.errors
-                                                    return [
-                                                      _c("v-text-field", {
-                                                        attrs: {
-                                                          label: "Latitude",
-                                                          "error-messages":
-                                                            errors[0],
-                                                          outlined: "",
-                                                          clearable: "",
-                                                          dense: "",
-                                                          color: "dark",
-                                                        },
-                                                        model: {
-                                                          value:
-                                                            _vm.mrf
-                                                              .mrf_latitude,
-                                                          callback: function (
-=======
                                     _c(
                                       "v-card-text",
                                       {},
@@ -23658,7 +23616,6 @@ var render = function () {
                                                           _vm.$set(
                                                             _vm.mrf,
                                                             "mrf_complete_address",
->>>>>>> dev_2
                                                             $$v
                                                           )
                                                         },
@@ -23668,49 +23625,6 @@ var render = function () {
                                                     }),
                                                   ]
                                                 },
-<<<<<<< HEAD
-                                              ],
-                                              null,
-                                              true
-                                            ),
-                                          }),
-                                          _vm._v(" "),
-                                          _c("ValidationProvider", {
-                                            attrs: {
-                                              vid: "long",
-                                              name: "Longitude",
-                                              rules: "",
-                                            },
-                                            scopedSlots: _vm._u(
-                                              [
-                                                {
-                                                  key: "default",
-                                                  fn: function (ref) {
-                                                    var errors = ref.errors
-                                                    return [
-                                                      _c("v-text-field", {
-                                                        attrs: {
-                                                          label: "Longitude",
-                                                          "error-messages":
-                                                            errors[0],
-                                                          outlined: "",
-                                                          clearable: "",
-                                                          dense: "",
-                                                          color: "dark",
-                                                        },
-                                                        model: {
-                                                          value:
-                                                            _vm.mrf
-                                                              .mrf_longitude,
-                                                          callback: function (
-                                                            $$v
-                                                          ) {
-                                                            _vm.$set(
-                                                              _vm.mrf,
-                                                              "mrf_longitude",
-                                                              $$v
-                                                            )
-=======
                                               },
                                             ],
                                             null,
@@ -23747,7 +23661,6 @@ var render = function () {
                                                             clearable: "",
                                                             dense: "",
                                                             color: "dark",
->>>>>>> dev_2
                                                           },
                                                           model: {
                                                             value:

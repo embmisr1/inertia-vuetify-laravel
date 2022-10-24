@@ -50,6 +50,7 @@ class SolidwasteMRFController extends Controller
     {
         if(!$this->solidwaste_validator($request)){ return back(); }
         $query = new SolidwasteMRF();
+        $query->mrf_complete_address = $request->mrf_complete_address;
         $query->mrf_emb_funded = $request->mrf_emb_funded;
         $query->mrf_latitude = $request->mrf_latitude;
         $query->mrf_longitude = $request->mrf_longitude;
@@ -81,6 +82,7 @@ class SolidwasteMRFController extends Controller
     {
         if(!$this->solidwaste_validator($request)){ return back(); }
         $query = SolidwasteMRF::find($request->id);
+        $query->mrf_complete_address = $request->mrf_complete_address;
         $query->mrf_emb_funded = $request->mrf_emb_funded;
         $query->mrf_latitude = $request->mrf_latitude;
         $query->mrf_longitude = $request->mrf_longitude;
