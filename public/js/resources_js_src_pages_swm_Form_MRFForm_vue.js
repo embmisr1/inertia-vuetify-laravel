@@ -1277,6 +1277,22 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -3223,6 +3239,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         lce_FK: null
       },
       mrf: {
+        mrf_complete_address: null,
         mrf_emb_funded: null,
         mrf_latitude: null,
         mrf_longitude: null,
@@ -23557,119 +23574,175 @@ var render = function () {
                                       ),
                                     ]),
                                     _vm._v(" "),
-                                    _c("v-card-text", {}, [
-                                      _vm._v(
-                                        "\n                                " +
-                                          _vm._s(_vm.address) +
-                                          "\n                                "
-                                      ),
-                                      _c(
-                                        "div",
-                                        {
-                                          staticClass: "grid grid-cols-2 gap-2",
-                                        },
-                                        [
-                                          _c("ValidationProvider", {
-                                            attrs: {
-                                              vid: "lat",
-                                              name: "Latitude",
-                                              rules: "",
-                                            },
-                                            scopedSlots: _vm._u(
-                                              [
-                                                {
-                                                  key: "default",
-                                                  fn: function (ref) {
-                                                    var errors = ref.errors
-                                                    return [
-                                                      _c("v-text-field", {
-                                                        attrs: {
-                                                          label: "Latitude",
-                                                          "error-messages":
-                                                            errors[0],
-                                                          outlined: "",
-                                                          clearable: "",
-                                                          dense: "",
-                                                          color: "dark",
-                                                        },
-                                                        model: {
-                                                          value:
-                                                            _vm.mrf
-                                                              .mrf_latitude,
-                                                          callback: function (
+                                    _c(
+                                      "v-card-text",
+                                      {},
+                                      [
+                                        _vm._v(
+                                          "\n                                " +
+                                            _vm._s(_vm.address) +
+                                            "\n                                "
+                                        ),
+                                        _c("ValidationProvider", {
+                                          attrs: {
+                                            vid: "mrf_complete_address",
+                                            name: "Complete Address",
+                                            rules: "",
+                                          },
+                                          scopedSlots: _vm._u(
+                                            [
+                                              {
+                                                key: "default",
+                                                fn: function (ref) {
+                                                  var errors = ref.errors
+                                                  return [
+                                                    _c("v-text-field", {
+                                                      attrs: {
+                                                        label:
+                                                          "Complete Address",
+                                                        "error-messages":
+                                                          errors[0],
+                                                        outlined: "",
+                                                        clearable: "",
+                                                        dense: "",
+                                                        color: "dark",
+                                                      },
+                                                      model: {
+                                                        value:
+                                                          _vm.mrf
+                                                            .mrf_complete_address,
+                                                        callback: function (
+                                                          $$v
+                                                        ) {
+                                                          _vm.$set(
+                                                            _vm.mrf,
+                                                            "mrf_complete_address",
                                                             $$v
-                                                          ) {
-                                                            _vm.$set(
-                                                              _vm.mrf,
-                                                              "mrf_latitude",
-                                                              $$v
-                                                            )
-                                                          },
-                                                          expression:
-                                                            "mrf.mrf_latitude",
+                                                          )
                                                         },
-                                                      }),
-                                                    ]
-                                                  },
+                                                        expression:
+                                                          "mrf.mrf_complete_address",
+                                                      },
+                                                    }),
+                                                  ]
                                                 },
-                                              ],
-                                              null,
-                                              true
-                                            ),
-                                          }),
-                                          _vm._v(" "),
-                                          _c("ValidationProvider", {
-                                            attrs: {
-                                              vid: "long",
-                                              name: "Longitude",
-                                              rules: "",
-                                            },
-                                            scopedSlots: _vm._u(
-                                              [
-                                                {
-                                                  key: "default",
-                                                  fn: function (ref) {
-                                                    var errors = ref.errors
-                                                    return [
-                                                      _c("v-text-field", {
-                                                        attrs: {
-                                                          label: "Longitude",
-                                                          "error-messages":
-                                                            errors[0],
-                                                          outlined: "",
-                                                          clearable: "",
-                                                          dense: "",
-                                                          color: "dark",
-                                                        },
-                                                        model: {
-                                                          value:
-                                                            _vm.mrf
-                                                              .mrf_longitude,
-                                                          callback: function (
-                                                            $$v
-                                                          ) {
-                                                            _vm.$set(
-                                                              _vm.mrf,
-                                                              "mrf_longitude",
-                                                              $$v
-                                                            )
+                                              },
+                                            ],
+                                            null,
+                                            true
+                                          ),
+                                        }),
+                                        _vm._v(" "),
+                                        _c(
+                                          "div",
+                                          {
+                                            staticClass:
+                                              "grid grid-cols-2 gap-2",
+                                          },
+                                          [
+                                            _c("ValidationProvider", {
+                                              attrs: {
+                                                vid: "lat",
+                                                name: "Latitude",
+                                                rules: "",
+                                              },
+                                              scopedSlots: _vm._u(
+                                                [
+                                                  {
+                                                    key: "default",
+                                                    fn: function (ref) {
+                                                      var errors = ref.errors
+                                                      return [
+                                                        _c("v-text-field", {
+                                                          attrs: {
+                                                            label: "Latitude",
+                                                            "error-messages":
+                                                              errors[0],
+                                                            outlined: "",
+                                                            clearable: "",
+                                                            dense: "",
+                                                            color: "dark",
                                                           },
-                                                          expression:
-                                                            "mrf.mrf_longitude",
-                                                        },
-                                                      }),
-                                                    ]
+                                                          model: {
+                                                            value:
+                                                              _vm.mrf
+                                                                .mrf_latitude,
+                                                            callback: function (
+                                                              $$v
+                                                            ) {
+                                                              _vm.$set(
+                                                                _vm.mrf,
+                                                                "mrf_latitude",
+                                                                $$v
+                                                              )
+                                                            },
+                                                            expression:
+                                                              "mrf.mrf_latitude",
+                                                          },
+                                                        }),
+                                                      ]
+                                                    },
                                                   },
-                                                },
-                                              ],
-                                              null,
-                                              true
-                                            ),
-                                          }),
-                                        ],
-                                        1
-                                      ),
-                                    ]),
+                                                ],
+                                                null,
+                                                true
+                                              ),
+                                            }),
+                                            _vm._v(" "),
+                                            _c("ValidationProvider", {
+                                              attrs: {
+                                                vid: "long",
+                                                name: "Longitude",
+                                                rules: "",
+                                              },
+                                              scopedSlots: _vm._u(
+                                                [
+                                                  {
+                                                    key: "default",
+                                                    fn: function (ref) {
+                                                      var errors = ref.errors
+                                                      return [
+                                                        _c("v-text-field", {
+                                                          attrs: {
+                                                            label: "Longitude",
+                                                            "error-messages":
+                                                              errors[0],
+                                                            outlined: "",
+                                                            clearable: "",
+                                                            dense: "",
+                                                            color: "dark",
+                                                          },
+                                                          model: {
+                                                            value:
+                                                              _vm.mrf
+                                                                .mrf_longitude,
+                                                            callback: function (
+                                                              $$v
+                                                            ) {
+                                                              _vm.$set(
+                                                                _vm.mrf,
+                                                                "mrf_longitude",
+                                                                $$v
+                                                              )
+                                                            },
+                                                            expression:
+                                                              "mrf.mrf_longitude",
+                                                          },
+                                                        }),
+                                                      ]
+                                                    },
+                                                  },
+                                                ],
+                                                null,
+                                                true
+                                              ),
+                                            }),
+                                          ],
+                                          1
+                                        ),
+                                      ],
+                                      1
+                                    ),
                                   ],
                                   1
                                 ),

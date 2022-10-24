@@ -28,6 +28,7 @@ use App\Http\Controllers\SolidwasteTenYearMonitoringController;
 use App\Http\Controllers\SolidwasteEquipmentController;
 use App\Http\Controllers\SolidwasteDuesController;
 use App\Http\Controllers\SolidwasteGadController;
+use App\Http\Controllers\SolidwasteExport;
 use App\Http\Controllers\UnitSectionController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\UniverseController;
@@ -196,6 +197,15 @@ Route::group([
         Route::post('/gad_register_process', [SolidwasteGadController::class, 'register'])->name("gad_register_process");
         Route::post('/gad_update_process', [SolidwasteGadController::class, 'update'])->name("gad_update_process");
         Route::delete('/gad_delete/{id}', [SolidwasteGadController::class, 'delete'])->name("gad_delete");
+        // SOLODWASTE EXPORTS
+        Route::get('/lce_export', [SolidwasteExport::class, 'lce_export']);
+        Route::get('/mrf_export', [SolidwasteExport::class, 'mrf_export']);
+        Route::get('/rca_export', [SolidwasteExport::class, 'rca_export']);
+        Route::get('/slf_export', [SolidwasteExport::class, 'slf_export']);
+        Route::get('/equipments_export', [SolidwasteExport::class, 'equipments_export']);
+        Route::get('/dues_export', [SolidwasteExport::class, 'dues_export']);
+        Route::get('/closed_dumpsite_export', [SolidwasteExport::class, 'closed_dumpsite_export']);
+        Route::get('/ten_year_export', [SolidwasteExport::class, 'ten_year_export']);
     });
 
     //USER ACCESS ROUTE

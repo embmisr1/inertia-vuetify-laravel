@@ -1079,60 +1079,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -3075,6 +3021,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         lce_FK: null
       },
       mrf: {
+        mrf_complete_address: null,
         mrf_emb_funded: null,
         mrf_latitude: null,
         mrf_longitude: null,
@@ -23146,7 +23093,7 @@ var render = function () {
             ],
             1
           ),
-          _vm._v("\n            Closed Dumpsite Form\n        "),
+          _vm._v("\n      Closed Dumpsite Form\n    "),
         ],
         1
       ),
@@ -23186,16 +23133,14 @@ var render = function () {
                                   "v-card",
                                   [
                                     _c("v-card-title", [
-                                      _vm._v(
-                                        "\n                                Address Information\n                            "
-                                      ),
+                                      _vm._v(" Address Information "),
                                     ]),
                                     _vm._v(" "),
                                     _c("v-card-text", {}, [
                                       _vm._v(
-                                        "\n                                " +
+                                        "\n                " +
                                           _vm._s(_vm.address) +
-                                          "\n                            "
+                                          "\n              "
                                       ),
                                     ]),
                                   ],
@@ -23214,7 +23159,7 @@ var render = function () {
                                         _c(
                                           "v-dialog",
                                           {
-                                            ref: "dialog",
+                                            ref: "mon_dialog",
                                             attrs: {
                                               "return-value":
                                                 _vm.cd.cd_date_monitored,
@@ -23310,7 +23255,6 @@ var render = function () {
                                               {
                                                 attrs: {
                                                   scrollable: "",
-                                                  min: _vm.date_now,
                                                   dark: "",
                                                 },
                                                 model: {
@@ -23345,7 +23289,7 @@ var render = function () {
                                                   },
                                                   [
                                                     _vm._v(
-                                                      "\n                                            Cancel\n                                        "
+                                                      "\n                      Cancel\n                    "
                                                     ),
                                                   ]
                                                 ),
@@ -23359,7 +23303,7 @@ var render = function () {
                                                     },
                                                     on: {
                                                       click: function ($event) {
-                                                        return _vm.$refs.dialog.save(
+                                                        return _vm.$refs.mon_dialog.save(
                                                           _vm.cd
                                                             .cd_date_monitored
                                                         )
@@ -23368,7 +23312,7 @@ var render = function () {
                                                   },
                                                   [
                                                     _vm._v(
-                                                      "\n                                            OK\n                                        "
+                                                      "\n                      OK\n                    "
                                                     ),
                                                   ]
                                                 ),
@@ -23478,7 +23422,6 @@ var render = function () {
                                               {
                                                 attrs: {
                                                   scrollable: "",
-                                                  min: _vm.date_now,
                                                   dark: "",
                                                 },
                                                 model: {
@@ -23510,11 +23453,7 @@ var render = function () {
                                                       },
                                                     },
                                                   },
-                                                  [
-                                                    _vm._v(
-                                                      "\n                                            Cancel\n                                        "
-                                                    ),
-                                                  ]
+                                                  [_vm._v(" Cancel ")]
                                                 ),
                                                 _vm._v(" "),
                                                 _c(
@@ -23534,7 +23473,7 @@ var render = function () {
                                                   },
                                                   [
                                                     _vm._v(
-                                                      "\n                                            OK\n                                        "
+                                                      "\n                      OK\n                    "
                                                     ),
                                                   ]
                                                 ),
@@ -23718,15 +23657,15 @@ var render = function () {
                                             color: "dark",
                                           },
                                           model: {
-                                            value: _vm.cd.cd_grading,
+                                            value: _vm.cd.cd_site_grading,
                                             callback: function ($$v) {
                                               _vm.$set(
                                                 _vm.cd,
-                                                "cd_grading",
+                                                "cd_site_grading",
                                                 $$v
                                               )
                                             },
-                                            expression: "cd.cd_grading",
+                                            expression: "cd.cd_site_grading",
                                           },
                                         }),
                                         _vm._v(" "),

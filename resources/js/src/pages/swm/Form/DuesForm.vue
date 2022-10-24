@@ -92,7 +92,11 @@
                                         >
                                             <v-text-field
                                                 v-model="dues.dues_date_granted"
+<<<<<<< HEAD
                                                 label="Date Granted"
+=======
+                                                label="Date of Granted"
+>>>>>>> 28c66e4dcb38d9c7935cade22957183046a227e3
                                                 readonly
                                                 outlined
                                                 dense

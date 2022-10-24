@@ -28,6 +28,22 @@
                                 </v-card-title>
                                 <v-card-text class="">
                                     {{ address }}
+                                    <ValidationProvider
+                    vid="mrf_complete_address"
+                    name="Complete Address"
+                    rules=""
+                    v-slot="{ errors }"
+                  >
+                    <v-text-field
+                      label="Complete Address"
+                      :error-messages="errors[0]"
+                      v-model="mrf.mrf_complete_address"
+                      outlined
+                      clearable
+                      dense
+                      color="dark"
+                    ></v-text-field>
+                  </ValidationProvider>
                                     <div class="grid grid-cols-2 gap-2">
                                         <ValidationProvider
                                             vid="lat"
