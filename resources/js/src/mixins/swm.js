@@ -71,6 +71,7 @@ export default {
                 lce_FK: null,
             },
             mrf: {
+                mrf_complete_address: null,
                 mrf_emb_funded: null,
                 mrf_latitude: null,
                 mrf_longitude: null,
