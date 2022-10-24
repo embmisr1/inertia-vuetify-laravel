@@ -2878,6 +2878,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         lce_FK: null
       },
       mrf: {
+        mrf_complete_address: null,
         mrf_emb_funded: null,
         mrf_latitude: null,
         mrf_longitude: null,
@@ -23156,28 +23157,6 @@ var render = function () {
                           attrs: {
                             name: "edit",
                             color: "orange",
-                            animation: "tada-hover",
-                          },
-                        }),
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "v-btn",
-                      {
-                        attrs: { icon: "", small: "" },
-                        on: {
-                          click: function ($event) {
-                            return _vm.deleteLCEForm(props.row.id)
-                          },
-                        },
-                      },
-                      [
-                        _c("box-icon", {
-                          attrs: {
-                            name: "trash",
-                            color: "red",
                             animation: "tada-hover",
                           },
                         }),
