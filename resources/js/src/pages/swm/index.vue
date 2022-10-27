@@ -10,7 +10,7 @@
       backend-pagination
       :total="lce_list.total"
       :current-page.sync="lce_list.current_page"
-      pagination-position="top"
+      pagination-position="both"
       pagination-rounded
       @page-change="onPageChange"
       narrowed
@@ -22,6 +22,35 @@
       :header-class="isTheme ? 'bg-black text-white' : ''"
       height="420"
     >
+      <template #top-left>
+        <b-field label="Select a to export">
+          <b-select
+            v-model="exportable"
+            placeholder="Select a to export"
+            size="is-small"
+            return-object
+          >
+            <option v-for="(option, index) in export_items" :value="option" :key="index">
+              {{ option.label }}
+            </option>
+          </b-select>
+          <b-button class="mx-2" type="is-primary" size="is-small" @click="export_swm"
+            >Export</b-button
+          >
+        </b-field>
+      </template>
+      <template #bottom-left>
+        <b-field label="Select a to export">
+          <b-select v-model="exportable" placeholder="Select a to export">
+            <option v-for="(option, index) in export_items" :value="option" :key="index">
+              {{ option.label }}
+            </option>
+          </b-select>
+          <b-button class="mx-2" type="is-primary" size="is-small" @click="export_swm"
+            >Export</b-button
+          >
+        </b-field>
+      </template>
       <b-table-column field="province" label="Province" searchable>
         <template #searchable="props">
           <b-input
@@ -108,6 +137,45 @@ export default {
     Link,
   },
   mixins: [page, toasts, swm, dialogs],
+  data() {
+    return {
+      export_items: [
+        {
+          value: "lce_export",
+          label: "LCE EXPORT",
+        },
+        {
+          value: "mrf_export",
+          label: "MRF EXPORT",
+        },
+        {
+          value: "rca_export",
+          label: "RCA EXPORT",
+        },
+        {
+          value: "slf_export",
+          label: "SLF EXPORT",
+        },
+        {
+          value: "equipments_export",
+          label: "EQUIPMENTS EXPORT",
+        },
+        {
+          value: "dues_export",
+          label: "DUES EXPORT",
+        },
+        {
+          value: "closed_dumpsite_export",
+          label: "CLOSED DUMPSITE EXPORT",
+        },
+        {
+          value: "ten_year_export",
+          label: "TEN YEAR EXPORT",
+        },
+      ],
+      exportable: {},
+    };
+  },
   methods: {
     get: _.debounce(async function (params) {
       try {

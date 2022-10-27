@@ -310,12 +310,12 @@
                 <v-card-text class="grid grid-cols-2 gap-2">
                   <ValidationProvider
                     vid="ten_year_file"
-                    name="10 YEAY File"
+                    name="10 YEAH File"
                     rules=""
                     v-slot="{ errors }"
                   >
                     <v-file-input
-                      label="10 YEAY COPY File"
+                      label="10 YEAH COPY File"
                       :error-messages="errors[0]"
                       v-model="ten_yr.ten_year_file"
                       outlined
@@ -329,12 +329,12 @@
                   </ValidationProvider>
                   <ValidationProvider
                     vid="ten_year_copy_plan"
-                    name="10 YEAY COPY PLAN"
+                    name="10 YEAH COPY PLAN"
                     rules=""
                     v-slot="{ errors }"
                   >
                     <v-file-input
-                      label="10 YEAY COPY PLAN"
+                      label="10 YEAH COPY PLAN"
                       :error-messages="errors[0]"
                       v-model="ten_yr.ten_year_copy_plan"
                       outlined
@@ -348,12 +348,12 @@
                   </ValidationProvider>
                   <ValidationProvider
                     vid="ten_year_copy_resolution"
-                    name="10 YEAY COPY RESOLUTION"
+                    name="10 YEAH COPY RESOLUTION"
                     rules=""
                     v-slot="{ errors }"
                   >
                     <v-file-input
-                      label="10 YEAY COPY RESOLUTION"
+                      label="10 YEAH COPY RESOLUTION"
                       :error-messages="errors[0]"
                       v-model="ten_yr.ten_year_copy_resolution"
                       outlined
@@ -367,12 +367,12 @@
                   </ValidationProvider>
                   <ValidationProvider
                     vid="ten_year_copy_form"
-                    name="10 YEAY COPY FORM"
+                    name="10 YEAH COPY FORM"
                     rules=""
                     v-slot="{ errors }"
                   >
                     <v-file-input
-                      label="10 YEAY COPY FORM"
+                      label="10 YEAH COPY FORM"
                       :error-messages="errors[0]"
                       v-model="ten_yr.ten_year_copy_form"
                       outlined
