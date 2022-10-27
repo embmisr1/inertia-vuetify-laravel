@@ -225,8 +225,7 @@ export default {
                 if (this.formType === "update") {
                     return this.form.patch(`/app/users/${this.form.id}`);
                 }
-                this.form.post("/app/users/");
-                return
+                await this.form.post("/app/users");
             } catch (error) {
                 console.log(error);
                 this.success("Failed Successfully");

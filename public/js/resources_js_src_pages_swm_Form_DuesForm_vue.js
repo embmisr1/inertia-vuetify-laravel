@@ -1088,6 +1088,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -3217,7 +3221,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                 _context.prev = 0;
                 _this.loading = true;
                 _context.next = 4;
-                return axios__WEBPACK_IMPORTED_MODULE_1___default().get("http://127.0.0.1:8000/api/app/province_dropdown/".concat(prov_id));
+                return axios__WEBPACK_IMPORTED_MODULE_1___default().get("http://210.213.92.250/api/app/province_dropdown/".concat(prov_id));
 
               case 4:
                 _yield$axios$get = _context.sent;
@@ -3256,7 +3260,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                 _context2.prev = 0;
                 _this2.loading = true;
                 _context2.next = 4;
-                return axios__WEBPACK_IMPORTED_MODULE_1___default().get("http://127.0.0.1:8000/api/app/municipality_dropdown/".concat(cityMun_id));
+                return axios__WEBPACK_IMPORTED_MODULE_1___default().get("http://210.213.92.250/api/app/municipality_dropdown/".concat(cityMun_id));
 
               case 4:
                 _yield$axios$get2 = _context2.sent;
@@ -23102,7 +23106,7 @@ var render = function () {
             ],
             1
           ),
-          _vm._v("\n            DUES Form\n        "),
+          _vm._v("\n                DUES Form\n            "),
         ],
         1
       ),
@@ -23143,15 +23147,15 @@ var render = function () {
                                   [
                                     _c("v-card-title", [
                                       _vm._v(
-                                        "\n                                Address Information\n                            "
+                                        "\n                                    Address Information\n                                "
                                       ),
                                     ]),
                                     _vm._v(" "),
                                     _c("v-card-text", {}, [
                                       _vm._v(
-                                        "\n                                " +
+                                        "\n                                    " +
                                           _vm._s(_vm.address) +
-                                          "\n                            "
+                                          "\n                                "
                                       ),
                                     ]),
                                   ],
@@ -23362,50 +23366,8 @@ var render = function () {
                                                                     var attrs =
                                                                       ref.attrs
                                                                     return [
-                                                                      _c(
-                                                                        "v-text-field",
-                                                                        _vm._g(
-                                                                          _vm._b(
-                                                                            {
-                                                                              attrs:
-                                                                                {
-                                                                                  label:
-                                                                                    "Date of Granted",
-                                                                                  readonly:
-                                                                                    "",
-                                                                                  outlined:
-                                                                                    "",
-                                                                                  dense:
-                                                                                    "",
-                                                                                  color:
-                                                                                    "black",
-                                                                                },
-                                                                              model:
-                                                                                {
-                                                                                  value:
-                                                                                    _vm
-                                                                                      .dues
-                                                                                      .dues_date_granted,
-                                                                                  callback:
-                                                                                    function (
-                                                                                      $$v
-                                                                                    ) {
-                                                                                      _vm.$set(
-                                                                                        _vm.dues,
-                                                                                        "dues_date_granted",
-                                                                                        $$v
-                                                                                      )
-                                                                                    },
-                                                                                  expression:
-                                                                                    "dues.dues_date_granted",
-                                                                                },
-                                                                            },
-                                                                            "v-text-field",
-                                                                            attrs,
-                                                                            false
-                                                                          ),
-                                                                          on
-                                                                        )
+                                                                      _vm._v(
+                                                                        '\n<<<<<<< HEAD\n                                                label="Date Granted"\n=======\n                                                label="Date of Granted"\n>>>>>>> 28c66e4dcb38d9c7935cade22957183046a227e3\n                                                readonly\n                                                outlined\n                                                dense\n                                                v-bind="attrs"\n                                                v-on="on"\n                                                color="black"\n                                            >'
                                                                       ),
                                                                     ]
                                                                   },
@@ -23475,7 +23437,7 @@ var render = function () {
                                                                   },
                                                                   [
                                                                     _vm._v(
-                                                                      "\n                                            Cancel\n                                        "
+                                                                      "\n                                                Cancel\n                                            "
                                                                     ),
                                                                   ]
                                                                 ),
@@ -23502,7 +23464,7 @@ var render = function () {
                                                                   },
                                                                   [
                                                                     _vm._v(
-                                                                      "\n                                            OK\n                                        "
+                                                                      "\n                                                OK\n                                            "
                                                                     ),
                                                                   ]
                                                                 ),

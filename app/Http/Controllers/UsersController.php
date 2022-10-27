@@ -80,7 +80,6 @@ class UsersController extends Controller
     public function store(UsersRequest $request)
     {
         try {
-
             $input = $request->validated();
             $assign_role = $request->selected_roles;
             $input['password'] = Hash::make(env("DEFAULT_USER_PASSWORD", 1234567));

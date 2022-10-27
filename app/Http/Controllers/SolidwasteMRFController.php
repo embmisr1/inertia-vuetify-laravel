@@ -48,6 +48,7 @@ class SolidwasteMRFController extends Controller
 
     public function mrf_register_process(request $request)
     {
+       try {
         if(!$this->solidwaste_validator($request)){ return back(); }
         $query = new SolidwasteMRF();
         $query->mrf_complete_address = $request->mrf_complete_address;
@@ -76,6 +77,10 @@ class SolidwasteMRFController extends Controller
         }
         Logger::dispatch("SolidwasteMRF", $query->id, auth()->id(), "Created a mrf: model_id " . $query->id, "create");
         return redirect()->route("lce_show",["id"=>$request->lce_FK])->with("message", strtoupper($request->mrf_or_rca)  . " Created");
+       } catch (\Throwable $th) {
+        dd($th->getMessage());
+        return;
+       }
     }
 
     public function mrf_update_process(request $request)
@@ -118,7 +123,7 @@ class SolidwasteMRFController extends Controller
         Logger::dispatch("SolidwasteMRF", $request->id, auth()->id(), "Deleted a mrf: model_id " . $request->id, "delete");
         return back()->with("message", "MRF Deleted");
     }
-    
+
     public function solidwaste_validator($request){
         $validator_controller = new UnisysValidator;
         return $validator_controller->solidwaste_validator($request);

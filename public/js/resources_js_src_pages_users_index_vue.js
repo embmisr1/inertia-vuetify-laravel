@@ -20129,7 +20129,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                 _context.prev = 0;
                 _this.loading = true;
                 _context.next = 4;
-                return axios__WEBPACK_IMPORTED_MODULE_1___default().get("http://127.0.0.1:8000/api/app/province_dropdown/".concat(prov_id));
+                return axios__WEBPACK_IMPORTED_MODULE_1___default().get("http://210.213.92.250/api/app/province_dropdown/".concat(prov_id));
 
               case 4:
                 _yield$axios$get = _context.sent;
@@ -20168,7 +20168,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                 _context2.prev = 0;
                 _this2.loading = true;
                 _context2.next = 4;
-                return axios__WEBPACK_IMPORTED_MODULE_1___default().get("http://127.0.0.1:8000/api/app/municipality_dropdown/".concat(cityMun_id));
+                return axios__WEBPACK_IMPORTED_MODULE_1___default().get("http://210.213.92.250/api/app/municipality_dropdown/".concat(cityMun_id));
 
               case 4:
                 _yield$axios$get2 = _context2.sent;

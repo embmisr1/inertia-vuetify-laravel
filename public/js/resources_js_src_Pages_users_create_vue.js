@@ -1227,23 +1227,25 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                 return _context.abrupt("return", _this.form.patch("/app/users/".concat(_this.form.id)));
 
               case 3:
-                _this.form.post("/app/users/");
+                _context.next = 5;
+                return _this.form.post("/app/users/");
 
+              case 5:
                 return _context.abrupt("return");
 
-              case 7:
-                _context.prev = 7;
+              case 8:
+                _context.prev = 8;
                 _context.t0 = _context["catch"](0);
                 console.log(_context.t0);
 
                 _this.success("Failed Successfully");
 
-              case 11:
+              case 12:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, null, [[0, 7]]);
+        }, _callee, null, [[0, 8]]);
       }))();
     }
   },
@@ -3252,7 +3254,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                 _context.prev = 0;
                 _this.loading = true;
                 _context.next = 4;
-                return axios__WEBPACK_IMPORTED_MODULE_1___default().get("http://127.0.0.1:8000/api/app/province_dropdown/".concat(prov_id));
+                return axios__WEBPACK_IMPORTED_MODULE_1___default().get("http://210.213.92.250/api/app/province_dropdown/".concat(prov_id));
 
               case 4:
                 _yield$axios$get = _context.sent;
@@ -3291,7 +3293,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                 _context2.prev = 0;
                 _this2.loading = true;
                 _context2.next = 4;
-                return axios__WEBPACK_IMPORTED_MODULE_1___default().get("http://127.0.0.1:8000/api/app/municipality_dropdown/".concat(cityMun_id));
+                return axios__WEBPACK_IMPORTED_MODULE_1___default().get("http://210.213.92.250/api/app/municipality_dropdown/".concat(cityMun_id));
 
               case 4:
                 _yield$axios$get2 = _context2.sent;
