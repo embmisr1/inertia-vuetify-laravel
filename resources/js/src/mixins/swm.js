@@ -21,7 +21,7 @@ export default {
         query_equipment: Array,
         query_dues: Array,
         dues_edit: Array,
-        query_gad:Array,
+        query_gad: Array,
     },
     data() {
         return {
@@ -196,12 +196,16 @@ export default {
         lce_complete_name() {
             const { lce_first_name, lce_middle_name, lce_last_name } =
                 this.lce_details;
-            return `${lce_first_name? lce_first_name:''} ${lce_middle_name ? lce_middle_name:'' } ${lce_last_name ? lce_last_name:""}`;
+            return `${lce_first_name ? lce_first_name : ""} ${
+                lce_middle_name ? lce_middle_name : ""
+            } ${lce_last_name ? lce_last_name : ""}`;
         },
         lce_address() {
             const { provDesc, citymunDesc, lce_zip_code, districtCode } =
                 this.lce_details;
-            return `${citymunDesc}, District No ${districtCode ? districtCode :''}, ${provDesc}, ${lce_zip_code ? lce_zip_code:''} `;
+            return `${citymunDesc}, District No ${
+                districtCode ? districtCode : ""
+            }, ${provDesc}, ${lce_zip_code ? lce_zip_code : ""} `;
         },
         lce_prov_id() {
             return this.lce.lce_province_FK;
@@ -245,6 +249,31 @@ export default {
         },
     },
     methods: {
+        async export_swm() {
+            try {
+                const {value,label} = await this.exportable
+                const { data } = await axios.get(`/app/swm/${value}`, {
+                    params: { ...this.filter },
+                    responseType: "blob",
+                });
+                const blob = new Blob([data], {
+                    // type: "text/csv",
+                    typ: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                });
+                let fileURL = window.URL.createObjectURL(blob);
+                let fileLink = document.createElement("a");
+
+                fileLink.href = fileURL;
+                fileLink.setAttribute("download", `${value}.xlsx`);
+                // fileLink.setAttribute("download", "items.csv");
+                document.body.appendChild(fileLink);
+
+                fileLink.click();
+                // this.get(this.filterObject);
+            } catch (error) {
+                console.log(error);
+            }
+        },
         async search_cityMun(prov_id) {
             try {
                 this.loading = true;
