@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\AttachmentResource;
 use App\Jobs\Logger;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
@@ -118,15 +119,18 @@ class SolidwasteLCEController extends Controller
             return back();
         }
         $province_dropdown = Province::whereIn('PK_province_ID', [128, 129, 133, 155])->get();
+        $id = $request->id;
         $lce_edit = DB::table('tbl_solidwaste_lce as a')
             ->select('a.*', 'b.provDesc', 'c.citymunDesc', 'd.brgyDesc', 'c.districtCode')
             ->leftjoin('ref_province as b', 'a.lce_province_FK', '=', 'b.PK_province_ID')
             ->leftjoin('ref_citymun as c', 'a.lce_municipality_FK', '=', 'c.PK_citymun_ID')
             ->leftjoin('ref_brgy as d', 'a.lce_barangay_FK', '=', 'd.PK_brgy_ID')
-            ->where('a.id', $request->id)
+            ->where('a.id', $id)
             ->get();
+            $attachements = SolidwasteLCE::where("id", $id)->get();
         return Inertia::render("pages/swm/Form/LCEForm", [
             'lce_edit' => $lce_edit,
+            "attachments" => AttachmentResource::collection($attachements[0]->getMedia("lce")),
             'province_dropdown' => $province_dropdown,
         ]);
     }
@@ -152,33 +156,53 @@ class SolidwasteLCEController extends Controller
         $query->lce_contact_number = $request->lce_contact_number;
         $query->lce_email_address = $request->lce_email_address;
         $query->save();
+        if ($request->lce_file) {
+            foreach ($request->lce_file as $file) {
+                $query
+                    ->addMedia($file)
+                    ->preservingOriginal()
+                    ->toMediaCollection("lce");
+            }
+        }
         Logger::dispatch("SolidwasteLCE", $query->id, auth()->id(), "Created a LCE: model_id " . $query->id, "create");
         return back()->with("message", "LCE Created");
     }
 
     public function lce_update_process(request $request)
     {
-        if (!$this->solidwaste_validator($request)) {
-            return back();
+        try {
+            if (!$this->solidwaste_validator($request)) {
+                return back();
+            }
+            $query = SolidwasteLCE::find($request->id);
+            $query->lce_title = $request->lce_title;
+            $query->lce_first_name = $request->lce_first_name;
+            $query->lce_middle_name = $request->lce_middle_name;
+            $query->lce_last_name = $request->lce_last_name;
+            $query->lce_salutation = $request->lce_salutation;
+            $query->lce_position = $request->lce_position;
+            $query->lce_province_FK = $request->lce_province_FK;
+            $query->lce_municipality_FK = $request->lce_municipality_FK;
+            $query->lce_barangay_FK = $request->lce_barangay_FK;
+            $query->lce_disctrict = $request->lce_disctrict;
+            $query->lce_zip_code = $request->lce_zip_code;
+            $query->lce_focal_person = $request->lce_focal_person;
+            $query->lce_contact_number = $request->lce_contact_number;
+            $query->lce_email_address = $request->lce_email_address;
+            $query->save();
+            if ($request->lce_file) {
+                foreach ($request->lce_file as $file) {
+                    $query
+                        ->addMedia($file)
+                        ->preservingOriginal()
+                        ->toMediaCollection("lce");
+                }
+            }
+            Logger::dispatch("SolidwasteLCE", $query->id, auth()->id(), "Updated a LCE: model_id " . $query->id, "update");
+            return back()->with("message", "LCE Updated");
+        } catch (\Throwable $th) {
+            throw $th;
         }
-        $query = SolidwasteLCE::find($request->id);
-        $query->lce_title = $request->lce_title;
-        $query->lce_first_name = $request->lce_first_name;
-        $query->lce_middle_name = $request->lce_middle_name;
-        $query->lce_last_name = $request->lce_last_name;
-        $query->lce_salutation = $request->lce_salutation;
-        $query->lce_position = $request->lce_position;
-        $query->lce_province_FK = $request->lce_province_FK;
-        $query->lce_municipality_FK = $request->lce_municipality_FK;
-        $query->lce_barangay_FK = $request->lce_barangay_FK;
-        $query->lce_disctrict = $request->lce_disctrict;
-        $query->lce_zip_code = $request->lce_zip_code;
-        $query->lce_focal_person = $request->lce_focal_person;
-        $query->lce_contact_number = $request->lce_contact_number;
-        $query->lce_email_address = $request->lce_email_address;
-        $query->save();
-        Logger::dispatch("SolidwasteLCE", $query->id, auth()->id(), "Updated a LCE: model_id " . $query->id, "update");
-        return back()->with("message", "LCE Updated");
     }
 
     public function lce_delete(request $request)

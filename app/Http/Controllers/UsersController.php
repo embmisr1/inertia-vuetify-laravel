@@ -83,7 +83,7 @@ class UsersController extends Controller
 
             $input = $request->validated();
             $assign_role = $request->selected_roles;
-            $input['password'] = Hash::make(env("DEFAULT_USER_PASSWORD"));
+            $input['password'] = Hash::make(env("DEFAULT_USER_PASSWORD","password"));
             $user = User::create($input);
             $assign_role = new UsersAccess();
             $assign_role->access_role_assigned = json_encode($assign_role);

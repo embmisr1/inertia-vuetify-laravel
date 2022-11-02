@@ -65,6 +65,7 @@ Route::get('/getip', function (Request $request) {
 
 Route::post('/', [AuthController::class, 'login'])->name("auth")->middleware("guest");
 
+
 Route::get('/forgot_password', [ForgotPasswordController::class, 'index'])->name("forgot_password_form")->middleware("guest");
 Route::post('/forgot_password', [ForgotPasswordController::class, 'post'])->name("forgot_password_send_mail")->middleware("guest");
 Route::post('/verify_code/{user}', [ForgotPasswordController::class, 'verify_code'])->name("forgot_password_send_mail")->middleware("guest");
@@ -74,6 +75,7 @@ Route::group([
     // 'middleware' => ['auth'] ,
     'prefix' => "/app",
 ], function () {
+    Route::get('/getCurrentSession', [AuthController::class, 'getCurrentSession'])->name("session");
     Route::delete('/', [AuthController::class, 'destroy'])->name("authLogout");
     // Route::post('attachments', DownloadAttachmentController::class)->name("dl");
     Route::get('attachments', [DownloadAttachmentController::class,'index'])->name("dl");
@@ -146,7 +148,7 @@ Route::group([
         Route::get('/lce_show/{id}', [SolidwasteLCEController::class, 'lce_show'])->name("lce_show");
         Route::get('/lce_edit/{id}', [SolidwasteLCEController::class, 'lce_edit'])->name("lce_edit");
         Route::post('/lce_register_process', [SolidwasteLCEController::class, 'lce_register_process'])->name("lce_register_process");
-        Route::patch('/lce_update_process', [SolidwasteLCEController::class, 'lce_update_process'])->name("lce_update_process");
+        Route::post('/lce_update_process', [SolidwasteLCEController::class, 'lce_update_process'])->name("lce_update_process");
         Route::delete('/lce_delete/{id}', [SolidwasteLCEController::class, 'lce_delete'])->name("lce_delete");
         // SLF
         Route::get('/slf_register/{id}', [SolidwasteSLFController::class, 'create'])->name("slf_register_form");
