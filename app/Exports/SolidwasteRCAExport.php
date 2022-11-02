@@ -41,7 +41,7 @@ class SolidwasteRCAExport implements FromQuery, WithHeadings, WithMapping, WithE
                 $event->sheet->setOrientation(\PhpOffice\PhpSpreadsheet\Worksheet\PageSetup::ORIENTATION_LANDSCAPE);
 
                 $event->sheet->styleCells(
-                    'A1:R1',
+                    'A1:S1',
                     [
                         'font'=>[
                             'color'=>[
@@ -89,6 +89,7 @@ class SolidwasteRCAExport implements FromQuery, WithHeadings, WithMapping, WithE
                 "P"=>20,
                 "Q"=>20,
                 "R"=>20,
+                "S"=>20,
             ];
         }
     }
@@ -109,6 +110,7 @@ class SolidwasteRCAExport implements FromQuery, WithHeadings, WithMapping, WithE
             "Service Areas",
             "Total Waste Generation",
             "Biodegradable",
+            "Residual",
             "Recyclable",
             "Special Waste",
             "Total Waste Diverted",
@@ -131,6 +133,7 @@ class SolidwasteRCAExport implements FromQuery, WithHeadings, WithMapping, WithE
                 'a.mrf_service_area', 
                 'a.mrf_total_waste_generation', 
                 'a.mrf_biodegradable', 
+                'a.mrf_residual', 
                 'a.mrf_recyclable', 
                 'a.mrf_special_waste', 
                 'a.mrf_number_of_waste_diverted', 
@@ -162,6 +165,7 @@ class SolidwasteRCAExport implements FromQuery, WithHeadings, WithMapping, WithE
             $data->mrf_service_area,
             $data->mrf_total_waste_generation,
             $data->mrf_biodegradable,
+            $data->mrf_residual,
             $data->mrf_recyclable,
             $data->mrf_special_waste,
             $data->mrf_total_waste_diverted,

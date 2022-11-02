@@ -27,6 +27,7 @@ use App\Http\Controllers\SolidwasteTenYearController;
 use App\Http\Controllers\SolidwasteTenYearMonitoringController;
 use App\Http\Controllers\SolidwasteEquipmentController;
 use App\Http\Controllers\SolidwasteDuesController;
+use App\Http\Controllers\SolidwasteIECController;
 use App\Http\Controllers\SolidwasteGadController;
 use App\Http\Controllers\SolidwasteExport;
 use App\Http\Controllers\UnitSectionController;
@@ -191,6 +192,12 @@ Route::group([
         Route::post('/dues_register_process', [SolidwasteDuesController::class, 'dues_register_process'])->name("dues_register_process");
         Route::post('/dues_update_process', [SolidwasteDuesController::class, 'dues_update_process'])->name("dues_update_process");
         Route::delete('/dues_delete/{id}', [SolidwasteDuesController::class, 'dues_delete'])->name("dues_delete");
+        // IEC
+        Route::get('/iec_register/{id}', [SolidwasteIECController::class, 'create'])->name("iec_register_form");
+        Route::get('/iec_edit/{id}', [SolidwasteIECController::class, 'iec_edit'])->name("iec_edit");
+        Route::post('/iec_register_process', [SolidwasteIECController::class, 'iec_register_process'])->name("iec_register_process");
+        Route::post('/iec_update_process', [SolidwasteIECController::class, 'iec_update_process'])->name("iec_update_process");
+        Route::delete('/iec_delete/{id}', [SolidwasteIECController::class, 'iec_delete'])->name("iec_delete");
         // GAD
         Route::get('/gad_register/{id}', [SolidwasteGadController::class, 'create'])->name("gad_register_form");
         Route::get('/gad_edit/{id}', [SolidwasteGadController::class, 'edit'])->name("gad_edit");
