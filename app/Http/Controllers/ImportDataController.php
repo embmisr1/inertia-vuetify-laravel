@@ -96,6 +96,7 @@ class ImportDataController extends Controller
         // ->where('id','>',15000)
         // ->where('id','<=',16000)
         // ->where('a.perm_law','!=',null)
+        // ->whereNotIn('a.perm_hazwaste_type',['CCO Asbestos', 'CCO Mercury', 'Transporter', 'TSD'])
         // ->get();
         // foreach($query as $qry){
         //     $query2 = DB::table('tbl_permit')->select('*')
@@ -403,6 +404,31 @@ class ImportDataController extends Controller
         //         'updated_at'=>now(),
         //     ]);
         //     $query_update;
+        // }
+        // =============================================== MISSING MEDIA IMPORT ===============================================
+        // $query = DB::table('media')->select('*')->get();
+        // $ctr = 0;
+        // foreach($query as $qry){
+        //     $collection_name = $qry->collection_name;
+        //     $folder_id = $qry->id;
+            
+        //     $file_name = $qry->file_name;
+        //     $file_name = str_replace(" ", "", $file_name);
+        //     if(!file_exists("../storage/app/public/".$collection_name."/".$folder_id."/".$file_name)){
+        //         echo "False - ".$collection_name." - ".$folder_id." - ".$file_name."<br/>";
+        //         for($i = 1; $i <= 11000; $i++){
+        //             if(file_exists("../storage/app/public_old/".$file_name)){
+        //                 if(!file_exists("../storage/app/public/".$collection_name."/".$folder_id)){
+        //                     mkdir("../storage/app/public/".$collection_name."/".$folder_id);
+        //                     copy("../storage/app/public_old/".$file_name, "../storage/app/public/".$collection_name."/".$folder_id."/".$file_name);
+        //                     echo 'New Folder Created Copied<br/>';
+        //                 }else{
+        //                     copy("../storage/app/public_old/".$file_name, "../storage/app/public/".$collection_name."/".$folder_id."/".$file_name);
+        //                     echo 'Exsisting Copied<br/>';
+        //                 }
+        //             }
+        //         }
+        //     }
         // }
     }
 }

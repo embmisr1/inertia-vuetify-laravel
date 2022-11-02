@@ -92,7 +92,7 @@
                                         >
                                             <v-text-field
                                                 v-model="dues.dues_date_granted"
-                                                label="Date of Closure"
+                                                label="Date of Granted"
                                                 readonly
                                                 outlined
                                                 dense

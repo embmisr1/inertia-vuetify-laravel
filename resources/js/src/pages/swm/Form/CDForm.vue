@@ -148,7 +148,7 @@
                     color="dark"
                   ></v-checkbox>
                   <v-checkbox
-                    v-model="cd.cd_grading"
+                    v-model="cd.cd_site_grading"
                     label="Grading"
                     value="true"
                     hide-details

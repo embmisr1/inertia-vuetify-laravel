@@ -564,9 +564,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 
 
 
@@ -664,7 +661,7 @@ __webpack_require__.r(__webpack_exports__);
           child: []
         }, {
           name: "SOLID WASTE",
-          link: '/app/swm/lce_list',
+          link: "/app/swm/lce_list",
           icon: "mdi-trash-can",
           child: []
         }, {
@@ -721,17 +718,17 @@ __webpack_require__.r(__webpack_exports__);
           child: []
         }, {
           name: "POSITION",
-          link: '/app/position',
+          link: "/app/position",
           icon: "mdi-account-supervisor",
           child: []
         }, {
           name: "DIVISION",
-          link: '/app/division',
+          link: "/app/division",
           icon: "mdi-account-supervisor",
           child: []
         }, {
           name: "UNIT SECTION",
-          link: '/app/unit_section',
+          link: "/app/unit_section",
           icon: "mdi-account-supervisor",
           child: []
         }, {
@@ -958,6 +955,35 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -971,69 +997,130 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     Link: _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_2__.Link
   },
   mixins: [_mixins___WEBPACK_IMPORTED_MODULE_4__.page, _mixins___WEBPACK_IMPORTED_MODULE_4__.toasts, _mixins___WEBPACK_IMPORTED_MODULE_4__.swm, _mixins___WEBPACK_IMPORTED_MODULE_4__.dialogs],
+  data: function data() {
+    return {
+      export_items: [{
+        value: "lce_export",
+        label: "LCE EXPORT"
+      }, {
+        value: "mrf_export",
+        label: "MRF EXPORT"
+      }, {
+        value: "rca_export",
+        label: "RCA EXPORT"
+      }, {
+        value: "slf_export",
+        label: "SLF EXPORT"
+      }, {
+        value: "equipments_export",
+        label: "EQUIPMENTS EXPORT"
+      }, {
+        value: "dues_export",
+        label: "DUES EXPORT"
+      }, {
+        value: "closed_dumpsite_export",
+        label: "CLOSED DUMPSITE EXPORT"
+      }, {
+        value: "ten_year_export",
+        label: "TEN YEAR EXPORT"
+      }],
+      exportable: {}
+    };
+  },
   methods: {
-    saveLCEForm: function saveLCEForm() {
-      var _this = this;
-
-      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
-        var lce_list;
+    get: lodash__WEBPACK_IMPORTED_MODULE_3___default().debounce( /*#__PURE__*/function () {
+      var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(params) {
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
                 _context.prev = 0;
-                lce_list = _objectSpread({}, _this.lce);
-                _context.next = 4;
-                return _this.$inertia.post("/app/swm/rce_register_process", lce_list);
+                _context.next = 3;
+                return this.$inertia.get("/app/swm/lce_list", _objectSpread({}, params));
 
-              case 4:
-                _context.next = 10;
+              case 3:
+                _context.next = 8;
                 break;
 
-              case 6:
-                _context.prev = 6;
+              case 5:
+                _context.prev = 5;
                 _context.t0 = _context["catch"](0);
-                console.error(_context.t0.message);
+                console.log(_context.t0);
 
-                _this.error(_context.t0.dat.response.messsage);
-
-              case 10:
+              case 8:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, null, [[0, 6]]);
-      }))();
-    },
-    deleteLCEForm: function deleteLCEForm(LCE_id) {
-      var _this2 = this;
+        }, _callee, this, [[0, 5]]);
+      }));
+
+      return function (_x) {
+        return _ref.apply(this, arguments);
+      };
+    }(), 1500),
+    saveLCEForm: function saveLCEForm() {
+      var _this = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
+        var lce_list;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
                 _context2.prev = 0;
-                _context2.next = 3;
-                return _this2.$inertia.get("/app/swm/lce_delete/".concat(LCE_id));
+                lce_list = _objectSpread({}, _this.lce);
+                _context2.next = 4;
+                return _this.$inertia.post("/app/swm/rce_register_process", lce_list);
 
-              case 3:
-                _context2.next = 9;
+              case 4:
+                _context2.next = 10;
                 break;
 
-              case 5:
-                _context2.prev = 5;
+              case 6:
+                _context2.prev = 6;
                 _context2.t0 = _context2["catch"](0);
                 console.error(_context2.t0.message);
 
-                _this2.error(_context2.t0.dat.response.messsage);
+                _this.error(_context2.t0.dat.response.messsage);
 
-              case 9:
+              case 10:
               case "end":
                 return _context2.stop();
             }
           }
-        }, _callee2, null, [[0, 5]]);
+        }, _callee2, null, [[0, 6]]);
+      }))();
+    },
+    deleteLCEForm: function deleteLCEForm(LCE_id) {
+      var _this2 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                _context3.prev = 0;
+                _context3.next = 3;
+                return _this2.$inertia.get("/app/swm/lce_delete/".concat(LCE_id));
+
+              case 3:
+                _context3.next = 9;
+                break;
+
+              case 5:
+                _context3.prev = 5;
+                _context3.t0 = _context3["catch"](0);
+                console.error(_context3.t0.message);
+
+                _this2.error(_context3.t0.dat.response.messsage);
+
+              case 9:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3, null, [[0, 5]]);
       }))();
     }
   }
@@ -2850,6 +2937,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         lce_FK: null
       },
       mrf: {
+        mrf_complete_address: null,
         mrf_emb_funded: null,
         mrf_latitude: null,
         mrf_longitude: null,
@@ -2971,7 +3059,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           lce_first_name = _this$lce_details.lce_first_name,
           lce_middle_name = _this$lce_details.lce_middle_name,
           lce_last_name = _this$lce_details.lce_last_name;
-      return "".concat(lce_first_name, " ").concat(lce_middle_name, " ").concat(lce_last_name);
+      return "".concat(lce_first_name ? lce_first_name : "", " ").concat(lce_middle_name ? lce_middle_name : "", " ").concat(lce_last_name ? lce_last_name : "");
     },
     lce_address: function lce_address() {
       var _this$lce_details2 = this.lce_details,
@@ -2979,7 +3067,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           citymunDesc = _this$lce_details2.citymunDesc,
           lce_zip_code = _this$lce_details2.lce_zip_code,
           districtCode = _this$lce_details2.districtCode;
-      return "".concat(citymunDesc, ", District No ").concat(districtCode, ", ").concat(provDesc, ", ").concat(lce_zip_code, " ");
+      return "".concat(citymunDesc, ", District No ").concat(districtCode ? districtCode : "", ", ").concat(provDesc, ", ").concat(lce_zip_code ? lce_zip_code : "", " ");
     },
     lce_prov_id: function lce_prov_id() {
       return this.lce.lce_province_FK;
@@ -3023,46 +3111,62 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }
   },
   methods: {
-    search_cityMun: function search_cityMun(prov_id) {
+    export_swm: function export_swm() {
       var _this = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
-        var _yield$axios$get, data;
+        var _yield$_this$exportab, value, label, _yield$axios$get, data, blob, fileURL, fileLink;
 
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
                 _context.prev = 0;
-                _this.loading = true;
-                _context.next = 4;
-                return axios__WEBPACK_IMPORTED_MODULE_1___default().get("http://127.0.0.1:8000/api/app/province_dropdown/".concat(prov_id));
+                _context.next = 3;
+                return _this.exportable;
 
-              case 4:
+              case 3:
+                _yield$_this$exportab = _context.sent;
+                value = _yield$_this$exportab.value;
+                label = _yield$_this$exportab.label;
+                _context.next = 8;
+                return axios__WEBPACK_IMPORTED_MODULE_1___default().get("/app/swm/".concat(value), {
+                  params: _objectSpread({}, _this.filter),
+                  responseType: "blob"
+                });
+
+              case 8:
                 _yield$axios$get = _context.sent;
                 data = _yield$axios$get.data;
-                _this.cityMun = data;
-                _this.loading = false;
-                _context.next = 15;
+                blob = new Blob([data], {
+                  // type: "text/csv",
+                  typ: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+                });
+                fileURL = window.URL.createObjectURL(blob);
+                fileLink = document.createElement("a");
+                fileLink.href = fileURL;
+                fileLink.setAttribute("download", "".concat(value, ".xlsx")); // fileLink.setAttribute("download", "items.csv");
+
+                document.body.appendChild(fileLink);
+                fileLink.click(); // this.get(this.filterObject);
+
+                _context.next = 22;
                 break;
 
-              case 10:
-                _context.prev = 10;
+              case 19:
+                _context.prev = 19;
                 _context.t0 = _context["catch"](0);
-                _this.loading = false;
-                console.log("search_cityMun - error");
+                console.log(_context.t0);
 
-                _this.error(_context.t0.response.data.message);
-
-              case 15:
+              case 22:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, null, [[0, 10]]);
+        }, _callee, null, [[0, 19]]);
       }))();
     },
-    search_brgy: function search_brgy(cityMun_id) {
+    search_cityMun: function search_cityMun(prov_id) {
       var _this2 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
@@ -3075,12 +3179,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                 _context2.prev = 0;
                 _this2.loading = true;
                 _context2.next = 4;
-                return axios__WEBPACK_IMPORTED_MODULE_1___default().get("http://127.0.0.1:8000/api/app/municipality_dropdown/".concat(cityMun_id));
+                return axios__WEBPACK_IMPORTED_MODULE_1___default().get("http://127.0.0.1:8000/api/app/province_dropdown/".concat(prov_id));
 
               case 4:
                 _yield$axios$get2 = _context2.sent;
                 data = _yield$axios$get2.data;
-                _this2.brgy = data;
+                _this2.cityMun = data;
                 _this2.loading = false;
                 _context2.next = 15;
                 break;
@@ -3089,7 +3193,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                 _context2.prev = 10;
                 _context2.t0 = _context2["catch"](0);
                 _this2.loading = false;
-                console.log("search_brgy - error");
+                console.log("search_cityMun - error");
 
                 _this2.error(_context2.t0.response.data.message);
 
@@ -3099,6 +3203,45 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             }
           }
         }, _callee2, null, [[0, 10]]);
+      }))();
+    },
+    search_brgy: function search_brgy(cityMun_id) {
+      var _this3 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3() {
+        var _yield$axios$get3, data;
+
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                _context3.prev = 0;
+                _this3.loading = true;
+                _context3.next = 4;
+                return axios__WEBPACK_IMPORTED_MODULE_1___default().get("http://127.0.0.1:8000/api/app/municipality_dropdown/".concat(cityMun_id));
+
+              case 4:
+                _yield$axios$get3 = _context3.sent;
+                data = _yield$axios$get3.data;
+                _this3.brgy = data;
+                _this3.loading = false;
+                _context3.next = 15;
+                break;
+
+              case 10:
+                _context3.prev = 10;
+                _context3.t0 = _context3["catch"](0);
+                _this3.loading = false;
+                console.log("search_brgy - error");
+
+                _this3.error(_context3.t0.response.data.message);
+
+              case 15:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3, null, [[0, 10]]);
       }))();
     },
     goBack: function goBack() {
@@ -3115,67 +3258,67 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.setEquipmentModal(true, "update");
     },
     submitEquimentForm: function submitEquimentForm() {
-      var _this3 = this;
+      var _this4 = this;
 
-      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3() {
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee4() {
         var data, type;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee4$(_context4) {
           while (1) {
-            switch (_context3.prev = _context3.next) {
+            switch (_context4.prev = _context4.next) {
               case 0:
-                _context3.prev = 0;
-                data = _objectSpread(_objectSpread({}, _this3.equipment), {}, {
-                  lce_FK: _this3.lce_id
+                _context4.prev = 0;
+                data = _objectSpread(_objectSpread({}, _this4.equipment), {}, {
+                  lce_FK: _this4.lce_id
                 });
-                type = _this3.equipment_modal.type;
-                _this3.loading = true;
+                type = _this4.equipment_modal.type;
+                _this4.loading = true;
 
                 if (!(type === "create")) {
-                  _context3.next = 9;
+                  _context4.next = 9;
                   break;
                 }
 
-                _context3.next = 7;
-                return _this3.$inertia.post("/app/swm/equipment_register_process", data);
+                _context4.next = 7;
+                return _this4.$inertia.post("/app/swm/equipment_register_process", data);
 
               case 7:
-                _context3.next = 12;
+                _context4.next = 12;
                 break;
 
               case 9:
                 if (!(type === "update")) {
-                  _context3.next = 12;
+                  _context4.next = 12;
                   break;
                 }
 
-                _context3.next = 12;
-                return _this3.$inertia.post("/app/swm/equipment_update_process", data);
+                _context4.next = 12;
+                return _this4.$inertia.post("/app/swm/equipment_update_process", data);
 
               case 12:
                 // this.submitEquimentForm(false,"create")
-                _this3.equipment_modal = {
+                _this4.equipment_modal = {
                   active: false,
                   type: "create"
                 };
-                _this3.loading = false;
-                _context3.next = 21;
+                _this4.loading = false;
+                _context4.next = 21;
                 break;
 
               case 16:
-                _context3.prev = 16;
-                _context3.t0 = _context3["catch"](0);
-                _this3.loading = false;
+                _context4.prev = 16;
+                _context4.t0 = _context4["catch"](0);
+                _this4.loading = false;
 
-                _this3.error(_context3.t0.response.data.message);
+                _this4.error(_context4.t0.response.data.message);
 
-                console.log(_context3.t0);
+                console.log(_context4.t0);
 
               case 21:
               case "end":
-                return _context3.stop();
+                return _context4.stop();
             }
           }
-        }, _callee3, null, [[0, 16]]);
+        }, _callee4, null, [[0, 16]]);
       }))();
     }
   }
@@ -22868,10 +23011,7 @@ var render = function () {
       _c(
         "v-footer",
         { attrs: { app: "", rounded: "" } },
-        [
-          _c("v-spacer"),
-          _vm._v("\n        © DENR - EMB REGION 1 - UNISYS\n    "),
-        ],
+        [_c("v-spacer"), _vm._v("\n    © DENR - EMB REGION 1 - UNISYS\n  ")],
         1
       ),
     ],
@@ -22918,7 +23058,7 @@ var render = function () {
             "backend-pagination": "",
             total: _vm.lce_list.total,
             "current-page": _vm.lce_list.current_page,
-            "pagination-position": "top",
+            "pagination-position": "both",
             "pagination-rounded": "",
             narrowed: "",
             loading: _vm.loading,
@@ -22942,6 +23082,114 @@ var render = function () {
           },
           scopedSlots: _vm._u([
             {
+              key: "top-left",
+              fn: function () {
+                return [
+                  _c(
+                    "b-field",
+                    { attrs: { label: "Select a to export" } },
+                    [
+                      _c(
+                        "b-select",
+                        {
+                          attrs: {
+                            placeholder: "Select a to export",
+                            size: "is-small",
+                            "return-object": "",
+                          },
+                          model: {
+                            value: _vm.exportable,
+                            callback: function ($$v) {
+                              _vm.exportable = $$v
+                            },
+                            expression: "exportable",
+                          },
+                        },
+                        _vm._l(_vm.export_items, function (option, index) {
+                          return _c(
+                            "option",
+                            { key: index, domProps: { value: option } },
+                            [
+                              _vm._v(
+                                "\n            " +
+                                  _vm._s(option.label) +
+                                  "\n          "
+                              ),
+                            ]
+                          )
+                        }),
+                        0
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "b-button",
+                        {
+                          staticClass: "mx-2",
+                          attrs: { type: "is-primary", size: "is-small" },
+                          on: { click: _vm.export_swm },
+                        },
+                        [_vm._v("Export")]
+                      ),
+                    ],
+                    1
+                  ),
+                ]
+              },
+              proxy: true,
+            },
+            {
+              key: "bottom-left",
+              fn: function () {
+                return [
+                  _c(
+                    "b-field",
+                    { attrs: { label: "Select a to export" } },
+                    [
+                      _c(
+                        "b-select",
+                        {
+                          attrs: { placeholder: "Select a to export" },
+                          model: {
+                            value: _vm.exportable,
+                            callback: function ($$v) {
+                              _vm.exportable = $$v
+                            },
+                            expression: "exportable",
+                          },
+                        },
+                        _vm._l(_vm.export_items, function (option, index) {
+                          return _c(
+                            "option",
+                            { key: index, domProps: { value: option } },
+                            [
+                              _vm._v(
+                                "\n            " +
+                                  _vm._s(option.label) +
+                                  "\n          "
+                              ),
+                            ]
+                          )
+                        }),
+                        0
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "b-button",
+                        {
+                          staticClass: "mx-2",
+                          attrs: { type: "is-primary", size: "is-small" },
+                          on: { click: _vm.export_swm },
+                        },
+                        [_vm._v("Export")]
+                      ),
+                    ],
+                    1
+                  ),
+                ]
+              },
+              proxy: true,
+            },
+            {
               key: "empty",
               fn: function () {
                 return [
@@ -22960,6 +23208,8 @@ var render = function () {
           ]),
         },
         [
+          _vm._v(" "),
+          _vm._v(" "),
           _c("b-table-column", {
             attrs: { field: "province", label: "Province", searchable: "" },
             scopedSlots: _vm._u([
@@ -23131,28 +23381,6 @@ var render = function () {
                           attrs: {
                             name: "edit",
                             color: "orange",
-                            animation: "tada-hover",
-                          },
-                        }),
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "v-btn",
-                      {
-                        attrs: { icon: "", small: "" },
-                        on: {
-                          click: function ($event) {
-                            return _vm.deleteLCEForm(props.row.id)
-                          },
-                        },
-                      },
-                      [
-                        _c("box-icon", {
-                          attrs: {
-                            name: "trash",
-                            color: "red",
                             animation: "tada-hover",
                           },
                         }),

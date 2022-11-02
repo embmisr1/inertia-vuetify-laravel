@@ -41,7 +41,7 @@ class SolidwasteMRFExport implements FromQuery, WithHeadings, WithMapping, WithE
                 $event->sheet->setOrientation(\PhpOffice\PhpSpreadsheet\Worksheet\PageSetup::ORIENTATION_LANDSCAPE);
 
                 $event->sheet->styleCells(
-                    'A1:R1',
+                    'A1:S1',
                     [
                         'font'=>[
                             'color'=>[
@@ -89,6 +89,7 @@ class SolidwasteMRFExport implements FromQuery, WithHeadings, WithMapping, WithE
                 "P"=>20,
                 "Q"=>20,
                 "R"=>20,
+                "S"=>20,
             ];
         }
     }
@@ -102,13 +103,14 @@ class SolidwasteMRFExport implements FromQuery, WithHeadings, WithMapping, WithE
             "Complete Address",
             "LGU Funded",
             "EMB Funded",
-            "Funded Amount",
+            "Area of Capacity",
             "Latitude",
             "Longitude",
             "Operation Status",
             "Service Areas",
             "Total Waste Generation",
             "Biodegradable",
+            "Residual",
             "Recyclable",
             "Special Waste",
             "Total Waste Diverted",
@@ -141,6 +143,7 @@ class SolidwasteMRFExport implements FromQuery, WithHeadings, WithMapping, WithE
             ->leftjoin('ref_province as b', 'lce.lce_province_FK', '=', 'b.PK_province_ID')
             ->leftjoin('ref_citymun as c', 'lce.lce_municipality_FK', '=', 'c.PK_citymun_ID')
             ->leftjoin('ref_brgy as d', 'lce.lce_barangay_FK', '=', 'd.PK_brgy_ID')
+            ->where('a.mrf_or_rca','mrf')
             ->orderby('b.provDesc','ASC');
         return $query;
     }
@@ -161,6 +164,7 @@ class SolidwasteMRFExport implements FromQuery, WithHeadings, WithMapping, WithE
             $data->mrf_service_area,
             $data->mrf_total_waste_generation,
             $data->mrf_biodegradable,
+            $data->mrf_residual,
             $data->mrf_recyclable,
             $data->mrf_special_waste,
             $data->mrf_total_waste_diverted,

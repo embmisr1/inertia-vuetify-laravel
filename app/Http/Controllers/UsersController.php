@@ -83,7 +83,11 @@ class UsersController extends Controller
 
             $input = $request->validated();
             $assign_role = $request->selected_roles;
+<<<<<<< HEAD
             $input['password'] = Hash::make(env("DEFAULT_USER_PASSWORD","password"));
+=======
+            $input['password'] = Hash::make(env("DEFAULT_USER_PASSWORD", 1234567));
+>>>>>>> master
             $user = User::create($input);
             $assign_role = new UsersAccess();
             $assign_role->access_role_assigned = json_encode($assign_role);
@@ -146,17 +150,33 @@ class UsersController extends Controller
             $input = $request->validated();
             $role_assigned = $request->selected_roles;
             $user->update($input);
-            $assign_role = UsersAccess::where("users_FK", $user->id)->firstOrFail();
-            $assign_role->access_role_assigned = json_encode($role_assigned);
-            $assign_role->save();
+            $assign_role = UsersAccess::where("users_FK", $user->id)->get();
+
+            if(count($assign_role)) {
+                $assign_role[0]->access_role_assigned = json_encode($role_assigned);
+                $assign_role[0]->save();
+            }else{
+                // $new_assign_role = new UsersAccess();
+                // $new_assign_role->access_role_assigned = json_encode($request->selected_roles);
+                // $new_assign_role->users_FK = $user->id;
+                // $new_assign_role->save();
+                UsersAccess::create([
+                    "access_role_assigned"=>json_encode($request->selected_roles),
+                    "users_FK"=>$user->id
+                ]);
+            }
+            // $assign_role->access_role_assigned = json_encode($role_assigned);
+            // $assign_role->save();
             ProcessAccessRoleCaching::dispatch($user, json_encode($role_assigned));
             return back()->with('message', 'User Updated Successfully.');
         } catch (\Throwable $th) {
-            $assign_role = new UsersAccess();
-            $assign_role->access_role_assigned = json_encode($request->selected_roles);
-            $assign_role->users_FK = $user->id;
-            $assign_role->save();
-            ProcessAccessRoleCaching::dispatchAfterResponse($user, json_encode($role_assigned));
+dd($th->getMessage());
+            return back()->withErrors(["error_message" => "Server Error"]);
+            // $assign_role = new UsersAccess();
+            // $assign_role->access_role_assigned = json_encode($request->selected_roles);
+            // $assign_role->users_FK = $user->id;
+            // $assign_role->save();
+            // ProcessAccessRoleCaching::dispatchAfterResponse($user, json_encode($role_assigned));
             return back()->with("message", "User Role Successfully Added");
             // return Redirect::back()->with('success', 'User Role Successfully Added.');
         }

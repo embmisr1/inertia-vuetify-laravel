@@ -32,14 +32,14 @@ class SolidwasteLCEController extends Controller
             ->leftjoin('ref_province as b', 'a.lce_province_FK', '=', 'b.PK_province_ID')
             ->leftjoin('ref_citymun as c', 'a.lce_municipality_FK', '=', 'c.PK_citymun_ID')
             ->leftjoin('ref_brgy as d', 'a.lce_barangay_FK', '=', 'd.PK_brgy_ID')
-            ->when(request('filter_province'), function ($lce_list) {
-                $lce_list->where('a.lce_province_FK', request('filter_province'));
+            ->when(request('provDesc'), function ($lce_list) {
+                $lce_list->where('b.provDesc', 'like' , '%'.request('provDesc').'%');
             })
-            ->when(request('filter_municipality'), function ($lce_list) {
-                $lce_list->where('a.lce_municipality_FK', request('filter_municipality'));
+            ->when(request('citymunDesc'), function ($lce_list) {
+                $lce_list->where('c.citymunDesc', 'like' , '%'.request('citymunDesc').'%');
             })
-            ->when(request('filter_barangay'), function ($lce_list) {
-                $lce_list->where('a.lce_barangay_FK', request('filter_barangay'));
+            ->when(request('brgyDesc'), function ($lce_list) {
+                $lce_list->where('d.brgyDesc', 'like' , '%'.request('brgyDesc').'%');
             })
             ->orderBy('b.provDesc', 'asc')
             ->orderBy('c.citymunDesc', 'asc')
