@@ -114,7 +114,7 @@ class SolidwasteLCEController extends Controller
             'query_ten_year' => $query_ten_year,
             'query_closed_dumpsite_id' => $query_closed_dumpsite,
             "query_gad" => $query_gad,
-            "attachments" => $attachments[0]->getMedia("avatar") ? AttachmentResource::collection($attachments[0]->getMedia("lce")) : null,
+            "attachments" => $attachments[0]->getMedia("avatars") ? AttachmentResource::collection($attachments[0]->getMedia("avatars")) : null,
         ]);
     }
 
@@ -136,7 +136,7 @@ class SolidwasteLCEController extends Controller
             // dd($attachments[0]->getMedia("lce") ? AttachmentResource::collection($attachments[0]->getMedia("lce")) : null);
         return Inertia::render("pages/swm/Form/LCEForm", [
             'lce_edit' => $lce_edit,
-            "attachments" => $attachments[0]->getMedia("avatar") ? AttachmentResource::collection($attachments[0]->getMedia("lce")) : null,
+            "attachments" => $attachments[0]->getMedia("avatars") ? AttachmentResource::collection($attachments[0]->getMedia("avatars")) : null,
             'province_dropdown' => $province_dropdown,
         ]);
     }
@@ -167,7 +167,7 @@ class SolidwasteLCEController extends Controller
                 $query
                     ->addMedia($file)
                     ->preservingOriginal()
-                    ->toMediaCollection("avatar");
+                    ->toMediaCollection("avatars");
             }
         }
         Logger::dispatch("SolidwasteLCE", $query->id, auth()->id(), "Created a LCE: model_id " . $query->id, "create");
@@ -201,8 +201,7 @@ class SolidwasteLCEController extends Controller
                     $query
                         ->addMedia($file)
                         ->preservingOriginal()
-                        ->toMediaCollection("avatar")
-                        ->useDisk('avatar');
+                        ->toMediaCollection("avatars");
                 }
             }
             Logger::dispatch("SolidwasteLCE", $query->id, auth()->id(), "Updated a LCE: model_id " . $query->id, "update");

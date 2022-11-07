@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\AttachmentResource;
 use App\Jobs\Logger;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
@@ -37,8 +38,10 @@ class SolidwasteIECController extends Controller
             ->leftjoin('ref_citymun as d', 'b.lce_municipality_FK', '=', 'd.PK_citymun_ID')
             ->leftjoin('ref_brgy as e', 'b.lce_barangay_FK', '=', 'e.PK_brgy_ID')
             ->where('a.id', $id)->get();
+            $attachments = SolidwasteIEC::where("id", $id)->get();
         return Inertia::render("pages/swm/Form/IECForm", [
             'iec_edit' => $iec_edit,
+            "attachments" => $attachments[0]->getMedia("iec") ? AttachmentResource::collection($attachments[0]->getMedia("iec")) : null,
         ]);
     }
 
@@ -62,6 +65,14 @@ class SolidwasteIECController extends Controller
             $query->iec_file_upload = $request->iec_file_upload;
             $query->lce_FK = $request->lce_FK;
             $query->save();
+            if ($request->iec_file) {
+                foreach ($request->iec_file as $file) {
+                    $query
+                        ->addMedia($file)
+                        ->preservingOriginal()
+                        ->toMediaCollection("iec");
+                }
+            }
             Logger::dispatch("SolidwasteIEC", $query->id, auth()->id(), "Created a IEC: model_id " . $query->id, "create");
             return redirect()->route("lce_show",["id"=>$request->lce_FK])->with("message", "IEC Created");
         } catch (\Throwable $th) {
@@ -89,13 +100,21 @@ class SolidwasteIECController extends Controller
             $query->iec_file_upload = $request->iec_file_upload;
             $query->lce_FK = $request->lce_FK;
             $query->save();
+            if ($request->iec_file) {
+                foreach ($request->iec_file as $file) {
+                    $query
+                        ->addMedia($file)
+                        ->preservingOriginal()
+                        ->toMediaCollection("iec");
+                }
+            }
             Logger::dispatch("SolidwasteIEC", $query->id, auth()->id(), "Updated a IEC: model_id " . $query->id, "update");
             return redirect()->route("lce_show",["id"=>$request->lce_FK])->with("message", "IEC Updated");
         } catch (\Throwable $th) {
             return $th->getMessage();
         }
     }
-    
+
     public function iec_delete(request $request)
     {
         if(!$this->solidwaste_validator($request)){ return back(); }
