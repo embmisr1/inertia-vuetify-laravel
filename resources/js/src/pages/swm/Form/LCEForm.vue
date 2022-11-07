@@ -116,8 +116,41 @@
             <v-card>
               <v-card-title> Basic Information </v-card-title>
               <v-card-text>
-                <div class="grid grid-cols-6 gap-x-2">
-                  <div class="col-span-1">
+                <div class="grid grid-cols-5 gap-x-2">
+                  <div>
+                    <div
+                      v-if="attachments.data.length"
+                      class="flex flex-col justify-center space-y-2"
+                    >
+                      <v-avatar size="100" width="80%" class="align-self-center p-2">
+                        <img :src="avatar.url" alt="Avatar" />
+                      </v-avatar>
+
+                      <v-btn
+                        color="orange darken-3"
+                        class="white--text"
+                        dense
+                        raised
+                        small
+                        block
+                        @click="removeAttachment(avatar.id)"
+                        >Remove Avatar</v-btn
+                      >
+                    </div>
+                    <div v-else>
+                      <v-file-input
+                        v-model="lce.lce_file"
+                        accept="image/*"
+                        outlined
+                        clearable
+                        dense
+                        multiple
+                        color="dark"
+                        label="Avatar"
+                      ></v-file-input>
+                    </div>
+                  </div>
+                  <div class="grid grid-cols-4 gap-x-2 col-span-4">
                     <ValidationProvider
                       vid="title"
                       name="Title"
@@ -136,9 +169,7 @@
                         persistent-hint
                       ></v-text-field>
                     </ValidationProvider>
-                  </div>
 
-                  <div class="grid grid-cols-3 gap-x-2 col-span-5">
                     <ValidationProvider
                       vid="fname"
                       name="First Name"
@@ -189,28 +220,24 @@
                         color="dark"
                       ></v-text-field>
                     </ValidationProvider>
-                  </div>
-                </div>
-                <div class="grid grid-cols-5 gap-x-2">
-                  <ValidationProvider
-                    vid="salutation"
-                    name="Salutation"
-                    rules="required"
-                    v-slot="{ errors }"
-                  >
-                    <v-text-field
-                      label="Salutation"
-                      :error-messages="errors[0]"
-                      v-model="lce.lce_salutation"
-                      outlined
-                      clearable
-                      dense
-                      color="dark"
-                      hint="Mayor"
-                      persistent-hint
-                    ></v-text-field>
-                  </ValidationProvider>
-                  <div class="col-span-4">
+                    <ValidationProvider
+                      vid="salutation"
+                      name="Salutation"
+                      rules="required"
+                      v-slot="{ errors }"
+                    >
+                      <v-text-field
+                        label="Salutation"
+                        :error-messages="errors[0]"
+                        v-model="lce.lce_salutation"
+                        outlined
+                        clearable
+                        dense
+                        color="dark"
+                        hint="Mayor"
+                        persistent-hint
+                      ></v-text-field>
+                    </ValidationProvider>
                     <ValidationProvider
                       vid="position"
                       name="Position"
@@ -316,7 +343,12 @@ export default {
       this.lce = { ...this.lce_edit[0] };
     }
   },
+  computed: {},
   methods: {
+    async removeAvatar() {
+      const { id } = this.avatar;
+      await this.$inertia.delete(`/app/delete_attachements/${id}`);
+    },
     saveForm() {
       if (this.lce_edit.length > 0) {
         this.updateLCEForm();
@@ -336,7 +368,7 @@ export default {
     async updateLCEForm() {
       try {
         const data = { ...this.lce };
-        await this.$inertia.patch("/app/swm/lce_update_process", data);
+        await this.$inertia.post("/app/swm/lce_update_process", data);
       } catch (error) {
         console.error(error.message);
         this.error(error.data.response.messsage);

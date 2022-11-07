@@ -272,15 +272,16 @@
                   rules=""
                   v-slot="{ errors }"
                 >
-                  <v-text-field
+                  <v-textarea
                     label="LGU Served"
                     :error-messages="errors[0]"
                     v-model="slf.slf_lgu_served"
+                    rows="3"
                     outlined
                     clearable
                     dense
                     color="dark"
-                  ></v-text-field>
+                  ></v-textarea>
                 </ValidationProvider>
               </div>
 
@@ -288,128 +289,110 @@
                 <v-card-title>
                   Treatment Process And Facilities Information
                 </v-card-title>
-                <v-card-text class="grid grid-cols-4 gap-2">
-                  <ValidationProvider
-                    vid="leachate"
-                    name="Leachate Treatment"
-                    rules=""
-                    v-slot="{ errors }"
-                  >
-                    <v-select
-                      :items="leachment_type"
-                      label="Leachate Treatment"
-                      :error-messages="errors[0]"
-                      v-model="slf.slf_leachate_treatment"
-                      outlined
-                      clearable
-                      dense
-                      color="dark"
-                    ></v-select>
-                  </ValidationProvider>
-                  <v-checkbox
-                    v-model="slf.slf_daily_soil_cover"
-                    label="Daily Soil Cover"
-                    value="true"
-                    hide-details
-                    color="dark"
-                  ></v-checkbox>
-                  <v-checkbox
-                    v-model="slf.slf_presence_of_mrf"
-                    label="Precense of MRF"
-                    value="true"
-                    hide-details
-                    color="dark"
-                  ></v-checkbox>
-                  <v-checkbox
-                    v-model="slf.slf_separate_cells_for_hazwaste"
-                    label="Separate Cells for Hazwaste"
-                    value="true"
-                    hide-details
-                    color="dark"
-                  ></v-checkbox>
-                  <v-checkbox
-                    v-model="slf.slf_methane_recovery"
-                    label="Methane Recovery"
-                    value="true"
-                    hide-details
-                    color="dark"
-                  ></v-checkbox>
-                  <v-checkbox
-                    v-model="slf.slf_discharge_permit"
-                    label="Discharge Permit"
-                    value="true"
-                    hide-details
-                    color="dark"
-                  ></v-checkbox>
-
-                  <v-checkbox
-                    v-model="slf.slf_1586_compliance"
-                    label="1586 Compliance"
-                    value="true"
-                    hide-details
-                    color="dark"
-                  ></v-checkbox>
-                  <v-checkbox
-                    v-model="slf.slf_9275_compliance"
-                    label="9275 Compliance"
-                    value="true"
-                    hide-details
-                    color="dark"
-                  ></v-checkbox>
-                  <v-checkbox
-                    v-model="slf.slf_6969_compliance"
-                    label="6969 Compliance"
-                    value="true"
-                    hide-details
-                    color="dark"
-                  ></v-checkbox>
-                  <div>
-                    <ValidationProvider
-                      vid="file"
-                      name="File"
-                      rules=""
-                      v-slot="{ errors }"
-                    >
-                      <!-- <v-text-field
-                                                label="File"
-                                                :error-messages="errors[0]"
-                                                v-model="slf.slf_file"
-                                                outlined
-                                                clearable
-                                                dense
-                                                color="dark"
-                                            ></v-text-field> -->
-                      <v-file-input
-                        label="File"
-                        :error-messages="errors[0]"
-                        v-model="slf.slf_file"
-                        outlined
-                        clearable
-                        dense
-                        color="dark"
-                        truncate-length="15"
-                        multiple
-                        accept="image/png, image/jpeg, application/pdf"
-                      ></v-file-input>
-                    </ValidationProvider>
+                <v-card-text>
+                  <div class="grid grid-cols-4 gap-x-2 mb-0">
+                    <div class="col-span-2 mb-0">
+                      <ValidationProvider
+                        vid="leachate"
+                        name="Leachate Treatment"
+                        rules=""
+                        v-slot="{ errors }"
+                      >
+                        <v-select
+                          :items="leachment_type"
+                          label="Leachate Treatment"
+                          :error-messages="errors[0]"
+                          v-model="slf.slf_leachate_treatment"
+                          outlined
+                          clearable
+                          dense
+                          color="dark"
+                          multiple
+                          class="mb-0"
+                        ></v-select>
+                      </ValidationProvider>
+                    </div>
+                    <div class="col-span-2 mb-0">
+                      <ValidationProvider
+                        vid="file"
+                        name="File"
+                        rules=""
+                        v-slot="{ errors }"
+                      >
+                        <v-file-input
+                          label="File"
+                          :error-messages="errors[0]"
+                          v-model="slf.slf_file"
+                          outlined
+                          clearable
+                          dense
+                          color="dark"
+                          truncate-length="15"
+                          multiple
+                          accept="image/png, image/jpeg, application/pdf"
+                        ></v-file-input>
+                      </ValidationProvider>
+                    </div>
                   </div>
-                  <!-- <FileUpload name="demo[]" url="./upload" /> -->
-                  <!-- <ValidationProvider
-                                        vid="lce_fk"
-                                        name="LCE"
-                                        rules=""
-                                        v-slot="{ errors }"
-                                    >
-                                        <v-text-field
-                                            label="LCE"
-                                            :error-messages="errors[0]"
-                                            v-model="slf.lce_FK"
-                                            outlined
-                                            clearable
-                                            dense
-                                            color="dark"
-                                        ></v-text-field>
-                                    </ValidationProvider> -->
+                  <div class="grid grid-cols-4 gap-x-2 mt-0">
+                    <v-checkbox
+                      v-model="slf.slf_daily_soil_cover"
+                      label="Daily Soil Cover"
+                      value="true"
+                      hide-details
+                      color="dark"
+                    ></v-checkbox>
+                    <v-checkbox
+                      v-model="slf.slf_presence_of_mrf"
+                      label="Precense of MRF"
+                      value="true"
+                      hide-details
+                      color="dark"
+                    ></v-checkbox>
+                    <v-checkbox
+                      v-model="slf.slf_separate_cells_for_hazwaste"
+                      label="Separate Cells for Hazwaste"
+                      value="true"
+                      hide-details
+                      color="dark"
+                    ></v-checkbox>
+                    <v-checkbox
+                      v-model="slf.slf_methane_recovery"
+                      label="Methane Recovery"
+                      value="true"
+                      hide-details
+                      color="dark"
+                    ></v-checkbox>
+                    <v-checkbox
+                      v-model="slf.slf_discharge_permit"
+                      label="Discharge Permit"
+                      value="true"
+                      hide-details
+                      color="dark"
+                    ></v-checkbox>
+
+                    <v-checkbox
+                      v-model="slf.slf_1586_compliance"
+                      label="1586 Compliance"
+                      value="true"
+                      hide-details
+                      color="dark"
+                    ></v-checkbox>
+                    <v-checkbox
+                      v-model="slf.slf_9275_compliance"
+                      label="9275 Compliance"
+                      value="true"
+                      hide-details
+                      color="dark"
+                    ></v-checkbox>
+                    <v-checkbox
+                      v-model="slf.slf_6969_compliance"
+                      label="6969 Compliance"
+                      value="true"
+                      hide-details
+                      color="dark"
+                    ></v-checkbox>
+                  </div>
                 </v-card-text>
                 <v-card-text class="grid grid-cols-2 gap-x-2">
                   <div v-if="withAttachment" class="">
