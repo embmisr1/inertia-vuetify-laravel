@@ -129,6 +129,7 @@
                                             outlined
                                             clearable
                                             dense
+                                            type="number"
                                             color="dark"
                                             persistent-hint
                                         ></v-text-field>
@@ -149,6 +150,7 @@
                                             outlined
                                             clearable
                                             dense
+                                            type="number"
                                             color="dark"
                                             hint="in Philippine PESO"
                                             persistent-hint
