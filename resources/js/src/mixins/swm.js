@@ -22,6 +22,8 @@ export default {
         query_dues: Array,
         dues_edit: Array,
         query_gad: Array,
+        query_iec:Array,
+        iec_edit:Array
     },
     data() {
         return {
@@ -40,6 +42,7 @@ export default {
                 lce_focal_person: "",
                 lce_contact_number: "",
                 lce_email_address: "",
+                lce_file: [],
             },
             slf: {
                 slf_complete_address: null,
@@ -84,6 +87,7 @@ export default {
                 mrf_total_waste_diverted: null,
                 mrf_number_of_waste_diverted: null,
                 mrf_file: null,
+                mrf_residual: null,
                 lce_FK: null,
             },
             cd: {
@@ -150,6 +154,21 @@ export default {
                 gad_male: null,
                 gad_female: null,
             },
+            iec: {
+                iec_topic: null,
+                iec_speaker: null,
+                iec_male: null,
+                iec_female: null,
+                iec_youth: null,
+                iec_senior_citizen: null,
+                iec_pwd: null,
+                iec_lgbt: null,
+                iec_pdl: null,
+                iec_adult: null,
+                iec_total: null,
+                iec_iis_number: null,
+                iec_file:null,
+            },
             complete_address: null,
             complete_address_setter: {
                 prov: {},
@@ -172,6 +191,9 @@ export default {
         };
     },
     computed: {
+        avatar() {
+            return this.attachments.data[0];
+        },
         withAttachment() {
             let toReturn = true;
             if (this.attachments === undefined) {
@@ -251,7 +273,7 @@ export default {
     methods: {
         async export_swm() {
             try {
-                const {value,label} = await this.exportable
+                const { value, label } = await this.exportable;
                 const { data } = await axios.get(`/app/swm/${value}`, {
                     params: { ...this.filter },
                     responseType: "blob",
