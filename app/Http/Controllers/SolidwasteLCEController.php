@@ -15,6 +15,7 @@ use App\Models\SolidwasteClosedDumpsite;
 use App\Models\SolidwasteEquipments;
 use App\Models\SolidwasteDues;
 use App\Models\SolidwasteIEC;
+use App\Models\SolidwasteSection24;
 use App\Models\SolidwasteGad;
 use App\Models\Barangay;
 use App\Models\Municipality;
@@ -85,6 +86,7 @@ class SolidwasteLCEController extends Controller
         $query_equipment = SolidwasteEquipments::where('lce_FK', $id)->orderBy('created_at', 'desc')->get();
         $query_dues = SolidwasteDues::where('lce_FK', $id)->orderBy('created_at', 'desc')->get();
         $query_iec = SolidwasteIEC::where('lce_FK', $id)->orderBy('created_at', 'desc')->get();
+        $query_section24 = SolidwasteSection24::where('lce_FK', $id)->orderBy('created_at', 'desc')->get();
         $query_gad = SolidwasteGad::where('lce_FK', $id)->orderBy('created_at', 'desc')->get();
         $query_ten_year = SolidwasteTenYear::where('lce_FK', $id)->orderBy('created_at', 'desc')->get();
         $query_closed_dumpsite = SolidwasteClosedDumpsite::select('id')->where('lce_FK', $id)->limit(1)->get();
@@ -111,6 +113,7 @@ class SolidwasteLCEController extends Controller
             'query_equipment' => $query_equipment,
             'query_dues' => $query_dues,
             'query_iec' => $query_iec,
+            'query_section24' => $query_section24,
             'query_ten_year' => $query_ten_year,
             'query_closed_dumpsite_id' => $query_closed_dumpsite,
             "query_gad" => $query_gad,

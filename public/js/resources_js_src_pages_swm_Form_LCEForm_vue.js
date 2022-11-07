@@ -1161,6 +1161,33 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -1176,7 +1203,29 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.lce = _objectSpread({}, this.lce_edit[0]);
     }
   },
+  computed: {},
   methods: {
+    removeAvatar: function removeAvatar() {
+      var _this = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+        var id;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                id = _this.avatar.id;
+                _context.next = 3;
+                return _this.$inertia["delete"]("/app/delete_attachements/".concat(id));
+
+              case 3:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }))();
+    },
     saveForm: function saveForm() {
       if (this.lce_edit.length > 0) {
         this.updateLCEForm();
@@ -1185,39 +1234,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }
     },
     saveLCEForm: function saveLCEForm() {
-      var _this = this;
-
-      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
-        var data;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                _context.prev = 0;
-                data = _objectSpread({}, _this.lce);
-                _context.next = 4;
-                return _this.$inertia.post("#", data);
-
-              case 4:
-                _context.next = 10;
-                break;
-
-              case 6:
-                _context.prev = 6;
-                _context.t0 = _context["catch"](0);
-                console.error(_context.t0.message);
-
-                _this.error(_context.t0.da.aresponse.messsage);
-
-              case 10:
-              case "end":
-                return _context.stop();
-            }
-          }
-        }, _callee, null, [[0, 6]]);
-      }))();
-    },
-    updateLCEForm: function updateLCEForm() {
       var _this2 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
@@ -1229,7 +1245,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                 _context2.prev = 0;
                 data = _objectSpread({}, _this2.lce);
                 _context2.next = 4;
-                return _this2.$inertia.patch("/app/swm/lce_update_process", data);
+                return _this2.$inertia.post("#", data);
 
               case 4:
                 _context2.next = 10;
@@ -1240,7 +1256,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                 _context2.t0 = _context2["catch"](0);
                 console.error(_context2.t0.message);
 
-                _this2.error(_context2.t0.data.response.messsage);
+                _this2.error(_context2.t0.da.aresponse.messsage);
 
               case 10:
               case "end":
@@ -1248,6 +1264,39 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             }
           }
         }, _callee2, null, [[0, 6]]);
+      }))();
+    },
+    updateLCEForm: function updateLCEForm() {
+      var _this3 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3() {
+        var data;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                _context3.prev = 0;
+                data = _objectSpread({}, _this3.lce);
+                _context3.next = 4;
+                return _this3.$inertia.post("/app/swm/lce_update_process", data);
+
+              case 4:
+                _context3.next = 10;
+                break;
+
+              case 6:
+                _context3.prev = 6;
+                _context3.t0 = _context3["catch"](0);
+                console.error(_context3.t0.message);
+
+                _this3.error(_context3.t0.data.response.messsage);
+
+              case 10:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3, null, [[0, 6]]);
       }))();
     }
   }
@@ -3014,7 +3063,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     query_equipment: Array,
     query_dues: Array,
     dues_edit: Array,
-    query_gad: Array
+    query_gad: Array,
+    query_iec: Array,
+    iec_edit: Array
   },
   data: function data() {
     return {
@@ -3032,7 +3083,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         lce_zip_code: "",
         lce_focal_person: "",
         lce_contact_number: "",
-        lce_email_address: ""
+        lce_email_address: "",
+        lce_file: []
       },
       slf: {
         slf_complete_address: null,
@@ -3077,6 +3129,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         mrf_total_waste_diverted: null,
         mrf_number_of_waste_diverted: null,
         mrf_file: null,
+        mrf_residual: null,
         lce_FK: null
       },
       cd: {
@@ -3139,6 +3192,21 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         gad_male: null,
         gad_female: null
       },
+      iec: {
+        iec_topic: null,
+        iec_speaker: null,
+        iec_male: null,
+        iec_female: null,
+        iec_youth: null,
+        iec_senior_citizen: null,
+        iec_pwd: null,
+        iec_lgbt: null,
+        iec_pdl: null,
+        iec_adult: null,
+        iec_total: null,
+        iec_iis_number: null,
+        iec_file: null
+      },
       complete_address: null,
       complete_address_setter: {
         prov: {},
@@ -3161,6 +3229,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     };
   },
   computed: {
+    avatar: function avatar() {
+      return this.attachments.data[0];
+    },
     withAttachment: function withAttachment() {
       var toReturn = true;
 
@@ -23457,11 +23528,97 @@ var render = function () {
                               _c("v-card-text", [
                                 _c(
                                   "div",
-                                  { staticClass: "grid grid-cols-6 gap-x-2" },
+                                  { staticClass: "grid grid-cols-5 gap-x-2" },
                                   [
+                                    _c("div", [
+                                      _vm.attachments.data.length
+                                        ? _c(
+                                            "div",
+                                            {
+                                              staticClass:
+                                                "flex flex-col justify-center space-y-2",
+                                            },
+                                            [
+                                              _c(
+                                                "v-avatar",
+                                                {
+                                                  staticClass:
+                                                    "align-self-center p-2",
+                                                  attrs: {
+                                                    size: "100",
+                                                    width: "80%",
+                                                  },
+                                                },
+                                                [
+                                                  _c("img", {
+                                                    attrs: {
+                                                      src: _vm.avatar.url,
+                                                      alt: "Avatar",
+                                                    },
+                                                  }),
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "v-btn",
+                                                {
+                                                  staticClass: "white--text",
+                                                  attrs: {
+                                                    color: "orange darken-3",
+                                                    dense: "",
+                                                    raised: "",
+                                                    small: "",
+                                                    block: "",
+                                                  },
+                                                  on: {
+                                                    click: function ($event) {
+                                                      return _vm.removeAttachment(
+                                                        _vm.avatar.id
+                                                      )
+                                                    },
+                                                  },
+                                                },
+                                                [_vm._v("Remove Avatar")]
+                                              ),
+                                            ],
+                                            1
+                                          )
+                                        : _c(
+                                            "div",
+                                            [
+                                              _c("v-file-input", {
+                                                attrs: {
+                                                  accept: "image/*",
+                                                  outlined: "",
+                                                  clearable: "",
+                                                  dense: "",
+                                                  multiple: "",
+                                                  color: "dark",
+                                                  label: "Avatar",
+                                                },
+                                                model: {
+                                                  value: _vm.lce.lce_file,
+                                                  callback: function ($$v) {
+                                                    _vm.$set(
+                                                      _vm.lce,
+                                                      "lce_file",
+                                                      $$v
+                                                    )
+                                                  },
+                                                  expression: "lce.lce_file",
+                                                },
+                                              }),
+                                            ],
+                                            1
+                                          ),
+                                    ]),
+                                    _vm._v(" "),
                                     _c(
                                       "div",
-                                      { staticClass: "col-span-1" },
+                                      {
+                                        staticClass:
+                                          "grid grid-cols-4 gap-x-2 col-span-4",
+                                      },
                                       [
                                         _c("ValidationProvider", {
                                           attrs: {
@@ -23512,17 +23669,7 @@ var render = function () {
                                             true
                                           ),
                                         }),
-                                      ],
-                                      1
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "div",
-                                      {
-                                        staticClass:
-                                          "grid grid-cols-3 gap-x-2 col-span-5",
-                                      },
-                                      [
+                                        _vm._v(" "),
                                         _c("ValidationProvider", {
                                           attrs: {
                                             vid: "fname",
@@ -23668,67 +23815,58 @@ var render = function () {
                                             true
                                           ),
                                         }),
-                                      ],
-                                      1
-                                    ),
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "div",
-                                  { staticClass: "grid grid-cols-5 gap-x-2" },
-                                  [
-                                    _c("ValidationProvider", {
-                                      attrs: {
-                                        vid: "salutation",
-                                        name: "Salutation",
-                                        rules: "required",
-                                      },
-                                      scopedSlots: _vm._u(
-                                        [
-                                          {
-                                            key: "default",
-                                            fn: function (ref) {
-                                              var errors = ref.errors
-                                              return [
-                                                _c("v-text-field", {
-                                                  attrs: {
-                                                    label: "Salutation",
-                                                    "error-messages": errors[0],
-                                                    outlined: "",
-                                                    clearable: "",
-                                                    dense: "",
-                                                    color: "dark",
-                                                    hint: "Mayor",
-                                                    "persistent-hint": "",
-                                                  },
-                                                  model: {
-                                                    value:
-                                                      _vm.lce.lce_salutation,
-                                                    callback: function ($$v) {
-                                                      _vm.$set(
-                                                        _vm.lce,
-                                                        "lce_salutation",
-                                                        $$v
-                                                      )
-                                                    },
-                                                    expression:
-                                                      "lce.lce_salutation",
-                                                  },
-                                                }),
-                                              ]
-                                            },
+                                        _vm._v(" "),
+                                        _c("ValidationProvider", {
+                                          attrs: {
+                                            vid: "salutation",
+                                            name: "Salutation",
+                                            rules: "required",
                                           },
-                                        ],
-                                        null,
-                                        true
-                                      ),
-                                    }),
-                                    _vm._v(" "),
-                                    _c(
-                                      "div",
-                                      { staticClass: "col-span-4" },
-                                      [
+                                          scopedSlots: _vm._u(
+                                            [
+                                              {
+                                                key: "default",
+                                                fn: function (ref) {
+                                                  var errors = ref.errors
+                                                  return [
+                                                    _c("v-text-field", {
+                                                      attrs: {
+                                                        label: "Salutation",
+                                                        "error-messages":
+                                                          errors[0],
+                                                        outlined: "",
+                                                        clearable: "",
+                                                        dense: "",
+                                                        color: "dark",
+                                                        hint: "Mayor",
+                                                        "persistent-hint": "",
+                                                      },
+                                                      model: {
+                                                        value:
+                                                          _vm.lce
+                                                            .lce_salutation,
+                                                        callback: function (
+                                                          $$v
+                                                        ) {
+                                                          _vm.$set(
+                                                            _vm.lce,
+                                                            "lce_salutation",
+                                                            $$v
+                                                          )
+                                                        },
+                                                        expression:
+                                                          "lce.lce_salutation",
+                                                      },
+                                                    }),
+                                                  ]
+                                                },
+                                              },
+                                            ],
+                                            null,
+                                            true
+                                          ),
+                                        }),
+                                        _vm._v(" "),
                                         _c("ValidationProvider", {
                                           attrs: {
                                             vid: "position",
@@ -23781,8 +23919,7 @@ var render = function () {
                                       ],
                                       1
                                     ),
-                                  ],
-                                  1
+                                  ]
                                 ),
                               ]),
                             ],

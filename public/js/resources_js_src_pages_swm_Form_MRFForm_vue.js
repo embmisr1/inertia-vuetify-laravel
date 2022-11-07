@@ -1293,6 +1293,47 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -3189,7 +3230,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     query_equipment: Array,
     query_dues: Array,
     dues_edit: Array,
-    query_gad: Array
+    query_gad: Array,
+    query_iec: Array,
+    iec_edit: Array
   },
   data: function data() {
     return {
@@ -3207,7 +3250,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         lce_zip_code: "",
         lce_focal_person: "",
         lce_contact_number: "",
-        lce_email_address: ""
+        lce_email_address: "",
+        lce_file: []
       },
       slf: {
         slf_complete_address: null,
@@ -3252,6 +3296,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         mrf_total_waste_diverted: null,
         mrf_number_of_waste_diverted: null,
         mrf_file: null,
+        mrf_residual: null,
         lce_FK: null
       },
       cd: {
@@ -3314,6 +3359,21 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         gad_male: null,
         gad_female: null
       },
+      iec: {
+        iec_topic: null,
+        iec_speaker: null,
+        iec_male: null,
+        iec_female: null,
+        iec_youth: null,
+        iec_senior_citizen: null,
+        iec_pwd: null,
+        iec_lgbt: null,
+        iec_pdl: null,
+        iec_adult: null,
+        iec_total: null,
+        iec_iis_number: null,
+        iec_file: null
+      },
       complete_address: null,
       complete_address_setter: {
         prov: {},
@@ -3336,6 +3396,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     };
   },
   computed: {
+    avatar: function avatar() {
+      return this.attachments.data[0];
+    },
     withAttachment: function withAttachment() {
       var toReturn = true;
 
@@ -23815,78 +23878,157 @@ var render = function () {
                                       "v-card-text",
                                       { staticClass: "grid grid-cols-2 gap-2" },
                                       [
-                                        _c("ValidationProvider", {
-                                          attrs: {
-                                            vid: "mrf_emb_funded",
-                                            name: "EMB FUNDED",
-                                            rules: "",
-                                          },
-                                          scopedSlots: _vm._u(
-                                            [
-                                              {
-                                                key: "default",
-                                                fn: function (ref) {
-                                                  var errors = ref.errors
-                                                  return [
-                                                    _c("v-text-field", {
-                                                      attrs: {
-                                                        label: "EMB FUNDED",
-                                                        "error-messages":
-                                                          errors[0],
-                                                        outlined: "",
-                                                        clearable: "",
-                                                        dense: "",
-                                                        color: "dark",
-                                                        hint: "in Philippine PESO",
-                                                        "persistent-hint": "",
-                                                      },
-                                                      scopedSlots: _vm._u(
-                                                        [
-                                                          {
-                                                            key: "prepend-inner",
-                                                            fn: function () {
-                                                              return [
-                                                                _c(
-                                                                  "div",
-                                                                  {
-                                                                    staticClass:
-                                                                      " text-xl font-bold",
+                                        _vm.form_type === "rca"
+                                          ? _c(
+                                              "div",
+                                              [
+                                                _c("ValidationProvider", {
+                                                  attrs: {
+                                                    vid: "mrf_emb_area_of_capacity",
+                                                    name: "Area of Capacity",
+                                                    rules: "",
+                                                  },
+                                                  scopedSlots: _vm._u(
+                                                    [
+                                                      {
+                                                        key: "default",
+                                                        fn: function (ref) {
+                                                          var errors =
+                                                            ref.errors
+                                                          return [
+                                                            _c("v-text-field", {
+                                                              attrs: {
+                                                                label:
+                                                                  "Area of Capacity",
+                                                                "error-messages":
+                                                                  errors[0],
+                                                                outlined: "",
+                                                                clearable: "",
+                                                                dense: "",
+                                                                color: "dark",
+                                                                "persistent-hint":
+                                                                  "",
+                                                              },
+                                                              model: {
+                                                                value:
+                                                                  _vm.mrf
+                                                                    .mrf_emb_funded,
+                                                                callback:
+                                                                  function (
+                                                                    $$v
+                                                                  ) {
+                                                                    _vm.$set(
+                                                                      _vm.mrf,
+                                                                      "mrf_emb_funded",
+                                                                      $$v
+                                                                    )
                                                                   },
-                                                                  [_vm._v("₱")]
-                                                                ),
-                                                              ]
-                                                            },
-                                                            proxy: true,
-                                                          },
-                                                        ],
-                                                        null,
-                                                        true
-                                                      ),
-                                                      model: {
-                                                        value:
-                                                          _vm.mrf
-                                                            .mrf_emb_funded,
-                                                        callback: function (
-                                                          $$v
-                                                        ) {
-                                                          _vm.$set(
-                                                            _vm.mrf,
-                                                            "mrf_emb_funded",
-                                                            $$v
-                                                          )
+                                                                expression:
+                                                                  "mrf.mrf_emb_funded",
+                                                              },
+                                                            }),
+                                                          ]
                                                         },
-                                                        expression:
-                                                          "mrf.mrf_emb_funded",
                                                       },
-                                                    }),
-                                                  ]
-                                                },
-                                              },
-                                            ],
-                                            null,
-                                            true
-                                          ),
-                                        }),
+                                                    ],
+                                                    null,
+                                                    true
+                                                  ),
+                                                }),
+                                              ],
+                                              1
+                                            )
+                                          : _vm._e(),
+                                        _vm._v(" "),
+                                        _vm.form_type === "mrf"
+                                          ? _c(
+                                              "div",
+                                              [
+                                                _c("ValidationProvider", {
+                                                  attrs: {
+                                                    vid: "mrf_emb_funded",
+                                                    name: "EMB FUNDED",
+                                                    rules: "",
+                                                  },
+                                                  scopedSlots: _vm._u(
+                                                    [
+                                                      {
+                                                        key: "default",
+                                                        fn: function (ref) {
+                                                          var errors =
+                                                            ref.errors
+                                                          return [
+                                                            _c("v-text-field", {
+                                                              attrs: {
+                                                                label:
+                                                                  "EMB FUNDED",
+                                                                "error-messages":
+                                                                  errors[0],
+                                                                outlined: "",
+                                                                clearable: "",
+                                                                dense: "",
+                                                                color: "dark",
+                                                                hint: "in Philippine PESO",
+                                                                "persistent-hint":
+                                                                  "",
+                                                              },
+                                                              scopedSlots:
+                                                                _vm._u(
+                                                                  [
+                                                                    {
+                                                                      key: "prepend-inner",
+                                                                      fn: function () {
+                                                                        return [
+                                                                          _c(
+                                                                            "div",
+                                                                            {
+                                                                              staticClass:
+                                                                                " text-xl font-bold",
+                                                                            },
+                                                                            [
+                                                                              _vm._v(
+                                                                                "₱"
+                                                                              ),
+                                                                            ]
+                                                                          ),
+                                                                        ]
+                                                                      },
+                                                                      proxy: true,
+                                                                    },
+                                                                  ],
+                                                                  null,
+                                                                  true
+                                                                ),
+                                                              model: {
+                                                                value:
+                                                                  _vm.mrf
+                                                                    .mrf_emb_funded,
+                                                                callback:
+                                                                  function (
+                                                                    $$v
+                                                                  ) {
+                                                                    _vm.$set(
+                                                                      _vm.mrf,
+                                                                      "mrf_emb_funded",
+                                                                      $$v
+                                                                    )
+                                                                  },
+                                                                expression:
+                                                                  "mrf.mrf_emb_funded",
+                                                              },
+                                                            }),
+                                                          ]
+                                                        },
+                                                      },
+                                                    ],
+                                                    null,
+                                                    true
+                                                  ),
+                                                }),
+                                              ],
+                                              1
+                                            )
+                                          : _vm._e(),
                                         _vm._v(" "),
                                         _c("ValidationProvider", {
                                           attrs: {
@@ -23962,10 +24104,11 @@ var render = function () {
                                             fn: function (ref) {
                                               var errors = ref.errors
                                               return [
-                                                _c("v-text-field", {
+                                                _c("v-textarea", {
                                                   attrs: {
                                                     label: "Service Area/s",
                                                     "error-messages": errors[0],
+                                                    rows: "3",
                                                     outlined: "",
                                                     clearable: "",
                                                     dense: "",
@@ -24098,6 +24241,56 @@ var render = function () {
                                                         },
                                                         expression:
                                                           "mrf.mrf_biodegradable",
+                                                      },
+                                                    }),
+                                                  ]
+                                                },
+                                              },
+                                            ],
+                                            null,
+                                            true
+                                          ),
+                                        }),
+                                        _vm._v(" "),
+                                        _c("ValidationProvider", {
+                                          attrs: {
+                                            vid: "mrf_residual",
+                                            name: "Residual",
+                                            rules: "",
+                                          },
+                                          scopedSlots: _vm._u(
+                                            [
+                                              {
+                                                key: "default",
+                                                fn: function (ref) {
+                                                  var errors = ref.errors
+                                                  return [
+                                                    _c("v-text-field", {
+                                                      attrs: {
+                                                        label: "Residual",
+                                                        "error-messages":
+                                                          errors[0],
+                                                        outlined: "",
+                                                        clearable: "",
+                                                        dense: "",
+                                                        color: "dark",
+                                                        hint: "kg/day",
+                                                        "persistent-hint": "",
+                                                      },
+                                                      model: {
+                                                        value:
+                                                          _vm.mrf.mrf_residual,
+                                                        callback: function (
+                                                          $$v
+                                                        ) {
+                                                          _vm.$set(
+                                                            _vm.mrf,
+                                                            "mrf_residual",
+                                                            $$v
+                                                          )
+                                                        },
+                                                        expression:
+                                                          "mrf.mrf_residual",
                                                       },
                                                     }),
                                                   ]

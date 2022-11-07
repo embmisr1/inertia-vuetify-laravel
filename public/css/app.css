@@ -508,14 +508,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 .col-span-7 {
   grid-column: span 7 / span 7;
 }
-.col-span-5 {
-  grid-column: span 5 / span 5;
+.col-span-2 {
+  grid-column: span 2 / span 2;
 }
 .col-span-3 {
   grid-column: span 3 / span 3;
-}
-.col-span-2 {
-  grid-column: span 2 / span 2;
 }
 .float-left {
   float: left;
@@ -596,11 +593,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 .mt-5 {
   margin-top: 1.25rem;
 }
-.mt-1 {
-  margin-top: 0.25rem;
-}
 .mt-0 {
   margin-top: 0px;
+}
+.mt-1 {
+  margin-top: 0.25rem;
 }
 .ml-8 {
   margin-left: 2rem;
@@ -731,11 +728,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 .grid-cols-3 {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
-.grid-cols-6 {
-  grid-template-columns: repeat(6, minmax(0, 1fr));
-}
 .grid-cols-4 {
   grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+.grid-cols-6 {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
 }
 .flex-col {
   flex-direction: column;
@@ -810,6 +807,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-space-x-reverse: 0;
   margin-right: calc(0.5rem * var(--tw-space-x-reverse));
   margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
+}
+.space-y-2 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(0.5rem * var(--tw-space-y-reverse));
 }
 .self-center {
   align-self: center;

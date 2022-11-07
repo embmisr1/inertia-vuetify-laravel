@@ -1923,6 +1923,32 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -1940,11 +1966,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   mixins: [_mixins___WEBPACK_IMPORTED_MODULE_4__.page, _mixins___WEBPACK_IMPORTED_MODULE_4__.toasts, _mixins___WEBPACK_IMPORTED_MODULE_4__.swm, _mixins___WEBPACK_IMPORTED_MODULE_4__.dialogs],
   data: function data() {
     return {
-      tabs: ["LCE", "SLF", "MRF", "RCA", "10 YR", "Equipment", "DUES"]
+      tabs: ["LCE", "SLF", "MRF", "RCA", "10 YR", "Equipment", "DUES", "IEC"]
     };
   },
   methods: {
-    removeSLF: function removeSLF(slf_id) {
+    removeIEC: function removeIEC(iec_id) {
       var _this = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
@@ -1962,7 +1988,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                         case 0:
                           _this.loading = true;
                           _context.next = 3;
-                          return _this.$inertia["delete"]("/app/swm/slf_delete/".concat(slf_id));
+                          return _this.$inertia["delete"]("/app/swm/iec_delete/".concat(iec_id));
 
                         case 3:
                           _this.loading = false;
@@ -1996,7 +2022,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }, _callee2, null, [[0, 7]]);
       }))();
     },
-    removeMRF: function removeMRF(mrf_id) {
+    removeSLF: function removeSLF(slf_id) {
       var _this2 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee4() {
@@ -2014,7 +2040,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                         case 0:
                           _this2.loading = true;
                           _context3.next = 3;
-                          return _this2.$inertia["delete"]("/app/swm/mrf_delete/".concat(mrf_id));
+                          return _this2.$inertia["delete"]("/app/swm/slf_delete/".concat(slf_id));
 
                         case 3:
                           _this2.loading = false;
@@ -2048,7 +2074,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }, _callee4, null, [[0, 7]]);
       }))();
     },
-    remove10Yr: function remove10Yr(ten_yr_id) {
+    removeMRF: function removeMRF(mrf_id) {
       var _this3 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee6() {
@@ -2066,7 +2092,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                         case 0:
                           _this3.loading = true;
                           _context5.next = 3;
-                          return _this3.$inertia["delete"]("/app/swm/ten_year_delete/".concat(ten_yr_id));
+                          return _this3.$inertia["delete"]("/app/swm/mrf_delete/".concat(mrf_id));
 
                         case 3:
                           _this3.loading = false;
@@ -2100,7 +2126,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }, _callee6, null, [[0, 7]]);
       }))();
     },
-    removeEquipment: function removeEquipment(equip_id) {
+    remove10Yr: function remove10Yr(ten_yr_id) {
       var _this4 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee8() {
@@ -2118,7 +2144,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                         case 0:
                           _this4.loading = true;
                           _context7.next = 3;
-                          return _this4.$inertia["delete"]("/app/swm/equipment_delete/".concat(equip_id));
+                          return _this4.$inertia["delete"]("/app/swm/ten_year_delete/".concat(ten_yr_id));
 
                         case 3:
                           _this4.loading = false;
@@ -2152,7 +2178,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }, _callee8, null, [[0, 7]]);
       }))();
     },
-    removeDues: function removeDues(dues_id) {
+    removeEquipment: function removeEquipment(equip_id) {
       var _this5 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee10() {
@@ -2170,7 +2196,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                         case 0:
                           _this5.loading = true;
                           _context9.next = 3;
-                          return _this5.$inertia["delete"]("/app/swm/dues_delete/".concat(dues_id));
+                          return _this5.$inertia["delete"]("/app/swm/equipment_delete/".concat(equip_id));
 
                         case 3:
                           _this5.loading = false;
@@ -2202,6 +2228,58 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             }
           }
         }, _callee10, null, [[0, 7]]);
+      }))();
+    },
+    removeDues: function removeDues(dues_id) {
+      var _this6 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee12() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee12$(_context12) {
+          while (1) {
+            switch (_context12.prev = _context12.next) {
+              case 0:
+                _context12.prev = 0;
+                _this6.loading = true;
+                _context12.next = 4;
+                return _this6.confirmDelete("This action  cannot be undone", /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee11() {
+                  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee11$(_context11) {
+                    while (1) {
+                      switch (_context11.prev = _context11.next) {
+                        case 0:
+                          _this6.loading = true;
+                          _context11.next = 3;
+                          return _this6.$inertia["delete"]("/app/swm/dues_delete/".concat(dues_id));
+
+                        case 3:
+                          _this6.loading = false;
+
+                        case 4:
+                        case "end":
+                          return _context11.stop();
+                      }
+                    }
+                  }, _callee11);
+                })));
+
+              case 4:
+                _this6.loading = false;
+                _context12.next = 12;
+                break;
+
+              case 7:
+                _context12.prev = 7;
+                _context12.t0 = _context12["catch"](0);
+                _this6.loading = false;
+                console.log(_context12.t0);
+
+                _this6.error(_context12.t0.response.data.message);
+
+              case 12:
+              case "end":
+                return _context12.stop();
+            }
+          }
+        }, _callee12, null, [[0, 7]]);
       }))();
     },
     minus: function minus(item, item1) {
@@ -3971,7 +4049,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     query_equipment: Array,
     query_dues: Array,
     dues_edit: Array,
-    query_gad: Array
+    query_gad: Array,
+    query_iec: Array,
+    iec_edit: Array
   },
   data: function data() {
     return {
@@ -3989,7 +4069,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         lce_zip_code: "",
         lce_focal_person: "",
         lce_contact_number: "",
-        lce_email_address: ""
+        lce_email_address: "",
+        lce_file: []
       },
       slf: {
         slf_complete_address: null,
@@ -4034,6 +4115,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         mrf_total_waste_diverted: null,
         mrf_number_of_waste_diverted: null,
         mrf_file: null,
+        mrf_residual: null,
         lce_FK: null
       },
       cd: {
@@ -4096,6 +4178,21 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         gad_male: null,
         gad_female: null
       },
+      iec: {
+        iec_topic: null,
+        iec_speaker: null,
+        iec_male: null,
+        iec_female: null,
+        iec_youth: null,
+        iec_senior_citizen: null,
+        iec_pwd: null,
+        iec_lgbt: null,
+        iec_pdl: null,
+        iec_adult: null,
+        iec_total: null,
+        iec_iis_number: null,
+        iec_file: null
+      },
       complete_address: null,
       complete_address_setter: {
         prov: {},
@@ -4118,6 +4215,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     };
   },
   computed: {
+    avatar: function avatar() {
+      return this.attachments.data[0];
+    },
     withAttachment: function withAttachment() {
       var toReturn = true;
 
@@ -24426,22 +24526,47 @@ var render = function () {
                         "v-card-text",
                         { staticClass: "grid grid-cols-5 gap-x-2" },
                         [
-                          _c(
-                            "div",
-                            { staticClass: "col-span-1" },
-                            [
-                              _c("box-icon", {
-                                attrs: {
-                                  pull: "burst",
-                                  type: "solid",
-                                  name: "user-account",
-                                  size: "200px",
-                                  border: "square",
-                                },
-                              }),
-                            ],
-                            1
-                          ),
+                          _c("div", { staticClass: "col-span-1" }, [
+                            _vm.avatar
+                              ? _c(
+                                  "div",
+                                  {},
+                                  [
+                                    _c(
+                                      "v-avatar",
+                                      {
+                                        staticClass: "align-self-center p-2",
+                                        attrs: { size: "100", width: "80%" },
+                                      },
+                                      [
+                                        _c("img", {
+                                          attrs: {
+                                            src: _vm.avatar.url,
+                                            alt: "Avatar",
+                                          },
+                                        }),
+                                      ]
+                                    ),
+                                  ],
+                                  1
+                                )
+                              : _c(
+                                  "div",
+                                  {},
+                                  [
+                                    _c("box-icon", {
+                                      attrs: {
+                                        pull: "burst",
+                                        type: "solid",
+                                        name: "user-account",
+                                        size: "200px",
+                                        border: "square",
+                                      },
+                                    }),
+                                  ],
+                                  1
+                                ),
+                          ]),
                           _vm._v(" "),
                           _c(
                             "div",
@@ -26397,20 +26522,25 @@ var render = function () {
               _c(
                 "v-container",
                 [
-                  _c("v-btn", { attrs: { dark: "" } }, [_vm._v("Add GAD")]),
+                  _c(
+                    "Link",
+                    { attrs: { href: "/app/swm/iec_register/" + _vm.lce_id } },
+                    [_c("v-btn", { attrs: { dark: "" } }, [_vm._v("Add IEC")])],
+                    1
+                  ),
                   _vm._v(" "),
                   _c(
                     "b-table",
                     {
                       attrs: {
-                        data: _vm.query_dues,
-                        "per-page": _vm.query_dues.per_page,
+                        data: _vm.query_iec,
+                        "per-page": _vm.query_iec.per_page,
                         "pagination-size": "is-small",
                         "page-input": "",
                         hoverable: "",
                         "backend-pagination": "",
-                        total: _vm.query_dues.total,
-                        "current-page": _vm.query_dues.current_page,
+                        total: _vm.query_iec.total,
+                        "current-page": _vm.query_iec.current_page,
                         "pagination-position": "top",
                         "pagination-rounded": "",
                         narrowed: "",
@@ -26428,18 +26558,10 @@ var render = function () {
                       },
                       on: {
                         "update:currentPage": function ($event) {
-                          return _vm.$set(
-                            _vm.query_dues,
-                            "current_page",
-                            $event
-                          )
+                          return _vm.$set(_vm.query_iec, "current_page", $event)
                         },
                         "update:current-page": function ($event) {
-                          return _vm.$set(
-                            _vm.query_dues,
-                            "current_page",
-                            $event
-                          )
+                          return _vm.$set(_vm.query_iec, "current_page", $event)
                         },
                         "page-change": _vm.onPageChange,
                       },
@@ -26468,7 +26590,7 @@ var render = function () {
                     },
                     [
                       _c("b-table-column", {
-                        attrs: { field: "gad_male", label: "Male" },
+                        attrs: { field: "iec_topic", label: "Topic" },
                         scopedSlots: _vm._u([
                           {
                             key: "searchable",
@@ -26490,7 +26612,7 @@ var render = function () {
                               return [
                                 _vm._v(
                                   "\n                            " +
-                                    _vm._s(props.row.gad_male) +
+                                    _vm._s(props.row.iec_topic) +
                                     "\n                            "
                                 ),
                               ]
@@ -26500,7 +26622,7 @@ var render = function () {
                       }),
                       _vm._v(" "),
                       _c("b-table-column", {
-                        attrs: { field: "gad_female", label: "Femaie" },
+                        attrs: { field: "iec_speaker", label: "Speaker" },
                         scopedSlots: _vm._u([
                           {
                             key: "searchable",
@@ -26522,7 +26644,39 @@ var render = function () {
                               return [
                                 _vm._v(
                                   "\n                             " +
-                                    _vm._s(props.row.gad_female) +
+                                    _vm._s(props.row.iec_speaker) +
+                                    "\n                            "
+                                ),
+                              ]
+                            },
+                          },
+                        ]),
+                      }),
+                      _vm._v(" "),
+                      _c("b-table-column", {
+                        attrs: { field: "iec_iis_number", label: "IIS Number" },
+                        scopedSlots: _vm._u([
+                          {
+                            key: "searchable",
+                            fn: function (props) {
+                              return [
+                                _c("b-input", {
+                                  attrs: {
+                                    placeholder: "Search...",
+                                    icon: "magnify",
+                                    size: "is-small",
+                                  },
+                                }),
+                              ]
+                            },
+                          },
+                          {
+                            key: "default",
+                            fn: function (props) {
+                              return [
+                                _vm._v(
+                                  "\n                             " +
+                                    _vm._s(props.row.iec_iis_number) +
                                     "\n                            "
                                 ),
                               ]
@@ -26540,6 +26694,11 @@ var render = function () {
                               return [
                                 _c(
                                   "Link",
+                                  {
+                                    attrs: {
+                                      href: "/app/swm/iec_edit/" + props.row.id,
+                                    },
+                                  },
                                   [
                                     _c("box-icon", {
                                       attrs: {
@@ -26554,7 +26713,14 @@ var render = function () {
                                 _vm._v(" "),
                                 _c(
                                   "v-btn",
-                                  { attrs: { icon: "", small: "" } },
+                                  {
+                                    attrs: { icon: "", small: "" },
+                                    on: {
+                                      click: function ($event) {
+                                        return _vm.removeIEC(props.row.id)
+                                      },
+                                    },
+                                  },
                                   [
                                     _c("box-icon", {
                                       attrs: {

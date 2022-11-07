@@ -28,6 +28,7 @@ use App\Http\Controllers\SolidwasteTenYearMonitoringController;
 use App\Http\Controllers\SolidwasteEquipmentController;
 use App\Http\Controllers\SolidwasteDuesController;
 use App\Http\Controllers\SolidwasteIECController;
+use App\Http\Controllers\SolidwasteSection24Controller;
 use App\Http\Controllers\SolidwasteGadController;
 use App\Http\Controllers\SolidwasteExport;
 use App\Http\Controllers\UnitSectionController;
@@ -200,13 +201,19 @@ Route::group([
         Route::post('/iec_register_process', [SolidwasteIECController::class, 'iec_register_process'])->name("iec_register_process");
         Route::post('/iec_update_process', [SolidwasteIECController::class, 'iec_update_process'])->name("iec_update_process");
         Route::delete('/iec_delete/{id}', [SolidwasteIECController::class, 'iec_delete'])->name("iec_delete");
+        // SECTION 24
+        Route::get('/section24_register/{id}', [SolidwasteSection24Controller::class, 'create'])->name("section24_register_form");
+        Route::get('/section24_edit/{id}', [SolidwasteSection24Controller::class, 'section24_edit'])->name("section24_edit");
+        Route::post('/section24_register_process', [SolidwasteSection24Controller::class, 'section24_register_process'])->name("section24_register_process");
+        Route::post('/section24_update_process', [SolidwasteSection24Controller::class, 'section24_update_process'])->name("section24_update_process");
+        Route::delete('/section24_delete/{id}', [SolidwasteSection24Controller::class, 'section24_delete'])->name("section24_delete");
         // GAD
         Route::get('/gad_register/{id}', [SolidwasteGadController::class, 'create'])->name("gad_register_form");
         Route::get('/gad_edit/{id}', [SolidwasteGadController::class, 'edit'])->name("gad_edit");
         Route::post('/gad_register_process', [SolidwasteGadController::class, 'register'])->name("gad_register_process");
         Route::post('/gad_update_process', [SolidwasteGadController::class, 'update'])->name("gad_update_process");
         Route::delete('/gad_delete/{id}', [SolidwasteGadController::class, 'delete'])->name("gad_delete");
-        // SOLODWASTE EXPORTS
+        // SOLIDWASTE EXPORTS
         Route::get('/lce_export', [SolidwasteExport::class, 'lce_export']);
         Route::get('/mrf_export', [SolidwasteExport::class, 'mrf_export']);
         Route::get('/rca_export', [SolidwasteExport::class, 'rca_export']);

@@ -4090,6 +4090,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _mixins___WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../mixins/ */ "./resources/js/src/mixins/index.js");
 /* harmony import */ var _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @inertiajs/inertia-vue */ "./node_modules/@inertiajs/inertia-vue/dist/index.js");
 /* harmony import */ var _components_PageTitle_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../components/PageTitle.vue */ "./resources/js/src/components/PageTitle.vue");
+Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../components/LoadingScreen.vue'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
 //
 //
 //
@@ -4132,6 +4133,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+
 
 
 
@@ -4139,12 +4142,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  mixins: [_mixins_universe_info__WEBPACK_IMPORTED_MODULE_2__["default"], _mixins___WEBPACK_IMPORTED_MODULE_3__.page, _mixins___WEBPACK_IMPORTED_MODULE_3__.toasts],
+  mixins: [_mixins___WEBPACK_IMPORTED_MODULE_3__.page, _mixins___WEBPACK_IMPORTED_MODULE_3__.toasts, _mixins_universe_info__WEBPACK_IMPORTED_MODULE_2__["default"]],
   components: {
     DefaultLayout: _layouts_default_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
     Link: _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_4__.Link,
     MainTab: _tabs_main_tab__WEBPACK_IMPORTED_MODULE_1__["default"],
-    PageTitle: _components_PageTitle_vue__WEBPACK_IMPORTED_MODULE_5__["default"]
+    PageTitle: _components_PageTitle_vue__WEBPACK_IMPORTED_MODULE_5__["default"],
+    LoadingScreen: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../components/LoadingScreen.vue'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())
   },
   props: {
     query: Object,
@@ -5932,7 +5936,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     query_equipment: Array,
     query_dues: Array,
     dues_edit: Array,
-    query_gad: Array
+    query_gad: Array,
+    query_iec: Array,
+    iec_edit: Array
   },
   data: function data() {
     return {
@@ -5950,7 +5956,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         lce_zip_code: "",
         lce_focal_person: "",
         lce_contact_number: "",
-        lce_email_address: ""
+        lce_email_address: "",
+        lce_file: []
       },
       slf: {
         slf_complete_address: null,
@@ -5995,6 +6002,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         mrf_total_waste_diverted: null,
         mrf_number_of_waste_diverted: null,
         mrf_file: null,
+        mrf_residual: null,
         lce_FK: null
       },
       cd: {
@@ -6057,6 +6065,21 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         gad_male: null,
         gad_female: null
       },
+      iec: {
+        iec_topic: null,
+        iec_speaker: null,
+        iec_male: null,
+        iec_female: null,
+        iec_youth: null,
+        iec_senior_citizen: null,
+        iec_pwd: null,
+        iec_lgbt: null,
+        iec_pdl: null,
+        iec_adult: null,
+        iec_total: null,
+        iec_iis_number: null,
+        iec_file: null
+      },
       complete_address: null,
       complete_address_setter: {
         prov: {},
@@ -6079,6 +6102,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     };
   },
   computed: {
+    avatar: function avatar() {
+      return this.attachments.data[0];
+    },
     withAttachment: function withAttachment() {
       var toReturn = true;
 
@@ -31708,6 +31734,8 @@ var render = function () {
           },
         ]),
       }),
+      _vm._v(" "),
+      _c("LoadingScreen", { attrs: { loading: _vm.loading } }),
     ],
     1
   )
