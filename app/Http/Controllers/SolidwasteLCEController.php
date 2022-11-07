@@ -94,6 +94,7 @@ class SolidwasteLCEController extends Controller
             ->leftjoin('ref_brgy as d', 'a.lce_barangay_FK', '=', 'd.PK_brgy_ID')
             ->where('a.id', $id)
             ->get();
+            $attachments = SolidwasteLCE::where("id", $id)->get();
         if (isset($query_closed_dumpsite[0]->id)) {
             $query_closed_dumpsite = $query_closed_dumpsite[0]->id;
         } else {
@@ -109,7 +110,8 @@ class SolidwasteLCEController extends Controller
             'query_dues' => $query_dues,
             'query_ten_year' => $query_ten_year,
             'query_closed_dumpsite_id' => $query_closed_dumpsite,
-            "query_gad" => $query_gad
+            "query_gad" => $query_gad,
+            "attachments" => $attachments[0]->getMedia("avatar") ? AttachmentResource::collection($attachments[0]->getMedia("lce")) : null,
         ]);
     }
 
@@ -127,10 +129,11 @@ class SolidwasteLCEController extends Controller
             ->leftjoin('ref_brgy as d', 'a.lce_barangay_FK', '=', 'd.PK_brgy_ID')
             ->where('a.id', $id)
             ->get();
-            $attachements = SolidwasteLCE::where("id", $id)->get();
+            $attachments = SolidwasteLCE::where("id", $id)->get();
+            // dd($attachments[0]->getMedia("lce") ? AttachmentResource::collection($attachments[0]->getMedia("lce")) : null);
         return Inertia::render("pages/swm/Form/LCEForm", [
             'lce_edit' => $lce_edit,
-            "attachments" => AttachmentResource::collection($attachements[0]->getMedia("lce")),
+            "attachments" => $attachments[0]->getMedia("avatar") ? AttachmentResource::collection($attachments[0]->getMedia("lce")) : null,
             'province_dropdown' => $province_dropdown,
         ]);
     }
@@ -161,7 +164,7 @@ class SolidwasteLCEController extends Controller
                 $query
                     ->addMedia($file)
                     ->preservingOriginal()
-                    ->toMediaCollection("lce");
+                    ->toMediaCollection("avatar");
             }
         }
         Logger::dispatch("SolidwasteLCE", $query->id, auth()->id(), "Created a LCE: model_id " . $query->id, "create");
@@ -195,7 +198,8 @@ class SolidwasteLCEController extends Controller
                     $query
                         ->addMedia($file)
                         ->preservingOriginal()
-                        ->toMediaCollection("lce");
+                        ->toMediaCollection("avatar")
+                        ->useDisk('avatar');
                 }
             }
             Logger::dispatch("SolidwasteLCE", $query->id, auth()->id(), "Updated a LCE: model_id " . $query->id, "update");
