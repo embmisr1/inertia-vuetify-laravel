@@ -28,6 +28,10 @@ class LogsFilter implements Filterable
             ->when(request('activity'), function ($query) {
                 $query->where('activity', 'LIKE', "%" . request('activity') . "%");
             })
+            ->orderBy(
+                request('order_by', 'created_at'), // column
+                request('direction', 'desc') // direction
+            )
             ->paginate(request("size", 10));
     }
 }
