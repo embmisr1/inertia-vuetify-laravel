@@ -18,8 +18,8 @@ class CreateTblSolidwasteSection24 extends Migration
             $table->string('section24_iis_number')->nullable();
             $table->string('section24_catered_barangay')->nullable();
             $table->longText('section24_collection_vehicle')->nullable();
-            $table->boolean('section24_schedule_of_collection')->nullable();
-            $table->boolean('section24_swm_personnel')->default(false);
+            $table->string('section24_schedule_of_collection')->nullable();
+            $table->string('section24_swm_personnel')->nullable();
             $table->boolean('section24_basis_1')->default(false);
             $table->boolean('section24_basis_2')->default(false);
             $table->boolean('section24_basis_3')->default(false);
