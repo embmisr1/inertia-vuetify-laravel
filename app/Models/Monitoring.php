@@ -17,7 +17,7 @@ class Monitoring extends Model implements HasMedia
     {
         $this
             ->addMediaCollection('monitoring')
-            ->acceptsMimeTypes(['application/pdf'])
+            ->acceptsMimeTypes(['application/pdf','application/octet-stream'])
             ->useDisk('monitoring');
     }
 }

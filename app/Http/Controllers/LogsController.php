@@ -48,7 +48,6 @@ class LogsController extends Controller
 
     public function index(Request $request)
     {
-
         return Inertia::render("pages/universe/logs", [
             "filters" => FacadesRequest::all(
                 "username",

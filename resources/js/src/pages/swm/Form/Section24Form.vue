@@ -95,204 +95,6 @@
                         color="dark"
                       ></v-text-field>
                     </ValidationProvider>
-                    <div class="col-span-4 grid grid-cols-9 gap-x-2">
-                      <div class="col-span-3">
-                        <ValidationProvider
-                          vid="section24_collection_vehicle"
-                          name="Collection Vehicle"
-                          rules=""
-                          v-slot="{ errors }"
-                        >
-                          <v-textarea
-                            label="Collection Vehicle"
-                            :error-messages="errors[0]"
-                            v-model="sec_24.section24_collection_vehicle"
-                            outlined
-                            clearable
-                            dense
-                            color="dark"
-                            rows="2"
-                          ></v-textarea>
-                        </ValidationProvider>
-                      </div>
-                    </div>
-
-                    <ValidationProvider
-                      vid="section24_basis_1"
-                      name="Basis 1"
-                      rules=""
-                      v-slot="{ errors }"
-                    >
-                      <v-text-field
-                        label="Basis 1"
-                        :error-messages="errors[0]"
-                        v-model="sec_24.section24_basis_1"
-                        outlined
-                        clearable
-                        dense
-                        color="dark"
-                      ></v-text-field>
-                    </ValidationProvider>
-                    <ValidationProvider
-                      vid="section24_basis_2"
-                      name="Basis 2"
-                      rules=""
-                      v-slot="{ errors }"
-                    >
-                      <v-text-field
-                        label="Basis 2"
-                        :error-messages="errors[0]"
-                        v-model="sec_24.section24_basis_2"
-                        outlined
-                        clearable
-                        dense
-                        color="dark"
-                      ></v-text-field>
-                    </ValidationProvider>
-                    <ValidationProvider
-                      vid="section24_basis_3"
-                      name="Basis 3"
-                      rules=""
-                      v-slot="{ errors }"
-                    >
-                      <v-text-field
-                        label="Basis 3"
-                        :error-messages="errors[0]"
-                        v-model="sec_24.section24_basis_3"
-                        outlined
-                        clearable
-                        dense
-                        color="dark"
-                      ></v-text-field>
-                    </ValidationProvider>
-                    <ValidationProvider
-                      vid="section24_basis_4"
-                      name="Basis 4"
-                      rules=""
-                      v-slot="{ errors }"
-                    >
-                      <v-text-field
-                        label="Basis 4"
-                        :error-messages="errors[0]"
-                        v-model="sec_24.section24_basis_4"
-                        outlined
-                        clearable
-                        dense
-                        color="dark"
-                      ></v-text-field>
-                    </ValidationProvider>
-                    <ValidationProvider
-                      vid="section24_basis_5"
-                      name="Basis 5"
-                      rules=""
-                      v-slot="{ errors }"
-                    >
-                      <v-text-field
-                        label="Basis 5"
-                        :error-messages="errors[0]"
-                        v-model="sec_24.section24_basis_5"
-                        outlined
-                        clearable
-                        dense
-                        color="dark"
-                      ></v-text-field>
-                    </ValidationProvider>
-                    <ValidationProvider
-                      vid="section24_basis_6"
-                      name="Basis 6"
-                      rules=""
-                      v-slot="{ errors }"
-                    >
-                      <v-text-field
-                        label="Basis 6"
-                        :error-messages="errors[0]"
-                        v-model="sec_24.section24_basis_6"
-                        outlined
-                        clearable
-                        dense
-                        color="dark"
-                      ></v-text-field>
-                    </ValidationProvider>
-                    <ValidationProvider
-                      vid="section24_basis_7"
-                      name="Basis 7"
-                      rules=""
-                      v-slot="{ errors }"
-                    >
-                      <v-text-field
-                        label="Basis 7"
-                        :error-messages="errors[0]"
-                        v-model="sec_24.section24_basis_7"
-                        outlined
-                        clearable
-                        dense
-                        color="dark"
-                      ></v-text-field>
-                    </ValidationProvider>
-                    <ValidationProvider
-                      vid="section24_basis_8"
-                      name="Basis 8"
-                      rules=""
-                      v-slot="{ errors }"
-                    >
-                      <v-text-field
-                        label="Basis 8"
-                        :error-messages="errors[0]"
-                        v-model="sec_24.section24_basis_8"
-                        outlined
-                        clearable
-                        dense
-                        color="dark"
-                      ></v-text-field>
-                    </ValidationProvider>
-                    <ValidationProvider
-                      vid="section24_basis_9"
-                      name="Basis 9"
-                      rules=""
-                      v-slot="{ errors }"
-                    >
-                      <v-text-field
-                        label="Basis 9"
-                        :error-messages="errors[0]"
-                        v-model="sec_24.section24_basis_9"
-                        outlined
-                        clearable
-                        dense
-                        color="dark"
-                      ></v-text-field>
-                    </ValidationProvider>
-                    <ValidationProvider
-                      vid="section24_basis_10"
-                      name="Basis 10"
-                      rules=""
-                      v-slot="{ errors }"
-                    >
-                      <v-text-field
-                        label="Basis 10"
-                        :error-messages="errors[0]"
-                        v-model="sec_24.section24_basis_10"
-                        outlined
-                        clearable
-                        dense
-                        color="dark"
-                      ></v-text-field>
-                    </ValidationProvider>
-                    <ValidationProvider
-                      vid="section24_basis_11"
-                      name="Basis 11"
-                      rules=""
-                      v-slot="{ errors }"
-                    >
-                      <v-text-field
-                        label="Basis 11"
-                        :error-messages="errors[0]"
-                        v-model="sec_24.section24_basis_11"
-                        outlined
-                        clearable
-                        dense
-                        color="dark"
-                      ></v-text-field>
-                    </ValidationProvider>
                     <ValidationProvider
                       vid="section24_with_letter"
                       name="With Letter"
@@ -309,6 +111,26 @@
                         color="dark"
                       ></v-text-field>
                     </ValidationProvider>
+                    <div class="col-span-2">
+                      <ValidationProvider
+                        vid="section24_collection_vehicle"
+                        name="Collection Vehicle"
+                        rules=""
+                        v-slot="{ errors }"
+                      >
+                        <v-textarea
+                          label="Collection Vehicle"
+                          :error-messages="errors[0]"
+                          v-model="sec_24.section24_collection_vehicle"
+                          outlined
+                          clearable
+                          dense
+                          color="dark"
+                          rows="2"
+                        ></v-textarea>
+                      </ValidationProvider>
+                    </div>
+
                     <div class="col-span-4 grid grid-cols-2 gap-2">
                       <div>
                         <ValidationProvider
@@ -352,6 +174,184 @@
                     </div>
                   </div>
 
+                  <v-divider />
+                  <div class="grid grid-cols-5 gap-2">
+                    <v-checkbox v-model="sec_24.section24_basis_1">
+                      <template v-slot:label>
+                        <div>
+                          Section 1
+                          <v-tooltip top>
+                            <template v-slot:activator="{ on }">
+                              <v-icon @click="view_section(1)" @click.stop v-on="on" small
+                                >mdi-dots-horizontal</v-icon
+                              >
+                            </template>
+                            View Section
+                          </v-tooltip>
+                        </div>
+                      </template>
+                    </v-checkbox>
+                    <v-checkbox v-model="sec_24.section24_basis_2">
+                      <template v-slot:label>
+                        <div>
+                          Section 2
+                          <v-tooltip top>
+                            <template v-slot:activator="{ on }">
+                              <v-icon @click="view_section(2)" @click.stop v-on="on" small
+                                >mdi-dots-horizontal</v-icon
+                              >
+                            </template>
+                            View Section
+                          </v-tooltip>
+                        </div>
+                      </template>
+                    </v-checkbox>
+                    <v-checkbox v-model="sec_24.section24_basis_3">
+                      <template v-slot:label>
+                        <div>
+                          Section 3
+                          <v-tooltip top>
+                            <template v-slot:activator="{ on }">
+                              <v-icon @click="view_section(3)" @click.stop v-on="on" small
+                                >mdi-dots-horizontal</v-icon
+                              >
+                            </template>
+                            View Section
+                          </v-tooltip>
+                        </div>
+                      </template>
+                    </v-checkbox>
+                    <v-checkbox v-model="sec_24.section24_basis_4">
+                      <template v-slot:label>
+                        <div>
+                          Section 4
+                          <v-tooltip top>
+                            <template v-slot:activator="{ on }">
+                              <v-icon @click="view_section(4)" @click.stop v-on="on" small
+                                >mdi-dots-horizontal</v-icon
+                              >
+                            </template>
+                            View Section
+                          </v-tooltip>
+                        </div>
+                      </template>
+                    </v-checkbox>
+                    <v-checkbox v-model="sec_24.section24_basis_5">
+                      <template v-slot:label>
+                        <div>
+                          Section 5
+                          <v-tooltip top>
+                            <template v-slot:activator="{ on }">
+                              <v-icon @click="view_section(5)" @click.stop v-on="on" small
+                                >mdi-dots-horizontal</v-icon
+                              >
+                            </template>
+                            View Section
+                          </v-tooltip>
+                        </div>
+                      </template>
+                    </v-checkbox>
+                    <v-checkbox v-model="sec_24.section24_basis_6">
+                      <template v-slot:label>
+                        <div>
+                          Section 6
+                          <v-tooltip top>
+                            <template v-slot:activator="{ on }">
+                              <v-icon @click="view_section(6)" @click.stop v-on="on" small
+                                >mdi-dots-horizontal</v-icon
+                              >
+                            </template>
+                            View Section
+                          </v-tooltip>
+                        </div>
+                      </template>
+                    </v-checkbox>
+                    <v-checkbox v-model="sec_24.section24_basis_7">
+                      <template v-slot:label>
+                        <div>
+                          Section 7
+                          <v-tooltip top>
+                            <template v-slot:activator="{ on }">
+                              <v-icon @click="view_section(7)" @click.stop v-on="on" small
+                                >mdi-dots-horizontal</v-icon
+                              >
+                            </template>
+                            View Section
+                          </v-tooltip>
+                        </div>
+                      </template>
+                    </v-checkbox>
+                    <v-checkbox v-model="sec_24.section24_basis_8">
+                      <template v-slot:label>
+                        <div>
+                          Section 8
+                          <v-tooltip top>
+                            <template v-slot:activator="{ on }">
+                              <v-icon @click="view_section(8)" @click.stop v-on="on" small
+                                >mdi-dots-horizontal</v-icon
+                              >
+                            </template>
+                            View Section
+                          </v-tooltip>
+                        </div>
+                      </template>
+                    </v-checkbox>
+                    <v-checkbox v-model="sec_24.section24_basis_9">
+                      <template v-slot:label>
+                        <div>
+                          Section 9
+                          <v-tooltip top>
+                            <template v-slot:activator="{ on }">
+                              <v-icon @click="view_section(9)" @click.stop v-on="on" small
+                                >mdi-dots-horizontal</v-icon
+                              >
+                            </template>
+                            View Section
+                          </v-tooltip>
+                        </div>
+                      </template>
+                    </v-checkbox>
+                    <v-checkbox v-model="sec_24.section24_basis_10">
+                      <template v-slot:label>
+                        <div>
+                          Section 10
+                          <v-tooltip top>
+                            <template v-slot:activator="{ on }">
+                              <v-icon
+                                @click="view_section(10)"
+                                @click.stop
+                                v-on="on"
+                                small
+                                >mdi-dots-horizontal</v-icon
+                              >
+                            </template>
+                            View Section
+                          </v-tooltip>
+                        </div>
+                      </template>
+                    </v-checkbox>
+                    <v-checkbox v-model="sec_24.section24_basis_11">
+                      <template v-slot:label>
+                        <div>
+                          Section 11
+                          <v-tooltip top>
+                            <template v-slot:activator="{ on }">
+                              <v-icon
+                                @click="view_section(11)"
+                                @click.stop
+                                v-on="on"
+                                small
+                                >mdi-dots-horizontal</v-icon
+                              >
+                            </template>
+                            View Section
+                          </v-tooltip>
+                        </div>
+                      </template>
+                    </v-checkbox>
+                  </div>
+                  <v-divider />
+
                   <v-card-text class="grid grid-cols-2 gap-x-2">
                     <div v-if="withAttachment" class="">
                       <ViewAttachements
@@ -376,6 +376,25 @@
         </form>
       </ValidationObserver>
     </div>
+    <Dialog
+      header="View Section"
+      :visible.sync="section.modal"
+      :containerStyle="{ width: '50vw' }"
+      position="right"
+      :modal="true"
+    >
+      <div class="m-0 whitespace-pre-line break-words">
+        {{ section.data }}
+      </div>
+      <template #footer>
+        <Button
+          label="Close"
+          icon="pi pi-times"
+          @click="closePosition"
+          class="p-button-rounded p-button-secondary p-button-sm"
+        />
+      </template>
+    </Dialog>
   </DefaultLayout>
 </template>
 
@@ -386,11 +405,15 @@ import { Link } from "@inertiajs/inertia-vue";
 import _ from "lodash";
 import { page, toasts, swm, dialogs } from "../../../mixins";
 import ViewAttachements from "../../../components/ViewAttachements.vue";
+import Dialog from "primevue/dialog";
+import Button from "primevue/button";
 export default {
   components: {
     DefaultLayout,
     Link,
     ViewAttachements,
+    Dialog,
+    Button,
   },
   mixins: [page, toasts, swm, dialogs],
   data() {
@@ -398,13 +421,18 @@ export default {
       sec_24_form_type: "create",
       date_granted: false,
       monitored_calendar: false,
+      settings: [],
+      section: {
+        modal: false,
+        data: "",
+      },
     };
   },
   created() {
     this.loading = true;
     if (this.lce_info !== undefined) {
       if (this.lce_info.length > 0) {
-        this.sec_24 = { ...this.lce_info[0] };
+        this.sec_24 = { ...this.sec_24, ...this.lce_info[0] };
         this.sec_24_form_type = "create";
       }
     } else if (this.section24_edit !== undefined) {
@@ -428,6 +456,66 @@ export default {
     },
   },
   methods: {
+    closePosition() {
+      this.section = {
+        modal: false,
+        data: "",
+      };
+    },
+
+    async view_section(section) {
+      switch (section) {
+        case 1:
+          this.section.data =
+            "1. To provide a separate truck for the collection of all recyclables such as glass, metals, plastics, waste paper to be delivered to Materials Recovery Facilities, recycling facilities or contracted junkshops";
+          break;
+        case 2:
+          this.section.data =
+            "2. To provide truck for the collection of compostable or biodegradable wastes to be transported to composting facilities;";
+          break;
+        case 3:
+          this.section.data =
+            "3. To provide truck for residual wastes from the residents and other establishments to be hauled out to disposal facilities;";
+          break;
+        case 4:
+          this.section.data =
+            "4. To provide truck for the collection of household hazardous wastes for proper treatment prior to disposal.";
+          break;
+        case 5:
+          this.section.data =
+            "5. To provide truck for household infectious wastes or COVID-19 related wastes;";
+          break;
+        case 6:
+          this.section.data =
+            "6. To provide a compartmentalized truck, whichever is applicable to ensure separate waste collection;";
+          break;
+        case 7:
+          this.section.data =
+            "7. To implement no collection of unsegregated or mixed solid wastes placed in garbage bags by residents and establishments;";
+          break;
+        case 8:
+          this.section.data = `8. To observe the following color coding of wastes bags listed below:
+a. green for biodegradable wastes;
+b. blue for recyclables;
+c. black for residuals or non-recyclables;
+d. red for household hazardous wastes or special wastes; and
+e. yellow for household infectious/covid-19 wastes`;
+          break;
+        case 9:
+          this.section.data =
+            "9. To apply color coding/labeling of the hauling truck per type of solid waste collected as stated above.";
+          break;
+        case 10:
+          this.section.data =
+            "10. To retain employees and crews that are implementing good solid waste collection/hauling practices in compliance with Section 24, RA 9003";
+          break;
+        case 11:
+          this.section.data =
+            "11. To replace employees and crews violating Section 24 of RA 9003;";
+          break;
+      }
+      this.section.modal = true;
+    },
     saveForm() {
       if (this.sec_24_form_type === "create") {
         this.savesec24Form();
