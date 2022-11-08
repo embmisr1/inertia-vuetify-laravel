@@ -4090,7 +4090,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _mixins___WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../mixins/ */ "./resources/js/src/mixins/index.js");
 /* harmony import */ var _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @inertiajs/inertia-vue */ "./node_modules/@inertiajs/inertia-vue/dist/index.js");
 /* harmony import */ var _components_PageTitle_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../components/PageTitle.vue */ "./resources/js/src/components/PageTitle.vue");
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../components/LoadingScreen.vue'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
 //
 //
 //
@@ -4139,7 +4138,7 @@ Object(function webpackMissingModule() { var e = new Error("Cannot find module '
 
 
 
-
+ // import LoadingScreen from "../../components/LoadingScreen.vue";
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   mixins: [_mixins___WEBPACK_IMPORTED_MODULE_3__.page, _mixins___WEBPACK_IMPORTED_MODULE_3__.toasts, _mixins_universe_info__WEBPACK_IMPORTED_MODULE_2__["default"]],
@@ -4147,8 +4146,8 @@ Object(function webpackMissingModule() { var e = new Error("Cannot find module '
     DefaultLayout: _layouts_default_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
     Link: _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_4__.Link,
     MainTab: _tabs_main_tab__WEBPACK_IMPORTED_MODULE_1__["default"],
-    PageTitle: _components_PageTitle_vue__WEBPACK_IMPORTED_MODULE_5__["default"],
-    LoadingScreen: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../components/LoadingScreen.vue'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())
+    PageTitle: _components_PageTitle_vue__WEBPACK_IMPORTED_MODULE_5__["default"] // LoadingScreen,
+
   },
   props: {
     query: Object,
@@ -5938,7 +5937,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     dues_edit: Array,
     query_gad: Array,
     query_iec: Array,
-    iec_edit: Array
+    iec_edit: Array,
+    query_section24: Array,
+    section24_edit: Array
   },
   data: function data() {
     return {
@@ -6060,6 +6061,27 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         dues_accountant: null,
         dues_contact_email: null,
         lce_FK: null
+      },
+      sec_24: {
+        section24_iis_number: null,
+        section24_catered_barangay: null,
+        section24_collection_vehicle: null,
+        section24_schedule_of_collection: null,
+        section24_swm_personnel: null,
+        section24_basis_1: null,
+        section24_basis_2: null,
+        section24_basis_3: null,
+        section24_basis_4: null,
+        section24_basis_5: null,
+        section24_basis_6: null,
+        section24_basis_7: null,
+        section24_basis_8: null,
+        section24_basis_9: null,
+        section24_basis_10: null,
+        section24_basis_11: null,
+        section24_findings: null,
+        section24_remarks: null,
+        section24_with_letter: null
       },
       gad: {
         gad_male: null,
@@ -26094,7 +26116,7 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "font-bold text-2xl flex items-center" },
+    { staticClass: "font-bold text-lg sm:text-2xl flex items-center" },
     [
       _c(
         "b-tooltip",
@@ -26113,7 +26135,7 @@ var render = function () {
         ],
         1
       ),
-      _vm._v("\n    " + _vm._s(_vm.title) + "\n"),
+      _vm._v("\n  " + _vm._s(_vm.title) + "\n"),
     ],
     1
   )
@@ -31734,8 +31756,6 @@ var render = function () {
           },
         ]),
       }),
-      _vm._v(" "),
-      _c("LoadingScreen", { attrs: { loading: _vm.loading } }),
     ],
     1
   )

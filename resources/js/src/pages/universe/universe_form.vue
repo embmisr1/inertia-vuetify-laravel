@@ -37,7 +37,7 @@
         ></MainTab>
       </form>
     </ValidationObserver>
-    <LoadingScreen :loading="loading" />
+    <!--<LoadingScreen :loading="loading" />-->
   </DefaultLayout>
 </template>
 
@@ -48,7 +48,7 @@ import UniverseInfo from "../../mixins/universe_info";
 import { page, toasts } from "../../mixins/";
 import { Link } from "@inertiajs/inertia-vue";
 import PageTitle from "../../components/PageTitle.vue";
-import LoadingScreen from "../../components/LoadingScreen.vue";
+// import LoadingScreen from "../../components/LoadingScreen.vue";
 export default {
   mixins: [page, toasts, UniverseInfo],
   components: {
@@ -56,7 +56,7 @@ export default {
     Link,
     MainTab,
     PageTitle,
-    LoadingScreen,
+    // LoadingScreen,
   },
   props: {
     query: Object,

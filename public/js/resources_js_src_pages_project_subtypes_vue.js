@@ -3120,7 +3120,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     dues_edit: Array,
     query_gad: Array,
     query_iec: Array,
-    iec_edit: Array
+    iec_edit: Array,
+    query_section24: Array,
+    section24_edit: Array
   },
   data: function data() {
     return {
@@ -3242,6 +3244,27 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         dues_accountant: null,
         dues_contact_email: null,
         lce_FK: null
+      },
+      sec_24: {
+        section24_iis_number: null,
+        section24_catered_barangay: null,
+        section24_collection_vehicle: null,
+        section24_schedule_of_collection: null,
+        section24_swm_personnel: null,
+        section24_basis_1: null,
+        section24_basis_2: null,
+        section24_basis_3: null,
+        section24_basis_4: null,
+        section24_basis_5: null,
+        section24_basis_6: null,
+        section24_basis_7: null,
+        section24_basis_8: null,
+        section24_basis_9: null,
+        section24_basis_10: null,
+        section24_basis_11: null,
+        section24_findings: null,
+        section24_remarks: null,
+        section24_with_letter: null
       },
       gad: {
         gad_male: null,
