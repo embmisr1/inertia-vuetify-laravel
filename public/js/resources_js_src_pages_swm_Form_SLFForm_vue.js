@@ -1362,23 +1362,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -3271,7 +3254,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     query_equipment: Array,
     query_dues: Array,
     dues_edit: Array,
-    query_gad: Array
+    query_gad: Array,
+    query_iec: Array,
+    iec_edit: Array,
+    query_section24: Array,
+    section24_edit: Array
   },
   data: function data() {
     return {
@@ -3289,7 +3276,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         lce_zip_code: "",
         lce_focal_person: "",
         lce_contact_number: "",
-        lce_email_address: ""
+        lce_email_address: "",
+        lce_file: []
       },
       slf: {
         slf_complete_address: null,
@@ -3334,6 +3322,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         mrf_total_waste_diverted: null,
         mrf_number_of_waste_diverted: null,
         mrf_file: null,
+        mrf_residual: null,
         lce_FK: null
       },
       cd: {
@@ -3392,9 +3381,45 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         dues_contact_email: null,
         lce_FK: null
       },
+      sec_24: {
+        section24_iis_number: null,
+        section24_catered_barangay: null,
+        section24_collection_vehicle: null,
+        section24_schedule_of_collection: null,
+        section24_swm_personnel: null,
+        section24_basis_1: false,
+        section24_basis_2: false,
+        section24_basis_3: false,
+        section24_basis_4: false,
+        section24_basis_5: false,
+        section24_basis_6: false,
+        section24_basis_7: false,
+        section24_basis_8: false,
+        section24_basis_9: false,
+        section24_basis_10: false,
+        section24_basis_11: false,
+        section24_findings: null,
+        section24_remarks: null,
+        section24_with_letter: null
+      },
       gad: {
         gad_male: null,
         gad_female: null
+      },
+      iec: {
+        iec_topic: null,
+        iec_speaker: null,
+        iec_male: null,
+        iec_female: null,
+        iec_youth: null,
+        iec_senior_citizen: null,
+        iec_pwd: null,
+        iec_lgbt: null,
+        iec_pdl: null,
+        iec_adult: null,
+        iec_total: null,
+        iec_iis_number: null,
+        iec_file: null
       },
       complete_address: null,
       complete_address_setter: {
@@ -3418,6 +3443,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     };
   },
   computed: {
+    avatar: function avatar() {
+      return this.attachments.data[0];
+    },
     withAttachment: function withAttachment() {
       var toReturn = true;
 
@@ -24493,10 +24521,11 @@ var render = function () {
                                             fn: function (ref) {
                                               var errors = ref.errors
                                               return [
-                                                _c("v-text-field", {
+                                                _c("v-textarea", {
                                                   attrs: {
                                                     label: "LGU Served",
                                                     "error-messages": errors[0],
+                                                    rows: "3",
                                                     outlined: "",
                                                     clearable: "",
                                                     dense: "",
@@ -24537,294 +24566,324 @@ var render = function () {
                                       ),
                                     ]),
                                     _vm._v(" "),
-                                    _c(
-                                      "v-card-text",
-                                      { staticClass: "grid grid-cols-4 gap-2" },
-                                      [
-                                        _c("ValidationProvider", {
-                                          attrs: {
-                                            vid: "leachate",
-                                            name: "Leachate Treatment",
-                                            rules: "",
-                                          },
-                                          scopedSlots: _vm._u(
+                                    _c("v-card-text", [
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass:
+                                            "grid grid-cols-4 gap-x-2 mb-0",
+                                        },
+                                        [
+                                          _c(
+                                            "div",
+                                            { staticClass: "col-span-2 mb-0" },
                                             [
-                                              {
-                                                key: "default",
-                                                fn: function (ref) {
-                                                  var errors = ref.errors
-                                                  return [
-                                                    _c("v-select", {
-                                                      attrs: {
-                                                        items:
-                                                          _vm.leachment_type,
-                                                        label:
-                                                          "Leachate Treatment",
-                                                        "error-messages":
-                                                          errors[0],
-                                                        outlined: "",
-                                                        clearable: "",
-                                                        dense: "",
-                                                        color: "dark",
-                                                      },
-                                                      model: {
-                                                        value:
-                                                          _vm.slf
-                                                            .slf_leachate_treatment,
-                                                        callback: function (
-                                                          $$v
-                                                        ) {
-                                                          _vm.$set(
-                                                            _vm.slf,
-                                                            "slf_leachate_treatment",
-                                                            $$v
-                                                          )
-                                                        },
-                                                        expression:
-                                                          "slf.slf_leachate_treatment",
-                                                      },
-                                                    }),
-                                                  ]
+                                              _c("ValidationProvider", {
+                                                attrs: {
+                                                  vid: "leachate",
+                                                  name: "Leachate Treatment",
+                                                  rules: "",
                                                 },
-                                              },
-                                            ],
-                                            null,
-                                            true
-                                          ),
-                                        }),
-                                        _vm._v(" "),
-                                        _c("v-checkbox", {
-                                          attrs: {
-                                            label: "Daily Soil Cover",
-                                            value: "true",
-                                            "hide-details": "",
-                                            color: "dark",
-                                          },
-                                          model: {
-                                            value: _vm.slf.slf_daily_soil_cover,
-                                            callback: function ($$v) {
-                                              _vm.$set(
-                                                _vm.slf,
-                                                "slf_daily_soil_cover",
-                                                $$v
-                                              )
-                                            },
-                                            expression:
-                                              "slf.slf_daily_soil_cover",
-                                          },
-                                        }),
-                                        _vm._v(" "),
-                                        _c("v-checkbox", {
-                                          attrs: {
-                                            label: "Precense of MRF",
-                                            value: "true",
-                                            "hide-details": "",
-                                            color: "dark",
-                                          },
-                                          model: {
-                                            value: _vm.slf.slf_presence_of_mrf,
-                                            callback: function ($$v) {
-                                              _vm.$set(
-                                                _vm.slf,
-                                                "slf_presence_of_mrf",
-                                                $$v
-                                              )
-                                            },
-                                            expression:
-                                              "slf.slf_presence_of_mrf",
-                                          },
-                                        }),
-                                        _vm._v(" "),
-                                        _c("v-checkbox", {
-                                          attrs: {
-                                            label:
-                                              "Separate Cells for Hazwaste",
-                                            value: "true",
-                                            "hide-details": "",
-                                            color: "dark",
-                                          },
-                                          model: {
-                                            value:
-                                              _vm.slf
-                                                .slf_separate_cells_for_hazwaste,
-                                            callback: function ($$v) {
-                                              _vm.$set(
-                                                _vm.slf,
-                                                "slf_separate_cells_for_hazwaste",
-                                                $$v
-                                              )
-                                            },
-                                            expression:
-                                              "slf.slf_separate_cells_for_hazwaste",
-                                          },
-                                        }),
-                                        _vm._v(" "),
-                                        _c("v-checkbox", {
-                                          attrs: {
-                                            label: "Methane Recovery",
-                                            value: "true",
-                                            "hide-details": "",
-                                            color: "dark",
-                                          },
-                                          model: {
-                                            value: _vm.slf.slf_methane_recovery,
-                                            callback: function ($$v) {
-                                              _vm.$set(
-                                                _vm.slf,
-                                                "slf_methane_recovery",
-                                                $$v
-                                              )
-                                            },
-                                            expression:
-                                              "slf.slf_methane_recovery",
-                                          },
-                                        }),
-                                        _vm._v(" "),
-                                        _c("v-checkbox", {
-                                          attrs: {
-                                            label: "Discharge Permit",
-                                            value: "true",
-                                            "hide-details": "",
-                                            color: "dark",
-                                          },
-                                          model: {
-                                            value: _vm.slf.slf_discharge_permit,
-                                            callback: function ($$v) {
-                                              _vm.$set(
-                                                _vm.slf,
-                                                "slf_discharge_permit",
-                                                $$v
-                                              )
-                                            },
-                                            expression:
-                                              "slf.slf_discharge_permit",
-                                          },
-                                        }),
-                                        _vm._v(" "),
-                                        _c("v-checkbox", {
-                                          attrs: {
-                                            label: "1586 Compliance",
-                                            value: "true",
-                                            "hide-details": "",
-                                            color: "dark",
-                                          },
-                                          model: {
-                                            value: _vm.slf.slf_1586_compliance,
-                                            callback: function ($$v) {
-                                              _vm.$set(
-                                                _vm.slf,
-                                                "slf_1586_compliance",
-                                                $$v
-                                              )
-                                            },
-                                            expression:
-                                              "slf.slf_1586_compliance",
-                                          },
-                                        }),
-                                        _vm._v(" "),
-                                        _c("v-checkbox", {
-                                          attrs: {
-                                            label: "9275 Compliance",
-                                            value: "true",
-                                            "hide-details": "",
-                                            color: "dark",
-                                          },
-                                          model: {
-                                            value: _vm.slf.slf_9275_compliance,
-                                            callback: function ($$v) {
-                                              _vm.$set(
-                                                _vm.slf,
-                                                "slf_9275_compliance",
-                                                $$v
-                                              )
-                                            },
-                                            expression:
-                                              "slf.slf_9275_compliance",
-                                          },
-                                        }),
-                                        _vm._v(" "),
-                                        _c("v-checkbox", {
-                                          attrs: {
-                                            label: "6969 Compliance",
-                                            value: "true",
-                                            "hide-details": "",
-                                            color: "dark",
-                                          },
-                                          model: {
-                                            value: _vm.slf.slf_6969_compliance,
-                                            callback: function ($$v) {
-                                              _vm.$set(
-                                                _vm.slf,
-                                                "slf_6969_compliance",
-                                                $$v
-                                              )
-                                            },
-                                            expression:
-                                              "slf.slf_6969_compliance",
-                                          },
-                                        }),
-                                        _vm._v(" "),
-                                        _c(
-                                          "div",
-                                          [
-                                            _c("ValidationProvider", {
-                                              attrs: {
-                                                vid: "file",
-                                                name: "File",
-                                                rules: "",
-                                              },
-                                              scopedSlots: _vm._u(
-                                                [
-                                                  {
-                                                    key: "default",
-                                                    fn: function (ref) {
-                                                      var errors = ref.errors
-                                                      return [
-                                                        _c("v-file-input", {
-                                                          attrs: {
-                                                            label: "File",
-                                                            "error-messages":
-                                                              errors[0],
-                                                            outlined: "",
-                                                            clearable: "",
-                                                            dense: "",
-                                                            color: "dark",
-                                                            "truncate-length":
-                                                              "15",
-                                                            multiple: "",
-                                                            accept:
-                                                              "image/png, image/jpeg, application/pdf",
-                                                          },
-                                                          model: {
-                                                            value:
-                                                              _vm.slf.slf_file,
-                                                            callback: function (
-                                                              $$v
-                                                            ) {
-                                                              _vm.$set(
-                                                                _vm.slf,
-                                                                "slf_file",
-                                                                $$v
-                                                              )
+                                                scopedSlots: _vm._u(
+                                                  [
+                                                    {
+                                                      key: "default",
+                                                      fn: function (ref) {
+                                                        var errors = ref.errors
+                                                        return [
+                                                          _c("v-select", {
+                                                            staticClass: "mb-0",
+                                                            attrs: {
+                                                              items:
+                                                                _vm.leachment_type,
+                                                              label:
+                                                                "Leachate Treatment",
+                                                              "error-messages":
+                                                                errors[0],
+                                                              outlined: "",
+                                                              clearable: "",
+                                                              dense: "",
+                                                              color: "dark",
+                                                              multiple: "",
                                                             },
-                                                            expression:
-                                                              "slf.slf_file",
-                                                          },
-                                                        }),
-                                                      ]
+                                                            model: {
+                                                              value:
+                                                                _vm.slf
+                                                                  .slf_leachate_treatment,
+                                                              callback:
+                                                                function ($$v) {
+                                                                  _vm.$set(
+                                                                    _vm.slf,
+                                                                    "slf_leachate_treatment",
+                                                                    $$v
+                                                                  )
+                                                                },
+                                                              expression:
+                                                                "slf.slf_leachate_treatment",
+                                                            },
+                                                          }),
+                                                        ]
+                                                      },
                                                     },
-                                                  },
-                                                ],
-                                                null,
-                                                true
-                                              ),
-                                            }),
-                                          ],
-                                          1
-                                        ),
-                                      ],
-                                      1
-                                    ),
+                                                  ],
+                                                  null,
+                                                  true
+                                                ),
+                                              }),
+                                            ],
+                                            1
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "div",
+                                            { staticClass: "col-span-2 mb-0" },
+                                            [
+                                              _c("ValidationProvider", {
+                                                attrs: {
+                                                  vid: "file",
+                                                  name: "File",
+                                                  rules: "",
+                                                },
+                                                scopedSlots: _vm._u(
+                                                  [
+                                                    {
+                                                      key: "default",
+                                                      fn: function (ref) {
+                                                        var errors = ref.errors
+                                                        return [
+                                                          _c("v-file-input", {
+                                                            attrs: {
+                                                              label: "File",
+                                                              "error-messages":
+                                                                errors[0],
+                                                              outlined: "",
+                                                              clearable: "",
+                                                              dense: "",
+                                                              color: "dark",
+                                                              "truncate-length":
+                                                                "15",
+                                                              multiple: "",
+                                                              accept:
+                                                                "image/png, image/jpeg, application/pdf",
+                                                            },
+                                                            model: {
+                                                              value:
+                                                                _vm.slf
+                                                                  .slf_file,
+                                                              callback:
+                                                                function ($$v) {
+                                                                  _vm.$set(
+                                                                    _vm.slf,
+                                                                    "slf_file",
+                                                                    $$v
+                                                                  )
+                                                                },
+                                                              expression:
+                                                                "slf.slf_file",
+                                                            },
+                                                          }),
+                                                        ]
+                                                      },
+                                                    },
+                                                  ],
+                                                  null,
+                                                  true
+                                                ),
+                                              }),
+                                            ],
+                                            1
+                                          ),
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass:
+                                            "grid grid-cols-4 gap-x-2 mt-0",
+                                        },
+                                        [
+                                          _c("v-checkbox", {
+                                            attrs: {
+                                              label: "Daily Soil Cover",
+                                              value: "true",
+                                              "hide-details": "",
+                                              color: "dark",
+                                            },
+                                            model: {
+                                              value:
+                                                _vm.slf.slf_daily_soil_cover,
+                                              callback: function ($$v) {
+                                                _vm.$set(
+                                                  _vm.slf,
+                                                  "slf_daily_soil_cover",
+                                                  $$v
+                                                )
+                                              },
+                                              expression:
+                                                "slf.slf_daily_soil_cover",
+                                            },
+                                          }),
+                                          _vm._v(" "),
+                                          _c("v-checkbox", {
+                                            attrs: {
+                                              label: "Precense of MRF",
+                                              value: "true",
+                                              "hide-details": "",
+                                              color: "dark",
+                                            },
+                                            model: {
+                                              value:
+                                                _vm.slf.slf_presence_of_mrf,
+                                              callback: function ($$v) {
+                                                _vm.$set(
+                                                  _vm.slf,
+                                                  "slf_presence_of_mrf",
+                                                  $$v
+                                                )
+                                              },
+                                              expression:
+                                                "slf.slf_presence_of_mrf",
+                                            },
+                                          }),
+                                          _vm._v(" "),
+                                          _c("v-checkbox", {
+                                            attrs: {
+                                              label:
+                                                "Separate Cells for Hazwaste",
+                                              value: "true",
+                                              "hide-details": "",
+                                              color: "dark",
+                                            },
+                                            model: {
+                                              value:
+                                                _vm.slf
+                                                  .slf_separate_cells_for_hazwaste,
+                                              callback: function ($$v) {
+                                                _vm.$set(
+                                                  _vm.slf,
+                                                  "slf_separate_cells_for_hazwaste",
+                                                  $$v
+                                                )
+                                              },
+                                              expression:
+                                                "slf.slf_separate_cells_for_hazwaste",
+                                            },
+                                          }),
+                                          _vm._v(" "),
+                                          _c("v-checkbox", {
+                                            attrs: {
+                                              label: "Methane Recovery",
+                                              value: "true",
+                                              "hide-details": "",
+                                              color: "dark",
+                                            },
+                                            model: {
+                                              value:
+                                                _vm.slf.slf_methane_recovery,
+                                              callback: function ($$v) {
+                                                _vm.$set(
+                                                  _vm.slf,
+                                                  "slf_methane_recovery",
+                                                  $$v
+                                                )
+                                              },
+                                              expression:
+                                                "slf.slf_methane_recovery",
+                                            },
+                                          }),
+                                          _vm._v(" "),
+                                          _c("v-checkbox", {
+                                            attrs: {
+                                              label: "Discharge Permit",
+                                              value: "true",
+                                              "hide-details": "",
+                                              color: "dark",
+                                            },
+                                            model: {
+                                              value:
+                                                _vm.slf.slf_discharge_permit,
+                                              callback: function ($$v) {
+                                                _vm.$set(
+                                                  _vm.slf,
+                                                  "slf_discharge_permit",
+                                                  $$v
+                                                )
+                                              },
+                                              expression:
+                                                "slf.slf_discharge_permit",
+                                            },
+                                          }),
+                                          _vm._v(" "),
+                                          _c("v-checkbox", {
+                                            attrs: {
+                                              label: "1586 Compliance",
+                                              value: "true",
+                                              "hide-details": "",
+                                              color: "dark",
+                                            },
+                                            model: {
+                                              value:
+                                                _vm.slf.slf_1586_compliance,
+                                              callback: function ($$v) {
+                                                _vm.$set(
+                                                  _vm.slf,
+                                                  "slf_1586_compliance",
+                                                  $$v
+                                                )
+                                              },
+                                              expression:
+                                                "slf.slf_1586_compliance",
+                                            },
+                                          }),
+                                          _vm._v(" "),
+                                          _c("v-checkbox", {
+                                            attrs: {
+                                              label: "9275 Compliance",
+                                              value: "true",
+                                              "hide-details": "",
+                                              color: "dark",
+                                            },
+                                            model: {
+                                              value:
+                                                _vm.slf.slf_9275_compliance,
+                                              callback: function ($$v) {
+                                                _vm.$set(
+                                                  _vm.slf,
+                                                  "slf_9275_compliance",
+                                                  $$v
+                                                )
+                                              },
+                                              expression:
+                                                "slf.slf_9275_compliance",
+                                            },
+                                          }),
+                                          _vm._v(" "),
+                                          _c("v-checkbox", {
+                                            attrs: {
+                                              label: "6969 Compliance",
+                                              value: "true",
+                                              "hide-details": "",
+                                              color: "dark",
+                                            },
+                                            model: {
+                                              value:
+                                                _vm.slf.slf_6969_compliance,
+                                              callback: function ($$v) {
+                                                _vm.$set(
+                                                  _vm.slf,
+                                                  "slf_6969_compliance",
+                                                  $$v
+                                                )
+                                              },
+                                              expression:
+                                                "slf.slf_6969_compliance",
+                                            },
+                                          }),
+                                        ],
+                                        1
+                                      ),
+                                    ]),
                                     _vm._v(" "),
                                     _c(
                                       "v-card-text",

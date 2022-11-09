@@ -41,7 +41,7 @@ class SolidwasteRCAExport implements FromQuery, WithHeadings, WithMapping, WithE
                 $event->sheet->setOrientation(\PhpOffice\PhpSpreadsheet\Worksheet\PageSetup::ORIENTATION_LANDSCAPE);
 
                 $event->sheet->styleCells(
-                    'A1:S1',
+                    'A1:Q1',
                     [
                         'font'=>[
                             'color'=>[
@@ -88,8 +88,6 @@ class SolidwasteRCAExport implements FromQuery, WithHeadings, WithMapping, WithE
                 "O"=>20,
                 "P"=>20,
                 "Q"=>20,
-                "R"=>20,
-                "S"=>20,
             ];
         }
     }
@@ -101,9 +99,7 @@ class SolidwasteRCAExport implements FromQuery, WithHeadings, WithMapping, WithE
             "Barangay",
             "District",
             "Complete Address",
-            "LGU Funded",
-            "EMB Funded",
-            "Funded Amount",
+            "Area of Capacity",
             "Latitude",
             "Longitude",
             "Operation Status",
@@ -156,8 +152,6 @@ class SolidwasteRCAExport implements FromQuery, WithHeadings, WithMapping, WithE
             $data->brgyDesc,
             $data->districtCode,
             $data->mrf_complete_address,
-            $data->mrf_emb_funded <= 0 ? "Yes" : "No", //LGU FUNDED
-            $data->mrf_emb_funded > 0 ? "Yes" : "No", //EMB FUNDED
             $data->mrf_emb_funded,
             $data->mrf_latitude,
             $data->mrf_longitude,

@@ -22,6 +22,10 @@ export default {
         query_dues: Array,
         dues_edit: Array,
         query_gad: Array,
+        query_iec:Array,
+        iec_edit:Array,
+        query_section24:Array,
+        section24_edit:Array
     },
     data() {
         return {
@@ -40,6 +44,7 @@ export default {
                 lce_focal_person: "",
                 lce_contact_number: "",
                 lce_email_address: "",
+                lce_file: [],
             },
             slf: {
                 slf_complete_address: null,
@@ -84,6 +89,7 @@ export default {
                 mrf_total_waste_diverted: null,
                 mrf_number_of_waste_diverted: null,
                 mrf_file: null,
+                mrf_residual: null,
                 lce_FK: null,
             },
             cd: {
@@ -146,9 +152,45 @@ export default {
                 dues_contact_email: null,
                 lce_FK: null,
             },
+            sec_24:{
+                section24_iis_number:null,
+section24_catered_barangay:null,
+section24_collection_vehicle:null,
+section24_schedule_of_collection:null,
+section24_swm_personnel:null,
+section24_basis_1:false,
+section24_basis_2:false,
+section24_basis_3:false,
+section24_basis_4:false,
+section24_basis_5:false,
+section24_basis_6:false,
+section24_basis_7:false,
+section24_basis_8:false,
+section24_basis_9:false,
+section24_basis_10:false,
+section24_basis_11:false,
+section24_findings:null,
+section24_remarks:null,
+section24_with_letter:null,
+            },
             gad: {
                 gad_male: null,
                 gad_female: null,
+            },
+            iec: {
+                iec_topic: null,
+                iec_speaker: null,
+                iec_male: null,
+                iec_female: null,
+                iec_youth: null,
+                iec_senior_citizen: null,
+                iec_pwd: null,
+                iec_lgbt: null,
+                iec_pdl: null,
+                iec_adult: null,
+                iec_total: null,
+                iec_iis_number: null,
+                iec_file:null,
             },
             complete_address: null,
             complete_address_setter: {
@@ -172,6 +214,9 @@ export default {
         };
     },
     computed: {
+        avatar() {
+            return this.attachments.data[0];
+        },
         withAttachment() {
             let toReturn = true;
             if (this.attachments === undefined) {
@@ -251,7 +296,7 @@ export default {
     methods: {
         async export_swm() {
             try {
-                const {value,label} = await this.exportable
+                const { value, label } = await this.exportable;
                 const { data } = await axios.get(`/app/swm/${value}`, {
                     params: { ...this.filter },
                     responseType: "blob",

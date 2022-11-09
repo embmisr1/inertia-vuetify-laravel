@@ -14,9 +14,14 @@ class SolidwasteLCE extends Model implements HasMedia
     public function registerMediaCollections(): void
     {
         $this
-            ->addMediaCollection('LCE')
+            ->addMediaCollection('lce')
             ->acceptsMimeTypes(['image/jpeg', 'image/png', 'image/jpg', 'application/pdf'])
-            ->useDisk('LCE');
+            ->useDisk('lce');
+
+            $this
+            ->addMediaCollection('avatars')
+            ->acceptsMimeTypes(['image/jpeg', 'image/png', 'image/jpg', 'application/pdf'])
+            ->useDisk('avatars');
     }
 
     public function logs(){

@@ -18,6 +18,13 @@
                     <v-card>
                         <v-card-text class="grid grid-cols-5 gap-x-2">
                             <div class="col-span-1">
+                                <div class="" v-if="avatar">
+                                    <v-avatar size="100" width="80%" class="align-self-center p-2">
+                        <img :src="avatar.url" alt="Avatar" />
+                      </v-avatar>
+                                </div>
+                                <div class="" v-else>
+
                                 <box-icon
                                     pull="burst"
                                     type="solid"
@@ -25,6 +32,8 @@
                                     size="200px"
                                     border="square"
                                 ></box-icon>
+                                </div>
+
                             </div>
 
                             <div class="col-span-4 font-extrabold">
@@ -449,7 +458,7 @@
 
                         <b-table-column
                             field="mrf_emb_funded"
-                            label="EMB Funded"
+                            label="Area of Capacity"
                             centered
                         >
                             <template #searchable="props">
@@ -883,17 +892,19 @@
             >
             <v-tab-item class="overflow-y-auto"
                 ><v-container>
-                        <v-btn dark >Add GAD</v-btn>
+                    <Link :href="`/app/swm/iec_register/${lce_id}`">
+                        <v-btn dark >Add IEC</v-btn>
+                    </Link>
                     <b-table
-                        :data="query_dues"
+                        :data="query_iec"
 
-                        :per-page="query_dues.per_page"
+                        :per-page="query_iec.per_page"
                         pagination-size="is-small"
                         page-input
                         hoverable
                         backend-pagination
-                        :total="query_dues.total"
-                        :current-page.sync="query_dues.current_page"
+                        :total="query_iec.total"
+                        :current-page.sync="query_iec.current_page"
                         pagination-position="top"
                         pagination-rounded
                         @page-change="onPageChange"
@@ -910,8 +921,8 @@
                         height="420"
                     >
                     <b-table-column
-                            field="gad_male"
-                            label="Male"
+                            field="iec_topic"
+                            label="Topic"
                         >
                             <template #searchable="props">
                                 <b-input
@@ -921,13 +932,13 @@
                                 />
                             </template>
                             <template v-slot="props">
-                            {{props.row.gad_male}}
+                            {{props.row.iec_topic}}
                             </template>
                         </b-table-column>
 
                         <b-table-column
-                            field="gad_female"
-                            label="Femaie"
+                            field="iec_speaker"
+                            label="Speaker"
                         >
                             <template #searchable="props">
                                 <b-input
@@ -937,7 +948,22 @@
                                 />
                             </template>
                             <template v-slot="props">
-                             {{props.row.gad_female}}
+                             {{props.row.iec_speaker}}
+                            </template>
+                        </b-table-column>
+                        <b-table-column
+                            field="iec_iis_number"
+                            label="IIS Number"
+                        >
+                            <template #searchable="props">
+                                <b-input
+                                    placeholder="Search..."
+                                    icon="magnify"
+                                    size="is-small"
+                                />
+                            </template>
+                            <template v-slot="props">
+                             {{props.row.iec_iis_number}}
                             </template>
                         </b-table-column>
 
@@ -946,7 +972,7 @@
                             label=""
                             v-slot="props"
                         >
-                                 <Link >
+                                 <Link :href="`/app/swm/iec_edit/${props.row.id}`">
                                 <box-icon
                                     name="edit"
                                     color="orange"
@@ -954,7 +980,132 @@
                                 ></box-icon
                             >
                             </Link>
-                            <v-btn icon small
+                            <v-btn icon small @click="removeIEC(props.row.id)"
+                                ><box-icon
+                                    name="trash"
+                                    color="red"
+                                    animation="tada-hover"
+                                ></box-icon
+                            ></v-btn>
+                        </b-table-column>
+                        <template #empty>
+                            <div
+                                class="text-center text-3xl text-gray-500 font-extrabold"
+                            >
+                                No Data Found
+                            </div>
+                        </template>
+                    </b-table>
+                </v-container></v-tab-item
+            >
+            <v-tab-item class="overflow-y-auto"
+                ><v-container>
+                    <Link :href="`/app/swm/section24_register/${lce_id}`">
+                        <v-btn dark >Add Section 24</v-btn>
+                    </Link>
+                    <b-table
+                        :data="query_section24"
+
+                        :per-page="query_section24.per_page"
+                        pagination-size="is-small"
+                        page-input
+                        hoverable
+                        backend-pagination
+                        :total="query_section24.total"
+                        :current-page.sync="query_section24.current_page"
+                        pagination-position="top"
+                        pagination-rounded
+                        @page-change="onPageChange"
+                        narrowed
+                        :loading="loading"
+                        bordered
+                        sticky-header
+                        scrollable
+                        :row-class="
+                            (row, index) =>
+                                isTheme ? 'bg-black text-white' : ''
+                        "
+                        :header-class="isTheme ? 'bg-black text-white' : ''"
+                        height="420"
+                    >
+                    <b-table-column
+                            field="section24_iis_number"
+                            label="IIS Number"
+                        >
+                            <template #searchable="props">
+                                <b-input
+                                    placeholder="Search..."
+                                    icon="magnify"
+                                    size="is-small"
+                                />
+                            </template>
+                            <template v-slot="props">
+                             {{props.row.section24_iis_number}}
+                            </template>
+                        </b-table-column>
+
+                    <b-table-column
+                            field="section24_catered_barangay"
+                            label="Catered Barangay"
+                        >
+                            <template #searchable="props">
+                                <b-input
+                                    placeholder="Search..."
+                                    icon="magnify"
+                                    size="is-small"
+                                />
+                            </template>
+                            <template v-slot="props">
+                            {{props.row.section24_catered_barangay}}
+                            </template>
+                        </b-table-column>
+
+                        <b-table-column
+                            field="section24_schedule_of_collection"
+                            label="Schedule of Collection"
+                        >
+                            <template #searchable="props">
+                                <b-input
+                                    placeholder="Search..."
+                                    icon="magnify"
+                                    size="is-small"
+                                />
+                            </template>
+                            <template v-slot="props">
+                             {{props.row.section24_schedule_of_collection}}
+                            </template>
+                        </b-table-column>
+
+                        <b-table-column
+                            field="section24_swm_personnel"
+                            label="SWM Personnel"
+                        >
+                            <template #searchable="props">
+                                <b-input
+                                    placeholder="Search..."
+                                    icon="magnify"
+                                    size="is-small"
+                                />
+                            </template>
+                            <template v-slot="props">
+                             {{props.row.section24_swm_personnel}}
+                            </template>
+                        </b-table-column>
+
+                        <b-table-column
+                            field="action"
+                            label=""
+                            v-slot="props"
+                        >
+                                 <Link :href="`/app/swm/section24_edit/${props.row.id}`">
+                                <box-icon
+                                    name="edit"
+                                    color="orange"
+                                    animation="tada-hover"
+                                ></box-icon
+                            >
+                            </Link>
+                            <v-btn icon small @click="removeSec(props.row.id)"
                                 ><box-icon
                                     name="trash"
                                     color="red"
@@ -1003,10 +1154,41 @@ export default {
   mixins: [page, toasts, swm, dialogs],
   data() {
     return {
-      tabs: ["LCE", "SLF", "MRF", "RCA", "10 YR", "Equipment", "DUES"],
+      tabs: ["LCE", "SLF", "MRF", "RCA", "10 YR", "Equipment", "DUES", "IEC", "Section 24"],
     };
   },
   methods: {
+
+    async removeSec(iec_id) {
+      try {
+        this.loading = true;
+        await this.confirmDelete("This action  cannot be undone", async () => {
+          this.loading = true;
+          await this.$inertia.delete(`/app/swm/section24_delete/${iec_id}`);
+          this.loading = false;
+        });
+        this.loading = false;
+      } catch (error) {
+        this.loading = false;
+        console.log(error);
+        this.error(error.response.data.message);
+      }
+    },
+    async removeIEC(iec_id) {
+      try {
+        this.loading = true;
+        await this.confirmDelete("This action  cannot be undone", async () => {
+          this.loading = true;
+          await this.$inertia.delete(`/app/swm/iec_delete/${iec_id}`);
+          this.loading = false;
+        });
+        this.loading = false;
+      } catch (error) {
+        this.loading = false;
+        console.log(error);
+        this.error(error.response.data.message);
+      }
+    },
     async removeSLF(slf_id) {
       try {
         this.loading = true;

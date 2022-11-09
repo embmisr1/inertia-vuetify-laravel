@@ -115,6 +115,28 @@
                                             color="dark"
                                         ></v-text-field>
                                     </ValidationProvider> -->
+                                    <div v-if="form_type==='rca'" >
+                                        <ValidationProvider
+                                        vid="mrf_emb_area_of_capacity"
+                                        name="Area of Capacity"
+                                        rules=""
+                                        v-slot="{ errors }"
+                                    >
+                                        <v-text-field
+                                            label="Area of Capacity"
+                                            :error-messages="errors[0]"
+                                            v-model="mrf.mrf_emb_funded"
+                                            outlined
+                                            clearable
+                                            dense
+                                            type="number"
+                                            color="dark"
+                                            persistent-hint
+                                        ></v-text-field>
+                                    </ValidationProvider>
+                                    </div>
+                                    <div v-if="form_type==='mrf'">
+
                                     <ValidationProvider
                                         vid="mrf_emb_funded"
                                         name="EMB FUNDED"
@@ -128,6 +150,7 @@
                                             outlined
                                             clearable
                                             dense
+                                            type="number"
                                             color="dark"
                                             hint="in Philippine PESO"
                                             persistent-hint
@@ -137,6 +160,7 @@
                                             <div class=" text-xl font-bold">&#8369</div>
                                         </template></v-text-field>
                                     </ValidationProvider>
+                                    </div>
                                     <ValidationProvider
                                         vid="mrf_status_operation"
                                         name="Status of Operation"
@@ -164,15 +188,16 @@
                                    rules=""
                                     v-slot="{ errors }"
                                 >
-                                    <v-text-field
-                                        label="Service Area/s"
-                                        :error-messages="errors[0]"
-                                        v-model="mrf.mrf_service_area"
-                                        outlined
-                                        clearable
-                                        dense
-                                        color="dark"
-                                    ></v-text-field>
+                                    <v-textarea
+                                    label="Service Area/s"
+                    :error-messages="errors[0]"
+                    v-model="mrf.mrf_service_area"
+                    rows="3"
+                    outlined
+                    clearable
+                    dense
+                    color="dark"
+                  ></v-textarea>
                                 </ValidationProvider>
                             </div>
 
@@ -207,6 +232,24 @@
                                             label="Biodegradable "
                                             :error-messages="errors[0]"
                                             v-model="mrf.mrf_biodegradable"
+                                            outlined
+                                            clearable
+                                            dense
+                                            color="dark"
+                                            hint="kg/day"
+                                            persistent-hint
+                                        ></v-text-field>
+                                    </ValidationProvider>
+                                    <ValidationProvider
+                                        vid="mrf_residual"
+                                        name="Residual"
+                                       rules=""
+                                        v-slot="{ errors }"
+                                    >
+                                        <v-text-field
+                                            label="Residual"
+                                            :error-messages="errors[0]"
+                                            v-model="mrf.mrf_residual"
                                             outlined
                                             clearable
                                             dense

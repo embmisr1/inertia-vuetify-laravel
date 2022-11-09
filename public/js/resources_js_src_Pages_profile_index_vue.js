@@ -3059,7 +3059,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     query_equipment: Array,
     query_dues: Array,
     dues_edit: Array,
-    query_gad: Array
+    query_gad: Array,
+    query_iec: Array,
+    iec_edit: Array,
+    query_section24: Array,
+    section24_edit: Array
   },
   data: function data() {
     return {
@@ -3077,7 +3081,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         lce_zip_code: "",
         lce_focal_person: "",
         lce_contact_number: "",
-        lce_email_address: ""
+        lce_email_address: "",
+        lce_file: []
       },
       slf: {
         slf_complete_address: null,
@@ -3122,6 +3127,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         mrf_total_waste_diverted: null,
         mrf_number_of_waste_diverted: null,
         mrf_file: null,
+        mrf_residual: null,
         lce_FK: null
       },
       cd: {
@@ -3180,9 +3186,45 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         dues_contact_email: null,
         lce_FK: null
       },
+      sec_24: {
+        section24_iis_number: null,
+        section24_catered_barangay: null,
+        section24_collection_vehicle: null,
+        section24_schedule_of_collection: null,
+        section24_swm_personnel: null,
+        section24_basis_1: false,
+        section24_basis_2: false,
+        section24_basis_3: false,
+        section24_basis_4: false,
+        section24_basis_5: false,
+        section24_basis_6: false,
+        section24_basis_7: false,
+        section24_basis_8: false,
+        section24_basis_9: false,
+        section24_basis_10: false,
+        section24_basis_11: false,
+        section24_findings: null,
+        section24_remarks: null,
+        section24_with_letter: null
+      },
       gad: {
         gad_male: null,
         gad_female: null
+      },
+      iec: {
+        iec_topic: null,
+        iec_speaker: null,
+        iec_male: null,
+        iec_female: null,
+        iec_youth: null,
+        iec_senior_citizen: null,
+        iec_pwd: null,
+        iec_lgbt: null,
+        iec_pdl: null,
+        iec_adult: null,
+        iec_total: null,
+        iec_iis_number: null,
+        iec_file: null
       },
       complete_address: null,
       complete_address_setter: {
@@ -3206,6 +3248,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     };
   },
   computed: {
+    avatar: function avatar() {
+      return this.attachments.data[0];
+    },
     withAttachment: function withAttachment() {
       var toReturn = true;
 
@@ -22238,7 +22283,7 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "font-bold text-2xl flex items-center" },
+    { staticClass: "font-bold text-lg sm:text-2xl flex items-center" },
     [
       _c(
         "b-tooltip",
@@ -22257,7 +22302,7 @@ var render = function () {
         ],
         1
       ),
-      _vm._v("\n    " + _vm._s(_vm.title) + "\n"),
+      _vm._v("\n  " + _vm._s(_vm.title) + "\n"),
     ],
     1
   )

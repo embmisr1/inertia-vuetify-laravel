@@ -103,7 +103,7 @@ class SolidwasteMRFExport implements FromQuery, WithHeadings, WithMapping, WithE
             "Complete Address",
             "LGU Funded",
             "EMB Funded",
-            "Area of Capacity",
+            "Funded Amount",
             "Latitude",
             "Longitude",
             "Operation Status",

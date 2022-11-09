@@ -63,15 +63,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     modal: Object,
     close: Function,
     form_field: Object,
     submitForm: Function
+  },
+  data: function data() {
+    return {
+      items: ["Operational", "Not Operational"]
+    };
   },
   computed: {
     modalType: function modalType() {
@@ -220,7 +222,7 @@ var render = function () {
                                             fn: function (ref) {
                                               var errors = ref.errors
                                               return [
-                                                _c("v-text-field", {
+                                                _c("v-textarea", {
                                                   attrs: {
                                                     label:
                                                       "Equipment Description",
@@ -254,6 +256,15 @@ var render = function () {
                                         null,
                                         true
                                       ),
+                                    }),
+                                    _vm._v(" "),
+                                    _c("v-select", {
+                                      attrs: {
+                                        items: _vm.items,
+                                        outlined: "",
+                                        filled: "",
+                                        label: "Filled style",
+                                      },
                                     }),
                                     _vm._v(" "),
                                     _c(

@@ -145,6 +145,18 @@ return [
             'url' => env('APP_URL') . '/storage/copy_report',
             'visibility' => 'public',
         ],
+        'avatars' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/avatars'),
+            'url' => env('APP_URL') . '/storage/avatars',
+            'visibility' => 'public',
+        ],
+        'iec' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/iec'),
+            'url' => env('APP_URL') . '/storage/iec',
+            'visibility' => 'public',
+        ],
     ],
 
 
