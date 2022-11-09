@@ -34,5 +34,11 @@ class SolidwasteMRF extends Model implements HasMedia
             ->addMediaCollection('mrf')
             ->acceptsMimeTypes(['image/jpeg', 'image/png', 'image/jpg', 'application/pdf'])
             ->useDisk('mrf');
+
+
+            $this
+            ->addMediaCollection('rca')
+            ->acceptsMimeTypes(['image/jpeg', 'image/png', 'image/jpg', 'application/pdf'])
+            ->useDisk('rca');
     }
 }

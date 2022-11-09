@@ -30,7 +30,8 @@ class SolidwasteMRFController extends Controller
 
     public function mrf_edit(request $request)
     {
-        if(!$this->solidwaste_validator($request)){ return back(); }
+        try {
+            if(!$this->solidwaste_validator($request)){ return back(); }
         $id = $request->id;
         $mrf_edit = DB::table('tbl_solidwaste_mrf as a')
             ->select('a.*', 'c.provDesc', 'd.citymunDesc', 'e.brgyDesc', 'd.districtCode')
@@ -42,8 +43,12 @@ class SolidwasteMRFController extends Controller
         $attachements = SolidwasteMRF::where("id", $id)->get();
         return Inertia::render("pages/swm/Form/MRFForm", [
             'mrf_edit' => $mrf_edit,
-            "attachments" => AttachmentResource::collection($attachements[0]->getMedia("mrf")),
+            // "attachments" => AttachmentResource::collection($attachements[0]->getMedia("mrf")),
+            "attachments" => AttachmentResource::collection($attachements[0]->getMedia($request->form_type)),
         ]);
+        } catch (\Throwable $th) {
+            return $th->getMessage();
+        }
     }
 
     public function mrf_register_process(request $request)
@@ -108,7 +113,7 @@ class SolidwasteMRFController extends Controller
                 $query
                     ->addMedia($file)
                     ->preservingOriginal()
-                    ->toMediaCollection("mrf");
+                    ->toMediaCollection($request->mrf_or_rca);
             }
         }
         Logger::dispatch("SolidwasteMRF", $query->id, auth()->id(), "Updated a mrf: model_id " . $query->id, "update");
