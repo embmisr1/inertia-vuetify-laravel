@@ -43,6 +43,7 @@ class UniverseMonitoringController extends Controller
         // if(!isset($request->monitoring['mon_law'])) return;
         // $valid_array = $request->monitoring['mon_law'] ?? false;
         // if ($valid_array) {
+           try {
             if (isset($request->monitoring['mon_law']) && $request->monitoring['mon_date_monitored']) {
                 if ($request->monitoring['mon_id']) {
                     $query = Monitoring::find($request->monitoring['mon_id']);
@@ -67,6 +68,10 @@ class UniverseMonitoringController extends Controller
 
                 return $request->monitoring['mon_id'];
             }
+           } catch (\Throwable $th) {
+            dd($th->getMessage());
+            return dd($th->getMessage());
+           }
         // }
     }
 

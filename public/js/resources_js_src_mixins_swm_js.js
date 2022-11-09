@@ -234,7 +234,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           lce_first_name = _this$lce_details.lce_first_name,
           lce_middle_name = _this$lce_details.lce_middle_name,
           lce_last_name = _this$lce_details.lce_last_name;
-      return "".concat(lce_first_name ? lce_first_name : '', " ").concat(lce_middle_name ? lce_middle_name : '', " ").concat(lce_last_name ? lce_last_name : "");
+      return "".concat(lce_first_name ? lce_first_name : "", " ").concat(lce_middle_name ? lce_middle_name : "", " ").concat(lce_last_name ? lce_last_name : "");
     },
     lce_address: function lce_address() {
       var _this$lce_details2 = this.lce_details,
@@ -242,7 +242,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           citymunDesc = _this$lce_details2.citymunDesc,
           lce_zip_code = _this$lce_details2.lce_zip_code,
           districtCode = _this$lce_details2.districtCode;
-      return "".concat(citymunDesc, ", District No ").concat(districtCode ? districtCode : '', ", ").concat(provDesc, ", ").concat(lce_zip_code ? lce_zip_code : '', " ");
+      return "".concat(citymunDesc, ", District No ").concat(districtCode ? districtCode : "", ", ").concat(provDesc, ", ").concat(lce_zip_code ? lce_zip_code : "", " ");
     },
     lce_prov_id: function lce_prov_id() {
       return this.lce.lce_province_FK;
@@ -286,46 +286,68 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }
   },
   methods: {
-    search_cityMun: function search_cityMun(prov_id) {
+    export_swm: function export_swm() {
       var _this = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
-        var _yield$axios$get, data;
+        var _yield$_this$exportab, value, label, _yield$axios$get, data, blob, fileURL, fileLink;
 
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
                 _context.prev = 0;
+<<<<<<< HEAD
                 _this.loading = true;
                 _context.next = 4;
                 return axios__WEBPACK_IMPORTED_MODULE_1___default().get("http://210.213.92.250/api/app/province_dropdown/".concat(prov_id));
+=======
+                _context.next = 3;
+                return _this.exportable;
+>>>>>>> be33674767e067e8421ae573192c295fbeb5a93c
 
-              case 4:
+              case 3:
+                _yield$_this$exportab = _context.sent;
+                value = _yield$_this$exportab.value;
+                label = _yield$_this$exportab.label;
+                _context.next = 8;
+                return axios__WEBPACK_IMPORTED_MODULE_1___default().get("/app/swm/".concat(value), {
+                  params: _objectSpread({}, _this.filter),
+                  responseType: "blob"
+                });
+
+              case 8:
                 _yield$axios$get = _context.sent;
                 data = _yield$axios$get.data;
-                _this.cityMun = data;
-                _this.loading = false;
-                _context.next = 15;
+                blob = new Blob([data], {
+                  // type: "text/csv",
+                  typ: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+                });
+                fileURL = window.URL.createObjectURL(blob);
+                fileLink = document.createElement("a");
+                fileLink.href = fileURL;
+                fileLink.setAttribute("download", "".concat(value, ".xlsx")); // fileLink.setAttribute("download", "items.csv");
+
+                document.body.appendChild(fileLink);
+                fileLink.click(); // this.get(this.filterObject);
+
+                _context.next = 22;
                 break;
 
-              case 10:
-                _context.prev = 10;
+              case 19:
+                _context.prev = 19;
                 _context.t0 = _context["catch"](0);
-                _this.loading = false;
-                console.log("search_cityMun - error");
+                console.log(_context.t0);
 
-                _this.error(_context.t0.response.data.message);
-
-              case 15:
+              case 22:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, null, [[0, 10]]);
+        }, _callee, null, [[0, 19]]);
       }))();
     },
-    search_brgy: function search_brgy(cityMun_id) {
+    search_cityMun: function search_cityMun(prov_id) {
       var _this2 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
@@ -338,12 +360,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                 _context2.prev = 0;
                 _this2.loading = true;
                 _context2.next = 4;
+<<<<<<< HEAD
                 return axios__WEBPACK_IMPORTED_MODULE_1___default().get("http://210.213.92.250/api/app/municipality_dropdown/".concat(cityMun_id));
+=======
+                return axios__WEBPACK_IMPORTED_MODULE_1___default().get("http://127.0.0.1:8000/api/app/province_dropdown/".concat(prov_id));
+>>>>>>> be33674767e067e8421ae573192c295fbeb5a93c
 
               case 4:
                 _yield$axios$get2 = _context2.sent;
                 data = _yield$axios$get2.data;
-                _this2.brgy = data;
+                _this2.cityMun = data;
                 _this2.loading = false;
                 _context2.next = 15;
                 break;
@@ -352,7 +378,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                 _context2.prev = 10;
                 _context2.t0 = _context2["catch"](0);
                 _this2.loading = false;
-                console.log("search_brgy - error");
+                console.log("search_cityMun - error");
 
                 _this2.error(_context2.t0.response.data.message);
 
@@ -362,6 +388,45 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             }
           }
         }, _callee2, null, [[0, 10]]);
+      }))();
+    },
+    search_brgy: function search_brgy(cityMun_id) {
+      var _this3 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3() {
+        var _yield$axios$get3, data;
+
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                _context3.prev = 0;
+                _this3.loading = true;
+                _context3.next = 4;
+                return axios__WEBPACK_IMPORTED_MODULE_1___default().get("http://127.0.0.1:8000/api/app/municipality_dropdown/".concat(cityMun_id));
+
+              case 4:
+                _yield$axios$get3 = _context3.sent;
+                data = _yield$axios$get3.data;
+                _this3.brgy = data;
+                _this3.loading = false;
+                _context3.next = 15;
+                break;
+
+              case 10:
+                _context3.prev = 10;
+                _context3.t0 = _context3["catch"](0);
+                _this3.loading = false;
+                console.log("search_brgy - error");
+
+                _this3.error(_context3.t0.response.data.message);
+
+              case 15:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3, null, [[0, 10]]);
       }))();
     },
     goBack: function goBack() {
@@ -378,67 +443,67 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.setEquipmentModal(true, "update");
     },
     submitEquimentForm: function submitEquimentForm() {
-      var _this3 = this;
+      var _this4 = this;
 
-      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3() {
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee4() {
         var data, type;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee4$(_context4) {
           while (1) {
-            switch (_context3.prev = _context3.next) {
+            switch (_context4.prev = _context4.next) {
               case 0:
-                _context3.prev = 0;
-                data = _objectSpread(_objectSpread({}, _this3.equipment), {}, {
-                  lce_FK: _this3.lce_id
+                _context4.prev = 0;
+                data = _objectSpread(_objectSpread({}, _this4.equipment), {}, {
+                  lce_FK: _this4.lce_id
                 });
-                type = _this3.equipment_modal.type;
-                _this3.loading = true;
+                type = _this4.equipment_modal.type;
+                _this4.loading = true;
 
                 if (!(type === "create")) {
-                  _context3.next = 9;
+                  _context4.next = 9;
                   break;
                 }
 
-                _context3.next = 7;
-                return _this3.$inertia.post("/app/swm/equipment_register_process", data);
+                _context4.next = 7;
+                return _this4.$inertia.post("/app/swm/equipment_register_process", data);
 
               case 7:
-                _context3.next = 12;
+                _context4.next = 12;
                 break;
 
               case 9:
                 if (!(type === "update")) {
-                  _context3.next = 12;
+                  _context4.next = 12;
                   break;
                 }
 
-                _context3.next = 12;
-                return _this3.$inertia.post("/app/swm/equipment_update_process", data);
+                _context4.next = 12;
+                return _this4.$inertia.post("/app/swm/equipment_update_process", data);
 
               case 12:
                 // this.submitEquimentForm(false,"create")
-                _this3.equipment_modal = {
+                _this4.equipment_modal = {
                   active: false,
                   type: "create"
                 };
-                _this3.loading = false;
-                _context3.next = 21;
+                _this4.loading = false;
+                _context4.next = 21;
                 break;
 
               case 16:
-                _context3.prev = 16;
-                _context3.t0 = _context3["catch"](0);
-                _this3.loading = false;
+                _context4.prev = 16;
+                _context4.t0 = _context4["catch"](0);
+                _this4.loading = false;
 
-                _this3.error(_context3.t0.response.data.message);
+                _this4.error(_context4.t0.response.data.message);
 
-                console.log(_context3.t0);
+                console.log(_context4.t0);
 
               case 21:
               case "end":
-                return _context3.stop();
+                return _context4.stop();
             }
           }
-        }, _callee3, null, [[0, 16]]);
+        }, _callee4, null, [[0, 16]]);
       }))();
     }
   }
