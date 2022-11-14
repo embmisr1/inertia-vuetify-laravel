@@ -77,7 +77,6 @@ Route::group([
     // 'middleware' => ['auth'] ,
     'prefix' => "/app",
 ], function () {
-    Route::get('/getCurrentSession', [AuthController::class, 'getCurrentSession'])->name("session");
     Route::delete('/', [AuthController::class, 'destroy'])->name("authLogout");
     // Route::post('attachments', DownloadAttachmentController::class)->name("dl");
     Route::get('attachments', [DownloadAttachmentController::class,'index'])->name("dl");
