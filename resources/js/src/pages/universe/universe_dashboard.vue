@@ -281,6 +281,43 @@
             </b-tooltip>
           </div>
         </div>
+        <div class="w-full border-4 p-2 shadow-xl rounded">
+          <Chart type="bar" :data="with_order" :options="horizontalOptions" />
+          <div class="flex justify-between">
+            <v-btn small color="#0E1111" text
+              >Total: <br />{{
+                new Intl.NumberFormat().format(query_order_issued)
+              }}</v-btn
+            >
+            <v-btn small color="#0E1111" text
+              >PD 1586: <br />{{
+                new Intl.NumberFormat().format(query_order_issued_1586)
+              }}</v-btn
+            >
+
+            <v-btn small color="#0E1111" text
+              >RA 8749:<br />
+              {{ new Intl.NumberFormat().format(query_order_issued_8749) }}</v-btn
+            >
+
+            <v-btn small color="#0E1111" text
+              >RA 9275: <br />{{
+                new Intl.NumberFormat().format(query_order_issued_9275)
+              }}</v-btn
+            >
+
+            <v-btn small color="#0E1111" text
+              >RA 6969:<br />
+              {{ new Intl.NumberFormat().format(query_order_issued_6969) }}</v-btn
+            >
+
+            <v-btn small color="#0E1111" text
+              >RA 9003: <br />{{
+                new Intl.NumberFormat().format(query_order_issued_9003)
+              }}</v-btn
+            >
+          </div>
+        </div>
       </div>
     </div>
 
@@ -402,6 +439,12 @@ export default {
     query_monitoring_6969: Number,
     query_monitoring_9003: Number,
     query_complaint: Number,
+    query_order_issued: Number,
+    query_order_issued_1586: Number,
+    query_order_issued_8749: Number,
+    query_order_issued_9275: Number,
+    query_order_issued_6969: Number,
+    query_order_issued_9003: Number,
   },
   data() {
     return {
@@ -451,6 +494,23 @@ export default {
               this.query_nov_9275,
               this.query_nov_6969,
               this.query_nov_9003,
+            ],
+          },
+        ],
+      },
+      with_order: {
+        labels: ["Total", "PD 1586", "RA 8749", "RA 9275", "RA 6969", "RA 9003"],
+        datasets: [
+          {
+            label: "With Order",
+            backgroundColor: "#60A5FA",
+            data: [
+              this.query_order_issued,
+              this.query_order_issued_1586,
+              this.query_order_issued_8749,
+              this.query_order_issued_9275,
+              this.query_order_issued_6969,
+              this.query_order_issued_9003,
             ],
           },
         ],
