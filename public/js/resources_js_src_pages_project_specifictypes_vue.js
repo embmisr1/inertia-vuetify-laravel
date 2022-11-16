@@ -3394,14 +3394,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             switch (_context.prev = _context.next) {
               case 0:
                 _context.prev = 0;
-<<<<<<< HEAD
-                _this.loading = true;
-                _context.next = 4;
-                return axios__WEBPACK_IMPORTED_MODULE_1___default().get("http://210.213.92.250/api/app/province_dropdown/".concat(prov_id));
-=======
                 _context.next = 3;
                 return _this.exportable;
->>>>>>> be33674767e067e8421ae573192c295fbeb5a93c
 
               case 3:
                 _yield$_this$exportab = _context.sent;
@@ -3457,11 +3451,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                 _context2.prev = 0;
                 _this2.loading = true;
                 _context2.next = 4;
-<<<<<<< HEAD
-                return axios__WEBPACK_IMPORTED_MODULE_1___default().get("http://210.213.92.250/api/app/municipality_dropdown/".concat(cityMun_id));
-=======
-                return axios__WEBPACK_IMPORTED_MODULE_1___default().get("http://127.0.0.1:8000/api/app/province_dropdown/".concat(prov_id));
->>>>>>> be33674767e067e8421ae573192c295fbeb5a93c
+                return axios__WEBPACK_IMPORTED_MODULE_1___default().get("http://210.213.92.250/api/app/province_dropdown/".concat(prov_id));
 
               case 4:
                 _yield$axios$get2 = _context2.sent;
@@ -3500,7 +3490,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                 _context3.prev = 0;
                 _this3.loading = true;
                 _context3.next = 4;
-                return axios__WEBPACK_IMPORTED_MODULE_1___default().get("http://127.0.0.1:8000/api/app/municipality_dropdown/".concat(cityMun_id));
+                return axios__WEBPACK_IMPORTED_MODULE_1___default().get("http://210.213.92.250/api/app/municipality_dropdown/".concat(cityMun_id));
 
               case 4:
                 _yield$axios$get3 = _context3.sent;
