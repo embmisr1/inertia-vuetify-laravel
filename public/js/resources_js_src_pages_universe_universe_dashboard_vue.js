@@ -1118,6 +1118,47 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _mixins___WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../mixins/ */ "./resources/js/src/mixins/index.js");
 /* harmony import */ var _components_Dashboard_TopCards_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../components/Dashboard/TopCards.vue */ "./resources/js/src/components/Dashboard/TopCards.vue");
 /* harmony import */ var _components_Dashboard_RightCards_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../components/Dashboard/RightCards.vue */ "./resources/js/src/components/Dashboard/RightCards.vue");
+var _props;
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -1491,7 +1532,7 @@ __webpack_require__.r(__webpack_exports__);
     TopCards: _components_Dashboard_TopCards_vue__WEBPACK_IMPORTED_MODULE_5__["default"],
     RightCards: _components_Dashboard_RightCards_vue__WEBPACK_IMPORTED_MODULE_6__["default"]
   },
-  props: {
+  props: (_props = {
     firm_type: String,
     query_registered_industries: Number,
     query_all_firm: Number,
@@ -1520,7 +1561,7 @@ __webpack_require__.r(__webpack_exports__);
     query_monitoring_6969: Number,
     query_monitoring_9003: Number,
     query_complaint: Number
-  },
+  }, _defineProperty(_props, "query_order_issued", Number), _defineProperty(_props, "query_order_issued_1586", Number), _defineProperty(_props, "query_order_issued_8749", Number), _defineProperty(_props, "query_order_issued_9275", Number), _defineProperty(_props, "query_order_issued_6969", Number), _defineProperty(_props, "query_order_issued_9003", Number), _props),
   data: function data() {
     return {
       with_9275: {
@@ -1547,6 +1588,14 @@ __webpack_require__.r(__webpack_exports__);
           label: "With NOV",
           backgroundColor: "#60A5FA",
           data: [this.query_nov_all, this.query_nov_1586, this.query_nov_8749, this.query_nov_9275, this.query_nov_6969, this.query_nov_9003]
+        }]
+      },
+      with_order: {
+        labels: ["Total", "PD 1586", "RA 8749", "RA 9275", "RA 6969", "RA 9003"],
+        datasets: [{
+          label: "With Order",
+          backgroundColor: "#60A5FA",
+          data: [this.query_order_issued, this.query_order_issued_1586, this.query_order_issued_8749, this.query_order_issued_9275, this.query_order_issued_6969, this.query_order_issued_9003]
         }]
       },
       monitoring: {
@@ -25326,6 +25375,124 @@ var render = function () {
                       ),
                     ],
                     1
+                  ),
+                ],
+                1
+              ),
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "w-full border-4 p-2 shadow-xl rounded" },
+            [
+              _c("Chart", {
+                attrs: {
+                  type: "bar",
+                  data: _vm.with_order,
+                  options: _vm.horizontalOptions,
+                },
+              }),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "flex justify-between" },
+                [
+                  _c(
+                    "v-btn",
+                    { attrs: { small: "", color: "#0E1111", text: "" } },
+                    [
+                      _vm._v("Total: "),
+                      _c("br"),
+                      _vm._v(
+                        _vm._s(
+                          new Intl.NumberFormat().format(_vm.query_order_issued)
+                        )
+                      ),
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-btn",
+                    { attrs: { small: "", color: "#0E1111", text: "" } },
+                    [
+                      _vm._v("PD 1586: "),
+                      _c("br"),
+                      _vm._v(
+                        _vm._s(
+                          new Intl.NumberFormat().format(
+                            _vm.query_order_issued_1586
+                          )
+                        )
+                      ),
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-btn",
+                    { attrs: { small: "", color: "#0E1111", text: "" } },
+                    [
+                      _vm._v("RA 8749:"),
+                      _c("br"),
+                      _vm._v(
+                        "\n            " +
+                          _vm._s(
+                            new Intl.NumberFormat().format(
+                              _vm.query_order_issued_8749
+                            )
+                          )
+                      ),
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-btn",
+                    { attrs: { small: "", color: "#0E1111", text: "" } },
+                    [
+                      _vm._v("RA 9275: "),
+                      _c("br"),
+                      _vm._v(
+                        _vm._s(
+                          new Intl.NumberFormat().format(
+                            _vm.query_order_issued_9275
+                          )
+                        )
+                      ),
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-btn",
+                    { attrs: { small: "", color: "#0E1111", text: "" } },
+                    [
+                      _vm._v("RA 6969:"),
+                      _c("br"),
+                      _vm._v(
+                        "\n            " +
+                          _vm._s(
+                            new Intl.NumberFormat().format(
+                              _vm.query_order_issued_6969
+                            )
+                          )
+                      ),
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-btn",
+                    { attrs: { small: "", color: "#0E1111", text: "" } },
+                    [
+                      _vm._v("RA 9003: "),
+                      _c("br"),
+                      _vm._v(
+                        _vm._s(
+                          new Intl.NumberFormat().format(
+                            _vm.query_order_issued_9003
+                          )
+                        )
+                      ),
+                    ]
                   ),
                 ],
                 1

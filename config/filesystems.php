@@ -157,6 +157,13 @@ return [
             'url' => env('APP_URL') . '/storage/iec',
             'visibility' => 'public',
         ],
+// mov
+        'mov' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/mov'),
+            'url' => env('APP_URL') . '/storage/mov',
+            'visibility' => 'public',
+        ],
     ],
 
 
