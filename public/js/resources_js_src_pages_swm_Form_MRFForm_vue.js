@@ -1336,6 +1336,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 
 
@@ -23930,6 +23931,7 @@ var render = function () {
                                                                 outlined: "",
                                                                 clearable: "",
                                                                 dense: "",
+                                                                hint: "m3",
                                                                 type: "number",
                                                                 color: "dark",
                                                                 "persistent-hint":
@@ -24301,7 +24303,7 @@ var render = function () {
                                                         clearable: "",
                                                         dense: "",
                                                         color: "dark",
-                                                        hint: "kg/day",
+                                                        hint: "m3/day",
                                                         "persistent-hint": "",
                                                       },
                                                       model: {
