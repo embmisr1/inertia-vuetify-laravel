@@ -209,11 +209,15 @@ class UniverseController extends Controller
         ]);
     }
 
-    public function universe_dashboard(request $request)
+    public function universe_dashboard(request $request,$firm_type)
     {
-        $firm_type = $request->firm_type;
+        // $firm_type = $request->firm_type;
+        $query_registered_industries_lgu_only = null;
         $query_registered_industries = DB::table('tbl_universe')->select('*')->where('un_type', $firm_type);
-        $query_registered_industries_lgu_only = DB::table('tbl_universe')->select('un_municipality')->where('un_type', 'lgu')->groupBy('un_municipality')->get();
+        if($firm_type==='lgu'){
+            $query_registered_industries_lgu_only = DB::table('tbl_universe')->select('un_municipality')->where('un_type', 'lgu')->groupBy('un_municipality')->get();
+            $query_registered_industries_lgu_only = $query_registered_industries_lgu_only->count();
+        }
         $query_permit_1586 = DB::table('tbl_permit as a')->leftjoin('tbl_universe as b', 'a.universe_FK', '=', 'b.id')->where('b.un_type', $firm_type)->where('a.perm_law', 'PD 1586')->where('a.is_priority', 1);
         $query_permit_8749 = DB::table('tbl_permit as a')->leftjoin('tbl_universe as b', 'a.universe_FK', '=', 'b.id')->where('b.un_type', $firm_type)->where('a.perm_law', 'RA 8749')->where('a.is_priority', 1);
         $query_permit_9275 = DB::table('tbl_permit as a')->leftjoin('tbl_universe as b', 'a.universe_FK', '=', 'b.id')->where('b.un_type', $firm_type)->where('a.perm_law', 'RA 9275')->where('a.is_priority', 1);
@@ -257,7 +261,7 @@ class UniverseController extends Controller
         $query_complaint = DB::table('tbl_complaint as a')->leftjoin('tbl_universe as b', 'a.universe_FK', '=', 'b.id')->where('b.un_type', $firm_type)->where('a.comp_name', '!=', '')->whereNotNull('a.comp_name');
         return Inertia::render("pages/universe/universe_dashboard", [
             'query_registered_industries' => $query_registered_industries->count(),
-            'query_registered_industries_lgu_only' => $query_registered_industries_lgu_only->count(),
+            'query_registered_industries_lgu_only' => $query_registered_industries_lgu_only,
             'query_permit_1586' => $query_permit_1586->count(),
             'query_permit_8749' => $query_permit_8749->count(),
             'query_permit_9275' => $query_permit_9275->count(),
