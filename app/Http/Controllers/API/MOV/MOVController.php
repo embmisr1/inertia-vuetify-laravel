@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API\MOV;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\MovRequest;
 use App\Models\Mov;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class MOVController extends Controller
@@ -38,14 +39,32 @@ class MOVController extends Controller
     public function store(MovRequest $request)
     {
         try {
+
             $input = $request->validated();
+            if(empty($input['payment_date'])){
+                $input['payment_date'] ="" ;
+            }
+            if(empty($input['compliance_date'])){
+                $input['compliance_date']="";
+                $input['complied']  = true;
+            }
+            if(empty($input['notice_of_date'])){
+                $input['notice_of_date']  = "";
+            }
+
+            // $new_date = Carbon::parse($input['date_of_inspection'])->format('m/d/Y');
             return response()->json([
-                "data"=>$input
-                // "data"=>$request->address
+                "data" => $input['date_of_inspection'],
+                "message" => "MOV Created"
+            ]);
+            $new_mov = Mov::create($input);
+            return response()->json([
+                "data" => $new_mov,
+                "message" => "MOV Created"
             ]);
         } catch (\Throwable $th) {
             return response()->json([
-                "error"=>$th->getMessage()
+                "error" => $th->getMessage()
             ]);
         };
     }
