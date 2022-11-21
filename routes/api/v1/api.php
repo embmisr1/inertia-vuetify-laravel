@@ -1,11 +1,14 @@
 <?php
 
+use App\Http\Controllers\API\MOV\MOVController;
 use App\Http\Controllers\Auth\AuthController;
 use GuzzleHttp\Psr7\Request;
 use Illuminate\Support\Facades\Route;
 
 Route::post('/login', [AuthController::class, 'api_login'])->name("api_login");
-
+Route::apiResources([
+    "movs"=>MOVController::class
+]);
 Route::group([
     'middleware' => ['auth:sanctum'],
 ], function () {

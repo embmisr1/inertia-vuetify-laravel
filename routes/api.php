@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\ApiController;
+use App\Http\Controllers\API\PlacesController;
 use App\Http\Controllers\API\Project\SearchSpecificType;
 use App\Http\Controllers\API\Project\SearchSubType;
 use App\Http\Controllers\API\Project\SearchType;
@@ -26,6 +27,8 @@ use App\Http\Controllers\Imports\ImportsController;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('app/region_dropdown/{id?}', [ApiController::class, 'region_dropdown'])->name("region_dropdown");
 Route::get('app/province_dropdown/{id}', [ApiController::class, 'province_dropdown'])->name("province_dropdown");
 Route::get('app/municipality_dropdown/{id}', [ApiController::class, 'municipality_dropdown'])->name("municipality_dropdown");
 Route::get('app/psic_group_dropdown/{id}', [ApiController::class, 'psic_group_dropdown'])->name("psic_group_dropdown");
@@ -45,5 +48,10 @@ Route::group([
     Route::get('/project/specifictype', SearchSpecificType::class)->name("search_project_specific_type");
 
     Route::get('/import/lce', [ImportsController::class, 'importlce'])->name("search_project_specific_type");
+
+
+    Route::get('/province/{id?}', [PlacesController::class, 'region_dropdown'])->name("region_dropdown");
+    Route::get('/city_mun/{id?}/{citymunDesc?}', [PlacesController::class, 'province_dropdown'])->name("province_dropdown");
+    Route::get('/brgy/{id?}/{brgyDesc?}', [PlacesController::class, 'municipality_dropdown'])->name("municipality_dropdown");
 
 });
