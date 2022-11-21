@@ -1,6 +1,13 @@
 <template>
   <DefaultLayout :access="access">
     <div class="my-2 p-2 flex space-x-2 overflow-auto">
+      <Link href="#">
+        <TopCards
+          v-if="query_registered_industries_lgu_only"
+          title="Total LGU"
+          :counter="query_registered_industries_lgu_only"
+        />
+      </Link>
       <Link
         :href="`/app/universe/?PK_province_ID=&PK_citymun_ID=&PK_brgy_ID=&selectedSearchCategory=&searchStatus=&searchType=firm&search1586=&search8749=&search9275=&search6969=&search9003=`"
       >
@@ -445,6 +452,7 @@ export default {
     query_order_issued_9275: Number,
     query_order_issued_6969: Number,
     query_order_issued_9003: Number,
+    query_registered_industries_lgu_only: Number,
   },
   data() {
     return {
