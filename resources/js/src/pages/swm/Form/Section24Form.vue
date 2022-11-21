@@ -68,16 +68,19 @@
                       rules=""
                       v-slot="{ errors }"
                     >
-                      <v-text-field
-                        type="date"
-                        label="Schedule of Collection"
-                        :error-messages="errors[0]"
+                      <v-select
                         v-model="sec_24.section24_schedule_of_collection"
+                        :items="date_of_collection"
+                        :menu-props="{
+                          maxHeight: '400',
+                        }"
+                        label="Select Day"
+                        multiple
                         outlined
                         clearable
                         dense
-                        color="dark"
-                      ></v-text-field>
+                        chips
+                      ></v-select>
                     </ValidationProvider>
                     <ValidationProvider
                       vid="section24_swm_personnel"
@@ -426,6 +429,15 @@ export default {
         modal: false,
         data: "",
       },
+      date_of_collection: [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday",
+      ],
     };
   },
   created() {
