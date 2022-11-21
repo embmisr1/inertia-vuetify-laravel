@@ -68,16 +68,19 @@
                       rules=""
                       v-slot="{ errors }"
                     >
-                      <v-text-field
-                        type="date"
-                        label="Schedule of Collection"
-                        :error-messages="errors[0]"
+                      <v-select
                         v-model="sec_24.section24_schedule_of_collection"
+                        :items="date_of_collection"
+                        :menu-props="{
+                          maxHeight: '400',
+                        }"
+                        label="Select Day"
+                        multiple
                         outlined
                         clearable
                         dense
-                        color="dark"
-                      ></v-text-field>
+                        chips
+                      ></v-select>
                     </ValidationProvider>
                     <ValidationProvider
                       vid="section24_swm_personnel"
@@ -179,14 +182,14 @@
                     <v-checkbox v-model="sec_24.section24_basis_1">
                       <template v-slot:label>
                         <div>
-                          Section 1
+                          Requirement 1
                           <v-tooltip top>
                             <template v-slot:activator="{ on }">
                               <v-icon @click="view_section(1)" @click.stop v-on="on" small
                                 >mdi-dots-horizontal</v-icon
                               >
                             </template>
-                            View Section
+                            View Requirement
                           </v-tooltip>
                         </div>
                       </template>
@@ -194,14 +197,14 @@
                     <v-checkbox v-model="sec_24.section24_basis_2">
                       <template v-slot:label>
                         <div>
-                          Section 2
+                          Requirement 2
                           <v-tooltip top>
                             <template v-slot:activator="{ on }">
                               <v-icon @click="view_section(2)" @click.stop v-on="on" small
                                 >mdi-dots-horizontal</v-icon
                               >
                             </template>
-                            View Section
+                            View Requirement
                           </v-tooltip>
                         </div>
                       </template>
@@ -209,14 +212,14 @@
                     <v-checkbox v-model="sec_24.section24_basis_3">
                       <template v-slot:label>
                         <div>
-                          Section 3
+                          Requirement 3
                           <v-tooltip top>
                             <template v-slot:activator="{ on }">
                               <v-icon @click="view_section(3)" @click.stop v-on="on" small
                                 >mdi-dots-horizontal</v-icon
                               >
                             </template>
-                            View Section
+                            View Requirement
                           </v-tooltip>
                         </div>
                       </template>
@@ -224,14 +227,14 @@
                     <v-checkbox v-model="sec_24.section24_basis_4">
                       <template v-slot:label>
                         <div>
-                          Section 4
+                          Requirement 4
                           <v-tooltip top>
                             <template v-slot:activator="{ on }">
                               <v-icon @click="view_section(4)" @click.stop v-on="on" small
                                 >mdi-dots-horizontal</v-icon
                               >
                             </template>
-                            View Section
+                            View Requirement
                           </v-tooltip>
                         </div>
                       </template>
@@ -239,14 +242,14 @@
                     <v-checkbox v-model="sec_24.section24_basis_5">
                       <template v-slot:label>
                         <div>
-                          Section 5
+                          Requirement 5
                           <v-tooltip top>
                             <template v-slot:activator="{ on }">
                               <v-icon @click="view_section(5)" @click.stop v-on="on" small
                                 >mdi-dots-horizontal</v-icon
                               >
                             </template>
-                            View Section
+                            View Requirement
                           </v-tooltip>
                         </div>
                       </template>
@@ -254,14 +257,14 @@
                     <v-checkbox v-model="sec_24.section24_basis_6">
                       <template v-slot:label>
                         <div>
-                          Section 6
+                          Requirement 6
                           <v-tooltip top>
                             <template v-slot:activator="{ on }">
                               <v-icon @click="view_section(6)" @click.stop v-on="on" small
                                 >mdi-dots-horizontal</v-icon
                               >
                             </template>
-                            View Section
+                            View Requirement
                           </v-tooltip>
                         </div>
                       </template>
@@ -269,14 +272,14 @@
                     <v-checkbox v-model="sec_24.section24_basis_7">
                       <template v-slot:label>
                         <div>
-                          Section 7
+                          Requirement 7
                           <v-tooltip top>
                             <template v-slot:activator="{ on }">
                               <v-icon @click="view_section(7)" @click.stop v-on="on" small
                                 >mdi-dots-horizontal</v-icon
                               >
                             </template>
-                            View Section
+                            View Requirement
                           </v-tooltip>
                         </div>
                       </template>
@@ -284,14 +287,14 @@
                     <v-checkbox v-model="sec_24.section24_basis_8">
                       <template v-slot:label>
                         <div>
-                          Section 8
+                          Requirement 8
                           <v-tooltip top>
                             <template v-slot:activator="{ on }">
                               <v-icon @click="view_section(8)" @click.stop v-on="on" small
                                 >mdi-dots-horizontal</v-icon
                               >
                             </template>
-                            View Section
+                            View Requirement
                           </v-tooltip>
                         </div>
                       </template>
@@ -299,14 +302,14 @@
                     <v-checkbox v-model="sec_24.section24_basis_9">
                       <template v-slot:label>
                         <div>
-                          Section 9
+                          Requirement 9
                           <v-tooltip top>
                             <template v-slot:activator="{ on }">
                               <v-icon @click="view_section(9)" @click.stop v-on="on" small
                                 >mdi-dots-horizontal</v-icon
                               >
                             </template>
-                            View Section
+                            View Requirement
                           </v-tooltip>
                         </div>
                       </template>
@@ -314,7 +317,7 @@
                     <v-checkbox v-model="sec_24.section24_basis_10">
                       <template v-slot:label>
                         <div>
-                          Section 10
+                          Requirement 10
                           <v-tooltip top>
                             <template v-slot:activator="{ on }">
                               <v-icon
@@ -325,7 +328,7 @@
                                 >mdi-dots-horizontal</v-icon
                               >
                             </template>
-                            View Section
+                            View Requirement
                           </v-tooltip>
                         </div>
                       </template>
@@ -333,7 +336,7 @@
                     <v-checkbox v-model="sec_24.section24_basis_11">
                       <template v-slot:label>
                         <div>
-                          Section 11
+                          Requirement 11
                           <v-tooltip top>
                             <template v-slot:activator="{ on }">
                               <v-icon
@@ -344,7 +347,7 @@
                                 >mdi-dots-horizontal</v-icon
                               >
                             </template>
-                            View Section
+                            View Requirement
                           </v-tooltip>
                         </div>
                       </template>
@@ -377,7 +380,7 @@
       </ValidationObserver>
     </div>
     <Dialog
-      header="View Section"
+      header="View Requirement"
       :visible.sync="section.modal"
       :containerStyle="{ width: '50vw' }"
       position="right"
@@ -426,6 +429,15 @@ export default {
         modal: false,
         data: "",
       },
+      date_of_collection: [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday",
+      ],
     };
   },
   created() {
