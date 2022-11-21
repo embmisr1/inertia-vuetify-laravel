@@ -129,7 +129,7 @@
                                             outlined
                                             clearable
                                             dense
-                                            hint="m3/day"
+                                            hint="m3"
                                             type="number"
                                             color="dark"
                                             persistent-hint
