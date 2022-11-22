@@ -450,7 +450,11 @@ export default {
     } else if (this.section24_edit !== undefined) {
       if (this.section24_edit.length > 0) {
         this.sec_24_form_type = "patch";
-        this.sec_24 = { ...this.section24_edit[0] };
+        const toarray = this.section24_edit[0].section24_schedule_of_collection.split(", ");
+        this.sec_24 = {
+          ...this.section24_edit[0], 
+          section24_schedule_of_collection: toarray,
+        };
       }
     }
     this.loading = false;
