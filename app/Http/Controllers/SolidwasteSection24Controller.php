@@ -38,6 +38,7 @@ class SolidwasteSection24Controller extends Controller
             ->leftjoin('ref_brgy as e', 'b.lce_barangay_FK', '=', 'e.PK_brgy_ID')
             ->where('a.id', $id)->get();
         return Inertia::render("pages/swm/Form/Section24Form", [
+            // 'section24_schedule_of_collection_edit' => explode(", " ,$section24_edit[0]->section24_schedule_of_collection),
             'section24_edit' => $section24_edit,
         ]);
     }
@@ -50,7 +51,7 @@ class SolidwasteSection24Controller extends Controller
             $query->section24_iis_number = $request->section24_iis_number;
             $query->section24_catered_barangay = $request->section24_catered_barangay;
             $query->section24_collection_vehicle = $request->section24_collection_vehicle;
-            $query->section24_schedule_of_collection = $request->section24_schedule_of_collection;
+            $query->section24_schedule_of_collection = implode(", ",$request->section24_schedule_of_collection);
             $query->section24_swm_personnel = $request->section24_swm_personnel;
             $query->section24_basis_1 = $request->section24_basis_1;
             $query->section24_basis_2 = $request->section24_basis_2;
@@ -83,7 +84,7 @@ class SolidwasteSection24Controller extends Controller
             $query->section24_iis_number = $request->section24_iis_number;
             $query->section24_catered_barangay = $request->section24_catered_barangay;
             $query->section24_collection_vehicle = $request->section24_collection_vehicle;
-            $query->section24_schedule_of_collection = $request->section24_schedule_of_collection;
+            $query->section24_schedule_of_collection = implode(", ",$request->section24_schedule_of_collection);
             $query->section24_swm_personnel = $request->section24_swm_personnel;
             $query->section24_basis_1 = $request->section24_basis_1;
             $query->section24_basis_2 = $request->section24_basis_2;
