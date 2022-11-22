@@ -1516,6 +1516,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -1561,7 +1568,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     query_monitoring_6969: Number,
     query_monitoring_9003: Number,
     query_complaint: Number
-  }, _defineProperty(_props, "query_order_issued", Number), _defineProperty(_props, "query_order_issued_1586", Number), _defineProperty(_props, "query_order_issued_8749", Number), _defineProperty(_props, "query_order_issued_9275", Number), _defineProperty(_props, "query_order_issued_6969", Number), _defineProperty(_props, "query_order_issued_9003", Number), _props),
+  }, _defineProperty(_props, "query_order_issued", Number), _defineProperty(_props, "query_order_issued_1586", Number), _defineProperty(_props, "query_order_issued_8749", Number), _defineProperty(_props, "query_order_issued_9275", Number), _defineProperty(_props, "query_order_issued_6969", Number), _defineProperty(_props, "query_order_issued_9003", Number), _defineProperty(_props, "query_registered_industries_lgu_only", Number), _props),
   data: function data() {
     return {
       with_9275: {
@@ -3551,7 +3558,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         section24_iis_number: null,
         section24_catered_barangay: null,
         section24_collection_vehicle: null,
-        section24_schedule_of_collection: null,
+        section24_schedule_of_collection: [],
         section24_swm_personnel: null,
         section24_basis_1: false,
         section24_basis_2: false,
@@ -24401,6 +24408,22 @@ var render = function () {
       "div",
       { staticClass: "my-2 p-2 flex space-x-2 overflow-auto" },
       [
+        _c(
+          "Link",
+          { attrs: { href: "#" } },
+          [
+            _vm.query_registered_industries_lgu_only
+              ? _c("TopCards", {
+                  attrs: {
+                    title: "Total LGU",
+                    counter: _vm.query_registered_industries_lgu_only,
+                  },
+                })
+              : _vm._e(),
+          ],
+          1
+        ),
+        _vm._v(" "),
         _c(
           "Link",
           {

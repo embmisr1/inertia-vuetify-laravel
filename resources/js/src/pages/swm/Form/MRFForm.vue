@@ -129,6 +129,7 @@
                                             outlined
                                             clearable
                                             dense
+                                            hint="m3"
                                             type="number"
                                             color="dark"
                                             persistent-hint
@@ -254,7 +255,7 @@
                                             clearable
                                             dense
                                             color="dark"
-                                            hint="kg/day"
+                                            hint="m3/day"
                                             persistent-hint
                                         ></v-text-field>
                                     </ValidationProvider>

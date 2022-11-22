@@ -3559,7 +3559,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         section24_iis_number: null,
         section24_catered_barangay: null,
         section24_collection_vehicle: null,
-        section24_schedule_of_collection: null,
+        section24_schedule_of_collection: [],
         section24_swm_personnel: null,
         section24_basis_1: false,
         section24_basis_2: false,
