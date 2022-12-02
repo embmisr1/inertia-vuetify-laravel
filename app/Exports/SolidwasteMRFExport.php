@@ -133,6 +133,7 @@ class SolidwasteMRFExport implements FromQuery, WithHeadings, WithMapping, WithE
                 'a.mrf_service_area', 
                 'a.mrf_total_waste_generation', 
                 'a.mrf_biodegradable', 
+                'a.mrf_residual', 
                 'a.mrf_recyclable', 
                 'a.mrf_special_waste', 
                 'a.mrf_number_of_waste_diverted', 
