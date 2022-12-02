@@ -104,7 +104,7 @@
 
                     <v-file-input
                       v-model="iec.iec_file"
-                      accept="image/*"
+                      accept="image/*, application/pdf"
                       outlined
                       clearable
                       dense
