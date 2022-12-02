@@ -7,12 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Mov extends Model implements HasMedia
 {
-    use HasFactory, InteractsWithMedia;
+    use HasFactory, InteractsWithMedia,SoftDeletes;
+
+    protected $connection = 'mysql1';
 
     protected $fillable = [
+        "user_id",
         "name",
         "month",
         // "address",
@@ -34,11 +38,11 @@ class Mov extends Model implements HasMedia
     ];
 
     protected $cast = [
-        "complied" => "boolean",
-        "date_of_inspection" => "data",
-        "notice_of_date" => "data",
-        "compliance_date" => "data",
-        "payment_date" => "data",
+        "complied" => "bool",
+        "date_of_inspection" => "date",
+        "notice_of_date" => "date",
+        "compliance_date" => "date",
+        "payment_date" => "date",
     ];
 
     public function registerMediaCollections(): void

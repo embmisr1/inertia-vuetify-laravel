@@ -13,8 +13,9 @@ class CreateMovsTable extends Migration
      */
     public function up()
     {
-        Schema::create('movs', function (Blueprint $table) {
+        Schema::connection('mysql1')->create('movs', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id')->nullable();//mov creator
             $table->string("name");
             $table->string("month");
             // $table->text("address");
@@ -28,13 +29,18 @@ class CreateMovsTable extends Migration
             $table->enum("type_of_inspection",['PD1586','RA9275','RA8749','RA6969']);
             $table->date("date_of_inspection");
             $table->enum("type",['FIRM','SITE'])->default('FIRM');
-            $table->date("notice_of_date")->nullable();
-            $table->date("compliance_date")->nullable();
+            // $table->timestamp("notice_of_date")->default(null)->nullable();
+            // $table->timestamp("compliance_date")->default(null)->nullable();
+            $table->text("notice_of_date")->default(null)->nullable();
+            $table->text("compliance_date")->default(null)->nullable();
             $table->boolean("complied")->default(false)->nullable();
             $table->text("remarks")->nullable();
-            $table->date("payment_date")->nullable();
+            // $table->timestamp("payment_date")->default(null)->nullable();
+            $table->text("payment_date")->default(null)->nullable();
 
             $table->timestamps();
+            $table->softDeletes();
+            // $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->nullOnDelete();
         });
     }
 

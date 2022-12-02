@@ -47,7 +47,7 @@ Route::group([
     Route::get('/project/subtype', SearchSubType::class)->name("search_project_sub_type");
     Route::get('/project/specifictype', SearchSpecificType::class)->name("search_project_specific_type");
 
-    Route::get('/import/lce', [ImportsController::class, 'importlce'])->name("search_project_specific_type");
+    // Route::get('/import/lce', [ImportsController::class, 'importlce'])->name("search_project_specific_type");
 
 
     Route::get('/province/{id?}', [PlacesController::class, 'region_dropdown'])->name("region_dropdown");

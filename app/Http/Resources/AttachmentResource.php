@@ -14,14 +14,26 @@ class AttachmentResource extends JsonResource
      */
     public function toArray($request)
     {
-        return [
-            'id' => $this->id,
-            'name' => $this->name,
-            'file_name' => $this->file_name,
-            'uuid' => $this->uuid,
-            'url' => $this->getUrl(),
-            'mime_type' => $this->mime_type,
-            'size' => $this->human_readable_size
-        ];
+        try {
+            return [
+                'id' => $this->id,
+                'name' => $this->name,
+                'file_name' => $this->file_name,
+                'uuid' => $this->uuid,
+                'url' => $this->getUrl() ? $this->getUrl() :null,
+                'mime_type' => $this->mime_type,
+                'size' => $this->human_readable_size
+            ];
+        } catch (\Throwable $th) {
+            return [
+                'id' => $this->id,
+                'name' => $this->file_name,
+                'file_name' => $this->file_name,
+                'uuid' => $this->uuid,
+                "link"=> '/storage/mov/' . $this->id . '/' . $this->file_name,
+                'mime_type' => $this->mime_type,
+                'size' => $this->size
+            ];
+        }
     }
 }
