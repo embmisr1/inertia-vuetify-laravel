@@ -1384,13 +1384,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
     if (this.lce_info !== undefined) {
       if (this.lce_info.length > 0) {
-        this.slf = _objectSpread({}, this.lce_info[0]);
+        this.slf = _objectSpread(_objectSpread({}, this.lce_info[0]), this.lce_info[0]);
         this.slf_form_type = "create";
       }
     } else if (this.slf_edit !== undefined) {
       if (this.slf_edit.length > 0) {
         this.slf_form_type = "patch";
-        this.slf = _objectSpread({}, this.slf_edit[0]);
+        var toarray = this.slf_edit[0].slf_leachate_treatment.split(", ");
+        this.slf = _objectSpread(_objectSpread({}, this.slf_edit[0]), {}, {
+          slf_leachate_treatment: toarray
+        });
       }
     }
 
@@ -3296,7 +3299,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         slf_exceeded_capacity: null,
         slf_with_planned_extension: null,
         slf_lgu_served: null,
-        slf_leachate_treatment: null,
+        slf_leachate_treatment: [],
         slf_daily_soil_cover: null,
         slf_presence_of_mrf: null,
         slf_separate_cells_for_hazwaste: null,
