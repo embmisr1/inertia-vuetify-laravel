@@ -2705,7 +2705,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         slf_exceeded_capacity: null,
         slf_with_planned_extension: null,
         slf_lgu_served: null,
-        slf_leachate_treatment: null,
+        slf_leachate_treatment: [],
         slf_daily_soil_cover: null,
         slf_presence_of_mrf: null,
         slf_separate_cells_for_hazwaste: null,

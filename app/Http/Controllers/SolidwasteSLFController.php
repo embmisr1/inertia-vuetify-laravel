@@ -72,7 +72,7 @@ class SolidwasteSLFController extends Controller
             $query->slf_exceeded_capacity = $request->slf_exceeded_capacity;
             $query->slf_with_planned_extension = $request->slf_with_planned_extension;
             $query->slf_lgu_served = $request->slf_lgu_served;
-            $query->slf_leachate_treatment = $request->slf_leachate_treatment;
+            $query->slf_leachate_treatment = implode(", ",$request->slf_leachate_treatment);
             $query->slf_daily_soil_cover = $request->slf_daily_soil_cover;
             $query->slf_presence_of_mrf = $request->slf_presence_of_mrf;
             $query->slf_separate_cells_for_hazwaste = $request->slf_separate_cells_for_hazwaste;
@@ -119,7 +119,7 @@ class SolidwasteSLFController extends Controller
         $query->slf_exceeded_capacity = $request->slf_exceeded_capacity;
         $query->slf_with_planned_extension = $request->slf_with_planned_extension;
         $query->slf_lgu_served = $request->slf_lgu_served;
-        $query->slf_leachate_treatment = $request->slf_leachate_treatment;
+        $query->slf_leachate_treatment = implode(", ",$request->slf_leachate_treatment);
         $query->slf_daily_soil_cover = $request->slf_daily_soil_cover;
         $query->slf_presence_of_mrf = $request->slf_presence_of_mrf;
         $query->slf_separate_cells_for_hazwaste = $request->slf_separate_cells_for_hazwaste;

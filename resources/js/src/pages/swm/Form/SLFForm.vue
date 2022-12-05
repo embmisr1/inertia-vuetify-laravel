@@ -443,13 +443,18 @@ export default {
     this.loading = true;
     if (this.lce_info !== undefined) {
       if (this.lce_info.length > 0) {
-        this.slf = { ...this.lce_info[0] };
+        this.slf = { ...this.lce_info[0], ...this.lce_info[0] };
         this.slf_form_type = "create";
       }
     } else if (this.slf_edit !== undefined) {
       if (this.slf_edit.length > 0) {
         this.slf_form_type = "patch";
-        this.slf = { ...this.slf_edit[0] };
+        const toarray = this.slf_edit[0].slf_leachate_treatment.split(", ");
+        this.slf = { 
+          ...this.slf_edit[0],
+          slf_leachate_treatment: toarray,
+
+         };
       }
     }
     this.loading = false;
