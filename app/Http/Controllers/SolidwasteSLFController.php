@@ -55,6 +55,11 @@ class SolidwasteSLFController extends Controller
         try {
             // dd($request->slf_file);
             // $query = SolidwasteSLF::create($request->toArray());
+            if(isset($request->slf_leachate_treatment)){
+                $slf_leachate_treatment = implode(", ",$request->slf_leachate_treatment);
+            }else{
+                $slf_leachate_treatment = null;
+            }
             $query = new SolidwasteSLF();
             $query->slf_complete_address = $request->slf_complete_address;
             $query->slf_latitude = $request->slf_latitude;
@@ -72,7 +77,7 @@ class SolidwasteSLFController extends Controller
             $query->slf_exceeded_capacity = $request->slf_exceeded_capacity;
             $query->slf_with_planned_extension = $request->slf_with_planned_extension;
             $query->slf_lgu_served = $request->slf_lgu_served;
-            $query->slf_leachate_treatment = implode(", ",$request->slf_leachate_treatment);
+            $query->slf_leachate_treatment = $slf_leachate_treatment;
             $query->slf_daily_soil_cover = $request->slf_daily_soil_cover;
             $query->slf_presence_of_mrf = $request->slf_presence_of_mrf;
             $query->slf_separate_cells_for_hazwaste = $request->slf_separate_cells_for_hazwaste;
@@ -101,46 +106,55 @@ class SolidwasteSLFController extends Controller
 
     public function slf_update_process(request $request)
     {
-        if(!$this->solidwaste_validator($request)){ return back(); }
-        $query = SolidwasteSLF::find($request->id);
-        $query->slf_complete_address = $request->slf_complete_address;
-        $query->slf_latitude = $request->slf_latitude;
-        $query->slf_longitude = $request->slf_longitude;
-        $query->slf_project_operator = $request->slf_project_operator;
-        $query->slf_ecc_number = $request->slf_ecc_number;
-        $query->slf_contact_person = $request->slf_contact_person;
-        $query->slf_contact_number = $request->slf_contact_number;
-        $query->slf_category = $request->slf_category;
-        $query->slf_site_hectares = $request->slf_site_hectares;
-        $query->slf_total_capacity = $request->slf_total_capacity;
-        $query->slf_tons_per_day = $request->slf_tons_per_day;
-        $query->slf_service_life = $request->slf_service_life;
-        $query->slf_remaining_service_life = $request->slf_remaining_service_life;
-        $query->slf_exceeded_capacity = $request->slf_exceeded_capacity;
-        $query->slf_with_planned_extension = $request->slf_with_planned_extension;
-        $query->slf_lgu_served = $request->slf_lgu_served;
-        $query->slf_leachate_treatment = implode(", ",$request->slf_leachate_treatment);
-        $query->slf_daily_soil_cover = $request->slf_daily_soil_cover;
-        $query->slf_presence_of_mrf = $request->slf_presence_of_mrf;
-        $query->slf_separate_cells_for_hazwaste = $request->slf_separate_cells_for_hazwaste;
-        $query->slf_methane_recovery = $request->slf_methane_recovery;
-        $query->slf_discharge_permit = $request->slf_discharge_permit;
-        $query->slf_1586_compliance = $request->slf_1586_compliance;
-        $query->slf_9275_compliance = $request->slf_9275_compliance;
-        $query->slf_6969_compliance = $request->slf_6969_compliance;
-        // $query->slf_file = $request->slf_file;
-        $query->lce_FK = $request->lce_FK;
-        $query->save();
-        if($request->slf_file){
-            foreach ($request->slf_file as $file) {
-                $query
-                    ->addMedia($file)
-                    ->preservingOriginal()
-                    ->toMediaCollection("slf");
+        try{
+            if(!$this->solidwaste_validator($request)){ return back(); }
+            if(isset($request->slf_leachate_treatment)){
+                $slf_leachate_treatment = implode(", ",$request->slf_leachate_treatment);
+            }else{
+                $slf_leachate_treatment = null;
             }
+            $query = SolidwasteSLF::find($request->id);
+            $query->slf_complete_address = $request->slf_complete_address;
+            $query->slf_latitude = $request->slf_latitude;
+            $query->slf_longitude = $request->slf_longitude;
+            $query->slf_project_operator = $request->slf_project_operator;
+            $query->slf_ecc_number = $request->slf_ecc_number;
+            $query->slf_contact_person = $request->slf_contact_person;
+            $query->slf_contact_number = $request->slf_contact_number;
+            $query->slf_category = $request->slf_category;
+            $query->slf_site_hectares = $request->slf_site_hectares;
+            $query->slf_total_capacity = $request->slf_total_capacity;
+            $query->slf_tons_per_day = $request->slf_tons_per_day;
+            $query->slf_service_life = $request->slf_service_life;
+            $query->slf_remaining_service_life = $request->slf_remaining_service_life;
+            $query->slf_exceeded_capacity = $request->slf_exceeded_capacity;
+            $query->slf_with_planned_extension = $request->slf_with_planned_extension;
+            $query->slf_lgu_served = $request->slf_lgu_served;
+            $query->slf_leachate_treatment = $slf_leachate_treatment;
+            $query->slf_daily_soil_cover = $request->slf_daily_soil_cover;
+            $query->slf_presence_of_mrf = $request->slf_presence_of_mrf;
+            $query->slf_separate_cells_for_hazwaste = $request->slf_separate_cells_for_hazwaste;
+            $query->slf_methane_recovery = $request->slf_methane_recovery;
+            $query->slf_discharge_permit = $request->slf_discharge_permit;
+            $query->slf_1586_compliance = $request->slf_1586_compliance;
+            $query->slf_9275_compliance = $request->slf_9275_compliance;
+            $query->slf_6969_compliance = $request->slf_6969_compliance;
+            // $query->slf_file = $request->slf_file;
+            $query->lce_FK = $request->lce_FK;
+            $query->save();
+            if($request->slf_file){
+                foreach ($request->slf_file as $file) {
+                    $query
+                        ->addMedia($file)
+                        ->preservingOriginal()
+                        ->toMediaCollection("slf");
+                }
+            }
+            Logger::dispatch("SolidwasteSLF", $query->id, auth()->id(), "Updated a SLF: model_id " . $query->id, "update");
+            return redirect()->route("lce_show",["id"=>$request->lce_FK])->with("message", "SLF Updated");
+        } catch (\Throwable $th) {
+            return $th->getMessage();
         }
-        Logger::dispatch("SolidwasteSLF", $query->id, auth()->id(), "Updated a SLF: model_id " . $query->id, "update");
-        return redirect()->route("lce_show",["id"=>$request->lce_FK])->with("message", "SLF Updated");
     }
     
     public function slf_delete(request $request)
