@@ -36,5 +36,5 @@ Route::group([
 
     Route::get('/attachment/{collection}/{model_id}',[AttachmentController::class,'get']);
     Route::delete('/attachment/{media}',[AttachmentController::class,'remove']);
-    Route::delete('/logout', [AuthController::class, 'api_logout'])->name("api_logout");
+    Route::post('/logout', [AuthController::class, 'api_logout'])->name("api_logout");
 });
