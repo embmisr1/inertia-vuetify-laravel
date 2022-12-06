@@ -46,6 +46,15 @@ class MovsFilter implements Filterable
             ->when(request('office'), function ($query) {
                 $query->where('office', 'LIKE', "%" . request('office') . "%");
             })
+            ->when(request('prov'), function ($query) {
+                $query->where('prov', 'LIKE', "%" . request('prov') . "%");
+            })
+            ->when(request('citymun'), function ($query) {
+                $query->where('citymun', 'LIKE', "%" . request('citymun') . "%");
+            })
+            ->when(request('brgy'), function ($query) {
+                $query->where('brgy', 'LIKE', "%" . request('brgy') . "%");
+            })
             ->orderBy(
                 request('order_by', 'created_at'), // column
                 request('direction', 'desc') // direction

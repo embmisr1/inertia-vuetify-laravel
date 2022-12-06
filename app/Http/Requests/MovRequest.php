@@ -40,7 +40,7 @@ class MovRequest extends FormRequest
             "type" => "required|string",
             "notice_of_date" => "sometimes|nullable",
             "compliance_date" => "sometimes|nullable",
-            "complied" => "sometimes|nullable|boolean",
+            "complied" => "sometimes|nullable|string",
             "remarks" => "sometimes|nullable|string",
             "payment_date" => "sometimes|nullable",
             "files"=>"sometimes|nullable",
