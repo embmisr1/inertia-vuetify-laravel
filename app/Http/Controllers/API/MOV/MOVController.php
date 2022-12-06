@@ -63,6 +63,7 @@ class MOVController extends Controller
             if (empty($input['notice_of_date'])) {
                 $input['notice_of_date']  = '';
             }
+            $input['type_of_inspection'] = $request->file('files') !== null ?   $input['type_of_inspection'] : json_encode($input['type_of_inspection']);
             $input['user_id'] = auth()->id();
             $new_mov = Mov::create($input);
             if ($request->file('files') !== null) {

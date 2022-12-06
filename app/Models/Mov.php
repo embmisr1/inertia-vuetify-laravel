@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -49,7 +50,7 @@ class Mov extends Model implements HasMedia
     {
         $this
             ->addMediaCollection('mov')
-            ->acceptsMimeTypes(['image/*', 'application/pdf', 'application/octet-stream'])
+            ->acceptsMimeTypes(['image/png','image/jpeg','image/jpg', 'application/pdf', 'application/octet-stream'])
             ->useDisk('mov');
     }
 }

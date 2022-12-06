@@ -27,7 +27,7 @@ class MovResourceV2 extends JsonResource
             "latitude" => $this->latitude === 'null' ? '' : $this->latitude,
             "office" => $this->office,
             "type_of_monitoring" => $this->type_of_monitoring,
-            "type_of_inspection" => $this->type_of_inspection,
+            "type_of_inspection" => json_decode($this->type_of_inspection),
             "type" => $this->type,
             "date_of_inspection" => $this->date_of_inspection,
             "notice_of_date" => $this->notice_of_date,
