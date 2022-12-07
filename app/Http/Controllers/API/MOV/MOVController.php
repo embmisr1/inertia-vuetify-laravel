@@ -8,6 +8,7 @@ use App\Http\Requests\MovRequest;
 use App\Http\Resources\MovResource;
 use App\Http\Resources\MovResourceV2;
 use App\Models\Mov;
+use App\Service\MediaUploader;
 use App\Service\UserService;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -19,14 +20,14 @@ class MOVController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request,UserService $service)
+    public function index(Request $request, UserService $service)
     {
         try {
             return MovResource::collection((new MovsFilter($service->verify_user_role()))->get());
         } catch (\Throwable $th) {
             return response()->json([
-                "message"=> $th->getMessage()
-            ],400);
+                "message" => $th->getMessage()
+            ], 400);
         }
     }
 
@@ -57,7 +58,7 @@ class MOVController extends Controller
             if (empty($input['compliance_date'])) {
                 $input['compliance_date'] = '';
                 $input['complied'] = false;
-            }else{
+            } else {
                 $input['complied'] = true;
             }
             if (empty($input['notice_of_date'])) {
@@ -67,11 +68,18 @@ class MOVController extends Controller
             $input['user_id'] = auth()->id();
             $new_mov = Mov::create($input);
             if ($request->file('files') !== null) {
-                foreach ($request->file('files') as $file) {
-                    $new_mov->addMedia($file)
-                        ->preservingOriginal()
-                        ->toMediaCollection('mov','mov');
-                }
+
+                $files = $request->file('files');
+                (new MediaUploader())->mov_uploader($new_mov, $files);
+                if (in_array('PD1586', json_decode($new_mov->type_of_inspection))) (new MediaUploader())->mov_pd_upload($new_mov, $files);
+                if (in_array('RA9275', json_decode($new_mov->type_of_inspection))) (new MediaUploader())->mov_wat_upload($new_mov, $files);
+                if (in_array('RA8749', json_decode($new_mov->type_of_inspection))) (new MediaUploader())->mov_air_upload($new_mov, $files);
+                if (in_array('RA6969', json_decode($new_mov->type_of_inspection))) (new MediaUploader())->mov_haz_upload($new_mov, $files);
+                // foreach ($request->file('files') as $file) {
+                //     $new_mov->addMedia($file)
+                //         ->preservingOriginal()
+                //         ->toMediaCollection('mov','mov');
+                // }
             }
             return response()->json([
                 "data" => $new_mov,
@@ -80,7 +88,7 @@ class MOVController extends Controller
         } catch (\Throwable $th) {
             return response()->json([
                 "message" => $th->getMessage()
-            ],400);
+            ], 400);
         };
     }
 
@@ -103,7 +111,6 @@ class MOVController extends Controller
      */
     public function edit(Mov $mov)
     {
-
     }
 
     /**
@@ -123,19 +130,28 @@ class MOVController extends Controller
             }
             if (empty($input['compliance_date'])) {
                 $input['compliance_date'] = '';
+                $input['complied'] = false;
+            } else {
+                $input['complied'] = true;
             }
             if (empty($input['notice_of_date'])) {
                 $input['notice_of_date']  = '';
             }
             $input['user_id'] = auth()->id();
             $mov->update($input);
-            // if ($request->file('files') !== null) {
-            //     foreach ($request->file('files') as $file) {
-            //         $mov->addMedia($file)
-            //             ->preservingOriginal()
-            //             ->toMediaCollection('mov','mov');
-            //     }
-            // }
+            if ($request->file('files') !== null) {
+                $files = $request->file('files');
+                (new MediaUploader())->mov_uploader($mov, $files);
+                if (in_array('PD1586', json_decode($mov->type_of_inspection))) (new MediaUploader())->mov_pd_upload($mov, $files);
+                if (in_array('RA9275', json_decode($mov->type_of_inspection))) (new MediaUploader())->mov_wat_upload($mov, $files);
+                if (in_array('RA8749', json_decode($mov->type_of_inspection))) (new MediaUploader())->mov_air_upload($mov, $files);
+                if (in_array('RA6969', json_decode($mov->type_of_inspection))) (new MediaUploader())->mov_haz_upload($mov, $files);
+                // foreach ($request->file('files') as $file) {
+                //     $mov->addMedia($file)
+                //         ->preservingOriginal()
+                //         ->toMediaCollection('mov', 'mov');
+                // }
+            }
             return response()->json([
                 "data" => $mov,
                 "message" => "MOV Updated"
@@ -143,7 +159,7 @@ class MOVController extends Controller
         } catch (\Throwable $th) {
             return response()->json([
                 "message" => $th->getMessage()
-            ],400);
+            ], 400);
         };
     }
     public function updateViaFormData(MovRequest $request, Mov $mov)
@@ -157,8 +173,7 @@ class MOVController extends Controller
             if (empty($input['compliance_date'])) {
                 $input['compliance_date'] = '';
                 $input['complied'] = false;
-            }
-            else{
+            } else {
                 $input['complied'] = true;
             }
             if (empty($input['notice_of_date'])) {
@@ -167,11 +182,17 @@ class MOVController extends Controller
             $input['user_id'] = auth()->id();
             $mov->update($input);
             if ($request->file('files') !== null) {
-                foreach ($request->file('files') as $file) {
-                    $mov->addMedia($file)
-                        ->preservingOriginal()
-                        ->toMediaCollection('mov','mov');
-                }
+                $files = $request->file('files');
+                (new MediaUploader())->mov_uploader($mov, $files);
+                if (in_array('PD1586', json_decode($mov->type_of_inspection))) (new MediaUploader())->mov_haz_upload($mov, $files);
+                if (in_array('RA9275', json_decode($mov->type_of_inspection))) (new MediaUploader())->mov_air_upload($mov, $files);
+                if (in_array('RA8749', json_decode($mov->type_of_inspection))) (new MediaUploader())->mov_wat_upload($mov, $files);
+                if (in_array('RA6969', json_decode($mov->type_of_inspection))) (new MediaUploader())->mov_pd_upload($mov, $files);
+                // foreach ($request->file('files') as $file) {
+                //     $mov->addMedia($file)
+                //         ->preservingOriginal()
+                //         ->toMediaCollection('mov', 'mov');
+                // }
             }
             return response()->json([
                 "data" => $mov,
@@ -180,7 +201,7 @@ class MOVController extends Controller
         } catch (\Throwable $th) {
             return response()->json([
                 "message" => $th->getMessage()
-            ],400);
+            ], 400);
         };
     }
 
@@ -194,9 +215,10 @@ class MOVController extends Controller
     {
         $mov->delete();
 
-        return response()->json([
-            "message"=>"Mov Delete"
-        ]
+        return response()->json(
+            [
+                "message" => "Mov Delete"
+            ]
         );
     }
 }

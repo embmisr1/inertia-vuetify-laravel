@@ -157,11 +157,33 @@ return [
             'url' => env('APP_URL') . '/storage/iec',
             'visibility' => 'public',
         ],
-// mov
+        // mov
         'mov' => [
             'driver' => 'local',
             'root' => storage_path('app/public/mov'),
             'url' => env('APP_URL') . '/storage/mov',
+            'visibility' => 'public',
+        ],
+
+        'PD1586' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/PD1586'),
+            'url' => env('APP_URL') . '/storage/PD1586',
+            'visibility' => 'public',
+        ], 'RA9275' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/RA9275'),
+            'url' => env('APP_URL') . '/storage/RA9275',
+            'visibility' => 'public',
+        ], 'RA8749' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/RA8749'),
+            'url' => env('APP_URL') . '/storage/RA8749',
+            'visibility' => 'public',
+        ], 'RA6969' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/RA6969'),
+            'url' => env('APP_URL') . '/storage/RA6969',
             'visibility' => 'public',
         ],
     ],

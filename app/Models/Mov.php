@@ -52,5 +52,22 @@ class Mov extends Model implements HasMedia
             ->addMediaCollection('mov')
             ->acceptsMimeTypes(['image/png','image/jpeg','image/jpg', 'application/pdf', 'application/octet-stream'])
             ->useDisk('mov');
+
+            $this
+            ->addMediaCollection('PD1586')
+            ->acceptsMimeTypes(['image/png','image/jpeg','image/jpg', 'application/pdf', 'application/octet-stream'])
+            ->useDisk('PD1586');
+            $this
+            ->addMediaCollection('RA9275')
+            ->acceptsMimeTypes(['image/png','image/jpeg','image/jpg', 'application/pdf', 'application/octet-stream'])
+            ->useDisk('RA9275');
+            $this
+            ->addMediaCollection('RA8749')
+            ->acceptsMimeTypes(['image/png','image/jpeg','image/jpg', 'application/pdf', 'application/octet-stream'])
+            ->useDisk('RA8749');
+            $this
+            ->addMediaCollection('RA6969')
+            ->acceptsMimeTypes(['image/png','image/jpeg','image/jpg', 'application/pdf', 'application/octet-stream'])
+            ->useDisk('RA6969');
     }
 }
