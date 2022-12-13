@@ -70,16 +70,11 @@ class MOVController extends Controller
             if ($request->file('files') !== null) {
 
                 $files = $request->file('files');
-                (new MediaUploader())->mov_uploader($new_mov, $files);
-                if (in_array('PD1586', json_decode($new_mov->type_of_inspection))) (new MediaUploader())->mov_pd_upload($new_mov, $files);
-                if (in_array('RA9275', json_decode($new_mov->type_of_inspection))) (new MediaUploader())->mov_wat_upload($new_mov, $files);
-                if (in_array('RA8749', json_decode($new_mov->type_of_inspection))) (new MediaUploader())->mov_air_upload($new_mov, $files);
-                if (in_array('RA6969', json_decode($new_mov->type_of_inspection))) (new MediaUploader())->mov_haz_upload($new_mov, $files);
-                // foreach ($request->file('files') as $file) {
-                //     $new_mov->addMedia($file)
-                //         ->preservingOriginal()
-                //         ->toMediaCollection('mov','mov');
-                // }
+                (new MediaUploader())->mov_ftp_uploader($new_mov, $files);
+                // if (in_array('PD1586', json_decode($new_mov->type_of_inspection))) (new MediaUploader())->mov_pd_upload($new_mov, $files);
+                // if (in_array('RA9275', json_decode($new_mov->type_of_inspection))) (new MediaUploader())->mov_wat_upload($new_mov, $files);
+                // if (in_array('RA8749', json_decode($new_mov->type_of_inspection))) (new MediaUploader())->mov_air_upload($new_mov, $files);
+                // if (in_array('RA6969', json_decode($new_mov->type_of_inspection))) (new MediaUploader())->mov_haz_upload($new_mov, $files);
             }
             return response()->json([
                 "data" => $new_mov,
@@ -141,11 +136,11 @@ class MOVController extends Controller
             $mov->update($input);
             if ($request->file('files') !== null) {
                 $files = $request->file('files');
-                (new MediaUploader())->mov_uploader($mov, $files);
-                if (in_array('PD1586', json_decode($mov->type_of_inspection))) (new MediaUploader())->mov_pd_upload($mov, $files);
-                if (in_array('RA9275', json_decode($mov->type_of_inspection))) (new MediaUploader())->mov_wat_upload($mov, $files);
-                if (in_array('RA8749', json_decode($mov->type_of_inspection))) (new MediaUploader())->mov_air_upload($mov, $files);
-                if (in_array('RA6969', json_decode($mov->type_of_inspection))) (new MediaUploader())->mov_haz_upload($mov, $files);
+                (new MediaUploader())->mov_ftp_uploader($mov, $files);
+                // if (in_array('PD1586', json_decode($mov->type_of_inspection))) (new MediaUploader())->mov_pd_upload($mov, $files);
+                // if (in_array('RA9275', json_decode($mov->type_of_inspection))) (new MediaUploader())->mov_wat_upload($mov, $files);
+                // if (in_array('RA8749', json_decode($mov->type_of_inspection))) (new MediaUploader())->mov_air_upload($mov, $files);
+                // if (in_array('RA6969', json_decode($mov->type_of_inspection))) (new MediaUploader())->mov_haz_upload($mov, $files);
                 // foreach ($request->file('files') as $file) {
                 //     $mov->addMedia($file)
                 //         ->preservingOriginal()
@@ -183,16 +178,11 @@ class MOVController extends Controller
             $mov->update($input);
             if ($request->file('files') !== null) {
                 $files = $request->file('files');
-                (new MediaUploader())->mov_uploader($mov, $files);
-                if (in_array('PD1586', json_decode($mov->type_of_inspection))) (new MediaUploader())->mov_haz_upload($mov, $files);
-                if (in_array('RA9275', json_decode($mov->type_of_inspection))) (new MediaUploader())->mov_air_upload($mov, $files);
-                if (in_array('RA8749', json_decode($mov->type_of_inspection))) (new MediaUploader())->mov_wat_upload($mov, $files);
-                if (in_array('RA6969', json_decode($mov->type_of_inspection))) (new MediaUploader())->mov_pd_upload($mov, $files);
-                // foreach ($request->file('files') as $file) {
-                //     $mov->addMedia($file)
-                //         ->preservingOriginal()
-                //         ->toMediaCollection('mov', 'mov');
-                // }
+                (new MediaUploader())->mov_ftp_uploader($mov, $files);
+                // if (in_array('PD1586', json_decode($mov->type_of_inspection))) (new MediaUploader())->mov_pd_upload($mov, $files);
+                // if (in_array('RA9275', json_decode($mov->type_of_inspection))) (new MediaUploader())->mov_wat_upload($mov, $files);
+                // if (in_array('RA8749', json_decode($mov->type_of_inspection))) (new MediaUploader())->mov_air_upload($mov, $files);
+                // if (in_array('RA6969', json_decode($mov->type_of_inspection))) (new MediaUploader())->mov_haz_upload($mov, $files);
             }
             return response()->json([
                 "data" => $mov,
