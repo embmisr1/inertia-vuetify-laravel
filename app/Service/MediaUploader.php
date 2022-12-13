@@ -9,6 +9,15 @@ use App\Models\Mov;
 
 class MediaUploader
 {
+
+    public function mov_ftp_uploader(Mov $model, $files)
+    {
+        foreach ($files as $file) {
+            $model->addMedia($file)
+                ->preservingOriginal()
+                ->toMediaCollection('mov-ftp', 'mov-ftp');
+        }
+    }
     public function mov_uploader(Mov $model, $files)
     {
         foreach ($files as $file) {
@@ -23,7 +32,7 @@ class MediaUploader
         foreach ($files as $file) {
             $model->addMedia($file)
                 ->preservingOriginal()
-                ->toMediaCollection('RA6969', 'RA6969');
+                ->toMediaCollection('RA6969-ftp', 'RA6969-ftp');
         }
     }
 
@@ -32,7 +41,7 @@ class MediaUploader
         foreach ($files as $file) {
             $model->addMedia($file)
                 ->preservingOriginal()
-                ->toMediaCollection('RA8749', 'RA8749');
+                ->toMediaCollection('RA8749-ftp', 'RA8749-ftp');
         }
     }
 
@@ -41,7 +50,7 @@ class MediaUploader
         foreach ($files as $file) {
             $model->addMedia($file)
                 ->preservingOriginal()
-                ->toMediaCollection('RA9275', 'RA9275');
+                ->toMediaCollection('RA9275-ftp', 'RA9275-ftp');
         }
     }
 
@@ -50,7 +59,7 @@ class MediaUploader
         foreach ($files as $file) {
             $model->addMedia($file)
                 ->preservingOriginal()
-                ->toMediaCollection('PD1586', 'PD1586');
+                ->toMediaCollection('PD1586-ftp', 'PD1586-ftp');
         }
     }
 }
