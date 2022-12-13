@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\SolidwasteTenYear;
 use App\Models\SolidwasteTenYearMonitoring;
 use App\Models\SolidwasteTenYearFindings;
+use App\Service\MediaUploader;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class SolidwasteTenYearController extends Controller
@@ -17,7 +18,9 @@ class SolidwasteTenYearController extends Controller
 
     public function create(request $request)
     {
-        if(!$this->solidwaste_validator($request)){ return back(); }
+        if (!$this->solidwaste_validator($request)) {
+            return back();
+        }
         $id = $request->id;
         $lce_info = DB::table('tbl_solidwaste_lce as a')
             ->select('a.*', 'b.provDesc', 'c.citymunDesc', 'd.brgyDesc', 'c.districtCode')
@@ -33,7 +36,9 @@ class SolidwasteTenYearController extends Controller
 
     public function ten_year_edit(request $request)
     {
-        if(!$this->solidwaste_validator($request)){ return back(); }
+        if (!$this->solidwaste_validator($request)) {
+            return back();
+        }
         $id = $request->id;
         $ten_year_edit = DB::table('tbl_solidwaste_ten_year as a')
             ->select(
@@ -67,9 +72,9 @@ class SolidwasteTenYearController extends Controller
             ->where('a.id', $id)->get();
         $ten_year_monitoring_list = SolidwasteTenYearMonitoring::where('ten_year_FK', $id)->get();
         $attachements = SolidwasteTenYear::where("id", $id)->get();
-        if (isset($ten_year_edit[0]->ten_year_findings)){
+        if (isset($ten_year_edit[0]->ten_year_findings)) {
             $ten_yr_findings = json_decode($ten_year_edit[0]->ten_year_findings);
-        }else{
+        } else {
             $ten_yr_findings = [];
         }
         return Inertia::render("pages/swm/Form/TenYrForm", [
@@ -86,7 +91,9 @@ class SolidwasteTenYearController extends Controller
 
     public function ten_year_register_process(request $request)
     {
-        if(!$this->solidwaste_validator($request)){ return back(); }
+        if (!$this->solidwaste_validator($request)) {
+            return back();
+        }
         try {
             $query = new SolidwasteTenYear();
             $query->ten_year_planning_period = $request->ten_year_planning_period;
@@ -114,39 +121,43 @@ class SolidwasteTenYearController extends Controller
             $query_findings->save();
 
             if ($request->ten_year_file) {
-                foreach ($request->ten_year_file as $file) {
-                    $query
-                        ->addMedia($file)
-                        ->preservingOriginal()
-                        ->toMediaCollection("ten_yr_file", "ten_yr_file");
-                }
+                (new MediaUploader())->un_ten_year_plan_upload($query_findings, $request->ten_year_file);
+                // foreach ($request->ten_year_file as $file) {
+                //     $query
+                //         ->addMedia($file)
+                //         ->preservingOriginal()
+                //         ->toMediaCollection("ten_yr_file", "ten_yr_file");
+                // }
             }
 
             if ($request->ten_year_copy_plan) {
-                foreach ($request->ten_year_copy_plan as $file) {
-                    $query
-                        ->addMedia($file)
-                        ->preservingOriginal()
-                        ->toMediaCollection("copy_plan", "copy_plan");
-                }
+                (new MediaUploader())->un_copy_plan_upload($query_findings, $request->ten_year_copy_plan);
+                // foreach ($request->ten_year_copy_plan as $file) {
+                //     $query
+                //         ->addMedia($file)
+                //         ->preservingOriginal()
+                //         ->toMediaCollection("copy_plan", "copy_plan");
+                // }
             }
 
             if ($request->ten_year_copy_form) {
-                foreach ($request->ten_year_copy_form as $file) {
-                    $query
-                        ->addMedia($file)
-                        ->preservingOriginal()
-                        ->toMediaCollection("copy_form", "copy_form");
-                }
+                (new MediaUploader())->un_copy_form_upload($query_findings, $request->ten_year_copy_form);
+                // foreach ($request->ten_year_copy_form as $file) {
+                //     $query
+                //         ->addMedia($file)
+                //         ->preservingOriginal()
+                //         ->toMediaCollection("copy_form", "copy_form");
+                // }
             }
 
             if ($request->ten_year_copy_resolution) {
-                foreach ($request->ten_year_copy_resolution as $file) {
-                    $query
-                        ->addMedia($file)
-                        ->preservingOriginal()
-                        ->toMediaCollection("copy_resolution", "copy_resolution");
-                }
+                (new MediaUploader())->un_copy_resolution_upload($query_findings, $request->ten_year_copy_resolution);
+                // foreach ($request->ten_year_copy_resolution as $file) {
+                //     $query
+                //         ->addMedia($file)
+                //         ->preservingOriginal()
+                //         ->toMediaCollection("copy_resolution", "copy_resolution");
+                // }
             }
             Logger::dispatch("SolidwasteTenYear", $query->id, auth()->id(), "Created a 10YR: model_id " . $query->id, "create");
             return redirect()->route("lce_show", ["id" => $request->lce_FK])->with("message", "10 Year Created");
@@ -157,85 +168,92 @@ class SolidwasteTenYearController extends Controller
 
     public function ten_year_update_process(request $request)
     {
-        if(!$this->solidwaste_validator($request)){ return back(); }
-        try {
-        $query = SolidwasteTenYear::find($request->id);
-        $query->ten_year_planning_period = $request->ten_year_planning_period;
-        $query->ten_year_year_approved = $request->ten_year_year_approved;
-        $query->ten_year_number = $request->ten_year_number;
-        // $query->ten_year_file = $request->ten_year_file;
-        // $query->ten_year_copy_plan = $request->ten_year_copy_plan;
-        // $query->ten_year_copy_resolution = $request->ten_year_copy_resolution;
-        // $query->ten_year_copy_form = $request->ten_year_copy_form;
-        $query->lce_FK = $request->lce_FK;
-        // $query->save();
-        $query_findings = SolidwasteTenYearFindings::where('ten_year_FK',$request->id)
-        ->update([
-            'finding_a' => $request->finding_a,
-            'finding_b' => $request->finding_b,
-            'finding_c' => $request->finding_c,
-            'finding_d' => $request->finding_d,
-            'finding_e' => $request->finding_e,
-            'finding_f' => $request->finding_f,
-            'finding_g' => $request->finding_g,
-            'finding_h' => $request->finding_h,
-            'finding_i' => $request->finding_i,
-            'finding_j' => $request->finding_j,
-            'ten_year_FK' => $request->id,
-        ]);
-        // $query_findings->save();
-
-        if ($request->ten_year_file) {
-            foreach ($request->ten_year_file as $file) {
-                $query
-                    ->addMedia($file)
-                    ->preservingOriginal()
-                    ->toMediaCollection("ten_yr_file", "ten_yr_file");
-            }
+        if (!$this->solidwaste_validator($request)) {
+            return back();
         }
+        try {
+            $query = SolidwasteTenYear::find($request->id);
+            $query->ten_year_planning_period = $request->ten_year_planning_period;
+            $query->ten_year_year_approved = $request->ten_year_year_approved;
+            $query->ten_year_number = $request->ten_year_number;
+            // $query->ten_year_file = $request->ten_year_file;
+            // $query->ten_year_copy_plan = $request->ten_year_copy_plan;
+            // $query->ten_year_copy_resolution = $request->ten_year_copy_resolution;
+            // $query->ten_year_copy_form = $request->ten_year_copy_form;
+            $query->lce_FK = $request->lce_FK;
+            // $query->save();
+            $query_findings = SolidwasteTenYearFindings::where('ten_year_FK', $request->id)
+                ->update([
+                    'finding_a' => $request->finding_a,
+                    'finding_b' => $request->finding_b,
+                    'finding_c' => $request->finding_c,
+                    'finding_d' => $request->finding_d,
+                    'finding_e' => $request->finding_e,
+                    'finding_f' => $request->finding_f,
+                    'finding_g' => $request->finding_g,
+                    'finding_h' => $request->finding_h,
+                    'finding_i' => $request->finding_i,
+                    'finding_j' => $request->finding_j,
+                    'ten_year_FK' => $request->id,
+                ]);
+            // $query_findings->save();
+
+            if ($request->ten_year_file) {
+                (new MediaUploader())->un_ten_year_plan_upload($query_findings, $request->ten_year_file);
+                // foreach ($request->ten_year_file as $file) {
+                //     $query
+                //         ->addMedia($file)
+                //         ->preservingOriginal()
+                //         ->toMediaCollection("ten_yr_file", "ten_yr_file");
+                // }
+            }
 
 
 
             $query->lce_FK = $request->lce_FK;
 
             if ($request->ten_year_file) {
-                $query->ten_year_file = true;
-                foreach ($request->ten_year_file as $file) {
-                    $query
-                        ->addMedia($file)
-                        ->preservingOriginal()
-                        ->toMediaCollection("ten_yr_file", "ten_yr_file");
-                }
+                  (new MediaUploader())->un_ten_year_plan_upload($query_findings, $request->ten_year_file);
+                // $query->ten_year_file = true;
+                // foreach ($request->ten_year_file as $file) {
+                //     $query
+                //         ->addMedia($file)
+                //         ->preservingOriginal()
+                //         ->toMediaCollection("ten_yr_file", "ten_yr_file");
+                // }
             }
 
             if ($request->ten_year_copy_plan) {
-                $query->ten_year_copy_plan = true;
-                foreach ($request->ten_year_copy_plan as $file) {
-                    $query
-                        ->addMedia($file)
-                        ->preservingOriginal()
-                        ->toMediaCollection("copy_plan", "copy_plan");
-                }
+                   (new MediaUploader())->un_copy_plan_upload($query_findings, $request->ten_year_copy_plan);
+                // $query->ten_year_copy_plan = true;
+                // foreach ($request->ten_year_copy_plan as $file) {
+                //     $query
+                //         ->addMedia($file)
+                //         ->preservingOriginal()
+                //         ->toMediaCollection("copy_plan", "copy_plan");
+                // }
             }
 
             if ($request->ten_year_copy_form) {
-                $query->ten_year_copy_form = true;
-                foreach ($request->ten_year_copy_form as $file) {
-                    $query
-                        ->addMedia($file)
-                        ->preservingOriginal()
-                        ->toMediaCollection("copy_form", "copy_form");
-                }
+                  (new MediaUploader())->un_copy_form_upload($query_findings, $request->ten_year_copy_form);
+                // $query->ten_year_copy_form = true;
+                // foreach ($request->ten_year_copy_form as $file) {
+                //     $query
+                //         ->addMedia($file)
+                //         ->preservingOriginal()
+                //         ->toMediaCollection("copy_form", "copy_form");
+                // }
             }
 
             if ($request->ten_year_copy_resolution) {
-                $query->ten_year_copy_resolution = true;
-                foreach ($request->ten_year_copy_resolution as $file) {
-                    $query
-                        ->addMedia($file)
-                        ->preservingOriginal()
-                        ->toMediaCollection("copy_resolution", "copy_resolution");
-                }
+                 (new MediaUploader())->un_copy_resolution_upload($query_findings, $request->ten_year_copy_resolution);
+                // $query->ten_year_copy_resolution = true;
+                // foreach ($request->ten_year_copy_resolution as $file) {
+                //     $query
+                //         ->addMedia($file)
+                //         ->preservingOriginal()
+                //         ->toMediaCollection("copy_resolution", "copy_resolution");
+                // }
             }
             $query->save();
             Logger::dispatch("SolidwasteTenYear", $query->id, auth()->id(), "Updated a 10YR: model_id " . $query->id, "update");
@@ -247,10 +265,12 @@ class SolidwasteTenYearController extends Controller
 
     public function ten_year_delete(request $request)
     {
-        if(!$this->solidwaste_validator($request)){ return back(); }
+        if (!$this->solidwaste_validator($request)) {
+            return back();
+        }
         $ten_year_delete = SolidwasteTenYear::find($request->id);
         $ten_year_delete->delete();
-        $ten_year_findings_delete = SolidwasteTenYearFindings::where('ten_year_FK',$request->id);
+        $ten_year_findings_delete = SolidwasteTenYearFindings::where('ten_year_FK', $request->id);
         $ten_year_findings_delete->delete();
         Logger::dispatch("SolidwasteTenYear", $request->id, auth()->id(), "Deleted a 10YR: model_id " . $request->id, "delete");
         return back()->with("message", "10 Year Deleted");
@@ -258,7 +278,9 @@ class SolidwasteTenYearController extends Controller
 
     public function removeFIle(request $request, Media $media)
     {
-        if(!$this->solidwaste_validator($request)){ return back(); }
+        if (!$this->solidwaste_validator($request)) {
+            return back();
+        }
         $ten_yr = SolidwasteTenYear::findOrFail($media->model_id);
 
         if ($ten_yr->getMedia($media->collection_name)->count() === 1) {
@@ -291,8 +313,9 @@ class SolidwasteTenYearController extends Controller
 
         return back()->with("message", "Attachement Deleted");
     }
-    
-    public function solidwaste_validator($request){
+
+    public function solidwaste_validator($request)
+    {
         $validator_controller = new UnisysValidator;
         return $validator_controller->solidwaste_validator($request);
     }

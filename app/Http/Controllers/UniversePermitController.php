@@ -6,6 +6,7 @@ use App\Jobs\Logger;
 use Illuminate\Http\Request;
 use App\Models\Permit;
 use App\Models\Universe;
+use App\Service\MediaUploader;
 use Illuminate\Support\Facades\DB;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
@@ -151,11 +152,12 @@ class UniversePermitController extends Controller
     public function add_media($file, $query)
     {
         if (isset($file)) {
-            foreach ($file as $pdf) {
-                $query->addMedia($pdf)
-                    ->preservingOriginal()
-                    ->toMediaCollection("permits");
-            }
+            (new MediaUploader())->un_permit_upload($query, $file);
+            // foreach ($file as $pdf) {
+            //     $query->addMedia($pdf)
+            //         ->preservingOriginal()
+            //         ->toMediaCollection("permits");
+            // }
         }
         $media_counter = Media::where('model_id', $query->id)->where('collection_name', 'permits')->count();
         $query_media_counter = Permit::find($query->id);

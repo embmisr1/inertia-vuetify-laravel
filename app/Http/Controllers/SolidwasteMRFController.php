@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\DB;
 use App\Models\SolidwasteMRF;
+use App\Service\MediaUploader;
 
 class SolidwasteMRFController extends Controller
 {
@@ -99,12 +100,13 @@ class SolidwasteMRFController extends Controller
         $query->lce_FK = $request->lce_FK;
         $query->save();
         if($request->mrf_file){
-            foreach ($request->mrf_file as $file) {
-                $query
-                    ->addMedia($file)
-                    ->preservingOriginal()
-                    ->toMediaCollection("mrf");
-            }
+            // foreach ($request->mrf_file as $file) {
+            //     $query
+            //         ->addMedia($file)
+            //         ->preservingOriginal()
+            //         ->toMediaCollection("mrf");
+            // }
+            (new MediaUploader())->un_mrf_upload($query, $request->mrf);
         }
         Logger::dispatch("SolidwasteMRF", $query->id, auth()->id(), "Updated a mrf: model_id " . $query->id, "update");
         return redirect()->route("lce_show",["id"=>$request->lce_FK])->with("message",  strtoupper($request->mrf_or_rca)  . " Updated");

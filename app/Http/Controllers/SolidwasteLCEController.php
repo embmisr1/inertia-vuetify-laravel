@@ -20,6 +20,7 @@ use App\Models\SolidwasteGad;
 use App\Models\Barangay;
 use App\Models\Municipality;
 use App\Models\Province;
+use App\Service\MediaUploader;
 use Illuminate\Support\Facades\DB;
 
 class SolidwasteLCEController extends Controller
@@ -166,12 +167,13 @@ class SolidwasteLCEController extends Controller
         $query->lce_email_address = $request->lce_email_address;
         $query->save();
         if ($request->lce_file) {
-            foreach ($request->lce_file as $file) {
-                $query
-                    ->addMedia($file)
-                    ->preservingOriginal()
-                    ->toMediaCollection("avatars");
-            }
+            // foreach ($request->lce_file as $file) {
+            //     $query
+            //         ->addMedia($file)
+            //         ->preservingOriginal()
+            //         ->toMediaCollection("avatars");
+            // }
+            (new MediaUploader())->un_avatars_upload($query, $request->lce_file);
         }
         Logger::dispatch("SolidwasteLCE", $query->id, auth()->id(), "Created a LCE: model_id " . $query->id, "create");
         return back()->with("message", "LCE Created");
@@ -200,12 +202,13 @@ class SolidwasteLCEController extends Controller
             $query->lce_email_address = $request->lce_email_address;
             $query->save();
             if ($request->lce_file) {
-                foreach ($request->lce_file as $file) {
-                    $query
-                        ->addMedia($file)
-                        ->preservingOriginal()
-                        ->toMediaCollection("avatars");
-                }
+                // foreach ($request->lce_file as $file) {
+                //     $query
+                //         ->addMedia($file)
+                //         ->preservingOriginal()
+                //         ->toMediaCollection("avatars");
+                // }
+                (new MediaUploader())->un_avatars_upload($query, $request->lce_file);
             }
             Logger::dispatch("SolidwasteLCE", $query->id, auth()->id(), "Updated a LCE: model_id " . $query->id, "update");
             return back()->with("message", "LCE Updated");

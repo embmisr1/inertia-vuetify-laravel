@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Jobs\Logger;
 use Illuminate\Http\Request;
 use App\Models\Complaint;
+use App\Service\MediaUploader;
 use Illuminate\Support\Facades\DB;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
@@ -90,11 +91,12 @@ class UniverseComplaintController extends Controller
     public function add_media_attached($file, $query)
     {
         if (isset($file)) {
-            foreach ($file as $pdf) {
-                $query->addMedia($pdf)
-                    ->preservingOriginal()
-                    ->toMediaCollection("complaint");
-            }
+            (new MediaUploader())->un_complaint_upload($query, $file);
+            // foreach ($file as $pdf) {
+            //     $query->addMedia($pdf)
+            //         ->preservingOriginal()
+            //         ->toMediaCollection("complaint");
+            // }
         }
         $media_counter = Media::where('model_id', $query->id)->where('collection_name', 'complaint')->count();
         $query_media_counter = Complaint::find($query->id);
@@ -106,9 +108,10 @@ class UniverseComplaintController extends Controller
     {
         if (isset($file)) {
             foreach ($file as $pdf) {
-                $query->addMedia($pdf)
-                    ->preservingOriginal()
-                    ->toMediaCollection("complaintaction", "complaintaction");
+                (new MediaUploader())->un_complaintaction_upload($query, $file);
+                // $query->addMedia($pdf)
+                //     ->preservingOriginal()
+                //     ->toMediaCollection("complaintaction", "complaintaction");
             }
         }
         $media_counter = Media::where('model_id', $query->id)->where('collection_name', 'complaintaction')->count();

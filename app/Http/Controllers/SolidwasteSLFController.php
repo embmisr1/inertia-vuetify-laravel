@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\SWM\SLF;
 use App\Models\SolidwasteLCE;
 use App\Models\SolidwasteSLF;
-
+use App\Service\MediaUploader;
 
 class SolidwasteSLFController extends Controller
 {
@@ -85,12 +85,13 @@ class SolidwasteSLFController extends Controller
             $query->lce_FK = $request->lce_FK;
             $query->save();
             if($request->slf_file){
-                foreach ($request->slf_file as $file) {
-                    $query
-                        ->addMedia($file)
-                        ->preservingOriginal()
-                        ->toMediaCollection("slf");
-                }
+                // foreach ($request->slf_file as $file) {
+                //     $query
+                //         ->addMedia($file)
+                //         ->preservingOriginal()
+                //         ->toMediaCollection("slf");
+                // }
+                (new MediaUploader())->un_slf_upload($query, $request->slf_file);
             }
             Logger::dispatch("SolidwasteSLF", $query->id, auth()->id(), "Created a SLF: model_id " . $query->id, "create");
             return redirect()->route("lce_show",["id"=>$request->lce_FK])->with("message", "SLF Created");
@@ -132,17 +133,18 @@ class SolidwasteSLFController extends Controller
         $query->lce_FK = $request->lce_FK;
         $query->save();
         if($request->slf_file){
-            foreach ($request->slf_file as $file) {
-                $query
-                    ->addMedia($file)
-                    ->preservingOriginal()
-                    ->toMediaCollection("slf");
-            }
+            // foreach ($request->slf_file as $file) {
+            //     $query
+            //         ->addMedia($file)
+            //         ->preservingOriginal()
+            //         ->toMediaCollection("slf");
+            // }
+            (new MediaUploader())->un_slf_upload($query, $request->slf_file);
         }
         Logger::dispatch("SolidwasteSLF", $query->id, auth()->id(), "Updated a SLF: model_id " . $query->id, "update");
         return redirect()->route("lce_show",["id"=>$request->lce_FK])->with("message", "SLF Updated");
     }
-    
+
     public function slf_delete(request $request)
     {
         if(!$this->solidwaste_validator($request)){ return back(); }
@@ -151,7 +153,7 @@ class SolidwasteSLFController extends Controller
         Logger::dispatch("SolidwasteSLF", $request->id, auth()->id(), "Deleted a SLF: model_id " . $request->id, "update");
         return back()->with("message", "SLF Deleted");
     }
-    
+
     public function solidwaste_validator($request){
         $validator_controller = new UnisysValidator;
         return $validator_controller->solidwaste_validator($request);

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\DB;
 use App\Models\SolidwasteTenYearMonitoring;
+use App\Service\MediaUploader;
 
 class SolidwasteTenYearMonitoringController extends Controller
 {
@@ -56,12 +57,13 @@ class SolidwasteTenYearMonitoringController extends Controller
         $query->ten_year_FK = $request->ten_year_FK;
         $query->save();
         if ($request->ten_year_mon_copy_report) {
-            foreach ($request->ten_year_mon_copy_report as $file) {
-                $query
-                    ->addMedia($file)
-                    ->preservingOriginal()
-                    ->toMediaCollection("copy_report", "copy_report");
-            }
+            // foreach ($request->ten_year_mon_copy_report as $file) {
+            //     $query
+            //         ->addMedia($file)
+            //         ->preservingOriginal()
+            //         ->toMediaCollection("copy_report", "copy_report");
+            // }
+            (new MediaUploader())->un_copy_report_upload($query, $request->ten_year_mon_copy_report);
         }
         return redirect()->route("ten_year_edit",["id"=>$request->ten_year_FK])->with("message", "10 Year Monitoring Created");
     }
@@ -79,12 +81,13 @@ class SolidwasteTenYearMonitoringController extends Controller
         $query->ten_year_FK = $request->ten_year_FK;
         $query->save();
         if ($request->ten_year_mon_copy_report) {
-            foreach ($request->ten_year_mon_copy_report as $file) {
-                $query
-                    ->addMedia($file)
-                    ->preservingOriginal()
-                    ->toMediaCollection("copy_report", "copy_report");
-            }
+            // foreach ($request->ten_year_mon_copy_report as $file) {
+            //     $query
+            //         ->addMedia($file)
+            //         ->preservingOriginal()
+            //         ->toMediaCollection("copy_report", "copy_report");
+            // }
+            (new MediaUploader())->un_copy_report_upload($query, $request->ten_year_mon_copy_report);
         }
         return redirect()->route("ten_year_edit",["id"=>$request->ten_year_FK])->with("message", "10 Year Monitoring Updated");
     }
@@ -96,7 +99,7 @@ class SolidwasteTenYearMonitoringController extends Controller
         $ten_year_monitoring_delete->delete();
         return back()->with("message", "10 Year Monitoring Deleted");
     }
-    
+
     public function solidwaste_validator($request){
         $validator_controller = new UnisysValidator;
         return $validator_controller->solidwaste_validator($request);

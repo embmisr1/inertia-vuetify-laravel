@@ -6,6 +6,7 @@ use App\Jobs\Logger;
 use Illuminate\Http\Request;
 use App\Models\Monitoring;
 use App\Models\Universe;
+use App\Service\MediaUploader;
 use Illuminate\Support\Facades\DB;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
@@ -99,11 +100,12 @@ class UniverseMonitoringController extends Controller
     public function add_media($file, $query)
     {
         if (isset($file)) {
-            foreach ($file as $pdf) {
-                $query->addMedia($pdf)
-                    ->preservingOriginal()
-                    ->toMediaCollection("monitoring");
-            }
+            (new MediaUploader())->un_monitoring_upload($query, $file);
+            // foreach ($file as $pdf) {
+            //     $query->addMedia($pdf)
+            //         ->preservingOriginal()
+            //         ->toMediaCollection("monitoring");
+            // }
         }
         $media_counter = Media::where('model_id', $query->id)->where('collection_name', 'monitoring')->count();
         $query_media_counter = Monitoring::find($query->id);

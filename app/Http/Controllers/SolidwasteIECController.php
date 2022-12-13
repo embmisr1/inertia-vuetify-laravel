@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\DB;
 use App\Models\SolidwasteIEC;
+use App\Service\MediaUploader;
 
 class SolidwasteIECController extends Controller
 {
@@ -66,12 +67,13 @@ class SolidwasteIECController extends Controller
             $query->lce_FK = $request->lce_FK;
             $query->save();
             if ($request->iec_file) {
-                foreach ($request->iec_file as $file) {
-                    $query
-                        ->addMedia($file)
-                        ->preservingOriginal()
-                        ->toMediaCollection("iec");
-                }
+                // foreach ($request->iec_file as $file) {
+                //     $query
+                //         ->addMedia($file)
+                //         ->preservingOriginal()
+                //         ->toMediaCollection("iec");
+                // }
+                (new MediaUploader())->un_iec_upload($query, $request->iec_file);
             }
             Logger::dispatch("SolidwasteIEC", $query->id, auth()->id(), "Created a IEC: model_id " . $query->id, "create");
             return redirect()->route("lce_show",["id"=>$request->lce_FK])->with("message", "IEC Created");
@@ -101,12 +103,13 @@ class SolidwasteIECController extends Controller
             $query->lce_FK = $request->lce_FK;
             $query->save();
             if ($request->iec_file) {
-                foreach ($request->iec_file as $file) {
-                    $query
-                        ->addMedia($file)
-                        ->preservingOriginal()
-                        ->toMediaCollection("iec");
-                }
+                // foreach ($request->iec_file as $file) {
+                //     $query
+                //         ->addMedia($file)
+                //         ->preservingOriginal()
+                //         ->toMediaCollection("iec");
+                // }
+                (new MediaUploader())->un_iec_upload($query, $request->iec_file);
             }
             Logger::dispatch("SolidwasteIEC", $query->id, auth()->id(), "Updated a IEC: model_id " . $query->id, "update");
             return redirect()->route("lce_show",["id"=>$request->lce_FK])->with("message", "IEC Updated");

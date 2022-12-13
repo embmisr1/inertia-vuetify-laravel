@@ -6,6 +6,7 @@ use App\Jobs\Logger;
 use Illuminate\Http\Request;
 use App\Models\Legal;
 use App\Models\Universe;
+use App\Service\MediaUploader;
 use Illuminate\Support\Facades\DB;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
@@ -105,11 +106,12 @@ class UniverseLegalController extends Controller
     public function add_media($file, $query)
     {
         if (isset($file)) {
-            foreach ($file as $pdf) {
-                $query->addMedia($pdf)
-                    ->preservingOriginal()
-                    ->toMediaCollection("legal");
-            }
+            (new MediaUploader())->un_legal_upload($query, $file);
+            // foreach ($file as $pdf) {
+            //     $query->addMedia($pdf)
+            //         ->preservingOriginal()
+            //         ->toMediaCollection("legal");
+            // }
         }
         $media_counter = Media::where('model_id', $query->id)->where('collection_name', 'legal')->count();
         $query_media_counter = Legal::find($query->id);
