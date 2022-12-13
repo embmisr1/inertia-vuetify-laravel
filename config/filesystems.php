@@ -186,6 +186,251 @@ return [
             'url' => env('APP_URL') . '/storage/RA6969',
             'visibility' => 'public',
         ],
+
+        // ftp test
+
+        'permits-ftp' => [
+            'driver' => 'ftp',
+            'host' => env('FTP_HOST'),
+            'username' => env('FTP_USERNAME'),
+            'password' => env('FTP_PASSWORD'),
+            'visibility' => 'public',
+            'permPublic' => 0766, /// <- this one did the trick
+            'port' => env('FTP_PORT'),
+            'root' => '/unisys/permits',
+            // 'timeout' => 30,
+        ],
+        'monitoring-ftp' => [
+            'driver' => 'ftp',
+            'host' => env('FTP_HOST'),
+            'username' => env('FTP_USERNAME'),
+            'password' => env('FTP_PASSWORD'),
+            'visibility' => 'public',
+            'permPublic' => 0766, /// <- this one did the trick
+            'port' => env('FTP_PORT'),
+            'root' => '/unisys/monitoring',
+            // 'timeout' => 30,
+        ],
+        'legal-ftp' => [
+            'driver' => 'ftp',
+            'host' => env('FTP_HOST'),
+            'username' => env('FTP_USERNAME'),
+            'password' => env('FTP_PASSWORD'),
+            'visibility' => 'public',
+            'permPublic' => 0766, /// <- this one did the trick
+            'port' => env('FTP_PORT'),
+            'root' => '/unisys/legal',
+            // 'timeout' => 30,
+        ],
+        'complaint-ftp' => [
+            'driver' => 'ftp',
+            'host' => env('FTP_HOST'),
+            'username' => env('FTP_USERNAME'),
+            'password' => env('FTP_PASSWORD'),
+            'visibility' => 'public',
+            'permPublic' => 0766, /// <- this one did the trick
+            'port' => env('FTP_PORT'),
+            'root' => '/unisys/complaint',
+            // 'timeout' => 30,
+        ],
+        'complaintaction-ftp' => [
+            'driver' => 'ftp',
+            'host' => env('FTP_HOST'),
+            'username' => env('FTP_USERNAME'),
+            'password' => env('FTP_PASSWORD'),
+            'visibility' => 'public',
+            'permPublic' => 0766, /// <- this one did the trick
+            'port' => env('FTP_PORT'),
+            'root' => '/unisys/complaintaction',
+            // 'timeout' => 30,
+        ],
+
+        'slf-ftp' => [
+            'driver' => 'ftp',
+            'host' => env('FTP_HOST'),
+            'username' => env('FTP_USERNAME'),
+            'password' => env('FTP_PASSWORD'),
+            'visibility' => 'public',
+            'permPublic' => 0766, /// <- this one did the trick
+            'port' => env('FTP_PORT'),
+            'root' => '/unisys/slf',
+            // 'timeout' => 30,
+        ],
+        'mrf-ftp' => [
+            'driver' => 'ftp',
+            'host' => env('FTP_HOST'),
+            'username' => env('FTP_USERNAME'),
+            'password' => env('FTP_PASSWORD'),
+            'visibility' => 'public',
+            'permPublic' => 0766, /// <- this one did the trick
+            'port' => env('FTP_PORT'),
+            'root' => '/unisys/mrf',
+            // 'timeout' => 30,
+        ],
+        'rca-ftp' => [
+            'driver' => 'ftp',
+            'host' => env('FTP_HOST'),
+            'username' => env('FTP_USERNAME'),
+            'password' => env('FTP_PASSWORD'),
+            'visibility' => 'public',
+            'permPublic' => 0766, /// <- this one did the trick
+            'port' => env('FTP_PORT'),
+            'root' => '/unisys/rca',
+            // 'timeout' => 30,
+        ],
+        'lce-ftp' => [
+            'driver' => 'ftp',
+            'host' => env('FTP_HOST'),
+            'username' => env('FTP_USERNAME'),
+            'password' => env('FTP_PASSWORD'),
+            'visibility' => 'public',
+            'permPublic' => 0766, /// <- this one did the trick
+            'port' => env('FTP_PORT'),
+            'root' => '/unisys/lce',
+            // 'timeout' => 30,
+        ],
+        'dump_site-ftp' => [
+            'driver' => 'ftp',
+            'host' => env('FTP_HOST'),
+            'username' => env('FTP_USERNAME'),
+            'password' => env('FTP_PASSWORD'),
+            'visibility' => 'public',
+            'permPublic' => 0766, /// <- this one did the trick
+            'port' => env('FTP_PORT'),
+            'root' => '/unisys/dump_site',
+            // 'timeout' => 30,
+        ],
+        'copy_plan-ftp' => [
+            'driver' => 'ftp',
+            'host' => env('FTP_HOST'),
+            'username' => env('FTP_USERNAME'),
+            'password' => env('FTP_PASSWORD'),
+            'visibility' => 'public',
+            'permPublic' => 0766, /// <- this one did the trick
+            'port' => env('FTP_PORT'),
+            'root' => '/unisys/copy_plan',
+            // 'timeout' => 30,
+        ],
+        'copy_form-ftp' => [
+            'driver' => 'ftp',
+            'host' => env('FTP_HOST'),
+            'username' => env('FTP_USERNAME'),
+            'password' => env('FTP_PASSWORD'),
+            'visibility' => 'public',
+            'permPublic' => 0766, /// <- this one did the trick
+            'port' => env('FTP_PORT'),
+            'root' => '/unisys/copy_form',
+            // 'timeout' => 30,
+        ],
+        'copy_resolution-ftp' => [
+            'driver' => 'ftp',
+            'host' => env('FTP_HOST'),
+            'username' => env('FTP_USERNAME'),
+            'password' => env('FTP_PASSWORD'),
+            'visibility' => 'public',
+            'permPublic' => 0766, /// <- this one did the trick
+            'port' => env('FTP_PORT'),
+            'root' => '/unisys/copy_resolution',
+            // 'timeout' => 30,
+        ],
+        'ten_yr_file-ftp' => [
+            'driver' => 'ftp',
+            'host' => env('FTP_HOST'),
+            'username' => env('FTP_USERNAME'),
+            'password' => env('FTP_PASSWORD'),
+            'visibility' => 'public',
+            'permPublic' => 0766, /// <- this one did the trick
+            'port' => env('FTP_PORT'),
+            'root' => '/unisys/ten_yr_file',
+            // 'timeout' => 30,
+        ],
+        'copy_report-ftp' => [
+            'driver' => 'ftp',
+            'host' => env('FTP_HOST'),
+            'username' => env('FTP_USERNAME'),
+            'password' => env('FTP_PASSWORD'),
+            'visibility' => 'public',
+            'permPublic' => 0766, /// <- this one did the trick
+            'port' => env('FTP_PORT'),
+            'root' => '/unisys/copy_report',
+            // 'timeout' => 30,
+        ],
+        'avatars-ftp' => [
+            'driver' => 'ftp',
+            'host' => env('FTP_HOST'),
+            'username' => env('FTP_USERNAME'),
+            'password' => env('FTP_PASSWORD'),
+            'visibility' => 'public',
+            'permPublic' => 0766, /// <- this one did the trick
+            'port' => env('FTP_PORT'),
+            'root' => '/unisys/avatars',
+            // 'timeout' => 30,
+        ],
+        'iec-ftp' => [
+            'driver' => 'ftp',
+            'host' => env('FTP_HOST'),
+            'username' => env('FTP_USERNAME'),
+            'password' => env('FTP_PASSWORD'),
+            'visibility' => 'public',
+            'permPublic' => 0766, /// <- this one did the trick
+            'port' => env('FTP_PORT'),
+            'root' => '/unisys/iec',
+            // 'timeout' => 30,
+        ],
+        // mov
+        'mov-ftp' => [
+            'driver' => 'ftp',
+            'host' => env('FTP_HOST'),
+            'username' => env('FTP_USERNAME'),
+            'password' => env('FTP_PASSWORD'),
+            'visibility' => 'public',
+            'permPublic' => 0766, /// <- this one did the trick
+            'port' => env('FTP_PORT'),
+            'root' => '/mov/files',
+            // 'timeout' => 30,
+        ],
+
+        'PD1586-ftp' => [
+            'driver' => 'ftp',
+            'host' => env('FTP_HOST'),
+            'username' => env('FTP_USERNAME'),
+            'password' => env('FTP_PASSWORD'),
+            'visibility' => 'public',
+            'permPublic' => 0766, /// <- this one did the trick
+            'port' => env('FTP_PORT'),
+            'root' => '/mov/PD1586',
+            // 'timeout' => 30,
+        ], 'RA9275-ftp' => [
+            'driver' => 'ftp',
+            'host' => env('FTP_HOST'),
+            'username' => env('FTP_USERNAME'),
+            'password' => env('FTP_PASSWORD'),
+            'visibility' => 'public',
+            'permPublic' => 0766, /// <- this one did the trick
+            'port' => env('FTP_PORT'),
+            'root' => '/mov/RA9275',
+            // 'timeout' => 30,
+        ], 'RA8749-ftp' => [
+            'driver' => 'ftp',
+            'host' => env('FTP_HOST'),
+            'username' => env('FTP_USERNAME'),
+            'password' => env('FTP_PASSWORD'),
+            'visibility' => 'public',
+            'permPublic' => 0766, /// <- this one did the trick
+            'port' => env('FTP_PORT'),
+            'root' => '/mov/RA8749',
+            // 'timeout' => 30,
+        ], 'RA6969-ftp' => [
+            'driver' => 'ftp',
+            'host' => env('FTP_HOST'),
+            'username' => env('FTP_USERNAME'),
+            'password' => env('FTP_PASSWORD'),
+            'visibility' => 'public',
+            'permPublic' => 0766, /// <- this one did the trick
+            'port' => env('FTP_PORT'),
+            'root' => '/mov/RA6969',
+            // 'timeout' => 30,
+        ],
     ],
 
 
