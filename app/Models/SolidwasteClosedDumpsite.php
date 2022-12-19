@@ -15,5 +15,10 @@ class SolidwasteClosedDumpsite extends Model
             ->addMediaCollection('dump_site')
             ->acceptsMimeTypes(['image/jpeg', 'image/png', 'image/jpg', 'application/pdf'])
             ->useDisk('dump_site');
+
+            $this
+            ->addMediaCollection('dump_site-ftp')
+            ->acceptsMimeTypes(['image/jpeg', 'image/png', 'image/jpg', 'application/pdf'])
+            ->useDisk('dump_site-ftp');
     }
 }

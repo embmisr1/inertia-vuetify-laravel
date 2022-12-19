@@ -19,5 +19,10 @@ class Legal extends Model implements HasMedia
             ->addMediaCollection('legal')
             ->acceptsMimeTypes(['application/pdf'])
             ->useDisk('legal');
+
+            $this
+            ->addMediaCollection('legal-ftp')
+            ->acceptsMimeTypes(['application/pdf'])
+            ->useDisk('legal-ftp');
     }
 }

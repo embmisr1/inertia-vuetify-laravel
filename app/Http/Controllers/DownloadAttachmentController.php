@@ -14,40 +14,45 @@ class DownloadAttachmentController extends Controller
 {
     public function index(Request $request)
     {
-        $type = $request->type;
-        $id = (int) $request->id;
+        try {
+            $type = $request->type;
+            $id = (int) $request->id;
 
-        $data = [
-            "url" => url('/app')
-        ];
-        switch ($type) {
-            case 'permits':
-                $data = array("permits" => $this->permit($id));
-                break;
-            case 'monitoring':
-                $data['monitoring'] = $this->monitoring($id);
-                break;
-            case 'legal':
-                $data['legal'] = $this->legal($id);
-                break;
-            case 'complaint':
-                $data['complaint'] = $this->complaint($id);
-                break;
-            case 'complaintaction':
-                $data['complaintaction'] = $this->complaintaction($id);
-                break;
-            case 'slot 6':
-                break;
-            default:
-                $data = array("permits" => $this->permit($id));
-                $data['monitoring'] = $this->monitoring($id);
-                $data['legal'] = $this->legal($id);
-                $data['complaint'] = $this->complaint($id);
-                $data['complaintaction'] = $this->complaintaction($id);
-                break;
-        };
-        // return $data;
-        return view('download_attachment', $data);
+
+            $data = [
+                "url" => url('/app')
+            ];
+            switch ($type) {
+                case 'permits-ftp':
+                    $data = array("permits" => $this->permit($id));
+                    break;
+                case 'monitoring-ftp':
+                    $data['monitoring'] = $this->monitoring($id);
+                    break;
+                case 'legal-ftp':
+                    $data['legal'] = $this->legal($id);
+                    break;
+                case 'complaint-ftp':
+                    $data['complaint'] = $this->complaint($id);
+                    break;
+                case 'complaintaction-ftp':
+                    $data['complaintaction'] = $this->complaintaction($id);
+                    break;
+                case 'slot 6':
+                    break;
+                default:
+                    $data = array("permits" => $this->permit($id));
+                    $data['monitoring'] = $this->monitoring($id);
+                    $data['legal'] = $this->legal($id);
+                    $data['complaint'] = $this->complaint($id);
+                    $data['complaintaction'] = $this->complaintaction($id);
+                    break;
+            };
+            // return $data;
+            return view('download_attachment', $data);
+        } catch (\Throwable $th) {
+            throw $th->getMessage();
+        }
     }
     public function delete_media($id, $category)
     {
@@ -92,42 +97,42 @@ class DownloadAttachmentController extends Controller
     private function permit($id)
     {
         $permit = Permit::find($id);
-        // dd(count($permit->getMedia('permits')));
+
         return [
-            'counter'=>count($permit->getMedia('permits')),
-            'attachment'=>AttachmentResource::collection($permit->getMedia('permits'))
+            'counter'=>count($permit->getMedia('permits-ftp')),
+            'attachment'=>AttachmentResource::collection($permit->getMedia('permits-ftp'))
         ];
     }
     private function monitoring($id)
     {
         $monitoring = Monitoring::find($id);
         return [
-            'counter'=>count($monitoring->getMedia('monitoring')),
-            'attachment'=>AttachmentResource::collection($monitoring->getMedia('monitoring'))
+            'counter'=>count($monitoring->getMedia('monitoring-ftp')),
+            'attachment'=>AttachmentResource::collection($monitoring->getMedia('monitoring-ftp'))
         ];
     }
     private function legal($id)
     {
         $legal = Legal::find($id);
         return [
-            'counter'=>count($legal->getMedia('legal')),
-            'attachment'=>AttachmentResource::collection($legal->getMedia('legal'))
+            'counter'=>count($legal->getMedia('legal-ftp')),
+            'attachment'=>AttachmentResource::collection($legal->getMedia('legal-ftp'))
         ];
     }
     private function complaint($id)
     {
         $complaint = Complaint::find($id);
         return [
-            'counter'=>count($complaint->getMedia('complaint')),
-            'attachment'=>AttachmentResource::collection($complaint->getMedia('complaint'))
+            'counter'=>count($complaint->getMedia('complaint-ftp')),
+            'attachment'=>AttachmentResource::collection($complaint->getMedia('complaint-ftp'))
         ];
     }
     private function complaintaction($id)
     {
         $complaint = Complaint::find($id);
         return [
-            'counter'=>count($complaint->getMedia('complaintaction')),
-            'attachment'=>AttachmentResource::collection($complaint->getMedia('complaintaction'))
+            'counter'=>count($complaint->getMedia('complaintaction-ftp')),
+            'attachment'=>AttachmentResource::collection($complaint->getMedia('complaintaction-ftp'))
         ];
     }
 }

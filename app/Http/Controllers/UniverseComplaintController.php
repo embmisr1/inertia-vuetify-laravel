@@ -98,7 +98,7 @@ class UniverseComplaintController extends Controller
             //         ->toMediaCollection("complaint");
             // }
         }
-        $media_counter = Media::where('model_id', $query->id)->where('collection_name', 'complaint')->count();
+        $media_counter = Media::where('model_id', $query->id)->where('collection_name', 'complaint-ftp')->count();
         $query_media_counter = Complaint::find($query->id);
         $query_media_counter->comp_attached_file = $media_counter;
         $query_media_counter->save();
@@ -114,7 +114,7 @@ class UniverseComplaintController extends Controller
                 //     ->toMediaCollection("complaintaction", "complaintaction");
             }
         }
-        $media_counter = Media::where('model_id', $query->id)->where('collection_name', 'complaintaction')->count();
+        $media_counter = Media::where('model_id', $query->id)->where('collection_name', 'complaintaction-ftp')->count();
         $query_media_counter = Complaint::find($query->id);
         $query_media_counter->comp_action_file = $media_counter;
         $query_media_counter->save();

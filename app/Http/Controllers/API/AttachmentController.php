@@ -10,6 +10,7 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Response;
 use ZipArchive;
+use  Illuminate\Support\Facades\Auth;
 
 class AttachmentController extends Controller
 {
@@ -34,6 +35,13 @@ class AttachmentController extends Controller
     public function downloadviaftp(Request $request)
     {
         try {
+
+            // if(!auth()->id()){
+            //     return response()->json([
+            //         "data"=>Auth::check(),
+            //         "message"=>"Not Logged In"
+            //     ]);
+            // }
             $conn = Storage::disk(request('collection'));
             $directory = $conn->files(request('file_id'))[0];
             $files = $conn->download($directory);

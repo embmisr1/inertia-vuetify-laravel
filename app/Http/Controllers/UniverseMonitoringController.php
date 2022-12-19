@@ -107,7 +107,7 @@ class UniverseMonitoringController extends Controller
             //         ->toMediaCollection("monitoring");
             // }
         }
-        $media_counter = Media::where('model_id', $query->id)->where('collection_name', 'monitoring')->count();
+        $media_counter = Media::where('model_id', $query->id)->where('collection_name', 'monitoring-ftp')->count();
         $query_media_counter = Monitoring::find($query->id);
         $query_media_counter->mon_file = $media_counter;
         $query_media_counter->save();

@@ -49,5 +49,10 @@ class SolidwasteSLF extends Model implements HasMedia
             ->addMediaCollection('slf')
             ->acceptsMimeTypes(['image/jpeg', 'image/png', 'image/jpg', 'application/pdf'])
             ->useDisk('slf');
+
+            $this
+            ->addMediaCollection('slf-ftp')
+            ->acceptsMimeTypes(['image/jpeg', 'image/png', 'image/jpg', 'application/pdf'])
+            ->useDisk('slf-ftp');
     }
 }

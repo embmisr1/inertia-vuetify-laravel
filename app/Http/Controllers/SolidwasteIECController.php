@@ -42,7 +42,7 @@ class SolidwasteIECController extends Controller
             $attachments = SolidwasteIEC::where("id", $id)->get();
         return Inertia::render("pages/swm/Form/IECForm", [
             'iec_edit' => $iec_edit,
-            "attachments" => $attachments[0]->getMedia("iec") ? AttachmentResource::collection($attachments[0]->getMedia("iec")) : null,
+            "attachments" => $attachments[0]->getMedia("iec") ? AttachmentResource::collection($attachments[0]->getMedia("iec-ftp")) : null,
         ]);
     }
 

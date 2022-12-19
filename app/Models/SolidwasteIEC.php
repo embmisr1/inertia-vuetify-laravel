@@ -18,5 +18,10 @@ class SolidwasteIEC extends Model implements HasMedia
             ->addMediaCollection('iec')
             ->acceptsMimeTypes(['image/jpeg', 'image/png', 'image/jpg', 'application/pdf'])
             ->useDisk('iec');
+
+            $this
+            ->addMediaCollection('iec-ftp')
+            ->acceptsMimeTypes(['image/jpeg', 'image/png', 'image/jpg', 'application/pdf'])
+            ->useDisk('iec-ftp');
     }
 }

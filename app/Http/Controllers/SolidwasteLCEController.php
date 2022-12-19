@@ -118,7 +118,7 @@ class SolidwasteLCEController extends Controller
             'query_ten_year' => $query_ten_year,
             'query_closed_dumpsite_id' => $query_closed_dumpsite,
             "query_gad" => $query_gad,
-            "attachments" => $attachments[0]->getMedia("avatars") ? AttachmentResource::collection($attachments[0]->getMedia("avatars")) : null,
+            "attachments" => $attachments[0]->getMedia("avatars-ftp") ? AttachmentResource::collection($attachments[0]->getMedia("avatars")) : null,
         ]);
     }
 
@@ -140,7 +140,7 @@ class SolidwasteLCEController extends Controller
             // dd($attachments[0]->getMedia("lce") ? AttachmentResource::collection($attachments[0]->getMedia("lce")) : null);
         return Inertia::render("pages/swm/Form/LCEForm", [
             'lce_edit' => $lce_edit,
-            "attachments" => $attachments[0]->getMedia("avatars") ? AttachmentResource::collection($attachments[0]->getMedia("avatars")) : null,
+            "attachments" => $attachments[0]->getMedia("avatars-ftp") ? AttachmentResource::collection($attachments[0]->getMedia("avatars")) : null,
             'province_dropdown' => $province_dropdown,
         ]);
     }
@@ -167,13 +167,13 @@ class SolidwasteLCEController extends Controller
         $query->lce_email_address = $request->lce_email_address;
         $query->save();
         if ($request->lce_file) {
-            // foreach ($request->lce_file as $file) {
-            //     $query
-            //         ->addMedia($file)
-            //         ->preservingOriginal()
-            //         ->toMediaCollection("avatars");
-            // }
-            (new MediaUploader())->un_avatars_upload($query, $request->lce_file);
+            foreach ($request->lce_file as $file) {
+                $query
+                    ->addMedia($file)
+                    ->preservingOriginal()
+                    ->toMediaCollection("avatars");
+            }
+            // (new MediaUploader())->un_avatars_upload($query, $request->lce_file);
         }
         Logger::dispatch("SolidwasteLCE", $query->id, auth()->id(), "Created a LCE: model_id " . $query->id, "create");
         return back()->with("message", "LCE Created");
@@ -202,13 +202,13 @@ class SolidwasteLCEController extends Controller
             $query->lce_email_address = $request->lce_email_address;
             $query->save();
             if ($request->lce_file) {
-                // foreach ($request->lce_file as $file) {
-                //     $query
-                //         ->addMedia($file)
-                //         ->preservingOriginal()
-                //         ->toMediaCollection("avatars");
-                // }
-                (new MediaUploader())->un_avatars_upload($query, $request->lce_file);
+                foreach ($request->lce_file as $file) {
+                    $query
+                        ->addMedia($file)
+                        ->preservingOriginal()
+                        ->toMediaCollection("avatars");
+                }
+                // (new MediaUploader())->un_avatars_upload($query, $request->lce_file);
             }
             Logger::dispatch("SolidwasteLCE", $query->id, auth()->id(), "Updated a LCE: model_id " . $query->id, "update");
             return back()->with("message", "LCE Updated");

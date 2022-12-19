@@ -45,7 +45,7 @@ class SolidwasteSLFController extends Controller
         $attachements = SolidwasteSLF::where("id", $id)->get();
         return Inertia::render("pages/swm/Form/SLFForm", [
             'slf_edit' => $slf_edit,
-            "attachments" => AttachmentResource::collection($attachements[0]->getMedia("slf")),
+            "attachments" => AttachmentResource::collection($attachements[0]->getMedia("slf-ftp")),
         ]);
     }
 

@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Mov extends Model implements HasMedia
 {
-    use HasFactory, InteractsWithMedia,SoftDeletes;
+    use HasFactory, InteractsWithMedia, SoftDeletes;
 
     protected $connection = 'mysql1';
 
@@ -48,26 +48,51 @@ class Mov extends Model implements HasMedia
 
     public function registerMediaCollections(): void
     {
+        // ftp
         $this
-            ->addMediaCollection('mov')
-            ->acceptsMimeTypes(['image/png','image/jpeg','image/jpg', 'application/pdf', 'application/octet-stream'])
-            ->useDisk('mov');
+            ->addMediaCollection('mov-ftp')
+            ->acceptsMimeTypes(['image/png', 'image/jpeg', 'image/jpg', 'application/pdf', 'application/octet-stream'])
+            ->useDisk('mov-ftp');
 
             $this
+            ->addMediaCollection('PD1586-ftp')
+            ->acceptsMimeTypes(['image/png', 'image/jpeg', 'image/jpg', 'application/pdf', 'application/octet-stream'])
+            ->useDisk('PD1586-ftp');
+        $this
+            ->addMediaCollection('RA9275-ftp')
+            ->acceptsMimeTypes(['image/png', 'image/jpeg', 'image/jpg', 'application/pdf', 'application/octet-stream'])
+            ->useDisk('RA9275-ftp');
+        $this
+            ->addMediaCollection('RA8749-ftp')
+            ->acceptsMimeTypes(['image/png', 'image/jpeg', 'image/jpg', 'application/pdf', 'application/octet-stream'])
+            ->useDisk('RA8749-ftp');
+        $this
+            ->addMediaCollection('RA6969-ftp')
+            ->acceptsMimeTypes(['image/png', 'image/jpeg', 'image/jpg', 'application/pdf', 'application/octet-stream'])
+            ->useDisk('RA6969-ftp');
+
+            // local
+
+        $this
+            ->addMediaCollection('mov')
+            ->acceptsMimeTypes(['image/png', 'image/jpeg', 'image/jpg', 'application/pdf', 'application/octet-stream'])
+            ->useDisk('mov');
+
+        $this
             ->addMediaCollection('PD1586')
-            ->acceptsMimeTypes(['image/png','image/jpeg','image/jpg', 'application/pdf', 'application/octet-stream'])
+            ->acceptsMimeTypes(['image/png', 'image/jpeg', 'image/jpg', 'application/pdf', 'application/octet-stream'])
             ->useDisk('PD1586');
-            $this
+        $this
             ->addMediaCollection('RA9275')
-            ->acceptsMimeTypes(['image/png','image/jpeg','image/jpg', 'application/pdf', 'application/octet-stream'])
+            ->acceptsMimeTypes(['image/png', 'image/jpeg', 'image/jpg', 'application/pdf', 'application/octet-stream'])
             ->useDisk('RA9275');
-            $this
+        $this
             ->addMediaCollection('RA8749')
-            ->acceptsMimeTypes(['image/png','image/jpeg','image/jpg', 'application/pdf', 'application/octet-stream'])
+            ->acceptsMimeTypes(['image/png', 'image/jpeg', 'image/jpg', 'application/pdf', 'application/octet-stream'])
             ->useDisk('RA8749');
-            $this
+        $this
             ->addMediaCollection('RA6969')
-            ->acceptsMimeTypes(['image/png','image/jpeg','image/jpg', 'application/pdf', 'application/octet-stream'])
+            ->acceptsMimeTypes(['image/png', 'image/jpeg', 'image/jpg', 'application/pdf', 'application/octet-stream'])
             ->useDisk('RA6969');
     }
 }

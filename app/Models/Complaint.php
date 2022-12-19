@@ -24,5 +24,16 @@ class Complaint extends Model implements HasMedia
             ->addMediaCollection('complaintaction')
             ->acceptsMimeTypes(['application/pdf'])
             ->useDisk('complaintaction');
+
+
+            $this
+            ->addMediaCollection('complaint-ftp')
+            ->acceptsMimeTypes(['application/pdf'])
+            ->useDisk('complaint-ftp');
+
+        $this
+            ->addMediaCollection('complaintaction-ftp')
+            ->acceptsMimeTypes(['application/pdf'])
+            ->useDisk('complaintaction-ftp`');
     }
 }

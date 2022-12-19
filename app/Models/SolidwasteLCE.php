@@ -18,13 +18,24 @@ class SolidwasteLCE extends Model implements HasMedia
             ->acceptsMimeTypes(['image/jpeg', 'image/png', 'image/jpg', 'application/pdf'])
             ->useDisk('lce');
 
-            $this
+        $this
             ->addMediaCollection('avatars')
             ->acceptsMimeTypes(['image/jpeg', 'image/png', 'image/jpg', 'application/pdf'])
             ->useDisk('avatars');
+
+            $this
+            ->addMediaCollection('lce-ftp')
+            ->acceptsMimeTypes(['image/jpeg', 'image/png', 'image/jpg', 'application/pdf'])
+            ->useDisk('lce-ftp');
+
+        $this
+            ->addMediaCollection('avatars-ftp')
+            ->acceptsMimeTypes(['image/jpeg', 'image/png', 'image/jpg', 'application/pdf'])
+            ->useDisk('avatars-ftp');
     }
 
-    public function logs(){
+    public function logs()
+    {
         return $this->hasMany(Logs::class);
     }
 }

@@ -81,10 +81,10 @@ class SolidwasteTenYearController extends Controller
             'ten_year_edit' => $ten_year_edit,
             'ten_year_monitoring_list' => $ten_year_monitoring_list,
             "attachments" => [
-                "ten_yr_file" => AttachmentResource::collection($attachements[0]->getMedia("ten_yr_file")),
-                "copy_plan" => AttachmentResource::collection($attachements[0]->getMedia("copy_plan")),
-                "copy_form" => AttachmentResource::collection($attachements[0]->getMedia("copy_form")),
-                "copy_resolution" => AttachmentResource::collection($attachements[0]->getMedia("copy_resolution")),
+                "ten_yr_file" => AttachmentResource::collection($attachements[0]->getMedia("ten_yr_file-ftp")),
+                "copy_plan" => AttachmentResource::collection($attachements[0]->getMedia("copy_plan-ftp")),
+                "copy_form" => AttachmentResource::collection($attachements[0]->getMedia("copy_form-ftp")),
+                "copy_resolution" => AttachmentResource::collection($attachements[0]->getMedia("copy_resolution-ftp")),
             ],
         ]);
     }

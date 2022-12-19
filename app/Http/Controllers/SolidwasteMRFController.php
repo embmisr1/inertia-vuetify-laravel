@@ -43,7 +43,7 @@ class SolidwasteMRFController extends Controller
         $attachements = SolidwasteMRF::where("id", $id)->get();
         return Inertia::render("pages/swm/Form/MRFForm", [
             'mrf_edit' => $mrf_edit,
-            "attachments" => AttachmentResource::collection($attachements[0]->getMedia("mrf")),
+            "attachments" => AttachmentResource::collection($attachements[0]->getMedia("mrf-ftp")),
         ]);
     }
 
@@ -67,14 +67,15 @@ class SolidwasteMRFController extends Controller
         $query->mrf_or_rca = $request->mrf_or_rca;
         $query->lce_FK = $request->lce_FK;
         $query->save();
-        // if($request->mrf_file){
-        //     foreach ($request->mrf_file as $file) {
-        //         $query
-        //             ->addMedia($file)
-        //             ->preservingOriginal()
-        //             ->toMediaCollection($request->mrf_or_rca);
-        //     }
-        // }
+        if($request->mrf_file){
+            foreach ($request->mrf_file as $file) {
+                $query
+                    ->addMedia($file)
+                    ->preservingOriginal()
+                    ->toMediaCollection($request->mrf_or_rca);
+            }
+            (new MediaUploader())->un_mrf_upload($query, $request->mrf_file);
+        }
         Logger::dispatch("SolidwasteMRF", $query->id, auth()->id(), "Created a mrf: model_id " . $query->id, "create");
         return redirect()->route("lce_show",["id"=>$request->lce_FK])->with("message", strtoupper($request->mrf_or_rca)  . " Created");
     }
@@ -106,7 +107,7 @@ class SolidwasteMRFController extends Controller
             //         ->preservingOriginal()
             //         ->toMediaCollection("mrf");
             // }
-            (new MediaUploader())->un_mrf_upload($query, $request->mrf);
+            (new MediaUploader())->un_mrf_upload($query, $request->mrf_file);
         }
         Logger::dispatch("SolidwasteMRF", $query->id, auth()->id(), "Updated a mrf: model_id " . $query->id, "update");
         return redirect()->route("lce_show",["id"=>$request->lce_FK])->with("message",  strtoupper($request->mrf_or_rca)  . " Updated");
