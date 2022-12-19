@@ -399,10 +399,11 @@
                     <ViewAttachements
                       :attachments="attachments.data"
                       :goTo="
-                        (url) => {
-                          goTo(url);
+                        (data) => {
+                          goTo(data);
                         }
                       "
+                      collection="slf-ftp"
                       :removeFile="removeAttachment"
                     />
                   </div>

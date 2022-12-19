@@ -60,9 +60,25 @@ export default {
         successMessage() {
             return { ...this.flash };
         },
+        base_url() {
+            return window.location.origin;
+        },
+        route_path() {
+            return window.location.pathname.split("/");
+        },
     },
     methods: {
-        goTo(url) {
+        goTo(data) {
+            const { id, collection } = data;
+
+            const url =
+                this.base_url +
+                "/api/ftp?" +
+                "collection=" +
+                collection +
+                "&" +
+                "file_id=" +
+                id;
             window.open(url, "_blank");
         },
         search_query_params(key) {

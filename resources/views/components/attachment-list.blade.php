@@ -5,7 +5,10 @@
             <li
                 class="p-2 grid grid-cols-5 items-center border-b border-black w-1/2 hover:bg-gray-800 hover:text-white hover:rounded-md hover:border-0 transition duration-150 delay-200 transform hover:-translate-y-1 hover:shadow-xl shadow-gray-900">
                 {{-- @if ($file->type === 'pdf') --}}
-                <a href="{{ url('/storage') . '/' . $type . '/' . $file->id . '/' . $file->file_name }}" target="_blank"
+                {{-- <a href="{{ url('/storage') . '/' . $type . '/' . $file->id . '/' . $file->file_name }}" target="_blank"
+                    class="col-span-4">{{ $file->file_name }}
+                </a> --}}
+                <a href="{{ url('api/ftp') . '?collection='. $type .'-ftp&file_id='. $file->id }}" target="_blank"
                     class="col-span-4">{{ $file->file_name }}
                 </a>
                 <a

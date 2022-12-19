@@ -371,6 +371,7 @@
                                                 }
                                             "
                                             :removeFile="removeAttachment"
+                                            collection="mrf-ftp"
                                         />
                                     </div>
                                 </v-card-text>
