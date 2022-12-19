@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\ApiController;
+use App\Http\Controllers\API\AttachmentController;
 use App\Http\Controllers\API\PlacesController;
 use App\Http\Controllers\API\Project\SearchSpecificType;
 use App\Http\Controllers\API\Project\SearchSubType;
@@ -27,6 +28,15 @@ use App\Http\Controllers\Imports\ImportsController;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::group([
+    // 'middleware' => ['auth']
+    // 'middleware'=>[]
+
+], function(){
+        Route::get('/ftp',[AttachmentController::class,'downloadviaftp']);
+    }
+);
+
 
 Route::get('app/region_dropdown/{id?}', [ApiController::class, 'region_dropdown'])->name("region_dropdown");
 Route::get('app/province_dropdown/{id}', [ApiController::class, 'province_dropdown'])->name("province_dropdown");
