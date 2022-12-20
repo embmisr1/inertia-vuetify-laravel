@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Jobs\Logger;
+use App\Jobs\LoggerSWM;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\DB;
 use App\Models\SolidwasteSection24;
@@ -69,8 +70,8 @@ class SolidwasteSection24Controller extends Controller
             $query->section24_with_letter = $request->section24_with_letter;
             $query->lce_FK = $request->lce_FK;
             $query->save();
-            Logger::dispatch("SolidwasteSection24", $query->id, auth()->id(), "Created a section24: model_id " . $query->id, "create");
-            return redirect()->route("lce_show",["id"=>$request->lce_FK])->with("message", "section24 Created");
+            LoggerSWM::dispatch("SolidwasteSEC24", $query->id, auth()->id(), "Created a SECTION 24: ", "create", $request->lce_FK);
+            return redirect()->route("lce_show",["id"=>$request->lce_FK])->with("message", "Section 24 Created");
         } catch (\Throwable $th) {
             return $th->getMessage();
         }
@@ -102,7 +103,7 @@ class SolidwasteSection24Controller extends Controller
             $query->section24_with_letter = $request->section24_with_letter;
             $query->lce_FK = $request->lce_FK;
             $query->save();
-            Logger::dispatch("SolidwasteSection24", $query->id, auth()->id(), "Updated a Section 24: model_id " . $query->id, "update");
+            LoggerSWM::dispatch("SolidwasteSEC24", $query->id, auth()->id(), "Updated a SECTION 24: ", "update", $request->lce_FK);
             return redirect()->route("lce_show",["id"=>$request->lce_FK])->with("message", "Section 24 Updated");
         } catch (\Throwable $th) {
             return $th->getMessage();
@@ -114,7 +115,7 @@ class SolidwasteSection24Controller extends Controller
         if(!$this->solidwaste_validator($request)){ return back(); }
         $section24_delete = SolidwasteSection24::find($request->id);
         $section24_delete->delete();
-        Logger::dispatch("SolidwasteSection24", $request->id, auth()->id(), "Deleted a Section 24: model_id " . $request->id, "delete");
+        LoggerSWM::dispatch("SolidwasteSEC24", $request->id, auth()->id(), "Deleted a SECTION 24: ", "delete", $request->lce_FK);
         return back()->with("message", "Section 24 Deleted");
     }
 

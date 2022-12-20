@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\DB;
 use App\Models\SolidwasteIEC;
+use App\Jobs\LoggerSWM;
 
 class SolidwasteIECController extends Controller
 {
@@ -73,7 +74,7 @@ class SolidwasteIECController extends Controller
                         ->toMediaCollection("iec");
                 }
             }
-            Logger::dispatch("SolidwasteIEC", $query->id, auth()->id(), "Created a IEC: model_id " . $query->id, "create");
+            LoggerSWM::dispatch("SolidwasteIEC", $query->id, auth()->id(), "Created an IEC: ", "create", $request->lce_FK);
             return redirect()->route("lce_show",["id"=>$request->lce_FK])->with("message", "IEC Created");
         } catch (\Throwable $th) {
             return $th->getMessage();
@@ -108,7 +109,7 @@ class SolidwasteIECController extends Controller
                         ->toMediaCollection("iec");
                 }
             }
-            Logger::dispatch("SolidwasteIEC", $query->id, auth()->id(), "Updated a IEC: model_id " . $query->id, "update");
+            LoggerSWM::dispatch("SolidwasteIEC", $query->id, auth()->id(), "Updated an IEC: ", "update", $request->lce_FK);
             return redirect()->route("lce_show",["id"=>$request->lce_FK])->with("message", "IEC Updated");
         } catch (\Throwable $th) {
             return $th->getMessage();
@@ -120,7 +121,7 @@ class SolidwasteIECController extends Controller
         if(!$this->solidwaste_validator($request)){ return back(); }
         $iec_delete = SolidwasteIEC::find($request->id);
         $iec_delete->delete();
-        Logger::dispatch("SolidwasteIEC", $request->id, auth()->id(), "Deleted a IEC: model_id " . $request->id, "delete");
+        LoggerSWM::dispatch("SolidwasteIEC", $request->id, auth()->id(), "Deleted an IEC: ", "delete", $request->lce_FK);
         return back()->with("message", "IEC Deleted");
     }
 

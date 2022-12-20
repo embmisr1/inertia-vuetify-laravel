@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Resources\AttachmentResource;
 use App\Jobs\Logger;
+use App\Jobs\LoggerSWM;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\DB;
@@ -43,7 +44,6 @@ class SolidwasteMRFController extends Controller
         $attachements = SolidwasteMRF::where("id", $id)->get();
         return Inertia::render("pages/swm/Form/MRFForm", [
             'mrf_edit' => $mrf_edit,
-            // "attachments" => AttachmentResource::collection($attachements[0]->getMedia("mrf")),
             "attachments" => AttachmentResource::collection($attachements[0]->getMedia($request->form_type)),
         ]);
         } catch (\Throwable $th) {
@@ -80,7 +80,7 @@ class SolidwasteMRFController extends Controller
                     ->toMediaCollection($request->mrf_or_rca);
             }
         }
-        Logger::dispatch("SolidwasteMRF", $query->id, auth()->id(), "Created a mrf: model_id " . $query->id, "create");
+        LoggerSWM::dispatch("SolidwasteMRF", $query->id, auth()->id(), "Created a MRF: ", "create", $request->lce_FK);
         return redirect()->route("lce_show",["id"=>$request->lce_FK])->with("message", strtoupper($request->mrf_or_rca)  . " Created");
        } catch (\Throwable $th) {
         dd($th->getMessage());
@@ -116,7 +116,7 @@ class SolidwasteMRFController extends Controller
                     ->toMediaCollection($request->mrf_or_rca);
             }
         }
-        Logger::dispatch("SolidwasteMRF", $query->id, auth()->id(), "Updated a mrf: model_id " . $query->id, "update");
+        LoggerSWM::dispatch("SolidwasteMRF", $query->id, auth()->id(), "Updated a MRF: ", "update");
         return redirect()->route("lce_show",["id"=>$request->lce_FK])->with("message",  strtoupper($request->mrf_or_rca)  . " Updated");
     }
 
@@ -125,7 +125,7 @@ class SolidwasteMRFController extends Controller
         if(!$this->solidwaste_validator($request)){ return back(); }
         $mrf_delete = SolidwasteMRF::find($request->id);
         $mrf_delete->delete();
-        Logger::dispatch("SolidwasteMRF", $request->id, auth()->id(), "Deleted a mrf: model_id " . $request->id, "delete");
+        LoggerSWM::dispatch("SolidwasteMRF", $request->id, auth()->id(), "Deleted a MRF: ", "delete");
         return back()->with("message", "MRF Deleted");
     }
 

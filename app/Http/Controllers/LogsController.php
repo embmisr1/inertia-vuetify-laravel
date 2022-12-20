@@ -58,4 +58,12 @@ class LogsController extends Controller
             "data" => LogsResource::collection((new LogsFilter)->get())
         ]);
     }
+
+    public function logs_individual(request $request){
+        $query = LOGS::where('user_id', $request->id)->get();
+        return Inertia::render("pages/universe/logs_individual",[
+            "all_logs" => $query,
+            "sample" => $request->id,
+        ]);
+    }
 }

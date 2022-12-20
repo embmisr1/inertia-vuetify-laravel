@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\DB;
 use App\Models\SolidwasteDues;
+use App\Jobs\LoggerSWM;
 
 class SolidwasteDuesController extends Controller
 {
@@ -56,7 +57,7 @@ class SolidwasteDuesController extends Controller
             $query->dues_contact_email = $request->dues_contact_email;
             $query->lce_FK = $request->lce_FK;
             $query->save();
-            Logger::dispatch("SolidwasteDues", $query->id, auth()->id(), "Created a DUES: model_id " . $query->id, "create");
+            LoggerSWM::dispatch("SolidwasteDUES", $query->id, auth()->id(), "Created a Dues: ", "create", $request->lce_FK);
             return redirect()->route("lce_show",["id"=>$request->lce_FK])->with("message", "Dues Created");
         } catch (\Throwable $th) {
             return $th->getMessage();
@@ -77,7 +78,7 @@ class SolidwasteDuesController extends Controller
             $query->dues_contact_email = $request->dues_contact_email;
             $query->lce_FK = $request->lce_FK;
             $query->save();
-            Logger::dispatch("SolidwasteDues", $query->id, auth()->id(), "Updated a DUES: model_id " . $query->id, "update");
+            LoggerSWM::dispatch("SolidwasteDUES", $query->id, auth()->id(), "Updated a Dues: ", "update", $request->lce_FK);
             return redirect()->route("lce_show",["id"=>$request->lce_FK])->with("message", "Dues Updated");
         } catch (\Throwable $th) {
             return $th->getMessage();
@@ -89,7 +90,7 @@ class SolidwasteDuesController extends Controller
         if(!$this->solidwaste_validator($request)){ return back(); }
         $dues_delete = SolidwasteDues::find($request->id);
         $dues_delete->delete();
-        Logger::dispatch("SolidwasteDues", $request->id, auth()->id(), "Deleted a DUES: model_id " . $request->id, "delete");
+        LoggerSWM::dispatch("SolidwasteDUES", $request->id, auth()->id(), "Deleted a Dues: ", "delete", $request->lce_FK);
         return back()->with("message", "Dues Deleted");
     }
 

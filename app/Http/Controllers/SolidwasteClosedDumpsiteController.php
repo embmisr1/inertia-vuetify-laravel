@@ -7,6 +7,7 @@ use Inertia\Inertia;
 use Illuminate\Support\Facades\DB;
 use App\Models\SolidwasteLCE;
 use App\Models\SolidwasteClosedDumpsite;
+use App\Jobs\LoggerSWM;
 
 class SolidwasteClosedDumpsiteController extends Controller
 {
@@ -60,6 +61,7 @@ class SolidwasteClosedDumpsiteController extends Controller
         $query->cd_date_closure = $request->cd_date_closure;
         $query->lce_FK = $request->lce_FK;
         $query->save();
+        LoggerSWM::dispatch("SolidwasteCD", $query->id, auth()->id(), "Created a Closed Dumpsite: ", "create", $request->lce_FK);
         return redirect()->route("lce_show",["id"=>$request->lce_FK])->with("message","Closed Dumpsite Created");
     }
 
@@ -82,6 +84,7 @@ class SolidwasteClosedDumpsiteController extends Controller
         $query->cd_date_closure = $request->cd_date_closure;
         $query->lce_FK = $request->lce_FK;
         $query->save();
+        LoggerSWM::dispatch("SolidwasteCD", $query->id, auth()->id(), "Updated a Closed Dumpsite: ", "update", $request->lce_FK);
         return redirect()->route("lce_show",["id"=>$request->lce_FK])->with("message","Closed Dumpsite Updated");
     }
 
@@ -89,6 +92,7 @@ class SolidwasteClosedDumpsiteController extends Controller
         if(!$this->solidwaste_validator($request)){ return back(); }
         $cd_delete = SolidwasteClosedDumpsite::find($request->id);
         $cd_delete->delete();
+        LoggerSWM::dispatch("SolidwasteCD", $request->id, auth()->id(), "Deleted a Closed Dumpsite: ", "delete", $request->lce_FK);
         return back()->with("message","Closed Dumpsite Deleted");
     }
 

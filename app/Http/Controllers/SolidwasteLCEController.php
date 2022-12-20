@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Resources\AttachmentResource;
 use App\Jobs\Logger;
+use App\Jobs\LoggerSWM;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use App\Models\SWM\LCE;
@@ -173,7 +174,7 @@ class SolidwasteLCEController extends Controller
                     ->toMediaCollection("avatars");
             }
         }
-        Logger::dispatch("SolidwasteLCE", $query->id, auth()->id(), "Created a LCE: model_id " . $query->id, "create");
+        LoggerSWM::dispatch("SolidwasteLCE", $query->id, auth()->id(), "Created a LCE: ", "create", $request->lce_FK);
         return back()->with("message", "LCE Created");
     }
 
@@ -207,7 +208,7 @@ class SolidwasteLCEController extends Controller
                         ->toMediaCollection("avatars");
                 }
             }
-            Logger::dispatch("SolidwasteLCE", $query->id, auth()->id(), "Updated a LCE: model_id " . $query->id, "update");
+            LoggerSWM::dispatch("SolidwasteLCE", $query->id, auth()->id(), "Updated a LCE: ", "update", $request->lce_FK);
             return back()->with("message", "LCE Updated");
         } catch (\Throwable $th) {
             throw $th;
@@ -221,7 +222,7 @@ class SolidwasteLCEController extends Controller
         }
         $lce_delete = SolidwasteLCE::find($request->id);
         $lce_delete->delete();
-        Logger::dispatch("SolidwasteLCE", $request->id, auth()->id(), "Deleted a LCE: model_id " . $request->id, "delete");
+        LoggerSWM::dispatch("SolidwasteLCE", $request->id, auth()->id(), "Deleted a LCE: ", "delete", $request->lce_FK);
         return back()->with("message", "LCE Deleted");
     }
 

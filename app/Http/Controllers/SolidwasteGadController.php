@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\DB;
 use App\Models\SolidwasteGad;
+use App\Jobs\LoggerSWM;
 
 class SolidwasteGadController extends Controller
 {
@@ -51,7 +52,7 @@ class SolidwasteGadController extends Controller
             $query->gad_female = $request->gad_female;
             $query->lce_FK = $request->lce_FK;
             $query->save();
-            Logger::dispatch("SolidwasteGad", $query->id, auth()->id(), "Created a GAD: model_id " . $query->id, "create");
+            LoggerSWM::dispatch("SolidwasteGAD", $query->id, auth()->id(), "Created a GAD: ", "create", $request->lce_FK);
             return redirect()->route("lce_show",["id"=>$request->lce_FK])->with("message", "Gad Created");
         } catch (\Throwable $th) {
             return $th->getMessage();
@@ -67,7 +68,7 @@ class SolidwasteGadController extends Controller
             $query->gad_female = $request->gad_female;
             $query->lce_FK = $request->lce_FK;
             $query->save();
-            Logger::dispatch("SolidwasteGad", $query->id, auth()->id(), "Updated a GAD: model_id " . $query->id, "update");
+            LoggerSWM::dispatch("SolidwasteGAD", $query->id, auth()->id(), "Updated a GAD: ", "update", $request->lce_FK);
             return redirect()->route("lce_show",["id"=>$request->lce_FK])->with("message", "Gad Updated");
         } catch (\Throwable $th) {
             return $th->getMessage();
@@ -79,7 +80,7 @@ class SolidwasteGadController extends Controller
         if(!$this->solidwaste_validator($request)){ return back(); }
         $gad_delete = SolidwasteGad::find($request->id);
         $gad_delete->delete();
-        Logger::dispatch("SolidwasteGad", $request->id, auth()->id(), "Deleted a GAD: model_id " . $request->id, "delte");
+        LoggerSWM::dispatch("SolidwasteGAD", $request->id, auth()->id(), "Deleted a GAD: ", "delete", $request->lce_FK);
         return back()->with("message", "Gad Deleted");
     }
 

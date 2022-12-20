@@ -115,6 +115,7 @@ Route::group([
 
     Route::get('/map', [UniverseController::class, 'imthemap'])->name("imthemap");
     Route::get('/universe/logs', [LogsController::class, 'index'])->name("logs");
+    Route::get('/universe/logs_individual/{id}', [LogsController::class, 'logs_individual'])->name("logs_individual");
     // OWENS
 
     // GET REQUESTS
