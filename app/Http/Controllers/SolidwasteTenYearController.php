@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Resources\AttachmentResource;
 use App\Jobs\Logger;
+use App\Jobs\LoggerSWM;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\DB;
@@ -148,7 +149,7 @@ class SolidwasteTenYearController extends Controller
                         ->toMediaCollection("copy_resolution", "copy_resolution");
                 }
             }
-            Logger::dispatch("SolidwasteTenYear", $query->id, auth()->id(), "Created a 10YR: model_id " . $query->id, "create");
+            LoggerSWM::dispatch("SolidwasteTenYear", $query->id, auth()->id(), "Created a TenYear: ", "create", $request->lce_FK);
             return redirect()->route("lce_show", ["id" => $request->lce_FK])->with("message", "10 Year Created");
         } catch (\Throwable $th) {
             return $th->getMessage();
@@ -238,7 +239,7 @@ class SolidwasteTenYearController extends Controller
                 }
             }
             $query->save();
-            Logger::dispatch("SolidwasteTenYear", $query->id, auth()->id(), "Updated a 10YR: model_id " . $query->id, "update");
+            LoggerSWM::dispatch("SolidwasteTenYear", $query->id, auth()->id(), "Updated a TenYear: ", "update", $request->lce_FK);
             return redirect()->route("lce_show", ["id" => $request->lce_FK])->with("message", "10 Year Updated");
         } catch (\Throwable $th) {
             return $th->getMessage();
@@ -252,7 +253,7 @@ class SolidwasteTenYearController extends Controller
         $ten_year_delete->delete();
         $ten_year_findings_delete = SolidwasteTenYearFindings::where('ten_year_FK',$request->id);
         $ten_year_findings_delete->delete();
-        Logger::dispatch("SolidwasteTenYear", $request->id, auth()->id(), "Deleted a 10YR: model_id " . $request->id, "delete");
+        LoggerSWM::dispatch("SolidwasteTenYear", $request->id, auth()->id(), "Deleted a TenYear: ", "delete", $request->lce_FK);
         return back()->with("message", "10 Year Deleted");
     }
 
