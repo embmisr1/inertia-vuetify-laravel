@@ -102,7 +102,7 @@
                         <v-btn link small icon>
                             <b-tooltip
                                 type="is-dark"
-                                :label="`Edit - ${props.row.user}`"
+                                :label="`View - ${props.row.user}`"
                             >
                                 <box-icon
                                     name="show"
