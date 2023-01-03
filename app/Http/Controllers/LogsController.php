@@ -9,6 +9,7 @@ use App\Models\Logs;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Request as FacadesRequest;
 use Inertia\Inertia;
+use Illuminate\Support\Facades\DB;
 
 class LogsController extends Controller
 {
@@ -60,10 +61,13 @@ class LogsController extends Controller
     }
 
     public function logs_individual(request $request){
-        $query = LOGS::where('user_id', $request->id)->get();
+        $query = DB::table('logs')
+        ->select(DB::raw('model, count(user_id) as activity_count'))
+        ->where('user_id',$request->id)
+        ->groupBy('model')
+        ->get();
         return Inertia::render("pages/universe/logs_individual",[
             "all_logs" => $query,
-            "sample" => $request->id,
         ]);
     }
 }

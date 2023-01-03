@@ -1,7 +1,15 @@
 <template>
     <DefaultLayout :access="access">
-        Individual Logs
-        {{all_logs}}
+        <b-field label="INDIVIDUAL ACTIVITIES">
+        </b-field>
+            <v-data-table
+                dense
+                :headers="headers"
+                :items="all_logs"
+                item-key="all_logs"
+                class="elevation-1"
+            >
+            </v-data-table>
     </DefaultLayout>
 </template>
 
@@ -19,7 +27,23 @@ export default {
     data: Object,
     filters: Object,
     all_logs: Array,
-    sample: String,
   },
+    data: () => ({
+        headers: [
+            {
+                text: "Category",
+                align: "start",
+                sortable: false,
+                value: "model",
+            },
+            {
+                text: "Activities",
+                align: "start",
+                sortable: false,
+                value: "activity_count",
+            },
+        ],
+
+    }),
 };
 </script>

@@ -17,6 +17,7 @@ class LogsResource extends JsonResource
     {
         return [
             "id" => $this->id,
+            "user_id" => $this->user_id,
             "model" => $this->model,
             "user" => $this->user->username,
             "type" => ucfirst($this->activity_type),

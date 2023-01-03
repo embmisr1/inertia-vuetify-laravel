@@ -93,10 +93,10 @@
         </template>
       </b-table-column>
 
-      <!-- <b-table-column label="Action" v-slot="props">
+      <b-table-column label="Action" v-slot="props">
                 <span>
                     <Link
-                        :href="`/app/universe_form/${props.row.id}`"
+                        :href="`/app/universe/logs_individual/${props.row.user_id}`"
                         as="button"
                     >
                         <v-btn link small icon>
@@ -105,8 +105,8 @@
                                 :label="`Edit - ${props.row.user}`"
                             >
                                 <box-icon
-                                    name="edit"
-                                    color="orange"
+                                    name="show"
+                                    color="black"
                                     animation="tada-hover"
                                 >
                                 </box-icon>
@@ -114,7 +114,29 @@
                         </v-btn>
                     </Link>
                 </span>
-            </b-table-column> -->
+            </b-table-column>
+            <template #detail="props">
+                <article class="media">
+                    <figure class="media-left">
+                        <p class="image is-64x64">
+                            <img src="/static/img/placeholder-128x128.png">
+                        </p>
+                    </figure>
+                    <div class="media-content">
+                        <div class="content">
+                            <p>
+                                <strong>{{ props.row.user.first_name }} {{ props.row.user.last_name }}</strong>
+                                <small>@{{ props.row.user.first_name }}</small>
+                                <small>31m</small>
+                                <br>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Proin ornare magna eros, eu pellentesque tortor vestibulum ut.
+                                Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.
+                            </p>
+                        </div>
+                    </div>
+                </article>
+            </template>
     </b-table>
   </DefaultLayout>
 </template>
