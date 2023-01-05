@@ -91,8 +91,8 @@ class SolidwasteClosedDumpsiteController extends Controller
     public function cd_delete(request $request){
         if(!$this->solidwaste_validator($request)){ return back(); }
         $cd_delete = SolidwasteClosedDumpsite::find($request->id);
+        LoggerSWM::dispatch("SolidwasteCD", $request->id, auth()->id(), "Deleted a Closed Dumpsite: ", "delete", $cd_delete->lce_FK);
         $cd_delete->delete();
-        LoggerSWM::dispatch("SolidwasteCD", $request->id, auth()->id(), "Deleted a Closed Dumpsite: ", "delete", $request->lce_FK);
         return back()->with("message","Closed Dumpsite Deleted");
     }
 

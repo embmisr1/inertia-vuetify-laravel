@@ -89,8 +89,8 @@ class SolidwasteDuesController extends Controller
     {
         if(!$this->solidwaste_validator($request)){ return back(); }
         $dues_delete = SolidwasteDues::find($request->id);
+        LoggerSWM::dispatch("SolidwasteDUES", $request->id, auth()->id(), "Deleted a Dues: ", "delete", $dues_delete->lce_FK);
         $dues_delete->delete();
-        LoggerSWM::dispatch("SolidwasteDUES", $request->id, auth()->id(), "Deleted a Dues: ", "delete", $request->lce_FK);
         return back()->with("message", "Dues Deleted");
     }
 

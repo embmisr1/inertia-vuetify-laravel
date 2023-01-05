@@ -80,7 +80,8 @@ class SolidwasteMRFController extends Controller
                     ->toMediaCollection($request->mrf_or_rca);
             }
         }
-        LoggerSWM::dispatch("SolidwasteMRF", $query->id, auth()->id(), "Created a MRF: ", "create", $request->lce_FK);
+        $mrf_or_rca = strtoupper($request->mrf_or_rca);
+        LoggerSWM::dispatch("Solidwaste".$mrf_or_rca, $query->id, auth()->id(), "Created a ".$mrf_or_rca.": ", "create", $request->lce_FK);
         return redirect()->route("lce_show",["id"=>$request->lce_FK])->with("message", strtoupper($request->mrf_or_rca)  . " Created");
        } catch (\Throwable $th) {
         dd($th->getMessage());
@@ -116,7 +117,8 @@ class SolidwasteMRFController extends Controller
                     ->toMediaCollection($request->mrf_or_rca);
             }
         }
-        LoggerSWM::dispatch("SolidwasteMRF", $query->id, auth()->id(), "Updated a MRF: ", "update");
+        $mrf_or_rca = strtoupper($request->mrf_or_rca);
+        LoggerSWM::dispatch("Solidwaste".$mrf_or_rca, $query->id, auth()->id(), "Updated a ".$mrf_or_rca.": ", "update", $request->lce_FK);
         return redirect()->route("lce_show",["id"=>$request->lce_FK])->with("message",  strtoupper($request->mrf_or_rca)  . " Updated");
     }
 
@@ -124,8 +126,9 @@ class SolidwasteMRFController extends Controller
     {
         if(!$this->solidwaste_validator($request)){ return back(); }
         $mrf_delete = SolidwasteMRF::find($request->id);
+        LoggerSWM::dispatch("SolidwasteMRF", $request->id, auth()->id(), "Deleted a MRF: ", "delete", $mrf_delete->lce_FK);
         $mrf_delete->delete();
-        LoggerSWM::dispatch("SolidwasteMRF", $request->id, auth()->id(), "Deleted a MRF: ", "delete");
+        // LoggerSWM::dispatch("SolidwasteMRF", $request->id, auth()->id(), "Deleted a MRF: ", "delete", $request->lce_FK);
         return back()->with("message", "MRF Deleted");
     }
 

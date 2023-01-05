@@ -1390,7 +1390,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     } else if (this.slf_edit !== undefined) {
       if (this.slf_edit.length > 0) {
         this.slf_form_type = "patch";
-        var toarray = this.slf_edit[0].slf_leachate_treatment.split(", ");
+        var toarray = this.slf_edit[0].slf_leachate_treatment ? this.slf_edit[0].slf_leachate_treatment.split(", ") : null;
         this.slf = _objectSpread(_objectSpread({}, this.slf_edit[0]), {}, {
           slf_leachate_treatment: toarray
         });

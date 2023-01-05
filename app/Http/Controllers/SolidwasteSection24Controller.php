@@ -114,8 +114,8 @@ class SolidwasteSection24Controller extends Controller
     {
         if(!$this->solidwaste_validator($request)){ return back(); }
         $section24_delete = SolidwasteSection24::find($request->id);
+        LoggerSWM::dispatch("SolidwasteSEC24", $request->id, auth()->id(), "Deleted a SECTION 24: ", "delete", $section24_delete->lce_FK);
         $section24_delete->delete();
-        LoggerSWM::dispatch("SolidwasteSEC24", $request->id, auth()->id(), "Deleted a SECTION 24: ", "delete", $request->lce_FK);
         return back()->with("message", "Section 24 Deleted");
     }
 
