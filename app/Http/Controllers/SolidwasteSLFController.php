@@ -162,8 +162,8 @@ class SolidwasteSLFController extends Controller
     {
         if(!$this->solidwaste_validator($request)){ return back(); }
         $slf_delete = SolidwasteSLF::find($request->id);
+        LoggerSWM::dispatch("SolidwasteSLF", $request->id, auth()->id(), "Deleted a SLF: ", "delete", $slf_delete->lce_FK);
         $slf_delete->delete();
-        LoggerSWM::dispatch("SolidwasteSLF", $request->id, auth()->id(), "Deleted a SLF: ", "delete", $request->lce_FK);
         return back()->with("message", "SLF Deleted");
     }
     

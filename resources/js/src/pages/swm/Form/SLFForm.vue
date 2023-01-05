@@ -449,7 +449,7 @@ export default {
     } else if (this.slf_edit !== undefined) {
       if (this.slf_edit.length > 0) {
         this.slf_form_type = "patch";
-        const toarray = this.slf_edit[0].slf_leachate_treatment.split(", ");
+        const toarray = this.slf_edit[0].slf_leachate_treatment ? this.slf_edit[0].slf_leachate_treatment.split(", ") : null;
         this.slf = { 
           ...this.slf_edit[0],
           slf_leachate_treatment: toarray,

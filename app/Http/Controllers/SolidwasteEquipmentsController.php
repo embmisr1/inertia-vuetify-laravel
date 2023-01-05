@@ -80,8 +80,8 @@ class SolidwasteEquipmentsController extends Controller
     {
         if(!$this->solidwaste_validator($request)){ return back(); }
         $equipment_delete = SolidwasteEquipments::find($request->id);
+        LoggerSWM::dispatch("SolidwasteEQUIPMENTS", $request->id, auth()->id(), "Deleted an Equipments: ", "delete", $equipment_delete->lce_FK);
         $equipment_delete->delete();
-        LoggerSWM::dispatch("SolidwasteEQUIPMENTS", $request->id, auth()->id(), "Deleted an Equipments: ", "delete", $request->lce_FK);
         return back()->with("message", "Equipment Deleted");
     }
 

@@ -250,10 +250,10 @@ class SolidwasteTenYearController extends Controller
     {
         if(!$this->solidwaste_validator($request)){ return back(); }
         $ten_year_delete = SolidwasteTenYear::find($request->id);
+        LoggerSWM::dispatch("SolidwasteTenYear", $request->id, auth()->id(), "Deleted a TenYear: ", "delete", $ten_year_delete->lce_FK);
         $ten_year_delete->delete();
         $ten_year_findings_delete = SolidwasteTenYearFindings::where('ten_year_FK',$request->id);
         $ten_year_findings_delete->delete();
-        LoggerSWM::dispatch("SolidwasteTenYear", $request->id, auth()->id(), "Deleted a TenYear: ", "delete", $request->lce_FK);
         return back()->with("message", "10 Year Deleted");
     }
 

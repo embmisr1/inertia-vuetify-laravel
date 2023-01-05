@@ -120,8 +120,8 @@ class SolidwasteIECController extends Controller
     {
         if(!$this->solidwaste_validator($request)){ return back(); }
         $iec_delete = SolidwasteIEC::find($request->id);
+        LoggerSWM::dispatch("SolidwasteIEC", $request->id, auth()->id(), "Deleted an IEC: ", "delete", $iec_delete->lce_FK);
         $iec_delete->delete();
-        LoggerSWM::dispatch("SolidwasteIEC", $request->id, auth()->id(), "Deleted an IEC: ", "delete", $request->lce_FK);
         return back()->with("message", "IEC Deleted");
     }
 
