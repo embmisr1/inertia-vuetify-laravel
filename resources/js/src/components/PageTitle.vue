@@ -1,10 +1,10 @@
 <template>
   <div class="font-bold text-lg sm:text-2xl flex items-center">
-    <b-tooltip label="Back" type="is-dark" :delay="2000">
+    <!-- <b-tooltip label="Back" type="is-dark" :delay="2000">
       <Link :href="`${route}`" class="px-3">
         <box-icon name="arrow-back" animation="tada-hover"></box-icon>
       </Link>
-    </b-tooltip>
+    </b-tooltip> -->
     {{ title }}
   </div>
 </template>
