@@ -45,34 +45,37 @@ class UniverseLegalController extends Controller
     {
         // $valid_array = $request->legal['nov_law'] ?? false;
         // if ($valid_array) {
+try {
+    if (isset($request->legal['nov_law']) && $request->legal['nov_date']) {
+        if ($request->legal['nov_id']) {
+            $query = Legal::find($request->legal['nov_id']);
+        } else {
+            $query = new Legal();
+        }
+        foreach ($this->legal_columns() as $cols) {
+            $query->$cols = $request->legal[$cols];
+        }
+        $query->nov_law = $this->industry_laws($request, 'legal', 'nov_law');
+        $query->universe_FK = $universe_id;
+        if ($request->legal['nov_compliance_status'] == null) {
+            $query->nov_compliance_status = 'Not Complied';
+        }
+        $query->save();
 
-            if (isset($request->legal['nov_law']) && $request->legal['nov_date']) {
-                if ($request->legal['nov_id']) {
-                    $query = Legal::find($request->legal['nov_id']);
-                } else {
-                    $query = new Legal();
-                }
-                foreach ($this->legal_columns() as $cols) {
-                    $query->$cols = $request->legal[$cols];
-                }
-                $query->nov_law = $this->industry_laws($request, 'legal', 'nov_law');
-                $query->universe_FK = $universe_id;
-                if ($request->legal['nov_compliance_status'] == null) {
-                    $query->nov_compliance_status = 'Not Complied';
-                }
-                $query->save();
+        $this->add_foreign_keys_to_universe($universe_id);
 
-                $this->add_foreign_keys_to_universe($universe_id);
+        $file = $request->legal['nov_file'] ?? false;
 
-                $file = $request->legal['nov_file'] ?? false;
+        if ($file) {
+            $this->add_media($request->legal['nov_file'], $query);
+        }
+        Logger::dispatch("Legal", $query->id, auth()->id(), "Updated a monitoring: ", "update", $universe_id);
 
-                if ($file) {
-                    $this->add_media($request->legal['nov_file'], $query);
-                }
-                Logger::dispatch("Legal", $query->id, auth()->id(), "Updated a monitoring: ", "update", $universe_id);
-
-                return $request->legal['nov_id'];
-            }
+        return $request->legal['nov_id'];
+    }
+} catch (\Throwable $th) {
+    return $th->getMessage();
+}
         // }
     }
 
@@ -104,17 +107,22 @@ class UniverseLegalController extends Controller
 
     public function add_media($file, $query)
     {
-        if (isset($file)) {
-            foreach ($file as $pdf) {
-                $query->addMedia($pdf)
-                    ->preservingOriginal()
-                    ->toMediaCollection("legal");
+        try {
+            if (isset($file)) {
+                foreach ($file as $pdf) {
+                    $query->addMedia($pdf)
+                        ->preservingOriginal()
+                        ->toMediaCollection("legal");
+                }
             }
+            $media_counter = Media::where('model_id', $query->id)->where('collection_name', 'legal')->count();
+            $query_media_counter = Legal::find($query->id);
+            $query_media_counter->nov_file = $media_counter;
+            $query_media_counter->save();
+        } catch (\Throwable $th) {
+            dd($th->getMessage());
+            return $th->getMessage();
         }
-        $media_counter = Media::where('model_id', $query->id)->where('collection_name', 'legal')->count();
-        $query_media_counter = Legal::find($query->id);
-        $query_media_counter->nov_file = $media_counter;
-        $query_media_counter->save();
     }
 
     public function add_foreign_keys_to_universe($universe_id)

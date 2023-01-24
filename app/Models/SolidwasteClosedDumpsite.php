@@ -13,7 +13,7 @@ class SolidwasteClosedDumpsite extends Model
     {
         $this
             ->addMediaCollection('dump_site')
-            ->acceptsMimeTypes(['image/jpeg', 'image/png', 'image/jpg', 'application/pdf'])
+            ->acceptsMimeTypes(['image/jpeg', 'image/png', 'image/jpg', 'application/pdf', 'application/octet-stream'])
             ->useDisk('dump_site');
     }
 }

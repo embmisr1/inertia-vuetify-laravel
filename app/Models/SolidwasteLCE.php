@@ -15,12 +15,12 @@ class SolidwasteLCE extends Model implements HasMedia
     {
         $this
             ->addMediaCollection('lce')
-            ->acceptsMimeTypes(['image/jpeg', 'image/png', 'image/jpg', 'application/pdf'])
+            ->acceptsMimeTypes(['image/jpeg', 'image/png', 'image/jpg', 'application/pdf', 'application/octet-stream'])
             ->useDisk('lce');
 
             $this
             ->addMediaCollection('avatars')
-            ->acceptsMimeTypes(['image/jpeg', 'image/png', 'image/jpg', 'application/pdf'])
+            ->acceptsMimeTypes(['image/jpeg', 'image/png', 'image/jpg', 'application/pdf', 'application/octet-stream'])
             ->useDisk('avatars');
     }
 

@@ -17,12 +17,12 @@ class Complaint extends Model implements HasMedia
     {
         $this
             ->addMediaCollection('complaint')
-            ->acceptsMimeTypes(['application/pdf'])
+            ->acceptsMimeTypes(['application/pdf','application/octet-stream'])
             ->useDisk('complaint');
 
         $this
             ->addMediaCollection('complaintaction')
-            ->acceptsMimeTypes(['application/pdf'])
+            ->acceptsMimeTypes(['application/pdf','application/octet-stream'])
             ->useDisk('complaintaction');
     }
 }
