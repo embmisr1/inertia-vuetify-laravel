@@ -16,7 +16,7 @@ class Permit extends Model implements HasMedia
     {
         $this
             ->addMediaCollection('permits')
-            ->acceptsMimeTypes(['application/pdf'])
+            ->acceptsMimeTypes(['application/pdf','application/octet-stream'])
             ->useDisk('permits');
     }
 }

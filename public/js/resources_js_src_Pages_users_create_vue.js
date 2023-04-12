@@ -22233,27 +22233,7 @@ var render = function () {
   return _c(
     "div",
     { staticClass: "font-bold text-lg sm:text-2xl flex items-center" },
-    [
-      _c(
-        "b-tooltip",
-        { attrs: { label: "Back", type: "is-dark", delay: 2000 } },
-        [
-          _c(
-            "Link",
-            { staticClass: "px-3", attrs: { href: "" + _vm.route } },
-            [
-              _c("box-icon", {
-                attrs: { name: "arrow-back", animation: "tada-hover" },
-              }),
-            ],
-            1
-          ),
-        ],
-        1
-      ),
-      _vm._v("\n  " + _vm._s(_vm.title) + "\n"),
-    ],
-    1
+    [_vm._v("\n  " + _vm._s(_vm.title) + "\n")]
   )
 }
 var staticRenderFns = []

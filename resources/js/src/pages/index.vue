@@ -55,6 +55,16 @@
                 >Log In</v-btn
               >
             </v-card-actions>
+            <v-card-actions class="w-full">
+                <Link class="w-full" href="/storage/unisys_manual/unisys_manual.pdf" target="_blank">
+                    <v-btn
+                        color="light-green darken-4"
+                        class="white--text w-full"
+                        type="button"
+                        >Download Manual
+                    </v-btn>
+                </Link>
+            </v-card-actions>
           </v-card>
         </form>
       </div>
