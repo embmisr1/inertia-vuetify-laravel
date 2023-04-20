@@ -15,6 +15,6 @@ Route::group([
         return new \App\Http\Resources\UsersResource($request->user());
     });
     Route::delete('/logout', [AuthController::class, 'api_logout'])->name("api_logout");
-    Route::get('/search-employee',[QueryController::class,'search_employee'])->name('api-search-employee');
-    Route::get('/search-employee-id',[QueryController::class,'search_employee_id'])->name('api-search-employee-id');
 });
+Route::get('/search-employee',[QueryController::class,'search_employee'])->middleware("auth")->name('api-search-employee');
+Route::get('/search-employee-id',[QueryController::class,'search_employee_id'])->middleware("auth")->name('api-search-employee-id');
