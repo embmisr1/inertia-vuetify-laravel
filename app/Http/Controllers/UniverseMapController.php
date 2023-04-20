@@ -63,15 +63,16 @@ class UniverseMapController extends Controller
         if ($request->polygon_latitude) {
             foreach ($request->polygon_latitude as $key => $polygon_array) {
                 if ($request->polygon_latitude[$key]) {
-                    $query = new MapPolygon();
-                    $query->polygon_latitude = $request->polygon_latitude[$key];
-                    $query->polygon_longitude = $request->polygon_longitude[$key];
-                    $query->universe_FK = $universe_FK;
-                    $query->save();
+                    // $query = new MapPolygon();
+                    // $query->polygon_latitude = $request->polygon_latitude[$key];
+                    // $query->polygon_longitude = $request->polygon_longitude[$key];
+                    // $query->universe_FK = $universe_FK;
+                    // $query->save();
+                    echo $request->polygon_latitude[$key];
                 }
             }
         }
-        return back();
+        // return back();
     }
 
 

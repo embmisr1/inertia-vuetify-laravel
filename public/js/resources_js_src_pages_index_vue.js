@@ -147,6 +147,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 
 
@@ -21025,38 +21026,6 @@ var render = function () {
                         },
                       },
                       [_vm._v("Log In")]
-                    ),
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "v-card-actions",
-                  { staticClass: "w-full" },
-                  [
-                    _c(
-                      "Link",
-                      {
-                        staticClass: "w-full",
-                        attrs: {
-                          href: "/storage/unisys_manual/unisys_manual.pdf",
-                          target: "_blank",
-                        },
-                      },
-                      [
-                        _c(
-                          "v-btn",
-                          {
-                            staticClass: "white--text w-full",
-                            attrs: {
-                              color: "light-green darken-4",
-                              type: "button",
-                            },
-                          },
-                          [_vm._v("Download Manual\n                  ")]
-                        ),
-                      ],
-                      1
                     ),
                   ],
                   1

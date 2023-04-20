@@ -55,15 +55,16 @@
                 >Log In</v-btn
               >
             </v-card-actions>
+                <!-- <Link class="w-full" href="/storage/unisys_manual/unisys_manual.pdf" target="_blank"> -->
             <v-card-actions class="w-full">
-                <Link class="w-full" href="/storage/unisys_manual/unisys_manual.pdf" target="_blank">
+                <a class="w-full" href="https://embco-my.sharepoint.com/:b:/g/personal/russel_miranda_emb_gov_ph/EeTfaywwxoBFi5R4UhkT7GUBij_2BVxah2yWqmXXkpqaAg?e=qaw6Mff" target="_blank">
                     <v-btn
                         color="light-green darken-4"
                         class="white--text w-full"
                         type="button"
                         >Download Manual
                     </v-btn>
-                </Link>
+                </a>
             </v-card-actions>
           </v-card>
         </form>
