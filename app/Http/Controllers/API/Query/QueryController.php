@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API\Query;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\UsersResource;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -15,9 +16,10 @@ class QueryController extends Controller
                 ->where('username', 'LIKE', "%" . request('query') . "%")
                 ->orWhere('email', 'LIKE', "%" . request('query') . "%")
                 ->paginate(request('size', 10));
-            return response()->json([
-                "data" => $user
-            ]);
+                return UsersResource::collection($user);
+            // return response()->json([
+            //     "data" => UsersResource::collection($user)
+            // ]);
         } catch (\Throwable $th) {
             return response()->json(["message" => $th->getMessage()], 400);
         }
@@ -28,9 +30,10 @@ class QueryController extends Controller
             $user = User::query()
                 ->where('id', 'LIKE', "%" . request('query') . "%")
                 ->paginate(request('size', 10));
-            return response()->json([
-                "data" => $user
-            ]);
+                return UsersResource::collection($user);
+            // return response()->json([
+            //     "data" => UsersResource::collection($user)
+            // ]);
         } catch (\Throwable $th) {
             return response()->json(["message" => $th->getMessage()], 400);
         }

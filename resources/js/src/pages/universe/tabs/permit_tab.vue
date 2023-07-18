@@ -220,6 +220,9 @@
                         item-key="permit_tables"
                         class="elevation-1"
                     >
+                        <template v-slot:item.updated_at="{ item }">
+                            {{formatDate(item.updated_at)}}
+                        </template>
                         <template v-slot:item.perm_file="{ item }">
                             <a
                                 v-if="item.perm_file > 0"
@@ -280,6 +283,7 @@ import vue2Dropzone from "vue2-dropzone";
 import "vue2-dropzone/dist/vue2Dropzone.min.css";
 import UploadDialog from "../../../components/UploadDialog.vue";
 import { Link } from "@inertiajs/inertia-vue";
+import moment from "moment";
 export default {
     props: {
         form_permit_info: Object,
@@ -336,6 +340,12 @@ export default {
                 align: "start",
                 sortable: false,
                 value: "perm_date_expiry",
+            },
+            {
+                text: "Date Updated",
+                align: "start",
+                sortable: false,
+                value: "updated_at",
             },
             {
                 text: "Attachment",
@@ -396,6 +406,10 @@ export default {
         },
     },
     methods: {
+        formatDate(date){
+            return moment(date).format('MMMM Do YYYY, h:mm:ss a');
+        },
+
         editPermit(item) {
             console.log(this.form_permit_info);
             this.form_permit_info.perm_law = item.perm_law;
