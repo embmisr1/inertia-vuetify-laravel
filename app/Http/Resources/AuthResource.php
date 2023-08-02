@@ -18,6 +18,7 @@ class AuthResource extends JsonResource
             'user' => [
                 'username' => $this->accessToken->tokenable->username,
                 'employee_id' => $this->accessToken->tokenable->employee_id,
+                'access'=>$this->accessToken->tokenable->access
                 // 'lastname' => $this->accessToken->tokenable->lastname,
             ],
             'token' => $this->plainTextToken,
