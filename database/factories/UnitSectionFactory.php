@@ -2,7 +2,9 @@
 
 namespace Database\Factories;
 
+use App\Models\Division;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Database\Eloquent\Factories\Sequence;
 
 class UnitSectionFactory extends Factory
 {
@@ -13,8 +15,14 @@ class UnitSectionFactory extends Factory
      */
     public function definition()
     {
-        return [
-            //
-        ];
+        $users = Division::factory()
+                ->count(10)
+                ->state(new Sequence(
+                    ['name' => 'FAD'],
+                    ['name' => 'EMED'],
+                    ['name' => 'CPD'],
+                    ['name' => 'ORD'],
+                ))
+                ->create();
     }
 }

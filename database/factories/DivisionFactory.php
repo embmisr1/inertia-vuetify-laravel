@@ -2,7 +2,9 @@
 
 namespace Database\Factories;
 
+use App\Models\Division;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Database\Eloquent\Factories\Sequence;
 
 class DivisionFactory extends Factory
 {
@@ -13,8 +15,20 @@ class DivisionFactory extends Factory
      */
     public function definition()
     {
-        return [
-            'name' => $this->faker->name(),
-        ];
+        // $users = Division::factory()
+        // ->count(4)
+        // ->state(new Sequence(
+        //     ['name' => 'FAD'],
+        //     ['name' => 'EMED'],
+        //     ['name' => 'CPD'],
+        //     ['name' => 'ORD'],
+        // ))
+        // ->create();
+
+        DB::table('users')->insert([
+            'name' => Str::random(10),
+            'email' => Str::random(10).'@gmail.com',
+            'password' => Hash::make('password'),
+        ]);
     }
 }
