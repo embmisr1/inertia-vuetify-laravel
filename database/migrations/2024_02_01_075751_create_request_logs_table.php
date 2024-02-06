@@ -16,6 +16,7 @@ class CreateRequestLogsTable extends Migration
         Schema::connection('mysql_chauffeur')->create('fleet_request_logs', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('request_id')->nullable();
+            $table->unsignedBigInteger('user_id')->nullable(); // sino ang nag remark
             $table->text('remarks')->nullable();
             $table->timestamps();
 

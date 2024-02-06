@@ -12,6 +12,7 @@ class RequestLogs extends Model
     protected $table = 'fleet_request_logs';
     protected $fillable = [
         "request_id",
+        "user_id",
         "remarks",
     ];
 }

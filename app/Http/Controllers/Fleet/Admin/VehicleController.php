@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\Fleet;
+namespace App\Http\Controllers\Fleet\Admin;
 
+use App\Http\Requests\Fleet\VehicleRequest;
 use App\Models\Fleet\Vehicle;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -15,17 +16,8 @@ class VehicleController extends Controller
      */
     public function index()
     {
-        //
-    }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        return Vehicle::all();
     }
 
     /**
@@ -34,9 +26,19 @@ class VehicleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(VehicleRequest $request)
     {
-        //
+        try {
+            $input =  $request->validated();
+            $new_vehicle = Vehicle::firstOrCreate($input);
+
+            return response()->json([
+                "message" => "Vehicle Created",
+                "data" => $new_vehicle
+            ]);
+        } catch (\Throwable $th) {
+            throw $th;
+        }
     }
 
     /**
@@ -68,9 +70,20 @@ class VehicleController extends Controller
      * @param  \App\Models\Vehicle  $vehicle
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Vehicle $vehicle)
+    public function update(VehicleRequest $request, Vehicle $vehicle)
     {
-        //
+        try {
+            $input = $request->validated();
+
+            $vehicle->update($input);
+
+            return response()->json([
+                "message"=> "Vehicle Updated",
+                "data"=>$vehicle
+            ]);
+        } catch (\Throwable $th) {
+            throw $th;
+        }
     }
 
     /**
@@ -81,6 +94,13 @@ class VehicleController extends Controller
      */
     public function destroy(Vehicle $vehicle)
     {
-        //
+        try {
+            $vehicle->delete();
+            return response()->json([
+                "message"=>"Vehicle Delete SuccessFully"
+            ]);
+        } catch (\Throwable $th) {
+            throw $th;
+        }
     }
 }
