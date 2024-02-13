@@ -5,6 +5,8 @@ use App\Http\Controllers\Auth\AuthController;
 use GuzzleHttp\Psr7\Request;
 use Illuminate\Support\Facades\Route;
 
+require __DIR__ . '/fleet/api.php';
+
 Route::post('/login', [AuthController::class, 'api_login'])->name("api_login");
 
 Route::group([

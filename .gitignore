@@ -3,7 +3,7 @@
 /public/storage
 /resources/js/src/pages/universe/universe_list.vue
 /resources/js/src/helpers/urls.js
-/public/js
+/public/js/*.key
 /storage/*.key
 /vendor
 .env

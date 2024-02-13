@@ -16,7 +16,6 @@ class VehicleController extends Controller
      */
     public function index()
     {
-
         return Vehicle::all();
     }
 
