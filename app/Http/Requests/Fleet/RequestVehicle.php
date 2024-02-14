@@ -25,7 +25,7 @@ class RequestVehicle extends FormRequest
     {
         return [
             "id"=>"nullable",
-            "createdBy" => "required",
+
             "name" => "required",
             "purpose" => "required",
             "destination" => "required",

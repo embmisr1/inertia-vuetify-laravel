@@ -12,7 +12,7 @@ class Request extends Model
     protected $connection = 'mysql_chauffeur';
     protected $table = 'fleet_requests';
     protected $fillable = [
-        "createdBy",
+
         "name",
         "purpose",
         "destination",

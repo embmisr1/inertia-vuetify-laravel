@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources\Fleet;
 
+use Carbon\Carbon;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class RequestVehicleResource extends JsonResource
@@ -16,7 +17,7 @@ class RequestVehicleResource extends JsonResource
     {
         return [
             "id" => $this->id,
-            "createdBy" => $this->createdBy,
+
             "name" => $this->name,
             "purpose" => $this->purpose,
             "destination" => $this->destination,
@@ -27,6 +28,7 @@ class RequestVehicleResource extends JsonResource
             "requestedBy" => $this->requestedBy,
             "approvedBy" => $this->approvedBy,
             "status" => $this->status,
+            "created_at" => Carbon::parse($this->created_at)->format('M d, Y'),
         ];
     }
 }

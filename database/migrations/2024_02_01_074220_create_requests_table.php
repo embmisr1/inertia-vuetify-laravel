@@ -15,7 +15,6 @@ class CreateRequestsTable extends Migration
     {
         Schema::connection('mysql_chauffeur')->create('fleet_requests', function (Blueprint $table) {
             $table->id();
-            $table->string("createdBy"); // created the request
             $table->string('name');// names of to travel
             $table->text('purpose');
             $table->text('destination');
@@ -23,8 +22,8 @@ class CreateRequestsTable extends Migration
             $table->text('places')->nullable();
             $table->date('departure');
             $table->date('arrival');
-            $table->string('requestedBy'); // name of unit or section chief
-            $table->string('approvedBy')->nullable();
+            $table->string('requestedBy')->nullable(); // name of requestor
+            $table->string('approvedBy')->nullable(); // division chief of the unit requested
             $table->enum('status',["pending","approved","declined"])->default('pending');
             $table->timestamps();
         });
