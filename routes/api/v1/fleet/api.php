@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\API\Query\QueryController;
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\Fleet\Admin\DriverController;
 use GuzzleHttp\Psr7\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Fleet\Admin\RequestController as FACRequestController;
@@ -30,5 +31,7 @@ Route::group([
 
         // vehicle
         Route::apiResource('vehicles', FACVehicleController::class);
+
+        Route::apiResource('drivers',DriverController::class);
     });
 });

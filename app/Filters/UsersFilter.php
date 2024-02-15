@@ -48,7 +48,7 @@ class UsersFilter implements Filterable
           $query->where('name', 'LIKE', "%" . request('unit_section') . "%" );
         });
       })
-      
+
       // ->when(request('brand_id'), function ($query) {
       //   $query->whereHas('items', function ($query) {
       //     $query->whereHas('brand', function ($query) {
@@ -81,6 +81,14 @@ class UsersFilter implements Filterable
       //     $query->where('status', request('status'));
       //   }
       // })
+
+      ->when(request('chauffeur'), function ($query) {
+        $query->whereHas('access', function ($query) {
+
+          $query->where('access_role_assigned', 'like', '%11%')
+          ->orWhere('access_role_assigned', 'like', '%12%');
+        });
+      })
       ->orderBy(
         request('order_by', 'username'), // column
         request('direction', 'desc') // direction
