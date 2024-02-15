@@ -27,7 +27,7 @@ class Remarks extends Controller
             $requestModel->delete();
             return response()->json([
                 "message"=>"Log Deleted"
-            ])
+            ]);
         } catch (\Throwable $th) {
             throw $th;
         }

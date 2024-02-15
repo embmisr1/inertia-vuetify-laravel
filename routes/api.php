@@ -8,7 +8,7 @@ use App\Http\Controllers\API\Project\SearchSubType;
 use App\Http\Controllers\API\Project\SearchType;
 use App\Http\Controllers\API\PSIC\SearchClass;
 use App\Http\Controllers\API\PSIC\SearchGroup;
-use App\Http\Controllers\Imports\ImportsController;
+// use App\Http\Controllers\Imports\ImportsController;
 
 // use App\Http\Controllers\UniverseController;
 
@@ -44,6 +44,6 @@ Route::group([
     Route::get('/project/subtype', SearchSubType::class)->name("search_project_sub_type");
     Route::get('/project/specifictype', SearchSpecificType::class)->name("search_project_specific_type");
 
-    Route::get('/import/lce', [ImportsController::class, 'importlce'])->name("search_project_specific_type");
+    // Route::get('/import/lce', [ImportsController::class, 'importlce'])->name("search_project_specific_type");
 
 });

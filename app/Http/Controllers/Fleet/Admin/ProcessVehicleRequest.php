@@ -25,7 +25,7 @@ class ProcessVehicleRequest extends Controller
             $vehicleService = new VehicleService();
             $logger = new RequestLogger();
 
-            $pendingRequest = $vehicleService->findRequestById($input['request_id']);
+            $pendingRequest = $vehicleService->findRequestById($input['id']);
 
 
             $pendingRequest->update(
@@ -33,7 +33,9 @@ class ProcessVehicleRequest extends Controller
                     "status" => $input['status'],
                 ]
             );
-            $logger->createRemarks($input['request_id'], auth()->id(), $input['remarks']);
+            if(!empty($input['remarks'])) $logger->createRemarks($input['id'], auth()->id(), $input['remarks']);
+
+            $logger->createRemarks($input['id'], 2, "Approved this Vehicle Request" );
 
             return response()->json([
                 "message" => "Request Vehicle Approved!"
@@ -61,7 +63,7 @@ class ProcessVehicleRequest extends Controller
             $logger->createRemarks($input['request_id'], auth()->id(), $input['remarks']);
 
             return response()->json([
-                "message" => "Request Vehicle Approved!"
+                "message" => "Request Vehicle Declined!"
             ]);
         } catch (\Throwable $th) {
             throw $th;

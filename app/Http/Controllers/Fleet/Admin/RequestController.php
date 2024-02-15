@@ -54,9 +54,9 @@ class RequestController extends Controller
      * @param  \App\Models\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function show(RequestModel $request)
+    public function show(RequestModel $vehicle_request)
     {
-        new RequestVehicleResource($request);
+        return new RequestVehicleResource($vehicle_request);
     }
 
 
@@ -68,16 +68,16 @@ class RequestController extends Controller
      * @param  \App\Models\Fleet\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function update(RequestVehicle $request, RequestModel $req)
+    public function update(RequestVehicle $request, RequestModel $vehicle_request)
     {
         try {
             $input = $request->validated();
 
-            $req->updated($input);
+            $vehicle_request->updated($input);
 
             return response()->json([
                 "message" => "Request for Vehicle Updated",
-                "data" => $req,
+                "data" => $vehicle_request,
             ]);
         } catch (\Throwable $th) {
             throw $th;
@@ -90,10 +90,10 @@ class RequestController extends Controller
      * @param  \App\Models\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function destroy(RequestModel $request)
+    public function destroy(RequestModel $vehicle_request)
     {
         try {
-            $request->delete();
+            $vehicle_request->delete();
             return response()->json([
                 "message" => "Request for Vehicle Deleted"
             ]);

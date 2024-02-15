@@ -24,7 +24,7 @@ class ProcessRequest extends FormRequest
     public function rules()
     {
         return [
-            "request_id"=>"required",
+            "id"=>"required",// request_id
             "status"=>"required",
             "remarks"=>"nullable",
         ];
