@@ -33,5 +33,6 @@ Route::group([
         Route::apiResource('vehicles', FACVehicleController::class);
 
         Route::apiResource('drivers',DriverController::class);
+        Route::get('assigned-vehicles-to-drivers',[DriverController::class, 'getDriversWithVehicles']);
     });
 });

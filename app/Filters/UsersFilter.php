@@ -36,11 +36,13 @@ class UsersFilter implements Filterable
       })
 
       ->when(request('chauffeur'), function ($query) {
-        $query->whereHas('access', function ($query) {
+        if(request('chauffeur') === 'true'){
+            $query->whereHas('access', function ($query) {
 
-          $query->where('access_role_assigned', 'like', '%11%')
-          ->orWhere('access_role_assigned', 'like', '%12%');
-        });
+              $query->where('access_role_assigned', 'like', '%11%')
+              ->orWhere('access_role_assigned', 'like', '%12%');
+            });
+        }
       })
       ->orderBy(
         request('order_by', 'username'), // column

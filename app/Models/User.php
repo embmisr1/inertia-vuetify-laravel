@@ -81,4 +81,8 @@ class User extends Authenticatable
     public function logs(){
         return $this->hasMany(Logs::class);
     }
+
+    public function asDriver(){
+        return $this->setConnection('mysql_chauffeur')->hasOne(\App\Models\Fleet\Driver::class);
+    }
 }

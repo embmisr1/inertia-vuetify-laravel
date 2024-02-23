@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Fleet\Admin;
 
+use App\Filters\DriversFilter;
 use App\Filters\UsersFilter;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Fleet\DriverRequest;
+use App\Http\Resources\Fleet\DriverResources;
 use App\Http\Resources\UsersResource;
 use Illuminate\Http\Request;
 use App\Models\User;
@@ -14,7 +16,7 @@ use App\Models\USER_ACCESS\UsersAccess;
 class DriverController extends Controller
 {
     /**
-     * Handle the incoming request.
+     * getting the drivers from the unisys users table
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -26,8 +28,29 @@ class DriverController extends Controller
         //     ->where('access_role_assigned', 'like', '%11%')
         //     ->orWhere('access_role_assigned', 'like', '%12%')
         // ->get();
-        return UsersResource::collection((new UsersFilter)->get());
+        return DriverResources::collection((new DriversFilter)->get());
+        // return response()->json(((new DriversFilter)->get()));
 
+    }
+
+    /**
+     * get the default driver of the vehicle and original designation
+     */
+    public function getDriversWithVehicles(){
+        try {
+            $query = Driver::query()
+            ->with(['vehicle','user'])
+            // ->with('mysql.user')
+
+            ->where('isOfficial', true)
+            ->get();
+
+            return response()->json([
+                "data"=>$query
+            ]);
+        } catch (\Throwable $th) {
+            throw $th;
+        }
     }
 
     public function store(DriverRequest $request){

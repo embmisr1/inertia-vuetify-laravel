@@ -13,7 +13,16 @@ class Driver extends Model
     protected $fillable = [
         "user_id",
         "vehicle_id",
-        "trip_id",
+        "isOfficial",
         "assigned_to",
     ];
+
+
+    public function vehicle(){
+        return $this->belongsTo(Vehicle::class);
+    }
+
+    public function user(){
+        return $this->setConnection('mysql')->belongsTo(\App\Models\User::class);
+    }
 }

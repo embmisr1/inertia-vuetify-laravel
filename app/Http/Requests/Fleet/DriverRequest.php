@@ -26,7 +26,7 @@ class DriverRequest extends FormRequest
         return [
             "user_id" => "required",
             "vehicle_id" => "nullable",
-            "trip_id" => "nullable",
+            "isOfficial" => "nullable",
             "assigned_to" => "nullable",
         ];
     }
