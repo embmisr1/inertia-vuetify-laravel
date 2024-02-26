@@ -66,6 +66,10 @@ class DriverController extends Controller
         }
     }
 
+    public function show(Driver $driver){
+        return new DriverResources($driver);
+    }
+
     public function update(DriverRequest $request, Driver $driver){
         try {
             $input = $request->validated();

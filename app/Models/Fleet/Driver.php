@@ -10,6 +10,10 @@ class Driver extends Model
     use HasFactory;
     protected $connection = 'mysql_chauffeur';
     protected $table = 'fleet_drivers';
+
+    // protected $cast = [
+    //     "assigned_to"=>array()
+    // ];
     protected $fillable = [
         "user_id",
         "vehicle_id",
@@ -17,7 +21,9 @@ class Driver extends Model
         "assigned_to",
     ];
 
-
+    public function setAssignedTo($value){
+    return $this->assigned_to = json_decode($value);
+    }
     public function vehicle(){
         return $this->belongsTo(Vehicle::class);
     }
