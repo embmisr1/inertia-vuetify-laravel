@@ -31,6 +31,7 @@ class UsersController extends Controller
      */
     public function index()
     {
+        // return UsersResource::collection((new UsersFilter)->get());
         // Cache::flush();
         // dd(Cache::has("Users-index-page"));
         return Inertia::render("pages/users/", [

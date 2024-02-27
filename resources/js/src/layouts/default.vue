@@ -193,7 +193,7 @@ export default {
               child: [],
             },
             {
-              name: "SOLID WASTE",
+              name: "SOLID WASTEs",
               link: "/app/swm/lce_list",
               icon: "mdi-trash-can",
               child: [],
@@ -202,6 +202,18 @@ export default {
               name: "HAZARDOUS WASTE",
               link: null,
               icon: "mdi-biohazard",
+              child: [],
+            },
+          ],
+        },
+        {
+          header: "Chauffeur",
+          access_role: [],
+          child: [
+            {
+              name: "Request Vehicle",
+              link: "/app/chauffeur/",
+              icon: "mdi-car-wrench",
               child: [],
             },
           ],

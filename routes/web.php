@@ -42,6 +42,7 @@ use App\Http\Controllers\USER_CONTROLLER\UsersAccessTemplateController;
 use App\Models\USER_ACCESS\UsersAccessRole;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Fleet\Client\RequestController as ChaufferClientController;
 
 /*
 |--------------------------------------------------------------------------
@@ -77,6 +78,13 @@ Route::group([
     // 'middleware' => ['auth'] ,
     'prefix' => "/app",
 ], function () {
+    Route::group([
+        'prefix'=>"chauffeur"
+    ], function(){
+        Route::get("/",[ChaufferClientController::class, 'index']);
+    });
+
+
     Route::delete('/', [AuthController::class, 'destroy'])->name("authLogout");
     // Route::post('attachments', DownloadAttachmentController::class)->name("dl");
     Route::get('attachments', [DownloadAttachmentController::class,'index'])->name("dl");
