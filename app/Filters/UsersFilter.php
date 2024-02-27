@@ -15,8 +15,8 @@ class UsersFilter implements Filterable
 
     return User::query()
 
-    ->select('id','username','email','position_id','unit_section_id')
-    ->with(['position','unit_section'])
+    ->select('id','username','email','position_id','unit_section_id','section_id')
+    ->with(['position','unit_section', 'section'])
       ->when(request('id'), function ($query) {
         $query->where('id', request('id'));
       })

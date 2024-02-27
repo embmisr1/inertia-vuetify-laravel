@@ -55,6 +55,10 @@ class User extends Authenticatable
     {
         return $this->belongsTo(UnitSection::class);
     }
+    public function section()
+    {
+        return $this->belongsTo(Section::class,'section_id','PK_section_ID');
+    }
     public function access()
     {
         return $this->hasOne(UsersAccess::class,"users_FK");
