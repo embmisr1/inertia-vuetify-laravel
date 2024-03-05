@@ -22,7 +22,7 @@ class CreateRequestsTable extends Migration
             $table->text('places')->nullable();
             $table->date('departure');
             $table->date('arrival');
-            $table->string('requestedBy')->nullable(); // name of requestor
+            $table->unsignedBigInteger('requestedBy'); // name of requestor
             $table->string('approvedBy')->nullable(); // division chief of the unit requested
             $table->enum('status',["pending","approved","declined"])->default('pending');
             $table->timestamps();
