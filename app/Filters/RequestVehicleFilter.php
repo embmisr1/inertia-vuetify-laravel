@@ -14,6 +14,10 @@ class RequestVehicleFilter implements Filterable
         $mutable = Carbon::now();
 
         return RequestModel::query()
+            ->with(['requested_user'])
+            ->when(request('request_id'), function($query){
+                $query->where('id', request('request_id') );
+            })
             ->when(request('purpose'), function ($query) {
                 $query->where('purpose', request('purpose'));
             })

@@ -53,6 +53,27 @@ class DriverController extends Controller
         }
     }
 
+    public function getDriverAssignedWith(){
+        try {
+
+            // dd(request('request_section'));
+            $query = Driver::query()
+            ->with(['vehicle','user'])
+            // ->with('mysql.user')
+            ->where('assigned_to', 'like','%'.request('request_section').'%')
+            ->where('isOfficial', true)
+            ->first();
+            $data = collect($query);
+            $data['assigned_to'] = json_decode($data['assigned_to']);
+            $data['assigned_to_human_readable'] = implode(', ',$data['assigned_to']);
+            return response()->json([
+                "data"=>$data
+            ]);
+        } catch (\Throwable $th) {
+            throw $th;
+        }
+    }
+
     public function store(DriverRequest $request){
         try {
             $input = $request->validated();

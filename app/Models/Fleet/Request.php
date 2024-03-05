@@ -24,4 +24,8 @@ class Request extends Model
         "approvedBy",
         "status",
     ];
+
+    public function requested_user(){
+        return $this->setConnection('mysql')->belongsTo(\App\Models\User::class, 'requestedBy','id');
+    }
 }

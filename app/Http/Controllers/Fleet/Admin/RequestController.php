@@ -19,6 +19,7 @@ class RequestController extends Controller
      */
     public function index()
     {
+        // return response()->json((new RequestVehicleFilter)->get());
         return RequestVehicleResource::collection((new RequestVehicleFilter)->get());
     }
 
@@ -33,7 +34,7 @@ class RequestController extends Controller
     {
         try {
             $input = $request->validated();
-            $input['requestedBy'] = "Developer";
+            $input['requestedBy'] = auth()->id;
             $input['status'] = "pending";
             // $input['createdBy'] = auth()->id();
             $new_request = RequestModel::create($input);
