@@ -26,7 +26,7 @@
                           :loading="loading"
                           :disabled="loading"
                           :error-messages="errors"
-                          v-model="fields.name"
+                          v-model="form.name"
                           label="Name/s"
                           rows="1"
                           row-height="15"
@@ -54,7 +54,7 @@
                           :loading="loading"
                           :disabled="loading"
                           :error-messages="errors"
-                          v-model="fields.purpose"
+                          v-model="form.purpose"
                           label="Purpose"
                           rows="1"
                           row-height="15"
@@ -82,7 +82,7 @@
                           :loading="loading"
                           :disabled="loading"
                           :error-messages="errors"
-                          v-model="fields.destination"
+                          v-model="form.destination"
                           label="Destination"
                           rows="1"
                           row-height="15"
@@ -110,7 +110,7 @@
                           :loading="loading"
                           :disabled="loading"
                           :error-messages="errors"
-                          v-model="fields.name_of_firms"
+                          v-model="form.name_of_firms"
                           label="Name of Firm/s"
                           rows="1"
                           row-height="15"
@@ -138,7 +138,7 @@
                           :loading="loading"
                           :disabled="loading"
                           :error-messages="errors"
-                          v-model="fields.places"
+                          v-model="form.places"
                           label="Place/s"
                           rows="1"
                           row-height="15"
@@ -159,7 +159,7 @@
                       <v-dialog
                         ref="departureModal"
                         v-model="departureModal"
-                        :return-value.sync="fields.departure"
+                        :return-value.sync="form.departure"
                         persistent
                         width="290px"
                       >
@@ -174,7 +174,7 @@
                               :loading="loading"
                               :disabled="loading"
                               :error-messages="errors"
-                              v-model="fields.departure"
+                              v-model="form.departure"
                               label="Departure"
                               readonly
                               small
@@ -186,7 +186,7 @@
                           </ValidationProvider>
                         </template>
                         <v-date-picker
-                          v-model="fields.departure"
+                          v-model="form.departure"
                           scrollable
                           :min="date"
                           color="green "
@@ -207,7 +207,7 @@
                             small
                             dense
                             color="green darken-2"
-                            @click="$refs.departureModal.save(fields.departure)"
+                            @click="$refs.departureModal.save(form.departure)"
                           >
                             OK
                           </v-btn>
@@ -220,7 +220,7 @@
                       <v-dialog
                         ref="arrivalModal"
                         v-model="arrivalModal"
-                        :return-value.sync="fields.arrival"
+                        :return-value.sync="form.arrival"
                         persistent
                         width="290px"
                       >
@@ -235,7 +235,7 @@
                               :loading="loading"
                               :disabled="loading"
                               :error-messages="errors"
-                              v-model="fields.arrival"
+                              v-model="form.arrival"
                               label="Arrival"
                               readonly
                               small
@@ -247,7 +247,7 @@
                           </ValidationProvider>
                         </template>
                         <v-date-picker
-                          v-model="fields.arrival"
+                          v-model="form.arrival"
                           scrollable
                           :min="date"
                           color="green "
@@ -268,7 +268,7 @@
                             small
                             dense
                             color="green darken-2"
-                            @click="$refs.arrivalModal.save(fields.arrival)"
+                            @click="$refs.arrivalModal.save(form.arrival)"
                           >
                             OK
                           </v-btn>
@@ -288,7 +288,7 @@
                           :loading="loading"
                           :disabled="loading"
                           :error-messages="errors"
-                          v-model="fields.approvedBy"
+                          v-model="form.approvedBy"
                           label="For the Approval of"
                           rows="1"
                           row-height="15"
@@ -354,7 +354,7 @@ export default {
         .toISOString()
         .substr(0, 10),
 
-      fields: {
+      form: this.$inertia.form({
         name: "",
         purpose: "",
         destination: "",
@@ -367,24 +367,23 @@ export default {
           .toISOString()
           .substr(0, 10),
         approvedBy: "",
-      },
+      }),
     };
   },
   methods: {
+    get(params) {},
     async submit() {
-      const { names, destination, purpose, name_of_firms, places } = this.fields;
-      // this.fields.names = names.split('')
-      // this.fields.destination = destination.split(',');
-      // this.fields.purpose = purpose.split(',');
-      // this.fields.name_of_firms = name_of_firms.split(',');
-      // this.fields.places = places.split(',');
+      try {
+        await this.form.post("/app/chauffeur");
+        //   await this.submitform(this.form);
 
-      console.log(this.fields);
-      //   await this.submitFields(this.fields);
-
-      this.$nextTick(() => {
-        this.$refs.validation_observer.reset();
-      });
+        this.$nextTick(() => {
+          this.$refs.validation_observer.reset();
+        });
+      } catch (error) {
+        this.success("Failed Successfully");
+        console.log(error);
+      }
     },
     disableWeekends(date) {
       const day = new Date(date).getDay();

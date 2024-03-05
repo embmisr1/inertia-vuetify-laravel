@@ -81,7 +81,11 @@ Route::group([
     Route::group([
         'prefix'=>"chauffeur"
     ], function(){
-        Route::get("/",[ChaufferClientController::class, 'index']);
+        Route::get("/",[ChaufferClientController::class, 'index'])->name('chauffeur');
+        Route::post("/",[ChaufferClientController::class, 'store'])->name('chauffeur.post');
+        Route::get("/{requestModel}",[ChaufferClientController::class, 'show'])->name('chauffeur.show');
+        Route::patch("/{requestModel}",[ChaufferClientController::class, 'update'])->name('chauffeur.update');
+        Route::delete("/{requestModel}",[ChaufferClientController::class, 'delete'])->name('chauffeur.delete');
     });
 
 

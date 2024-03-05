@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Fleet\Admin\RequestController as FACRequestController;
 use App\Http\Controllers\Fleet\Admin\ProcessVehicleRequest as FACProcessVehicleRequest;
 use App\Http\Controllers\Fleet\Admin\Remarks as FACRemarks;
+use App\Http\Controllers\Fleet\Admin\TripController;
 use App\Http\Controllers\Fleet\Admin\VehicleController as FACVehicleController;
 
 
@@ -34,5 +35,13 @@ Route::group([
 
         Route::apiResource('drivers',DriverController::class);
         Route::get('assigned-vehicles-to-drivers',[DriverController::class, 'getDriversWithVehicles']);
+        Route::get('assigned-drivers',[DriverController::class, 'getDriverAssignedWith']);
+
+        Route::post("trips", [TripController::class, 'create'])->name('createTrip');
+        Route::put("trips/{trip}", [TripController::class, 'update'])->name('updateTrip');
+        Route::get("trips/{trip}", [TripController::class, 'show'])->name('showTrip');
+        Route::get("trips", [TripController::class, 'getTripTicket'])->name('getTrip');
+
+
     });
 });
