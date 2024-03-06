@@ -36,68 +36,83 @@ class DriverController extends Controller
     /**
      * get the default driver of the vehicle and original designation
      */
-    public function getDriversWithVehicles(){
+    public function getDriversWithVehicles()
+    {
         try {
             $query = Driver::query()
-            ->with(['vehicle','user'])
-            // ->with('mysql.user')
+                ->with(['vehicle', 'user'])
+                // ->with('mysql.user')
 
-            ->where('isOfficial', true)
-            ->get();
+                ->where('isOfficial', true)
+                ->get();
 
             return response()->json([
-                "data"=>$query
+                "data" => $query
             ]);
         } catch (\Throwable $th) {
             throw $th;
         }
     }
 
-    public function getDriverAssignedWith(){
+    public function getDriverAssignedWith()
+    {
         try {
 
             // dd(request('request_section'));
             $query = Driver::query()
-            ->with(['vehicle','user'])
-            // ->with('mysql.user')
-            ->where('assigned_to', 'like','%'.request('request_section').'%')
-            ->where('isOfficial', true)
-            ->first();
+                ->with(['vehicle', 'user'])
+                // ->with('mysql.user')
+                ->where('assigned_to', 'like', '%' . request('request_section') . '%')
+                ->where('isOfficial', true)
+                ->first();
             $data = collect($query);
             $data['assigned_to'] = json_decode($data['assigned_to']);
-            $data['assigned_to_human_readable'] = implode(', ',$data['assigned_to']);
+            $data['assigned_to_human_readable'] = implode(', ', $data['assigned_to']);
             return response()->json([
-                "data"=>$data
+                "data" => $data
             ]);
         } catch (\Throwable $th) {
             throw $th;
         }
     }
 
-    public function store(DriverRequest $request){
+    public function store(DriverRequest $request)
+    {
         try {
             $input = $request->validated();
             $newItem = Driver::create($input);
             return response()->json([
-                "data"=>$newItem,
-                "message"=>"Added Successfully"
+                "data" => $newItem,
+                "message" => "Added Successfully"
             ]);
         } catch (\Throwable $th) {
             throw $th;
         }
     }
 
-    public function show(Driver $driver){
-        return new DriverResources($driver);
+    public function show($driver)
+    {
+        $query = Driver::query()
+            ->with(['vehicle', 'user'])
+            // ->with('mysql.user')
+            ->where('id', $driver)
+            ->where('isOfficial', false)
+            ->firstOrFail();
+
+        return response()->json([
+            "data" => $query
+        ]);
+        // return new DriverResources($driver);
     }
 
-    public function update(DriverRequest $request, Driver $driver){
+    public function update(DriverRequest $request, Driver $driver)
+    {
         try {
             $input = $request->validated();
             $driver->update($input);
             return response()->json([
-                "data"=>$driver,
-                "message"=>"Updated Successfully"
+                "data" => $driver,
+                "message" => "Updated Successfully"
             ]);
         } catch (\Throwable $th) {
             throw $th;

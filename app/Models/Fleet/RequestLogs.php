@@ -15,4 +15,12 @@ class RequestLogs extends Model
         "user_id",
         "remarks",
     ];
+
+    public function request(){
+        return $this->belongsTo(Request::class);
+    }
+
+    public function user(){
+        return $this->setConnection('mysql')->belongsTo(\App\Models\User::class);
+    }
 }
