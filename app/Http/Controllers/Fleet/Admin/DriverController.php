@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Fleet\Driver;
 use App\Models\USER_ACCESS\UsersAccess;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class DriverController extends Controller
 {
@@ -64,15 +65,21 @@ class DriverController extends Controller
                 // ->with('mysql.user')
                 ->where('assigned_to', 'like', '%' . request('request_section') . '%')
                 ->where('isOfficial', true)
-                ->first();
+                ->firstOrFail();
             $data = collect($query);
             $data['assigned_to'] = json_decode($data['assigned_to']);
             $data['assigned_to_human_readable'] = implode(', ', $data['assigned_to']);
             return response()->json([
                 "data" => $data
             ]);
-        } catch (\Throwable $th) {
-            throw $th;
+        } catch (ModelNotFoundException  $th) {
+            return response()->json([
+                "data"=>array(
+                    "message"=>$th->getMessage()
+                ),
+                "message"=>$th->getMessage()
+            ]
+            );
         }
     }
 

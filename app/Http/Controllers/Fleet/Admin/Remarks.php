@@ -15,7 +15,7 @@ class Remarks extends Controller
     public function show( $request_id){
         try {
             $query = RequestLogs::with(['request','user'])
-            ->where('request_id', $request_id)->get();
+            ->where('request_id', $request_id)->orderBy('created_at', 'desc')->get();
             return RemarksResource::collection($query);
 
         } catch (\Throwable $th) {

@@ -21,6 +21,7 @@ class DriverResources extends JsonResource
             "email"=>$this->email,
             // "asDriver" => $this->asDriver, // driver_id,
             "asDriver"=>new AsDriverResources($this->asDriver),
+            // "access"=> auth()->user()->access
             // "vehicle_id" => $this->asDriver->vehicle_id, //vehicle id
             // "assigned_to" => $this->asDriver()->assigned_to,
             // "isOfficial" => $this->asDriver()->isOfficial,

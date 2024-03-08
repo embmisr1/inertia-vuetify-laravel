@@ -9,8 +9,7 @@ use Carbon\Carbon;
 class RequestVehicleFilter implements Filterable
 {
 
-    public function get()
-    {
+    public function get()    {
         $mutable = Carbon::now();
 
         return RequestModel::query()
