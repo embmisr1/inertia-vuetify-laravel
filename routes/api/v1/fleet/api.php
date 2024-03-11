@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\API\Query\QueryController;
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\Fleet\Admin\CalendarController;
 use App\Http\Controllers\Fleet\Admin\DriverController;
 use GuzzleHttp\Psr7\Request;
 use Illuminate\Http\Request as IlluminateRequest;
@@ -16,7 +17,7 @@ use App\Http\Controllers\Fleet\Admin\VehicleController as FACVehicleController;
 
 Route::group([
     "prefix" => "fleet",
-    "middleware"=> ["api","auth:sanctum"]
+    "middleware" => ["api", "auth:sanctum"]
 ], function () {
     Route::post('/login', [AuthController::class, 'api_login'])->name("api_login")->withoutMiddleware(['auth:sanctum']);
     Route::delete('/logout', [AuthController::class, 'api_logout'])->name("api_logout");
@@ -26,6 +27,8 @@ Route::group([
     Route::group([
         "prefix" => "admin",
     ], function () {
+
+        Route::get('/calendar', CalendarController::class);
         // vehicle Requests
         Route::apiResource('vehicle-request', FACRequestController::class);
         /**
