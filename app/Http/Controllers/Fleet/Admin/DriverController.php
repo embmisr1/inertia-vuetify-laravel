@@ -99,11 +99,12 @@ class DriverController extends Controller
 
     public function show($driver)
     {
+
         $query = Driver::query()
             ->with(['vehicle', 'user'])
             // ->with('mysql.user')
             ->where('id', $driver)
-            ->where('isOfficial', false)
+            // ->where('isOfficial', false)
             ->firstOrFail();
 
         return response()->json([

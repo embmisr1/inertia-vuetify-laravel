@@ -25,10 +25,9 @@ class Remarks extends Controller
     public function store(LoggerRequest $request)
     {
         try {
-            $user_id = auth()->id() || 2;
             $input = $request->validated();
             $logger = new RequestLogger();
-            $new_log = $logger->createRemarks($input['request_id'], $user_id, $input['remarks']);
+            $new_log = $logger->createRemarks($input['request_id'], auth()->id(), $input['remarks']);
             return response()->json([
                 "data"=>$new_log,
                 "message"=> "New Remarks Created!"
