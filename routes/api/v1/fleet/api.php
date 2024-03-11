@@ -18,11 +18,10 @@ Route::group([
     "prefix" => "fleet",
     "middleware"=> ["api","auth:sanctum"]
 ], function () {
-    Route::post('/login', [AuthController::class, 'api_login'])->name("api_login");
+    Route::post('/login', [AuthController::class, 'api_login'])->name("api_login")->withoutMiddleware(['auth:sanctum']);
     Route::delete('/logout', [AuthController::class, 'api_logout'])->name("api_logout");
     Route::get('/user', function (IlluminateRequest $request) {
-         return auth()->user()->access;
-        return new \App\Http\Resources\Fleet\DriverResources($request->user());
+        return new \App\Http\Resources\Fleet\DriverResources(auth()->user());
     });
     Route::group([
         "prefix" => "admin",

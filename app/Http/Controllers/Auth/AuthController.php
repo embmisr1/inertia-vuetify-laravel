@@ -79,7 +79,6 @@ class AuthController extends Controller
             ]);
 
             $user = User::leftjoin('tbl_users_access', 'tbl_users_access.id', '=', 'users.id')->whereUsername($credentials['username'])->firstOrFail();
-
             if (!$user || !Hash::check($credentials['password'], $user['password'])) {
                 return response()->json(["message" => "Invallid Credentials!"], 422);
             };
