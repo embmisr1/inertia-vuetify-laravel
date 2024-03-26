@@ -43,6 +43,7 @@ use App\Models\USER_ACCESS\UsersAccessRole;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Fleet\Client\RequestController as ChaufferClientController;
+use App\Http\Controllers\Fleet\Client\RemarksController as ChaufferClientRemarkController;
 
 /*
 |--------------------------------------------------------------------------
@@ -82,10 +83,16 @@ Route::group([
         'prefix'=>"chauffeur"
     ], function(){
         Route::get("/",[ChaufferClientController::class, 'index'])->name('chauffeur');
-        Route::post("/",[ChaufferClientController::class, 'store'])->name('chauffeur.post');
+        Route::get("/create",[ChaufferClientController::class, 'create'])->name('chauffeur.create');
+        Route::post("/create",[ChaufferClientController::class, 'store'])->name('chauffeur.post');
         Route::get("/{requestModel}",[ChaufferClientController::class, 'show'])->name('chauffeur.show');
         Route::patch("/{requestModel}",[ChaufferClientController::class, 'update'])->name('chauffeur.update');
         Route::delete("/{requestModel}",[ChaufferClientController::class, 'delete'])->name('chauffeur.delete');
+        /**
+         * chauffeur remark unisys movdulmodule
+         */
+        Route::post("/remark",[ChaufferClientRemarkController::class, 'store'])->name('chauffeur.remark.store');
+
     });
 
 

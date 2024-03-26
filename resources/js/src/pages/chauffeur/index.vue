@@ -1,340 +1,63 @@
 <template>
   <DefaultLayout :access="access">
     <v-container>
-      <v-row>
-        <v-col>
-          <ValidationObserver
-            v-slot="{ handleSubmit, invalid, reset }"
-            ref="validation_observer"
-          >
-            <form @submit.prevent="handleSubmit(submit)" @reset.prevent="reset">
-              <div class="box">
-                <header class="text-center font-bold text-lg">
-                  Request for Service Vehicle
-                </header>
+      <b-table
+        :data="user_requests.data"
+        paginated
+        :per-page="user_requests.meta.per_page"
+        pagination-size="is-small"
+        page-input
+        hoverable
+        backend-pagination
+        :total="user_requests.meta.total"
+        :current-page.sync="user_requests.meta.current_page"
+        pagination-position="top"
+        pagination-rounded
+        @page-change="onPageChange"
+        narrowed
+        :loading="loading"
+        bordered
+        sticky-header
+        scrollable
+        :row-class="(row, index) => (isTheme ? 'bg-black text-white' : '')"
+        :header-class="isTheme ? 'bg-black text-white' : ''"
+        height="420"
+      >
+        <b-table-column field="purpose" label="Purpose" searchable>
+          <template #searchable="props">
+            <b-input
+              v-model="filters.purpose"
+              placeholder="Search..."
+              icon="magnify"
+              size="is-small"
+            />
+          </template>
+          <template v-slot="props">
+            {{ props.row.purpose }}
+          </template>
+        </b-table-column>
 
-                <v-row dense>
-                  <v-col cols="12">
-                    <div class="border px-2 rounded">
-                      <ValidationProvider
-                        vid="Name/s"
-                        name="Name/s"
-                        :rules="`required`"
-                        v-slot="{ errors }"
-                      >
-                        <v-textarea
-                          :loading="loading"
-                          :disabled="loading"
-                          :error-messages="errors"
-                          v-model="form.name"
-                          label="Name/s"
-                          rows="1"
-                          row-height="15"
-                          clearable
-                          auto-grow
-                          small
-                          dense
-                          outlined
-                          hint="Separate name by comma (,)"
-                          persistent-hint
-                          class="pt-2"
-                        />
-                      </ValidationProvider>
-                    </div>
-                  </v-col>
-                  <v-col cols="12">
-                    <div class="border px-2 rounded">
-                      <ValidationProvider
-                        vid="Purpose"
-                        name="Purpose"
-                        :rules="`required`"
-                        v-slot="{ errors }"
-                      >
-                        <v-textarea
-                          :loading="loading"
-                          :disabled="loading"
-                          :error-messages="errors"
-                          v-model="form.purpose"
-                          label="Purpose"
-                          rows="1"
-                          row-height="15"
-                          clearable
-                          auto-grow
-                          small
-                          dense
-                          outlined
-                          hint="Separate purpose by comma (,)"
-                          persistent-hint
-                          class="pt-2"
-                        />
-                      </ValidationProvider>
-                    </div>
-                  </v-col>
-                  <v-col cols="12">
-                    <div class="border px-2 rounded">
-                      <ValidationProvider
-                        vid="Destination"
-                        name="Destination"
-                        :rules="`required`"
-                        v-slot="{ errors }"
-                      >
-                        <v-textarea
-                          :loading="loading"
-                          :disabled="loading"
-                          :error-messages="errors"
-                          v-model="form.destination"
-                          label="Destination"
-                          rows="1"
-                          row-height="15"
-                          clearable
-                          auto-grow
-                          small
-                          dense
-                          outlined
-                          hint="Separate destination by comma (,)"
-                          persistent-hint
-                          class="pt-2"
-                        />
-                      </ValidationProvider>
-                    </div>
-                  </v-col>
-                  <v-col cols="12" sm="12" lg="6">
-                    <div class="border px-2 rounded">
-                      <ValidationProvider
-                        vid="Name of Firm/s"
-                        name="Name of Firm/s"
-                        :rules="``"
-                        v-slot="{ errors }"
-                      >
-                        <v-textarea
-                          :loading="loading"
-                          :disabled="loading"
-                          :error-messages="errors"
-                          v-model="form.name_of_firms"
-                          label="Name of Firm/s"
-                          rows="1"
-                          row-height="15"
-                          clearable
-                          auto-grow
-                          small
-                          dense
-                          outlined
-                          hint="Separate name by comma (,)"
-                          persistent-hint
-                          class="pt-2"
-                        />
-                      </ValidationProvider>
-                    </div>
-                  </v-col>
-                  <v-col cols="12" sm="12" lg="6">
-                    <div class="border px-2 rounded">
-                      <ValidationProvider
-                        vid="Place/s"
-                        name="Place/s"
-                        :rules="``"
-                        v-slot="{ errors }"
-                      >
-                        <v-textarea
-                          :loading="loading"
-                          :disabled="loading"
-                          :error-messages="errors"
-                          v-model="form.places"
-                          label="Place/s"
-                          rows="1"
-                          row-height="15"
-                          clearable
-                          auto-grow
-                          small
-                          dense
-                          outlined
-                          hint="Separate place by comma (,)"
-                          persistent-hint
-                          class="pt-2"
-                        />
-                      </ValidationProvider>
-                    </div>
-                  </v-col>
-                  <v-col cols="12" sm="12" lg="6">
-                    <div class="border px-2 rounded">
-                      <v-dialog
-                        ref="departureModal"
-                        v-model="departureModal"
-                        :return-value.sync="form.departure"
-                        persistent
-                        width="290px"
-                      >
-                        <template v-slot:activator="{ on, attrs }">
-                          <ValidationProvider
-                            vid="Departure"
-                            name="Departure"
-                            :rules="`required`"
-                            v-slot="{ errors }"
-                          >
-                            <v-text-field
-                              :loading="loading"
-                              :disabled="loading"
-                              :error-messages="errors"
-                              v-model="form.departure"
-                              label="Departure"
-                              readonly
-                              small
-                              dense
-                              outlined
-                              v-bind="attrs"
-                              v-on="on"
-                            />
-                          </ValidationProvider>
-                        </template>
-                        <v-date-picker
-                          v-model="form.departure"
-                          scrollable
-                          :min="date"
-                          color="green "
-                          :allowed-dates="disableWeekends"
-                        >
-                          <v-spacer></v-spacer>
-                          <v-btn
-                            text
-                            small
-                            dense
-                            color="red darken-2"
-                            @click="departureModal = false"
-                          >
-                            CLose
-                          </v-btn>
-                          <v-btn
-                            text
-                            small
-                            dense
-                            color="green darken-2"
-                            @click="$refs.departureModal.save(form.departure)"
-                          >
-                            OK
-                          </v-btn>
-                        </v-date-picker>
-                      </v-dialog>
-                    </div>
-                  </v-col>
-                  <v-col cols="12" sm="12" lg="6">
-                    <div class="border px-2 rounded">
-                      <v-dialog
-                        ref="arrivalModal"
-                        v-model="arrivalModal"
-                        :return-value.sync="form.arrival"
-                        persistent
-                        width="290px"
-                      >
-                        <template v-slot:activator="{ on, attrs }">
-                          <ValidationProvider
-                            vid="Arrival"
-                            name="Arrival"
-                            :rules="`required`"
-                            v-slot="{ errors }"
-                          >
-                            <v-text-field
-                              :loading="loading"
-                              :disabled="loading"
-                              :error-messages="errors"
-                              v-model="form.arrival"
-                              label="Arrival"
-                              readonly
-                              small
-                              dense
-                              outlined
-                              v-bind="attrs"
-                              v-on="on"
-                            />
-                          </ValidationProvider>
-                        </template>
-                        <v-date-picker
-                          v-model="form.arrival"
-                          scrollable
-                          :min="date"
-                          color="green "
-                          :allowed-dates="disableWeekends"
-                        >
-                          <v-spacer></v-spacer>
-                          <v-btn
-                            text
-                            small
-                            dense
-                            color="red darken-2"
-                            @click="arrivalModal = false"
-                          >
-                            Cancel
-                          </v-btn>
-                          <v-btn
-                            text
-                            small
-                            dense
-                            color="green darken-2"
-                            @click="$refs.arrivalModal.save(form.arrival)"
-                          >
-                            OK
-                          </v-btn>
-                        </v-date-picker>
-                      </v-dialog>
-                    </div>
-                  </v-col>
-                  <v-col cols="12">
-                    <div class="border px-2 rounded">
-                      <ValidationProvider
-                        vid="Approved By"
-                        name="Approved By"
-                        :rules="`required`"
-                        v-slot="{ errors }"
-                      >
-                        <v-textarea
-                          :loading="loading"
-                          :disabled="loading"
-                          :error-messages="errors"
-                          v-model="form.approvedBy"
-                          label="For the Approval of"
-                          rows="1"
-                          row-height="15"
-                          clearable
-                          auto-grow
-                          small
-                          dense
-                          outlined
-                          class="pt-2"
-                        />
-                      </ValidationProvider>
-                    </div>
-                  </v-col>
-                </v-row>
-              </div>
-              <div class="text-right space-y-4 md:space-y-0 px-4">
-                <v-btn
-                  color="green darken-2 white--text"
-                  small
-                  dense
-                  :block="$vuetify.breakpoint.smAndDown"
-                  :disabled="invalid"
-                  :loading="loading"
-                  type="submit"
-                >
-                  <!-- @click="handleSubmit(submit)" -->
-                  <v-icon> mdi-send</v-icon>
-                  Submit
-                </v-btn>
-                <v-btn
-                  color="red lighten-2 white--text"
-                  small
-                  dense
-                  outlined
-                  :block="$vuetify.breakpoint.smAndDown"
-                  :loading="loading"
-                  type="reset"
-                >
-                  <!-- @click="reset" -->
-                  Reset
-                </v-btn>
-              </div>
-            </form>
-          </ValidationObserver>
-        </v-col>
-      </v-row>
+        <b-table-column field="destination" label="Destination" v-slot="props">
+          {{ props.row.destination }}
+        </b-table-column>
+
+        <b-table-column field="created_at" label="Requested At" v-slot="props">
+          {{ props.row.created_at }}
+        </b-table-column>
+
+        <b-table-column field="action" label="" sortable v-slot="props" width="3vw">
+          <Link :href="`/app/chauffeur/${props.row.id}`" as="button">
+            <v-btn link small icon>
+              <box-icon name="edit" color="orange" animation="tada-hover"></box-icon>
+            </v-btn>
+          </Link>
+        </b-table-column>
+        <template #empty>
+          <div class="text-center text-3xl text-gray-500 font-extrabold">
+            No Data Found
+          </div>
+        </template>
+      </b-table>
     </v-container>
   </DefaultLayout>
 </template>
@@ -342,10 +65,14 @@
 <script>
 import DefaultLayout from "../../layouts/default.vue";
 import { page, toasts } from "../../mixins/";
+import { Link } from "@inertiajs/inertia-vue";
 export default {
   name: "RequestVehicle",
-  components: { DefaultLayout },
+  components: { DefaultLayout, Link },
   mixins: [page, toasts],
+  props: {
+    user_requests: Object,
+  },
   data() {
     return {
       arrivalModal: false,
@@ -371,7 +98,13 @@ export default {
     };
   },
   methods: {
-    get(params) {},
+    get: _.debounce(async function (params) {
+      try {
+        await this.$inertia.get("/app/chauffeur", { ...params });
+      } catch (error) {
+        console.log(error);
+      }
+    }, 1500),
     async submit() {
       try {
         await this.form.post("/app/chauffeur");

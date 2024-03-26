@@ -12,8 +12,7 @@ use App\Http\Controllers\Fleet\Admin\ProcessVehicleRequest as FACProcessVehicleR
 use App\Http\Controllers\Fleet\Admin\Remarks as FACRemarks;
 use App\Http\Controllers\Fleet\Admin\TripController;
 use App\Http\Controllers\Fleet\Admin\VehicleController as FACVehicleController;
-
-
+use App\Http\Controllers\Fleet\Client\RemarksController as ClientRemarkController;
 
 Route::group([
     "prefix" => "fleet",
@@ -51,5 +50,11 @@ Route::group([
         Route::put("trips/{trip}", [TripController::class, 'update'])->name('updateTrip');
         Route::get("trips/{trip}", [TripController::class, 'show'])->name('showTrip');
         Route::get("trips", [TripController::class, 'getTripTicket'])->name('getTrip');
+    });
+
+    Route::group([
+        "prefix"=>"client"
+    ], function(){
+        Route::apiResource('remarks', ClientRemarkController::class);
     });
 });

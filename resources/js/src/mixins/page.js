@@ -110,7 +110,7 @@ export default {
         },
     },
     watch: {
-        filtersObject() {
+        filtersObject(value) {
             this.loading = true;
             this.get({ ...this.filtersObject });
             this.loading = false;
