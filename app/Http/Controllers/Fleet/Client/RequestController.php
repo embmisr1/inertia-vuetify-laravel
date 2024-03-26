@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Fleet\Client;
 
+use App\Filters\RequestVehicleFilterPerUser;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Fleet\RequestVehicle;
 use App\Http\Resources\Fleet\RequestVehicleResource;
@@ -15,16 +16,23 @@ class RequestController extends Controller
 {
     public function index()
     {
+
+        return Inertia::render("pages/chauffeur/", [
+            'filters' => Request::all('purpose', 'id', 'destination'),
+            // 'users' =>  Cache::remember("Users-index-page", 60, function () {
+            //     return UsersResource::collection((new UsersFilter)->get());
+            // },)
+            "user_requests" => RequestVehicleResource::collection((new RequestVehicleFilterPerUser)->get()),
+        ]);
+    }
+
+    public function create()
+    {
         // dd(auth()->user()->username);
         // return UsersResource::collection((new UsersFilter)->get());
         // Cache::flush();
         // dd(Cache::has("Users-index-page"));
-        return Inertia::render("pages/chauffeur/", [
-            'filters' => Request::all('username', 'id', 'position', 'unit_section',),
-            // 'users' =>  Cache::remember("Users-index-page", 60, function () {
-            //     return UsersResource::collection((new UsersFilter)->get());
-            // },)
-        ]);
+        return Inertia::render("pages/chauffeur/create", []);
     }
 
     public function store(RequestVehicle $request)
@@ -44,7 +52,15 @@ class RequestController extends Controller
     public function show(RequestModel $requestModel)
     {
         try {
-            return new RequestVehicleResource ($requestModel);
+
+            return Inertia::render("pages/chauffeur/_id", [
+                'filters' => Request::all('purpose', 'id', 'destination'),
+                // 'users' =>  Cache::remember("Users-index-page", 60, function () {
+                //     return UsersResource::collection((new UsersFilter)->get());
+                // },)
+                "user_request" => new RequestVehicleResource($requestModel),
+            ]);
+            // return new RequestVehicleResource ($requestModel);
         } catch (\Exception $th) {
             throw $th;
         }

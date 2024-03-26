@@ -32,6 +32,7 @@ class RequestVehicleResource extends JsonResource
             "created_at" => Carbon::parse($this->created_at)->format('M d, Y'),
             "departure_readable" => Carbon::parse($this->departure)->format('M d, Y'),
             "arrival_readable" => Carbon::parse($this->arrival)->format('M d, Y'),
+            "logs" => RemarksResource::collection($this->request_logs),
         ];
     }
 }

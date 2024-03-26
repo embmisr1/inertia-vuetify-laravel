@@ -28,4 +28,8 @@ class Request extends Model
     public function requested_user(){
         return $this->setConnection('mysql')->belongsTo(\App\Models\User::class, 'requestedBy','id');
     }
+
+    public function request_logs(){
+        return $this->hasMany(RequestLogs::class)->orderBy('created_at','desc');
+    }
 }
