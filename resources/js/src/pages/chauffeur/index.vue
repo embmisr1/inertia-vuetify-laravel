@@ -41,7 +41,30 @@
           {{ props.row.destination }}
         </b-table-column>
 
-        <b-table-column field="created_at" label="Requested At" v-slot="props">
+        <b-table-column field="status" label="Status" v-slot="props" centered>
+          <b-field>
+            <b-tag
+              v-if="props.row.status === 'pending'"
+              class="uppercase text-center font-bold text-white"
+              type="is-warning"
+              >{{ props.row.status }}</b-tag
+            >
+            <b-tag
+              v-else-if="props.row.status === 'approved'"
+              class="uppercase text-center font-bold"
+              type="is-success"
+              >{{ props.row.status }}</b-tag
+            >
+            <b-tag
+              v-else-if="props.row.status === 'declined'"
+              class="uppercase text-center font-bold"
+              type="is-danger"
+              >{{ props.row.status }}</b-tag
+            >
+          </b-field>
+        </b-table-column>
+
+        <b-table-column field="created_at" label="Requested At" v-slot="props" centered>
           {{ props.row.created_at }}
         </b-table-column>
 
