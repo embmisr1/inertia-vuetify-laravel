@@ -179,6 +179,8 @@ return [
 
         Cornford\Googlmapper\MapperServiceProvider::class,
 
+        Barryvdh\DomPDF\ServiceProvider::class,
+
     ],
 
     /*
@@ -238,6 +240,8 @@ return [
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
         'Mapper' => Cornford\Googlmapper\Facades\MapperFacade::class,
 
+
+        "PDF"=> Barryvdh\DomPDF\Facade\Pdf::class,
     ],
 
 ];

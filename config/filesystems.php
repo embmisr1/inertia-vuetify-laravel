@@ -164,6 +164,15 @@ return [
             'url' => env('APP_URL') . '/storage/mov',
             'visibility' => 'public',
         ],
+/**
+ * chauffeur
+ */
+        'chauffeur' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/chauffeur'),
+            'url' => env('APP_URL') . '/storage/chauffeur',
+            'visibility' => 'public',
+        ],
     ],
 
 

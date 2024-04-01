@@ -68,12 +68,27 @@
           {{ props.row.created_at }}
         </b-table-column>
 
-        <b-table-column field="action" label="" sortable v-slot="props" width="3vw">
-          <Link :href="`/app/chauffeur/${props.row.id}`" as="button">
-            <v-btn link small icon>
-              <box-icon name="edit" color="orange" animation="tada-hover"></box-icon>
-            </v-btn>
-          </Link>
+        <b-table-column field="action" label="" sortable v-slot="props" width="5vw">
+          <div class="flex">
+            <Link :href="`/app/chauffeur/${props.row.id}`" as="button">
+              <v-btn link small icon>
+                <box-icon name="edit" color="orange" animation="tada-hover"></box-icon>
+              </v-btn>
+            </Link>
+            <Link
+              :href="`/app/chauffeur/generateRequestVehicleForm`"
+              target="_blank"
+              as="button"
+            >
+              <v-btn link small icon>
+                <box-icon
+                  name="printer"
+                  color="primary"
+                  animation="tada-hover"
+                ></box-icon>
+              </v-btn>
+            </Link>
+          </div>
         </b-table-column>
         <template #empty>
           <div class="text-center text-3xl text-gray-500 font-extrabold">

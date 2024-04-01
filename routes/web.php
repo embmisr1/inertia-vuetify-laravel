@@ -44,6 +44,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Fleet\Client\RequestController as ChaufferClientController;
 use App\Http\Controllers\Fleet\Client\RemarksController as ChaufferClientRemarkController;
+use App\Http\Controllers\Fleet\PDFController as ChaufferPDFController;
 
 /*
 |--------------------------------------------------------------------------
@@ -89,11 +90,16 @@ Route::group([
         Route::patch("/{requestModel}",[ChaufferClientController::class, 'update'])->name('chauffeur.update');
         Route::delete("/{requestModel}",[ChaufferClientController::class, 'delete'])->name('chauffeur.delete');
         /**
-         * chauffeur remark unisys movdulmodule
+         * chauffeur remark unisys module
          */
         Route::post("/remark",[ChaufferClientRemarkController::class, 'store'])->name('chauffeur.remark.store');
 
+        // Route::get("/pdf",[ChaufferPDFController::class, 'generateRequestVehicleForm'])->name('generateRequestVehicleForm');
+
+
+
     });
+    Route::get("/chauffeur-pdf",[ChaufferPDFController::class, 'generateRequestVehicleForm'])->name('generateRequestVehicleForm');
 
 
     Route::delete('/', [AuthController::class, 'destroy'])->name("authLogout");
