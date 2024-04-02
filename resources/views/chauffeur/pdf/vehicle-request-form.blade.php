@@ -60,7 +60,7 @@
             <td class="border" colspan="2">
                 <span class="pl-05">Name:</span>
                 <div class="p-1">
-
+                    {{ $data['name'] }}
                 </div>
             </td>
         </tr>
@@ -68,7 +68,7 @@
             <td class="border" colspan="2">
                 <span class="pl-05">Purpose:</span>
                 <div class="p-1">
-
+                    {{ $data['purpose'] }}
                 </div>
             </td>
         </tr>
@@ -76,7 +76,7 @@
             <td class="border" colspan="2">
                 <span class="pl-05">Destination:</span>
                 <div class="p-1">
-
+                    {{ $data['destination'] }}
                 </div>
             </td>
         </tr>
@@ -84,13 +84,13 @@
             <td class="w-half border ">
                 <span class="pl-05">Name of Firm/s:</span>
                 <div class="p-1">
-
+                    {{ $data['name_of_firms'] }}
                 </div>
             </td>
             <td class="w-half border">
                 <span class="pl-05">Place/s:</span>
                 <div class="p-1">
-
+                    {{ $data['places'] }}
                 </div>
             </td>
         </tr>
@@ -100,12 +100,13 @@
                 <span class="pl-05">Departure:</span>
                 <div class="p-1">
 
+                    {{ \Carbon\Carbon::parse($data['departure'])->format('M d, Y')  }}
                 </div>
             </td>
             <td class="w-half border">
                 <span class="pl-05">Arrival:</span>
                 <div class="p-1">
-
+                    {{ \Carbon\Carbon::parse($data['arrival'])->format('M d, Y')  }}
                 </div>
             </td>
         </tr>
@@ -114,13 +115,13 @@
             <td class="w-half border">
                 <span class="pl-05">Requested By:</span>
                 <div class="p-1">
-
+                    {{ $data['requested_user']['username'] }}
                 </div>
             </td>
             <td class="w-half border">
                 <span class="pl-05">Aproved By:</span>
                 <div class="p-1">
-
+                    {{ $data['approvedBy'] }}
                 </div>
             </td>
         </tr>

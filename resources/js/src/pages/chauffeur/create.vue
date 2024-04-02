@@ -9,8 +9,18 @@
           >
             <form @submit.prevent="handleSubmit(submit)" @reset.prevent="reset">
               <div class="box">
-                <header class="text-center font-bold text-lg">
-                  Request for Service Vehicle
+                <header class="text-center font-bold text-lg flex space-x-2 items-center">
+                  <Link href="/app/chauffeur" as="button">
+                    <v-btn color="primary" small text>
+                      <box-icon
+                        name="chevron-left"
+                        color="blue"
+                        animation="tada-hover"
+                      ></box-icon>
+                      Back</v-btn
+                    >
+                  </Link>
+                  <span> Request for Service Vehicle </span>
                 </header>
 
                 <v-row dense>
@@ -342,9 +352,10 @@
 <script>
 import DefaultLayout from "../../layouts/default.vue";
 import { page, toasts } from "../../mixins";
+import { Link } from "@inertiajs/inertia-vue";
 export default {
   name: "RequestVehicle",
-  components: { DefaultLayout },
+  components: { DefaultLayout, Link },
   mixins: [page, toasts],
   data() {
     return {

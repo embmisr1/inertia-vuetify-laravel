@@ -99,7 +99,7 @@ Route::group([
 
 
     });
-    Route::get("/chauffeur-pdf",[ChaufferPDFController::class, 'generateRequestVehicleForm'])->name('generateRequestVehicleForm');
+    Route::get("/chauffeur-pdf/{requestId}",[ChaufferPDFController::class, 'generateRequestVehicleForm'])->name('generateRequestVehicleForm');
 
 
     Route::delete('/', [AuthController::class, 'destroy'])->name("authLogout");

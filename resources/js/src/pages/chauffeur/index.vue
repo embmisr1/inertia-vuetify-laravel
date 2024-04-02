@@ -1,6 +1,12 @@
 <template>
   <DefaultLayout :access="access">
     <v-container>
+      <Link href="/app/chauffeur/create" as="button">
+        <v-btn color="primary" small text link>
+          <box-icon name="plus" color="blue" animation="tada-hover"></box-icon>
+          Create New Request</v-btn
+        >
+      </Link>
       <b-table
         :data="user_requests.data"
         paginated
@@ -75,17 +81,18 @@
                 <box-icon name="edit" color="orange" animation="tada-hover"></box-icon>
               </v-btn>
             </Link>
-            <Link
-              :href="`/app/chauffeur/generateRequestVehicleForm`"
-              target="_blank"
-              as="button"
-            >
+            <a :href="`/app/chauffeur-pdf/${props.row.id}`" target="_blank">
               <v-btn link small icon>
                 <box-icon
                   name="printer"
                   color="primary"
                   animation="tada-hover"
                 ></box-icon>
+              </v-btn>
+            </a>
+            <Link :href="`/app/chauffeur-pdf`" target="_blank" as="button">
+              <v-btn link small icon>
+                <box-icon name="trash" color="red" animation="tada-hover"></box-icon>
               </v-btn>
             </Link>
           </div>
