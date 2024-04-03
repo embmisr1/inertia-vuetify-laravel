@@ -100,13 +100,13 @@
                 <span class="pl-05">Departure:</span>
                 <div class="p-1">
 
-                    {{ \Carbon\Carbon::parse($data['departure'])->format('M d, Y')  }}
+                    {{ \Carbon\Carbon::parse($data['departure'])->format('F d, Y')  }}
                 </div>
             </td>
             <td class="w-half border">
                 <span class="pl-05">Arrival:</span>
                 <div class="p-1">
-                    {{ \Carbon\Carbon::parse($data['arrival'])->format('M d, Y')  }}
+                    {{ \Carbon\Carbon::parse($data['arrival'])->format('F d, Y')  }}
                 </div>
             </td>
         </tr>
@@ -115,13 +115,13 @@
             <td class="w-half border">
                 <span class="pl-05">Requested By:</span>
                 <div class="p-1">
-                    {{ $data['requested_user']['username'] }}
+                    {{-- {{ $data['requested_user']['username'] }} --}}
                 </div>
             </td>
             <td class="w-half border">
                 <span class="pl-05">Aproved By:</span>
                 <div class="p-1">
-                    {{ $data['approvedBy'] }}
+                    {{-- {{ $data['approvedBy'] }} --}}
                 </div>
             </td>
         </tr>

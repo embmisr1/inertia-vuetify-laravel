@@ -35,7 +35,11 @@ class TripController extends Controller
                 "message"=>"Trip Ticket No. Submitted",
             ]);
         } catch (\Throwable $th) {
-            throw $th;
+            // throw $th->getMessage();
+            return response()->json([
+                "data"=>$th,
+                "message"=>$th->getMessage()
+            ]);
         }
     }
     public function update(TripRequest $request, Trip $trip){

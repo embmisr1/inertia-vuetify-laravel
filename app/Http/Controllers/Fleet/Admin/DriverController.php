@@ -74,10 +74,8 @@ class DriverController extends Controller
             ]);
         } catch (ModelNotFoundException  $th) {
             return response()->json([
-                "data"=>array(
-                    "message"=>$th->getMessage()
-                ),
-                "message"=>$th->getMessage()
+                "data"=>$th->getMessage(),
+                "message"=>"Assigned Driver Not Found!"
             ]
             );
         }

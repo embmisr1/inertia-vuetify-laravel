@@ -286,7 +286,7 @@
                       </v-dialog>
                     </div>
                   </v-col>
-                  <v-col cols="12">
+                  <!-- <v-col cols="12">
                     <div class="border px-2 rounded">
                       <ValidationProvider
                         vid="Approved By"
@@ -311,7 +311,7 @@
                         />
                       </ValidationProvider>
                     </div>
-                  </v-col>
+                  </v-col> -->
                 </v-row>
               </div>
               <div class="text-right space-y-4 md:space-y-0 px-4">
@@ -385,7 +385,7 @@ export default {
     get(params) {},
     async submit() {
       try {
-        await this.form.post("/app/chauffeur");
+        await this.form.post("/app/chauffeur/create");
         //   await this.submitform(this.form);
 
         this.$nextTick(() => {

@@ -27,7 +27,7 @@ class TripRequest extends FormRequest
             "request_id" => "required",
             "driver_id" => "required",
             // "date_of_trip",
-            "trip_ticket_no" => "required",
+            "trip_ticket_no" => "required|unique:App\Models\Fleet\Trip,trip_ticket_no",
             // "passengers",
             // "meeting",
         ];

@@ -34,7 +34,7 @@ class RequestVehicle extends FormRequest
             "departure" => "required",
             "arrival" => "required",
             "requestedBy" => "nullable",
-            "approvedBy" => "nullable",
+            // "approvedBy" => "nullable",
             "status" => "nullable",
         ];
     }

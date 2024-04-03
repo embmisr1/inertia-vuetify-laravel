@@ -50,7 +50,7 @@
                   <p>{{ userRequest.arrival_readable }}</p>
                 </div>
               </v-col>
-
+              <!--
               <v-col cols="12" sm="12" lg="6">
                 <div class="border px-2 py-4 rounded">
                   <header class="font-light tracking-wide">Requested By:</header>
@@ -58,13 +58,13 @@
                     {{ userRequest.requestedBy.username }}
                   </p>
                 </div>
-              </v-col>
-              <v-col cols="12" sm="12" lg="6">
+              </v-col> -->
+              <!-- <v-col cols="12" sm="12" lg="6">
                 <div class="border px-2 py-4 rounded">
                   <header class="font-light tracking-wide">Approved By:</header>
                   <p>{{ userRequest.approvedBy }}</p>
                 </div>
-              </v-col>
+              </v-col> -->
             </v-row>
           </div>
         </v-col>

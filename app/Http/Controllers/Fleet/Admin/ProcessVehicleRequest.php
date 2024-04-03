@@ -61,7 +61,7 @@ class ProcessVehicleRequest extends Controller
                 ]
             );
             $logger->createRemarks($input['id'], auth()->id(), "Declined this Vehicle Request");
-            $logger->createRemarks($input['id'], auth()->id(), $input['remarks']);
+            // $logger->createRemarks($input['id'], auth()->id(), $input['remarks']);
 
             return response()->json([
                 "message" => "Request Vehicle Declined!"

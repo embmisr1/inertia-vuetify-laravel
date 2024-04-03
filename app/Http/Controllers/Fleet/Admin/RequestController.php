@@ -34,7 +34,7 @@ class RequestController extends Controller
     {
         try {
             $input = $request->validated();
-            $input['requestedBy'] = auth()->id;
+            $input['requestedBy'] = auth()->id();
             $input['status'] = "pending";
             // $input['createdBy'] = auth()->id();
             $new_request = RequestModel::create($input);
