@@ -33,6 +33,8 @@ class RequestVehicleResource extends JsonResource
             "departure_readable" => Carbon::parse($this->departure)->format('M d, Y'),
             "arrival_readable" => Carbon::parse($this->arrival)->format('M d, Y'),
             "logs" => RemarksResource::collection($this->request_logs),
+            "trip" => $this->trip,
+            "driver" => new TripResource($this->trip)
         ];
     }
 }

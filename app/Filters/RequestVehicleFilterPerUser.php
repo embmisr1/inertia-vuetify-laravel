@@ -34,7 +34,7 @@ class RequestVehicleFilterPerUser implements Filterable
 
             ->orderBy(
                 request('order_by', 'created_at'), // column
-                request('direction', 'asc') // direction
+                request('direction', 'desc') // direction
             )
             ->paginate(request('size', 10));
     }

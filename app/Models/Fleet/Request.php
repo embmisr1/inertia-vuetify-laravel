@@ -12,7 +12,6 @@ class Request extends Model
     protected $connection = 'mysql_chauffeur';
     protected $table = 'fleet_requests';
     protected $fillable = [
-
         "name",
         "purpose",
         "destination",
@@ -31,5 +30,9 @@ class Request extends Model
 
     public function request_logs(){
         return $this->hasMany(RequestLogs::class)->orderBy('created_at','desc');
+    }
+
+    public function trip(){
+        return $this->hasOne(Trip::class);
     }
 }

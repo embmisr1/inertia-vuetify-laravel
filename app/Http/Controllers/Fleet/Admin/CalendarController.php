@@ -16,7 +16,7 @@ class CalendarController extends Controller
             $isSameDate = request('start') === request('end');
             $current_month = null;
             if ($isSameDate) {
-                $current_month = RequestModel::with(['requested_user'])
+                $current_month = RequestModel::with(['requested_user'])->has('trip.driver')
                     ->where('departure', 'like', '%' . request('start') . '%')
                     ->get();
             } else {
