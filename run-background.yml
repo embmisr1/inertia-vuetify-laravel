@@ -8,3 +8,5 @@ apps:
                - queue:work
                - --tries=5
                - --sleep=1
+
+               - schedule:work
