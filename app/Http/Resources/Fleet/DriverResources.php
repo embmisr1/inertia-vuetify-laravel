@@ -15,13 +15,13 @@ class DriverResources extends JsonResource
     public function toArray($request)
     {
         // $drive = array($this->asDriver);
-        $isAdmin = in_array(12, json_decode(auth()->user()->access->access_role_assigned));
-        $isUser = in_array(11, json_decode(auth()->user()->access->access_role_assigned));
+        $isUser = in_array(12, json_decode($this->access->access_role_assigned)); // user
+        $isAdmin= in_array(11, json_decode($this->access->access_role_assigned)); //  admin
         return [
             "id"=>$this->id, // user id
             "username"=>$this->username,
             "email"=>$this->email,
-            "access"=>auth()->user()->access->access_role_assigned,
+            "access"=>  $this->access->access_role_assigned,
             // "asDriver" => $this->asDriver, // driver_id,
             "asDriver"=>new AsDriverResources($this->asDriver),
             "admin_type"=>$isAdmin,
