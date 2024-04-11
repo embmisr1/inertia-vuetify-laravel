@@ -17,14 +17,14 @@ class CalendarController extends Controller
             $isSameDate = request('start') === request('end');
             $current_month = null;
             if ($isSameDate) {
-                $current_month = RequestModel::with(['requested_user'])
+                $current_month = RequestModel::with(['requested_user', 'requested_user.access','trip', 'trip.driver.user.access'])
                     ->where('departure', 'like', '%' . request('start') . '%')
                     ->whereIn('status', ['pending', 'approved'])
 
                     ->get();
             } else {
 
-                $current_month = RequestModel::with(['requested_user'])
+                $current_month = RequestModel::with(['requested_user','requested_user.access','trip', 'trip.driver.user.access'])
                     ->whereBetween('departure', [request('start'), request('end')])
                     ->whereIn('status', ['pending', 'approved'])
                     ->get();
@@ -32,7 +32,7 @@ class CalendarController extends Controller
             return response()->json(
                 [
                     "data" => RequestVehicleResource::collection($current_month),
-                    // $isSameDate
+                    // "data"=>$current_month
                 ]
             );
         } catch (\Throwable $th) {

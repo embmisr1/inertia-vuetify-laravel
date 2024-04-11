@@ -23,4 +23,8 @@ class RequestLogs extends Model
     public function user(){
         return $this->setConnection('mysql')->belongsTo(\App\Models\User::class);
     }
+
+
 }
+
+

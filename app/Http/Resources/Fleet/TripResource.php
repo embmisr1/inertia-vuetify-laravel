@@ -16,7 +16,7 @@ class TripResource extends JsonResource
     {
 
         // return $this->driver;
-        return new DriverResources($this->driver);
+        return new DriverResources($this->driver->user);
         // return [
         //     "driver"=>new DriverResources($this->driver)
         // ];
