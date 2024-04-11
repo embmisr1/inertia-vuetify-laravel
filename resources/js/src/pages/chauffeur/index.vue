@@ -90,11 +90,11 @@
                 ></box-icon>
               </v-btn>
             </a>
-            <Link :href="`/app/chauffeur-pdf`" target="_blank" as="button">
+            <!-- <Link :href="`/app/chauffeur-pdf`" target="_blank" as="button">
               <v-btn link small icon>
                 <box-icon name="trash" color="red" animation="tada-hover"></box-icon>
               </v-btn>
-            </Link>
+            </Link> -->
           </div>
         </b-table-column>
         <template #empty>
