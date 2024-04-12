@@ -1,12 +1,19 @@
 apps:
-       - name: run-background
-         script: artisan
-         exec_mode: fork
-         interpreter: php
-         instances: 1
-         args:
-               - queue:work
-               - --tries=5
-               - --sleep=1
+  - name: laravel-queue-worker
+    script: artisan
+    exec_mode: fork
+    interpreter: php
+    instances: 1
+    args:
+      - queue:work
+      - --tries=5
+      - --sleep=1
 
-               - schedule:work
+
+  - name: laravel-schedule-worker
+    script: artisan
+    exec_mode: fork
+    interpreter: php
+    instances: 1
+    args:
+      - schedule:work
