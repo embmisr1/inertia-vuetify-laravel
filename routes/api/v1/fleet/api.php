@@ -14,6 +14,9 @@ use App\Http\Controllers\Fleet\Admin\TripController;
 use App\Http\Controllers\Fleet\Admin\VehicleController as FACVehicleController;
 use App\Http\Controllers\Fleet\Client\RemarksController as ClientRemarkController;
 
+
+use App\Http\Controllers\Fleet\Admin\DashboardController;
+
 Route::group([
     "prefix" => "fleet",
     "middleware" => ["api", "auth:sanctum"]
@@ -26,6 +29,7 @@ Route::group([
     Route::group([
         "prefix" => "admin",
     ], function () {
+        Route::get('home', DashboardController::class);
 
         Route::get('/calendar', CalendarController::class);
         // vehicle Requests
@@ -53,8 +57,8 @@ Route::group([
     });
 
     Route::group([
-        "prefix"=>"client"
-    ], function(){
+        "prefix" => "client"
+    ], function () {
         Route::apiResource('remarks', ClientRemarkController::class);
     });
 });
