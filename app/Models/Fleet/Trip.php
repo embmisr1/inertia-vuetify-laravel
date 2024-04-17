@@ -20,4 +20,13 @@ class Trip extends Model
         "passengers",
         "meeting",
     ];
+
+    public function request(){
+        return $this->belongsTo(Request::class);
+    }
+    public function driver(){
+        return $this->belongsTo(Driver::class);
+    }
+
+
 }

@@ -18,8 +18,9 @@ class DriversFilter implements Filterable
         $databaseName = DB::connection('mysql_chauffeur')->getDatabaseName();
         return User::query()
 
+
             ->select('id', 'username', 'email')
-            ->with(['asDriver','asDriver.vehicle'])
+            ->with(['asDriver','asDriver.vehicle', 'access'])
             ->when(request('id'), function ($query) {
                 $query->where('id', request('id'));
             })

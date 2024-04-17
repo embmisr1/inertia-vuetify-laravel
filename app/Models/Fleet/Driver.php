@@ -31,4 +31,10 @@ class Driver extends Model
     public function user(){
         return $this->setConnection('mysql')->belongsTo(\App\Models\User::class);
     }
+
+    public function trips(){
+        return $this->hasMany(Trip::class);
+    }
+
+
 }

@@ -24,7 +24,7 @@ class CreateRequestsTable extends Migration
             $table->date('arrival');
             $table->unsignedBigInteger('requestedBy'); // name of requestor
             $table->string('approvedBy')->nullable(); // division chief of the unit requested
-            $table->enum('status',["pending","approved","declined"])->default('pending');
+            $table->enum('status',["pending","approved","declined","archive"])->default('pending');
             $table->timestamps();
         });
     }
