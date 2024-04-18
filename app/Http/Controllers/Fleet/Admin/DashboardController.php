@@ -22,15 +22,22 @@ class DashboardController extends Controller
     {
         try {
             $carbonNow = Carbon::now();
-            $total_vehicle = Vehicle::count();
+            $vehiclesDriving = Vehicle::where('status', 'driving')->count();
+            $vehiclesParked = Vehicle::where('status', 'parked')->count();
+            $vehiclesFlawed = Vehicle::where('status', 'flawed')->count();
+
+            $total_vehicle = [
+                "driving" => $vehiclesDriving,
+                "parked" => $vehiclesParked,
+                "flawed" => $vehiclesFlawed,
+            ];
             $approved_requests = RequestModel::with(['requested_user', 'trip', 'trip.driver.user.access'])->where('status', 'approved ')->where('departure', $carbonNow)->get();
             $forthComing = RequestModel::with(['requested_user', 'trip', 'trip.driver.user.access'])->where('status', 'approved ')->where('departure', $carbonNow->addWeekdays(5))->get();
 
             return response()->json([
-                // "day"=>Carbon::now()->addWeekdays(5)->format('Y-d-m'),
                 "vehicles" => $total_vehicle,
                 "today" => RequestVehicleResource::collection($approved_requests),
-                "forthComing" => RequestVehicleResource::collection($forthComing) ,
+                "forthComing" => RequestVehicleResource::collection($forthComing),
             ]);
         } catch (\Throwable $th) {
             return response()->json([
