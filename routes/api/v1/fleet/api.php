@@ -4,6 +4,7 @@ use App\Http\Controllers\API\Query\QueryController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Fleet\Admin\CalendarController;
 use App\Http\Controllers\Fleet\Admin\DriverController;
+use App\Http\Controllers\Fleet\Admin\TripTicketChecker;
 use GuzzleHttp\Psr7\Request;
 use Illuminate\Http\Request as IlluminateRequest;
 use Illuminate\Support\Facades\Route;
@@ -54,6 +55,8 @@ Route::group([
         Route::put("trips/{trip}", [TripController::class, 'update'])->name('updateTrip');
         Route::get("trips/{trip}", [TripController::class, 'show'])->name('showTrip');
         Route::get("trips", [TripController::class, 'getTripTicket'])->name('getTrip');
+
+        Route::get('trip-ticket-checker', TripTicketChecker::class)->withoutMiddleware(['auth:sanctum']);
     });
 
     Route::group([
