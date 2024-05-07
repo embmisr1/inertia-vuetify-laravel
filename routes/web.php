@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Dashboard;
 use App\Http\Controllers\DivisionController;
 use App\Http\Controllers\DownloadAttachmentController;
+
 use App\Http\Controllers\ImportDataController;
 use App\Http\Controllers\ImportDataSWMController;
 use App\Http\Controllers\LogsController;
@@ -45,6 +46,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Fleet\Client\RequestController as ChaufferClientController;
 use App\Http\Controllers\Fleet\Client\RemarksController as ChaufferClientRemarkController;
 use App\Http\Controllers\Fleet\PDFController as ChaufferPDFController;
+use App\Http\Controllers\Fleet\Admin\TripTicketGenerator;
 
 /*
 |--------------------------------------------------------------------------
@@ -100,6 +102,7 @@ Route::group([
 
     });
     Route::get("/chauffeur-pdf/{requestId}",[ChaufferPDFController::class, 'generateRequestVehicleForm'])->name('generateRequestVehicleForm');
+    Route::get("/chauffeur-generate-trip-ticket",TripTicketGenerator::class)->name('generateTripTicketForm')->withoutMiddleware(['auth','handle_user_role']);
 
 
     Route::delete('/', [AuthController::class, 'destroy'])->name("authLogout");
