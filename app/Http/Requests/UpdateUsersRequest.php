@@ -25,6 +25,7 @@ class UpdateUsersRequest extends FormRequest
     {
         return [
             "username"=>"required|string",
+            "section_id"=>"required",
             // "email"=>"required|nullable|string|email",
             // "position_id"=>"required|numeric|exists:App\Models\Position,id",
             // "unit_section_id"=>"required|numeric|exists:App\Models\UnitSection,id",

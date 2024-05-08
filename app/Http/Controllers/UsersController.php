@@ -17,6 +17,7 @@ use App\Filters\UsersFilter;
 use App\Http\Controllers\USER_CONTROLLER\UsersAccessController;
 use App\Http\Resources\UsersResource;
 use App\Jobs\ProcessAccessRoleCaching;
+use App\Models\Section;
 use App\Models\USER_ACCESS\UsersAccess;
 use App\Models\USER_ACCESS\UsersAccessRole;
 use App\Models\USER_ACCESS\UsersAccessTemplate;
@@ -118,6 +119,7 @@ class UsersController extends Controller
 
         $query_access_template =  UsersAccessTemplate::all();
         $query_access_role =  UsersAccessRole::all();
+        $section = Section::select(['PK_section_ID','description','shortName'])->get();
         return Inertia::render("pages/users/create", [
             'data' => array(
                 "position" =>  Cache::remember('position_all', 60, function () {
@@ -129,6 +131,7 @@ class UsersController extends Controller
                 "user" => new UsersResource($user),
                 "query_access_template" => $query_access_template,
                 "query_access_role" => $query_access_role,
+                "section" => $section,
             )
         ]);
     }
@@ -148,17 +151,17 @@ class UsersController extends Controller
             $user->update($input);
             $assign_role = UsersAccess::where("users_FK", $user->id)->get();
 
-            if(count($assign_role)) {
+            if (count($assign_role)) {
                 $assign_role[0]->access_role_assigned = json_encode($role_assigned);
                 $assign_role[0]->save();
-            }else{
+            } else {
                 // $new_assign_role = new UsersAccess();
                 // $new_assign_role->access_role_assigned = json_encode($request->selected_roles);
                 // $new_assign_role->users_FK = $user->id;
                 // $new_assign_role->save();
                 UsersAccess::create([
-                    "access_role_assigned"=>json_encode($request->selected_roles),
-                    "users_FK"=>$user->id
+                    "access_role_assigned" => json_encode($request->selected_roles),
+                    "users_FK" => $user->id
                 ]);
             }
             // $assign_role->access_role_assigned = json_encode($role_assigned);
@@ -166,7 +169,7 @@ class UsersController extends Controller
             ProcessAccessRoleCaching::dispatch($user, json_encode($role_assigned));
             return back()->with('message', 'User Updated Successfully.');
         } catch (\Throwable $th) {
-dd($th->getMessage());
+            dd($th->getMessage());
             return back()->withErrors(["error_message" => "Server Error"]);
             // $assign_role = new UsersAccess();
             // $assign_role->access_role_assigned = json_encode($request->selected_roles);
