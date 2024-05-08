@@ -87,21 +87,34 @@
 </head>
 
 <body class="text-85em">
+
+    <img src={{ asset('images/emv-denr.png') }} alt="DENR-EMB-TEXT-LOGO" width="100%" height="15%" class="margin-0">
     <div class="text-center p-0">
         <h5>
-            <header>DRIVERS TRIP TICKET NO. _________________</header>
+            <header>DRIVERS TRIP TICKET NO. <span class="border-b">{{ $data['trip']['trip_ticket_no'] }}</span>
+            </header>
         </h5>
     </div>
     <table style="width:100%" class="tableTop">
 
         <tr>
-            <td colspan="2">
-                <small>DATE:</small>
-                <div class="border-b linw-margin"></div>
+            <td colspan="2" style="">
+
+                <small>DATE: </small>
+
+                <span class="border-b">
+                    {{ $now }}
+                </span>
+                {{-- <div class="border-b linw-margin"> </div> --}}
+
+
             </td>
             <td>
                 <small>PLATE NO.</small>
-                <div class="border-b " style="margin-left:4.5rem"></div>
+                <span class="border-b">
+                    {{ $data['trip']['driver']['vehicle']['plate'] }}
+                </span>
+                {{-- <div class="border-b " style="margin-left:4.5rem"></div> --}}
             </td>
 
         </tr>
@@ -110,7 +123,10 @@
                 <small>
                     NAME OF DRIVER:
                 </small>
-                <div class="border-b" style="margin-left:8rem"></div>
+                <span class="border-b">
+                    {{ $data['trip']['driver']['user']['username'] }}
+                </span>
+                {{-- <div class="border-b" style="margin-left:8rem"></div> --}}
             </td>
             <td>
                 <small>
@@ -121,18 +137,24 @@
 
         </tr>
         <tr>
-            <td colspan="2">
+            <td colspan="2" rowspan="" style="width:1em">
                 <small>AUTHORIZED PASSENGER(S):</small>
-                <div class="border-b" style="margin-left:12.5rem"></div>
+                <span class="border-b">
+                    {{ $data['name'] }}
+                </span>
+                {{-- <div class="border-b" style="margin-left:12.5rem"></div> --}}
             </td>
             <td>
                 <small>
                     DESTINATION:
                 </small>
-                <div class="border-b" style="margin-left:6rem"></div>
+                <span class="border-b">
+                    {{ $data['destination'] }}
+                </span>
+                {{-- <div class="border-b" style="margin-left:6rem"></div> --}}
             </td>
         </tr>
-        <tr>
+        {{-- <tr>
             <td colspan="2" class="border-b" style="padding:.7rem">
 
             </td>
@@ -147,46 +169,44 @@
             <td class="border-b">
 
             </td>
-        </tr>
+        </tr> --}}
         <tr>
-            <td colspan="2">
+            <td colspan="2" style="width:1em">
                 <small>PURPOSE OF TRIP:</small>
-                <div class="border-b" style="margin-left:7.5rem"></div>
+                <span class="border-b">
+                    {{ $data['purpose'] }}
+                </span>
+                {{-- <div class="border-b" style="margin-left:7.5rem"></div> --}}
             </td>
             <td>
-
+                <small>
+                    DEPARTURE:
+                </small>
+                <span class="border-b"> {{ \Carbon\Carbon::parse($data['departure'])->format('M d, Y')}} </span>
+                {{-- <div class="border-b" style="margin-left:5.5rem"></div> --}}
             </td>
         </tr>
-        <tr>
+        {{-- <tr>
             <td colspan="2" class="border-b" style="padding:.7rem">
 
             </td>
             <td class="">
 
             </td>
-        </tr>
+        </tr> --}}
         <tr>
-            <td colspan="2" class="border-b" style="padding:.7rem">
-
-            </td>
-            <td>
-                <small>
-                    DEPARTURE:
-                </small>
-                <div class="border-b" style="margin-left:5.5rem"></div>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2" class="border-b" style="padding:.7rem">
+            <td colspan="2" style="padding:.7rem">
 
             </td>
             <td>
                 <small>
                     ARRIVAL:
                 </small>
-                <div class="border-b" style="margin-left:4.5rem"></div>
+                <span class="border-b"> {{ \Carbon\Carbon::parse($data['arrival'])->format('M d, Y')  }} </span>
+                {{-- <div class="border-b" style="margin-left:5.5rem"></div> --}}
             </td>
         </tr>
+
         <tr>
             <td colspan="2">
                 <small>
@@ -374,7 +394,8 @@
                 <div class="border-b"></div>
             </td>
             <td class="text-center">
-                <div class="border-b"></div>
+
+                <div class="border-b">{{ $data['trip']['driver']['user']['username'] }}</div>
                 <small><i>Driver</i></small>
             </td>
         </tr>

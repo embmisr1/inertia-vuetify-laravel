@@ -102,7 +102,7 @@ Route::group([
 
     });
     Route::get("/chauffeur-pdf/{requestId}",[ChaufferPDFController::class, 'generateRequestVehicleForm'])->name('generateRequestVehicleForm');
-    Route::get("/chauffeur-generate-trip-ticket",TripTicketGenerator::class)->name('generateTripTicketForm')->withoutMiddleware(['auth','handle_user_role']);
+    // Route::get("/chauffeur-generate-trip-ticket",TripTicketGenerator::class)->name('generateTripTicketForm')->withoutMiddleware(['auth','handle_user_role']);
 
 
     Route::delete('/', [AuthController::class, 'destroy'])->name("authLogout");

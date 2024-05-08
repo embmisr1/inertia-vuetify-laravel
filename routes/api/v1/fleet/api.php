@@ -17,6 +17,7 @@ use App\Http\Controllers\Fleet\Client\RemarksController as ClientRemarkControlle
 
 
 use App\Http\Controllers\Fleet\Admin\DashboardController;
+use App\Http\Controllers\Fleet\Admin\TripTicketGenerator;
 
 Route::group([
     "prefix" => "fleet",
@@ -57,6 +58,8 @@ Route::group([
         Route::get("trips", [TripController::class, 'getTripTicket'])->name('getTrip');
 
         Route::get('trip-ticket-checker', TripTicketChecker::class)->withoutMiddleware(['auth:sanctum']);
+
+        Route::get("/chauffeur-generate-trip-ticket",TripTicketGenerator::class)->name('generateTripTicketForm')->withoutMiddleware(['auth:sanctum']);
     });
 
     Route::group([
