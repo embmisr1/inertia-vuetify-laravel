@@ -20,6 +20,7 @@ class TripController extends Controller
             throw $th;
         }
     }
+
     public function show(Trip $trip){
         return $trip;
     }

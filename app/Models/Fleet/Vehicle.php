@@ -15,5 +15,6 @@ class Vehicle extends Model
         "brand",
         "plate",
         "description",
+        "status"
     ];
 }
