@@ -29,7 +29,7 @@
                         :error-messages="errors[0] ? errors[0] : form.errors.username"
                       ></v-text-field>
                     </ValidationProvider>
-                    <ValidationProvider
+                    <!-- <ValidationProvider
                       vid="position"
                       name="Position"
                       rules=""
@@ -47,6 +47,22 @@
                         :error-messages="errors[0] ? errors[0] : form.errors.position_id"
                         clearable
                       ></v-select>
+                    </ValidationProvider> -->
+                    <ValidationProvider
+                      vid="fullname"
+                      name="fullname"
+                      rules=""
+                      v-slot="{ errors }"
+                    >
+                      <v-text-field
+                        v-model="form.fullname"
+                        label="Full Name"
+                        filled
+                        outlined
+                        clearable
+                        prepend-icon="mdi-account-box"
+                        :error-messages="errors[0] ? errors[0] : form.errors.fullname"
+                      ></v-text-field>
                     </ValidationProvider>
                   </div>
                   <div>
@@ -173,6 +189,7 @@ export default {
         position_id: "",
         unit_section_id: "",
         section_id: "",
+        fullname: "",
         // password: "",
         // conf_password: "",
         avatar: null,

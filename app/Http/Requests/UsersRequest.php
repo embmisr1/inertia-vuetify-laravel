@@ -26,6 +26,7 @@ class UsersRequest extends FormRequest
         return [
             "username"=>"required|string|unique:users,username,' . request('id')",
             "email"=>"sometimes|nullable|string|unique:users,email,' . request('id')",
+            "fullname"=>"nullable|string",
             // "password"=>"required|string|min:8",
             // "position_id"=>"required|numeric|exists:App\Models\Position,id",
             // "unit_section_id"=>"sometimes|nullable|required|numeric|exists:App\Models\UnitSection,id",
