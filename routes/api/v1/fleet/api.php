@@ -11,6 +11,7 @@ use App\Http\Controllers\Fleet\Admin\RequestController as FACRequestController;
 use App\Http\Controllers\Fleet\Admin\ProcessVehicleRequest as FACProcessVehicleRequest;
 use App\Http\Controllers\Fleet\Admin\Remarks as FACRemarks;
 use App\Http\Controllers\Fleet\Admin\TripController;
+use App\Http\Controllers\Fleet\Admin\TripTicketChecker;
 use App\Http\Controllers\Fleet\Admin\VehicleController as FACVehicleController;
 use App\Http\Controllers\Fleet\Client\RemarksController as ClientRemarkController;
 
@@ -50,6 +51,8 @@ Route::group([
         Route::put("trips/{trip}", [TripController::class, 'update'])->name('updateTrip');
         Route::get("trips/{trip}", [TripController::class, 'show'])->name('showTrip');
         Route::get("trips", [TripController::class, 'getTripTicket'])->name('getTrip');
+
+        Route::get('trip-ticket-checker', TripTicketChecker::class)->withoutMiddleware(['auth:sanctum']);
     });
 
     Route::group([
