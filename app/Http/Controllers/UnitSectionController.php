@@ -7,6 +7,7 @@ use App\Filters\UnitSectionFilter;
 use App\Http\Requests\UnitSectionRequest;
 use App\Http\Resources\DivisionResource;
 use App\Http\Resources\UnitSectionResource;
+use App\Models\Section;
 use Inertia\Inertia;
 // use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Request;
@@ -23,12 +24,12 @@ class UnitSectionController extends Controller
      */
     public function index()
     {
-        return  Inertia::render("pages/unit_section/",[
-            'filters' => Request::all('name','division'),
-            "unit_section_data"=> UnitSectionResource::collection((new UnitSectionFilter)->get()),
-            "division_data"=>  Cache::remember('division_all', 60, function () {
-                return DivisionResource::collection((new  DivisionFilter )->get());
-            }),
+        return  Inertia::render("pages/unit_section/", [
+            'filters' => Request::all('description'),
+            "unit_section_data" => UnitSectionResource::collection((new UnitSectionFilter)->get()),
+            // "division_data"=>  Cache::remember('division_all', 60, function () {
+            //     return DivisionResource::collection((new  DivisionFilter )->get());
+            // }),
 
         ]);
     }
@@ -87,13 +88,15 @@ class UnitSectionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UnitSectionRequest $request, UnitSection $unit_section)
+    public function update(UnitSectionRequest $request, $section_id)
     {
         $input = $request->validated();
+        $section = Section::where('PK_section_ID', $section_id)->update([
+            "PK_section_ID" => $section_id,
+            "description" => $input['description']
+        ]);;
 
-        $unit_section->update($input);
         return Redirect::back()->with('success', 'Unit Section Updated Successfully.');
-
     }
 
     /**

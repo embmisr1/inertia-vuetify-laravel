@@ -11,9 +11,13 @@ class Section extends Model
 
     protected $table = 'tbl_section';
 
+    protected $fillable = [
+        "description",
+    ];
+
 
     public function division()
     {
-        return $this->belongsTo(Section::class,'FK_division_ID','id');
+        return $this->belongsTo(Section::class,'id','FK_division_ID');
     }
 }

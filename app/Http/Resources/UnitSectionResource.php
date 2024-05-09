@@ -15,10 +15,10 @@ class UnitSectionResource extends JsonResource
     public function toArray($request)
     {
         return [
-            "id"=>$this->id,
-            "name"=>$this->name,
-            "division"=>$this->division ? $this->division->name :NULL,
-            "division_id"=>$this->division_id ?? null,
+            "PK_section_ID"=>$this->PK_section_ID,
+            "description"=>$this->description,
+            // "division"=>$this->division ? $this->division->name :NULL,
+            // "division_id"=>$this->FK_division_ID ?? null,
         ];
     }
 }

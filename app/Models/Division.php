@@ -12,6 +12,10 @@ class Division extends Model
         'name',
     ];
 
+    // public function unit_section (){
+    //     return $this->hasMany(Section::class);
+    // }
+
     public function scopeFilter($query, array $filters)
     {
         $query->when($filters['name'] ?? null, function ($query, $name) {

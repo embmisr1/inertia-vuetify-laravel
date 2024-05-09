@@ -24,8 +24,8 @@ class UnitSectionRequest extends FormRequest
     public function rules()
     {
         return [
-            "name"=>"required|string|min:3",
-            "division_id"=>"required|numeric|exists:App\Models\Division,id",
+            "description"=>"required|string|min:3",
+            // "division_id"=>"required|numeric|exists:App\Models\Division,id",
         ];
     }
 }

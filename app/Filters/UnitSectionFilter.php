@@ -4,6 +4,7 @@ namespace App\Filters;
 
 use App\Models\UnitSection;
 use App\Filters\Interfaces\Filterable;
+use App\Models\Section;
 use Carbon\Carbon;
 
 class UnitSectionFilter implements Filterable
@@ -13,9 +14,9 @@ class UnitSectionFilter implements Filterable
   {
     $mutable = Carbon::now();
 
-    return UnitSection::query()
+    return Section::query()
 
-    ->select('id','name','division_id')
+    ->select('PK_section_ID','description','FK_division_ID')
     ->with(['division'])
       // ->when(request('address'), function ($query) {
       //   $query->where('delivery_address', 'LIKE', '%' . request('address') . '%');
@@ -24,7 +25,7 @@ class UnitSectionFilter implements Filterable
       //   $query->where('delivery_period', 'LIKE', '%' . request('date') . '%');
       // })
       ->when(request('id'), function ($query) {
-        $query->where('id', request('id'));
+        $query->where('PK_section_ID', request('id'));
       })
       // ->when(request('reason_id'), function ($query) {
       //   $query->where('reason_id', request('reason_id'));
@@ -39,11 +40,11 @@ class UnitSectionFilter implements Filterable
       //   $query->where('abc', 'LIKE', "%" . request('abc') . "%");
       // })
       ->when(request('division'), function ($query) {
-        $query->whereHas('division', function ($query) {
-          $query->where('name', 'LIKE', "%" . request('division') . "%" );
+        $query->whereHas('FK_division_ID', function ($query) {
+          $query->where('name', 'LIKE', "%" . request('FK_division_ID') . "%" );
         });
       })
-      
+
       // ->when(request('brand_id'), function ($query) {
       //   $query->whereHas('items', function ($query) {
       //     $query->whereHas('brand', function ($query) {
@@ -58,8 +59,8 @@ class UnitSectionFilter implements Filterable
       //     });
       //   });
       // })
-      ->when(request('name'), function ($query) {
-          $query->where('name', 'LIKE', "%" . request('name') . "%");
+      ->when(request('description'), function ($query) {
+          $query->where('description', 'LIKE', "%" . request('description') . "%");
       })
       // ->when(request('client'), function ($query) {
       //   $query->whereHas('client', function ($query) {
@@ -77,7 +78,7 @@ class UnitSectionFilter implements Filterable
       //   }
       // })
       ->orderBy(
-        request('order_by', 'id'), // column
+        request('order_by', 'PK_section_ID'), // column
         request('direction', 'desc') // direction
       )
       ->paginate(request('size', 0));
