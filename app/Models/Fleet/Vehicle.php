@@ -17,4 +17,9 @@ class Vehicle extends Model
         "description",
         "status"
     ];
+
+    public function maintenance_history()
+    {
+        return $this->hasMany(VehicleMaintenance::class);
+    }
 }
