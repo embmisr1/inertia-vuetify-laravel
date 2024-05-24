@@ -64,6 +64,9 @@ Route::group([
         Route::get("/chauffeur-generate-trip-ticket", TripTicketGenerator::class)->name('generateTripTicketForm')->withoutMiddleware(['auth:sanctum']);
 
         Route::get('/vehicle-maintenance/{service_vehicle}', [SVMaintenance::class, 'index'])->name('svm-index')->withoutMiddleware(['auth:sanctum', 'api']);
+        Route::post('/vehicle-maintenance', [SVMaintenance::class, 'store'])->name('svm-store');
+        Route::put('/vehicle-maintenance/{vehicleMaintenance}', [SVMaintenance::class, 'update'])->name('svm-update');
+        Route::delete('/vehicle-maintenance/{vehicleMaintenance}', [SVMaintenance::class, 'delete'])->name('svm-delete');
     });
 
     Route::group([

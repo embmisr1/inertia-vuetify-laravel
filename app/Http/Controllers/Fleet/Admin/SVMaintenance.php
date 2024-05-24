@@ -23,7 +23,7 @@ class SVMaintenance extends Controller
         }
     }
 
-    public function create(SVMaintenanceRequests $request)
+    public function store(SVMaintenanceRequests $request)
     {
         try {
 
