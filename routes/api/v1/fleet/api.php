@@ -4,6 +4,7 @@ use App\Http\Controllers\API\Query\QueryController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Fleet\Admin\CalendarController;
 use App\Http\Controllers\Fleet\Admin\DriverController;
+use App\Http\Controllers\Fleet\Admin\TripTicketChecker;
 use GuzzleHttp\Psr7\Request;
 use Illuminate\Http\Request as IlluminateRequest;
 use Illuminate\Support\Facades\Route;
@@ -14,6 +15,10 @@ use App\Http\Controllers\Fleet\Admin\TripController;
 use App\Http\Controllers\Fleet\Admin\TripTicketChecker;
 use App\Http\Controllers\Fleet\Admin\VehicleController as FACVehicleController;
 use App\Http\Controllers\Fleet\Client\RemarksController as ClientRemarkController;
+
+
+use App\Http\Controllers\Fleet\Admin\DashboardController;
+use App\Http\Controllers\Fleet\Admin\TripTicketGenerator;
 
 Route::group([
     "prefix" => "fleet",
@@ -27,6 +32,7 @@ Route::group([
     Route::group([
         "prefix" => "admin",
     ], function () {
+        Route::get('home', DashboardController::class);
 
         Route::get('/calendar', CalendarController::class);
         // vehicle Requests
@@ -53,11 +59,13 @@ Route::group([
         Route::get("trips", [TripController::class, 'getTripTicket'])->name('getTrip');
 
         Route::get('trip-ticket-checker', TripTicketChecker::class)->withoutMiddleware(['auth:sanctum']);
+
+        Route::get("/chauffeur-generate-trip-ticket",TripTicketGenerator::class)->name('generateTripTicketForm')->withoutMiddleware(['auth:sanctum']);
     });
 
     Route::group([
-        "prefix"=>"client"
-    ], function(){
+        "prefix" => "client"
+    ], function () {
         Route::apiResource('remarks', ClientRemarkController::class);
     });
 });

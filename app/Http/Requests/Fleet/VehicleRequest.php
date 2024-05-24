@@ -27,7 +27,8 @@ class VehicleRequest extends FormRequest
             "id"=>"nullable",
             "brand"=>"required|string|min:3",
             "plate"=>"required|string|min:3",
-            "description"=>"nullable"
+            "description"=>"nullable",
+            "status"=>"nullable",
         ];
     }
 }
