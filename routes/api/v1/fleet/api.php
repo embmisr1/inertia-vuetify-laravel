@@ -12,7 +12,6 @@ use App\Http\Controllers\Fleet\Admin\RequestController as FACRequestController;
 use App\Http\Controllers\Fleet\Admin\ProcessVehicleRequest as FACProcessVehicleRequest;
 use App\Http\Controllers\Fleet\Admin\Remarks as FACRemarks;
 use App\Http\Controllers\Fleet\Admin\TripController;
-use App\Http\Controllers\Fleet\Admin\TripTicketChecker;
 use App\Http\Controllers\Fleet\Admin\VehicleController as FACVehicleController;
 use App\Http\Controllers\Fleet\Client\RemarksController as ClientRemarkController;
 
