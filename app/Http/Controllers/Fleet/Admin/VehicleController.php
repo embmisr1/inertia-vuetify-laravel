@@ -48,7 +48,9 @@ class VehicleController extends Controller
      */
     public function show(Vehicle $vehicle)
     {
-        //
+        return response()->json([
+            "data" => $vehicle
+        ]);
     }
 
     /**
@@ -77,8 +79,8 @@ class VehicleController extends Controller
             $vehicle->update($input);
 
             return response()->json([
-                "message"=> "Vehicle Updated",
-                "data"=>$vehicle
+                "message" => "Vehicle Updated",
+                "data" => $vehicle
             ]);
         } catch (\Throwable $th) {
             throw $th;
@@ -96,7 +98,7 @@ class VehicleController extends Controller
         try {
             $vehicle->delete();
             return response()->json([
-                "message"=>"Vehicle Delete SuccessFully"
+                "message" => "Vehicle Delete SuccessFully"
             ]);
         } catch (\Throwable $th) {
             throw $th;
