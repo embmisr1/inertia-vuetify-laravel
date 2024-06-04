@@ -20,7 +20,7 @@ use \Maatwebsite\Excel\Sheet;
 use Maatwebsite\Excel\Concerns\WithColumnWidths;
 
 
-class SVRMaintenance implements FromQuery
+class SVRMaintenance implements FromQuery, WithHeadings, WithMapping, WithEvents, WithColumnWidths
 {
     use Exportable;
 
@@ -54,7 +54,7 @@ class SVRMaintenance implements FromQuery
                         // ],
                         'fill' => [
                             'fillType' => \PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID,
-                            'color' => ['argb' => "ff2b81d6"]
+                            'color' => ['argb' => "ff00e676"]
                         ]
                     ]
                 );
@@ -68,29 +68,50 @@ class SVRMaintenance implements FromQuery
                 "A" => 20,
                 "B" => 20,
                 "C" => 20,
-                "D" => 20,
-                "E" => 20,
+                "D" => 40,
+                "E" => 40,
                 "F" => 20,
                 "G" => 20,
                 "H" => 20,
-                "I" => 20,
+                "I" => 40,
             ];
         }
     }
     public function headings(): array
     {
         return [
-
             "ODO Meter",
             "Date of PR",
             "Gross Amount",
-            "dDescription",
+            "Description",
             "Supplier",
             "Date of P.O",
             "Net Amount ",
             "Date Repaired",
             "Remarks",
         ];
+    }
+
+    public function query()
+    {
+        // $query = VehicleMaintenance::whereVehicleId($this->vehicle)->get();
+        $query = DB::connection('mysql_chauffeur')
+            ->table('vehicle_maintenances')
+            ->select([
+                "odo_meter",
+                "date_of_pr",
+                "gross_amount",
+                "description",
+                "supplier",
+                "date_of_p_o",
+                "net_amount",
+                "date_repaired",
+                "remarks",
+            ])
+            ->orderBy('id', 'desc');
+
+
+        return $query;
     }
 
     public function map($data): array
@@ -107,11 +128,5 @@ class SVRMaintenance implements FromQuery
             Carbon::parse($data->date_repaired)->format('M d, Y'),
             $data->remarks,
         ];
-    }
-    public function query()
-    {
-        $query = VehicleMaintenance::whereVehicleId($this->vehicle)->get();
-
-        return $query;
     }
 }
