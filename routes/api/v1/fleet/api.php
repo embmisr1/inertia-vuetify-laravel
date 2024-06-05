@@ -4,7 +4,7 @@ use App\Http\Controllers\API\Query\QueryController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Fleet\Admin\CalendarController;
 use App\Http\Controllers\Fleet\Admin\DriverController;
-use App\Http\Controllers\Fleet\Admin\TripTicketChecker;
+
 use GuzzleHttp\Psr7\Request;
 use Illuminate\Http\Request as IlluminateRequest;
 use Illuminate\Support\Facades\Route;
@@ -17,6 +17,8 @@ use App\Http\Controllers\Fleet\Client\RemarksController as ClientRemarkControlle
 
 
 use App\Http\Controllers\Fleet\Admin\DashboardController;
+use App\Http\Controllers\Fleet\Admin\ExportSVRecord;
+use App\Http\Controllers\Fleet\Admin\SVMaintenance;
 use App\Http\Controllers\Fleet\Admin\TripTicketGenerator;
 
 Route::group([
@@ -59,7 +61,14 @@ Route::group([
 
         Route::get('trip-ticket-checker', TripTicketChecker::class)->withoutMiddleware(['auth:sanctum']);
 
-        Route::get("/chauffeur-generate-trip-ticket",TripTicketGenerator::class)->name('generateTripTicketForm')->withoutMiddleware(['auth:sanctum']);
+        Route::get("/chauffeur-generate-trip-ticket", TripTicketGenerator::class)->name('generateTripTicketForm')->withoutMiddleware(['auth:sanctum']);
+
+        Route::get('/vehicle-maintenance/{service_vehicle}', [SVMaintenance::class, 'index'])->name('svm-index')->withoutMiddleware(['auth:sanctum', 'api']);
+        Route::post('/vehicle-maintenance', [SVMaintenance::class, 'store'])->name('svm-store');
+        Route::put('/vehicle-maintenance/{vehicleMaintenance}', [SVMaintenance::class, 'update'])->name('svm-update');
+        Route::delete('/vehicle-maintenance/{vehicleMaintenance}', [SVMaintenance::class, 'delete'])->name('svm-delete');
+
+        Route::get('/export-sv-record', ExportSVRecord::class)->name("export-sv-record")->withoutMiddleware(['auth:sanctum', 'api']);
     });
 
     Route::group([

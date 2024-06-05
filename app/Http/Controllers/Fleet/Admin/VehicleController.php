@@ -61,7 +61,9 @@ class VehicleController extends Controller
      */
     public function edit(Vehicle $vehicle)
     {
-        //
+        return response()->json([
+            "data" => $vehicle
+        ]);
     }
 
     /**
