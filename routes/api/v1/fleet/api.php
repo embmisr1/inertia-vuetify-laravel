@@ -19,6 +19,7 @@ use App\Http\Controllers\Fleet\Client\RemarksController as ClientRemarkControlle
 use App\Http\Controllers\Fleet\Admin\DashboardController;
 use App\Http\Controllers\Fleet\Admin\ExportSVRecord;
 use App\Http\Controllers\Fleet\Admin\SVMaintenance;
+use App\Http\Controllers\Fleet\Admin\TripTicketChecker;
 use App\Http\Controllers\Fleet\Admin\TripTicketGenerator;
 
 Route::group([
@@ -61,7 +62,7 @@ Route::group([
 
         Route::get('trip-ticket-checker', TripTicketChecker::class)->withoutMiddleware(['auth:sanctum']);
 
-        Route::get("/chauffeur-generate-trip-ticket", TripTicketGenerator::class)->name('generateTripTicketForm')->withoutMiddleware(['auth:sanctum']);
+        Route::get("/chauffeur-generate-trip-ticket", TripTicketGenerator::class)->name('generateTripTicketForm')->withoutMiddleware(['auth:sanctum','api']);
 
         Route::get('/vehicle-maintenance/{service_vehicle}', [SVMaintenance::class, 'index'])->name('svm-index')->withoutMiddleware(['auth:sanctum', 'api']);
         Route::post('/vehicle-maintenance', [SVMaintenance::class, 'store'])->name('svm-store');
