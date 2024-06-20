@@ -56,6 +56,15 @@ class RouteServiceProvider extends ServiceProvider
             // ->namespace($this->namespace)
             // ->group(base_path('routes/api/v1/fleet/api.php'));
 
+
+            /**
+             * server side versioning app
+             */
+            Route::prefix("app/v1")
+            ->middleware('web')
+                ->namespace($this->namespace)
+                ->group(base_path('routes/app/v1/index.php'));
+
             Route::middleware('web')
                 ->namespace($this->namespace)
                 ->group(base_path('routes/web.php'));
